@@ -9,11 +9,18 @@ from app.main import app
 from app.models import FlowerState, MoodType
 from app.services.garden_service import calculate_flower_state, evaluate_inactive_state
 
-# Setup in-memory SQLite for testing
+import os
+if os.path.exists("./test_garden.db"):
+    try:
+        os.remove("./test_garden.db")
+    except Exception:
+        pass
+
 SQLALCHEMY_DATABASE_URL = "sqlite:///./test_garden.db"
 test_engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=test_engine)
 
+Base.metadata.drop_all(bind=test_engine)
 Base.metadata.create_all(bind=test_engine)
 
 def override_get_db():

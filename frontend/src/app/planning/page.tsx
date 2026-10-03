@@ -21,7 +21,7 @@ export default function PlanningPage() {
   const [secondsLeft, setSecondsLeft] = useState<number>(0);
   const [isTimerRunning, setIsTimerRunning] = useState<boolean>(false);
 
-  const fetchPlanning = async () => {
+  const fetchPlanning = React.useCallback(async () => {
     try {
       let sid = localStorage.getItem("sunflower_student_id");
       if (!sid) {
@@ -55,32 +55,14 @@ export default function PlanningPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchPlanning();
-  }, []);
+  }, [fetchPlanning]);
 
   // Timer interval
-  useEffect(() => {
-    let interval: NodeJS.Timeout | null = null;
-    if (isTimerRunning && secondsLeft > 0) {
-      interval = setInterval(() => {
-        setSecondsLeft((prev) => prev - 1);
-      }, 1000);
-    } else if (secondsLeft === 0 && isTimerRunning && activeTimerTask) {
-      setIsTimerRunning(false);
-      // Auto complete task
-      toggleTaskCompletion(activeTimerTask.id, true);
-      alert(`Tuyệt vời! Bạn đã hoàn thành nhiệm vụ: "${activeTimerTask.title}"!`);
-      setActiveTimerTask(null);
-    }
-    return () => {
-      if (interval) clearInterval(interval);
-    };
-  }, [isTimerRunning, secondsLeft, activeTimerTask]);
-
-  const toggleTaskCompletion = async (taskId: number, currentStatus: boolean) => {
+  const toggleTaskCompletion = React.useCallback(async (taskId: number, currentStatus: boolean) => {
     try {
       const res = await fetch(`${API_BASE}/api/planning/task/${taskId}`, {
         method: "PATCH",
@@ -93,7 +75,24 @@ export default function PlanningPage() {
     } catch (e) {
       console.error(e);
     }
-  };
+  }, [fetchPlanning]);
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout | undefined;
+    if (isTimerRunning && secondsLeft > 0) {
+      interval = setInterval(() => {
+        setSecondsLeft((prev) => prev - 1);
+      }, 1000);
+    } else if (secondsLeft === 0 && isTimerRunning && activeTimerTask) {
+      setIsTimerRunning(false);
+      toggleTaskCompletion(activeTimerTask.id, true);
+      alert(`Tuyệt vời! Bạn đã hoàn thành nhiệm vụ: "${activeTimerTask.title}"!`);
+      setActiveTimerTask(null);
+    }
+    return () => {
+      clearInterval(interval);
+    };
+  }, [isTimerRunning, secondsLeft, activeTimerTask, toggleTaskCompletion]);
 
   const handleDeleteTask = async (taskId: number) => {
     if (!confirm("Bạn có chắc muốn xóa nhiệm vụ này?")) return;

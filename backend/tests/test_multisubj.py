@@ -7,10 +7,18 @@ from app.database import Base, get_db
 from app.main import app
 from app.models import FlowerState, MoodType
 
+import os
+if os.path.exists("./test_multisubj.db"):
+    try:
+        os.remove("./test_multisubj.db")
+    except Exception:
+        pass
+
 SQLALCHEMY_DATABASE_URL = "sqlite:///./test_multisubj.db"
 test_engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=test_engine)
 
+Base.metadata.drop_all(bind=test_engine)
 Base.metadata.create_all(bind=test_engine)
 
 def override_get_db():

@@ -29,7 +29,7 @@ export default function StudentGardenDashboard() {
   const [isWatering, setIsWatering] = useState<boolean>(false);
   const [waterToast, setWaterToast] = useState<string | null>(null);
 
-  const fetchStudentData = async () => {
+  const fetchStudentData = React.useCallback(async () => {
     try {
       let sid = localStorage.getItem("sunflower_student_id");
 
@@ -66,11 +66,11 @@ export default function StudentGardenDashboard() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [user?.name]);
 
   useEffect(() => {
     fetchStudentData();
-  }, [user]);
+  }, [fetchStudentData]);
 
   const handleWaterClick = async () => {
     if (!student || !garden || garden.water_drops <= 0 || isWatering) return;
