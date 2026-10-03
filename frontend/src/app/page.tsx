@@ -195,47 +195,19 @@ export default function LandingHomePage() {
                 </span>
               </div>
 
-              {/* Vector Sunflower Representation */}
-              <div className="py-6 flex flex-col items-center justify-center">
-                <div className="w-48 h-48 flex items-center justify-center relative">
-                  <div className="absolute inset-0 bg-amber-400/20 rounded-full blur-xl animate-pulse" />
-                  <svg
-                    width="140"
-                    height="170"
-                    viewBox="0 0 260 320"
-                    fill="none"
-                    className="drop-shadow-sm select-none"
-                  >
-                    <g id="pot">
-                      <rect x="80" y="240" width="100" height="16" rx="6" fill="#EA580C" opacity="0.9" />
-                      <path
-                        d="M90 256 L98 308 C99 313 103 316 108 316 L152 316 C157 316 161 313 162 308 L170 256 Z"
-                        fill="#C2410C"
-                      />
-                      <ellipse cx="130" cy="245" rx="42" ry="7" fill="#451A03" opacity="0.85" />
-                    </g>
-                    <path d="M130 245 C129 190 132 160 130 110" stroke="#528255" strokeWidth="10" strokeLinecap="round" />
-                    <path d="M130 180 C95 160 85 185 100 205 C120 205 128 185 130 180 Z" fill="#4A7C59" />
-                    <path d="M130 160 C165 140 175 165 160 185 C140 185 132 165 130 160 Z" fill="#528255" />
-                    <g transform="translate(130, 105)">
-                      {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg) => (
-                        <path
-                          key={deg}
-                          d="M0 -15 C-12 -38 -12 -58 0 -72 C12 -58 12 -38 0 -15 Z"
-                          fill="#FACC15"
-                          transform={`rotate(${deg})`}
-                        />
-                      ))}
-                      <circle cx="0" cy="0" r="30" fill="#78350F" />
-                      <circle cx="-8" cy="-5" r="2.5" fill="#FDE047" />
-                      <circle cx="8" cy="-5" r="2.5" fill="#FDE047" />
-                      <path d="M-10 2 Q0 14 10 2" stroke="#FDE047" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-                    </g>
-                  </svg>
+              {/* Chậu hoa hướng dương thật bên khung cửa sổ chữa lành */}
+              <div className="py-4 flex flex-col items-center justify-center">
+                <div className="relative w-full max-w-[260px] aspect-[4/5] rounded-2xl overflow-hidden shadow-md border border-stone-100 group-hover:scale-[1.02] transition-transform duration-500">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent z-10 pointer-events-none" />
+                  <img
+                    src="/assets/Hoa%20h%C6%B0%E1%BB%9Bng%20d%C6%B0%C6%A1ng.png"
+                    alt="Chậu hoa hướng dương bên cửa sổ"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
-                <div className="text-center mt-2 space-y-1">
-                  <p className="text-xs font-bold text-stone-800">Streak 7 ngày liên tục</p>
+                <div className="text-center mt-3.5 space-y-1">
+                  <p className="text-xs font-bold text-stone-800">Chăm sóc chậu hoa mỗi ngày</p>
                   <p className="text-[11px] text-stone-500 italic max-w-xs">
                     &ldquo;Khu vườn nở rộ mỗi khi bạn dành 5 phút chăm sóc tương lai.&rdquo;
                   </p>
