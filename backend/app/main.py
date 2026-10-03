@@ -1,11 +1,25 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy import text
 from app.config import settings
 from app.database import engine, Base
 from app.routers import api
 
 # Khởi tạo các bảng database SQLite
 Base.metadata.create_all(bind=engine)
+
+# Auto-migration an toàn cho SQLite khi thêm cột mới vào bảng đã tồn tại
+with engine.connect() as conn:
+    try:
+        conn.execute(text("ALTER TABLE students ADD COLUMN user_id VARCHAR"))
+        conn.commit()
+    except Exception:
+        pass
+    try:
+        conn.execute(text("ALTER TABLE students ADD COLUMN diagnostic_answers JSON"))
+        conn.commit()
+    except Exception:
+        pass
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
