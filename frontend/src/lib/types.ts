@@ -1,14 +1,34 @@
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-
 export const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 export type FlowerState = "cham_hoc" | "tich_cuc" | "thieu_nuoc" | "heo_kho";
 export type MoodType = "happy" | "neutral" | "stressed" | "tired";
+export type UserRole = "student" | "teacher";
+
+export interface User {
+  id: string;
+  email: string;
+  name: string;
+  role: UserRole;
+  created_at: string;
+  student_id?: string | null;
+}
+
+export interface AuthResponse {
+  token: string;
+  user: User;
+}
+
+export interface DiagnosticOption {
+  id: string;
+  label: string;
+  subtext?: string;
+}
+export interface DiagnosticQuestion {
+  id: string;
+  question: string;
+  category: string;
+  options: DiagnosticOption[];
+}
 
 export interface Milestone {
   stage: number;
@@ -22,6 +42,7 @@ export interface DailyTask {
   id: number;
   title: string;
   duration_minutes: number;
+  category?: string;
   tip?: string;
 }
 
@@ -31,8 +52,33 @@ export interface Roadmap {
   encouraging_message: string;
 }
 
+export interface PlannedTask {
+  id: number;
+  student_id: string;
+  title: string;
+  duration_minutes: number;
+  category: string;
+  tip?: string;
+  is_completed: boolean;
+  day_offset: number;
+  created_at: string;
+}
+
+export interface PlanningOverview {
+  student_id: string;
+  student_name: string;
+  target_subject: string;
+  long_term_goal: string;
+  total_tasks: number;
+  completed_tasks: number;
+  completion_percentage: number;
+  tasks_by_day: Record<number, PlannedTask[]>;
+  milestones: Milestone[];
+}
+
 export interface Student {
   id: string;
+  user_id?: string | null;
   name: string;
   grade: string;
   target_subject: string;
@@ -40,6 +86,7 @@ export interface Student {
   long_term_goal: string;
   timeframe: string;
   learning_style?: string;
+  diagnostic_answers?: Record<string, string>;
   created_at: string;
   roadmap?: Roadmap;
   flower_state?: FlowerState;
