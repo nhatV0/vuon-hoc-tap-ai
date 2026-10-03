@@ -1,0 +1,22 @@
+[
+  {
+    "subject": "Toán học",
+    "question": "Khi làm bài tập Hình học không gian, trở ngại lớn nhất của em thường là:",
+    "options": [
+      { "id": "A", "text": "Khó tưởng tượng hình vẽ trong không gian", "cognitive_barrier": "spatial_visualization" },
+      { "id": "B", "text": "Quên các định lý về đường thẳng vuông góc với mặt phẳng", "cognitive_barrier": "theorem_recall" },
+      { "id": "C", "text": "Tính toán tọa độ hoặc thể tích hay bị nhầm số", "cognitive_barrier": "calculation_slip" },
+      { "id": "D", "text": "Đọc đề dài thấy ngại, chưa biết vẽ hình phụ như thế nào", "cognitive_barrier": "problem_decomposition" }
+    ]
+  },
+  {
+    "subject": "Hóa học",
+    "question": "Phần kiến thức nào môn Hóa khiến em cảm thấy mất nhiều thời gian nhất?",
+    "options": [
+      { "id": "A", "text": "Cân bằng phương trình Oxi hóa - Khử phức tạp", "cognitive_barrier": "redox_balancing" },
+      { "id": "B", "text": "Chuỗi phản ứng este và hợp chất hữu cơ đa chức", "cognitive_barrier": "organic_synthesis" },
+      { "id": "C", "text": "Các bài toán đồ thị và bài toán kim loại tác dụng với axit", "cognitive_barrier": "graph_analysis" },
+      { "id": "D", "text": "Lý thuyết đếm số phát biểu đúng sai", "cognitive_barrier": "theory_verification" }
+    ]
+  }
+]
