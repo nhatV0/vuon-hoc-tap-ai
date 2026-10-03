@@ -313,5 +313,41 @@ Yêu cầu sư phạm:
     return generate_fallback_roadmap(data)
 
 async def call_ai_mentor(checkin: CheckinCreate, student: Student) -> str:
-    """Gọi LLM hoặc fallback cho lời nhắn nhủ thấu cảm"""
+    """Gọi LLM (Gemini) hoặc fallback cho lời nhắn nhủ thấu cảm"""
+    if settings.GEMINI_API_KEY:
+        try:
+            prompt = f"""
+Bạn là "Trợ lý Hoa Hướng Dương" – một người đồng hành tinh tế, ấm áp, thấu cảm và luôn tràn đầy năng lượng tích cực dành cho học sinh.
+
+Thông tin báo cáo hằng ngày của học sinh:
+- Tên học sinh: {student.name}
+- Môn học trọng tâm: {student.target_subject}
+- Tỷ lệ hoàn thành nhiệm vụ: {checkin.completion_rate}%
+- Cảm xúc hằng ngày: {checkin.mood.value} (thang điểm {checkin.emotion_scale or 4}/7)
+- Ghi chú/phản hồi của học sinh: "{checkin.reflection or 'Không có'}"
+
+Nhiệm vụ của bạn:
+1. Nếu học sinh hoàn thành tốt: Khen ngợi cụ thể, nhắc nhở các em tự thưởng cho bản thân.
+2. Nếu học sinh gặp khó khăn, bỏ bê hoặc năng lượng thấp: Tuyệt đối không phán xét hay khiển trách. Hãy dùng lời lẽ dịu dàng, thấu hiểu, gợi ý thu nhỏ mục tiêu lại cho vừa sức hơn ("Không sao cả, hôm nay chúng ta bắt đầu lại từ một việc nhỏ nhé!").
+3. Văn phong: Thân thiện, gần gũi như một người anh/chị hoặc giáo viên tâm lý học đường, xúc tích (khoảng 2-3 câu).
+Chỉ trả về trực tiếp đoạn văn bản nhắn nhủ bằng tiếng Việt, không kèm định dạng markdown hay tiêu đề thừa.
+"""
+            url = f"https://generativelanguage.googleapis.com/v1beta/models/{settings.AI_MODEL}:generateContent?key={settings.GEMINI_API_KEY}"
+            payload = {
+                "contents": [{"parts": [{"text": prompt}]}],
+                "generationConfig": {
+                    "temperature": 0.7,
+                    "maxOutputTokens": 300
+                }
+            }
+            async with httpx.AsyncClient(timeout=10.0) as client:
+                res = await client.post(url, json=payload)
+                if res.status_code == 200:
+                    res_json = res.json()
+                    text = res_json["candidates"][0]["content"]["parts"][0]["text"].strip()
+                    if text:
+                        return text
+        except Exception as e:
+            print(f"[AI Service] Gemini call_ai_mentor failed, falling back: {e}")
+
     return generate_fallback_feedback(checkin, student)
