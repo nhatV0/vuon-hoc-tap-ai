@@ -23,8 +23,10 @@ export interface DiagnosticOption {
   label: string;
   subtext?: string;
 }
+
 export interface DiagnosticQuestion {
   id: string;
+  subject?: string;
   question: string;
   category: string;
   options: DiagnosticOption[];
@@ -41,6 +43,7 @@ export interface Milestone {
 export interface DailyTask {
   id: number;
   title: string;
+  subject?: string;
   duration_minutes: number;
   category?: string;
   tip?: string;
@@ -57,6 +60,7 @@ export interface PlannedTask {
   student_id: string;
   title: string;
   duration_minutes: number;
+  subject?: string;
   category: string;
   tip?: string;
   is_completed: boolean;
@@ -68,6 +72,8 @@ export interface PlanningOverview {
   student_id: string;
   student_name: string;
   target_subject: string;
+  target_subjects?: string[];
+  emotion_scale?: number;
   long_term_goal: string;
   total_tasks: number;
   completed_tasks: number;
@@ -82,6 +88,8 @@ export interface Student {
   name: string;
   grade: string;
   target_subject: string;
+  target_subjects?: string[];
+  emotion_scale?: number;
   weakness: string;
   long_term_goal: string;
   timeframe: string;
@@ -109,6 +117,8 @@ export interface StudentAlertItem {
   student_name: string;
   grade: string;
   target_subject: string;
+  target_subjects?: string[];
+  emotion_scale?: number;
   current_state: FlowerState;
   consecutive_days: number;
   days_since_last_checkin: number;

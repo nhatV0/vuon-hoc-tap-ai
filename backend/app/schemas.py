@@ -1,6 +1,6 @@
 from datetime import datetime, date
 from typing import List, Optional, Dict, Any
-from pydantic import BaseModel, Field, ConfigDict, EmailStr
+from pydantic import BaseModel, Field, ConfigDict
 from app.models import FlowerState, MoodType, UserRole
 
 # --- Auth Schemas ---
@@ -36,6 +36,7 @@ class DiagnosticOption(BaseModel):
 
 class DiagnosticQuestion(BaseModel):
     id: str
+    subject: Optional[str] = None
     question: str
     category: str # "level", "blocker", "pace", "style"
     options: List[DiagnosticOption]
@@ -45,10 +46,12 @@ class StudentCreate(BaseModel):
     user_id: Optional[str] = None
     name: str = Field(..., description="Họ và tên học sinh")
     grade: str = Field(..., description="Khối lớp (10, 11, 12)")
-    target_subject: str = Field(..., description="Môn học muốn cải thiện")
-    weakness: str = Field(..., description="Điểm yếu hoặc phần kiến thức còn hổng")
-    long_term_goal: str = Field(..., description="Mục tiêu lớn")
-    timeframe: str = Field(..., description="Thời hạn")
+    target_subject: Optional[str] = Field("Toán học", description="Môn học chính")
+    target_subjects: List[str] = Field(default_factory=lambda: ["Toán học"], description="Danh sách các môn học được chọn (đa lựa chọn)")
+    emotion_scale: int = Field(default=4, ge=1, le=7, description="Thang đo cảm xúc 7 mức độ: 1 (Rất ghét/Rất tệ) -> 7 (Rất thích/Rất tốt)")
+    weakness: Optional[str] = Field(None, description="Điểm yếu hoặc phần kiến thức còn hổng")
+    long_term_goal: Optional[str] = Field(None, description="Mục tiêu lớn")
+    timeframe: str = Field(default="3 tháng", description="Thời hạn")
     learning_style: Optional[str] = Field("visual", description="visual, auditory, reading, kinesthetic")
     daily_available_minutes: Optional[int] = Field(30, description="Số phút có thể học mỗi ngày")
     diagnostic_answers: Optional[Dict[str, str]] = Field(default_factory=dict, description="Các câu trả lời chẩn đoán chuyên sâu")
@@ -63,6 +66,7 @@ class MilestoneItem(BaseModel):
 class DailyTaskItem(BaseModel):
     id: int
     title: str
+    subject: Optional[str] = "Toán học"
     duration_minutes: int = 10
     category: Optional[str] = "Lý thuyết"
     tip: Optional[str] = None
@@ -78,6 +82,8 @@ class StudentResponse(BaseModel):
     name: str
     grade: str
     target_subject: str
+    target_subjects: Optional[List[str]] = None
+    emotion_scale: Optional[int] = 4
     weakness: str
     long_term_goal: str
     timeframe: str
@@ -93,6 +99,7 @@ class StudentResponse(BaseModel):
 class PlannedTaskCreate(BaseModel):
     title: str = Field(..., min_length=2)
     duration_minutes: int = Field(default=10, ge=5, le=120)
+    subject: Optional[str] = "Toán học"
     category: str = Field(default="Bài tập") # "Lý thuyết", "Bài tập", "Ôn luyện", "Nghỉ ngơi"
     tip: Optional[str] = None
     day_offset: int = Field(default=1, ge=1, le=7)
@@ -100,6 +107,7 @@ class PlannedTaskCreate(BaseModel):
 class PlannedTaskUpdate(BaseModel):
     title: Optional[str] = None
     duration_minutes: Optional[int] = None
+    subject: Optional[str] = None
     category: Optional[str] = None
     tip: Optional[str] = None
     is_completed: Optional[bool] = None
@@ -109,6 +117,7 @@ class PlannedTaskResponse(BaseModel):
     student_id: str
     title: str
     duration_minutes: int
+    subject: Optional[str] = "Toán học"
     category: str
     tip: Optional[str]
     is_completed: bool
@@ -121,6 +130,8 @@ class PlanningOverviewResponse(BaseModel):
     student_id: str
     student_name: str
     target_subject: str
+    target_subjects: List[str] = Field(default_factory=list)
+    emotion_scale: int = 4
     long_term_goal: str
     total_tasks: int
     completed_tasks: int
@@ -135,6 +146,7 @@ class CheckinCreate(BaseModel):
     subject_difficulty: Optional[str] = None
     action_reflection: Optional[str] = None
     mood: MoodType
+    emotion_scale: Optional[int] = Field(4, ge=1, le=7, description="Thang đo cảm xúc 1-7 hôm nay")
 
 class CheckinResponse(BaseModel):
     id: int
@@ -143,6 +155,7 @@ class CheckinResponse(BaseModel):
     subject_difficulty: Optional[str]
     action_reflection: Optional[str]
     mood: MoodType
+    emotion_scale: int
     ai_feedback: str
     needs_attention: bool
     created_at: datetime
@@ -176,6 +189,8 @@ class StudentAlertItem(BaseModel):
     student_name: str
     grade: str
     target_subject: str
+    target_subjects: List[str] = Field(default_factory=list)
+    emotion_scale: int = 4
     current_state: FlowerState
     consecutive_days: int
     days_since_last_checkin: int

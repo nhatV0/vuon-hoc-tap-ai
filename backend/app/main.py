@@ -10,16 +10,19 @@ Base.metadata.create_all(bind=engine)
 
 # Auto-migration an toàn cho SQLite khi thêm cột mới vào bảng đã tồn tại
 with engine.connect() as conn:
-    try:
-        conn.execute(text("ALTER TABLE students ADD COLUMN user_id VARCHAR"))
-        conn.commit()
-    except Exception:
-        pass
-    try:
-        conn.execute(text("ALTER TABLE students ADD COLUMN diagnostic_answers JSON"))
-        conn.commit()
-    except Exception:
-        pass
+    for col_def in [
+        "ALTER TABLE students ADD COLUMN user_id VARCHAR",
+        "ALTER TABLE students ADD COLUMN diagnostic_answers JSON",
+        "ALTER TABLE students ADD COLUMN target_subjects JSON",
+        "ALTER TABLE students ADD COLUMN emotion_scale INTEGER DEFAULT 4",
+        "ALTER TABLE planned_tasks ADD COLUMN subject VARCHAR DEFAULT 'Toán học'",
+        "ALTER TABLE daily_checkins ADD COLUMN emotion_scale INTEGER DEFAULT 4"
+    ]:
+        try:
+            conn.execute(text(col_def))
+            conn.commit()
+        except Exception:
+            pass
 
 app = FastAPI(
     title=settings.PROJECT_NAME,

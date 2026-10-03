@@ -108,7 +108,6 @@ def get_current_user(authorization: Optional[str] = Header(None), db: Session = 
 def get_diagnostic_questions(subject: str, grade: str = "10"):
     """
     Trả về bộ câu hỏi chẩn đoán phân nhánh được cá nhân hóa cao theo từng môn học.
-    Thay vì bảng hỏi khô khan, câu hỏi đo lường chính xác rào cản nhận thức của học sinh.
     """
     subject_normalized = subject.strip().lower()
 
@@ -116,10 +115,11 @@ def get_diagnostic_questions(subject: str, grade: str = "10"):
         return [
             DiagnosticQuestion(
                 id="math_blocker",
-                question="Khi giải một bài toán mới, bạn thường dừng lại lâu nhất ở khâu nào?",
+                subject="Toán học",
+                question="Khi giải bài toán mới, bạn thường dừng lại lâu nhất ở khâu nào?",
                 category="blocker",
                 options=[
-                    DiagnosticOption(id="read_misunderstand", label="Đọc đề bài chưa hình dung được hướng làm", subtext="Khó chuyển từ ngôn ngữ đề bài sang biểu thức"),
+                    DiagnosticOption(id="read_misunderstand", label="Đọc đề bài chưa hình dung được hướng làm", subtext="Khó chuyển từ ngôn ngữ đề bài sang biểu thức toán"),
                     DiagnosticOption(id="formula_forget", label="Quên công thức hoặc nhầm lẫn dấu", subtext="Nhớ mang máng nhưng tính toán dễ sai số"),
                     DiagnosticOption(id="complex_transform", label="Kẹt ở bước biến đổi đại số/hình học phức tạp", subtext="Biết hướng đi nhưng thiếu kỹ thuật xử lý bước rút gọn"),
                     DiagnosticOption(id="time_limit", label="Hiểu cách làm nhưng làm quá chậm khi bấm giờ", subtext="Cần phản xạ nhanh hơn trong phòng thi")
@@ -127,21 +127,13 @@ def get_diagnostic_questions(subject: str, grade: str = "10"):
             ),
             DiagnosticQuestion(
                 id="math_focus_area",
-                question="Phần kiến thức nào khiến bạn cảm thấy cần một người bạn đồng hành nhất?",
+                subject="Toán học",
+                question="Phần kiến thức nào khiến bạn cảm thấy cần người đồng hành nhất?",
                 category="level",
                 options=[
                     DiagnosticOption(id="geometry", label="Hình học không gian / Tọa độ Oxyz", subtext="Khó tưởng tượng hình chiếu và góc không gian"),
                     DiagnosticOption(id="functions", label="Hàm số và đồ thị khảo sát", subtext="Cực trị, tính đơn điệu, bài toán chứa tham số"),
                     DiagnosticOption(id="trig_algebra", label="Lượng giác / Phương trình chứa căn thức", subtext="Nhiều công thức biến đổi dễ nhầm lẫn")
-                ]
-            ),
-            DiagnosticQuestion(
-                id="learning_cadence",
-                question="Nhịp điệu học tập bạn cảm thấy dễ chịu nhất mỗi tối là gì?",
-                category="pace",
-                options=[
-                    DiagnosticOption(id="micro_15", label="15-20 phút giải quyết trọn vẹn 1 dạng bài nhỏ", subtext="Không quá tải, học đều đặn mỗi ngày"),
-                    DiagnosticOption(id="deep_45", label="45 phút tập trung sâu theo từng chuyên đề", subtext="Làm sâu, ghi chép sơ đồ chi tiết")
                 ]
             )
         ]
@@ -149,6 +141,7 @@ def get_diagnostic_questions(subject: str, grade: str = "10"):
         return [
             DiagnosticQuestion(
                 id="chem_blocker",
+                subject="Hóa học",
                 question="Ở môn Hóa, trở ngại lớn nhất của bạn lúc này là gì?",
                 category="blocker",
                 options=[
@@ -158,9 +151,10 @@ def get_diagnostic_questions(subject: str, grade: str = "10"):
                 ]
             ),
             DiagnosticQuestion(
-                id="learning_cadence",
+                id="chem_method",
+                subject="Hóa học",
                 question="Cách bạn muốn bắt đầu mỗi buổi học Hóa:",
-                category="pace",
+                category="style",
                 options=[
                     DiagnosticOption(id="rule_map", label="Tóm tắt 1 trang công thức & quy tắc nhớ nhanh", subtext="Nắm chắc bản chất trước khi làm bài"),
                     DiagnosticOption(id="example_first", label="Xem 1 ví dụ giải mẫu rồi làm bài tương tự", subtext="Học qua thực hành bài tập cụ thể")
@@ -171,6 +165,7 @@ def get_diagnostic_questions(subject: str, grade: str = "10"):
         return [
             DiagnosticQuestion(
                 id="lit_blocker",
+                subject="Ngữ văn",
                 question="Khi viết bài văn nghị luận, bạn mong muốn cải thiện điểm nào nhất?",
                 category="blocker",
                 options=[
@@ -178,36 +173,47 @@ def get_diagnostic_questions(subject: str, grade: str = "10"):
                     DiagnosticOption(id="vocab_flow", label="Lời văn mượt mà, giàu cảm xúc và dẫn chứng đắt giá", subtext="Nâng cao chất lượng diễn đạt và chiều sâu"),
                     DiagnosticOption(id="time_pace", label="Kiểm soát thời gian để viết trọn vẹn kết bài", subtext="Viết kịp tiến độ không bị đuối đoạn cuối")
                 ]
-            ),
+            )
+        ]
+    elif "lý" in subject_normalized or "vật lý" in subject_normalized:
+        return [
             DiagnosticQuestion(
-                id="learning_cadence",
-                question="Thời lượng đọc và viết nhẹ nhàng bạn muốn duy trì:",
-                category="pace",
+                id="physics_blocker",
+                subject="Vật lý",
+                question="Khó khăn lớn nhất của bạn khi học Vật lý:",
+                category="blocker",
                 options=[
-                    DiagnosticOption(id="snippet_10", label="10 phút đọc đoạn văn mẫu hay và ghi lại 3 từ khóa", subtext="Mưa dầm thấm lâu, từ vựng phong phú"),
-                    DiagnosticOption(id="write_20", label="20 phút viết thử một đoạn mở bài hoặc thân bài ngắn", subtext="Rèn luyện bút lực trực tiếp")
+                    DiagnosticOption(id="phenomenon", label="Chưa hiểu rõ hiện tượng vật lý trong thực tế", subtext="Khó liên hệ giữa lý thuyết và bản chất tự nhiên"),
+                    DiagnosticOption(id="formula_apply", label="Thuộc công thức nhưng không biết áp dụng vào đề bài", subtext="Bối rối khi gặp các bài toán ghép nhiều hiện tượng"),
+                    DiagnosticOption(id="graph_math", label="Đọc đồ thị dao động/sóng cơ/dòng điện xoay chiều", subtext="Kỹ năng khai thác dữ kiện từ hình vẽ còn yếu")
                 ]
             )
         ]
-    else: # Mặc định các môn khác (Tiếng Anh, Vật Lý, Sinh, Sử, Địa)
+    elif "anh" in subject_normalized or "tiếng anh" in subject_normalized:
+        return [
+            DiagnosticQuestion(
+                id="eng_blocker",
+                subject="Tiếng Anh",
+                question="Kỹ năng nào bạn muốn cải thiện vượt trội nhất:",
+                category="blocker",
+                options=[
+                    DiagnosticOption(id="grammar", label="Ngữ pháp và cấu trúc câu phức", subtext="Mệnh đề quan hệ, câu điều kiện, đảo ngữ"),
+                    DiagnosticOption(id="vocab", label="Vốn từ vựng học thuật (Collocations & Idioms)", subtext="Dễ quên từ và dịch câu thô cứng"),
+                    DiagnosticOption(id="reading", label="Tốc độ đọc hiểu và bẫy câu hỏi suy luận", subtext="Mất nhiều thời gian đọc bài đọc dài")
+                ]
+            )
+        ]
+    else:
         return [
             DiagnosticQuestion(
                 id="general_blocker",
+                subject=subject,
                 question=f"Mục tiêu quan trọng nhất với môn {subject} trong 30 ngày tới:",
                 category="blocker",
                 options=[
                     DiagnosticOption(id="core_foundation", label="Lấp đầy các lỗ hổng kiến thức nền tảng", subtext="Hiểu rõ các khái niệm căn bản và định nghĩa"),
                     DiagnosticOption(id="practice_speed", label="Tăng tốc độ làm bài và độ chính xác", subtext="Rèn luyện phản xạ giải đề thi"),
                     DiagnosticOption(id="confidence", label="Xóa bỏ cảm giác sợ môn học, tạo thói quen học nhẹ nhàng", subtext="Tự tin mỗi khi mở sách vở ra học")
-                ]
-            ),
-            DiagnosticQuestion(
-                id="learning_cadence",
-                question="Số phút bạn muốn đầu tư mỗi ngày để cây hoa học tập luôn xanh tươi:",
-                category="pace",
-                options=[
-                    DiagnosticOption(id="min_10", label="10-15 phút nhẹ nhàng không áp lực", subtext="Duy trì nhịp độ vững bền"),
-                    DiagnosticOption(id="min_30", label="30 phút hoàn thành trọn vẹn 1 mục tiêu nhỏ", subtext="Tiến bộ rõ rệt từng tuần")
                 ]
             )
         ]
@@ -217,14 +223,24 @@ def get_diagnostic_questions(subject: str, grade: str = "10"):
 async def onboard_student(data: StudentCreate, db: Session = Depends(get_db)):
     student_id = f"hs_{uuid.uuid4().hex[:8]}"
 
+    # Xử lý danh sách môn học
+    subjects = data.target_subjects if (data.target_subjects and len(data.target_subjects) > 0) else [data.target_subject or "Toán học"]
+    primary_subject = subjects[0]
+
+    # Suy luận mặc định nếu người dùng để trống
+    weakness_val = data.weakness or f"Kiến thức cốt lõi môn {', '.join(subjects)}"
+    goal_val = data.long_term_goal or f"Đạt 8.5+ môn {', '.join(subjects)} và tự tin khi làm bài"
+
     student = Student(
         id=student_id,
         user_id=data.user_id,
-        name=data.name.strip(),
+        name=data.name.strip() if data.name else "Bạn học nhỏ",
         grade=data.grade,
-        target_subject=data.target_subject,
-        weakness=data.weakness,
-        long_term_goal=data.long_term_goal,
+        target_subject=primary_subject,
+        target_subjects=subjects,
+        emotion_scale=data.emotion_scale,
+        weakness=weakness_val,
+        long_term_goal=goal_val,
         timeframe=data.timeframe,
         learning_style=data.learning_style or "visual",
         diagnostic_answers=data.diagnostic_answers or {}
@@ -242,21 +258,23 @@ async def onboard_student(data: StudentCreate, db: Session = Depends(get_db)):
     )
     db.add(roadmap)
 
-    # Tự động gieo sẵn các nhiệm vụ vào Kế hoạch học tập (Planning Page)
-    categories = ["Lý thuyết", "Bài tập", "Ôn luyện", "Lý thuyết", "Ôn luyện"]
+    # Gieo sẵn nhiệm vụ vào Planning Page, có gắn môn học tương ứng
+    categories = ["Lý thuyết", "Bài tập", "Ôn luyện", "Lý thuyết", "Nghỉ ngơi"]
     for idx, task in enumerate(roadmap_data.initial_daily_tasks):
+        assigned_subject = task.subject if task.subject else subjects[idx % len(subjects)]
         planned = PlannedTask(
             student_id=student.id,
             title=task.title,
             duration_minutes=task.duration_minutes,
-            category=categories[idx % len(categories)],
+            subject=assigned_subject,
+            category=task.category or categories[idx % len(categories)],
             tip=task.tip,
             is_completed=False,
             day_offset=idx + 1
         )
         db.add(planned)
 
-    # Khởi tạo chậu hoa ban đầu
+    # Khởi tạo chậu hoa
     initial_flower = FlowerStatus(
         student_id=student.id,
         current_state=FlowerState.TICH_CUC,
@@ -275,6 +293,8 @@ async def onboard_student(data: StudentCreate, db: Session = Depends(get_db)):
         name=student.name,
         grade=student.grade,
         target_subject=student.target_subject,
+        target_subjects=student.target_subjects,
+        emotion_scale=student.emotion_scale,
         weakness=student.weakness,
         long_term_goal=student.long_term_goal,
         timeframe=student.timeframe,
@@ -308,6 +328,8 @@ def get_student(student_id: str, db: Session = Depends(get_db)):
         name=student.name,
         grade=student.grade,
         target_subject=student.target_subject,
+        target_subjects=student.target_subjects or [student.target_subject],
+        emotion_scale=student.emotion_scale or 4,
         weakness=student.weakness,
         long_term_goal=student.long_term_goal,
         timeframe=student.timeframe,
@@ -318,7 +340,7 @@ def get_student(student_id: str, db: Session = Depends(get_db)):
         flower_state=flower.current_state if flower else None
     )
 
-# --- 4. PLANNING PAGE API (KẾ HOẠCH HỌC TẬP & NHIỆM VỤ CỤ THỂ) ---
+# --- 4. PLANNING PAGE API (KẾ HOẠCH HỌC TẬP) ---
 @router.get("/planning/{student_id}", response_model=PlanningOverviewResponse)
 def get_planning_overview(student_id: str, db: Session = Depends(get_db)):
     student = db.query(Student).filter(Student.id == student_id).first()
@@ -347,6 +369,8 @@ def get_planning_overview(student_id: str, db: Session = Depends(get_db)):
         student_id=student.id,
         student_name=student.name,
         target_subject=student.target_subject,
+        target_subjects=student.target_subjects or [student.target_subject],
+        emotion_scale=student.emotion_scale or 4,
         long_term_goal=student.long_term_goal,
         total_tasks=total_tasks,
         completed_tasks=completed_count,
@@ -365,6 +389,7 @@ def add_planned_task(student_id: str, data: PlannedTaskCreate, db: Session = Dep
         student_id=student_id,
         title=data.title.strip(),
         duration_minutes=data.duration_minutes,
+        subject=data.subject or student.target_subject,
         category=data.category,
         tip=data.tip,
         day_offset=data.day_offset,
@@ -387,6 +412,8 @@ def update_task_status(task_id: int, data: PlannedTaskUpdate, db: Session = Depe
         task.title = data.title.strip()
     if data.duration_minutes is not None:
         task.duration_minutes = data.duration_minutes
+    if data.subject is not None:
+        task.subject = data.subject
     if data.category is not None:
         task.category = data.category
     if data.tip is not None:
@@ -421,7 +448,8 @@ async def submit_daily_checkin(data: CheckinCreate, db: Session = Depends(get_db
         .all()
 
     needs_attention = False
-    if data.mood in [MoodType.STRESSED, MoodType.TIRED] and data.completion_rate < 50:
+    scale = data.emotion_scale or 4
+    if (scale <= 2 or data.mood in [MoodType.STRESSED, MoodType.TIRED]) and data.completion_rate < 50:
         if any(c.mood in [MoodType.STRESSED, MoodType.TIRED] for c in recent_checkins):
             needs_attention = True
 
@@ -431,6 +459,7 @@ async def submit_daily_checkin(data: CheckinCreate, db: Session = Depends(get_db
         subject_difficulty=data.subject_difficulty,
         action_reflection=data.action_reflection,
         mood=data.mood,
+        emotion_scale=scale,
         ai_feedback=ai_feedback,
         needs_attention=needs_attention
     )
@@ -475,6 +504,7 @@ async def submit_daily_checkin(data: CheckinCreate, db: Session = Depends(get_db
         subject_difficulty=checkin_record.subject_difficulty,
         action_reflection=checkin_record.action_reflection,
         mood=checkin_record.mood,
+        emotion_scale=scale,
         ai_feedback=checkin_record.ai_feedback,
         needs_attention=checkin_record.needs_attention,
         created_at=checkin_record.created_at,
@@ -601,6 +631,10 @@ def get_teacher_dashboard(db: Session = Depends(get_db)):
             alert_reason = "Áp lực kéo dài (Mood căng thẳng & tiến độ thấp)"
             severity = "high"
             needs_attention = True
+        elif s.emotion_scale and s.emotion_scale <= 2:
+            alert_reason = f"Cảm xúc học tập rất tiêu cực (Mức {s.emotion_scale}/7)"
+            severity = "high"
+            needs_attention = True
         elif current_state == FlowerState.THIEU_NUOC:
             alert_reason = "Cây thiếu nước (nghỉ 3-7 ngày)"
             severity = "medium"
@@ -614,6 +648,8 @@ def get_teacher_dashboard(db: Session = Depends(get_db)):
             student_name=s.name,
             grade=s.grade,
             target_subject=s.target_subject,
+            target_subjects=s.target_subjects or [s.target_subject],
+            emotion_scale=s.emotion_scale or 4,
             current_state=current_state,
             consecutive_days=consecutive_days,
             days_since_last_checkin=days_inactive,

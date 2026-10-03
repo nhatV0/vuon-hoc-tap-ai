@@ -43,12 +43,13 @@ class Student(Base):
     user_id = Column(String, ForeignKey("users.id"), nullable=True, unique=True)
     name = Column(String, nullable=False)
     grade = Column(String, nullable=False) # e.g. "10", "11", "12"
-    target_subject = Column(String, nullable=False)
+    target_subject = Column(String, nullable=False) # Môn chính (giữ backward compatibility)
+    target_subjects = Column(JSON, nullable=True) # Danh sách nhiều môn học được chọn: ["Toán học", "Hóa học", ...]
+    emotion_scale = Column(Integer, default=4, nullable=True) # Thang điểm cảm xúc 7 mức: 1 (Rất ghét/Rất tệ) -> 7 (Rất thích/Rất tốt)
     weakness = Column(Text, nullable=False)
     long_term_goal = Column(Text, nullable=False)
     timeframe = Column(String, nullable=False)
     learning_style = Column(String, nullable=True, default="visual")
-    # Khảo sát cá nhân hóa chi tiết
     diagnostic_answers = Column(JSON, nullable=True) # Lưu trữ các câu trả lời chẩn đoán phân nhánh
     created_at = Column(DateTime, default=utcnow)
 
@@ -78,6 +79,7 @@ class PlannedTask(Base):
     student_id = Column(String, ForeignKey("students.id"), nullable=False, index=True)
     title = Column(String, nullable=False)
     duration_minutes = Column(Integer, default=10, nullable=False)
+    subject = Column(String, default="Toán học", nullable=True) # Môn học tương ứng
     category = Column(String, default="Lý thuyết", nullable=False) # "Lý thuyết", "Bài tập", "Ôn luyện", "Nghỉ ngơi"
     tip = Column(String, nullable=True)
     is_completed = Column(Boolean, default=False, nullable=False)
@@ -95,6 +97,7 @@ class DailyCheckin(Base):
     subject_difficulty = Column(String, nullable=True) # Câu hỏi khó khăn môn học
     action_reflection = Column(Text, nullable=True) # Điều làm tốt hoặc trở ngại
     mood = Column(SQLEnum(MoodType), nullable=False) # happy, neutral, stressed, tired
+    emotion_scale = Column(Integer, default=4, nullable=True) # Thang đo cảm xúc 1 - 7
     ai_feedback = Column(Text, nullable=False) # Lời nhắn thấu cảm của AI Mentor
     needs_attention = Column(Boolean, default=False) # Đánh dấu nếu học sinh gặp áp lực liên tục
     created_at = Column(DateTime, default=utcnow, index=True)
