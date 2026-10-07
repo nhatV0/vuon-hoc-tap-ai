@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowLeft, AlertTriangle, Users, HeartPulse, RefreshCw, Sparkles, BarChart2, SendHorizontal } from "lucide-react";
 import { TeacherDashboardData, StudentAlertItem, TeacherQuizStatsItem, API_BASE } from "@/lib/types";
+import MathText from "@/components/MathText";
 
 export default function TeacherDashboardPage() {
   const [data, setData] = useState<TeacherDashboardData | null>(null);
@@ -543,9 +544,9 @@ export default function TeacherDashboardPage() {
                             Tỉ lệ đúng: {st.correct_rate}%
                           </span>
                         </div>
-                        <p className="text-stone-700 font-medium line-clamp-2">
-                          {st.question_text}
-                        </p>
+                        <div className="text-stone-700 font-medium line-clamp-2">
+                          <MathText content={st.question_text} />
+                        </div>
                         <p className="text-[10px] text-stone-400">
                           {st.total_attempts} lượt làm • {st.wrong_count} lần mắc bẫy
                         </p>

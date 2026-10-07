@@ -14,7 +14,7 @@ import {
   SendHorizontal
 } from "lucide-react";
 import { DailyQuizPackage, QuizQuestionItem, QuizSubmissionResponse } from "@/lib/types";
-
+import MathText from "@/components/MathText";
 interface DailyMicroQuizModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -306,7 +306,7 @@ export default function DailyMicroQuizModal({
                 </div>
 
                 <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-stone-200 text-stone-900 font-medium text-sm leading-relaxed whitespace-pre-wrap">
-                  {currentQuestion.question_text}
+                  <MathText content={currentQuestion.question_text} />
                 </div>
               </div>
 
@@ -332,7 +332,9 @@ export default function DailyMicroQuizModal({
                       }`}>
                         {key}
                       </span>
-                      <span className="text-xs sm:text-sm pt-0.5 leading-relaxed">{val}</span>
+                      <span className="text-xs sm:text-sm pt-0.5 leading-relaxed">
+                        <MathText content={val} />
+                      </span>
                     </button>
                   );
                 })}
@@ -405,11 +407,13 @@ export default function DailyMicroQuizModal({
                           </span>
                         )}
                       </div>
-                      <p className="leading-relaxed opacity-90">{res.micro_explanation}</p>
+                      <div className="leading-relaxed opacity-90">
+                        <MathText content={res.micro_explanation} />
+                      </div>
                       {res.growth_mindset_tip && (
-                        <p className="font-medium text-[11px] text-amber-800 bg-amber-100/50 p-2 rounded-xl">
-                          💡 Mẹo: {res.growth_mindset_tip}
-                        </p>
+                        <div className="font-medium text-[11px] text-amber-800 bg-amber-100/50 p-2 rounded-xl">
+                          💡 Mẹo: <MathText content={res.growth_mindset_tip} />
+                        </div>
                       )}
                     </div>
                   ))}
