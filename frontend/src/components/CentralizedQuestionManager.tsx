@@ -1,11 +1,16 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import {
   SendHorizontal,
   BarChart2,
   Edit3,
-  Trash2
+  Trash2,
+  ChevronDown,
+  ChevronUp,
+  Search,
+  Filter,
+  CheckCircle2
 } from "lucide-react";
 import {
   SubjectQuestionGroup,
@@ -22,6 +27,15 @@ interface CentralizedQuestionManagerProps {
   onStatsRefresh: () => void;
 }
 
+const BLOOM_LEVELS = [
+  "Nhận biết (45s)",
+  "Thông hiểu (60s)",
+  "Vận dụng (75s)",
+  "Vận dụng cao 8+ (90s)"
+];
+
+const ITEMS_PER_PAGE = 8;
+
 export default function CentralizedQuestionManager({
   user,
   quizStats,
@@ -31,6 +45,14 @@ export default function CentralizedQuestionManager({
   const [loading, setLoading] = useState<boolean>(true);
   const [selectedSubjectTab, setSelectedSubjectTab] = useState<string>("ALL");
   const [editingQuestion, setEditingQuestion] = useState<QuizQuestionAdmin | null>(null);
+
+  // Expanded question IDs (chỉ hiện câu hỏi, bấm vào mới bung đáp án)
+  const [expandedQuestionIds, setExpandedQuestionIds] = useState<Set<string>>(new Set());
+
+  // Search & Filter & Pagination states
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [selectedLevelFilter, setSelectedLevelFilter] = useState<string>("ALL");
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
   // Form nạp câu hỏi state
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -45,9 +67,9 @@ export default function CentralizedQuestionManager({
     block: "A00",
     subject: initialSubject,
     source: "Đề Tốt nghiệp THPT Mới Nhất 2026 - Mã đề 101",
-    bloom_level: "Vận dụng (Mức 8+)",
+    bloom_level: "Nhận biết (45s)",
     lock_condition: "MOTUDO",
-    time_limit_seconds: 90,
+    time_limit_seconds: 45,
     question_text: "",
     optA: "",
     optB: "",
@@ -79,6 +101,21 @@ export default function CentralizedQuestionManager({
   useEffect(() => {
     fetchGroupedQuestions();
   }, [fetchGroupedQuestions]);
+
+  // Tự động điều chỉnh time_limit_seconds theo mức Bloom
+  const handleBloomLevelChange = (level: string) => {
+    let seconds = 60;
+    if (level.includes("45s") || level.includes("Nhận biết")) seconds = 45;
+    else if (level.includes("60s") || level.includes("Thông hiểu")) seconds = 60;
+    else if (level.includes("75s") || level.includes("Vận dụng")) seconds = 75;
+    else if (level.includes("90s") || level.includes("Vận dụng cao")) seconds = 90;
+
+    setForm((prev) => ({
+      ...prev,
+      bloom_level: level,
+      time_limit_seconds: seconds
+    }));
+  };
 
   const handleCreateSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -129,9 +166,9 @@ export default function CentralizedQuestionManager({
         block: "A00",
         subject: initialSubject,
         source: "Đề Tốt nghiệp THPT Mới Nhất 2026 - Mã đề 101",
-        bloom_level: "Vận dụng (Mức 8+)",
+        bloom_level: "Nhận biết (45s)",
         lock_condition: "MOTUDO",
-        time_limit_seconds: 90,
+        time_limit_seconds: 45,
         question_text: "",
         optA: "",
         optB: "",
@@ -164,6 +201,7 @@ export default function CentralizedQuestionManager({
         },
         body: JSON.stringify({
           question_text: editingQuestion.question_text,
+          bloom_level: editingQuestion.bloom_level,
           options: editingQuestion.options,
           correct_answer: editingQuestion.correct_answer,
           micro_explanation: editingQuestion.micro_explanation,
@@ -207,6 +245,46 @@ export default function CentralizedQuestionManager({
     }
   };
 
+  const toggleExpand = (qId: string) => {
+    setExpandedQuestionIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(qId)) next.delete(qId);
+      else next.add(qId);
+      return next;
+    });
+  };
+
+  // Lọc và phân trang câu hỏi để tránh tràn trang khi số lượng câu hỏi tăng cao
+  const filteredQuestions = useMemo(() => {
+    const list: (QuizQuestionAdmin & { subjectGroup: string })[] = [];
+    groupedQuestions.forEach((grp) => {
+      if (selectedSubjectTab === "ALL" || grp.subject === selectedSubjectTab) {
+        grp.questions.forEach((q) => {
+          const matchQuery =
+            !searchQuery.trim() ||
+            q.question_text.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            q.source.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            q.id.toLowerCase().includes(searchQuery.toLowerCase());
+
+          const matchLevel =
+            selectedLevelFilter === "ALL" ||
+            q.bloom_level.toLowerCase().includes(selectedLevelFilter.toLowerCase());
+
+          if (matchQuery && matchLevel) {
+            list.push({ ...q, subjectGroup: grp.subject });
+          }
+        });
+      }
+    });
+    return list;
+  }, [groupedQuestions, selectedSubjectTab, searchQuery, selectedLevelFilter]);
+
+  const totalPages = Math.max(1, Math.ceil(filteredQuestions.length / ITEMS_PER_PAGE));
+  const paginatedQuestions = useMemo(() => {
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    return filteredQuestions.slice(start, start + ITEMS_PER_PAGE);
+  }, [filteredQuestions, currentPage]);
+
   return (
     <div className="space-y-6 animate-in fade-in duration-200">
       {/* Toast Alert */}
@@ -224,7 +302,7 @@ export default function CentralizedQuestionManager({
       )}
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* KHỐI 1: FORM NẠP CÂU HỎI MỚI */}
+        {/* KHỐI 1: FORM NẠP CÂU HỎI MỚI (ĐẦY ĐỦ 4 PHÂN LOẠI BLOOM) */}
         <div className="lg:col-span-2 bg-white rounded-3xl border border-cream-200 p-6 shadow-xs space-y-5">
           <div className="flex items-center justify-between pb-3 border-b border-cream-200">
             <div className="flex items-center gap-2.5">
@@ -248,7 +326,7 @@ export default function CentralizedQuestionManager({
           </div>
 
           <form onSubmit={handleCreateSubmit} className="space-y-4 text-xs">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               <div>
                 <label className="block font-bold text-stone-700 mb-1">Khối Áp Dụng</label>
                 <select
@@ -287,6 +365,21 @@ export default function CentralizedQuestionManager({
                 )}
               </div>
 
+              {/* PHÂN LOẠI DẠNG CÂU HỎI (BLOOM) */}
+              <div>
+                <label className="block font-bold text-stone-700 mb-1">Phân Loại Dạng Câu *</label>
+                <select
+                  value={form.bloom_level}
+                  onChange={(e) => handleBloomLevelChange(e.target.value)}
+                  className="w-full p-2.5 rounded-xl border border-amber-300 bg-amber-50/40 font-bold text-amber-950"
+                  required
+                >
+                  {BLOOM_LEVELS.map((lvl) => (
+                    <option key={lvl} value={lvl}>{lvl}</option>
+                  ))}
+                </select>
+              </div>
+
               <div>
                 <label className="block font-bold text-stone-700 mb-1">Điều Kiện Mở Khóa</label>
                 <select
@@ -294,8 +387,8 @@ export default function CentralizedQuestionManager({
                   onChange={(e) => setForm({ ...form, lock_condition: e.target.value })}
                   className="w-full p-2.5 rounded-xl border border-stone-200 bg-white font-medium"
                 >
-                  <option value="MOTUDO">Xuất hiện cho toàn bộ học sinh</option>
-                  <option value="YEUCAUSTREAK30NGAY">Chỉ mở khi đạt Streak 30 Ngày (Boss)</option>
+                  <option value="MOTUDO">Tự do cho học sinh</option>
+                  <option value="YEUCAUSTREAK30NGAY">Khóa 30 Ngày (Boss 8.5+)</option>
                 </select>
               </div>
             </div>
@@ -455,9 +548,9 @@ export default function CentralizedQuestionManager({
         </div>
       </div>
 
-      {/* KHỐI 3: MỤC CÂU HỎI ĐÃ TẠO (KHO LƯU TRỮ TẬP TRUNG, CHIA THEO MÔN HỌC, CẤU TRÚC KATEX) */}
+      {/* KHỐI 3: MỤC CÂU HỎI ĐÃ TẠO (DẠNG ACCORDION TINH GỌN, CHỈ HIỆN ĐÁP ÁN KHI ẤN VÀO, CÓ TÌM KIẾM & PHÂN TRANG) */}
       <div className="bg-white rounded-3xl border border-cream-200 p-6 shadow-xs space-y-5">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-cream-200 gap-3">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between pb-3 border-b border-cream-200 gap-4">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-sm">
               📚
@@ -467,29 +560,33 @@ export default function CentralizedQuestionManager({
                 Mục Câu Hỏi Đã Tạo (Kho Lưu Trữ Tập Trung)
               </h3>
               <p className="text-[11px] text-stone-500">
-                {user?.role === "admin"
-                  ? "Admin có toàn quyền Thêm, Sửa, Xóa bất kỳ câu hỏi nào trong hệ thống"
-                  : "Giáo viên chỉ có thể Chỉnh sửa hoặc Xóa các câu hỏi do chính mình tạo"}
+                Giao diện tinh gọn: Bấm vào câu hỏi để mở rộng phương án • Tìm kiếm & phân trang thông minh
               </p>
             </div>
           </div>
 
-          {/* Filter Tabs Môn Học */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0">
+          {/* Thanh Filter Môn Học */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 lg:pb-0 max-w-full">
             <button
-              onClick={() => setSelectedSubjectTab("ALL")}
+              onClick={() => {
+                setSelectedSubjectTab("ALL");
+                setCurrentPage(1);
+              }}
               className={`px-3 py-1 rounded-xl text-xs font-bold transition-all shrink-0 ${
                 selectedSubjectTab === "ALL"
                   ? "bg-amber-500 text-white shadow-xs"
                   : "bg-cream-100 text-stone-600 hover:bg-cream-200"
               }`}
             >
-              Tất Cả Môn
+              Tất Cả ({groupedQuestions.reduce((acc, g) => acc + g.total_count, 0)})
             </button>
             {groupedQuestions.map((grp) => (
               <button
                 key={grp.subject}
-                onClick={() => setSelectedSubjectTab(grp.subject)}
+                onClick={() => {
+                  setSelectedSubjectTab(grp.subject);
+                  setCurrentPage(1);
+                }}
                 className={`px-3 py-1 rounded-xl text-xs font-bold transition-all shrink-0 ${
                   selectedSubjectTab === grp.subject
                     ? "bg-amber-500 text-white shadow-xs"
@@ -502,104 +599,221 @@ export default function CentralizedQuestionManager({
           </div>
         </div>
 
-        {/* Danh sách câu hỏi */}
+        {/* Thanh Công Cụ Tìm Kiếm & Lọc Dạng Câu */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-cream-50/60 p-3 rounded-2xl border border-cream-200">
+          <div className="relative w-full sm:w-72">
+            <Search className="w-3.5 h-3.5 absolute left-3 top-3 text-stone-400" />
+            <input
+              type="text"
+              placeholder="Tìm theo nội dung, nguồn đề..."
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setCurrentPage(1);
+              }}
+              className="w-full pl-8 pr-3 py-1.5 text-xs rounded-xl border border-stone-200 bg-white"
+            />
+          </div>
+
+          <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
+            <Filter className="w-3.5 h-3.5 text-stone-500 shrink-0" />
+            <span className="text-[11px] font-bold text-stone-500">Mức độ:</span>
+            <select
+              value={selectedLevelFilter}
+              onChange={(e) => {
+                setSelectedLevelFilter(e.target.value);
+                setCurrentPage(1);
+              }}
+              className="px-2.5 py-1 text-xs rounded-xl border border-stone-200 bg-white font-medium"
+            >
+              <option value="ALL">Tất cả mức độ</option>
+              <option value="Nhận biết">Nhận biết</option>
+              <option value="Thông hiểu">Thông hiểu</option>
+              <option value="Vận dụng">Vận dụng</option>
+              <option value="Vận dụng cao">Vận dụng cao 8+</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Danh Sách Câu Hỏi Dạng Thu Gọn (Click để xem đáp án) */}
         {loading ? (
           <div className="py-12 text-center text-xs text-stone-400">
             Đang tải dữ liệu ngân hàng câu hỏi...
           </div>
+        ) : paginatedQuestions.length === 0 ? (
+          <div className="py-12 text-center text-xs text-stone-400 italic">
+            Không tìm thấy câu hỏi nào phù hợp với bộ lọc.
+          </div>
         ) : (
-          <div className="space-y-6">
-            {groupedQuestions
-              .filter((grp) => selectedSubjectTab === "ALL" || grp.subject === selectedSubjectTab)
-              .map((grp) => (
-                <div key={grp.subject} className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
-                    <h4 className="font-extrabold text-xs text-amber-950 uppercase tracking-wider">
-                      Môn: {grp.subject} ({grp.total_count} câu)
-                    </h4>
-                  </div>
+          <div className="space-y-3">
+            {paginatedQuestions.map((q, idx) => {
+              const isExpanded = expandedQuestionIds.has(q.id);
+              const canManage = user?.role === "admin" || (q.creator_id && q.creator_id === user?.id);
+              const overallIdx = (currentPage - 1) * ITEMS_PER_PAGE + idx + 1;
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {grp.questions.map((q, idx) => {
-                      const canManage = user?.role === "admin" || (q.creator_id && q.creator_id === user?.id);
-                      return (
-                        <div
-                          key={q.id}
-                          className="p-4 rounded-2xl border border-cream-200 bg-cream-50/40 hover:bg-white hover:border-amber-300 transition-all space-y-3 text-xs shadow-2xs flex flex-col justify-between"
-                        >
-                          <div className="space-y-2">
-                            <div className="flex items-center justify-between gap-2">
-                              <div className="flex items-center gap-1.5 flex-wrap">
-                                <span className="font-bold text-[11px] px-2 py-0.5 rounded-md bg-stone-100 text-stone-700">
-                                  #{idx + 1} • {q.block}
-                                </span>
-                                <span className="text-[10px] px-2 py-0.5 rounded-md bg-amber-100 text-amber-800 font-bold">
-                                  {q.bloom_level}
-                                </span>
-                                <span className="text-[10px] text-stone-400">
-                                  {q.creator_role === "ADMIN" ? "Admin" : q.creator_role === "TEACHER" ? "Giáo viên" : "Hệ thống"}
-                                </span>
-                              </div>
+              return (
+                <div
+                  key={q.id}
+                  className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+                    isExpanded
+                      ? "bg-white border-amber-300 shadow-sm"
+                      : "bg-cream-50/40 border-cream-200 hover:bg-white hover:border-amber-200"
+                  }`}
+                >
+                  {/* Header Row: Câu hỏi (click để đóng/mở) */}
+                  <div
+                    onClick={() => toggleExpand(q.id)}
+                    className="p-4 cursor-pointer flex items-start justify-between gap-3 select-none"
+                  >
+                    <div className="space-y-1.5 flex-1">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="font-bold text-[11px] px-2 py-0.5 rounded-md bg-stone-100 text-stone-700">
+                          #{overallIdx} • {q.subjectGroup} • {q.block}
+                        </span>
+                        <span className={`text-[10px] px-2 py-0.5 rounded-md font-bold ${
+                          q.bloom_level.includes("cao")
+                            ? "bg-rose-100 text-rose-800"
+                            : q.bloom_level.includes("Vận dụng")
+                            ? "bg-orange-100 text-orange-800"
+                            : q.bloom_level.includes("Thông hiểu")
+                            ? "bg-blue-100 text-blue-800"
+                            : "bg-emerald-100 text-emerald-800"
+                        }`}>
+                          {q.bloom_level}
+                        </span>
+                        <span className="text-[10px] text-stone-400">
+                          Nguồn: {q.source}
+                        </span>
+                      </div>
 
-                              {/* Action buttons */}
-                              <div className="flex items-center gap-1 shrink-0">
-                                {canManage ? (
-                                  <>
-                                    <button
-                                      onClick={() => setEditingQuestion(q)}
-                                      className="p-1.5 rounded-lg border border-stone-200 hover:bg-stone-100 text-stone-600 transition-colors"
-                                      title="Chỉnh sửa câu hỏi"
-                                    >
-                                      <Edit3 className="w-3.5 h-3.5" />
-                                    </button>
-                                    <button
-                                      onClick={() => handleDelete(q.id)}
-                                      className="p-1.5 rounded-lg border border-rose-200 hover:bg-rose-50 text-rose-600 transition-colors"
-                                      title="Xóa câu hỏi"
-                                    >
-                                      <Trash2 className="w-3.5 h-3.5" />
-                                    </button>
-                                  </>
-                                ) : (
-                                  <span className="text-[10px] text-stone-400 italic">Chỉ xem</span>
-                                )}
-                              </div>
-                            </div>
+                      {/* Nội dung câu hỏi gọn gàng */}
+                      <div className="text-xs font-semibold text-stone-900 leading-relaxed pt-1">
+                        <MathText content={q.question_text} />
+                      </div>
+                    </div>
 
-                            {/* Question text with KaTeX */}
-                            <div className="font-semibold text-stone-900 leading-relaxed bg-white p-2.5 rounded-xl border border-cream-100">
-                              <MathText content={q.question_text} />
-                            </div>
-
-                            {/* 4 Options */}
-                            <div className="grid grid-cols-2 gap-1.5 pt-1 text-[11px]">
-                              {Object.entries(q.options || {}).map(([key, val]) => (
-                                <div
-                                  key={key}
-                                  className={`p-1.5 rounded-lg border flex items-start gap-1.5 ${
-                                    q.correct_answer === key
-                                      ? "bg-emerald-50 border-emerald-300 font-bold text-emerald-950"
-                                      : "bg-white border-stone-150 text-stone-700"
-                                  }`}
-                                >
-                                  <span className="font-mono font-black shrink-0">{key}.</span>
-                                  <span className="truncate"><MathText content={val} /></span>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-
-                          <div className="text-[11px] text-stone-500 pt-2 border-t border-cream-100 flex items-center justify-between">
-                            <span>Đáp án đúng: <strong className="text-emerald-700">{q.correct_answer}</strong></span>
-                            <span className="text-[10px] text-stone-400 italic truncate max-w-[200px]">Nguồn: {q.source}</span>
-                          </div>
+                    <div className="flex items-center gap-2 shrink-0 pt-1" onClick={(e) => e.stopPropagation()}>
+                      {/* Nút Sửa / Xóa */}
+                      {canManage && (
+                        <div className="flex items-center gap-1">
+                          <button
+                            onClick={() => setEditingQuestion(q)}
+                            className="p-1.5 rounded-lg border border-stone-200 hover:bg-stone-100 text-stone-600 transition-colors"
+                            title="Chỉnh sửa câu hỏi"
+                          >
+                            <Edit3 className="w-3.5 h-3.5" />
+                          </button>
+                          <button
+                            onClick={() => handleDelete(q.id)}
+                            className="p-1.5 rounded-lg border border-rose-200 hover:bg-rose-50 text-rose-600 transition-colors"
+                            title="Xóa câu hỏi"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
                         </div>
-                      );
-                    })}
+                      )}
+
+                      {/* Nút Chevron bung mở */}
+                      <button
+                        onClick={() => toggleExpand(q.id)}
+                        className="p-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-600 transition-colors"
+                        title={isExpanded ? "Thu gọn đáp án" : "Xem các đáp án"}
+                      >
+                        {isExpanded ? (
+                          <ChevronUp className="w-4 h-4 text-amber-700" />
+                        ) : (
+                          <ChevronDown className="w-4 h-4" />
+                        )}
+                      </button>
+                    </div>
                   </div>
+
+                  {/* VÙNG ĐÁP ÁN: CHỈ HIỂN THỊ KHI BẤM VÀO */}
+                  {isExpanded && (
+                    <div className="px-4 pb-4 pt-2 border-t border-cream-100 bg-cream-50/30 space-y-3 animate-in fade-in duration-150 text-xs">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {Object.entries(q.options || {}).map(([key, val]) => {
+                          const isCorrect = q.correct_answer === key;
+                          return (
+                            <div
+                              key={key}
+                              className={`p-2 rounded-xl border flex items-start gap-2 transition-all ${
+                                isCorrect
+                                  ? "bg-emerald-50 border-emerald-300 font-bold text-emerald-950 shadow-2xs"
+                                  : "bg-white border-stone-200 text-stone-700"
+                              }`}
+                            >
+                              <span className={`w-5 h-5 rounded-lg flex items-center justify-center font-bold text-[10px] shrink-0 ${
+                                isCorrect ? "bg-emerald-600 text-white" : "bg-stone-100 text-stone-600"
+                              }`}>
+                                {key}
+                              </span>
+                              <div className="flex-1 pt-0.5 leading-relaxed">
+                                <MathText content={val} />
+                              </div>
+                              {isCorrect && (
+                                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+
+                      {/* Giải thích vi mô */}
+                      {q.micro_explanation && (
+                        <div className="p-2.5 rounded-xl bg-white border border-cream-200 text-[11px] text-stone-700 leading-relaxed">
+                          <strong className="text-amber-900">💡 Giải thích vi mô:</strong>{" "}
+                          <MathText content={q.micro_explanation} />
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
+              );
+            })}
+          </div>
+        )}
+
+        {/* PHÂN TRANG (PAGINATION) ĐỂ TRÁNH TRANG QUÁ DÀI */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-between pt-4 border-t border-cream-200 text-xs text-stone-600">
+            <span className="text-[11px]">
+              Hiển thị {((currentPage - 1) * ITEMS_PER_PAGE) + 1} -{" "}
+              {Math.min(currentPage * ITEMS_PER_PAGE, filteredQuestions.length)} trên tổng{" "}
+              <strong>{filteredQuestions.length}</strong> câu
+            </span>
+
+            <div className="flex items-center gap-1.5">
+              <button
+                disabled={currentPage === 1}
+                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                className="px-3 py-1 rounded-lg border border-stone-200 bg-white hover:bg-stone-50 disabled:opacity-40 font-semibold"
+              >
+                Trước
+              </button>
+
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((pNum) => (
+                <button
+                  key={pNum}
+                  onClick={() => setCurrentPage(pNum)}
+                  className={`w-7 h-7 rounded-lg text-xs font-bold transition-all ${
+                    currentPage === pNum
+                      ? "bg-amber-500 text-white shadow-xs"
+                      : "bg-white border border-stone-200 text-stone-600 hover:bg-stone-50"
+                  }`}
+                >
+                  {pNum}
+                </button>
               ))}
+
+              <button
+                disabled={currentPage === totalPages}
+                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                className="px-3 py-1 rounded-lg border border-stone-200 bg-white hover:bg-stone-50 disabled:opacity-40 font-semibold"
+              >
+                Sau
+              </button>
+            </div>
           </div>
         )}
       </div>
@@ -630,6 +844,19 @@ export default function CentralizedQuestionManager({
                   className="w-full p-2.5 rounded-xl border border-stone-200 bg-white"
                   required
                 />
+              </div>
+
+              <div>
+                <label className="block font-bold text-stone-700 mb-1">Phân loại dạng câu</label>
+                <select
+                  value={editingQuestion.bloom_level}
+                  onChange={(e) => setEditingQuestion({ ...editingQuestion, bloom_level: e.target.value })}
+                  className="w-full p-2 rounded-xl border border-stone-200 bg-white"
+                >
+                  {BLOOM_LEVELS.map((lvl) => (
+                    <option key={lvl} value={lvl}>{lvl}</option>
+                  ))}
+                </select>
               </div>
 
               <div className="grid grid-cols-2 gap-2">
