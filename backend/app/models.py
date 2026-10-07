@@ -47,6 +47,15 @@ class User(Base):
     # Quan hệ 1-1 với Student profile nếu role = student
     student_profile = relationship("Student", back_populates="user", uselist=False, cascade="all, delete-orphan")
 
+class Classroom(Base):
+    __tablename__ = "classrooms"
+
+    id = Column(String, primary_key=True, index=True) # e.g. "12A1"
+    name = Column(String, nullable=False) # e.g. "Lớp 12A1"
+    grade = Column(String, nullable=False) # "10", "11", "12"
+    description = Column(String, nullable=True)
+    created_at = Column(DateTime, default=utcnow)
+
 class Student(Base):
     __tablename__ = "students"
 

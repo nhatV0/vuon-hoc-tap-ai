@@ -123,7 +123,7 @@ export default function AuthPage() {
               <input
                 type={isRegister ? "email" : "text"}
                 required
-                placeholder={isRegister ? "tenban@email.com" : "admin hoặc email học sinh"}
+                placeholder={isRegister ? "tenban@email.com" : "Email hoặc tên tài khoản"}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full pl-9 pr-3.5 py-2.5 rounded-xl border border-stone-200 bg-stone-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 text-xs text-stone-800"

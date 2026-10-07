@@ -9,7 +9,7 @@ from app.database import get_db
 from app.models import (
     User, UserRole, Student, Roadmap, DailyCheckin, FlowerStatus,
     FlowerState, MoodType, PlannedTask, Badge, StudentBadge, StreakInventory,
-    TimeCapsule, CapsuleStatus
+    TimeCapsule, CapsuleStatus, Classroom
 )
 from app.schemas import (
     UserRegister, UserLogin, UserResponse, AuthTokenResponse,
@@ -23,7 +23,8 @@ from app.schemas import (
     MilestoneReward, DailyQuizPackageResponse, QuizSubmissionCreate, QuizSubmissionResponse,
     TeacherInjectQuizCreate, TeacherQuizStatsItem, QuizQuestionAdmin,
     TeacherCreateRequest, TeacherUpdateRequest, TeacherResponseItem,
-    StudentAssignClassRequest, AdminStudentCreateRequest, AdminOverviewStats
+    StudentAssignClassRequest, AdminStudentCreateRequest, AdminOverviewStats,
+    ClassroomCreateRequest, ClassroomItem
 )
 from app.services.quiz_service import (
     get_daily_quiz_package, submit_student_quiz,
@@ -1186,9 +1187,12 @@ def get_admin_overview(
     """Lấy tổng quan danh sách Giáo viên, Học sinh và Danh mục lớp học toàn trường."""
     teachers = db.query(User).filter(User.role == UserRole.TEACHER).order_by(desc(User.created_at)).all()
     students = db.query(Student).order_by(desc(Student.created_at)).all()
+    classrooms_db = db.query(Classroom).order_by(Classroom.id).all()
 
     # Thu thập toàn bộ danh mục lớp
     classes_set = set(["12A1", "12A2", "12A3", "11B1", "11B2", "10C1"])
+    for cr in classrooms_db:
+        classes_set.add(cr.id)
     for s in students:
         if s.classroom:
             classes_set.add(s.classroom)
@@ -1234,10 +1238,10 @@ def get_admin_overview(
         total_students=len(students),
         total_classes=len(classes_set),
         classes_list=sorted(list(classes_set)),
+        classrooms_details=[ClassroomItem.model_validate(c) for c in classrooms_db],
         teachers=teacher_items,
         students=student_items
     )
-
 @router.post("/admin/teachers", response_model=TeacherResponseItem, status_code=status.HTTP_201_CREATED)
 def create_teacher_account(
     data: TeacherCreateRequest,
@@ -1408,3 +1412,44 @@ def admin_delete_student(
     db.delete(student)
     db.commit()
     return {"success": True, "message": f"Đã xóa học sinh {student.name}"}
+@router.post("/admin/classrooms", response_model=ClassroomItem, status_code=status.HTTP_201_CREATED)
+def admin_create_classroom(
+    data: ClassroomCreateRequest,
+    admin: User = Depends(require_admin_user),
+    db: Session = Depends(get_db)
+):
+    """Admin thêm lớp học mới vào hệ thống."""
+    clean_id = data.id.strip().upper()
+    existing = db.query(Classroom).filter(Classroom.id == clean_id).first()
+    if existing:
+        raise HTTPException(status_code=400, detail=f"Lớp học {clean_id} đã tồn tại trong hệ thống")
+
+    new_cr = Classroom(
+        id=clean_id,
+        name=data.name.strip() if data.name else f"Lớp {clean_id}",
+        grade=data.grade or "12",
+        description=data.description or f"Khối {data.grade or '12'}"
+    )
+    db.add(new_cr)
+    db.commit()
+    db.refresh(new_cr)
+    return new_cr
+
+@router.delete("/admin/classrooms/{classroom_id}")
+def admin_delete_classroom(
+    classroom_id: str,
+    admin: User = Depends(require_admin_user),
+    db: Session = Depends(get_db)
+):
+    """Admin xóa một lớp học (nếu không còn học sinh)."""
+    clean_id = classroom_id.strip().upper()
+    count_students = db.query(Student).filter(Student.classroom == clean_id).count()
+    if count_students > 0:
+        raise HTTPException(status_code=400, detail=f"Không thể xóa lớp {clean_id} vì vẫn còn {count_students} học sinh đang học tại lớp này")
+
+    cr = db.query(Classroom).filter(Classroom.id == clean_id).first()
+    if cr:
+        db.delete(cr)
+        db.commit()
+
+    return {"success": True, "message": f"Đã xóa lớp {clean_id}"}

@@ -246,6 +246,14 @@ export interface TeacherQuizStatsItem {
   wrong_count: number;
 }
 // --- Admin Management Types ---
+export interface ClassroomItem {
+  id: string;
+  name: string;
+  grade: string;
+  description?: string;
+  created_at: string;
+}
+
 export interface TeacherItem {
   id: string;
   name: string;
@@ -260,6 +268,7 @@ export interface AdminOverviewData {
   total_students: number;
   total_classes: number;
   classes_list: string[];
+  classrooms_details?: ClassroomItem[];
   teachers: TeacherItem[];
   students: StudentAlertItem[];
 }

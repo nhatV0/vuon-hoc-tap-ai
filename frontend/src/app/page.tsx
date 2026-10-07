@@ -396,7 +396,7 @@ export default function LandingHomePage() {
                 href="/auth"
                 className="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1"
               >
-                Đăng nhập dành cho Giáo viên (TK: admin)
+                Đăng nhập dành cho Thầy Cô & Quản Trị
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>

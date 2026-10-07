@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
 from app.config import settings
 from app.database import engine, Base
-from app.models import User, UserRole
+from app.models import User, UserRole, Classroom
 from app.auth import hash_password
 from app.routers import api
 
@@ -54,6 +54,10 @@ with Session(engine) as init_db:
         admin_user.password_hash = hash_password("123456")
         admin_user.role = UserRole.ADMIN
         admin_user.assigned_classes = ["ALL"]
+    # Khởi tạo các lớp học mặc định nếu chưa có
+    if init_db.query(Classroom).count() == 0:
+        for c_id, gr in [("12A1", "12"), ("12A2", "12"), ("12A3", "12"), ("11B1", "11"), ("11B2", "11"), ("10C1", "10")]:
+            init_db.add(Classroom(id=c_id, name=f"Lớp {c_id}", grade=gr, description=f"Khối {gr} chuyên sâu"))
         init_db.commit()
 
 app = FastAPI(

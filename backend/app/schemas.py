@@ -365,6 +365,20 @@ class TeacherQuizStatsItem(BaseModel):
     total_attempts: int
     correct_rate: float
     wrong_count: int
+class ClassroomCreateRequest(BaseModel):
+    id: str = Field(..., min_length=2, max_length=20, description="Mã lớp (ví dụ: 12A4, 11B3...)")
+    name: Optional[str] = Field(None, description="Tên lớp (ví dụ: Lớp 12A4)")
+    grade: Optional[str] = Field("12", description="Khối lớp (10, 11, 12)")
+    description: Optional[str] = Field(None, description="Mô tả lớp học")
+
+class ClassroomItem(BaseModel):
+    id: str
+    name: str
+    grade: str
+    description: Optional[str] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
 # --- Admin Management Schemas (Quản Lý Admin & Phân Lớp) ---
 class TeacherCreateRequest(BaseModel):
     name: str = Field(..., min_length=2, max_length=60, description="Họ tên giáo viên")
@@ -407,5 +421,6 @@ class AdminOverviewStats(BaseModel):
     total_students: int
     total_classes: int
     classes_list: List[str]
+    classrooms_details: List[ClassroomItem] = Field(default_factory=list)
     teachers: List[TeacherResponseItem]
     students: List[StudentAlertItem]

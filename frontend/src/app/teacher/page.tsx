@@ -52,6 +52,7 @@ export default function TeacherDashboardPage() {
     classroom: "12A1",
     target_subject: "Toán học",
   });
+  const [newClassForm, setNewClassForm] = useState({ id: "", name: "", grade: "12" });
   const [adminMsg, setAdminMsg] = useState<{ text: string; type: "success" | "error" } | null>(null);
 
   // Quiz injector form state
@@ -715,6 +716,130 @@ export default function TeacherDashboardPage() {
               </div>
             </div>
 
+            {/* KHỐI QUẢN LÝ LỚP HỌC (ADMIN THÊM LỚP MỚI) */}
+            <div className="bg-white rounded-3xl border border-cream-200 p-6 shadow-xs space-y-4">
+              <div className="flex items-center justify-between pb-3 border-b border-cream-200">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">
+                    🏫
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-sm text-stone-900">Quản Lý Danh Mục Lớp Học</h3>
+                    <p className="text-[11px] text-stone-500">Admin tạo lớp học mới để phân bổ cho Giáo viên & Học sinh</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Form Thêm Lớp Mới */}
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  if (!newClassForm.id.trim()) return;
+                  try {
+                    const token = localStorage.getItem("sunflower_auth_token");
+                    const res = await fetch(`${API_BASE}/api/admin/classrooms`, {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`
+                      },
+                      body: JSON.stringify({
+                        id: newClassForm.id.trim().toUpperCase(),
+                        name: newClassForm.name.trim() || `Lớp ${newClassForm.id.trim().toUpperCase()}`,
+                        grade: newClassForm.grade
+                      })
+                    });
+                    const json = await res.json();
+                    if (!res.ok) throw new Error(json.detail || "Không thể thêm lớp học");
+                    setAdminMsg({ text: `🎉 Đã thêm lớp học mới: ${newClassForm.id.toUpperCase()}`, type: "success" });
+                    setNewClassForm({ id: "", name: "", grade: "12" });
+                    fetchAdminData();
+                  } catch (err: unknown) {
+                    setAdminMsg({ text: err instanceof Error ? err.message : "Đã có lỗi xảy ra", type: "error" });
+                  }
+                }}
+                className="p-4 rounded-2xl bg-emerald-50/50 border border-emerald-100 flex flex-wrap items-center gap-3 text-xs"
+              >
+                <div className="flex-1 min-w-[140px]">
+                  <label className="block text-[11px] font-bold text-emerald-950 mb-1">Mã Lớp Học *</label>
+                  <input
+                    type="text"
+                    placeholder="Ví dụ: 12A4, 11B3, 10A1..."
+                    value={newClassForm.id}
+                    onChange={(e) => setNewClassForm({ ...newClassForm, id: e.target.value })}
+                    className="w-full p-2.5 rounded-xl border border-stone-200 bg-white font-bold text-emerald-900"
+                    required
+                  />
+                </div>
+
+                <div className="flex-1 min-w-[160px]">
+                  <label className="block text-[11px] font-bold text-emerald-950 mb-1">Tên Hiển Thị (Tùy chọn)</label>
+                  <input
+                    type="text"
+                    placeholder="Ví dụ: Lớp 12A4 Chuyên Tin"
+                    value={newClassForm.name}
+                    onChange={(e) => setNewClassForm({ ...newClassForm, name: e.target.value })}
+                    className="w-full p-2.5 rounded-xl border border-stone-200 bg-white"
+                  />
+                </div>
+
+                <div className="w-[100px]">
+                  <label className="block text-[11px] font-bold text-emerald-950 mb-1">Khối Lớp</label>
+                  <select
+                    value={newClassForm.grade}
+                    onChange={(e) => setNewClassForm({ ...newClassForm, grade: e.target.value })}
+                    className="w-full p-2.5 rounded-xl border border-stone-200 bg-white font-semibold"
+                  >
+                    <option value="12">Khối 12</option>
+                    <option value="11">Khối 11</option>
+                    <option value="10">Khối 10</option>
+                  </select>
+                </div>
+
+                <div className="self-end pt-1">
+                  <button
+                    type="submit"
+                    className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors shadow-xs"
+                  >
+                    + Thêm Lớp Mới
+                  </button>
+                </div>
+              </form>
+
+              {/* Danh sách lớp hiện tại */}
+              <div className="flex flex-wrap gap-2 pt-2">
+                {adminData?.classes_list.map((cName) => (
+                  <div
+                    key={cName}
+                    className="px-3.5 py-1.5 rounded-xl bg-cream-50 border border-cream-200 text-xs font-bold text-stone-800 flex items-center gap-2 shadow-2xs"
+                  >
+                    <span>Lớp {cName}</span>
+                    <button
+                      onClick={async () => {
+                        if (!confirm(`Bạn có chắc chắn muốn xóa lớp ${cName}?`)) return;
+                        try {
+                          const token = localStorage.getItem("sunflower_auth_token");
+                          const res = await fetch(`${API_BASE}/api/admin/classrooms/${cName}`, {
+                            method: "DELETE",
+                            headers: { Authorization: `Bearer ${token}` }
+                          });
+                          const json = await res.json();
+                          if (!res.ok) throw new Error(json.detail || "Không thể xóa lớp");
+                          setAdminMsg({ text: `Đã xóa lớp ${cName}`, type: "success" });
+                          fetchAdminData();
+                        } catch (err: unknown) {
+                          setAdminMsg({ text: err instanceof Error ? err.message : "Đã có lỗi xảy ra", type: "error" });
+                        }
+                      }}
+                      className="text-stone-300 hover:text-rose-600 transition-colors"
+                      title="Xóa lớp học"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* CỘT 1: QUẢN LÝ GIÁO VIÊN & PHÂN LỚP */}
               <div className="bg-white rounded-3xl border border-cream-200 p-6 shadow-xs space-y-5">
