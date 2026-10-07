@@ -19,9 +19,9 @@ class UserResponse(BaseModel):
     email: str
     name: str
     role: UserRole
+    assigned_classes: Optional[List[str]] = Field(default_factory=list)
     created_at: datetime
     student_id: Optional[str] = None
-
     model_config = ConfigDict(from_attributes=True)
 
 class AuthTokenResponse(BaseModel):
@@ -46,14 +46,15 @@ class StudentCreate(BaseModel):
     user_id: Optional[str] = None
     name: str = Field(..., min_length=2, max_length=50)
     grade: str = Field(..., description="Khối lớp: 10, 11, 12")
+    classroom: Optional[str] = Field(default="12A1", description="Lớp học được phân công (ví dụ 12A1)")
     target_subject: Optional[str] = Field("Toán học", description="Môn học trọng tâm")
     target_subjects: Optional[List[str]] = Field(default_factory=list, description="Danh sách các môn học được chọn")
     emotion_scale: Optional[int] = Field(4, ge=1, le=7, description="Thang điểm cảm xúc môn học 1-7")
     weakness: str = Field(..., description="Khó khăn lớn nhất")
-    long_term_goal: str = Field(..., description="Mục tiêu lớn")
-    timeframe: str = Field(..., description="Thời gian cam kết")
-    learning_style: Optional[str] = "visual"
-    diagnostic_answers: Optional[Dict[str, str]] = Field(default_factory=dict, description="Các câu trả lời chẩn đoán chuyên sâu")
+    long_term_goal: Optional[str] = Field(None, description="Mục tiêu dài hạn")
+    timeframe: Optional[str] = Field("3 tháng", description="Quỹ thời gian chuẩn bị")
+    learning_style: Optional[str] = Field("visual", description="Phong cách học tập")
+    diagnostic_answers: Optional[Dict[str, Any]] = Field(default_factory=dict, description="Các câu trả lời chẩn đoán")
     initial_time_capsule: Optional[str] = Field(None, description="Tâm thư gửi tương lai viết tại onboarding")
 class MilestoneItem(BaseModel):
     stage: int
@@ -65,12 +66,14 @@ class MilestoneItem(BaseModel):
 class DailyTaskItem(BaseModel):
     id: int
     title: str
-    subject: Optional[str] = "Toán học"
     duration_minutes: int = 10
+    subject: Optional[str] = "Toán học"
     category: Optional[str] = "Lý thuyết"
     tip: Optional[str] = None
 
 class RoadmapResponse(BaseModel):
+    id: Optional[int] = None
+    student_id: Optional[str] = None
     milestones: List[MilestoneItem]
     initial_daily_tasks: List[DailyTaskItem]
     encouraging_message: str
@@ -80,6 +83,7 @@ class StudentResponse(BaseModel):
     user_id: Optional[str] = None
     name: str
     grade: str
+    classroom: Optional[str] = "12A1"
     target_subject: str
     target_subjects: Optional[List[str]] = None
     emotion_scale: Optional[int] = 4
@@ -257,6 +261,7 @@ class StudentAlertItem(BaseModel):
     student_id: str
     student_name: str
     grade: str
+    classroom: Optional[str] = "12A1"
     target_subject: str
     target_subjects: List[str] = Field(default_factory=list)
     emotion_scale: int = 4
@@ -360,3 +365,47 @@ class TeacherQuizStatsItem(BaseModel):
     total_attempts: int
     correct_rate: float
     wrong_count: int
+# --- Admin Management Schemas (Quản Lý Admin & Phân Lớp) ---
+class TeacherCreateRequest(BaseModel):
+    name: str = Field(..., min_length=2, max_length=60, description="Họ tên giáo viên")
+    email: str = Field(..., description="Email/Tài khoản giáo viên")
+    password: str = Field(default="123456", min_length=6, description="Mật khẩu khởi tạo")
+    assigned_classes: List[str] = Field(default_factory=lambda: ["12A1"], description="Các lớp được phân công phụ trách")
+
+class TeacherUpdateRequest(BaseModel):
+    name: Optional[str] = None
+    assigned_classes: Optional[List[str]] = None
+    password: Optional[str] = None
+
+class TeacherResponseItem(BaseModel):
+    id: str
+    name: str
+    email: str
+    role: UserRole
+    assigned_classes: List[str]
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class StudentAssignClassRequest(BaseModel):
+    classroom: str = Field(..., description="Lớp phân bổ (ví dụ: 12A1, 12A2, 11B1...)")
+
+class AdminStudentCreateRequest(BaseModel):
+    name: str = Field(..., min_length=2, max_length=60)
+    grade: str = Field(default="12")
+    classroom: str = Field(default="12A1")
+    target_subject: str = Field(default="Toán học")
+    target_subjects: List[str] = Field(default_factory=lambda: ["Toán học"])
+    weakness: str = Field(default="Cần củng cố phương pháp giải nhanh")
+    long_term_goal: str = Field(default="Đỗ trường Đại học mục tiêu")
+    timeframe: str = Field(default="5 tháng")
+    email: Optional[str] = None
+    password: Optional[str] = "123456"
+
+class AdminOverviewStats(BaseModel):
+    total_teachers: int
+    total_students: int
+    total_classes: int
+    classes_list: List[str]
+    teachers: List[TeacherResponseItem]
+    students: List[StudentAlertItem]

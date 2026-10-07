@@ -11,7 +11,7 @@ export default function AuthPage() {
   const router = useRouter();
   const { login } = useAuth();
   const [isRegister, setIsRegister] = useState<boolean>(false);
-  const [role, setRole] = useState<"student" | "teacher">("student");
+  const [role] = useState<"student">("student");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [name, setName] = useState<string>("");
@@ -42,7 +42,7 @@ export default function AuthPage() {
 
       login(data.token, data.user);
 
-      if (data.user.role === "teacher") {
+      if (data.user.role === "teacher" || data.user.role === "admin") {
         router.push("/teacher");
       } else if (!data.user.student_id) {
         router.push("/onboarding");
@@ -81,27 +81,9 @@ export default function AuthPage() {
           </p>
         </div>
 
-        {/* Tab Role (nếu đăng ký) */}
         {isRegister && (
-          <div className="flex p-1 bg-stone-100 rounded-xl mb-5 text-xs">
-            <button
-              type="button"
-              onClick={() => setRole("student")}
-              className={`flex-1 py-1.5 rounded-lg font-medium transition-all ${
-                role === "student" ? "bg-white text-stone-900 shadow-xs" : "text-stone-500 hover:text-stone-700"
-              }`}
-            >
-              Học Sinh
-            </button>
-            <button
-              type="button"
-              onClick={() => setRole("teacher")}
-              className={`flex-1 py-1.5 rounded-lg font-medium transition-all ${
-                role === "teacher" ? "bg-white text-stone-900 shadow-xs" : "text-stone-500 hover:text-stone-700"
-              }`}
-            >
-              Giáo Viên
-            </button>
+          <div className="p-3 bg-amber-50/70 border border-amber-200/80 rounded-xl mb-5 text-[11px] text-amber-900 leading-relaxed text-center font-medium">
+            🌱 Đăng ký tài khoản dành riêng cho <strong>Học Sinh</strong>. Tài khoản Giáo Viên do Quản Trị Viên (Admin) phân bổ theo lớp học.
           </div>
         )}
 

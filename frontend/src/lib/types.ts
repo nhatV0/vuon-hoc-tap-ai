@@ -2,13 +2,14 @@ export const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:800
 
 export type FlowerState = "cham_hoc" | "tich_cuc" | "thieu_nuoc" | "heo_kho";
 export type MoodType = "happy" | "neutral" | "stressed" | "tired";
-export type UserRole = "student" | "teacher";
+export type UserRole = "student" | "teacher" | "admin";
 
 export interface User {
   id: string;
   email: string;
   name: string;
   role: UserRole;
+  assigned_classes?: string[];
   created_at: string;
   student_id?: string | null;
 }
@@ -154,6 +155,7 @@ export interface StudentAlertItem {
   student_id: string;
   student_name: string;
   grade: string;
+  classroom?: string;
   target_subject: string;
   target_subjects?: string[];
   emotion_scale?: number;
@@ -242,4 +244,22 @@ export interface TeacherQuizStatsItem {
   total_attempts: number;
   correct_rate: number;
   wrong_count: number;
+}
+// --- Admin Management Types ---
+export interface TeacherItem {
+  id: string;
+  name: string;
+  email: string;
+  role: UserRole;
+  assigned_classes: string[];
+  created_at: string;
+}
+
+export interface AdminOverviewData {
+  total_teachers: number;
+  total_students: number;
+  total_classes: number;
+  classes_list: string[];
+  teachers: TeacherItem[];
+  students: StudentAlertItem[];
 }

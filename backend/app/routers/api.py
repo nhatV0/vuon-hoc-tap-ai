@@ -21,7 +21,9 @@ from app.schemas import (
     TeacherDashboardResponse, StudentAlertItem,
     BadgeResponse, StreakInventoryResponse, TimeCapsuleCreate, TimeCapsuleResponse,
     MilestoneReward, DailyQuizPackageResponse, QuizSubmissionCreate, QuizSubmissionResponse,
-    TeacherInjectQuizCreate, TeacherQuizStatsItem, QuizQuestionAdmin
+    TeacherInjectQuizCreate, TeacherQuizStatsItem, QuizQuestionAdmin,
+    TeacherCreateRequest, TeacherUpdateRequest, TeacherResponseItem,
+    StudentAssignClassRequest, AdminStudentCreateRequest, AdminOverviewStats
 )
 from app.services.quiz_service import (
     get_daily_quiz_package, submit_student_quiz,
@@ -39,10 +41,15 @@ router = APIRouter(prefix="/api", tags=["Sunflower API"])
 # --- 1. HỆ THỐNG XÁC THỰC (AUTH: REGISTER / LOGIN / CURRENT USER) ---
 @router.post("/auth/register", response_model=AuthTokenResponse, status_code=status.HTTP_201_CREATED)
 def register(data: UserRegister, db: Session = Depends(get_db)):
+    if data.role in [UserRole.TEACHER, UserRole.ADMIN] or str(data.role).lower() in ["teacher", "admin"]:
+        raise HTTPException(
+            status_code=403, 
+            detail="Tài khoản Giáo viên không thể tự đăng ký. Tài khoản Giáo viên và phân công lớp phải do Admin khởi tạo trực tiếp."
+        )
+
     existing = db.query(User).filter(User.email == data.email.strip().lower()).first()
     if existing:
         raise HTTPException(status_code=400, detail="Email này đã được sử dụng")
-
     user_id = f"usr_{uuid.uuid4().hex[:10]}"
     new_user = User(
         id=user_id,
@@ -1015,8 +1022,33 @@ def get_student_inventory(student_id: str, db: Session = Depends(get_db)):
 
 # --- 7. TEACHER DASHBOARD ---
 @router.get("/teacher/dashboard", response_model=TeacherDashboardResponse)
-def get_teacher_dashboard(db: Session = Depends(get_db)):
-    students = db.query(Student).all()
+def get_teacher_dashboard(
+    authorization: Optional[str] = Header(None),
+    classroom: Optional[str] = None,
+    db: Session = Depends(get_db)
+):
+    current_user: Optional[User] = None
+    if authorization and authorization.startswith("Bearer "):
+        token = authorization.split(" ")[1]
+        u_id = token.split(":")[0] if ":" in token else None
+        if u_id:
+            current_user = db.query(User).filter(User.id == u_id).first()
+
+    query = db.query(Student)
+
+    # Nếu người dùng là Giáo Viên (không phải Admin) -> Chỉ lọc các học sinh thuộc lớp được phân công
+    if current_user and current_user.role == UserRole.TEACHER:
+        assigned = current_user.assigned_classes or []
+        if "ALL" not in assigned and len(assigned) > 0:
+            query = query.filter(Student.classroom.in_(assigned))
+        elif len(assigned) == 0:
+            # Chưa được phân công lớp nào
+            query = query.filter(Student.id == "__NO_CLASS__")
+
+    if classroom and classroom != "ALL":
+        query = query.filter(Student.classroom == classroom)
+
+    students = query.all()
     today = date.today()
 
     alert_items: List[StudentAlertItem] = []
@@ -1062,6 +1094,7 @@ def get_teacher_dashboard(db: Session = Depends(get_db)):
             student_id=s.id,
             student_name=s.name,
             grade=s.grade,
+            classroom=s.classroom or "12A1",
             target_subject=s.target_subject,
             target_subjects=s.target_subjects or [s.target_subject],
             emotion_scale=s.emotion_scale or 4,
@@ -1133,3 +1166,245 @@ def get_quiz_analytics_for_teacher(db: Session = Depends(get_db)):
     Thống kê câu hỏi trắc nghiệm, tỉ lệ đúng/sai và phát hiện điểm nghẽn cho giáo viên.
     """
     return get_teacher_quiz_stats(db=db)
+
+# --- 9. ADMIN PANEL APIS (QUẢN TRỊ VIÊN: THÊM/XÓA GIÁO VIÊN & HỌC SINH, PHÂN LỚP) ---
+def require_admin_user(authorization: Optional[str] = Header(None), db: Session = Depends(get_db)) -> User:
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="Vui lòng đăng nhập quyền Quản trị viên (Admin)")
+    token = authorization.split(" ")[1]
+    user_id = token.split(":")[0] if ":" in token else None
+    user = db.query(User).filter(User.id == user_id).first()
+    if not user or user.role != UserRole.ADMIN:
+        raise HTTPException(status_code=403, detail="Chỉ có Quản Trị Viên (Admin) mới có quyền thực hiện thao tác này")
+    return user
+
+@router.get("/admin/overview", response_model=AdminOverviewStats)
+def get_admin_overview(
+    admin: User = Depends(require_admin_user),
+    db: Session = Depends(get_db)
+):
+    """Lấy tổng quan danh sách Giáo viên, Học sinh và Danh mục lớp học toàn trường."""
+    teachers = db.query(User).filter(User.role == UserRole.TEACHER).order_by(desc(User.created_at)).all()
+    students = db.query(Student).order_by(desc(Student.created_at)).all()
+
+    # Thu thập toàn bộ danh mục lớp
+    classes_set = set(["12A1", "12A2", "12A3", "11B1", "11B2", "10C1"])
+    for s in students:
+        if s.classroom:
+            classes_set.add(s.classroom)
+    for t in teachers:
+        for c in t.assigned_classes or []:
+            if c != "ALL":
+                classes_set.add(c)
+
+    teacher_items = [
+        TeacherResponseItem(
+            id=t.id,
+            name=t.name,
+            email=t.email,
+            role=t.role,
+            assigned_classes=t.assigned_classes or [],
+            created_at=t.created_at
+        )
+        for t in teachers
+    ]
+
+    student_items = [
+        StudentAlertItem(
+            student_id=s.id,
+            student_name=s.name,
+            grade=s.grade,
+            classroom=s.classroom or "12A1",
+            target_subject=s.target_subject,
+            target_subjects=s.target_subjects or [s.target_subject],
+            emotion_scale=s.emotion_scale or 4,
+            current_state=FlowerState.TICH_CUC,
+            consecutive_days=s.flower_status.consecutive_days if s.flower_status else 1,
+            days_since_last_checkin=0,
+            last_mood=None,
+            alert_reason="Đã phân lớp",
+            severity="low",
+            needs_attention=False
+        )
+        for s in students
+    ]
+
+    return AdminOverviewStats(
+        total_teachers=len(teachers),
+        total_students=len(students),
+        total_classes=len(classes_set),
+        classes_list=sorted(list(classes_set)),
+        teachers=teacher_items,
+        students=student_items
+    )
+
+@router.post("/admin/teachers", response_model=TeacherResponseItem, status_code=status.HTTP_201_CREATED)
+def create_teacher_account(
+    data: TeacherCreateRequest,
+    admin: User = Depends(require_admin_user),
+    db: Session = Depends(get_db)
+):
+    """Admin tạo mới tài khoản Giáo viên và phân công lớp ngay từ đầu."""
+    existing = db.query(User).filter(User.email == data.email.strip().lower()).first()
+    if existing:
+        raise HTTPException(status_code=400, detail="Tài khoản hoặc email giáo viên này đã tồn tại")
+
+    new_teacher = User(
+        id=f"usr_tch_{uuid.uuid4().hex[:8]}",
+        email=data.email.strip().lower(),
+        name=data.name.strip(),
+        password_hash=hash_password(data.password),
+        role=UserRole.TEACHER,
+        assigned_classes=data.assigned_classes or ["12A1"]
+    )
+    db.add(new_teacher)
+    db.commit()
+    db.refresh(new_teacher)
+
+    return TeacherResponseItem(
+        id=new_teacher.id,
+        name=new_teacher.name,
+        email=new_teacher.email,
+        role=new_teacher.role,
+        assigned_classes=new_teacher.assigned_classes or [],
+        created_at=new_teacher.created_at
+    )
+
+@router.patch("/admin/teachers/{teacher_id}", response_model=TeacherResponseItem)
+def update_teacher_assignment(
+    teacher_id: str,
+    data: TeacherUpdateRequest,
+    admin: User = Depends(require_admin_user),
+    db: Session = Depends(get_db)
+):
+    """Admin cập nhật thông tin hoặc phân bổ lại danh sách lớp cho Giáo viên."""
+    teacher = db.query(User).filter(User.id == teacher_id, User.role == UserRole.TEACHER).first()
+    if not teacher:
+        raise HTTPException(status_code=404, detail="Không tìm thấy giáo viên")
+
+    if data.name is not None:
+        teacher.name = data.name.strip()
+    if data.assigned_classes is not None:
+        teacher.assigned_classes = data.assigned_classes
+    if data.password:
+        teacher.password_hash = hash_password(data.password)
+
+    db.commit()
+    db.refresh(teacher)
+
+    return TeacherResponseItem(
+        id=teacher.id,
+        name=teacher.name,
+        email=teacher.email,
+        role=teacher.role,
+        assigned_classes=teacher.assigned_classes or [],
+        created_at=teacher.created_at
+    )
+
+@router.delete("/admin/teachers/{teacher_id}")
+def delete_teacher_account(
+    teacher_id: str,
+    admin: User = Depends(require_admin_user),
+    db: Session = Depends(get_db)
+):
+    """Admin xóa tài khoản Giáo viên."""
+    teacher = db.query(User).filter(User.id == teacher_id, User.role == UserRole.TEACHER).first()
+    if not teacher:
+        raise HTTPException(status_code=404, detail="Không tìm thấy giáo viên")
+
+    db.delete(teacher)
+    db.commit()
+    return {"success": True, "message": f"Đã xóa tài khoản giáo viên {teacher.name}"}
+
+@router.post("/admin/students", status_code=status.HTTP_201_CREATED)
+def admin_create_student(
+    data: AdminStudentCreateRequest,
+    admin: User = Depends(require_admin_user),
+    db: Session = Depends(get_db)
+):
+    """Admin trực tiếp thêm mới học sinh và phân bổ lớp."""
+    user_id = None
+    if data.email:
+        existing = db.query(User).filter(User.email == data.email.strip().lower()).first()
+        if existing:
+            raise HTTPException(status_code=400, detail="Email học sinh này đã tồn tại")
+        user = User(
+            id=f"usr_hs_{uuid.uuid4().hex[:8]}",
+            email=data.email.strip().lower(),
+            name=data.name.strip(),
+            password_hash=hash_password(data.password or "123456"),
+            role=UserRole.STUDENT
+        )
+        db.add(user)
+        db.commit()
+        db.refresh(user)
+        user_id = user.id
+
+    student_id = f"hs_{uuid.uuid4().hex[:8]}"
+    student = Student(
+        id=student_id,
+        user_id=user_id,
+        name=data.name.strip(),
+        grade=data.grade,
+        classroom=data.classroom.strip().upper(),
+        target_subject=data.target_subject,
+        target_subjects=data.target_subjects or [data.target_subject],
+        weakness=data.weakness,
+        long_term_goal=data.long_term_goal,
+        timeframe=data.timeframe,
+        emotion_scale=4
+    )
+    db.add(student)
+    
+    # Tạo trạng thái hoa mặc định
+    flower = FlowerStatus(
+        student_id=student.id,
+        current_state=FlowerState.TICH_CUC,
+        consecutive_days=1,
+        water_drops=3,
+        last_checkin_date=date.today(),
+        story_message="Cây hoa hướng dương của bạn đã được Admin gieo mầm trong lớp học!"
+    )
+    db.add(flower)
+    db.commit()
+
+    return {"success": True, "student_id": student.id, "classroom": student.classroom, "name": student.name}
+
+@router.patch("/admin/students/{student_id}/classroom")
+def admin_assign_student_classroom(
+    student_id: str,
+    data: StudentAssignClassRequest,
+    admin: User = Depends(require_admin_user),
+    db: Session = Depends(get_db)
+):
+    """Admin phân lại lớp học cho một học sinh."""
+    student = db.query(Student).filter(Student.id == student_id).first()
+    if not student:
+        raise HTTPException(status_code=404, detail="Không tìm thấy học sinh")
+
+    student.classroom = data.classroom.strip().upper()
+    db.commit()
+    db.refresh(student)
+
+    return {"success": True, "student_id": student.id, "new_classroom": student.classroom}
+
+@router.delete("/admin/students/{student_id}")
+def admin_delete_student(
+    student_id: str,
+    admin: User = Depends(require_admin_user),
+    db: Session = Depends(get_db)
+):
+    """Admin xóa học sinh khỏi hệ thống."""
+    student = db.query(Student).filter(Student.id == student_id).first()
+    if not student:
+        raise HTTPException(status_code=404, detail="Không tìm thấy học sinh")
+
+    # Xóa cả user liên kết nếu có
+    if student.user_id:
+        u = db.query(User).filter(User.id == student.user_id).first()
+        if u:
+            db.delete(u)
+
+    db.delete(student)
+    db.commit()
+    return {"success": True, "message": f"Đã xóa học sinh {student.name}"}

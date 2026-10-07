@@ -25,7 +25,9 @@ with engine.connect() as conn:
         "ALTER TABLE daily_checkins ADD COLUMN micro_wins JSON",
         "ALTER TABLE daily_checkins ADD COLUMN bottleneck_key VARCHAR DEFAULT 'none'",
         "ALTER TABLE daily_checkins ADD COLUMN weekday_answer TEXT",
-        "ALTER TABLE students ADD COLUMN target_block VARCHAR DEFAULT 'A00'"
+        "ALTER TABLE students ADD COLUMN target_block VARCHAR DEFAULT 'A00'",
+        "ALTER TABLE students ADD COLUMN classroom VARCHAR DEFAULT '12A1'",
+        "ALTER TABLE users ADD COLUMN assigned_classes JSON"
     ]:
         try:
             conn.execute(text(col_def))
@@ -38,18 +40,20 @@ with Session(engine) as init_db:
     admin_user = init_db.query(User).filter(User.email.in_(["admin", "admin@sunflower.edu.vn"])).first()
     if not admin_user:
         admin_user = User(
-            id="usr_admin_teacher",
+            id="usr_admin_master",
             email="admin",
-            name="Thầy Cô Quản Trị",
+            name="Quản Trị Viên (Admin)",
             password_hash=hash_password("123456"),
-            role=UserRole.TEACHER
+            role=UserRole.ADMIN,
+            assigned_classes=["ALL"]
         )
         init_db.add(admin_user)
         init_db.commit()
     else:
-        # Đảm bảo mật khẩu luôn là 123456 và role là TEACHER
+        # Cập nhật quyền ADMIN và mật khẩu 123456
         admin_user.password_hash = hash_password("123456")
-        admin_user.role = UserRole.TEACHER
+        admin_user.role = UserRole.ADMIN
+        admin_user.assigned_classes = ["ALL"]
         init_db.commit()
 
 app = FastAPI(

@@ -10,7 +10,7 @@ def utcnow():
 class UserRole(str, enum.Enum):
     STUDENT = "student"
     TEACHER = "teacher"
-
+    ADMIN = "admin"
 class FlowerState(str, enum.Enum):
     CHAM_HOC = "cham_hoc"       # Streak >= 7 ngày, nở rực rỡ hào quang
     TICH_CUC = "tich_cuc"       # Hoàn thành task cao & mood tích cực
@@ -41,6 +41,7 @@ class User(Base):
     password_hash = Column(String, nullable=False)
     name = Column(String, nullable=False)
     role = Column(SQLEnum(UserRole), default=UserRole.STUDENT, nullable=False)
+    assigned_classes = Column(JSON, default=list, nullable=True) # Danh sách lớp được phân công phụ trách: ["12A1", "12A2"]
     created_at = Column(DateTime, default=utcnow)
 
     # Quan hệ 1-1 với Student profile nếu role = student
@@ -53,6 +54,7 @@ class Student(Base):
     user_id = Column(String, ForeignKey("users.id"), nullable=True, unique=True)
     name = Column(String, nullable=False)
     grade = Column(String, nullable=False) # e.g. "10", "11", "12"
+    classroom = Column(String, default="12A1", nullable=True) # Lớp học cụ thể (do Admin phân): "12A1", "12A2", ...
     target_subject = Column(String, nullable=False) # Môn chính (giữ backward compatibility)
     target_subjects = Column(JSON, nullable=True) # Danh sách nhiều môn học được chọn: ["Toán học", "Hóa học", ...]
     emotion_scale = Column(Integer, default=4, nullable=True) # Thang điểm cảm xúc 7 mức: 1 (Rất ghét/Rất tệ) -> 7 (Rất thích/Rất tốt)
