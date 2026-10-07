@@ -15,7 +15,8 @@ import {
   Check,
   ChevronDown,
   RotateCcw,
-  Clock
+  Clock,
+  LogOut
 } from "lucide-react";
 import SunflowerVisual from "@/components/SunflowerVisual";
 import DailyCheckinModal from "@/components/DailyCheckinModal";
@@ -24,12 +25,13 @@ import TimeCapsuleVaultModal from "@/components/TimeCapsuleVaultModal";
 import DailyMicroQuizModal from "@/components/DailyMicroQuizModal";
 import { Student, GardenStatus, API_BASE, PlannedTask } from "@/lib/types";
 import { useAuth } from "@/lib/auth-context";
+import { useRouter } from "next/navigation";
 
 interface AnimatedTaskItem extends PlannedTask {
   animState?: "idle" | "striked" | "sliding" | "hidden";
 }
-
 export default function StudentGardenDashboard() {
+  const router = useRouter();
   const { user } = useAuth();
   const [student, setStudent] = useState<Student | null>(null);
   const [garden, setGarden] = useState<GardenStatus | null>(null);
@@ -56,26 +58,25 @@ export default function StudentGardenDashboard() {
 
   const fetchStudentData = useCallback(async () => {
     try {
-      const storedId = typeof window !== "undefined" ? localStorage.getItem("current_student_id") : null;
-      const url = `${API_BASE}/api/student/${storedId || "hs_demo123"}`;
-      let res = await fetch(url);
+      const storedStudentId = typeof window !== "undefined" 
+        ? (localStorage.getItem("sunflower_student_id") || localStorage.getItem("current_student_id"))
+        : null;
+
+      // Ưu tiên lấy student_id gắn liền với user đã đăng nhập
+      const effectiveId = user?.student_id || storedStudentId;
+      if (!effectiveId) {
+        // Chưa có hồ sơ học sinh -> chuyển hướng sang Onboarding
+        router.push("/onboarding");
+        return;
+      }
+      const res = await fetch(`${API_BASE}/api/student/${effectiveId}`);
       if (!res.ok) {
-        const listRes = await fetch(`${API_BASE}/api/teacher/dashboard`);
-        if (listRes.ok) {
-          const dashData = await listRes.json();
-          if (dashData.all_students && dashData.all_students.length > 0) {
-            const first = dashData.all_students[0];
-            if (typeof window !== "undefined") {
-              localStorage.setItem("current_student_id", first.student_id);
-            }
-            res = await fetch(`${API_BASE}/api/student/${first.student_id}`);
-          }
-        }
+        router.push("/onboarding");
+        return;
       }
 
-      if (res.ok) {
-        const studentData: Student = await res.json();
-        setStudent(studentData);
+      const studentData: Student = await res.json();
+      setStudent(studentData);
 
         const [gRes, planRes, capRes] = await Promise.all([
           fetch(`${API_BASE}/api/garden/${studentData.id}`),
@@ -139,14 +140,13 @@ export default function StudentGardenDashboard() {
             }))
           );
         }
-      }
     } catch (err) {
       console.error("Failed to fetch student data:", err);
     } finally {
       setLoading(false);
       setTasksLoading(false);
     }
-  }, []);
+  }, [user, router]);
 
   useEffect(() => {
     fetchStudentData();
@@ -274,10 +274,11 @@ export default function StudentGardenDashboard() {
           </div>
 
           {/* Phải: Nút Điểm Danh 3 Phút + Avatar Hồ Sơ */}
-          <div className="flex items-center gap-2.5">
+          {/* Phải: Nút Điểm Danh 3 Phút + Quiz + Avatar Hồ Sơ + Nút Đăng Xuất */}
+          <div className="flex items-center gap-2">
             <button
               onClick={() => setShowCheckinModal(true)}
-              className="px-3.5 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs flex items-center gap-1.5 transition-all shadow-xs active:scale-95"
+              className="px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs flex items-center gap-1.5 transition-all shadow-xs active:scale-95"
             >
               <Calendar className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Điểm danh</span> (3p)
@@ -296,15 +297,33 @@ export default function StudentGardenDashboard() {
             {/* Avatar Người Dùng Kích Hoạt Pop-up Hồ Sơ */}
             <button
               onClick={() => setShowProfileModal(true)}
-              className="flex items-center gap-2 p-1 pl-1.5 pr-2 rounded-full border border-stone-200 bg-white hover:border-amber-400 hover:bg-amber-50/40 transition-all shadow-xs group"
+              className="flex items-center gap-1.5 p-1 pl-1.5 pr-2 rounded-full border border-stone-200 bg-white hover:border-amber-400 hover:bg-amber-50/40 transition-all shadow-xs group"
               title="Mở Hồ Sơ & Bảng Phong Thần"
             >
               <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-amber-500 to-amber-400 text-white font-bold text-xs flex items-center justify-center shadow-xs">
                 {initialLetter}
               </div>
-              <span className="text-xs font-bold text-stone-700 group-hover:text-stone-900 hidden sm:inline max-w-[90px] truncate">
+              <span className="text-xs font-bold text-stone-700 group-hover:text-stone-900 hidden sm:inline max-w-[80px] truncate">
                 {student?.name?.split(" ").slice(-1)[0] || "Hồ sơ"}
               </span>
+            </button>
+
+            {/* Nút Đăng Xuất Trực Tiếp */}
+            <button
+              onClick={() => {
+                if (typeof window !== "undefined") {
+                  localStorage.removeItem("sunflower_auth_token");
+                  localStorage.removeItem("sunflower_student_id");
+                  localStorage.removeItem("current_student_id");
+                  sessionStorage.clear();
+                  window.location.href = "/auth";
+                }
+              }}
+              className="p-1.5 sm:px-2.5 sm:py-1.5 rounded-xl border border-stone-200 bg-white hover:bg-rose-50 hover:border-rose-200 text-stone-500 hover:text-rose-600 font-semibold text-xs transition-colors flex items-center gap-1"
+              title="Đăng xuất khỏi tài khoản"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Thoát</span>
             </button>
           </div>
         </div>

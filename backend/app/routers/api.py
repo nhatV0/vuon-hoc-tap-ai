@@ -70,10 +70,13 @@ def register(data: UserRegister, db: Session = Depends(get_db)):
 
 @router.post("/auth/login", response_model=AuthTokenResponse)
 def login(data: UserLogin, db: Session = Depends(get_db)):
-    user = db.query(User).filter(User.email == data.email.strip().lower()).first()
+    account_input = data.email.strip().lower()
+    if account_input in ["admin", "admin@sunflower.edu.vn"]:
+        user = db.query(User).filter(User.email.in_(["admin", "admin@sunflower.edu.vn"])).first()
+    else:
+        user = db.query(User).filter(User.email == account_input).first()
     if not user or not verify_password(data.password, user.password_hash):
-        raise HTTPException(status_code=401, detail="Email hoặc mật khẩu không chính xác")
-
+        raise HTTPException(status_code=401, detail="Tài khoản hoặc mật khẩu không chính xác")
     student_id = None
     if user.student_profile:
         student_id = user.student_profile.id

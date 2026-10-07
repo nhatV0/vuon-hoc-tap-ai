@@ -2,11 +2,15 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowLeft, AlertTriangle, Users, HeartPulse, RefreshCw, Sparkles, BarChart2, SendHorizontal } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { ArrowLeft, AlertTriangle, Users, HeartPulse, RefreshCw, Sparkles, BarChart2, SendHorizontal, LogOut } from "lucide-react";
 import { TeacherDashboardData, StudentAlertItem, TeacherQuizStatsItem, API_BASE } from "@/lib/types";
+import { useAuth } from "@/lib/auth-context";
 import MathText from "@/components/MathText";
 
 export default function TeacherDashboardPage() {
+  const router = useRouter();
+  const { user, logout, loading: authLoading } = useAuth();
   const [data, setData] = useState<TeacherDashboardData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [filterMode, setFilterMode] = useState<"all" | "alert">("alert");
@@ -61,9 +65,15 @@ export default function TeacherDashboardPage() {
   };
 
   useEffect(() => {
-    fetchDashboardData();
-    fetchQuizStats();
-  }, []);
+    if (!authLoading) {
+      if (!user || user.role !== "teacher") {
+        router.push("/auth");
+        return;
+      }
+      fetchDashboardData();
+      fetchQuizStats();
+    }
+  }, [authLoading, user, router]);
 
   const handleInjectQuizSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -150,14 +160,25 @@ export default function TeacherDashboardPage() {
             <span className="font-bold text-sm text-stone-800">Bảng Giám Sát Tâm Lý & Tiến Độ Học Đường</span>
           </div>
 
-          <button
-            onClick={fetchDashboardData}
-            className="p-2 rounded-lg border border-cream-200 bg-white hover:bg-cream-50 text-stone-600 text-xs flex items-center gap-1.5 transition-colors"
-            title="Làm mới dữ liệu"
-          >
-            <RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin" : ""}`} />
-            Làm Mới
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={fetchDashboardData}
+              className="p-2 rounded-lg border border-cream-200 bg-white hover:bg-cream-50 text-stone-600 text-xs flex items-center gap-1.5 transition-colors"
+              title="Làm mới dữ liệu"
+            >
+              <RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin" : ""}`} />
+              Làm Mới
+            </button>
+
+            <button
+              onClick={logout}
+              className="px-3 py-1.5 rounded-lg border border-rose-200 bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-semibold flex items-center gap-1.5 transition-colors"
+              title="Đăng xuất tài khoản Giáo viên"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              Đăng Xuất
+            </button>
+          </div>
         </div>
 
         <div className="max-w-6xl mx-auto px-4 flex items-center gap-2 border-t border-cream-100">

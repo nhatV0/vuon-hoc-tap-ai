@@ -73,25 +73,6 @@ export default function LandingHomePage() {
           </div>
 
           <nav className="flex items-center gap-3">
-            <Link
-              href="/garden"
-              className="text-xs font-medium text-stone-600 hover:text-stone-900 transition-colors hidden sm:block"
-            >
-              Vào Khu Vườn
-            </Link>
-            <Link
-              href="/planning"
-              className="text-xs font-medium text-stone-600 hover:text-stone-900 transition-colors hidden sm:block"
-            >
-              Kế Hoạch 7 Ngày
-            </Link>
-            <Link
-              href="/teacher"
-              className="text-xs font-medium text-stone-600 hover:text-stone-900 transition-colors hidden sm:block"
-            >
-              Giáo Viên
-            </Link>
-
             {user ? (
               <Link
                 href="/garden"
@@ -158,10 +139,10 @@ export default function LandingHomePage() {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="/garden"
+                href="/auth"
                 className="px-5 py-3 rounded-xl border border-stone-200 bg-white hover:bg-stone-50 text-stone-700 text-xs font-semibold transition-colors"
               >
-                Trải Nghiệm Khu Vườn Ngay
+                Đăng Nhập Tài Khoản
               </Link>
             </div>
 
@@ -412,10 +393,10 @@ export default function LandingHomePage() {
             </ul>
             <div className="pt-2">
               <Link
-                href="/teacher"
+                href="/auth"
                 className="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1"
               >
-                Mở bảng giám sát giáo viên
+                Đăng nhập dành cho Giáo viên (TK: admin)
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -446,10 +427,10 @@ export default function LandingHomePage() {
               Bắt Đầu Khảo Sát Miễn Phí
             </Link>
             <Link
-              href="/garden"
+              href="/auth"
               className="px-5 py-3 rounded-xl bg-stone-800 hover:bg-stone-700 text-stone-200 font-semibold text-xs transition-colors"
             >
-              Vào Thẳng Khu Vườn
+              Đăng Nhập Tài Khoản
             </Link>
           </div>
         </div>

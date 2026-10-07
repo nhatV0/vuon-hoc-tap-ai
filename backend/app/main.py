@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
 from app.config import settings
 from app.database import engine, Base
+from app.models import User, UserRole
+from app.auth import hash_password
 from app.routers import api
 
 # Khởi tạo các bảng database SQLite
@@ -30,6 +32,25 @@ with engine.connect() as conn:
             conn.commit()
         except Exception:
             pass
+# Khởi tạo mặc định tài khoản Giáo Viên Quản Trị (TK: admin, MK: 123456)
+from sqlalchemy.orm import Session
+with Session(engine) as init_db:
+    admin_user = init_db.query(User).filter(User.email.in_(["admin", "admin@sunflower.edu.vn"])).first()
+    if not admin_user:
+        admin_user = User(
+            id="usr_admin_teacher",
+            email="admin",
+            name="Thầy Cô Quản Trị",
+            password_hash=hash_password("123456"),
+            role=UserRole.TEACHER
+        )
+        init_db.add(admin_user)
+        init_db.commit()
+    else:
+        # Đảm bảo mật khẩu luôn là 123456 và role là TEACHER
+        admin_user.password_hash = hash_password("123456")
+        admin_user.role = UserRole.TEACHER
+        init_db.commit()
 
 app = FastAPI(
     title=settings.PROJECT_NAME,

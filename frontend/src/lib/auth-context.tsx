@@ -64,8 +64,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const logout = () => {
     setToken(null);
     setUser(null);
-    localStorage.removeItem("sunflower_auth_token");
-    localStorage.removeItem("sunflower_student_id");
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("sunflower_auth_token");
+      localStorage.removeItem("sunflower_student_id");
+      localStorage.removeItem("current_student_id");
+      sessionStorage.clear();
+      // Chuyển hướng người dùng về trang đăng nhập
+      window.location.href = "/auth";
+    }
   };
 
   return (
