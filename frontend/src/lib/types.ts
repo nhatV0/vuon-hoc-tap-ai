@@ -100,6 +100,38 @@ export interface Student {
   flower_state?: FlowerState;
 }
 
+export interface BadgeItem {
+  id: string;
+  category: string;
+  title: string;
+  description: string;
+  icon: string;
+  required_streak: number;
+  unlocked: boolean;
+  unlocked_at?: string | null;
+}
+
+export interface TimeCapsuleItem {
+  id: string;
+  student_id: string;
+  author_type: string;
+  title: string;
+  letter_content: string;
+  target_unlock_day: number;
+  unlock_at_date?: string | null;
+  status: "sealed" | "unlocked" | "read";
+  created_at: string;
+  unlocked_at?: string | null;
+}
+
+export interface MilestoneRewardItem {
+  day: number;
+  title: string;
+  reward_text: string;
+  quote: string;
+  is_reached: boolean;
+}
+
 export interface GardenStatus {
   student_id: string;
   student_name: string;
@@ -110,6 +142,12 @@ export interface GardenStatus {
   story_message: string;
   recent_moods: string[];
   completion_trend: number[];
+  shields_available?: number;
+  grace_passes_available?: number;
+  unlocked_badges_count?: number;
+  badges?: BadgeItem[];
+  active_capsule?: TimeCapsuleItem | null;
+  journey_milestones?: MilestoneRewardItem[];
 }
 
 export interface StudentAlertItem {
@@ -135,4 +173,73 @@ export interface TeacherDashboardData {
   healthy_students_count: number;
   students_needing_attention: StudentAlertItem[];
   all_students: StudentAlertItem[];
+}
+
+// --- Daily Micro-Quiz Types (plan-Quest.txt) ---
+export interface QuizQuestionItem {
+  id: string;
+  block: string;
+  subject: string;
+  slot_type: "REFLEX_1" | "TRAP_2" | "DYNAMIC_3" | "BOSS_30D" | "TEACHER_INJECTED" | string;
+  source: string;
+  bloom_level: string;
+  lock_condition: "MOTUDO" | "YEUCAUSTREAK30NGAY" | string;
+  time_limit_seconds: number;
+  question_text: string;
+  options: Record<string, string>;
+  growth_mindset_tip?: string | null;
+}
+
+export interface DailyQuizPackage {
+  student_id: string;
+  block: string;
+  streak_days: number;
+  is_boss_unlocked: boolean;
+  has_attempted_today: boolean;
+  questions: QuizQuestionItem[];
+  last_attempt?: {
+    correct_answers: number;
+    total_questions: number;
+    is_boss_unlocked: boolean;
+    details?: Array<{
+      question_id: string;
+      subject: string;
+      slot_type: string;
+      selected_answer: string;
+      correct_answer: string;
+      is_correct: boolean;
+    }>;
+  } | null;
+}
+
+export interface QuizAnswerResult {
+  question_id: string;
+  selected_answer: string;
+  correct_answer: string;
+  is_correct: boolean;
+  micro_explanation: string;
+  growth_mindset_tip?: string | null;
+}
+
+export interface QuizSubmissionResponse {
+  total_questions: number;
+  correct_answers: number;
+  score_percentage: number;
+  streak_days: number;
+  water_drop_earned: number;
+  results: QuizAnswerResult[];
+  ai_mentor_encouragement: string;
+  is_boss_conquered: boolean;
+  routed_to_teacher: boolean;
+}
+
+export interface TeacherQuizStatsItem {
+  question_id: string;
+  block: string;
+  subject: string;
+  question_text: string;
+  source: string;
+  total_attempts: number;
+  correct_rate: number;
+  wrong_count: number;
 }

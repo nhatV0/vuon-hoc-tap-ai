@@ -1,0 +1,356 @@
+Dưới đây là Bản Đặc Tả Kiến Trúc Hệ Thống Nhiệm Vụ Trắc Nghiệm Động (Dynamic Micro-Quiz Engine) được thiết kế chuyên biệt để:
+1. 100% Trắc nghiệm nhanh (3–5 phút): Giảm tối đa ma sát thao tác.
+2. Cơ chế "Slot trống chờ nạp" (Dynamic Injector Slots): Sẵn sàng tiếp nhận đề thi Tốt nghiệp THPT mới nhất của Bộ GD&ĐT hoặc đề khảo sát chất lượng từ giáo viên mà không cần sửa đổi cấu trúc hệ thống.
+3. Cơ chế "Ổ khóa 30 ngày" (The 30-Day Streak Gatekeeper): Khóa kho câu hỏi phân hóa cao và chỉ mở khi học sinh chứng minh được bản lĩnh kỷ luật liên tục 30 ngày.
+4. Phân hóa cá nhân hóa sâu theo từng Tổ hợp xét tuyển (Khối thi A00, A01, B00, C00, D01...).
+
+---
+
+ I. NGUYÊN TẮC VẬN HÀNH "BỘ 3 CÂU TRẮC NGHIỆM MỖI NGÀY" (DAILY 3-ITEM QUIZ)
+
+Mỗi ngày, hệ thống chỉ kích hoạt đúng 1 phiên trắc nghiệm vi mô gồm 3 câu hỏi tương ứng với 3 môn trong khối thi của học sinh (thời gian làm bài: 3–5 phút):
+
+
+┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ CÂU 1: PHẢN XẠ NHẬN BIẾT (Quick Reflex - 45s)                                                   │
+│ • Định dạng: Trắc nghiệm 4 lựa chọn (A, B, C, D).                                               │
+│ • Mục tiêu: Kiểm tra công thức, định nghĩa, từ vựng nền tảng cốt lõi của Môn 1.                │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ CÂU 2: THÔNG HIỂU & BẪY KHÁI NIỆM (Conceptual Trap - 60s)                                      │
+│ • Định dạng: Trắc nghiệm Đúng/Sai hoặc 4 lựa chọn chứa phương án nhiễu kinh điển của Môn 2.     │
+│ • Mục tiêu: Rèn luyện sự cẩn trọng, triệt tiêu lỗi sai vặt.                                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ CÂU 3: SLOT ĐỘNG THAY THẾ (DYNAMIC SLOT) (90s - 120s)                                           │
+│ • Trạng thái Ngày 1 - 29: Trắc nghiệm Vận dụng vừa của Môn 3.                                 │
+│ • Trạng thái Đạt Streak 30 Ngày: Mở khóa "CÂU HỎI THI THẬT PHÂN HÓA" (Boss Item).             │
+│ • Trạng thái Mùa thi / Đề mới: Giáo viên nạp thẳng câu trích từ Đề thi tốt nghiệp mới nhất.   │
+└─────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+---
+
+ II. CƠ CHẾ "SLOT TRỐNG CHỜ NẠP" (DYNAMIC INJECTOR SYSTEM)
+
+Để hệ thống luôn cập nhật mà không phải viết lại mã nguồn, mỗi bộ câu hỏi đều có sẵn các Template Slot Trống. Ban chuyên môn hoặc giáo viên quản trị (Admin/Teacher) chỉ cần điền dữ liệu theo cấu trúc chuẩn sau:
+
+yaml
+ CẤU TRÚC ĐẶC TẢ 1 SLOT TRỐNG ĐỘNG (INJECTABLE TASK SCHEMA)
+SlotID: "DYN-2026-TOAN-01"
+ThuocKhoi: "A00", "A01", "B00", "D01"
+MonHoc: "Toán học"
+NguonDuLieu: "Đề Tốt nghiệp THPT Chính thức Năm 2026 - Mã đề 101 - Câu 38"
+MucDoBloom: "Vận dụng (Mức 8+)"
+TrangThaiKhoa: "YEUCAUSTREAK30NGAY"  Hoặc "MOTUDO"
+
+NoiDungCauHoi: |
+  Nội dung câu hỏi đề thi mới được cập nhật vào đây
+CacPhuongAn:
+  A: "Phương án A"
+  B: "Phương án B"
+  C: "Phương án C"
+  D: "Phương án D"
+DapAnDung: "B"
+GiaiThichViMoAI: |
+  Bản giải thích bản chất dưới 3 dòng, chỉ rõ bẫy và cách tư duy nhanh
+LoiKhuyenGrowthMindset: |
+  Lời động viên khi học sinh làm đúng hoặc sai câu này
+
+
+---
+
+ III. CƠ CHẾ GATING: KHO ĐẶC QUYỀN CHUỖI 30 NGÀY (THE 30-DAY STREAK VAULT)
+
+30 ngày là mốc chuyển giao tâm lý quan trọng nhất: Học sinh đã thoát khỏi vùng quán tính lười biếng và hình thành bản sắc tự học vững chắc. Hệ thống thiết lập cơ chế phân tầng ranh giới:
+
+
+ NGÀY 1 ➔ 29: VÙNG RÈN LUYỆN NỀN TẢNG 
+  • Câu hỏi tập trung vào mức 5.0 - 7.5.
+  • Slot thứ 3 là câu hỏi củng cố dạng bài.
+  • Khóa hoàn toàn: Kho câu hỏi thi thật phân hóa và bảng vàng xếp hạng Tinh Anh.
+                  │
+                  ▼ (Chạm mốc Streak 30 Ngày)
+ TỪ NGÀY 30 TRỞ ĐI: MỞ KHÓA KHO TINH ANH (THE 30-DAY VAULT) 
+  🔓 MỞ KHÓA: "Thử Thách Đánh Boss Mỗi Tối" (Câu hỏi phân hóa 8.5+ trích từ Đề thi thật các năm).
+  🔓 MỞ KHÓA: Slot trống "Đề thi mới nhất vừa xuất bản" của Bộ Giáo dục & Đào tạo.
+  🔓 MỞ KHÓA: Danh hiệu "Chiến Binh 30 Ngày" + Tặng 02 Khiên Hộ Mệnh dự phòng.
+  🔓 ĐẶC QUYỀN: Câu hỏi làm sai ở Slot 30 ngày sẽ được chuyển thẳng về Dashboard của Giáo viên để nhận giải thích chi tiết 1-1.
+
+
+---
+
+ IV. NGÂN HÀNG NHIỆM VỤ TRẮC NGHIỆM ĐỘNG PHÂN THEO TỪNG KHỐI THI
+
+Dưới đây là cấu trúc chi tiết các bộ nhiệm vụ trắc nghiệm đại diện cho từng khối thi, bao gồm câu hỏi thực tế mẫu, slot trống chờ đề mới và slot đặc quyền mở sau 30 ngày.
+
+---
+
+ 1. KHỐI A00: TOÁN – VẬT LÍ – HÓA HỌC
+
+ Phiên Trắc Nghiệm Mẫu Hằng Ngày (Chuỗi Ngày 1 – 29)
+   Câu 1 (Toán - Nhận biết/Công thức - 45s):  
+    Đạo hàm của hàm số $y = 3^x$ trên tập số thực $\mathbb{R}$ là:  
+       A. $y' = x \cdot 3^{x-1}$  
+       B. $y' = 3^x \cdot \ln 3$  
+       C. $y' = \frac{3^x}{\ln 3}$  
+       D. $y' = 3^x$  
+       Đáp án đúng: B. (Bẫy: Nhầm sang công thức lũy thừa hàm đa thức).
+
+   Câu 2 (Vật lí - Thông hiểu/Đơn vị & Hiện tượng - 60s):  
+    Trong hệ SI, đơn vị của nhiệt dung riêng là:  
+       A. $J/kg$  
+       B. $J/(kg \cdot K)$  
+       C. $cal/g$  
+       D. $W/(m \cdot K)$  
+       Đáp án đúng: B. (Giải thích: Xuất phát từ công thức $Q = mc\Delta T \Rightarrow c = \frac{Q}{m\Delta T}$).
+
+   Câu 3 (Hóa học - Slot Tiêu chuẩn: Danh pháp & Nhóm chức - 60s):  
+    Hợp chất hữu cơ nào sau đây có phản ứng tráng bạc với thuốc thử Tollens ($AgNO3/NH3$)?  
+       A. Ethyl acetate  
+       B. Methyl formate  
+       C. Ethanol  
+       D. Sucrose  
+       Đáp án đúng: B. (Giải thích: Methyl formate $HCOOCH3$ có nhóm chức aldehyde $-CHO$ ở đầu gốc formate nên có tính khử).
+
+---
+
+ Các Slot Dự Phòng Khối A00
+
+   SLOT TRỐNG ĐỘNG - CHỜ NẠP ĐỀ THI TỐT NGHIỆP MỚI KHỐI A00:
+    
+    Mã Slot: A00-DYN-BLANK
+    Môn: Toán / Lí / Hóa
+    Trạng thái: Đang chờ quản trị viên nạp đề thi tốt nghiệp mới công bố.
+    Câu hỏi mẫu dự kiến nạp: Câu hỏi mức độ Thông hiểu hoặc Vận dụng từ đề chính thức.
+    
+
+   SLOT ĐẶC QUYỀN KHÓA - MỞ SAU CHUỖI 30 NGÀY KHỐI A00:  
+    (Chỉ học sinh có Streak $\ge 30$ ngày mới nhìn thấy câu này)  
+       Thử thách Tinh anh (Toán Vận dụng cao - Đề thi thật):  
+        Cho hàm số $f(x)$ liên tục trên $\mathbb{R}$. Biết $F(x)$ là một nguyên hàm của $f(x)$ thỏa mãn $F(2) - F(0) = 4$. Tích phân $I = \int0^1 f(2x) \, dx$ có giá trị bằng:  
+           A. $2$  
+           B. $8$  
+           C. $4$  
+           D. $1$  
+           Đáp án đúng: A. (Giải thích: Đổi biến $t = 2x \Rightarrow dt = 2dx \Rightarrow I = \frac{1}{2}\int0^2 f(t)dt = \frac{F(2)-F(0)}{2} = \frac{4}{2} = 2$).
+
+---
+
+ 2. KHỐI D01: TOÁN – NGỮ VĂN – TIẾNG ANH
+
+ Phiên Trắc Nghiệm Mẫu Hằng Ngày (Chuỗi Ngày 1 – 29)
+   Câu 1 (Tiếng Anh - 10 Từ vựng / Collocations Phản xạ - 45s):  
+    Choose the word that best fits the blank: "Students are advised to  the entry requirements before applying to university."  
+       A. make  
+       B. meet  
+       C. do  
+       D. hold  
+       Đáp án đúng: B. (Collocation: "meet the requirements" = đáp ứng các yêu cầu).
+
+   Câu 2 (Toán - Bẫy Khái niệm Cực trị / Đồ thị - 60s):  
+    Cho hàm số $y = f(x)$ có bảng biến thiên. Khẳng định nào sau đây là đúng?  
+       A. Giá trị cực đại của hàm số là hoành độ điểm cực đại.  
+       B. Hàm số đạt cực tiểu tại điểm làm cho đạo hàm đổi dấu từ âm sang dương.  
+       C. Điểm cực trị của đồ thị hàm số chỉ có hoành độ, không có tung độ.  
+       D. Hàm số luôn có giá trị lớn nhất tại điểm cực đại.  
+       Đáp án đúng: B.
+
+   Câu 3 (Ngữ văn - Trắc nghiệm Đọc hiểu Ngữ liệu Lạ - 75s):  
+    Đọc câu văn sau: "Thời gian như một dòng nước vô tình cuốn trôi mọi dấu vết phù hoa, chỉ giữ lại những gì được xây đắp bằng sự chân thành."  
+    Biện pháp tu từ nổi bật nhất được sử dụng trong câu trên là gì?  
+       A. Ẩn dụ chuyển đổi cảm giác  
+       B. So sánh  
+       C. Điệp thanh  
+       D. Đảo ngữ  
+       Đáp án đúng: B. (Từ so sánh: "như").
+
+---
+
+ Các Slot Dự Phòng Khối D01
+
+   SLOT TRỐNG ĐỘNG - CHỜ NẠP ĐỀ THI TỐT NGHIỆP MỚI KHỐI D01:
+    
+    Mã Slot: D01-DYN-BLANK
+    Môn: Tiếng Anh / Ngữ văn
+    Nội dung: Trích dẫn 1 câu hỏi sắp xếp đoạn văn hoặc câu hỏi từ đồng nghĩa trong đề thi tốt nghiệp mới nhất.
+    
+
+   SLOT ĐẶC QUYỀN KHÓA - MỞ SAU CHUỖI 30 NGÀY KHỐI D01:  
+       Thử thách Tinh anh (Tiếng Anh - Thành ngữ Idioms / C2 Phân hóa):  
+        Choose the best option: "I've been  the midnight oil all week trying to finish my final research project."  
+           A. wasting  
+           B. burning  
+           C. lighting  
+           D. spending  
+           Đáp án đúng: B. (Idiom: "burn the midnight oil" = thức khuya làm việc/học tập).
+
+---
+
+ 3. KHỐI B00: TOÁN – HÓA HỌC – SINH HỌC
+
+ Phiên Trắc Nghiệm Mẫu Hằng Ngày (Chuỗi Ngày 1 – 29)
+   Câu 1 (Sinh học - Cơ chế Phân tử / Khóa Chiều Mạch - 45s):  
+    Trong quá trình phiên mã ở sinh vật nhân thực, enzyme RNA polymerase di chuyển trên mạch khuôn của gen theo chiều nào?  
+       A. Chiều $5' \rightarrow 3'$  
+       B. Chiều $3' \rightarrow 5'$  
+       C. Cả hai chiều tùy thuộc vào promoter  
+       D. Từ giữa gen ra hai đầu  
+       Đáp án đúng: B. (Bẫy kinh điển: Mạch khuôn có chiều $3' \rightarrow 5'$, mạch mRNA tạo ra mới có chiều $5' \rightarrow 3'$).
+
+   Câu 2 (Hóa học - Nhiệt Động Học / Quy Ước Dấu - 60s):  
+    Cho phản ứng: $N2(g) + 3H2(g) \rightleftharpoons 2NH3(g)$ có $\Deltar H^\circ{298} = -92 \, kJ$. Nhận định nào sau đây là đúng?  
+       A. Phản ứng trên là phản ứng thu nhiệt.  
+       B. Khi tăng nhiệt độ, cân bằng chuyển dịch theo chiều thuận.  
+       C. Đây là phản ứng tỏa nhiệt; nhiệt lượng tỏa ra khi tạo thành $2 \, mol \, NH3$ là $92 \, kJ$.  
+       D. Năng lượng của chất tham gia thấp hơn năng lượng của sản phẩm.  
+       Đáp án đúng: C. (Quy tắc: $\Deltar H^\circ{298} < 0$ là phản ứng tỏa nhiệt).
+
+   Câu 3 (Toán học - Tọa độ $Oxyz$ Không gian - 75s):  
+    Trong không gian $Oxyz$, mặt cầu $(S): (x-1)^2 + (y+2)^2 + z^2 = 9$ có tọa độ tâm $I$ và bán kính $R$ là:  
+       A. $I(1; -2; 0), R = 3$  
+       B. $I(-1; 2; 0), R = 9$  
+       C. $I(1; -2; 0), R = 9$  
+       D. $I(-1; 2; 0), R = 3$  
+       Đáp án đúng: A.
+
+---
+
+ Các Slot Dự Phòng Khối B00
+
+   SLOT TRỐNG ĐỘNG - CHỜ NẠP ĐỀ THI TỐT NGHIỆP MỚI KHỐI B00:
+    
+    Mã Slot: B00-DYN-BLANK
+    Môn: Sinh học
+    Nội dung: Nạp câu hỏi phân tích phả hệ di truyền y học hoặc bài toán đột biến Operon Lac trích từ đề mới nhất.
+    
+
+   SLOT ĐẶC QUYỀN KHÓA - MỞ SAU CHUỖI 30 NGÀY KHỐI B00:  
+       Thử thách Tinh anh (Sinh học - Di truyền Quần thể Phân hóa):  
+        Một quần thể thực vật giao phấn ngẫu nhiên đang ở trạng thái cân bằng di truyền có tần số alen $A = 0.6$ và $a = 0.4$. Trong số các cá thể mang kiểu hình trội ở thế hệ này, tỉ lệ cá thể có kiểu gen dị hợp tử ($Aa$) xấp xỉ bằng:  
+           A. $48\%$  
+           B. $57.1\%$  
+           C. $36\%$  
+           D. $24\%$  
+           Đáp án đúng: B. (Giải thích: Quần thể có $0.36 AA : 0.48 Aa : 0.16 aa$. Cá thể mang kiểu hình trội gồm $0.36 AA + 0.48 Aa = 0.84$. Tỉ lệ dị hợp trong nhóm trội là $\frac{0.48}{0.84} \approx 57.14\%$. Bẫy thường gặp: Học sinh lấy $48\%$ mà quên chia cho mẫu số điều kiện $0.84$).
+
+---
+
+ 4. KHỐI C00: NGỮ VĂN – LỊCH SỬ – ĐỊA LÍ
+
+ Phiên Trắc Nghiệm Mẫu Hằng Ngày (Chuỗi Ngày 1 – 29)
+   Câu 1 (Lịch sử - Trục Thời Gian Bước Ngoặt - 45s):  
+    Chiến thắng quân sự nào của quân và dân ta đã làm phá sản hoàn toàn Kế hoạch Nava của thực dân Pháp, buộc Pháp phải ký Hiệp định Giơnevơ năm 1954?  
+       A. Chiến dịch Việt Bắc thu - đông 1947  
+       B. Chiến dịch Biên giới thu - đông 1950  
+       C. Chiến thắng Điện Biên Phủ 1954  
+       D. Chiến dịch Thượng Lào 1953  
+       Đáp án đúng: C.
+
+   Câu 2 (Địa lí - Công Thức Bỏ Túi & Đơn Vị - 60s):  
+    Năm 2024, một tỉnh có số dân là $1.800.000$ người và diện tích tự nhiên là $3.600 \, km^2$. Mật độ dân số của tỉnh đó là:  
+       A. $500 \, người/km^2$  
+       B. $200 \, người/km^2$  
+       C. $0.5 \, người/km^2$  
+       D. $2.000 \, người/km^2$  
+       Đáp án đúng: A. (Công thức: $\frac{1.800.000}{3.600} = 500$).
+
+   Câu 3 (Ngữ văn - Phương Thức Biểu Đạt - 45s):  
+    Đoạn văn trích dẫn từ văn bản thuyết minh về một di tích lịch sử cung cấp số liệu về năm xây dựng, kích thước tường thành và chất liệu xây dựng chủ yếu sử dụng phương thức biểu đạt nào?  
+       A. Tự sự  
+       B. Biểu cảm  
+       C. Thuyết minh  
+       D. Nghị luận  
+       Đáp án đúng: C.
+
+---
+
+ Các Slot Dự Phòng Khối C00
+
+   SLOT TRỐNG ĐỘNG - CHỜ NẠP ĐỀ THI TỐT NGHIỆP MỚI KHỐI C00:
+    
+    Mã Slot: C00-DYN-BLANK
+    Môn: Lịch sử / Địa lí
+    Nội dung: Nạp đoạn trích văn kiện sử liệu hoặc bảng số liệu chuyển dịch cơ cấu kinh tế trích từ đề mới công bố.
+    
+
+   SLOT ĐẶC QUYỀN KHÓA - MỞ SAU CHUỖI 30 NGÀY KHỐI C00:  
+       Thử thách Tinh anh (Lịch sử - Bản Chất So Sánh Phân Hóa):  
+        Điểm khác biệt cốt lõi về lực lượng tham chiến chủ yếu giữa chiến lược "Chiến tranh đặc biệt" (1961–1965) và "Chiến tranh cục bộ" (1965–1968) của Mỹ ở miền Nam Việt Nam là:  
+           A. Chiến tranh đặc biệt dùng quân viễn chinh Mỹ; Chiến tranh cục bộ dùng quân đội Sài Gòn.  
+           B. Chiến tranh đặc biệt dùng quân đội Sài Gòn làm nòng cốt; Chiến tranh cục bộ dùng quân viễn chinh Mỹ và đồng minh trực tiếp tham chiến giữ vai trò nòng cốt.  
+           C. Cả hai chiến lược đều chỉ dùng không quân và hải quân đánh phá miền Bắc.  
+           D. Chiến tranh cục bộ có sự tham gia của quân đội Liên Hợp Quốc.  
+           Đáp án đúng: B.
+
+---
+
+ 5. KHỐI A01: TOÁN – VẬT LÍ – TIẾNG ANH
+
+ Phiên Trắc Nghiệm Mẫu Hằng Ngày (Chuỗi Ngày 1 – 29)
+   Câu 1 (Vật lí - Thang Đo Nhiệt Độ & Khí Lí Tưởng - 45s):  
+    Nhiệt độ $27^\circ C$ tương ứng với bao nhiêu Kelvin ($K$)?  
+       A. $300 \, K$  
+       B. $246 \, K$  
+       C. $327 \, K$  
+       D. $273 \, K$  
+       Đáp án đúng: A. (Công thức: $T(K) = t(^\circ C) + 273 = 27 + 273 = 300 \, K$).
+
+   Câu 2 (Tiếng Anh - Trọng Âm Phản Xạ Nhanh - 45s):  
+    Which word has a different stress pattern from the others?  
+       A. attract  
+       B. decide  
+       C. offer  
+       D. prevent  
+       Đáp án đúng: C. (Quy tắc: "offer" nhấn âm 1; các từ còn lại là động từ 2 âm tiết nhấn âm 2).
+
+   Câu 3 (Toán học - Nhận Diện Bảng Biến Thiên Khảo Sát - 60s):  
+    Cho bảng xét dấu của $f'(x)$ đổi dấu từ âm sang dương khi qua $x = 1$, và đổi dấu từ dương sang âm khi qua $x = 3$. Điểm cực đại của hàm số $f(x)$ là:  
+       A. $x = 1$  
+       B. $x = 3$  
+       C. $y = 3$  
+       D. $x = 0$  
+       Đáp án đúng: B.
+
+---
+
+ Các Slot Dự Phòng Khối A01
+
+   SLOT TRỐNG ĐỘNG - CHỜ NẠP ĐỀ THI TỐT NGHIỆP MỚI KHỐI A01:
+    
+    Mã Slot: A01-DYN-BLANK
+    Môn: Vật lí / Tiếng Anh
+    Nội dung: Nạp câu hỏi thí nghiệm nhiệt học hoặc câu hỏi đọc hiểu thông báo tuyển dụng trong đề thi mới.
+    
+
+   SLOT ĐẶC QUYỀN KHÓA - MỞ SAU CHUỖI 30 NGÀY KHỐI A01:  
+       Thử thách Tinh anh (Vật lí - Năng Lượng Hạt Nhân Thực Tế):  
+        Một nhà máy điện hạt nhân sử dụng nhiên liệu phân hạch $^{235}U$. Biết mỗi phân hạch tỏa ra năng lượng $200 \, MeV$. Nếu nhà máy sản xuất công suất điện $1.000 \, MW$ với hiệu suất chuyển hóa nhiệt – điện $25\%$, thì công suất nhiệt toàn phần lò phản ứng phải cung cấp là:  
+           A. $250 \, MW$  
+           B. $4.000 \, MW$  
+           C. $1.250 \, MW$  
+           D. $2.500 \, MW$  
+           Đáp án đúng: B. (Công thức: $P{nhiệt} = \frac{P{điện}}{H} = \frac{1000}{0.25} = 4000 \, MW$).
+
+---
+
+ V. QUY TRÌNH QUẢN TRỊ & NẠP ĐỀ THI MỚI (TEACHER/ADMIN WORKFLOW)
+
+Hệ thống cung cấp một luồng chuẩn hóa để giáo viên có thể nạp các câu hỏi thi tốt nghiệp mới xuất bản vào các Slot trống trong vòng chưa đầy 60 giây:
+
+
+ BỘ GIÁO DỤC CÔNG BỐ ĐỀ THI MỚI / ĐỀ THI THỬ TRƯỜNG CHUYÊN 
+                               │
+                               ▼
+    GIÁO VIÊN BỘ MÔN MỞ GIAO DIỆN QUẢN TRỊ "SLOT INJECTOR" 
+   1. Chọn Khối áp dụng: A00 / A01 / B00 / C00 / D01
+   2. Chọn Môn học & Gõ nội dung đề thi vào Slot trống.
+   3. Cài đặt điều kiện: 
+      - Xuất hiện cho toàn bộ học sinh? HAY
+      - Chỉ xuất hiện cho học sinh đạt Streak 30 Ngày?
+                               │
+                               ▼
+             HỆ THỐNG TỰ ĐỘNG TỔNG HỢP & PHÂN PHỐI 
+   • Đúng 21h30 tối, câu hỏi thi mới sẽ thay thế Slot số 3 trong bài làm của học sinh.
+   • Dashboard giáo viên tự động thống kê tỉ lệ đúng/sai của cả lớp với câu hỏi mới này.
+
+
+Thiết kế này giúp hệ thống vừa giữ được tính kỷ luật vi mô mỗi ngày (3 phút không ngán), vừa luôn bắt nhịp đề thi mới nhất, đồng thời tạo ra động lực mạnh mẽ để học sinh duy trì vệt Streak chạm mốc 30 ngày để bước vào nhóm tinh anh.

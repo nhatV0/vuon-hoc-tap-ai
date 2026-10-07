@@ -1,0 +1,342 @@
+Môn học tiếp theo để hoàn thiện trọn vẹn nhóm môn Khoa học Xã hội (và là môn thi có sự gia tăng đột biến về số lượng thí sinh xét tuyển Đại học vào các ngành Kinh tế, Quản trị, Luật, Tài chính, Báo chí, An ninh – Quân đội) chính là MÔN GIÁO DỤC KINH TẾ & PHÁP LUẬT (GDKT & PL).
+
+---
+
+ Sự Thay Đổi Bản Chất của Môn GDKT & PL theo Chương Trình GDPT 2018
+
+Khác hoàn toàn với môn Giáo dục Công dân (GDCD) trước đây vốn nặng về đạo đức và lý thuyết trừu tượng, môn GDKT & PL mới (thời gian làm bài: 50 phút) mang tính ứng dụng thực tiễn cực kỳ cao:
+1. Chuyển dịch sang Năng lực Xử lý Tình huống Thực tiễn (Case Study Approach): Đề thi không kiểm tra việc học thuộc lòng điều luật. Đề đưa ra các tình huống đời sống phức tạp với nhiều chủ thể (doanh nghiệp, cơ quan nhà nước, người lao động, người tiêu dùng) và kiểm tra khả năng bóc tách hành vi vi phạm pháp luật hoặc lựa chọn quyết định kinh tế tối ưu.
+2. Cấu trúc Đề thi 2 Phần Chuẩn Hóa:
+    Phần I (6.0 điểm): 24 câu trắc nghiệm nhiều lựa chọn 4 phương án (Nhận biết – Thông hiểu về các quy luật kinh tế, quyền tự do cơ bản, quyền bình đẳng của công dân).
+    Phần II (4.0 điểm): 4 câu trắc nghiệm Đúng/Sai (Mỗi câu gồm 4 ý a, b, c, d dựa trên Văn bản pháp luật, Tình huống kinh doanh, Báo cáo tài chính vĩ mô, Tranh chấp lao động hoặc Vụ việc pháp lý đời sống – Đòi hỏi phân tích đa chiều về trách nhiệm pháp lý và hành vi kinh tế).
+3. Hai Trụ Cột Nội Dung Cốt Lõi Lớp 12:
+    Trụ cột Kinh tế: Tăng trưởng và phát triển kinh tế; Hội nhập kinh tế quốc tế (FTA, WTO, CPTPP, EVFTA); Bảo hiểm (Bảo hiểm xã hội, Bảo hiểm y tế, Bảo hiểm thất nghiệp, Bảo hiểm thương mại); Trách nhiệm xã hội của doanh nghiệp; Quản lý thu chi và lập kế hoạch tài chính cá nhân.
+    Trụ cột Pháp luật: Quyền và nghĩa vụ của công dân về kinh tế, văn hóa, xã hội; Các quyền tự do cơ bản của công dân (Bất khả xâm phạm về thân thể; Được pháp luật bảo hộ về tính mạng, sức khỏe, danh dự, nhân phẩm; Bảo đảm an toàn thư tín, điện thoại; Tự do tín ngưỡng, tôn giáo; Tự do cư trú); Quyền tham gia quản lý nhà nước và xã hội; Quyền khiếu nại, tố cáo; Quyền bình đẳng trước pháp luật.
+4. Điểm nghẽn lớn nhất của học sinh:
+    Rối loạn tình huống nhiều nhân vật: Đề thi đưa ra tình huống dài 7–10 dòng với 5–6 nhân vật (ông A, bà B, anh C, chị D), học sinh không biết cách lập sơ đồ bóc tách $\rightarrow$ bắt nhầm người vi phạm hoặc bỏ sót lỗi.
+    Nhầm lẫn giữa các quyền tự do cơ bản: Đặc biệt là nhầm giữa "Quyền bất khả xâm phạm về thân thể" (tự tiện bắt, giam giữ người trái pháp luật) với "Quyền được pháp luật bảo hộ về tính mạng, sức khỏe" (đánh đập, đe dọa giết người, gây thương tích).
+    Nhầm lẫn 4 loại vi phạm pháp luật: Hình sự, Hành chính, Dân sự và Kỷ luật.
+
+Dưới đây là ma trận 5 Trường Hợp Học Sinh Điển Hình Môn GDKT & PL và lộ trình cá nhân hóa chi tiết.
+
+---
+
+ BẢNG MA TRẬN 5 TRƯỜNG HỢP HỌC SINH MÔN GDKT & PL
+
+| Trường hợp | Điểm xuất phát (Point A) | Mục tiêu hướng tới (Point B) | Quỹ thời gian & Thời hạn | Điểm nghẽn cốt lõi |
+| :--- | :--- | :--- | :--- | :--- |
+| TH 1: Phá Băng Sợ Tình Huống / Xây Khung Sơ Đồ Hành Vi (The Legal Rescuer) | Level 1 - 2 (3.0 – 5.2)<br>Nhầm các quyền tự do, đọc tình huống dài là rối | 6.5 – 7.5<br>Đủ điểm xét tuyển ĐH khối C, D tầm trung hoặc xét học bạ | 45 – 60 phút/ngày<br>Thời gian: 12 – 14 tuần | Không phân biệt được 4 loại vi phạm pháp luật; đọc tình huống không biết ai đúng ai sai; làm câu Đúng/Sai bằng cảm tính. |
+| TH 2: Bứt Phá Bình Nguyên 7+ / Bậc Thầy Sơ Đồ Nhân Vật (The Case-Law Decoder) | Level 3 (6.5 – 7.5)<br>Chắc lý thuyết đơn nhưng hay sai câu Đúng/Sai | 8.2 – 8.8<br>Đỗ trường công lập Top đầu (ĐH Luật Hà Nội, UEL, Kinh tế Quốc dân, Báo chí...) | 60 – 75 phút/ngày<br>Thời gian: 10 – 12 tuần | Mắc bẫy ở câu Đúng/Sai tình huống nhiều nhân vật; yếu phần Kinh tế vĩ mô (bảo hiểm xã hội, hội nhập kinh tế quốc tế). |
+| TH 3: Chinh Phục Điểm 9.5 - 10 / Bậc Thầy Tranh Biện Pháp Lý (The Jurist & Economist) | Level 4 (8.0 – 8.6)<br>Tư duy logic tốt, xử lý Phần I trong 16 phút | 9.5 – 10.0<br>Thủ khoa khối C, D14; Ngành Luật Kinh tế, An ninh, Tòa án, Ngoại thương | 75 – 90 phút/ngày<br>Thời gian: 12 – 16 tuần | Cần mài giũa các tình huống phân hóa cao đan xen giữa vi phạm dân sự và hành chính; câu hỏi kinh tế quốc tế và bảo hiểm đa tầng. |
+| TH 4: Chiến Dịch 30 Ngày "Gom Điểm Quyền Công Dân & Bảo Hiểm" (The 30-Day Sprint) | Bất kỳ (Level 2 hoặc 3)<br>Chỉ còn 30 – 40 ngày trước kỳ thi | Tăng ngay +1.0 đến +1.5<br>Ăn chắc 24 câu Phần I và 2 câu Phần II | 60 phút/ngày<br>Thời gian: 4 tuần | Quá tải tâm lý trước các tình huống nhiều chữ; sợ nhầm lẫn khiếu nại với tố cáo; học vẹt điều luật. |
+| TH 5: Nuôi Dưỡng Tư Duy Pháp Quyền & Tài Chính (Lớp 10-11) (The Early Citizen) | Lớp 10 - 11 (Level 2 - 3)<br>Chuẩn bị thi Đánh giá năng lực / Đánh giá tư duy | 8.5+ Bền vững<br>Làm chủ tư duy công dân toàn cầu & kiến thức tài chính thực tiễn | 30 – 45 phút/ngày<br>Thời gian: 9 – 12 tháng | Học đối phó, thiếu kỹ năng quản lý tài chính cá nhân và hiểu biết về quyền bảo vệ người tiêu dùng. |
+
+---
+
+---
+
+ LỘ TRÌNH CHI TIẾT DÀNH CHO TỪNG TRƯỜNG HỢP
+
+---
+
+ TRƯỜNG HỢP 1: "PHÁ BĂNG SỢ TÌNH HUỐNG / XÂY KHUNG SƠ ĐỒ HÀNH VI" (THE LEGAL RESCUER)
+Dành cho học sinh mất gốc, điểm thi thử từ 3.0 đến 5.2, cứ gặp bài tập tình huống nhiều nhân vật là đoán mò; mục tiêu kéo lên 6.5 – 7.5 an toàn.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Kỹ Thuật "Sơ Đồ Mũi Tên Nhân Vật (Actor-Action Arrow)": Tuyệt đối không đọc lướt một tình huống dài từ đầu đến cuối rồi chọn đáp án. Đọc đến đâu, dùng bút chì vẽ ngay sơ đồ luồng hành vi trên giấy nháp:
+    $$\text{Anh A} \xrightarrow{\text{đánh gãy tay}} \text{Anh B} \rightarrow \text{Vi phạm tính mạng, sức khỏe}$$
+    $$\text{Ông C (Trưởng công an xã)} \xrightarrow{\text{giam giữ A 3 ngày}} \rightarrow \text{Vi phạm bất khả xâm phạm thân thể}$$
+   Bảng Phân Biệt 4 Loại Vi Phạm Pháp Luật Kinh Điển:
+    1. Vi phạm Hình sự (Tội phạm): Hành vi nguy hiểm cao cho xã hội, được quy định trong Bộ luật Hình sự (giết người, cướp của, buôn ma túy, tham ô lớn).
+    2. Vi phạm Hành chính: Xâm phạm quy tắc quản lý nhà nước nhưng mức độ nguy hiểm thấp hơn tội phạm (vượt đèn đỏ, kinh doanh không có giấy phép, xả rác nơi công cộng).
+    3. Vi phạm Dân sự: Xâm phạm quan hệ tài sản và quan hệ nhân thân phi tài sản (vay tiền không trả, vi phạm hợp đồng kinh tế, bôi nhọ danh dự trên mạng).
+    4. Vi phạm Kỷ luật: Xâm phạm quan hệ lao động, học tập, công vụ (đi làm muộn, trốn học, gian lận thi cử, cán bộ vi phạm đạo đức công vụ).
+   Chiến Lược Gom 6.0 Điểm Cơ Bản: Ăn chắc 24 câu Phần I (6.0 điểm) và lấy ít nhất 1.0 – 1.5 điểm từ các ý nhận biết ở Phần II.
+
+ 2. Lộ trình 3 Giai đoạn (Tổng thời gian: 14 tuần)
+
+
+ GĐ 1: Chuẩn Hóa 5 Quyền Tự Do & 4 Loại Vi Phạm  ➔  GĐ 2: Kinh Tế Căn Bản & Quyền Khiếu Nại, Tố Cáo  ➔  GĐ 3: Luyện Đề Chuẩn Format 2 Phần 
+                  (Tuần 1 - Tuần 5: 3.5 ➔ 5.5)                                   (Tuần 6 - Tuần 10: 5.5 ➔ 6.8)                    (Tuần 11 - Tuần 14: 6.8 ➔ 7.5)
+
+
+ Giai đoạn 1: Chuẩn Hóa 5 Quyền Tự Do Cơ Bản & 4 Loại Vi Phạm Pháp Luật (Tuần 1 – Tuần 5)
+   Mục tiêu: Phân biệt rành mạch 5 quyền tự do cơ bản; xác định đúng loại vi phạm pháp luật trong các tình huống ngắn 2 nhân vật.
+   Nội dung chuyên đề:
+       Tuần 1: Quyền bất khả xâm phạm về thân thể của công dân (chỉ có cơ quan nhà nước có thẩm quyền theo luật định mới được bắt người; bắt người trong trường hợp khẩn cấp và bắt người phạm tội quả tang hoặc đang bị truy nã).
+       Tuần 2: Quyền được pháp luật bảo hộ về tính mạng, sức khỏe, danh dự và nhân phẩm (hành vi đánh người, đe dọa giết người, xúc phạm danh dự, vu khống làm nhục người khác).
+       Tuần 3: Quyền bảo đảm an toàn và bí mật thư tín, điện thoại, điện tín (không ai được tự tiện bóc mở, tiêu hủy, nghe trộm thư, tin nhắn của người khác kể cả cha mẹ đối với con cái đã thành niên).
+       Tuần 4: Quyền bất khả xâm phạm về chỗ ở (không ai được tự ý vào chỗ ở của người khác nếu không được người đó đồng ý, trừ trường hợp được pháp luật cho phép khám xét).
+       Tuần 5: Rèn luyện kỹ thuật phân biệt 4 loại vi phạm pháp luật và trách nhiệm pháp lý tương ứng (trách nhiệm hình sự, hành chính, dân sự, kỷ luật).
+
+ Giai đoạn 2: Kinh Tế Căn Bản & Quyền Tham Gia Quản Lý Nhà Nước (Tuần 6 – Tuần 10)
+   Mục tiêu: Nắm vững các quy luật thị trường (cung – cầu, giá trị, lạm phát); phân biệt rõ Quyền khiếu nại vs Quyền tố cáo; Quyền bầu cử vs Quyền ứng cử.
+   Nội dung chuyên đề:
+       Tuần 6: Tăng trưởng kinh tế và phát triển kinh tế (phân biệt GDP và GNI); Các chỉ tiêu của phát triển bền vững (kinh tế, xã hội, môi trường).
+       Tuần 7: Hội nhập kinh tế quốc tế: Các cấp độ hội nhập (song phương, khu vực, toàn cầu); Ý nghĩa của việc tham gia các hiệp định thương mại tự do (FTA).
+       Tuần 8: Hệ thống Bảo hiểm ở Việt Nam: Phân biệt Bảo hiểm xã hội bắt buộc, BHXH tự nguyện, Bảo hiểm y tế, Bảo hiểm thất nghiệp và Bảo hiểm thương mại.
+       Tuần 9: Quyền khiếu nại vs Quyền tố cáo:
+         Khiếu nại: Người khiếu nại là người trực tiếp bị tác động bởi quyết định hành chính/hành vi hành chính trái pháp luật.
+         Tố cáo: Bất kỳ công dân nào phát hiện hành vi vi phạm pháp luật gây thiệt hại cho nhà nước, tập thể, công dân khác.
+       Tuần 10: Quyền bầu cử và ứng cử (nguyên tắc bầu cử: phổ thông, bình đẳng, trực tiếp và bỏ phiếu kín; 18 tuổi có quyền bầu cử, 21 tuổi có quyền ứng cử).
+
+ Giai đoạn 3: Thực Chiến Đề Chuẩn Format 2 Phần (Tuần 11 – Tuần 14)
+   Mục tiêu: Bấm giờ 45 phút cho đề thi 28 câu; triệt tiêu 100% lỗi đọc vội dẫn đến bắt nhầm nhân vật.
+   Nội dung thực chiến:
+       Luyện 12 đề chuẩn cấu trúc đề minh họa của Bộ GD&ĐT: Thực hành kỹ năng gạch chân tên các nhân vật trong đề thi để không bị sót lỗi.
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày (Tuần 1 - Giai đoạn 1)
+Quỹ thời gian: 45 phút/ngày vào Khung giờ tối (20h00 – 20h45).
+
+   Thứ Hai (45 phút):
+       Micro-task: Học bản chất Quyền bất khả xâm phạm về thân thể. Thuộc lòng 3 trường hợp được phép bắt người (bắt bị can/bị cáo để tạm giam, bắt người trong trường hợp khẩn cấp, bắt người phạm tội quả tang). Làm 5 câu trắc nghiệm nhận biết.
+   Thứ Ba (45 phút):
+       Micro-task: Vẽ sơ đồ phân biệt: Bắt người phạm tội quả tang (ai cũng có quyền bắt và giải ngay đến cơ quan công an) vs Bắt người khẩn cấp (chỉ người có thẩm quyền mới được ra lệnh).
+   Thứ Tư (45 phút):
+       Micro-task: Giải bài tập tình huống 2 nhân vật: "Công an viên X nghi ngờ anh Y lấy trộm xe máy nên đã bắt và nhốt anh Y tại trụ sở 2 ngày". Xác định anh X đã vi phạm quyền nào của công dân.
+   Thứ Năm (45 phút):
+       Micro-task: Làm quen 1 câu hỏi Trắc nghiệm Đúng/Sai (Phần II) 4 ý về tình huống khám xét nhà và bắt người của lực lượng chức năng.
+   Thứ Sáu (45 phút):
+       Micro-task: Thử thách Tốc độ: Bấm giờ 15 phút giải quyết 15 câu trắc nghiệm Phần I về các quyền tự do cơ bản. Sửa chi tiết các câu sai.
+   Thứ Bảy (45 phút):
+       Micro-task: "Sổ tay Tình huống Pháp luật": Chép lại 2 câu nhầm lẫn quyền thân thể với quyền sức khỏe đã làm sai trong tuần, ghi chú cách phân biệt.
+   Chủ Nhật (30 phút nhẹ nhàng):
+       Micro-task: Xem 1 video tình huống pháp luật ngắn trên chương trình "Tòa tuyên án" hoặc VTV; check-in chuỗi Streak cùng AI Companion.
+
+ 4. Cơ chế Cảnh báo Giáo viên (Teacher-in-the-loop Red Flags)
+   🚨 Cảnh báo Đỏ 1: Học sinh chọn đáp án công an xã có quyền ra lệnh bắt giam người để điều tra (sai nghiêm trọng về thẩm quyền tố tụng hình sự). $\rightarrow$ Giáo viên gửi ngay Bảng danh mục những người có thẩm quyền ra lệnh bắt người theo Bộ luật Tố tụng Hình sự.
+   🚨 Cảnh báo Đỏ 2: Học sinh nhầm lẫn quyền khiếu nại và tố cáo qua 3 bài check-in liên tiếp. $\rightarrow$ Giáo viên can thiệp: Gửi bảng đối chiếu mục đích của Khiếu nại (khôi phục quyền lợi của mình) vs Tố cáo (ngăn chặn hành vi vi phạm pháp luật).
+
+ 5. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Người Cố Vấn Pháp Luật Đời Sống (Practical Legal Mentor).
+   Mẫu phản hồi AI: "Hôm nay em đã vẽ sơ đồ mũi tên rất chuẩn xác ở tình huống số 3 và chỉ đúng hành vi vi phạm quyền thân thể của công an viên! Nắm chắc quyền công dân không chỉ giúp em đạt điểm cao trong kỳ thi mà còn là tấm lá chắn bảo vệ chính em ngoài đời thực. Cứ tiếp tục rèn luyện phản xạ này nhé!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 2: "BỨT PHÁ BÌNH NGUYÊN 7+ / BẬC THẦY SƠ ĐỒ NHÂN VẬT" (THE CASE-LAW DECODER)
+Dành cho học sinh nhớ tốt lý thuyết từng bài nhưng điểm số luôn mắc kẹt ở mốc 6.8 – 7.6; gặp câu Đúng/Sai có 4–5 nhân vật đan xen là bị sót người vi phạm; lúng túng ở phần bảo hiểm và hội nhập kinh tế; mục tiêu bứt phá lên 8.2 – 8.8.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Kỹ Thuật "Lập Ma Trận Chủ Thể & Hành Vi (Actor-Liability Matrix)": Khi giải quyết câu hỏi tình huống phức hợp ở Phần II Đúng/Sai, vẽ nhanh bảng ma trận 3 cột trên giấy nháp:
+    | Nhân vật | Hành vi thực tế | Quyền vi phạm / Trách nhiệm pháp lý |
+    | :--- | :--- | :--- |
+    | Ông A (Giám đốc) | Sa thải chị B vì mang thai | Vi phạm quyền lao động, bình đẳng giới (Trách nhiệm hành chính) |
+    | Anh C (Bảo vệ) | Đánh anh D bị thương tật $12\%$ | Vi phạm quyền tính mạng, sức khỏe (Trách nhiệm hình sự + dân sự bồi thường) |
+    | Chị B (Nhân viên) | Đăng bài bôi nhọ công ty lên mạng | Vi phạm quyền danh dự nhân phẩm (Trách nhiệm dân sự) |
+    $\rightarrow$ Nhìn vào ma trận là trả lời được 100% các câu hỏi: "Những ai đồng thời phải chịu trách nhiệm pháp lý?", "Ai vừa vi phạm quyền X vừa vi phạm quyền Y?".
+   Bẻ Khóa 4 Ý Của Câu Trắc Nghiệm Đúng/Sai (Phần II):
+     Ý (a): Nhận diện chủ thể có thẩm quyền hoặc chủ thể có hành vi sai trái đầu tiên.
+     Ý (b): Đánh giá tính hợp pháp của biện pháp xử lý kỷ luật/hành chính trong tình huống.
+     Ý (c): Xác định những nhân vật cùng phải chịu chung một loại trách nhiệm pháp lý.
+     Ý (d): Phân tích hậu quả và giải pháp khắc phục (khiếu nại, khởi kiện hay tố cáo).
+   Làm Chủ Kiến Thức Kinh Tế Học Vĩ Mô Hiện Đại: Hiểu rõ bản chất của Bảo hiểm xã hội (nguyên tắc đóng – hưởng, chia sẻ rủi ro) và các rào cản thương mại trong hội nhập quốc tế (thuế quan, rào cản kỹ thuật TBT, kiểm dịch SPS).
+
+ 2. Lộ trình 3 Giai đoạn (Tổng thời gian: 12 tuần)
+
+
+ GĐ 1: Bậc Thầy Bóc Tách Tình Huống Đa Nhân Vật  ➔  GĐ 2: Bảo Hiểm, Trách Nhiệm Doanh Nghiệp & Kinh Tế Số  ➔  GĐ 3: Tối Ưu Tốc Độ 50 Phút 
+                     (Tuần 1 - Tuần 4: 7.0 ➔ 7.6)                                      (Tuần 5 - Tuần 8: 7.6 ➔ 8.2)                         (Tuần 9 - Tuần 12: 8.2 ➔ 8.8)
+
+
+ Giai đoạn 1: Làm Chủ Kỹ Thuật Bóc Tách Tình Huống Phức Hợp (Tuần 1 – Tuần 4)
+   Mục tiêu: Không còn sót nhân vật vi phạm trong các câu hỏi tình huống dài; phân biệt chính xác trách nhiệm liên đới.
+   Nội dung chuyên đề:
+       Tuần 1: Tình huống xâm phạm quyền tự do cơ bản kết hợp xâm phạm tài sản: Phân tích hành vi bắt giữ người trái pháp luật nhằm mục đích đòi nợ (vừa vi phạm quyền thân thể, vừa có dấu hiệu cấu thành tội bắt cóc tống tiền).
+       Tuần 2: Quyền bình đẳng trong kinh doanh và lao động: Bình đẳng giữa các thành phần kinh tế; Bình đẳng giữa người sử dụng lao động và người lao động; Quyền đơn phương chấm dứt hợp đồng lao động đúng luật.
+       Tuần 3: Quyền tham gia quản lý nhà nước và xã hội ở phạm vi cả nước và phạm vi cơ sở: Cơ chế "Dân biết, dân bàn, dân làm, dân kiểm tra, dân giám sát, dân thụ hưởng" tại xã/phường.
+       Tuần 4: Kỹ năng bóc tách các câu hỏi gài bẫy: "Những ai sau đây KHÔNG vi phạm quyền...", "Những ai sau đây VỪA vi phạm quyền X VỪA vi phạm quyền Y...".
+
+ Giai đoạn 2: Kinh Tế Học Ứng Dụng, Bảo Hiểm & Trách Nhiệm Xã Hội (Tuần 5 – Tuần 8)
+   Mục tiêu: Ăn trọn điểm câu hỏi Đúng/Sai về chính sách kinh tế, bảo hiểm và đạo đức kinh doanh.
+   Nội dung chuyên đề:
+       Tuần 5: Hệ thống Bảo hiểm xã hội và An sinh xã hội: Phân tích vai trò trụ cột của BHXH trong hệ thống an sinh xã hội; Quyền lợi khi tham gia BHYT và BH thất nghiệp; Vấn đề trốn đóng BHXH của doanh nghiệp.
+       Tuần 6: Trách nhiệm xã hội của doanh nghiệp (CSR): Trách nhiệm kinh tế, trách nhiệm pháp lý, trách nhiệm đạo đức và trách nhiệm nhân văn; Phân tích các vụ việc doanh nghiệp xả thải gây ô nhiễm môi trường hoặc sản xuất hàng giả.
+       Tuần 7: Lập kế hoạch kinh doanh và Quản lý tài chính cá nhân: Các bước lập kế hoạch kinh doanh (ý tưởng, phân tích thị trường, kế hoạch tài chính, quản trị rủi ro); Quy tắc quản lý chi tiêu (quy tắc 6 chiếc lọ hoặc 50/30/20).
+       Tuần 8: Hội nhập kinh tế quốc tế trong kỷ nguyên số: Thương mại điện tử xuyên biên giới, sở hữu trí tuệ, dòng vốn đầu tư trực tiếp nước ngoài (FDI).
+
+ Giai đoạn 3: Ép Tốc Độ Thực Chiến & Quản Trị 50 Phút (Tuần 9 – Tuần 12)
+   Mục tiêu: Xử lý 24 câu Phần I trong 18 phút, 4 câu Phần II trong 27 phút, dành 5 phút rà soát phiếu tô trắc nghiệm.
+   Nội dung thực chiến:
+       Luyện 15 đề chuẩn cấu trúc đề thi tốt nghiệp của các Sở GD&ĐT.
+       Rèn kỹ năng đọc đề dùng bút chì đánh số thứ tự từng nhân vật để không bị nhầm lẫn giữa ông A (Giám đốc) và anh A (Nhân viên).
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày (Tuần 1 - Giai đoạn 1)
+Quỹ thời gian: 60 phút/ngày vào Khung giờ vàng (19h30 – 20h30).
+
+   Thứ Hai (60 phút):
+       Micro-task: Học kỹ thuật lập Ma trận Chủ thể & Hành vi. Đọc 1 tình huống 4 nhân vật về tranh chấp đất đai và đánh nhau. Vẽ bảng ma trận xác định trách nhiệm pháp lý của từng người.
+   Thứ Ba (60 phút):
+       Micro-task: Giải quyết 15 câu trắc nghiệm chuyên đề về Quyền bình đẳng của công dân (hôn nhân gia đình, lao động, kinh doanh). Chú ý câu hỏi về tài sản chung vs tài sản riêng của vợ chồng.
+   Thứ Tư (60 phút):
+       Micro-task: Xử lý 1 câu hỏi Trắc nghiệm Đúng/Sai (Phần II) 4 ý dựa trên tình huống một công ty cổ phần sa thải lao động trái luật và bí mật lắp camera giám sát trong phòng thay đồ nhân viên.
+   Thứ Năm (60 phút):
+       Micro-task: Rèn kỹ năng bóc bẫy câu hỏi: Giải 10 câu trắc nghiệm dạng "Những ai dưới đây có thể vừa được khiếu nại vừa được tố cáo?".
+   Thứ Sáu (60 phút):
+       Micro-task: Thử thách Tốc độ: Bấm giờ 17 phút giải quyết sạch 24 câu Phần I trắc nghiệm đơn. Sửa kỹ các câu sai.
+   Thứ Bảy (60 phút):
+       Micro-task: Mini-Test cuối tuần: Làm 1 đề rút gọn gồm 12 câu Phần I và 2 câu Phần II Đúng/Sai. Chấm điểm theo barem chính thức.
+   Chủ Nhật (45 phút):
+       Micro-task: Tổng kết tuần, cập nhật Sổ tay Ma trận Nhân vật; check-in tuần cùng AI Companion.
+
+ 4. Cơ chế Cảnh báo Giáo viên (Teacher-in-the-loop Red Flags)
+   🚨 Cảnh báo Vàng: Học sinh giải tình huống thường bỏ qua hành vi của nhân vật phụ (ví dụ: anh bảo vệ nghe theo lệnh giám đốc giữ người trái phép thì anh bảo vệ vẫn vi phạm pháp luật). $\rightarrow$ Giáo viên nhắc nhở nguyên tắc: "Thực hiện mệnh lệnh trái pháp luật vẫn phải chịu trách nhiệm cá nhân".
+   🚨 Cảnh báo Đỏ: Học sinh nhầm lẫn giữa tài sản riêng có trước thời kỳ hôn nhân và tài sản chung hình thành trong thời kỳ hôn nhân của vợ chồng. $\rightarrow$ Giáo viên can thiệp gửi sơ đồ Luật Hôn nhân & Gia đình.
+
+ 5. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Chuyên Gia Pháp Lý Thực Chiến (Analytical & Strategic Coach).
+   Mẫu phản hồi AI: "Hôm nay em đã lập bảng ma trận nhân vật rất chuẩn xác, không bỏ sót hành vi xúi giục của bà C ở câu số 22! Khả năng bóc tách tình huống đa tầng của em đã tiến bộ vượt bậc. Cứ duy trì sự sắc sảo này, điểm 8.8+ môn GDKT & PL hoàn toàn nằm trong tầm tay em!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 3: "CHINH PHỤC ĐỈNH CAO 9.5 - 10 / BẬC THẦY TRANH BIỆN PHÁP LÝ" (THE JURIST & ECONOMIST)
+Dành cho học sinh giỏi xuất sắc, nắm chắc toàn bộ điều luật và quy luật kinh tế; mục tiêu đạt từ 9.5 đến 10.0 để cạnh tranh vị trí Thủ khoa khối C00, D14, xét tuyển Đại học Luật Hà Nội, Học viện An ninh, Học viện Ngoại giao.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Tư Duy Pháp Lý Đa Chiều & Bản Chất Tranh Chấp (Multi-Dimensional Legal Reasoning): Học sinh ở mức này phải bóc tách được các tình huống đan xen phức tạp:
+     Ranh giới mong manh giữa Trách nhiệm Dân sự (bồi thường thiệt hại hợp đồng) và Trách nhiệm Hình sự (tội lừa đảo chiếm đoạt tài sản hoặc lạm dụng tín nhiệm).
+     Xung đột giữa quyền tự do kinh doanh của doanh nghiệp và quyền bảo vệ người tiêu dùng / quyền được sống trong môi trường trong lành của cộng đồng.
+     Giải quyết tranh chấp thương mại quốc tế theo cơ chế của WTO và các điều ước quốc tế mà Việt Nam là thành viên.
+   Làm Chủ Hoàn Toàn Phần II Đúng/Sai (Đạt 4.0/4.0 Điểm Tuyệt Đối): Không để mất dù chỉ 0.1 điểm ở các ý nhận định có tính phản biện cao:
+     Đánh giá tính hợp hiến, hợp pháp của văn bản quy phạm pháp luật hoặc quyết định hành chính trong tình huống.
+     Phân tích các mối quan hệ kinh tế vi mô và vĩ mô (tác động của thuế chống bán phá giá, quy định về tỷ lệ nội địa hóa).
+   Triệt Tiêu 100% Sai Sót Ở Phần I: Xử lý 24 câu Phần I trong vòng 14–15 phút với độ chính xác tuyệt đối, dành trọn vẹn 30 phút cho 4 câu tình huống dài Phần II và 5 phút rà soát đối chiếu.
+
+ 2. Lộ trình 3 Giai đoạn (Tổng thời gian: 16 tuần)
+
+
+ GĐ 1: Xử Lý Tình Huống Pháp Lý Giao Thoa Đa Ngành  ➔  GĐ 2: Kinh Tế Vĩ Mô, Luật Quốc Tế & An Sinh  ➔  GĐ 3: Đề Chuyên & Tốc Độ 38 Phút 
+                       (Tuần 1 - Tuần 6: 8.2 ➔ 8.8)                                      (Tuần 7 - Tuần 11: 8.8 ➔ 9.4)                     (Tuần 12 - Tuần 16: 9.4 ➔ 10.0)
+
+
+ Giai đoạn 1: Bậc Thầy Xử Lý Tình Huống Giao Thoa Pháp Lý (Tuần 1 – Tuần 6)
+   Nội dung chuyên đề:
+       Tuần 1-2: Tình huống giao thoa giữa Luật Dân sự, Luật Lao động và Luật Hình sự: Vụ việc người lao động mang bí mật công nghệ của công ty cũ sang công ty đối thủ cạnh tranh; Vấn đề xâm phạm quyền sở hữu trí tuệ và bí mật kinh doanh.
+       Tuần 3-4: Quyền khiếu nại, tố cáo và khởi kiện ra Tòa án: Phân biệt rõ trình tự giải quyết khiếu nại lần đầu, khiếu nại lần hai và khởi kiện vụ án hành chính; Quyền tố tụng và nguyên tắc suy đoán vô tội.
+       Tuần 5-6: Tình huống vi phạm quyền bất khả xâm phạm về chỗ ở và bí mật đời tư trong kỷ nguyên số: Hành vi hack tài khoản mạng xã hội, phát tán clip cá nhân, lắp camera quay lén; Trách nhiệm pháp lý của nhà cung cấp dịch vụ mạng và người chia sẻ thông tin.
+
+ Giai đoạn 2: Kinh Tế Quốc Tế, Chính Sách Tài Khóa & An Sinh Xã Hội Đa Tầng (Tuần 7 – Tuần 11)
+   Nội dung chuyên đề:
+       Tuần 7: Phân tích chuyên sâu các chính sách điều tiết kinh tế vĩ mô của Nhà nước: Chính sách tài khóa (thu – chi ngân sách, giảm thuế hỗ trợ doanh nghiệp) và Chính sách tiền tệ (lãi suất, tỷ giá hối đoái, cung tiền) nhằm kiềm chế lạm phát và thúc đẩy tăng trưởng.
+       Tuần 8: Tranh chấp thương mại quốc tế: Quy chế Tối huệ quốc (MFN), Đối xử quốc gia (NT); Các vụ kiện phòng vệ thương mại (thuế chống bán phá giá, thuế chống trợ cấp) đối với nông sản, thủy sản xuất khẩu của Việt Nam.
+       Tuần 9: Bài toán cân đối quỹ Bảo hiểm xã hội và Già hóa dân số: Cơ chế đóng – hưởng, điều chỉnh tuổi nghỉ hưu theo Bộ luật Lao động mới; Các giải pháp mở rộng diện bao phủ BHXH tự nguyện cho lao động phi chính thức.
+       Tuần 10: Khai thác các câu hỏi Đúng/Sai dài 1 trang giấy trích từ các bản án thực tế của Tòa án hoặc kết luận thanh tra của cơ quan nhà nước.
+       Tuần 11: Quét sạch 100% các câu hỏi phân hóa đỉnh cao trong đề thi thử của các trường Chuyên KHXH&NV, Chuyên Sư Phạm.
+
+ Giai đoạn 3: Thực Chiến Đề Chuyên & Tối Ưu Điểm Tuyệt Đối (Tuần 12 – Tuần 16)
+   Nội dung thực chiến:
+       Luyện các đề thi thử đỉnh cao với áp lực thời gian cao: Ép thời gian làm bài 50 phút xuống còn 38 phút (để dành 12 phút kiểm tra lại từng mối quan hệ nhân vật của 4 câu Phần II).
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày (Tuần 7 - Giai đoạn 2)
+Quỹ thời gian: 80 phút/ngày vào Khung giờ tối (20h30 – 21h50).
+
+   Thứ Hai (80 phút):
+       Micro-task: Phân tích bản chất chính sách tiền tệ thắt chặt: Đọc báo cáo của Ngân hàng Nhà nước về việc tăng lãi suất điều hành để kiềm chế lạm phát. Trả lời 4 câu hỏi đánh giá tác động đến hoạt động sản xuất kinh doanh của doanh nghiệp và tiêu dùng của người dân.
+   Thứ Ba (80 phút):
+       Micro-task: Xử lý 1 câu hỏi Trắc nghiệm Đúng/Sai (Phần II) 4 ý dựa trên tình huống một doanh nghiệp xuất khẩu thủy sản bị nước nhập khẩu áp thuế chống bán phá giá do nghi ngờ nhận trợ cấp từ chính phủ.
+   Thứ Tư (80 phút):
+       Micro-task: Phân tích vụ việc tranh chấp hợp đồng lao động: Giám đốc sa thải nhân viên vì từ chối làm thêm giờ trong điều kiện không bảo đảm an toàn lao động. Xác định tính hợp pháp của quyết định sa thải và các bước người lao động cần thực hiện để bảo vệ quyền lợi.
+   Thứ Năm (80 phút):
+       Micro-task: Rèn kỹ năng biện luận tình huống đa chủ thể: Giải 10 câu trắc nghiệm phân hóa cao về các quyền tự do cơ bản kết hợp quyền kinh tế.
+   Thứ Sáu (80 phút):
+       Micro-task: Thử thách Tốc độ: Bấm giờ 32 phút làm trọn vẹn 1 đề thi thử chuyên khối C/D14 môn GDKT & PL. Đặt mục tiêu đạt 9.75+ điểm.
+   Thứ Bảy (80 phút):
+       Micro-task: "Sáng tạo tình huống pháp luật": Tự viết 1 tình huống pháp lý đời sống dài 300 từ đan xen giữa vi phạm hành chính, vi phạm dân sự và tự thiết lập 1 câu hỏi trắc nghiệm Đúng/Sai 4 ý từ tình huống đó.
+   Chủ Nhật (45 phút):
+       Micro-task: Đọc bài phân tích pháp luật trên Tạp chí Tòa án nhân dân hoặc Tạp chí Nghiên cứu Lập pháp; check-in tuần cùng AI Companion.
+
+ 4. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Nhà Tranh Biện Pháp Lý Đồng Đẳng (Academic Jurist).
+   Mẫu phản hồi AI: "Cách em bóc tách ranh giới giữa vi phạm dân sự và dấu hiệu lừa đảo hình sự ở tình huống hợp đồng vay vốn tối nay rất chuẩn mực và thể hiện tư duy pháp lý sắc bén của một luật sư tương lai! Em đã nắm trọn vẹn tinh thần pháp quyền. Cứ giữ vững nhãn quan sâu sắc này, điểm 10 môn GDKT & PL hoàn toàn xứng đáng với em!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 4: "CHIẾN DỊCH 30 NGÀY GOM ĐIỂM QUYỀN CÔNG DÂN & BẢO HIỂM" (THE 30-DAY SPRINT)
+Dành cho học sinh chỉ còn 4 tuần trước kỳ thi tốt nghiệp THPT; môn GDKT & PL đang ở mức trung bình (5.5 - 6.5); mục tiêu tối ưu hóa điểm số lên 7.5 – 8.0 bằng cách quét sạch câu hỏi nhận biết, từ khóa các quyền tự do và bảo hiểm cơ bản.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Tuyệt Đối Không Đọc Lại Toàn Bộ Sách Giáo Khoa: Trong 30 ngày cuối, tập trung vào Bộ Bảng Tra Cứu Nhanh & Mẹo Bóc Tách Từ Khóa.
+   Chiến Thuật "Bảo Toàn 6.5 Điểm Cơ Bản":
+       Ăn chắc 5.5 – 6.0 điểm của Phần I (24 câu trắc nghiệm đơn) trong 18 phút.
+       Lấy trọn 1.5 – 2.0 điểm từ các ý nhận biết/thông hiểu trong 4 câu Đúng/Sai của Phần II.
+   Chiến Dịch Rà Soát Bộ "Từ Khóa Vàng Pháp Luật":
+     "Bắt người, giam giữ" $\rightarrow$ Quyền bất khả xâm phạm về thân thể.
+     "Đánh đập, đe dọa, xúc phạm" $\rightarrow$ Quyền tính mạng, sức khỏe, danh dự, nhân phẩm.
+     "Mở thư, đọc tin nhắn" $\rightarrow$ Quyền an toàn thư tín, điện thoại.
+     "Tự ý vào nhà" $\rightarrow$ Quyền bất khả xâm phạm về chỗ ở.
+
+ 2. Kịch bản 4 Tuần Nước Rút (30 Ngày)
+
+   Tuần 1 (Ngày 1 – 7): Đóng Băng 5 Quyền Tự Do Cơ Bản & Quyền Bình Đẳng
+       Nhiệm vụ: Mỗi ngày làm 1 phiếu 30 câu hỏi trắc nghiệm chỉ xoay quanh: Thân thể, Tính mạng sức khỏe, Chỗ ở, Thư tín, Bình đẳng trong hôn nhân, lao động, kinh doanh.
+       Trọng tâm: Thuộc lòng thẩm quyền bắt người và các trường hợp bắt người khẩn cấp / quả tang.
+   Tuần 2 (Ngày 8 – 14): Làm Chủ Quyền Khiếu Nại, Tố Cáo, Bầu Cử & Ứng Cử
+       Nhiệm vụ: Rà soát toàn bộ độ tuổi bầu cử ($18$), ứng cử ($21$); 4 nguyên tắc bầu cử (phổ thông, bình đẳng, trực tiếp, bỏ phiếu kín); mục đích của khiếu nại vs tố cáo.
+       Thực hành: Giải 8 câu trắc nghiệm Đúng/Sai (Phần II) chỉ tập trung vào quyền công dân.
+   Tuần 3 (Ngày 15 – 21): Quét Sạch Kinh Tế Căn Bản & Hệ Thống Bảo Hiểm
+       Nhiệm vụ: Ôn lại 4 loại bảo hiểm (BHXH bắt buộc, BHXH tự nguyện, BHYT, BH thất nghiệp); khái niệm tăng trưởng kinh tế, hội nhập kinh tế quốc tế.
+       Thực hành: Luyện kỹ năng đọc tình huống 3 nhân vật, rèn thói quen dùng bút gạch chân tên người.
+   Tuần 4 (Ngày 22 – 30): Luyện Đề Khung Giờ Thi Thật & Giữ Nhịp Phong Độ
+       Nhiệm vụ: Làm 3 đề thi thử chuẩn vào đúng khung giờ thi thật buổi sáng.
+       Mục tiêu: Rèn kỹ năng tô phiếu trắc nghiệm; không để sai nhảm bất kỳ câu nhận biết nào; giữ tâm lý thoải mái và ngủ đủ giấc.
+
+ 3. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Người Giữ Lửa & Trấn An Tâm Lý (Reassuring Coach).
+   Mẫu phản hồi AI: "Chỉ còn 10 ngày nữa thôi! Em đã nhớ rất chính xác các từ khóa của 5 quyền tự do cơ bản và nguyên tắc bầu cử rồi. Đừng lo lắng về những tình huống quá dài, hãy bình tĩnh đọc kỹ từng câu chữ và áp dụng mẹo gạch chân nhân vật. Cứ giữ vững sự tự tin, điểm 7.5 chắc chắn nằm trong tầm tay em!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 5: "NUÔI DƯỠNG TƯ DUY PHÁP QUYỀN & TÀI CHÍNH (LỚP 10-11)" (THE EARLY CITIZEN)
+Dành cho học sinh lớp 10, 11 định hướng thi khối C00, D14 hoặc các kỳ thi Đánh giá năng lực ĐHQG; mục tiêu xây nền tảng tư duy công dân toàn cầu, hiểu biết pháp luật và tài chính cá nhân 8.5+ bền vững không áp lực.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Học Pháp Luật Qua Trải Nghiệm & Phiên Tòa Giả Định (Moot Court & Real Cases): Xem các phiên tòa lưu động, tham gia đóng vai các chủ thể trong phiên tòa giả định tại trường học. Hiểu pháp luật như một quy chuẩn bảo vệ công lý và trật tự xã hội chứ không phải điều luật khô cứng.
+   Giáo Dục Tài Chính Cá Nhân & Tư Duy Kinh Doanh Khởi Nghiệp: Thực hành quản lý ngân sách cá nhân, hiểu về lãi suất ngân hàng, đầu tư, rủi ro lừa đảo tín dụng đen trên mạng xã hội.
+   Nuôi Dưỡng Ý Thức Công Dân & Trách Nhiệm Xã Hội: Hiểu rõ quyền lợi và nghĩa vụ của người tiêu dùng, bảo vệ môi trường, văn hóa ứng xử trên không gian mạng theo Luật An ninh mạng.
+
+ 2. Lộ trình Phân Kỳ Theo Năm Học (Lớp 10 & 11)
+
+
+ Chặng 1: Nền Kinh Tế & Hệ Thống Chính Trị - Pháp Luật (Lớp 10)  ➔  Chặng 2: Thị Trường & Đạo Đức Kinh Doanh (Lớp 11)  ➔  Chặng 3: Học Vượt Lớp 12 
+
+
+   Chặng 1 (Lớp 10): Tìm hiểu các hoạt động kinh tế cơ bản (sản xuất, phân phối, trao đổi, tiêu dùng); Ngân sách nhà nước và thuế; Hệ thống chính trị nước Cộng hòa Xã hội Chủ nghĩa Việt Nam (Quốc hội, Chính phủ, Tòa án, Viện kiểm sát); Hiến pháp Việt Nam.
+   Chặng 2 (Lớp 11): Nắm vững các quy luật kinh tế thị trường (Cung – Cầu, Cạnh tranh, Giá trị, Lưu thông tiền tệ); Lạm phát và Thất nghiệp; Quyền bình đẳng của công dân trước pháp luật; Văn hóa tiêu dùng thông minh.
+   Chặng 3 (Mùa hè chuyển cấp lên Lớp 12): Hoàn thành trước toàn bộ 2 chuyên đề lớn lớp 12: Các quyền tự do cơ bản của công dân và Tăng trưởng, phát triển kinh tế trước ngày 31/08.
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày
+Quỹ thời gian: 35 phút/ngày vào Khung giờ linh hoạt.
+
+   Thứ Hai (35 phút): Đọc 1 bài báo về một vụ việc lừa đảo đầu tư tiền ảo trên mạng xã hội. Ghi lại 3 dấu hiệu nhận biết thủ đoạn lừa đảo và điều luật xử phạt hành vi này vào sổ tay.
+   Thứ Ba (35 phút): Xem 1 video tài liệu 15 phút về vai trò của Ngân sách nhà nước trong việc xây dựng trường học, bệnh viện và đường cao tốc. Trả lời 2 câu hỏi về nghĩa vụ nộp thuế của công dân.
+   Thứ Tư (35 phút): Thực hành lập kế hoạch tài chính cá nhân trong 1 tháng: Phân bổ số tiền tiêu vặt theo quy tắc 50/30/20 (50% thiết yếu, 30% mong muốn, 20% tiết kiệm).
+   Thứ Năm (35 phút): Tìm hiểu về quyền của người tiêu dùng khi mua phải hàng giả, hàng kém chất lượng trên các sàn thương mại điện tử (Shopee, TikTok Shop).
+   Thứ Sáu (35 phút): Giải 1 câu trắc nghiệm Đúng/Sai mô phỏng format đề thi mới về quy luật Cung – Cầu khi giá cả thịt lợn biến động vào dịp Tết.
+   Thứ Bảy (35 phút): Viết 1 đoạn phản chiếu ngắn: "Một bài học về ý thức tuân thủ luật an toàn giao thông mà em thấy tâm đắc nhất trong tuần".
+   Chủ Nhật (20 phút): Thư giãn, check-in chuỗi Streak cùng AI Companion.
+
+ 4. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Người Cố Vấn Công Dân Trẻ (Empowering Youth Mentor).
+   Mẫu phản hồi AI: "Bản kế hoạch tài chính cá nhân theo quy tắc 50/30/20 của em hôm nay rất thực tế và cho thấy tư duy tự chủ tài chính phát triển rất sớm! Hiểu biết về kinh tế và pháp luật chính là hành trang quan trọng nhất để em tự tin bước vào đời. Cứ tiếp tục nuôi dưỡng những thói quen công dân tuyệt vời này nhé!"
+
+---
+
+---
+
+ TỔNG KẾT BẢN THIẾT KẾ MÔN GDKT & PL & BƯỚC TIẾP THEO
+
+Toàn bộ 5 kịch bản lộ trình chi tiết môn Giáo dục Kinh tế & Pháp luật trên đã hoàn thiện đầy đủ:
+1.  Cập nhật 100% Format Mới GDPT 2018: Bám sát định dạng cấu trúc đề thi 2 phần (24 câu trắc nghiệm nhiều lựa chọn 6.0đ + 4 câu trắc nghiệm Đúng/Sai dựa trên tình huống thực tế 4.0đ; thời gian 50 phút).
+2.  Khắc phục Triệt để Điểm nghẽn Cốt lõi: Triệt tiêu hoàn toàn lối học vẹt điều luật, chuyển dịch toàn diện sang Kỹ thuật sơ đồ hóa tình huống đa nhân vật (Actor-Action Matrix), Thần chú phân loại 4 loại vi phạm pháp luật, và Khung phân tích kinh tế vĩ mô ứng dụng.
+3.  Khép Lại Toàn Bộ Khối Khoa Học Xã Hội: Hệ thống đã hoàn tất đầy đủ 3 môn trụ cột của khối Xã hội: Ngữ văn, Lịch sử, Địa lí, GDKT & PL cùng 4 môn Tự nhiên: Toán học, Vật lí, Hóa học, Sinh học và Tiếng Anh.
+
+Môn học cuối cùng trong danh mục môn thi tuyển sinh hiện nay: MÔN TIN HỌC (thuộc nhóm Công nghệ & Ngoại ngữ, môn thi mới rất hot trong các tổ hợp xét tuyển Công nghệ thông tin, Trí tuệ nhân tạo, Khoa học dữ liệu). 
+
+Bạn có muốn tiếp tục xây dựng lộ trình chi tiết cho Môn Tin học để hoàn tất 100% bản thiết kế ngân hàng câu hỏi & lộ trình học tập của toàn bộ hệ thống không?

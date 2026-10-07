@@ -1,0 +1,313 @@
+Để xây dựng lộ trình học tập hiệu quả cho môn Toán, hệ thống không thể áp dụng một lộ trình chung cào bằng. Căn cứ vào ma trận chẩn đoán BARS 5 mức độ, mục tiêu xét tuyển đại học và quỹ thời gian sinh học đã thiết lập, chúng ta phân loại học sinh thành 5 Trường Hợp Điển Hình (5 Archetypes) bao quát 98% học sinh Việt Nam hiện nay.
+
+Đặc biệt, toàn bộ nội dung dưới đây được cấu trúc bám sát Chương trình Giáo dục phổ thông (GDPT 2018) và Định dạng đề thi Tuyển sinh Đại học / Tốt nghiệp THPT mới (gồm 3 phần: Trắc nghiệm nhiều lựa chọn, Trắc nghiệm Đúng/Sai, và Trắc nghiệm điền đáp án ngắn).
+
+---
+
+ BẢNG MA TRẬN 5 TRƯỜNG HỢP HỌC SINH MÔN TOÁN
+
+| Trường hợp | Điểm xuất phát (Point A) | Mục tiêu hướng tới (Point B) | Quỹ thời gian & Thời hạn | Điểm nghẽn cốt lõi |
+| :--- | :--- | :--- | :--- | :--- |
+| TH 1: Cứu Gốc Khẩn Cấp (The Rescue Mission) | Level 1 - 2 (3.0 – 5.4)<br>Mất gốc, sợ Toán, phụ thuộc giải mẫu | 6.5 – 7.5<br>Đủ điểm xét tuyển ĐH khối C, D hoặc trường tầm trung | 45 – 60 phút/ngày<br>Thời gian: 3 – 5 tháng | Hổng kiến thức nền tảng, sợ hình học không gian, phản xạ chậm. |
+| TH 2: Phá Bình Nguyên 7 Điểm (The Plateau Breaker) | Level 3 (6.5 – 7.4)<br>Chắc căn bản nhưng chững điểm | 8.2 – 8.8<br>Đỗ trường công lập top đầu (NEU, FTU, TMU, Bưu chính...) | 60 – 90 phút/ngày<br>Thời gian: 3 – 4 tháng | Hay sai nhảm câu dễ, thiếu kỹ thuật giải nhanh, bí khi gặp tham số $m$. |
+| TH 3: Chinh Phục Đỉnh Cao 9+ (The Mastery Seeker) | Level 4 (8.0 – 8.6)<br>Tư duy tốt, xong 38 câu trong 35p | 9.2 – 10.0<br>Thủ khoa, IT1 Bách Khoa, Y Hà Nội, Ngoại thương | 90 – 120 phút/ngày<br>Thời gian: 4 – 6 tháng | Tắc nghẽn ở các câu Vận dụng cao (VDC), bài toán mô hình thực tế phức tạp. |
+| TH 4: Chiến Dịch 30 Ngày Về Đích (The 30-Day Sprint) | Bất kỳ (Level 2 hoặc 3)<br>Chỉ còn 30 – 45 ngày trước kỳ thi | Tăng ngay +1.0 đến +1.5<br>Bảo toàn phong độ, chặn mất điểm oan | 60 – 90 phút/ngày<br>Thời gian: 4 tuần | Quá tải tâm lý, hoảng loạn, không có chiến thuật phòng thi. |
+| TH 5: Xây Móng Dài Hạn (Lớp 10-11) (The Early Builder) | Level 2 - 3 (Lớp 10, 11)<br>Học trước chương trình, giữ đà | 8.5+ Bền vững<br>Ôn thi ĐGNL / ĐGTD / ĐH không áp lực | 30 – 45 phút/ngày<br>Thời gian: 9 – 12 tháng | Dễ chán, thiếu tính liên tục, học trước quên sau. |
+
+---
+
+---
+
+ LỘ TRÌNH CHI TIẾT DÀNH CHO TỪNG TRƯỜNG HỢP
+
+---
+
+ TRƯỜNG HỢP 1: "CỨU GỐC KHẨN CẤP" (THE RESCUE MISSION)
+Dành cho học sinh mất gốc, sợ môn Toán, điểm thi thử dao động từ 3.0 đến 5.4, mục tiêu kéo lên 6.5 – 7.5.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Nguyên tắc "Zero-to-Hero qua Vi mô": Tuyệt đối không giao đề thi 50 câu (gây nản lòng ngay lập tức). Chỉ học theo từng mẩu kiến thức 15–20 phút.
+   Chiến lược 80/20: Bỏ hẳn 10 câu khó nhất đề thi (VDC). Tập trung tuyệt đối lấy trọn vẹn điểm ở Phần 1 (12 câu trắc nghiệm đơn) và Phần 2 (4 câu Đúng/Sai ở mức độ nhận biết - thông hiểu).
+   Trực quan hóa công thức: Mỗi công thức toán học phải gắn liền với 1 hình ảnh vẽ tay và 1 ví dụ số nguyên đơn giản trước khi bấm máy.
+
+ 2. Lộ trình 3 Giai đoạn (Tổng thời gian: 14 tuần)
+
+
+ Giai đoạn 1: Vá Lỗ Hổng Nền Tảng  ➔  Giai đoạn 2: Quét Sạch Dạng Bài Mức 7  ➔  Giai đoạn 3: Rèn Kỹ Năng Phòng Thi 
+    (Tuần 1 - Tuần 5: 3.5 ➔ 5.5)             (Tuần 6 - Tuần 10: 5.5 ➔ 6.8)             (Tuần 11 - Tuần 14: 6.8 ➔ 7.5)
+
+
+ Giai đoạn 1: Vá lỗ hổng nền tảng & Triệt tiêu nỗi sợ (Tuần 1 – Tuần 5)
+   Mục tiêu: Nắm chắc lý thuyết cốt lõi, đọc hiểu bảng biến thiên, tính đạo hàm cơ bản, dựng được hình chóp/lăng trụ.
+   Nội dung chuyên đề:
+       Tuần 1: Bảng đạo hàm sơ cấp; xét dấu nhị thức bậc nhất và tam thức bậc hai; tìm cực trị qua bảng biến thiên.
+       Tuần 2: Giá trị lớn nhất / nhỏ nhất trên đoạn $a; b$; đường tiệm cận đứng, tiệm cận ngang (cách nhìn giới hạn ở vô cực).
+       Tuần 3: Khái niệm nguyên hàm, bảng nguyên hàm cơ bản; ý nghĩa hình học của tích phân (tính diện tích hình phẳng đơn giản).
+       Tuần 4: Hình học không gian: Góc giữa đường thẳng và mặt phẳng; góc giữa hai mặt phẳng (chỉ học các dạng đáy tam giác vuông, hình vuông, chữ nhật).
+       Tuần 5: Tọa độ $Oxyz$ cơ bản: Tọa độ điểm, vectơ, phương trình mặt cầu tâm $I$ bán kính $R$.
+   Chỉ số đánh giá (KPI): Tự tin giải đúng 20 câu đầu tiên trong đề thi thử mà không cần mở sách giải.
+
+ Giai đoạn 2: Quét sạch dạng bài mức 7 điểm (Tuần 6 – Tuần 10)
+   Mục tiêu: Xử lý toàn bộ các câu hỏi mức độ Thông hiểu và Vận dụng thấp; làm quen định dạng câu hỏi Đúng/Sai (Phần 2) và Trả lời ngắn cơ bản (Phần 3).
+   Nội dung chuyên đề:
+       Tuần 6: Bài toán tương giao đồ thị; biện luận số nghiệm phương trình $f(x) = m$ bằng đồ thị; bài toán thực tế tối ưu đơn giản.
+       Tuần 7: Ứng dụng tích phân tính thể tích khối tròn xoay; bài toán chuyển động vật lý (quãng đường, vận tốc, gia tốc).
+       Tuần 8: Phương trình mặt phẳng và đường thẳng trong $Oxyz$; bài toán tìm hình chiếu vuông góc và khoảng cách cơ bản.
+       Tuần 9: Xác suất có điều kiện (chương trình mới): Sử dụng sơ đồ hình cây để tính xác suất mà không bị nhầm lẫn công thức.
+       Tuần 10: Thống kê: Tính số trung bình, phương sai, độ lệch chuẩn của mẫu số liệu ghép nhóm bằng máy tính Casio.
+
+ Giai đoạn 3: Rèn kỹ năng phòng thi & Tối ưu điểm số (Tuần 11 – Tuần 14)
+   Mục tiêu: Luyện đề rút gọn (35 câu đầu); kiểm soát tâm lý, triệt tiêu lỗi bấm nhầm máy tính và lỗi quên đặt điều kiện xác định.
+   Nội dung thực chiến:
+       Rèn thói quen đọc đề dùng bút chì gạch chân từ khóa ("đồng biến", "nghịch biến", "nghiệm nguyên", "khoảng", "đoạn").
+       Luyện kỹ thuật loại trừ phương án sai cho Phần 2 (Đúng/Sai).
+       Bấm giờ 45 phút cho mỗi đề luyện 30 câu.
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày (Tuần 3 - Giai đoạn 1)
+Quỹ thời gian: 45 phút/ngày vào Khung giờ vàng (20h00 – 20h45).
+
+   Thứ Hai (20 phút học + 25 phút làm):
+       Micro-task: Xem lại bảng nguyên hàm cơ bản. Làm đúng 5 bài tập tìm nguyên hàm của hàm đa thức và hàm mũ đơn giản.
+   Thứ Ba (45 phút):
+       Micro-task: Phương pháp đổi biến số tích phân loại 1 (đặt $t = u(x)$). Làm 4 bài tập có sẵn dấu hiệu (chứa căn, chứa mẫu số).
+   Thứ Tư (45 phút):
+       Micro-task: Ý nghĩa hình học của tích phân: Tính diện tích hình phẳng giới hạn bởi đồ thị $y=f(x)$, trục hoành và hai đường thẳng $x=a, x=b$. Làm 5 bài có hình vẽ sẵn.
+   Thứ Năm (15 phút ôn tập + 30 phút luyện tập):
+       Micro-task: Bấm máy tính Casio kiểm tra kết quả tích phân (luyện thao tác bấm nút CALC và so sánh sai số).
+   Thứ Sáu (45 phút):
+       Micro-task: Thử sức với 1 câu hỏi Trắc nghiệm Đúng/Sai (gồm 4 ý a, b, c, d) về chủ đề Ứng dụng tích phân.
+   Thứ Bảy (45 phút):
+       Micro-task: "Sổ tay bẫy sai lầm" (Error-Log): Chép lại 3 câu tích phân đã làm sai trong tuần, giải thích bằng lời tại sao mình sai.
+   Chủ Nhật (30 phút nhẹ nhàng):
+       Micro-task: Thư giãn đầu óc, điền phản chiếu tuần cùng AI, xem lại bản đồ tiến độ vệt Streak.
+
+ 4. Cơ chế Cảnh báo Giáo viên (Teacher-in-the-loop Red Flags)
+   🚨 Cảnh báo Đỏ 1: Học sinh có 3 ngày liên tiếp đánh giá mức tự tin $\le 2$ sao ở cùng một chủ đề (ví dụ: Hình không gian). $\rightarrow$ Hệ thống gửi thông báo cho giáo viên: "Em Tên đang tắc nghẽn ở bước dựng góc đường - mặt, cần can thiệp kèm 1-1 bằng mô hình 3D trực quan trong 10 phút".
+   🚨 Cảnh báo Đỏ 2: Tỉ lệ hoàn thành micro-task dưới 50% trong 5 ngày. $\rightarrow$ Giáo viên nhận nhắc nhở gửi 1 tin nhắn thoại động viên ngắn.
+
+ 5. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Người Đồng Hành Chữa Lành (Growth Mindset).
+   Mẫu phản hồi AI: "Hôm nay em đã kiên trì ngồi vào bàn 40 phút và giải xong 4 bài tích phân dù lúc đầu thấy rất ngại. Đó là bước tiến lớn! Đừng so sánh mình với ai khác, hôm nay em đã giỏi hơn chính mình của ngày hôm qua 1% rồi. Nghỉ ngơi sớm nhé!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 2: "PHÁ VỠ BÌNH NGUYÊN 7 ĐIỂM" (THE PLATEAU BREAKER)
+Dành cho học sinh làm tốt phần cơ bản nhưng điểm số luôn mắc kẹt ở mức 6.8 – 7.6; làm được câu khó nhưng hay sai nhảm câu dễ; mục tiêu bứt phá lên 8.2 – 8.8.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Nguyên tắc "Bịt Lỗ Rò Trước Khi Đổ Thêm Nước": 70% lý do học sinh không đạt 8+ không phải vì không biết làm câu khó, mà vì để mất từ 1.0 đến 1.5 điểm ở các câu dễ. Bắt buộc phải triệt tiêu 100% lỗi sai vặt.
+   Nâng cấp Công nghệ Giải toán: Chuyển từ cách giải tự luận dài dòng sang các kỹ thuật hiện đại: Ghép trục hàm hợp cơ bản, kỹ thuật sơ đồ V, phương pháp gắn trục tọa độ chuẩn hóa trong hình không gian.
+   Chiến thuật "Phòng thi Phân tầng": Tối ưu hóa thời gian: 35 câu đầu giải quyết tối đa trong 35 phút, tuyệt đối không được để dây dưa.
+
+ 2. Lộ trình 3 Giai đoạn (Tổng thời gian: 12 tuần)
+
+
+ Giai đoạn 1: Triệt Tiêu Lỗi Sai Vặt  ➔  Giai đoạn 2: Làm Chủ Dạng Vận Dụng  ➔  Giai đoạn 3: Tối Ưu Tốc Độ Thực Chiến 
+    (Tuần 1 - Tuần 4: 7.0 ➔ 7.8)               (Tuần 5 - Tuần 9: 7.8 ➔ 8.4)              (Tuần 10 - Tuần 12: 8.4 ➔ 8.8)
+
+
+ Giai đoạn 1: Chiến dịch "Bảo Toàn Điểm Dễ" (Tuần 1 – Tuần 4)
+   Mục tiêu: Đạt độ chính xác 100% ở 35 câu đầu (mức 7 điểm) trong thời gian dưới 35 phút.
+   Nội dung chuyên đề:
+       Tuần 1: Luyện chuyên sâu bẫy Điều Kiện Xác Định (phương trình mũ, logarit, căn thức); phân biệt tập xác định của $y = x^\alpha$ theo các trường hợp của $\alpha$.
+       Tuần 2: Nhận diện nhanh đồ thị hàm số và đồ thị đạo hàm $f'(x)$ (bẫy kinh điển: đề cho $f'(x)$ nhưng học sinh nhìn nhầm thành $f(x)$).
+       Tuần 3: Bẫy hình học không gian: Khoảng cách giữa hai đường thẳng chéo nhau (phương pháp kẻ mặt phẳng song song vs phương pháp gắn trục $Oxyz$).
+       Tuần 4: Kỹ năng xử lý Phần 2 (Đúng/Sai): Thuần thục cách chứng minh từng ý a, b, c, d độc lập để lấy trọn vẹn 1.0 điểm mỗi câu lớn.
+   Chỉ số đánh giá (KPI): Làm 3 đề 35 câu liên tiếp không được phép sai quá 1 câu.
+
+ Giai đoạn 2: Chinh phục Dạng bài Vận dụng 8+ (Tuần 5 – Tuần 9)
+   Mục tiêu: Xử lý mượt mà các bài toán có chứa tham số $m$, cực trị hàm hợp, và bài toán ứng dụng thực tế theo GDPT 2018.
+   Nội dung chuyên đề:
+       Tuần 5: Cực trị và tính đơn điệu của hàm hợp $y = f(u(x))$ (phương pháp ghép trục và phương pháp đạo hàm truyền thống).
+       Tuần 6: Bài toán tối ưu hóa thực tế lớp 12 (ví dụ: tìm kích thước bao bì hình trụ/hộp chữ nhật để chi phí sản xuất nhỏ nhất, bài toán tối ưu lợi nhuận kinh tế).
+       Tuần 7: Ứng dụng tích phân giải quyết các bài toán diện tích hình phẳng phức tạp (cắt nhau tại nhiều điểm, bài toán thiết kế cảnh quan thực tế).
+       Tuần 8: Phương pháp tọa độ $Oxyz$: Bài toán liên quan đến góc, khoảng cách và vị trí tương đối có chứa tham số; bài toán tìm điểm thỏa mãn hệ thức vectơ nhỏ nhất.
+       Tuần 9: Xác suất có điều kiện nâng cao & Công thức xác suất toàn phần: Giải quyết các bài toán xét nghiệm y tế, dự báo thời tiết bằng công thức Bayes.
+
+ Giai đoạn 3: Tối ưu Tốc độ Thực chiến & Ép Thời Gian (Tuần 10 – Tuần 12)
+   Mục tiêu: Hoàn thiện kỹ năng phân bổ thời gian 90 phút: 35 phút cho mức 7 điểm $\rightarrow$ 35 phút cho mức 8.5 $\rightarrow$ 20 phút rà soát và săn điểm 9+.
+   Nội dung thực chiến:
+       Luyện đề chuẩn cấu trúc Bộ GD&ĐT mới (bấm giờ nghiêm ngặt 85 phút, để dư 5 phút tô phiếu).
+       Rèn thói quen "Đánh dấu 3 màu": Câu làm chắc chắn đúng (xanh), câu đang phân vân 50/50 (vàng), câu khó chưa nhìn ra hướng (đỏ).
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày (Tuần 6 - Giai đoạn 2)
+Quỹ thời gian: 75 phút/ngày vào Khung giờ vàng (19h30 – 20h45).
+
+   Thứ Hai (75 phút):
+       Micro-task: Học lý thuyết bài toán Tối ưu hóa thực tế. Giải 3 bài toán cực trị hình học không gian (tìm bán kính đáy $R$ và chiều cao $h$ để thể tích lớn nhất).
+   Thứ Ba (75 phút):
+       Micro-task: Giải 4 bài toán tối ưu kinh tế (hàm chi phí $C(x)$, doanh thu $R(x)$, lợi nhuận $P(x)$) trong đề minh họa GDPT 2018.
+   Thứ Tư (75 phút):
+       Micro-task: Luyện chuyên đề Trắc nghiệm Trả lời ngắn (Phần 3): 5 câu toán thực tế điền số nguyên/thập phân. Chú ý bẫy làm tròn số ("làm tròn đến hàng phần trăm").
+   Thứ Năm (75 phút):
+       Micro-task: Thử thách Tốc độ: Bấm giờ 30 phút quét nhanh 30 câu nhận biết - thông hiểu tổng hợp. 45 phút còn lại sửa chi tiết các câu phân vân.
+   Thứ Sáu (75 phút):
+       Micro-task: Học phương pháp ghép trục giải bài toán cực trị hàm hợp $g(x) = f(x^2 - 2x)$. Làm 3 bài tập vận dụng.
+   Thứ Bảy (75 phút):
+       Micro-task: Thi đấu tuần: Làm 1 đề kiểm tra chuyên đề 25 câu Vận dụng (mức 7.5 – 8.5). Ghi lại toàn bộ bẫy tư duy vào sổ tay.
+   Chủ Nhật (45 phút):
+       Micro-task: Tổng kết tuần, phân tích biểu đồ sai sót cùng AI, đặt mục tiêu bứt phá tuần kế tiếp.
+
+ 4. Cơ chế Cảnh báo Giáo viên (Teacher-in-the-loop Red Flags)
+   🚨 Cảnh báo Vàng: Học sinh liên tục sai từ 2 câu trở lên ở nhóm câu hỏi Nhận biết (câu dễ) trong các bài check-in tuần. $\rightarrow$ Hệ thống gắn cờ: "Học sinh có dấu hiệu chủ quan, ẩu tả khi làm câu cơ bản". Giáo viên gửi lời nhắc kiểm tra lại bài trước khi nộp.
+   🚨 Cảnh báo Đỏ: Học sinh bỏ trống hoàn toàn Phần 3 (Trả lời ngắn) trong 2 bài kiểm tra liên tiếp. $\rightarrow$ Giáo viên can thiệp hướng dẫn kỹ thuật điền số và mẹo ước lượng biên độ giá trị.
+
+ 5. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Huấn Luyện Viên Kỷ Luật (Direct & Result-Oriented).
+   Mẫu phản hồi AI: "Hôm nay em làm rất tốt phần bài toán tối ưu, nhưng vẫn để mất 0.25 điểm ở câu tìm tập xác định vì quên điều kiện $x > 0$. Ở kỳ thi thật, 0.25 điểm này sẽ quyết định việc em đỗ hay trượt NEU đấy! Ngày mai trước khi làm bài, hãy viết hoa từ ĐIỀU KIỆN lên đầu trang nháp nhé!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 3: "CHINH PHỤC ĐỈNH CAO 9+" (THE MASTERY SEEKER)
+Dành cho học sinh giỏi, nền tảng hoàn hảo, giải quyết 38 câu đầu trong 35 phút; mục tiêu cạnh tranh các ngành Y khoa, Công nghệ thông tin Bách Khoa, Sư phạm Toán (9.2 – 10.0).
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Nguyên tắc "Tư Duy Xuyên Chuyên Đề" (Cross-Domain Synthesis): Các câu 9+ trong đề thi mới không nằm ở một chương đơn lẻ, mà kết hợp giữa: Đạo hàm + Mũ logarit; Tích phân + Bất đẳng thức; Hình không gian $Oxyz$ + Cực trị đại số.
+   Luyện Não Trước Dạng Bài Mới Lạ (Unseen Problems): Không học thuộc lòng dạng bài (vì người ra đề sẽ đổi mới hoàn toàn). Rèn phương pháp tư duy mô hình hóa: Đặt ẩn phụ đối xứng, đánh giá miền giá trị (bất đẳng thức Cauchy/AM-GM, Bunhiacopxki), xét tính đơn điệu hàm đặc trưng.
+   Tâm lý "Sát Thủ Phòng Thi": Làm chủ hoàn toàn áp lực thời gian, không bao giờ hoảng sợ khi gặp bài toán lạ dài nửa trang giấy.
+
+ 2. Lộ trình 3 Giai đoạn (Tổng thời gian: 16 tuần)
+
+
+ Giai đoạn 1: Làm Chủ Kỹ Thuật Đỉnh Cao  ➔  Giai đoạn 2: Chinh Phục Câu Phân Hóa  ➔  Giai đoạn 3: Luyện Đề Thi Đỉnh Cao 
+    (Tuần 1 - Tuần 6: 8.2 ➔ 8.8)                 (Tuần 7 - Tuần 12: 8.8 ➔ 9.4)             (Tuần 13 - Tuần 16: 9.4 ➔ 10.0)
+
+
+ Giai đoạn 1: Làm chủ Các Kỹ thuật Phân tích Đỉnh cao (Tuần 1 – Tuần 6)
+   Nội dung chuyên đề:
+       Tuần 1-2: Phương pháp hàm đặc trưng nâng cao cho phương trình, bất phương trình mũ – logarit chứa tham số $m$.
+       Tuần 3-4: Bất đẳng thức tích phân, tích phân hàm ẩn, kỹ thuật vi phân hai vế để tìm hàm số gốc $f(x)$.
+       Tuần 5-6: Cực trị hình học $Oxyz$ nâng cao: Bài toán điểm di động trên mặt cầu/mặt phẳng; phương pháp hình học kết hợp đại số tìm $\max/\min$ của biểu thức $|\vec{u} + k\vec{v}|$.
+
+ Giai đoạn 2: Chinh phục Nhóm Câu Phân hóa Cấu trúc Mới (Tuần 7 – Tuần 12)
+   Nội dung chuyên đề:
+       Tuần 7-8: Bài toán Mô hình hóa toán học phức tạp (Toán chuyển động phi tuyến tính, bài toán tăng trưởng dân số/vi khuẩn phi chuẩn, bài toán tối ưu hình học không gian đa khối).
+       Tuần 9-10: Làm chủ Phần 3 (Trắc nghiệm Điền đáp án ngắn) ở mức Vận dụng cao: Rèn độ chính xác tuyệt đối, không có đáp án A, B, C, D để thử hay đoán mò.
+       Tuần 11-12: Xác suất nâng cao: Bài toán di truyền quần thể kết hợp xác suất điều kiện; bài toán chia bài/xúc xắc lặp vô hạn.
+
+ Giai đoạn 3: Thực chiến Đề Chuyên & Tối ưu Tâm lý Phòng thi (Tuần 13 – Tuần 16)
+   Nội dung thực chiến:
+       Quét toàn bộ đề thi thử của các trường chuyên hàng đầu (Chuyên Sư Phạm, Chuyên KHTN, Chuyên Lam Sơn, Chuyên Phan Bội Châu...).
+       Ép thời gian làm bài từ 90 phút xuống 75 phút để tạo sức bền thần kinh và dự phòng thời gian cho các câu tính toán cồng kềnh.
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày (Tuần 8 - Giai đoạn 2)
+Quỹ thời gian: 100 phút/ngày vào Khung giờ vàng (20h00 – 21h40).
+
+   Thứ Hai (100 phút):
+       Micro-task: Chuyên đề Tích phân hàm ẩn: Xử lý dạng phương trình vi phân cấp 1: $f'(x) + p(x)f(x) = q(x)$. Giải 4 bài toán vận dụng cao mức 9+.
+   Thứ Ba (100 phút):
+       Micro-task: Chuyên đề Cực trị $Oxyz$: Ứng dụng tâm tỉ cự tìm điểm $M$ trên mặt phẳng sao cho $2MA^2 + 3MB^2 - MC^2$ đạt giá trị nhỏ nhất. Giải 3 bài tập lớn.
+   Thứ Tư (100 phút):
+       Micro-task: Tốc độ tuyệt đối: Bấm giờ 35 phút làm sạch 40 câu đầu của 1 đề thi thử chuyên KHTN. 65 phút còn lại tập trung "mổ xẻ" 2 câu VDC lạ nhất đề.
+   Thứ Năm (100 phút):
+       Micro-task: Bài toán thực tế mô hình hóa: Xử lý bài toán tối ưu góc nhìn của camera quan sát hoặc góc sút bóng cầu môn (sử dụng đạo hàm tìm góc $\alpha$ lớn nhất).
+   Thứ Sáu (100 phút):
+       Micro-task: Chinh phục Phần 2 (Đúng/Sai) mức 9+: Giải 2 câu Đúng/Sai chứa hàm số bậc 4 trùng phương và hàm trị tuyệt đối có 4 tham số $a, b, c, d$.
+   Thứ Bảy (100 phút):
+       Micro-task: Thử thách "Sáng tạo lời giải": Chọn 1 câu VDC điểm 10 đã giải được, tìm thêm 1 cách giải khác (ví dụ: cách 1 dùng đại số, cách 2 dùng hình học giải tích).
+   Chủ Nhật (60 phút):
+       Micro-task: Đọc tài liệu mở rộng, ghi chép các ý tưởng tư duy độc đáo vào Sổ tay Chiến lược, reset năng lượng.
+
+ 4. Cơ chế Cảnh báo Giáo viên (Teacher-in-the-loop Red Flags)
+   🚨 Cảnh báo Vàng: Học sinh bị "nghiện câu khó" (dành quá 25 phút cho 1 câu mà không chịu buông, dẫn đến không đủ thời gian rà soát đề). $\rightarrow$ Giáo viên nhắc nhở chiến thuật buông bỏ có tính toán trong phòng thi.
+   🚨 Cảnh báo Xanh (Cơ hội bứt phá): Học sinh giải quyết được câu VDC theo cách giải mới lạ. $\rightarrow$ Hệ thống đề xuất giáo viên mời học sinh trình bày cách giải cho cả lớp trong buổi học chuyên đề.
+
+ 5. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Chuyên Gia Chiến Lược (Peer-to-Peer & Intellectual Coach).
+   Mẫu phản hồi AI: "Cách em dùng tâm tỉ cự để giải câu Oxyz tối nay rất sắc sảo, tiết kiệm được ít nhất 5 phút nháp so với phương pháp đại số thông thường! Giữ vững sự nhạy bén này nhé. Mai chúng ta sẽ thử sức với dạng bài tích phân chứa hàm ngược!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 4: "CHIẾN DỊCH 30 NGÀY VỀ ĐÍCH" (THE 30-DAY SPRINT)
+Dành cho học sinh chỉ còn 4 tuần trước kỳ thi tốt nghiệp/đại học; mục tiêu tối đa hóa điểm số hiện có (+1.0 đến +1.5 điểm), chặn đứng hoàn toàn việc mất điểm oan.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Tuyệt đối không học kiến thức hoàn toàn mới: 30 ngày cuối là lúc não bộ khó hình thành các liên kết tư duy mới phức tạp. Cố học câu 9+ lúc này chỉ gây hoang mang và loạn kiến thức.
+   Chiến thuật "Rà soát & Đóng băng Vùng An Toàn": Tập trung tối đa vào vùng kiến thức từ 5.0 đến 8.0 mà học sinh đã từng học nhưng hay quên hoặc hay sai vặt.
+   Huấn luyện Tâm lý Thi đấu & Kỹ thuật Tô Phiếu: Rèn thói quen làm bài trong áp lực tiếng ồn, cách xử lý khi bị nghẽn ý, kỹ thuật tô phiếu trả lời trắc nghiệm chuẩn xác không bị lệch dòng.
+
+ 2. Lộ trình 4 Tuần Nước Rút (30 Ngày)
+
+
+ Tuần 1: Rà Soát Lỗ Hổng Cơ Bản  ➔  Tuần 2: Ép Tốc Độ Mức 7.5  ➔  Tuần 3: Huấn Luyện Thi Thử Chuẩn  ➔  Tuần 4: Thư Giãn & Điểm Rơi Phong Độ 
+
+
+   Tuần 1 (Ngày 1 – 7): Chiến dịch "Quét Sạch Lỗi Ngớ Ngẩn"
+       Nhiệm vụ: Mỗi ngày làm 1 đề 35 câu cơ bản. Mục tiêu: 100% không được sai câu nào dưới mức 7 điểm.
+       Trọng tâm: Ôn lại toàn bộ công thức tính nhanh thể tích khối đa diện, công thức logarit, các trường hợp đồng biến/nghịch biến của hàm phân thức bậc nhất/bậc nhất.
+   Tuần 2 (Ngày 8 – 14): Tối ưu hóa Phần 2 (Đúng/Sai) và Phần 3 (Điền đáp án)
+       Nhiệm vụ: Cấu trúc đề mới có thang điểm câu Đúng/Sai rất khắc nghiệt (đúng 1 ý được 0.1đ, đúng 2 ý 0.25đ, đúng 3 ý 0.5đ, đúng cả 4 ý mới được 1.0đ). Luyện kỹ năng phán đoán và chứng minh nhanh để tối thiểu ăn được 2–3 ý mỗi câu lớn.
+       Trọng tâm: Rèn 30 câu Trả lời ngắn điền số thuộc phần Xác suất và Tích phân thực tế.
+   Tuần 3 (Ngày 15 – 21): Khớp Giờ Sinh Học Với Giờ Thi Thật
+       Nhiệm vụ: Làm bài thi thử vào đúng khung giờ thi thật môn Toán (14h00 – 15h30 chiều). Ép cơ thể và não bộ hoạt động tối đa vào khung giờ này để không bị buồn ngủ hay uể oải trong ngày thi chính thức.
+       Trọng tâm: Thực hành nghiêm ngặt chiến thuật 3 vòng: Vòng 1 (Ăn chắc 30 câu đầu trong 30p) $\rightarrow$ Vòng 2 (Giải quyết câu vận dụng thế mạnh trong 35p) $\rightarrow$ Vòng 3 (Kiểm tra lại bài và xử lý câu khó trong 25p).
+   Tuần 4 (Ngày 22 – 30): Giữ Nhịp & Điểm Rơi Phong Độ
+       Nhiệm vụ: Giảm tải cường độ làm bài. Mỗi ngày chỉ làm 15–20 câu nhẹ nhàng để giữ phản xạ tay và mắt.
+       Trọng tâm: Xem lại toàn bộ cuốn "Sổ tay Bẫy Sai Lầm"; ngủ đủ 8 tiếng mỗi ngày; chuẩn bị đầy đủ 2 máy tính Casio đã thay pin mới, thước kẻ, compa, bút chì 2B.
+
+ 3. Cơ chế Cảnh báo Giáo viên (Teacher-in-the-loop Red Flags)
+   🚨 Cảnh báo Khẩn cấp: Học sinh có biểu hiện mất ngủ, lo âu quá mức (thể hiện qua check-in tâm lý: năng lượng 1 sao, phản hồi "em sợ thi trượt"). $\rightarrow$ Giáo viên hoặc chuyên gia tâm lý nhà trường bắt buộc phải gọi điện trực tiếp để giải tỏa tâm lý cho học sinh ngay trong ngày.
+
+ 4. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Người Giữ Lửa & Trấn An Tâm Lý (Reassuring & Calming).
+   Mẫu phản hồi AI: "Chỉ còn 15 ngày nữa thôi, em đang làm rất tốt! Đừng lo lắng về những câu mình chưa biết làm, hãy tập trung làm thật chắc những câu mình đã học. Sự bình tĩnh và cẩn thận lúc này đáng giá hơn việc nhồi nhét thêm 100 câu bài tập mới. Hãy tự tin lên, em đã chuẩn bị cả một hành trình dài rồi!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 5: "XÂY MÓNG DÀI HẠN TỪ LỚP 10-11" (THE EARLY BUILDER)
+Dành cho học sinh lớp 10, 11 định hướng thi khối A00, A01, D01 hoặc các kỳ thi Đánh giá năng lực; mục tiêu xây nền tảng vững chắc 8.5+ bền vững không áp lực.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Học Toán qua Bản chất & Mô hình Thực tế: Không học mẹo, không học vẹt. Bám sát triết lý GDPT 2018: Mọi kiến thức toán học đều bắt nguồn từ nhu cầu giải quyết các vấn đề thực tiễn (kinh tế, sinh học, vật lý, kỹ thuật).
+   Xây dựng Thói quen Tự học Vi mô Bền bỉ (Micro-Habit): Mỗi ngày chỉ cần 30 – 40 phút, nhưng duy trì vệt Streak liên tục 365 ngày. Điều này tạo ra sức mạnh lãi kép (compound effect) về mặt nhận thức.
+   Phát triển Tư duy Trực quan Hình học (Spatial Reasoning): Dùng phần mềm động (như GeoGebra) để nhìn thấy không gian 3 chiều trước khi làm bài trên giấy.
+
+ 2. Lộ trình Phân Kỳ Theo Năm Học
+
+
+ Học kỳ 1: Làm Chủ Nền Tảng Đại Số & Hình Học  ➔  Học kỳ 2: Tiếp Cận Toán Mô Hình  ➔  Mùa Hè: Học Vượt Chương Trình 12 
+
+
+   Chặng 1 (Lớp 10 / Lớp 11 - Trong năm học):
+       Nắm chắc các công thức Lượng giác, Vectơ, Phương pháp tọa độ trong mặt phẳng Oxy.
+       Học sâu bản chất của Đạo hàm (ý nghĩa vật lý và hình học) thay vì chỉ học quy tắc tính đạo hàm máy móc.
+       Làm quen với các bài toán Xác suất và Thống kê hiện đại (Biến cố độc lập, xác suất có điều kiện).
+   Chặng 2 (Mùa hè chuyển cấp lên Lớp 12):
+       Hoàn thành trước toàn bộ kiến thức học kỳ 1 lớp 12 (Khảo sát hàm số & Tọa độ Oxyz) trước ngày 31/08.
+       Tạo ưu thế tuyệt đối về tâm lý và thời gian so với các bạn cùng trang lứa khi bước vào năm học cuối cấp.
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày
+Quỹ thời gian: 35 phút/ngày vào Khung giờ sau tan trường hoặc tối sớm (19h00 – 19h35).
+
+   Thứ Hai (35 phút): Đọc 1 tình huống thực tế dẫn nhập vào bài học (ví dụ: cách người ta tính liều lượng thuốc tan trong máu theo hàm số mũ). Làm 2 bài tập liên quan.
+   Thứ Ba (35 phút): Mở phần mềm GeoGebra quan sát đồ thị hàm số thay đổi khi kéo thanh trượt tham số $m$. Vẽ lại hình ảnh vào vở.
+   Thứ Tư (35 phút): Tự chứng minh lại 1 công thức toán học thay vì chỉ học thuộc (ví dụ: chứng minh công thức khoảng cách từ điểm đến mặt phẳng).
+   Thứ Năm (35 phút): Giải 3 bài tập trắc nghiệm Thông hiểu có liên quan đến hiện tượng đời sống.
+   Thứ Sáu (35 phút): Rèn luyện 1 câu hỏi logic tư duy (dạng bài thường gặp trong kỳ thi Đánh giá năng lực của ĐHQG).
+   Thứ Bảy (35 phút): Viết 1 đoạn phản chiếu ngắn: "Tuần này mình thấy kiến thức toán nào thú vị nhất và có thể ứng dụng vào đâu ngoài đời?".
+   Chủ Nhật: Nghỉ ngơi trọn vẹn.
+
+ 4. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Người Cố Vấn Tò Mò (Curious Socratic Guide).
+   Mẫu phản hồi AI: "Hôm nay em đã dành 30 phút tìm hiểu cách đạo hàm được dùng để tối ưu hóa diện tích tấm pin năng lượng mặt trời. Đó chính là vẻ đẹp của Toán học thực sự! Cứ duy trì ngọn lửa tò mò này mỗi ngày nhé!"
+
+---
+
+---
+
+ TỔNG KẾT BẢN THIẾT KẾ & SẴN SÀNG CHUYỂN GIAO MÔN TIẾP THEO
+
+Toàn bộ 5 kịch bản lộ trình chi tiết trên đã giải quyết trọn vẹn:
+1.  Độ bao phủ: Phù hợp cho mọi đối tượng học sinh từ 3 điểm đến 10 điểm.
+2.  Định dạng mới: Tích hợp đầy đủ cấu trúc đề thi 3 phần theo chuẩn GDPT 2018 (Trắc nghiệm nhiều lựa chọn, Trắc nghiệm Đúng/Sai, Trắc nghiệm Điền đáp án ngắn).
+3.  Vận hành hệ thống: Khớp nối chặt chẽ giữa Ngân sách thời gian sinh học, Nhiệm vụ Micro-task hằng ngày, Cảnh báo Teacher-in-the-loop, và Prompt AI theo từng phong cách tâm lý.
+
+Môn tiếp theo cần xây dựng lộ trình chuyên sâu: Môn Tiếng Anh hay Môn Vật lí / Hóa học / Ngữ văn?

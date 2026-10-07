@@ -1,0 +1,190 @@
+Dưới đây là Bản Thiết Kế Toàn Diện Hệ Thống Động Lực Dài Hạn (Long-Term Gamification & Habit Loop Architecture). 
+
+Bản thiết kế này vận dụng kết hợp Quy tắc hình thành thói quen 21/66 ngày (Dr. Maxwell Maltz & Phillippa Lally), Mô hình Hành vi Fogg (B = MAP), và Định luật Lãi kép Động lực (Front-loaded Dopamine Curve) để giải quyết triệt để vấn đề: Học sinh hào hứng 3 ngày đầu, bỏ cuộc ở tuần thứ hai, và kiệt sức trước kỳ thi.
+
+---
+
+ PHẦN 1: NGHỆ THUẬT KỂ CHUYỆN DÀI HẠN (THE NARRATIVE ARC)
+
+Để một hệ thống học tập không biến thành danh sách việc cần làm (to-do list) khô khan, toàn bộ hành trình của học sinh phải được đóng khung như một Hải Trình Vượt Trọng Lực (Escaping Gravity):
+
+
+┌───────────────────────────────────────────────────────────────────────────────────┐
+│               HẢI TRÌNH 3 CHẶNG ĐƯỜNG: TỪ HẠT NẰM DƯỚI ĐẤT ĐẾN ĐỈNH VINH QUANG     │
+├───────────────────────────────────────────────────────────────────────────────────┤
+│ CHẶNG 1 (Ngày 1 – 21):   "THOÁT KHỎI LỰC HÚT" (Breaking Gravity)                  │
+│                          Tâm lý: Cơ bắp ý chí yếu nhất, ma sát trì hoãn lớn nhất.│
+│                          Chiến lược: Bơm tối đa Dopamine ngoại sinh (phần thưởng,│
+│                          hiệu ứng, khiên hộ mệnh, thư tay).                      │
+├───────────────────────────────────────────────────────────────────────────────────┤
+│ CHẶNG 2 (Ngày 22 – 66):  "RÈN ĐÚC BẢN SẮC" (Identity Forging)                     │
+│                          Tâm lý: Thói quen bắt đầu ăn sâu, xuất hiện tâm lý chững.│
+│                          Chiến lược: Chuyển dịch sang động lực nội tại, mở khóa   │
+│                          danh hiệu chuyên sâu, mở Hộp thư Thời gian giai đoạn 1. │
+├───────────────────────────────────────────────────────────────────────────────────┤
+│ CHẶNG 3 (Ngày 67 – D-Day): "CHUYẾN BAY TỰ HÀNH" (Autonomous Orbit)                 │
+│                          Tâm lý: Tự giác 100%, phong độ ổn định.                 │
+│                          Chiến lược: Nghi thức phong vương, mở Tâm thư Ngày 1,   │
+│                          đồng hành cùng Teacher-in-the-loop về đích.              │
+└───────────────────────────────────────────────────────────────────────────────────┘
+
+
+> Ẩn dụ cốt lõi truyền cảm hứng xuyên suốt sản phẩm:  
+> "Một con tàu vũ trụ tiêu tốn 80% tổng nhiên liệu chỉ để thắng được lực hút Trái Đất trong vài phút đầu tiên rời bệ phóng. 21 ngày đầu của bạn cũng chính là giai đoạn đốt cháy nhiên liệu khốc liệt nhất. Một khi đã vượt khỏi bầu khí quyển của sự lười biếng, bạn sẽ bay vào quỹ đạo hoàn toàn tự nhiên."
+
+---
+
+ PHẦN 2: ĐƯỜNG CONG PHẦN THƯỞNG PHÂN PHỐI NGƯỢC (FRONT-LOADED REWARD CURVE)
+
+Thay vì chia đều phần thưởng, hệ thống áp dụng nguyên tắc Thưởng dồn dập ở 21 ngày đầu và Chuyển sang phần thưởng danh dự & bản sắc ở các ngày sau:
+
+
+Mật độ Phần thưởng
+ ▲
+ │  ████████ (Dày đặc: Ngày nào cũng có quà, mở khóa danh hiệu mới, khiên hộ mệnh)
+ │  ████████
+ │  ████████
+ │          ██████ (Giãn cách: Phần thưởng chất lượng, danh hiệu chuyên sâu)
+ │                ██████
+ │                      ████ (Bền bỉ: Huy hiệu danh dự, thư cảm ơn, báo cáo vinh danh)
+ └─────────────────────────────────────────────────────────────────────────────► Thời gian
+    Ngày 1-7   Ngày 8-21   Ngày 22-66     Ngày 67+
+
+
+ Ma trận Cột Mốc & Phần Thưởng Chi Tiết 21 Ngày Đầu
+
+| Cột mốc | Tên Cột Mốc | Phần Thưởng Hệ Thống | Hiệu Ứng Trải Nghiệm (UX/Sound) | Câu Nói Truyền Cảm Hứng (Quote) |
+| :--- | :--- | :--- | :--- | :--- |
+| Ngày 1 | Bệ Phóng Rực Lửa | • Huy hiệu Tiên Phong<br>• Tặng ngay 01 Khiên Hộ Mệnh (Streak Freeze)<br>• Viết Tâm Thư Gửi Tương Lai | Pháo hoa toàn màn hình + Âm thanh bừng sáng (Chime Chord) | "Bước chân đầu tiên không đưa bạn đến đích, nhưng kéo bạn ra khỏi nơi bạn đã giậm chân suốt thời gian qua." |
+| Ngày 3 | Vượt Qua Quán Tính | • Tặng thêm 01 Khiên Hộ Mệnh dự phòng<br>• Tặng danh hiệu Kẻ Khởi Động | Hiệu ứng ngọn lửa Streak chuyển từ Vàng sang Cam rực rỡ | "3 ngày không tạo nên một thiên tài, nhưng đủ để chứng minh bạn không phải là người nói suông." |
+| Ngày 7 | Tuần Lễ Kim Cương | • Huy hiệu Tuần Lễ Kim Cương<br>• Mở khóa tính năng Tùy biến Persona AI<br>• Nhận thư động viên đầu tiên từ Giáo viên | Hiệu ứng khiên ánh sáng bao quanh Avatar + Bắn pháo hoa Confetti 3 đợt | "Hầu hết mọi người bỏ cuộc vào ngày thứ 4. Bạn đã đi qua 7 ngày. Bạn đã chính thức vượt lên trên số đông." |
+| Ngày 10 | Hai Chữ Số Đầu Tiên | • Mở khóa chủ đề giao diện (Dark Emerald / Cyberpunk)<br>• Danh hiệu Chiến Binh Bền Bỉ | Biểu tượng ngọn lửa nâng cấp lên cấp độ 2 (Ngọn lửa có cánh) | "Con số 10 tròn trĩnh là bằng chứng rõ nhất: Kỷ luật không phải là cảm xúc, kỷ luật là sự lựa chọn." |
+| Ngày 14 | Nửa Vòng Quán Tính | • Huy hiệu Chiến Hạm Vượt Sóng<br>• Tặng 01 Vé Hồi Sinh Chuỗi Khẩn Cấp (Grace Pass) | Bản đồ tiến độ sáng bừng 50% chặng đường vượt trọng lực | "Bộ não của bạn đang bắt đầu tái cấu trúc các nếp nhăn thói quen mới. Đừng dừng lại khi động cơ đang nóng!" |
+| Ngày 21 | VƯỢT TRỌNG LỰC (HABIT BORN) | • Huy hiệu Huyền thoại Người Chiến Thắng Trọng Lực<br>• MỞ KHÓA TÂM THƯ NGÀY 1<br>• Tự động gửi Chứng nhận Kỷ luật về cho Phụ huynh/GV | Toàn bộ giao diện chuyển sang hiệu ứng Kim Cương Phát Sáng + Thư chúc mừng trang trọng từ Ban Cố Vấn | "21 ngày! Bạn đã chính thức đánh bại kẻ thù lớn nhất đời mình: Sự trì hoãn nguyên bản. Thói quen này giờ đã là một phần của bạn." |
+
+---
+
+ PHẦN 3: HỆ THỐNG DANH HIỆU & KHU VỰC THÀNH TÍCH (THE HALL OF FAME)
+
+Hệ thống danh hiệu được chia làm 2 nhánh rõ rệt: Nhánh Tiến Trình (Streak Mastery) và Nhánh Phẩm Chất Học Tập (Behavioral Feats).
+
+ 1. Nhánh Danh Hiệu Tiến Trình (The Evolution of the Flame)
+
+   🌱 Mầm Sống Tiên Phong (Ngày 1–6): Dành cho những ngày đầu chập chững đặt nền móng.
+   ⚡ Ngọn Lửa Kiên Định (Ngày 7–20): Khẳng định khả năng duy trì nhịp độ ổn định.
+   🛡️ Hiệp Sĩ Vượt Trọng Lực (Ngày 21–49): Biểu tượng của thói quen đã ăn sâu vào tiềm thức.
+   🌋 Bất Diệt (Ngày 50–99): Minh chứng cho bản lĩnh vững vàng trước mọi kỳ thi thử.
+   👑 Đại Sư Làm Chủ (Ngày 100+): Top 1% học sinh kiên trì nhất toàn hệ thống.
+
+ 2. Nhánh Danh Hiệu Phẩm Chất (Special Achievement Badges)
+
+   🦉 Cú Đêm Tỉnh Táo: Hoàn thành phản chiếu trước 22h00 liên tục 5 ngày (không trì hoãn đến nửa đêm).
+   🎯 Chiến Thần Diệt Rào Cản: 3 ngày liên tiếp tick vào chiến thắng "Tự giải quyết xong bài khó mà không cần mở giải".
+   💎 Lội Ngược Dòng Ngoạn Mục: Từng bị 1 ngày đánh giá 1 sao (năng lượng cạn kiệt) nhưng ngay ngày hôm sau đã trở lại bàn học và đạt 4 sao.
+   🤝 Cộng Sự Đắc Lực: Nhận được lời khen ngợi đặc biệt từ Giáo viên thông qua tính năng Teacher-in-the-loop.
+
+---
+
+ PHẦN 4: HỘP THƯ THỜI GIAN (TÂM THƯ GỬI TƯƠNG LAI - THE TIME CAPSULE)
+
+Tính năng "Hộp Thư Thời Gian" là chiếc mỏ neo tâm lý mạnh mẽ nhất giúp học sinh không bao giờ quên lý do mình bắt đầu:
+
+ 1. Cơ Chế Vận Hành:
+   Khoảnh khắc Phong Ấn (Sealing Moment - Ngày 1): Ngay sau khi hoàn thành bài khảo sát chẩn đoán, học sinh được mời viết một lá thư gửi cho chính mình:
+     Gợi ý: "Hôm nay bạn đang đứng ở đâu? Mục tiêu đỗ trường nào? Nỗi sợ lớn nhất là gì? Và bạn hứa sẽ chiến đấu vì điều gì?".
+     Lá thư được mã hóa và khóa kín với đồng hồ đếm ngược.
+   Khoảnh khắc Khơi Mở (Unlocking Moments):
+     Mở khóa lần 1 (Ngày 21): Đọc lại tâm thư để thấy mình đã đi được bao xa từ vạch xuất phát.
+     Mở khóa lần 2 (Đêm trước ngày thi D-Day): Nhận lại bức thư của chính mình từ ngày đầu tiên kèm theo toàn bộ đồ thị tiến trình nỗ lực, xóa tan hoàn toàn nỗi sợ phòng thi.
+   Lá Thư Tiếp Sức Từ Giáo Viên (Teacher's Secret Note): Giáo viên có thể viết sẵn một lá thư động viên được hệ thống tự động giao đến học sinh đúng vào ngày các em chạm cột mốc khủng hoảng (hoặc ngày thứ 14).
+
+---
+
+ PHẦN 5: SCHEMA CƠ SỞ DỮ LIỆU BỔ SUNG (POSTGRESQL DDL)
+
+Dưới đây là DDL thiết kế bảng dữ liệu lưu trữ Thành tích, Danh hiệu, Khiên hộ mệnh và Hộp thư thời gian:
+
+sql
+-- ============================================================================
+-- 1. ENUM VÀ BẢNG QUẢN LÝ DANH HIỆU & THÀNH TÍCH (GAMIFICATION ENGINE)
+-- ============================================================================
+CREATE TYPE badgecategory AS ENUM ('STREAKMILESTONE', 'ACADEMICBEHAVIOR', 'RESILIENCE', 'SPECIALEVENT');
+CREATE TYPE capsulestatus AS ENUM ('SEALED', 'UNLOCKED', 'READ');
+
+CREATE TABLE badges (
+    id VARCHAR(50) PRIMARY KEY, -- e.g., 'STREAK7DAYS', 'RESILIENTWARRIOR'
+    category badgecategory NOT NULL,
+    title VARCHAR(100) NOT NULL,
+    description TEXT NOT NULL,
+    iconurl VARCHAR(255) NOT NULL,
+    requiredstreak INT DEFAULT 0,
+    createdat TIMESTAMPTZ NOT NULL DEFAULT CURRENTTIMESTAMP
+);
+
+CREATE TABLE studentbadges (
+    id UUID PRIMARY KEY DEFAULT uuidgeneratev4(),
+    studentid UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    badgeid VARCHAR(50) NOT NULL REFERENCES badges(id) ON DELETE CASCADE,
+    unlockedat TIMESTAMPTZ NOT NULL DEFAULT CURRENTTIMESTAMP,
+    isshowcased BOOLEAN NOT NULL DEFAULT FALSE,
+    UNIQUE(studentid, badgeid)
+);
+
+CREATE INDEX idxstudentbadgeslookup ON studentbadges(studentid);
+
+-- ============================================================================
+-- 2. KHIÊN HỘ MỆNH & VÉ BẢO HIỂM CHUỖI (STREAK INVENTORY)
+-- ============================================================================
+CREATE TABLE studentstreakinventories (
+    studentid UUID PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+    freezeshieldsavailable SMALLINT NOT NULL DEFAULT 1 CHECK (freezeshieldsavailable >= 0),
+    gracepassesavailable SMALLINT NOT NULL DEFAULT 0 CHECK (gracepassesavailable >= 0),
+    totalshieldsused SMALLINT NOT NULL DEFAULT 0,
+    lastshieldusedat TIMESTAMPTZ,
+    updatedat TIMESTAMPTZ NOT NULL DEFAULT CURRENTTIMESTAMP
+);
+
+-- ============================================================================
+-- 3. HỘP THƯ THỜI GIAN (TIME CAPSULE & LETTERS TO FUTURE SELF)
+-- ============================================================================
+CREATE TABLE timecapsules (
+    id UUID PRIMARY KEY DEFAULT uuidgeneratev4(),
+    studentid UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    authortype VARCHAR(20) NOT NULL DEFAULT 'STUDENT', -- 'STUDENT' or 'TEACHER'
+    authorid UUID NOT NULL REFERENCES users(id),
+    title VARCHAR(255) NOT NULL,
+    encryptedlettercontent TEXT NOT NULL, -- Field-level encrypted student note
+    targetunlockday INT NOT NULL,         -- e.g., Day 21, Day 100, D-Day
+    unlockatdate DATE,                    -- Or specific calendar date
+    status capsulestatus NOT NULL DEFAULT 'SEALED',
+    createdat TIMESTAMPTZ NOT NULL DEFAULT CURRENTTIMESTAMP,
+    unlockedat TIMESTAMPTZ
+);
+
+CREATE INDEX idxtimecapsuleslookup ON timecapsules(studentid, status);
+
+
+---
+
+ PHẦN 6: GIAO DIỆN TƯƠNG TÁC THỰC TẾ (INTERACTIVE PROTOTYPE)
+
+Dưới đây là một giao diện hoàn chỉnh có thể tương tác trực tiếp, bao gồm:
+1. Thanh Hành Trình 21 Ngày Vượt Trọng Lực với các hộp quà và hiệu ứng pháo hoa khi chạm cột mốc.
+2. Khu Vực Danh Hiệu & Thành Tích (Hall of Fame) với huy hiệu động rực rỡ.
+3. Hộp Thư Thời Gian (Tâm Thư Gửi Tương Lai) với hiệu ứng phong ấn và đếm ngược mở khóa.
+4. Trình Đọc Câu Nói Truyền Cảm Hứng Hằng Ngày (Daily Wisdom).
+
+
+
+---
+
+ PHẦN 7: TỔNG KẾT NGUYÊN TẮC VẬN HÀNH THÀNH CÔNG
+
+Để hệ thống này vận hành trơn tru trong thực tế, nhà trường và đội ngũ phát triển cần tuân thủ 3 nguyên tắc bất di bất dịch:
+
+1. Không Bao Giờ Trừng Phạt Khi Học Sinh Đứt Chuỗi:  
+   Khi học sinh quên check-in 1 ngày, hệ thống tuyệt đối không hạ streak về 0 ngay lập tức (sẽ gây hiệu ứng tâm lý buông xuôi "What-the-hell effect"). Thay vào đó, tự động kích hoạt Khiên Hộ Mệnh (Streak Freeze) và gửi thông điệp ấm áp: "Hôm qua hẳn bạn đã có một ngày rất bận rộn. Khiên hộ mệnh đã giữ lại ngọn lửa cho bạn. Tối nay cùng tiếp tục nhé!".
+2. Khen Ngợi Nỗ Lực Thay Vì Sự Hoàn Hảo (Praise the Process, Not Outcome):  
+   Lời khen của AI và phần thưởng chỉ trao cho hành vi kỷ luật và sự kiên trì (ví dụ: ngồi vào bàn đúng giờ, tự giải bài khó, đối diện với rào cản), không trao cho những yếu tố may rủi.
+3. Sự Hiện Diện Của Con Người Là Vũ Khí Tối Thượng:  
+   AI có thể sinh ra hàng ngàn câu nói hay, nhưng 01 lá thư tay hoặc 01 tin nhắn thoại dài 20 giây của thầy cô vào ngày thứ 7 hoặc ngày thứ 14 sẽ có sức mạnh giữ chân học sinh gấp 10 lần bất kỳ thuật toán gamification nào.

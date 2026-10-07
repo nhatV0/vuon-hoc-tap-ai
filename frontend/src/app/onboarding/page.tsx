@@ -8,12 +8,16 @@ import { API_BASE, Student, DiagnosticQuestion } from "@/lib/types";
 import { useAuth } from "@/lib/auth-context";
 
 const SUBJECT_OPTIONS = [
-  { id: "Toán học", icon: "📐", desc: "Đại số & Hình học" },
-  { id: "Hóa học", icon: "🧪", desc: "Hữu cơ & Vô cơ" },
-  { id: "Vật lý", icon: "⚡", desc: "Cơ, Nhiệt, Điện, Quang" },
-  { id: "Ngữ văn", icon: "📖", desc: "Nghị luận & Tác phẩm" },
-  { id: "Tiếng Anh", icon: "🌐", desc: "Ngữ pháp & Từ vựng" },
-  { id: "Sinh học", icon: "🌿", desc: "Di truyền & Sinh thái" },
+  { id: "Toán học", icon: "📐", desc: "Đại số, Hình học & Oxyz" },
+  { id: "Tiếng Anh", icon: "🌐", desc: "Từ vựng theo chủ đề & Đọc hiểu" },
+  { id: "Ngữ văn", icon: "📖", desc: "Đọc hiểu ngữ liệu lạ & Nghị luận" },
+  { id: "Vật lí", icon: "⚡", desc: "Nhiệt, Khí, Điện từ & Đồ thị" },
+  { id: "Hóa học", icon: "🧪", desc: "IUPAC, Nhiệt hóa học & Este" },
+  { id: "Sinh học", icon: "🧬", desc: "Di truyền, Phả hệ & Tế bào" },
+  { id: "Lịch sử", icon: "🏛️", desc: "Trục nhân quả & Văn kiện gốc" },
+  { id: "Địa lí", icon: "🌍", desc: "Khí hậu, Bản đồ số & Tính toán" },
+  { id: "GDKT & PL", icon: "⚖️", desc: "Case study tình huống & Pháp luật" },
+  { id: "Tin học", icon: "💻", desc: "Thuật toán Python, CSDL SQL & Web" },
 ];
 
 const EMOTION_LEVELS = [
@@ -89,8 +93,7 @@ export default function OnboardingPage() {
   const [learningStyle] = useState<string>("visual");
   const [targetGoal, setTargetGoal] = useState<string>("");
   const [timeframe, setTimeframe] = useState<string>("3 tháng");
-
-  // Dynamic diagnostics loaded based on selected subjects
+  const [initialTimeCapsule, setInitialTimeCapsule] = useState<string>("");
   const [diagnosticQuestions, setDiagnosticQuestions] = useState<DiagnosticQuestion[]>([]);
   const [diagnosticAnswers, setDiagnosticAnswers] = useState<Record<string, string>>({});
   const [loadingDiagnostics, setLoadingDiagnostics] = useState<boolean>(false);
@@ -168,8 +171,8 @@ export default function OnboardingPage() {
         timeframe: timeframe,
         learning_style: learningStyle,
         diagnostic_answers: diagnosticAnswers,
+        initial_time_capsule: initialTimeCapsule.trim() || null,
       };
-
       const res = await fetch(`${API_BASE}/api/onboarding`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -474,7 +477,7 @@ export default function OnboardingPage() {
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-stone-700 mb-1">
-                      Thời hạn
+                      Thời hạn cam kết
                     </label>
                     <select
                       value={timeframe}
@@ -486,6 +489,26 @@ export default function OnboardingPage() {
                       <option value="6 tháng">6 tháng (Bứt phá)</option>
                     </select>
                   </div>
+                </div>
+
+                {/* Hộp thư thời gian ngày 1 (Tùy chọn phong ấn) */}
+                <div className="p-4 bg-amber-50/50 border border-amber-200 rounded-2xl space-y-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg">📜</span>
+                    <label className="block text-xs font-bold text-amber-900">
+                      Phong ấn Tâm thư Ngày 1 gửi Ngày thứ 21 (Tùy chọn)
+                    </label>
+                  </div>
+                  <p className="text-[11px] text-stone-500 leading-snug">
+                    Lá thư này sẽ được niêm phong an toàn và tự động khơi mở khi bạn chạm mốc 21 ngày Vượt Trọng Lực:
+                  </p>
+                  <textarea
+                    rows={3}
+                    placeholder="Gửi tôi của ngày thứ 21: Hôm nay tôi bắt đầu với nhiều âu lo, nhưng tôi hứa sẽ chiến đấu vì mục tiêu..."
+                    value={initialTimeCapsule}
+                    onChange={(e) => setInitialTimeCapsule(e.target.value)}
+                    className="w-full text-xs p-3 rounded-xl border border-stone-200 bg-white focus:outline-none focus:ring-1 focus:ring-amber-500 leading-relaxed text-stone-800"
+                  />
                 </div>
               </div>
             )}

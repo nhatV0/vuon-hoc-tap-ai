@@ -1,0 +1,82 @@
+Để học sinh duy trì thói quen điền mỗi tối mà không bị bỏ cuộc sau vài ngày, bộ câu hỏi hằng ngày (Daily Check-in Quiz) bắt buộc phải tuân thủ nguyên tắc "3 Phút – Không Ma Sát (Frictionless 3-Minute Routine)":
+
+100% thao tác Chạm/Chọn (Tap/Swipe): Không bắt học sinh gõ văn bản dài khi đang mệt mỏi sau một ngày học tập.
+Tích hợp kép: Đo lường đồng thời Chỉ số Cảm xúc/Năng lượng (Emotional Pulse) và Thành quả Thực thi Cụ thể (Concrete Wins).
+Cơ chế "Trục Neo Cố Định + Xoay Vòng Linh Hoạt (Anchor & Orbit)": Giữ 3 câu đo lường cơ bản mỗi ngày để lấy dữ liệu chuỗi thời gian (time-series), đồng thời đổi 1 câu hỏi "bất ngờ" theo từng thứ trong tuần để triệt tiêu cảm giác nhàm chán.
+Dưới đây là đặc tả chi tiết bộ câu hỏi và một bản mô phỏng tương tác trực tiếp (Interactive Prototype).
+
+CẤU TRÚC BỘ QUIZ PHẢN CHIẾU 3 PHÚT (DAILY CHECK-IN BANK)
+[ TRẠM 1: Nhịp Cảm Xúc (30s) ] ➔ [ TRẠM 2: Kiểm Kê Thành Quả (60s) ] ➔ [ TRẠM 3: Điểm Nghẽn & Xoay Vòng (60s) ] ➔ [ Màn Hình Thắp Sáng Streak (30s) ]
+TRẠM 1: ĐO NHỊP NĂNG LƯỢNG & TỰ TIN (Emotional Pulse - 30 giây)
+Câu 1: Bình năng lượng tinh thần hôm nay của bạn ở mức nào?
+(Chạm chọn 1 thẻ cảm xúc – Đo lường nguy cơ kiệt sức / Burnout)
+
+🟢 100% – Hưng phấn / Tràn đầy: "Học rất vào, đầu óc tỉnh táo, sẵn sàng bứt phá."
+🟡 70% – Ổn định / Cân bằng: "Hoàn thành đúng kế hoạch, không quá mệt."
+🟠 40% – Đuối sức / Cố gắng: "Hôm nay khá mệt, phải gồng mình để ngồi vào bàn."
+🔴 15% – Cạn kiệt / Bế tắc: "Quá tải vì áp lực trên trường, muốn buông xuôi."
+Câu 2: Độ tự tin với những gì đã học hôm nay?
+(Thang đo 5 sao – Tương quan trực tiếp với điểm chẩn đoán BARS)
+
+⭐ (1 sao): Mông lung, cảm giác học trước quên sau.
+⭐⭐ (2 sao): Làm được bài dễ, gặp bài biến tấu là tắc nghẽn.
+⭐⭐⭐ (3 sao): Nắm chắc kiến thức căn bản của ngày hôm nay.
+⭐⭐⭐⭐ (4 sao): Tự tin giải thích lại được bài này cho bạn bè.
+⭐⭐⭐⭐⭐ (5 sao): Làm chủ hoàn toàn, phản xạ nhanh và chuẩn xác.
+TRẠM 2: KIỂM KÊ THÀNH TỰU THỰC THI (Action & Concrete Wins - 60 giây)
+Câu 3: Hôm nay bạn đã chiến đấu cùng những môn nào?
+(Chạm chọn nhiều - Multi-select Chips)
+
+[ ] 📐 Toán học
+[ ] 🌐 Tiếng Anh
+[ ] 📖 Ngữ văn
+[ ] ⚡ Vật lí
+[ ] 🧪 Hóa học
+[ ] 🧬 Sinh học
+[ ] 🏛️ Lịch sử
+[ ] 🌍 Địa lí
+[ ] ⚖️ GDKT & PL
+[ ] 💻 Tin học
+Câu 4: Những "Chiến Thắng Cụ Thể" (Wins) bạn đã đạt được hôm nay?
+(Chọn tối thiểu 1 - Đo lường hành vi hoàn thành nhiệm vụ vi mô)
+
+[ ] 🎯 Giải quyết dứt điểm $\ge 5 - 10$ bài tập: Tự tay làm xong mà không cần mở giải mẫu.
+[ ] 🧠 Hàn gắn 1 lỗ hổng kiến thức: Đã hiểu ra một bản chất công thức/hiện tượng trước đây hay sai.
+[ ] 📚 Nạp mới $\ge 15$ từ vựng / công thức: Đã ghi chép hoặc ôn qua Flashcard.
+[ ] ⏱️ Luyện đề bấm giờ tập trung: Hoàn thành 1 bài kiểm tra/đề thi thử đúng thời gian quy định.
+[ ] 🛡️ Chiến thắng sự trì hoãn: Ngồi vào bàn học đúng khung giờ vàng đã cam kết lúc 20h00.
+[ ] 🧘 Hôm nay em nghỉ ngơi nạp lại năng lượng (Rest Day): Chủ động nghỉ để ngày mai học tốt hơn.
+TRẠM 3: ĐIỂM NGHẼN & CÂU HỎI XOAY VÒNG (Dynamic Orbit - 60 giây)
+Câu 5: Điểm nghẽn lớn nhất khiến bạn chưa hài lòng hôm nay là gì?
+(Chạm chọn 1 rào cản – AI Engine kích hoạt cảnh báo Red Flags)
+
+📱 Cám dỗ điện thoại: Bị lướt TikTok/Reels/nhắn tin làm đứt gãy mạch tập trung.
+🧩 Gặp bài quá khó: Nghẽn ý tưởng, xem giải cũng không hiểu dẫn đến nản lòng.
+🥱 Buồn ngủ & Mệt mỏi: Thể lực không cho phép ngồi học lâu.
+⏳ Bị việc khác chèn giờ: Bài tập trên trường quá nhiều hoặc có việc đột xuất của gia đình.
+✨ Hoàn hảo: Hôm nay không có rào cản nào đáng kể.
+Câu 6: Câu hỏi Xoay Vòng Theo Thứ (Tự động đổi theo ngày trong tuần):
+📅 Thứ Hai (Khởi Động): "Mục tiêu cụ thể duy nhất bạn muốn đạt được trước tối Chủ Nhật là gì?" $\rightarrow$ (3 lựa chọn nhanh: Tăng 1 điểm thi thử / Xong 3 chuyên đề hổng / Giữ chuỗi Streak 7 ngày).
+📅 Thứ Ba (Bóc Tách Lỗi): "Hôm nay bạn có câu làm sai nào không? Nguyên nhân chính là do đâu?" $\rightarrow$ (Nhầm công thức / Đọc ẩu đề thi / Chưa gặp dạng này bao giờ).
+📅 Thứ Tư (Tự Thưởng): "Một điều nhỏ bạn làm tốt hôm nay xứng đáng được khen ngợi?" $\rightarrow$ (Chăm chú nghe giảng / Không đụng vào điện thoại 45 phút / Làm xong bài tập khó).
+📅 Thứ Năm (Cứu Trợ Giáo Viên): "Bạn có cần thầy/cô hoặc AI gửi video giải thích riêng phần nào không?" $\rightarrow$ (Bấm chọn môn cần can thiệp để báo động lên Teacher Dashboard).
+📅 Thứ Sáu (Đánh Giá Kỷ Luật): "Mức độ tập trung sâu của bạn hôm nay đạt bao nhiêu %?" $\rightarrow$ (Thang trượt: 20% - 50% - 80% - 100%).
+📅 Thứ Bảy (Thu Hoạch): "So với đầu tuần, bạn cảm thấy mình tiến bộ nhất ở điểm nào?" $\rightarrow$ (Tự tin hơn / Tốc độ làm bài nhanh hơn / Kỷ luật tốt hơn).
+📅 Thứ Chủ Nhật (Reset Năng Lượng): "Bạn đã sẵn sàng reset tâm thế để thắp sáng tuần mới chưa?" $\rightarrow$ (Sẵn sàng 100% / Cần ngủ bù thêm).
+TRẠM 4: MÀN HÌNH TỔNG KẾT & PHẢN HỒI TỨC THÌ (Instant Gratification - 30 giây)
+Ngay sau khi chạm nút nộp bài, hệ thống kích hoạt hiệu ứng vệt tiến độ (Streak Animation) và hiển thị ngay:
+
+Chỉ số vệt Streak: "Ngày thứ 8 liên tiếp phản chiếu! Bạn thuộc Top 15% học sinh kỷ luật nhất."
+Thông điệp Growth Mindset từ AI: Lời khuyên ngắn (dưới 3 dòng) nhắm trúng rào cản học sinh vừa chọn.
+Nhiệm vụ Vi mô Ngày mai (Tomorrow's Micro-task): Một nhiệm vụ nhỏ dưới 20 phút để khởi động ngày mới.
+MÔ PHỎNG TƯƠNG TÁC THỰC TẾ (INTERACTIVE PROTOTYPE)
+Dưới đây là giao diện Web App mô phỏng chính xác trải nghiệm 3 phút này của học sinh trên điện thoại di động:
+
+Giá Trị Sư Phạm & Vận Hành Khi Triển Khai Thực Tế
+Giải quyết triệt để "Rào cản lười điền":
+Tổng thời gian hoàn thành được khống chế chặt chẽ trong khoảng 120 – 180 giây.
+Học sinh có thể làm ngay trên điện thoại khi đang nằm nghỉ ngơi trước khi ngủ mà không cảm thấy như đang làm thêm một bài kiểm tra áp lực.
+Kích hoạt Dopamine thông qua hiệu ứng "Thành quả vi mô" (Micro-Wins):
+Thay vì chỉ hỏi "Hôm nay học được bao nhiêu tiếng?" (dễ tạo cảm giác tự ti nếu học ít), câu hỏi số 4 ghi nhận những việc rất nhỏ: "Đã thuộc 15 từ vựng", "Đã ngồi vào bàn đúng giờ". Điều này nuôi dưỡng Tâm lý phát triển (Growth Mindset) và giúp học sinh có cảm giác mình đang tiến bộ từng ngày.
+Cung cấp nguồn dữ liệu vàng cho Teacher Dashboard:
+Khi học sinh tick chọn rào cản "Bị điện thoại làm xao nhãng" hoặc "Gặp bài quá khó xem giải không hiểu", AI và giáo viên ngay lập tức nhận diện được gốc rễ vấn đề để đưa ra lời dặn dò chính xác, thay vì chỉ trách mắng học sinh lười biếng.

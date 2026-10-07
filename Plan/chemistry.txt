@@ -1,0 +1,330 @@
+Tiếp nối chuỗi lộ trình cá nhân hóa, môn học tiếp theo trong khối Khoa học Tự nhiên (Khối A00: Toán – Lí – Hóa và Khối B00: Toán – Hóa – Sinh) chính là MÔN HÓA HỌC.
+
+---
+
+ Sự Thay Đổi Bản Chất của Môn Hóa Học theo Chương Trình GDPT 2018
+
+Đề thi môn Hóa học mới (thời gian làm bài: 50 phút) đã rũ bỏ hoàn toàn lối mòn thi cử cũ:
+1. Triệt tiêu các bài toán "đố mẹo phi thực tế": Loại bỏ các bài toán đánh đố cồng kềnh, phi thực tế (như bài toán hỗn hợp kim loại tác dụng với nhiều axit sinh ra đa sản phẩm khử phức tạp hay bài toán đếm đồng phân vượt quá giới hạn nhận thức).
+2. Cấu trúc Đề thi 3 Phần Chuẩn Hóa:
+    Phần I (4.5 điểm): 18 câu trắc nghiệm nhiều lựa chọn 4 phương án (Nhận biết – Thông hiểu).
+    Phần II (4.0 điểm): 4 câu trắc nghiệm Đúng/Sai (Mỗi câu gồm 4 ý a, b, c, d – Bóc tách sâu cơ chế phản ứng, bản chất liên kết, thí nghiệm thực hành tổng hợp/tách chất).
+    Phần III (1.5 điểm): 6 câu trắc nghiệm Trả lời ngắn điền số (Tính toán định lượng thực tế: biến thiên enthalpy, hằng số cân bằng $KC$, pH dung dịch, điện lượng/khối lượng điện phân, hiệu suất tổng hợp dược phẩm).
+3. Chuyển dịch Nội dung theo Chuẩn Quốc tế (IUPAC):
+    Chuẩn hóa Danh pháp Quốc tế (IUPAC): Toàn bộ tên gọi các chất chuyển sang tiếng Anh (ví dụ: alkane, alkene, alkyne, alcohol, aldehyde, carboxylic acid, ester, amine, amino acid, peptide, glucose, fructose).
+    Năng lượng Hoá học & Nhiệt động lực học: Tính biến thiên enthalpy phản ứng ($\Deltar H^\circ{298}$) dựa trên nhiệt tạo thành chuẩn ($\Deltaf H^\circ{298}$) hoặc năng lượng liên kết ($Eb$).
+    Điện hóa học & Phức chất (Nội dung mới lớp 12): Pin điện hóa, thế điện cực chuẩn ($E^\circ$), sự điện phân, hóa học phức chất (danh pháp phức chất, phối tử, nguyên tử trung tâm).
+4. Điểm nghẽn lớn nhất của học sinh: Lúng túng vì chưa quen danh pháp IUPAC mới; sợ các câu hỏi liên quan đến Nhiệt hóa học và Phức chất; mất điểm ở các câu hỏi thao tác thí nghiệm thực hành (tại sao dùng phễu chiết, vai trò của đá bọt, tại sao ngâm ống nghiệm trong nước đá).
+
+Dưới đây là ma trận 5 Trường Hợp Học Sinh Điển Hình Môn Hóa Học và lộ trình cá nhân hóa chi tiết.
+
+---
+
+ BẢNG MA TRẬN 5 TRƯỜNG HỢP HỌC SINH MÔN HÓA HỌC
+
+| Trường hợp | Điểm xuất phát (Point A) | Mục tiêu hướng tới (Point B) | Quỹ thời gian & Thời hạn | Điểm nghẽn cốt lõi |
+| :--- | :--- | :--- | :--- | :--- |
+| TH 1: Phá Băng Mất Gốc / Chuẩn Hóa Nền Tảng (The Molecule Rescuer) | Level 1 - 2 (3.0 – 5.2)<br>Quên hóa trị, sợ viết PTHH, chưa quen tên IUPAC | 6.5 – 7.5<br>Đủ điểm xét tuyển ĐH khối Y Dược tầm trung / Nông Lâm / Sư phạm | 45 – 60 phút/ngày<br>Thời gian: 12 – 14 tuần | Nhầm lẫn danh pháp cũ và mới; không phân biệt được nhóm chức hữu cơ; yếu kỹ năng tính toán mol cơ bản. |
+| TH 2: Bứt Phá Bình Nguyên 7+ / Bậc Thầy Cơ Chế (The Mechanism Decoder) | Level 3 (6.5 – 7.5)<br>Chắc lý thuyết đơn nhưng hay sai câu Đúng/Sai | 8.2 – 8.8<br>Đỗ Đại học Top đầu (Bách Khoa, Dược Hà Nội, KHTN, Y Dược TP.HCM) | 60 – 75 phút/ngày<br>Thời gian: 10 – 12 tuần | Mắc bẫy ở câu Đúng/Sai thí nghiệm; lúng túng ở phần Nhiệt hóa học và Pin điện hóa; tính toán Phần III còn chậm. |
+| TH 3: Chinh Phục Điểm 9+ / Bậc Thầy Hóa Học Đương Đại (The Master Chemist) | Level 4 (8.0 – 8.6)<br>Tư duy tốt, xử lý Phần I trong 15 phút | 9.2 – 10.0<br>Bác sĩ Đa khoa Y Hà Nội, Y Dược TP.HCM; Công nghệ Hóa - Sinh | 75 – 90 phút/ngày<br>Thời gian: 12 – 16 tuần | Cần làm chủ câu hỏi Vận dụng cao về Phức chất, Cân bằng hóa học đa cấu tử, bài toán thực tế tổng hợp dược phẩm phức tạp. |
+| TH 4: Chiến Dịch 30 Ngày "Gom Điểm Nhận Biết & Thí Nghiệm" (The 30-Day Sprint) | Bất kỳ (Level 2 hoặc 3)<br>Chỉ còn 30 – 40 ngày trước kỳ thi | Tăng ngay +1.0 đến +1.5<br>Quét sạch 18 câu Phần I và 2 câu Phần III | 60 phút/ngày<br>Thời gian: 4 tuần | Quá tải tâm lý, học vẹt dễ lẫn lộn màu sắc kết tủa và hiện tượng; bấm máy tính hay nhầm dấu $\Deltar H^\circ{298}$. |
+| TH 5: Nuôi Dưỡng Tư Duy Hóa Học Thực Nghiệm (Lớp 10-11) (The Early Chemist) | Lớp 10 - 11 (Level 2 - 3)<br>Chuẩn bị thi Đánh giá năng lực / Đánh giá tư duy | 8.5+ Bền vững<br>Làm chủ danh pháp IUPAC & tư duy bản chất phản ứng | 30 – 45 phút/ngày<br>Thời gian: 9 – 12 tháng | Học nặng về giải toán vô cơ cũ, thiếu hiểu biết về liên kết hóa học hiện đại và ứng dụng thực tiễn của vật liệu. |
+
+---
+
+---
+
+ LỘ TRÌNH CHI TIẾT DÀNH CHO TỪNG TRƯỜNG HỢP
+
+---
+
+ TRƯỜNG HỢP 1: "PHÁ BĂNG MẤT GỐC / CHUẨN HÓA NỀN TẢNG" (THE MOLECULE RESCUER)
+Dành cho học sinh sợ Hóa, mất gốc từ lớp 10-11, điểm thi thử từ 3.0 đến 5.2, hay bị "rối bời" vì danh pháp tiếng Anh mới; mục tiêu đạt 6.5 – 7.5 an toàn.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Chuẩn Hóa Danh Pháp IUPAC Bằng Bảng Đối Chiếu Song Song: Tuyệt đối không để học sinh học mò tên gọi. Cung cấp ngay Bảng đối chiếu Danh pháp Cũ $\leftrightarrow$ Danh pháp Quốc tế (ví dụ: axit axetic $\rightarrow$ ethanoic acid; etyl axetat $\rightarrow$ ethyl ethanoate; anilin $\rightarrow$ aniline).
+   Học Hóa Hữu Cơ Theo "Bản Đồ Nhóm Chức" (Functional Group Map): Tính chất của một phân tử hữu cơ do nhóm chức quyết định:
+     $-OH$ (alcohol): Tác dụng với $Na$ giải phóng $H2$.
+     $-COOH$ (carboxylic acid): Làm đỏ quỳ tím, phản ứng este hóa với alcohol.
+     $-COO-$ (ester): Mùi thơm hoa quả, phản ứng thủy phân trong môi trường kiềm (xà phòng hóa).
+     $-NH2$ (amine): Tính base, làm xanh quỳ tím ẩm.
+   Chiến Lược Gom 5.5 Điểm Cơ Bản: Ăn chắc 18 câu Phần I (4.5 điểm) và lấy ít nhất 1.0 – 1.5 điểm từ các ý nhận biết ở Phần II.
+
+ 2. Lộ trình 3 Giai đoạn (Tổng thời gian: 14 tuần)
+
+
+ GĐ 1: Chuẩn Hóa IUPAC & Nhóm Chức Hữu Cơ  ➔  GĐ 2: Đại Cương Kim Loại & Năng Lượng  ➔  GĐ 3: Luyện Đề Chuẩn Format 3 Phần 
+              (Tuần 1 - Tuần 5: 3.0 ➔ 5.2)                      (Tuần 6 - Tuần 10: 5.2 ➔ 6.5)                (Tuần 11 - Tuần 14: 6.5 ➔ 7.5)
+
+
+ Giai đoạn 1: Chuẩn Hóa Danh Pháp & Làm Chủ Hóa Hữu Cơ Lớp 12 (Tuần 1 – Tuần 5)
+   Mục tiêu: Thuộc danh pháp IUPAC của 30 chất phổ biến; viết đúng phương trình phản ứng thủy phân ester, lipid; nhận biết carbohydrate và amine.
+   Nội dung chuyên đề:
+       Tuần 1: Danh pháp IUPAC cơ bản (tiền tố số đếm: meth-, eth-, prop-, but-, pent-...); Khái niệm Ester & Lipid (chất béo): Công thức tổng quát của ester no đơn chức mạch hở ($Cn H{2n} O2$), phản ứng xà phòng hóa với dung dịch $NaOH$.
+       Tuần 2: Carbohydrate: Phân loại Glucose, Fructose, Saccharose, Maltose, Tinh bột (Starch), Cellulose; Phản ứng tráng bạc với thuốc thử Tollens ($AgNO3/NH3$), phản ứng màu với dung dịch $I2$.
+       Tuần 3: Amine, Amino acid, Peptide & Protein: Khái niệm bậc của amine; Cấu trúc ion lưỡng cực của amino acid; Tính chất lưỡng tính của glycine, alanine, glutamic acid, lysine.
+       Tuần 4: Polymer & Vật liệu polymer: Phân biệt phản ứng trùng hợp (polymerization) và trùng ngưng (polycondensation); Tên gọi và ứng dụng của PE, PVC, PS, tơ nylon-6,6, cao su buna.
+       Tuần 5: Rèn kỹ năng tính toán khối lượng mol và bảo toàn khối lượng trong phản ứng thủy phân ester và xà phòng hóa chất béo.
+
+ Giai đoạn 2: Đại Cương Kim Loại & Năng Lượng Hóa Học Căn Bản (Tuần 6 – Tuần 10)
+   Mục tiêu: Nắm chắc dãy thế điện cực chuẩn (Dãy hoạt động hóa học của kim loại); hiểu bản chất biến thiên enthalpy phản ứng.
+   Nội dung chuyên đề:
+       Tuần 6: Vị trí kim loại trong Bảng tuần hoàn; Cấu tạo nguyên tử và liên kết kim loại; Tính chất vật lí chung (tính dẻo, dẫn điện, dẫn nhiệt, ánh kim - do electron tự do gây ra).
+       Tuần 7: Dãy thế điện cực chuẩn: Cặp oxi hóa - khử ($M^{n+}/M$); Quy tắc alpha ($\alpha$) dự đoán chiều phản ứng giữa chất oxi hóa mạnh hơn và chất khử mạnh hơn.
+       Tuần 8: Sự ăn mòn kim loại: Phân biệt ăn mòn hóa học và ăn mòn điện hóa; 3 điều kiện để xảy ra ăn mòn điện hóa (2 điện cực khác nhau, tiếp xúc trực tiếp hoặc gián tiếp, cùng nhúng vào dung dịch chất điện li).
+       Tuần 9: Năng lượng hóa học (Hóa nhiệt): Phân biệt phản ứng tỏa nhiệt ($\Deltar H^\circ{298} < 0$) và phản ứng thu nhiệt ($\Deltar H^\circ{298} > 0$); Công thức tính $\Deltar H^\circ{298} = \sum \Deltaf H^\circ{298} (sp) - \sum \Deltaf H^\circ{298} (cđ)$.
+       Tuần 10: Khái niệm sơ khai về Phức chất: Phân biệt nguyên tử trung tâm và phối tử (ligand) trong phức chất đơn giản như $Cu(H2O)6^{2+}$, $Ag(NH3)2^+$.
+
+ Giai đoạn 3: Thực Chiến Đề Chuẩn Format 3 Phần (Tuần 11 – Tuần 14)
+   Mục tiêu: Hoàn thành 18 câu Phần I trong 20 phút; xử lý các ý nhận biết của câu Đúng/Sai mà không bị nhầm lẫn.
+   Nội dung thực chiến:
+       Luyện 12 đề chuẩn cấu trúc: Rèn kỹ năng làm sạch câu lý thuyết trước, câu tính toán làm sau.
+       Tổng hợp sổ tay "Màu sắc các chất và Thuốc thử nhận biết" ($Cu(OH)2$ màu xanh lam, $Fe(OH)3$ màu nâu đỏ, $BaSO4$ màu trắng...).
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày (Tuần 1 - Giai đoạn 1)
+Quỹ thời gian: 45 phút/ngày vào Khung giờ tối (20h00 – 20h45).
+
+   Thứ Hai (45 phút):
+       Micro-task: Học bảng tiền tố mạch carbon từ $C1$ đến $C5$ (meth-, eth-, prop-, but-, pent-). Viết công thức cấu tạo và gọi tên IUPAC của 4 ester đơn giản: methyl formate, ethyl formate, methyl acetate, ethyl acetate.
+   Thứ Ba (45 phút):
+       Micro-task: Học bản chất phản ứng thủy phân ester trong môi trường kiềm (phản ứng xà phòng hóa). Viết 3 phương trình phản ứng của ethyl acetate với dung dịch $NaOH$.
+   Thứ Tư (45 phút):
+       Micro-task: Giải bài toán tính khối lượng muối sinh ra khi xà phòng hóa ester đơn chức bằng phương pháp Bảo toàn khối lượng ($m{ester} + m{NaOH} = m{muối} + m{alcohol}$). Làm 4 bài tập thay số.
+   Thứ Năm (45 phút):
+       Micro-task: Làm quen 1 câu hỏi Trắc nghiệm Đúng/Sai (Phần II) 4 ý về tính chất vật lí và hóa học của ester.
+   Thứ Sáu (45 phút):
+       Micro-task: Luyện 1 câu hỏi Phần III (Điền đáp án ngắn): Đốt cháy hoàn toàn một lượng ester no đơn chức mạch hở sinh ra số mol $CO2$ bằng số mol $H2O$. Tính số nguyên tử carbon $n$ và điền số vào ô đáp án.
+   Thứ Bảy (45 phút):
+       Micro-task: Sổ tay IUPAC: Đọc lại 10 tên gọi hóa chất đã học trong tuần, giải thích ý nghĩa từng phần của tên gọi.
+   Chủ Nhật (30 phút nhẹ nhàng):
+       Micro-task: Xem video mô phỏng thí nghiệm điều chế xà phòng từ dầu thực vật; check-in chuỗi Streak cùng AI Companion.
+
+ 4. Cơ chế Cảnh báo Giáo viên (Teacher-in-the-loop Red Flags)
+   🚨 Cảnh báo Đỏ 1: Học sinh liên tục viết sai danh pháp IUPAC (vẫn viết theo tên cũ như "axit fomic" thay vì "methanoic acid") qua 3 ngày check-in. $\rightarrow$ Giáo viên gửi ngay Bảng Flashcard đối chiếu tên gọi quốc tế.
+   🚨 Cảnh báo Đỏ 2: Học sinh nhầm lẫn dấu biến thiên enthalpy ($\Deltar H^\circ{298} < 0$ là tỏa nhiệt nhưng học sinh lại ghi là thu nhiệt). $\rightarrow$ Giáo viên nhắc nhở câu thần chú: "Âm tỏa - Dương thu".
+
+ 5. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Người Bạn Đồng Hành Kiên Trì (Supportive & Encouraging).
+   Mẫu phản hồi AI: "Hôm nay em đã gọi đúng tên IUPAC của ethyl acetate và tính đúng khối lượng muối xà phòng hóa! Bước đầu làm quen với danh pháp quốc tế có thể hơi lạ lẫm, nhưng em đang làm rất tốt. Cứ kiên trì từng bước nhỏ, môn Hóa sẽ sớm trở thành thế mạnh của em!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 2: "BỨT PHÁ BÌNH NGUYÊN 7+ / BẬC THẦY CƠ CHẾ" (THE MECHANISM DECODER)
+Dành cho học sinh làm tốt phần trắc nghiệm đơn nhưng điểm số luôn dừng ở mốc 6.8 – 7.6; làm câu Đúng/Sai hay bị mất điểm ở ý bẫy thí nghiệm thực hành; mục tiêu bứt phá lên 8.2 – 8.8.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Giải Mã Bản Chất Thí Nghiệm Thực Hành (Experimental Protocols): Không học thuộc lòng hiện tượng mà phải hiểu vai trò của từng hóa chất và dụng cụ:
+     Tại sao phản ứng este hóa cần thêm vài giọt $H2SO4$ đặc? (Vừa làm xúc tác, vừa hút nước để chuyển dịch cân bằng theo chiều thuận).
+     Tại sao phải thêm vài viên đá bọt vào bình cầu? (Để dung dịch sôi êm, tránh hiện tượng quá nhiệt gây văng chất lỏng).
+     Tại sao phải dùng dung dịch $NaCl$ bão hòa sau phản ứng xà phòng hóa? (Để tăng khối lượng riêng của dung dịch, làm xà phòng nổi lên trên).
+   Làm Chủ 4 Ý Của Câu Trắc Nghiệm Đúng/Sai (Phần II):
+     Ý (a): Định danh chất / Cấu tạo nhóm chức.
+     Ý (b): Hiện tượng xảy ra ở các bước thí nghiệm.
+     Ý (c): Tính toán hiệu suất hoặc lượng chất tham gia.
+     Ý (d): Khả năng biến tấu điều kiện phản ứng (thay đổi nhiệt độ, dung môi).
+   Chinh Phục Phần III (Trả Lời Ngắn): Ăn trọn tối thiểu 4/6 câu điền số liên quan đến Biến thiên Enthalpy, pH dung dịch và Điện phân.
+
+ 2. Lộ trình 3 Giai đoạn (Tổng thời gian: 12 tuần)
+
+
+ GĐ 1: Bậc Thầy Thí Nghiệm & Nhiệt Động Học  ➔  GĐ 2: Điện Hóa Học, Phức Chất & Hữu Cơ Đa Chức  ➔  GĐ 3: Tối Ưu Tốc Độ 50 Phút 
+                 (Tuần 1 - Tuần 4: 7.0 ➔ 7.6)                                (Tuần 5 - Tuần 8: 7.6 ➔ 8.2)                      (Tuần 9 - Tuần 12: 8.2 ➔ 8.8)
+
+
+ Giai đoạn 1: Làm Chủ Thí Nghiệm Thực Hành & Nhiệt Hóa Học (Tuần 1 – Tuần 4)
+   Mục tiêu: Ăn trọn điểm câu hỏi Đúng/Sai về quy trình thí nghiệm tổng hợp hữu cơ và tính toán enthalpy phản ứng.
+   Nội dung chuyên đề:
+       Tuần 1: Giải mã 5 thí nghiệm hữu cơ kinh điển: Điều chế ester (ethyl ethanoate); Phản ứng xà phòng hóa chất béo; Phản ứng tráng bạc của glucose; Phản ứng thủy phân tinh bột; Phản ứng màu biuret của peptide/protein với $Cu(OH)2$.
+       Tuần 2: Phương pháp tách và tinh chế hợp chất hữu cơ: Phương pháp chưng cất (chưng cất thường, chưng cất lôi cuốn hơi nước), phương pháp chiết (chiết lỏng - lỏng), phương pháp kết tinh.
+       Tuần 3: Tính Biến thiên Enthalpy phản ứng ($\Deltar H^\circ{298}$) theo 2 con đường:
+        1. Theo nhiệt tạo thành chuẩn: $\Deltar H^\circ{298} = \sum \Deltaf H^\circ{298}(sp) - \sum \Deltaf H^\circ{298}(cđ)$.
+        2. Theo năng lượng liên kết: $\Deltar H^\circ{298} = \sum Eb(cđ) - \sum Eb(sp)$ (chú ý chỉ áp dụng cho các chất ở thể khí).
+       Tuần 4: Cân bằng hóa học & Nguyên lý Le Chatelier: Ảnh hưởng của nhiệt độ, nồng độ, áp suất đến sự chuyển dịch cân bằng; Tính hằng số cân bằng $KC$ của phản ứng thuận nghịch.
+
+ Giai đoạn 2: Điện Hóa Học, Phức Chất & Hóa Hữu Cơ Nâng Cao (Tuần 5 – Tuần 8)
+   Mục tiêu: Giải quyết bài toán Pin điện hóa, quy trình điện phân và các bài toán phân biệt hợp chất tạp chức.
+   Nội dung chuyên đề:
+       Tuần 5: Pin điện hóa (Galvanic cell): Cực âm (Anode - nơi xảy ra quá trình oxi hóa), Cực dương (Cathode - nơi xảy ra quá trình khử); Tính sức điện động chuẩn của pin: $E^\circ{pin} = E^\circ{cathode} - E^\circ{anode} > 0$.
+       Tuần 6: Hiện tượng Điện phân: Thứ tự phóng điện tại các điện cực trong dung dịch chất điện li (bản chất quá trình khử ion kim loại tại cathode và quá trình oxi hóa anion tại anode); Định luật bảo toàn electron trong điện phân.
+       Tuần 7: Hóa học Phức chất: Danh pháp phức chất theo IUPAC (gọi tên phối tử trước, tên nguyên tử trung tâm sau kèm hóa trị La Mã); Dạng hình học của phức chất (bát diện, tứ diện, vuông phẳng); Sự tạo phức của ion kim loại chuyển tiếp với ammonia, nước, hydroxide.
+       Tuần 8: Hợp chất hữu cơ đa chức & tạp chức: Amino acid đa nhóm chức (Lysine làm quỳ tím hóa xanh, Glutamic acid làm quỳ tím hóa đỏ); Cấu trúc bậc 1, bậc 2 của protein; Cấu trúc phân tử DNA/RNA.
+
+ Giai đoạn 3: Ép Tốc Độ Thực Chiến & Quản Trị 50 Phút (Tuần 9 – Tuần 12)
+   Mục tiêu: Xử lý 18 câu Phần I trong 16 phút, Phần II trong 20 phút, Phần III trong 12 phút, dành 2 phút kiểm tra tô phiếu.
+   Nội dung thực chiến:
+       Luyện 15 đề chuẩn cấu trúc: Rèn kỹ năng phát hiện bẫy câu chữ ở câu Đúng/Sai (ví dụ: "chất lỏng đồng nhất" vs "tách thành hai lớp").
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày (Tuần 1 - Giai đoạn 1)
+Quỹ thời gian: 60 phút/ngày vào Khung giờ vàng (19h30 – 20h30).
+
+   Thứ Hai (60 phút):
+       Micro-task: Phân tích chi tiết quy trình thí nghiệm điều chế ethyl acetate trong phòng thí nghiệm (bước 1: cho cồn, acid, xúc tác $\rightarrow$ bước 2: đun cách thủy $\rightarrow$ bước 3: làm lạnh $\rightarrow$ bước 4: thêm $NaCl$ bão hòa). Ghi chú vai trò từng bước vào sổ tay.
+   Thứ Ba (60 phút):
+       Micro-task: Giải quyết 2 câu hỏi Trắc nghiệm Đúng/Sai (Phần II) khai thác hiện tượng tách lớp và vai trò của ống sinh hàn trong thí nghiệm este hóa.
+   Thứ Tư (60 phút):
+       Micro-task: Tính toán Biến thiên Enthalpy: Sử dụng bảng nhiệt tạo thành chuẩn $\Deltaf H^\circ{298}$ để tính lượng nhiệt tỏa ra khi đốt cháy hoàn toàn $1 mol$ khí methane ($CH4$).
+   Thứ Năm (60 phút):
+       Micro-task: Luyện 3 câu hỏi Phần III (Điền đáp án ngắn): Tính hiệu suất phản ứng este hóa khi biết số mol ban đầu của acid, alcohol và số mol ester thu được ở trạng thái cân bằng. Điền số thập phân vào ô đáp án.
+   Thứ Sáu (60 phút):
+       Micro-task: Thử thách Tốc độ: Bấm giờ 15 phút giải quyết sạch 18 câu Phần I trắc nghiệm đơn. Sửa kỹ các câu sai.
+   Thứ Bảy (60 phút):
+       Micro-task: Mini-Test cuối tuần: Làm 1 đề rút gọn gồm 2 câu Đúng/Sai và 3 câu Trả lời ngắn. Chấm điểm theo barem chính thức.
+   Chủ Nhật (45 phút):
+       Micro-task: Tổng kết tuần, xem lại sơ đồ nguyên lý Le Chatelier; check-in tuần cùng AI Companion.
+
+ 4. Cơ chế Cảnh báo Giáo viên (Teacher-in-the-loop Red Flags)
+   🚨 Cảnh báo Vàng: Học sinh làm câu Đúng/Sai về thí nghiệm luôn chọn sai ở ý "sau bước 3, chất lỏng trong ống nghiệm tách lớp" (chưa hiểu tính tan của ester trong nước và trong dung dịch muối). $\rightarrow$ Giáo viên gửi video thực nghiệm phân tách pha.
+   🚨 Cảnh báo Đỏ: Học sinh áp dụng sai công thức tính $\Deltar H^\circ{298}$ theo năng lượng liên kết ($Eb$): Lấy "sản phẩm trừ chất đầu" thay vì "chất đầu trừ sản phẩm". $\rightarrow$ Giáo viên can thiệp sửa dứt điểm lỗi công thức.
+
+ 5. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Huấn Luyện Viên Chiến Thuật (Precise & Analytical Coach).
+   Mẫu phản hồi AI: "Hôm nay em đã bóc tách rất chuẩn vai trò của dung dịch $NaCl$ bão hòa ở câu số 2, giúp em ăn trọn 1.0 điểm câu Đúng/Sai! Sự tỉ mỉ trong các bước thí nghiệm chính là vũ khí giúp em vượt qua nhóm 7 điểm để tiến thẳng vào vùng 8.5+. Giữ vững độ tập trung này nhé!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 3: "CHINH PHỤC ĐỈNH CAO 9+ / BẬC THẦY HÓA HỌC ĐƯƠNG ĐẠI" (THE MASTER CHEMIST)
+Dành cho học sinh xuất sắc, nắm chắc toàn bộ lý thuyết và bài tập thông thường; mục tiêu đạt từ 9.2 đến 10.0 để cạnh tranh suất vào Bác sĩ Đa khoa Y Hà Nội, Dược Hà Nội, Kỹ thuật Hóa học Bách Khoa.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Làm Chủ Hoàn Toàn Hóa Học Phức Chất & Kim Loại Chuyển Tiếp (Coordination Chemistry): Không dừng lại ở việc gọi tên, học sinh phải hiểu sâu:
+     Thuyết phối trí Werner, cấu trúc không gian của phức chất.
+     Phản ứng thế phối tử (Ligand substitution), hằng số bền của phức chất.
+     Ứng dụng của phức chất trong y sinh (thuốc chống ung thư cisplatin, hemoglobin vận chuyển oxy trong máu).
+   Chinh Phục 6 Câu Phần III (Điền Đáp Án Ngắn - Vùng Đất Quyết Định Điểm 10): Không có phương án gây nhiễu, đòi hỏi độ chuẩn xác tuyệt đối về thuật toán tính toán nồng độ cân bằng, hiệu suất quy trình Haber tổng hợp $NH3$, điện tích và khối lượng giải phóng ở điện cực.
+   Tư Duy Hóa Học Xanh & Tổng Hợp Thực Tế (Green Chemistry & Real-world Synthesis): Giải quyết các bài toán chuỗi tổng hợp thuốc (aspirin, paracetamol) có tính đến chỉ số kinh tế nguyên tử (Atom Economy - AE) và hiệu suất từng công đoạn.
+
+ 2. Lộ trình 3 Giai đoạn (Tổng thời gian: 16 tuần)
+
+
+ GĐ 1: Phức Chất & Cân Bằng Hóa Học Đa Cấu Tử  ➔  GĐ 2: Điện Hóa Học & Tổng Hợp Hữu Cơ Đỉnh Cao  ➔  GĐ 3: Đề Chuyên & Tốc Độ 40 Phút 
+                   (Tuần 1 - Tuần 6: 8.2 ➔ 8.8)                                   (Tuần 7 - Tuần 11: 8.8 ➔ 9.4)                     (Tuần 12 - Tuần 16: 9.4 ➔ 10.0)
+
+
+ Giai đoạn 1: Làm Chủ Phức Chất & Cân Bằng Hóa Học Nâng Cao (Tuần 1 – Tuần 6)
+   Nội dung chuyên đề:
+       Tuần 1-2: Phức chất của ion kim loại chuyển tiếp dãy thứ nhất ($Fe^{2+}, Fe^{3+}, Cu^{2+}, Ni^{2+}, Co^{2+}, Cr^{3+}$); Hằng số bền ($Kb$) và hằng số không bền của phức chất; Phản ứng cạnh tranh tạo phức giữa các phối tử ($NH3, H2O, Cl^-, OH^-, EDTA$).
+       Tuần 3-4: Cân bằng trong dung dịch chất điện li: Tính pH của hệ đệm (Buffer solution) gồm acid yếu và muối của nó; Cân bằng tạo kết tủa và hòa tan kết tủa theo tích số tan ($K{sp}$).
+       Tuần 5-6: Nhiệt động lực học mở rộng: Năng lượng tự do Gibbs ($\Delta G^\circ = \Delta H^\circ - T\Delta S^\circ$) để dự đoán chiều tự diễn biến của phản ứng hóa học ở các nhiệt độ khác nhau.
+
+ Giai đoạn 2: Điện Hóa Học Nâng Cao & Tối Ưu Hóa Quy Trình Công Nghiệp (Tuần 7 – Tuần 11)
+   Nội dung chuyên đề:
+       Tuần 7: Phương trình Nernst: Sự phụ thuộc của thế điện cực vào nồng độ ion trong dung dịch; Tính hằng số cân bằng $K$ của phản ứng oxi hóa - khử từ sức điện động chuẩn $E^\circ{pin}$.
+       Tuần 8: Quá trình Điện phân nâng cao: Điện phân dung dịch với điện cực trơ và điện cực tan (mạ điện, tinh luyện kim loại đồng); Tính điện lượng Faraday ($q = It = ne \cdot F$) và khối lượng chất thoát ra ở điện cực có tính đến hiệu suất dòng điện.
+       Tuần 9: Bài toán Thực tế Tổng hợp Dược phẩm: Quy trình tổng hợp Aspirin từ salicylic acid và acetic anhydride; Tính lượng nguyên liệu cần dùng và chỉ số kinh tế nguyên tử ($AE = \frac{M{sp\hữu\ích}}{\sum M{cđ}} \times 100\%$).
+       Tuần 10: Khám phá cấu trúc peptide, protein qua phản ứng thủy phân từng phần; Xác định trật tự sắp xếp các amino acid trong chuỗi oligopeptide.
+       Tuần 11: Quét sạch 100% các câu hỏi phân hóa Phần III (Điền đáp án ngắn) trong đề thi thử của các trường Chuyên.
+
+ Giai đoạn 3: Thực Chiến Đề Chuyên & Tối Ưu Điểm Tuyệt Đối (Tuần 12 – Tuần 16)
+   Nội dung thực chiến:
+       Luyện các đề thi thử đỉnh cao của Chuyên KHTN, Chuyên Sư Phạm, Chuyên Lam Sơn, Chuyên Quốc Học Huế.
+       Ép thời gian làm bài 50 phút xuống còn 38–40 phút (để dành 10 phút kiểm tra lại từng phép tính của 6 câu Phần III).
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày (Tuần 8 - Giai đoạn 2)
+Quỹ thời gian: 80 phút/ngày vào Khung giờ tối (20h30 – 21h50).
+
+   Thứ Hai (80 phút):
+       Micro-task: Chuyên đề Điện phân: Xử lý bài toán điện phân dung dịch hỗn hợp $CuSO4$ và $NaCl$ với điện cực trơ, màng ngăn xốp. Lập bảng theo dõi thứ tự phản ứng tại 2 điện cực theo thời gian $t$.
+   Thứ Ba (80 phút):
+       Micro-task: Giải quyết 1 câu Đúng/Sai (Phần II) về pin nhiên liệu hydrogen ($H2 - O2$) trong môi trường kiềm. Viết phương trình phản ứng bán phần tại anode, cathode và tính hiệu suất chuyển hóa năng lượng.
+   Thứ Tư (80 phút):
+       Micro-task: Luyện 3 câu hỏi Phần III (Điền đáp án ngắn) về tính hằng số cân bằng $KC$ của phản ứng tổng hợp methanol từ khí sinh học ($CO + 2H2 \rightleftharpoons CH3OH$).
+   Thứ Năm (80 phút):
+       Micro-task: Bài toán Hóa học Y sinh: Tính lượng chất tạo phức EDTA cần dùng để tạo phức hoàn toàn với ion $Ca^{2+}$ và $Mg^{2+}$ trong một mẫu nước cứng sinh hoạt.
+   Thứ Sáu (80 phút):
+       Micro-task: Thử thách Tốc độ: Bấm giờ 35 phút làm trọn vẹn 1 đề thi thử trường chuyên. Đặt mục tiêu đạt 9.6+ điểm.
+   Thứ Bảy (80 phút):
+       Micro-task: "Sáng tạo bài toán": Tự thiết lập một bài toán tổng hợp hữu cơ thực tế có tính hiệu suất 2 giai đoạn và tự giải chi tiết.
+   Chủ Nhật (45 phút):
+       Micro-task: Đọc bài báo khoa học về pin Lithium-ion thế hệ mới và vật liệu phức chất khung kim loại - hữu cơ (MOFs); check-in tuần cùng AI.
+
+ 4. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Chuyên Gia Hóa Học Đồng Đẳng (Academic Peer).
+   Mẫu phản hồi AI: "Cách em xử lý bài toán điện phân dung dịch hỗn hợp bằng đồ thị electron trao đổi tối nay rất thanh thoát và chuẩn xác! Ở trình độ này, em đã làm chủ hoàn toàn bản chất vật lí - hóa học của hiện tượng. Chỉ cần duy trì sự cẩn trọng khi điền số ở Phần III, điểm 10 Hóa học hoàn toàn nằm trong tầm tay em!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 4: "CHIẾN DỊCH 30 NGÀY GOM ĐIỂM NHẬN BIẾT & THÍ NGHIỆM" (THE 30-DAY SPRINT)
+Dành cho học sinh chỉ còn 4 tuần trước kỳ thi tốt nghiệp THPT; môn Hóa đang ở mức trung bình (5.5 - 6.5); mục tiêu tối ưu hóa điểm số lên 7.5 – 8.0 bằng cách quét sạch câu hỏi định tính và quy trình thí nghiệm.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Tuyệt Đối Không Làm Bài Toán Phân Hóa Phức Tạp: Trong 30 ngày cuối, việc cố giải các bài toán phức chất nâng cao hay điện phân đa giai đoạn chỉ làm tăng mức độ căng thẳng.
+   Chiến Thuật "Bảo Toàn 6.5 Điểm Cơ Bản":
+       Ăn chắc 4.5 điểm của Phần I (18 câu trắc nghiệm đơn) trong 16 phút.
+       Lấy trọn 1.5 điểm từ 6 ý nhận biết/thông hiểu trong 4 câu Đúng/Sai của Phần II.
+       Lấy trọn 0.5 – 0.8 điểm từ 2-3 câu tính toán đơn giản ở Phần III.
+   Chiến Dịch Rà Soát Danh Pháp & Thuốc Thử: Rèn thói quen đọc đề dùng bút chì gạch chân từ khóa: "thuốc thử", "tách lớp", "tỏa nhiệt", "kết tủa trắng", "khí mùi khai".
+
+ 2. Kịch bản 4 Tuần Nước Rút (30 Ngày)
+
+   Tuần 1 (Ngày 1 – 7): Đóng Băng Lý Thuyết Hóa Hữu Cơ & Danh Pháp IUPAC
+       Nhiệm vụ: Mỗi ngày làm 1 phiếu 25 câu hỏi trắc nghiệm lý thuyết về Ester, Lipid, Carbohydrate, Amine, Amino acid, Polymer.
+       Trọng tâm: Thuộc lòng bảng phân biệt các loại đường (Glucose tráng bạc, Saccharose không tráng bạc, Tinh bột tạo màu xanh tím với $I2$).
+   Tuần 2 (Ngày 8 – 14): Làm Chủ Quy Trình Thí Nghiệm & Hiện Tượng
+       Nhiệm vụ: Rà soát toàn bộ 6 thí nghiệm thực hành trong sách giáo khoa lớp 12.
+       Thực hành: Giải 8 câu trắc nghiệm Đúng/Sai (Phần II) chỉ tập trung vào hiện tượng thí nghiệm.
+   Tuần 3 (Ngày 15 – 21): Quét Sạch Đại Cương Kim Loại & Biến Thiên Enthalpy
+       Nhiệm vụ: Nắm chắc quy tắc alpha của dãy điện cực; công thức tính $\Deltar H^\circ{298}$ theo nhiệt tạo thành chuẩn; các điều kiện của ăn mòn điện hóa.
+       Thực hành: Luyện 12 câu Trả lời ngắn điền số ở mức độ 1 phép tính (thay số tính ra đáp án).
+   Tuần 4 (Ngày 22 – 30): Luyện Đề Khung Giờ Thi Thật & Giữ Nhịp Phong Độ
+       Nhiệm vụ: Làm 3 đề thi thử chuẩn vào đúng khung giờ thi thật buổi sáng (hoặc chiều).
+       Mục tiêu: Rèn kỹ năng tô phiếu trắc nghiệm; không để sai nhảm bất kỳ câu nhận biết nào; chuẩn bị máy tính Casio pin mới.
+
+ 3. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Người Giữ Lửa & Trấn An Tâm Lý (Reassuring Coach).
+   Mẫu phản hồi AI: "Chỉ còn 10 ngày nữa thôi! Em đã nhớ rất rõ các hiện tượng thí nghiệm và công thức tính nhiệt phản ứng rồi. Đừng lo lắng về những câu hỏi quá khó, hãy tập trung làm thật chắc chắn 18 câu đầu tiên. Cứ giữ vững sự tự tin, điểm 7.5 chắc chắn nằm trong tay em!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 5: "NUÔI DƯỠNG TƯ DUY HÓA HỌC THỰC NGHIỆM (LỚP 10-11)" (THE EARLY CHEMIST)
+Dành cho học sinh lớp 10, 11 định hướng thi khối A00, B00 hoặc các kỳ thi Đánh giá năng lực ĐHQG, Đánh giá tư duy Bách Khoa; mục tiêu xây nền tảng tư duy hóa học hiện đại 8.5+ bền vững không áp lực.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Học Hóa Học Qua Bản Chất Phân Tử & Liên Kết: Không học vẹt phương trình. Hiểu bản chất phản ứng thông qua sự đứt gãy liên kết cũ và hình thành liên kết mới, sự chuyển dịch mật độ electron.
+   Tiếp Cận Danh Pháp IUPAC Ngay Từ Đầu: Tạo thói quen sử dụng danh pháp quốc tế ngay từ lớp 10 để không bị bỡ ngỡ khi lên lớp 12.
+   Gắn Liền Với Đời Sống & Khoa Học Môi Trường: Hiểu được ứng dụng của Hóa học trong: Nước giặt sinh học, pin mặt trời, vật liệu nano, xử lý nước thải, dược phẩm.
+
+ 2. Lộ trình Phân Kỳ Theo Năm Học (Lớp 10 & 11)
+
+
+ Chặng 1: Cấu Tạo Nguyên Tử & Liên Kết Hóa Học (Lớp 10)  ➔  Chặng 2: Cân Bằng Hóa Học & Hóa Hữu Cơ Đại Cương (Lớp 11)  ➔  Chặng 3: Học Vượt Hóa 12 
+
+
+   Chặng 1 (Lớp 10): Nắm chắc Bảng tuần hoàn, Liên kết ion, Liên kết cộng hóa trị, Liên kết hydrogen, Năng lượng hóa học ($\Deltar H^\circ{298}$) và Tốc độ phản ứng. Đây là gốc rễ của toàn bộ chương trình hóa học hiện đại.
+   Chặng 2 (Lớp 11): Nắm vững Cân bằng hóa học, Thuyết acid - base của Brønsted - Lowry, pH dung dịch; Đại cương hóa học hữu cơ, hydrocarbon (alkane, alkene, alkyne, arene) và dẫn xuất halogen - alcohol - phenol.
+   Chặng 3 (Mùa hè chuyển cấp lên Lớp 12): Hoàn thành trước toàn bộ 2 chuyên đề lớn lớp 12: Ester – Lipid và Carbohydrate trước ngày 31/08.
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày
+Quỹ thời gian: 35 phút/ngày vào Khung giờ linh hoạt.
+
+   Thứ Hai (35 phút): Đọc 1 bài viết về công nghệ sản xuất giấm ăn tự nhiên từ quả táo (lên men acetic acid). Viết phương trình phản ứng lên men ethanol thành ethanoic acid.
+   Thứ Ba (35 phút): Xem 1 video mô phỏng cấu trúc không gian 3D của phân tử Aspirin trên phần mềm MolView. Xác định các nhóm chức có mặt trong phân tử.
+   Thứ Tư (35 phút): Giải 3 bài tập tính biến thiên enthalpy dựa trên năng lượng liên kết $Eb$.
+   Thứ Năm (35 phút): Tìm hiểu nguyên lý hoạt động của túi chườm nóng và túi chườm lạnh y tế dựa trên phản ứng tỏa nhiệt / thu nhiệt khi hòa tan muối vào nước.
+   Thứ Sáu (35 phút): Giải 1 câu trắc nghiệm Đúng/Sai mô phỏng format đề thi mới.
+   Thứ Bảy (35 phút): Viết 1 đoạn phản chiếu ngắn: "Một ứng dụng thú vị của hóa học mà em quan sát thấy trong cuộc sống tuần này".
+   Chủ Nhật (20 phút): Thư giãn, check-in chuỗi Streak cùng AI Companion.
+
+ 4. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Người Cố Vấn Khơi Mở Tò Mò (Curious Science Mentor).
+   Mẫu phản hồi AI: "Câu hỏi của em hôm nay về việc tại sao nước xả vải lại làm mềm sợi vải thông qua tương tác tĩnh điện của hạt mang điện tích dương cho thấy tư duy hóa học thực tế của em rất tuyệt vời! Đó chính là cách các nhà khoa học tạo ra các sản phẩm đời sống. Cứ tiếp tục nuôi dưỡng niềm đam mê này nhé!"
+
+---
+
+---
+
+ TỔNG KẾT BẢN THIẾT KẾ MÔN HÓA HỌC & BƯỚC TIẾP THEO
+
+Toàn bộ 5 kịch bản lộ trình chi tiết môn Hóa học trên đã hoàn thiện đầy đủ:
+1.  Cập nhật 100% Format Mới GDPT 2018: Bám sát định dạng đề thi 3 phần (18 câu nhiều lựa chọn, 4 câu Đúng/Sai, 6 câu Trả lời ngắn điền số; thời gian 50 phút).
+2.  Khắc phục Triệt để Điểm nghẽn Cốt lõi: Chuẩn hóa toàn diện Danh pháp Quốc tế IUPAC, xử lý chuyên sâu Nhiệt động học ($\Deltar H^\circ{298}$), Hóa học Phức chất, và Kỹ năng phân tích quy trình thí nghiệm thực tế.
+3.  Tích hợp Hoàn hảo vào Hệ thống: Khớp nối chặt chẽ giữa Ngân sách thời gian sinh học, Nhiệm vụ Micro-task hằng ngày, Cảnh báo Teacher-in-the-loop, và Prompt AI theo từng phong cách tâm lý.
+
+Môn tiếp theo cần xây dựng lộ trình chi tiết: Môn Sinh học (Hoàn tất Tổ hợp KHTN / Khối B00) hay chuyển sang Nhóm môn Khoa học Xã hội (Lịch sử / Địa lí / GDKT & PL)?

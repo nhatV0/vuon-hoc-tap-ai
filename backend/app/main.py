@@ -16,7 +16,14 @@ with engine.connect() as conn:
         "ALTER TABLE students ADD COLUMN target_subjects JSON",
         "ALTER TABLE students ADD COLUMN emotion_scale INTEGER DEFAULT 4",
         "ALTER TABLE planned_tasks ADD COLUMN subject VARCHAR DEFAULT 'Toán học'",
-        "ALTER TABLE daily_checkins ADD COLUMN emotion_scale INTEGER DEFAULT 4"
+        "ALTER TABLE daily_checkins ADD COLUMN emotion_scale INTEGER DEFAULT 4",
+        "ALTER TABLE daily_checkins ADD COLUMN energy_level INTEGER DEFAULT 70",
+        "ALTER TABLE daily_checkins ADD COLUMN confidence_stars INTEGER DEFAULT 3",
+        "ALTER TABLE daily_checkins ADD COLUMN completed_subjects JSON",
+        "ALTER TABLE daily_checkins ADD COLUMN micro_wins JSON",
+        "ALTER TABLE daily_checkins ADD COLUMN bottleneck_key VARCHAR DEFAULT 'none'",
+        "ALTER TABLE daily_checkins ADD COLUMN weekday_answer TEXT",
+        "ALTER TABLE students ADD COLUMN target_block VARCHAR DEFAULT 'A00'"
     ]:
         try:
             conn.execute(text(col_def))

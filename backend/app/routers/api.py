@@ -8,7 +8,8 @@ from sqlalchemy import desc
 from app.database import get_db
 from app.models import (
     User, UserRole, Student, Roadmap, DailyCheckin, FlowerStatus,
-    FlowerState, MoodType, PlannedTask
+    FlowerState, MoodType, PlannedTask, Badge, StudentBadge, StreakInventory,
+    TimeCapsule, CapsuleStatus
 )
 from app.schemas import (
     UserRegister, UserLogin, UserResponse, AuthTokenResponse,
@@ -17,12 +18,22 @@ from app.schemas import (
     PlannedTaskCreate, PlannedTaskUpdate, PlannedTaskResponse, PlanningOverviewResponse,
     CheckinCreate, CheckinResponse,
     GardenStatusResponse, WaterActionResponse,
-    TeacherDashboardResponse, StudentAlertItem
+    TeacherDashboardResponse, StudentAlertItem,
+    BadgeResponse, StreakInventoryResponse, TimeCapsuleCreate, TimeCapsuleResponse,
+    MilestoneReward, DailyQuizPackageResponse, QuizSubmissionCreate, QuizSubmissionResponse,
+    TeacherInjectQuizCreate, TeacherQuizStatsItem, QuizQuestionAdmin
+)
+from app.services.quiz_service import (
+    get_daily_quiz_package, submit_student_quiz,
+    inject_teacher_quiz, get_teacher_quiz_stats, ensure_quiz_bank_seeded
 )
 from app.auth import hash_password, verify_password, generate_session_token
 from app.services.ai_service import call_ai_roadmap, call_ai_mentor
-from app.services.garden_service import calculate_flower_state, evaluate_inactive_state, STORY_MESSAGES
-
+from app.services.garden_service import (
+    calculate_flower_state, evaluate_inactive_state, STORY_MESSAGES,
+    ensure_badges_seeded, get_or_create_inventory, check_and_award_badges,
+    get_journey_milestones_status, DEFAULT_BADGES
+)
 router = APIRouter(prefix="/api", tags=["Sunflower API"])
 
 # --- 1. HỆ THỐNG XÁC THỰC (AUTH: REGISTER / LOGIN / CURRENT USER) ---
@@ -114,26 +125,52 @@ def get_diagnostic_questions(subject: str, grade: str = "10"):
     if "toán" in subject_normalized:
         return [
             DiagnosticQuestion(
-                id="math_blocker",
+                id="math_archetype",
                 subject="Toán học",
-                question="Khi giải bài toán mới, bạn thường dừng lại lâu nhất ở khâu nào?",
-                category="blocker",
+                question="Ở môn Toán học, trình độ xuất phát và mục tiêu cốt lõi của bạn hiện tại là gì?",
+                category="archetype",
                 options=[
-                    DiagnosticOption(id="read_misunderstand", label="Đọc đề bài chưa hình dung được hướng làm", subtext="Khó chuyển từ ngôn ngữ đề bài sang biểu thức toán"),
-                    DiagnosticOption(id="formula_forget", label="Quên công thức hoặc nhầm lẫn dấu", subtext="Nhớ mang máng nhưng tính toán dễ sai số"),
-                    DiagnosticOption(id="complex_transform", label="Kẹt ở bước biến đổi đại số/hình học phức tạp", subtext="Biết hướng đi nhưng thiếu kỹ thuật xử lý bước rút gọn"),
-                    DiagnosticOption(id="time_limit", label="Hiểu cách làm nhưng làm quá chậm khi bấm giờ", subtext="Cần phản xạ nhanh hơn trong phòng thi")
+                    DiagnosticOption(id="rescue_foundation", label="Cứu gốc / Lấy lại căn bản (mục tiêu 5.0 - 6.5)", subtext="Hổng nhiều định lý, hay quên công thức biến đổi cơ bản"),
+                    DiagnosticOption(id="break_plateau", label="Phá bình nguyên 7+ (mục tiêu 7.0 - 8.4)", subtext="Chắc căn bản nhưng hay sai vặt và lúng túng khi gặp câu phân loại"),
+                    DiagnosticOption(id="conquer_high", label="Chinh phục 9+ / Thủ khoa (mục tiêu 8.6 - 10.0)", subtext="Muốn tối ưu hóa thời gian và làm chủ các bài toán cực trị vận dụng cao"),
+                    DiagnosticOption(id="build_early", label="Xây móng sớm lớp 10 - 11 theo cấu trúc GDPT mới", subtext="Học sớm để không bị áp lực dồn dập vào năm lớp 12")
                 ]
             ),
             DiagnosticQuestion(
-                id="math_focus_area",
+                id="math_blocker",
                 subject="Toán học",
-                question="Phần kiến thức nào khiến bạn cảm thấy cần người đồng hành nhất?",
-                category="level",
+                question="Khi giải đề thi Toán GDPT mới, rào cản lớn nhất của bạn là gì?",
+                category="blocker",
                 options=[
-                    DiagnosticOption(id="geometry", label="Hình học không gian / Tọa độ Oxyz", subtext="Khó tưởng tượng hình chiếu và góc không gian"),
-                    DiagnosticOption(id="functions", label="Hàm số và đồ thị khảo sát", subtext="Cực trị, tính đơn điệu, bài toán chứa tham số"),
-                    DiagnosticOption(id="trig_algebra", label="Lượng giác / Phương trình chứa căn thức", subtext="Nhiều công thức biến đổi dễ nhầm lẫn")
+                    DiagnosticOption(id="read_unseen", label="Đọc đề bài ngữ cảnh thực tế lạ chưa biết lập mô hình toán", subtext="Khó chuyển từ mô tả đời sống sang hàm số/phương trình"),
+                    DiagnosticOption(id="calc_slip", label="Hay nhầm lẫn biến đổi đại số / tham số m", subtext="Biết hướng đi nhưng tính toán sai dấu hoặc sót điều kiện xác định"),
+                    DiagnosticOption(id="spatial_geometry", label="Hình học không gian & phương pháp tọa độ Oxyz", subtext="Khó tưởng tượng hình chiếu, góc, khoảng cách trong không gian"),
+                    DiagnosticOption(id="new_format_traps", label="Lúng túng trước câu trắc nghiệm Đúng/Sai và Trả lời ngắn", subtext="Dễ mất trọn điểm ở 4 ý Đúng/Sai hoặc sai đơn vị ở phần trả lời ngắn")
+                ]
+            )
+        ]
+    elif "lý" in subject_normalized or "vật lý" in subject_normalized:
+        return [
+            DiagnosticQuestion(
+                id="physics_blocker",
+                subject="Vật lí",
+                question="Rào cản lớn nhất của bạn khi học môn Vật lí theo chương trình mới:",
+                category="blocker",
+                options=[
+                    DiagnosticOption(id="new_circuits", label="Lúng túng 4 mạch GDPT mới (Nhiệt, Khí lí tưởng, Cảm ứng, Hạt nhân)", subtext="Khái niệm vi mô, mô hình phân tử và phương trình trạng thái khí"),
+                    DiagnosticOption(id="dimension_units", label="Sai thứ nguyên đơn vị và quy đổi chuẩn SI", subtext="Nhầm lẫn đơn vị áp suất (Pa, mmHg), nhiệt độ Kenvin và Celsius"),
+                    DiagnosticOption(id="graph_experiment", label="Sợ câu hỏi khai thác đồ thị và thí nghiệm thực hành", subtext="Khó bóc tách sai số và hệ số góc trên đồ thị thực nghiệm"),
+                    DiagnosticOption(id="true_false_traps", label="Bẫy lý thuyết ở phần câu hỏi Đúng/Sai", subtext="Nắm hời hợt bản chất nên dễ chọn nhầm các mệnh đề bẫy")
+                ]
+            ),
+            DiagnosticQuestion(
+                id="physics_method",
+                subject="Vật lí",
+                question="Phương pháp học tập bạn cảm thấy hiệu quả nhất cho môn Lí:",
+                category="method",
+                options=[
+                    DiagnosticOption(id="nature_first", label="Học lại bản chất hiện tượng từ ví dụ thực tiễn", subtext="Hiểu sâu 'tại sao' trước khi học thuộc lòng công thức"),
+                    DiagnosticOption(id="graph_mastery", label="Luyện kỹ năng đọc và giải mã đồ thị thực nghiệm", subtext="Nắm phương pháp xác định điểm đầu, điểm cuối và độ dốc đồ thị")
                 ]
             )
         ]
@@ -142,64 +179,198 @@ def get_diagnostic_questions(subject: str, grade: str = "10"):
             DiagnosticQuestion(
                 id="chem_blocker",
                 subject="Hóa học",
-                question="Ở môn Hóa, trở ngại lớn nhất của bạn lúc này là gì?",
+                question="Ở môn Hóa học GDPT mới, trở ngại lớn nhất của bạn lúc này là gì?",
                 category="blocker",
                 options=[
-                    DiagnosticOption(id="redox", label="Cân bằng electron & phương trình oxy hóa khử", subtext="Dễ sót hệ số hoặc xác định sai số oxy hóa"),
-                    DiagnosticOption(id="organic", label="Cơ chế phản ứng hữu cơ (Este, Lipit, Amin)", subtext="Nhiều công thức cấu tạo và chuỗi phản ứng"),
-                    DiagnosticOption(id="mol_math", label="Bài toán tính toán theo định luật bảo toàn", subtext="Bảo toàn khối lượng, bảo toàn e, bảo toàn nguyên tố")
+                    DiagnosticOption(id="iupac_nomenclature", label="Chưa quen danh pháp IUPAC quốc tế và thuật ngữ mới", subtext="Dễ lẫn lộn tên gọi acid, este, amine theo phiên âm cũ vs quốc tế"),
+                    DiagnosticOption(id="thermo_complex", label="Sợ phần Nhiệt hóa học (Biến thiên Enthalpy) & Phức chất", subtext="Khó nhớ công thức tính Delta_r H và cấu trúc phối tử phức chất"),
+                    DiagnosticOption(id="practical_experiment", label="Thao tác thí nghiệm và mô tả hiện tượng trực quan", subtext="Chưa hình dung rõ màu sắc kết tủa, khí thoát ra và biện pháp an toàn"),
+                    DiagnosticOption(id="conservation_math", label="Bài toán vận dụng định luật bảo toàn", subtext="Bảo toàn khối lượng, bảo toàn electron, bảo toàn điện tích")
                 ]
             ),
             DiagnosticQuestion(
                 id="chem_method",
                 subject="Hóa học",
-                question="Cách bạn muốn bắt đầu mỗi buổi học Hóa:",
-                category="style",
+                question="Bạn muốn củng cố môn Hóa theo định hướng nào?",
+                category="method",
                 options=[
-                    DiagnosticOption(id="rule_map", label="Tóm tắt 1 trang công thức & quy tắc nhớ nhanh", subtext="Nắm chắc bản chất trước khi làm bài"),
-                    DiagnosticOption(id="example_first", label="Xem 1 ví dụ giải mẫu rồi làm bài tương tự", subtext="Học qua thực hành bài tập cụ thể")
+                    DiagnosticOption(id="reaction_mindmap", label="Sơ đồ tư duy cơ chế phản ứng và màu sắc đặc trưng", subtext="Học qua hình ảnh và sơ đồ chuỗi phản ứng trực quan"),
+                    DiagnosticOption(id="true_false_breakdown", label="Rèn kỹ thuật bóc tách 4 ý của câu hỏi Đúng/Sai", subtext="Kiểm tra kỹ từng nhận định để lấy trọn vẹn điểm số phần II")
                 ]
             )
         ]
-    elif "văn" in subject_normalized:
+    elif "sinh" in subject_normalized:
+        return [
+            DiagnosticQuestion(
+                id="bio_blocker",
+                subject="Sinh học",
+                question="Khó khăn lớn nhất khiến bạn cảm thấy môn Sinh học quá tải:",
+                category="blocker",
+                options=[
+                    DiagnosticOption(id="dna_mechanisms", label="Nhầm lẫn chiều 3' -> 5' và các enzyme nhân đôi/phiên mã", subtext="Dễ nhầm mạch mã gốc, mạch bổ sung và vai trò của DNA/RNA polymerase"),
+                    DiagnosticOption(id="hardy_weinberg", label="Bài toán di truyền quần thể & cân bằng Hardy-Weinberg", subtext="Lúng túng khi quần thể chịu tác động của đột biến, chọn lọc tự nhiên"),
+                    DiagnosticOption(id="pedigree_analysis", label="Phân tích phả hệ y học và xác suất di truyền liên kết", subtext="Khó xác định gen trội/lặn trên NST thường hay NST giới tính"),
+                    DiagnosticOption(id="wording_traps", label="Bẫy câu chữ tinh vi về tỉ lệ kiểu gen / kiểu hình", subtext="Đọc lướt dẫn đến tính sai tỉ lệ cá thể mang kiểu hình trội/lặn")
+                ]
+            ),
+            DiagnosticQuestion(
+                id="bio_method",
+                subject="Sinh học",
+                question="Cách tiếp cận giúp bạn ghi nhớ kiến thức Sinh học lâu nhất:",
+                category="method",
+                options=[
+                    DiagnosticOption(id="diagram_visual", label="Trực quan hóa qua sơ đồ cơ chế tế bào & infographic", subtext="Học quy luật sinh học qua hình ảnh thay vì đọc chữ dài"),
+                    DiagnosticOption(id="eval_logic", label="Rèn tư duy logic giải quyết bài toán Đúng/Sai và phân tích số liệu", subtext="Phân tích câu hỏi theo phương pháp khoa học thực nghiệm")
+                ]
+            )
+        ]
+    elif "tin" in subject_normalized or "tin học" in subject_normalized or "computer" in subject_normalized:
+        return [
+            DiagnosticQuestion(
+                id="cs_blocker",
+                subject="Tin học",
+                question="Ở môn Tin học, phần kiến thức nào khiến bạn hay bị lỗi nhất?",
+                category="blocker",
+                options=[
+                    DiagnosticOption(id="python_trace", label="Truy vết giá trị biến trong vòng lặp/đệ quy Python", subtext="Khó nắm bắt biến đổi giá trị sau từng bước lặp hoặc gọi đệ quy"),
+                    DiagnosticOption(id="sql_db", label="Nhầm lẫn Khóa chính, Khóa ngoại và quan hệ bảng CSDL", subtext="Lúng túng khi viết câu truy vấn SELECT, JOIN và lọc dữ liệu"),
+                    DiagnosticOption(id="web_html_css", label="Cú pháp thẻ HTML và cấu trúc bố cục CSS", subtext="Quên thuộc tính và cấu trúc phân cấp cây DOM"),
+                    DiagnosticOption(id="network_ip", label="Phân biệt dải địa chỉ IP Public/Private và thiết bị mạng", subtext="Khái niệm trừu tượng về tầng mạng và bảo mật dữ liệu")
+                ]
+            ),
+            DiagnosticQuestion(
+                id="cs_direction",
+                subject="Tin học",
+                question="Định hướng môn Tin học của bạn trong kỳ thi tốt nghiệp / nghề nghiệp:",
+                category="direction",
+                options=[
+                    DiagnosticOption(id="cs_algorithms", label="Khoa học máy tính (CS): Thuật toán & Tư duy lập trình", subtext="Rèn luyện kỹ năng giải thuật toán tối ưu với Python"),
+                    DiagnosticOption(id="ict_applied", label="Tin học ứng dụng (ICT): Thiết kế Web, CSDL và Mạng máy tính", subtext="Tập trung xây dựng ứng dụng thực tế và phân tích dữ liệu")
+                ]
+            )
+        ]
+    elif "văn" in subject_normalized or "ngữ văn" in subject_normalized:
         return [
             DiagnosticQuestion(
                 id="lit_blocker",
                 subject="Ngữ văn",
-                question="Khi viết bài văn nghị luận, bạn mong muốn cải thiện điểm nào nhất?",
+                question="Khi làm bài kiểm tra Ngữ văn cấu trúc mới, khó khăn lớn nhất của bạn là gì?",
                 category="blocker",
                 options=[
-                    DiagnosticOption(id="outline", label="Lập dàn ý & luận điểm mạch lạc, không bị lặp ý", subtext="Tránh viết lan man hoặc thiếu ý trọng tâm"),
-                    DiagnosticOption(id="vocab_flow", label="Lời văn mượt mà, giàu cảm xúc và dẫn chứng đắt giá", subtext="Nâng cao chất lượng diễn đạt và chiều sâu"),
-                    DiagnosticOption(id="time_pace", label="Kiểm soát thời gian để viết trọn vẹn kết bài", subtext="Viết kịp tiến độ không bị đuối đoạn cuối")
+                    DiagnosticOption(id="unseen_text", label="Lúng túng trước ngữ liệu mới toanh ngoài sách giáo khoa", subtext="Chưa có phương pháp giải mã văn bản văn học lạ và văn bản thông tin"),
+                    DiagnosticOption(id="social_essay", label="Viết đoạn Nghị luận xã hội 200 chữ thiếu dẫn chứng thực tế", subtext="Lập luận chung chung, chưa đưa ra góc nhìn đa chiều và bài học hành động"),
+                    DiagnosticOption(id="literary_essay", label="Bài Nghị luận văn học sa vào kể chuyện, thiếu chất lý luận", subtext="Chưa biết làm nổi bật đặc trưng thể loại, nghệ thuật và phong cách tác giả"),
+                    DiagnosticOption(id="time_pacing", label="Kiểm soát thời gian 120 phút không kịp phân bổ đều", subtext="Dành quá nhiều thời gian cho phần Đọc hiểu dẫn đến viết vội phần Nghị luận")
+                ]
+            ),
+            DiagnosticQuestion(
+                id="lit_method",
+                subject="Ngữ văn",
+                question="Chiến lược ôn luyện Văn bạn muốn tập trung phát triển:",
+                category="method",
+                options=[
+                    DiagnosticOption(id="rubric_mastery", label="Nắm vững khung Rubrics chấm điểm 5 câu phần Đọc hiểu", subtext="Rèn kỹ thuật trả lời ngắn gọn, chuẩn từ khóa, ăn trọn 4.0 điểm"),
+                    DiagnosticOption(id="argument_technique", label="Rèn công thức lập luận đa chiều và kho dẫn chứng thời sự", subtext="Xây dựng ngân hàng dẫn chứng sống động cho đoạn văn 200 chữ")
                 ]
             )
         ]
-    elif "lý" in subject_normalized or "vật lý" in subject_normalized:
+    elif "sử" in subject_normalized or "lịch sử" in subject_normalized:
         return [
             DiagnosticQuestion(
-                id="physics_blocker",
-                subject="Vật lý",
-                question="Khó khăn lớn nhất của bạn khi học Vật lý:",
+                id="history_blocker",
+                subject="Lịch sử",
+                question="Rào cản khiến bạn sợ môn Lịch sử nhất hiện nay:",
                 category="blocker",
                 options=[
-                    DiagnosticOption(id="phenomenon", label="Chưa hiểu rõ hiện tượng vật lý trong thực tế", subtext="Khó liên hệ giữa lý thuyết và bản chất tự nhiên"),
-                    DiagnosticOption(id="formula_apply", label="Thuộc công thức nhưng không biết áp dụng vào đề bài", subtext="Bối rối khi gặp các bài toán ghép nhiều hiện tượng"),
-                    DiagnosticOption(id="graph_math", label="Đọc đồ thị dao động/sóng cơ/dòng điện xoay chiều", subtext="Kỹ năng khai thác dữ kiện từ hình vẽ còn yếu")
+                    DiagnosticOption(id="rote_forgetting", label="Học vẹt nhớ trước quên sau do nhồi nhét mốc thời gian rời rạc", subtext="Không liên kết được dòng chảy lịch sử thành một câu chuyện logic"),
+                    DiagnosticOption(id="cause_vs_pretext", label="Nhầm lẫn nguyên nhân sâu xa với duyên cớ bùng nổ sự kiện", subtext="Dễ mắc bẫy ở các câu hỏi phân tích bản chất lịch sử"),
+                    DiagnosticOption(id="absolute_wording", label="Sập bẫy các từ ngữ mang tính tuyệt đối ('hoàn toàn', 'duy nhất')", subtext="Đọc lướt qua các từ khóa hạn chế dẫn đến chọn sai đáp án"),
+                    DiagnosticOption(id="primary_sources", label="Lúng túng khai thác đoạn trích tư liệu gốc ở câu Đúng/Sai", subtext="Khó đối chiếu nhận định trong đề với ngữ cảnh lịch sử thực tế")
+                ]
+            ),
+            DiagnosticQuestion(
+                id="history_method",
+                subject="Lịch sử",
+                question="Cách bạn muốn hệ thống hóa kiến thức Lịch sử:",
+                category="method",
+                options=[
+                    DiagnosticOption(id="timeline_cause_effect", label="Tiếp cận theo trục thời gian nhân - quả và so sánh chuyên đề", subtext="Học lịch sử như một chuỗi nguyên nhân và hệ quả tất yếu"),
+                    DiagnosticOption(id="mindmap_global", label="Sơ đồ tư duy liên kết sự kiện Việt Nam với bối cảnh thế giới", subtext="Mở rộng tầm nhìn liên môn và khả năng đánh giá toàn diện")
                 ]
             )
         ]
-    elif "anh" in subject_normalized or "tiếng anh" in subject_normalized:
+    elif "địa" in subject_normalized or "địa lí" in subject_normalized:
+        return [
+            DiagnosticQuestion(
+                id="geo_blocker",
+                subject="Địa lí",
+                question="Khó khăn lớn nhất của bạn trong bài thi Địa lí GDPT mới:",
+                category="blocker",
+                options=[
+                    DiagnosticOption(id="map_reliance", label="Phụ thuộc Atlat giấy cũ, chưa quen đọc bản đồ số/lược đồ chuyên đề", subtext="Đề thi mới tập trung vào lược đồ biểu diễn quy luật tự nhiên và kinh tế"),
+                    DiagnosticOption(id="climate_winds", label="Nhầm lẫn hướng gió mùa và sự phân hóa khí hậu các miền", subtext="Gió mùa mùa đông, gió mùa mùa hạ và tác động của dải hội tụ nhiệt đới"),
+                    DiagnosticOption(id="data_calculation", label="Tính toán sai số liệu và quy tắc làm tròn (biên độ nhiệt, cán cân...)", subtext="Dễ mất điểm ở phần III trả lời ngắn do sai quy tắc làm tròn 1 chữ số thập phân"),
+                    DiagnosticOption(id="economic_shift", label="Chưa nắm rõ chuyển dịch cơ cấu ngành kinh tế và vùng kinh tế trọng điểm", subtext="Khó giải thích nguyên nhân tăng trưởng các ngành công nghiệp mũi nhọn")
+                ]
+            ),
+            DiagnosticQuestion(
+                id="geo_method",
+                subject="Địa lí",
+                question="Kỹ năng Địa lí bạn muốn rèn luyện sắc bén nhất:",
+                category="method",
+                options=[
+                    DiagnosticOption(id="rule_nature_economy", label="Phân tích quy luật nhân quả địa lí tự nhiên & kinh tế vùng", subtext="Hiểu mối quan hệ biện chứng giữa tài nguyên thiên nhiên và phát triển kinh tế"),
+                    DiagnosticOption(id="data_speed", label="Rèn kỹ năng giải bài tính toán điền số phần III nhanh và chuẩn", subtext="Luyện công thức tính mật độ, tỉ trọng, tốc độ tăng trưởng")
+                ]
+            )
+        ]
+    elif "kinh tế" in subject_normalized or "pháp luật" in subject_normalized or "gdkt" in subject_normalized or "gkt" in subject_normalized:
+        return [
+            DiagnosticQuestion(
+                id="law_blocker",
+                subject="GDKT & PL",
+                question="Trở ngại lớn nhất của bạn khi giải quyết các tình huống môn GDKT & PL:",
+                category="blocker",
+                options=[
+                    DiagnosticOption(id="multi_character_case", label="Bối rối trước các tình huống nhiều nhân vật lắt léo (A, B, C, D)", subtext="Dễ xác định nhầm ai là người vi phạm và vi phạm quyền gì"),
+                    DiagnosticOption(id="rights_confusion", label="Nhầm lẫn quyền bất khả xâm phạm thân thể với bảo hộ tính mạng/sức khỏe", subtext="Khái niệm pháp lý gần nhau dễ dẫn đến chọn sai phương án"),
+                    DiagnosticOption(id="violation_types", label="Phân biệt 4 loại vi phạm pháp luật (Hình sự, Hành chính, Dân sự, Kỷ luật)", subtext="Chưa nắm vững ranh giới mức độ nguy hiểm cho xã hội của hành vi"),
+                    DiagnosticOption(id="market_economy", label="Các chỉ tiêu kinh tế vĩ mô (GDP, CPI, Lạm phát, Thất nghiệp)", subtext="Khó áp dụng lý thuyết kinh tế để giải thích biến động thị trường thực tế")
+                ]
+            ),
+            DiagnosticQuestion(
+                id="law_method",
+                subject="GDKT & PL",
+                question="Cách học giúp bạn giải quyết nhanh các tình huống thực tế:",
+                category="method",
+                options=[
+                    DiagnosticOption(id="case_diagram", label="Vẽ sơ đồ bóc tách hành vi nhân vật trong case study", subtext="Phương pháp phân vai tách bạch hành vi vi phạm từng cá nhân"),
+                    DiagnosticOption(id="rights_table", label="Bảng so sánh cốt lõi các quyền tự do cơ bản và nghĩa vụ công dân", subtext="Ghi nhớ nhanh các dấu hiệu đặc trưng của từng quyền")
+                ]
+            )
+        ]
+    elif "anh" in subject_normalized or "tiếng anh" in subject_normalized or "english" in subject_normalized:
         return [
             DiagnosticQuestion(
                 id="eng_blocker",
                 subject="Tiếng Anh",
-                question="Kỹ năng nào bạn muốn cải thiện vượt trội nhất:",
+                question="Rào cản lớn nhất của bạn với cấu trúc đề thi Tiếng Anh GDPT mới:",
                 category="blocker",
                 options=[
-                    DiagnosticOption(id="grammar", label="Ngữ pháp và cấu trúc câu phức", subtext="Mệnh đề quan hệ, câu điều kiện, đảo ngữ"),
-                    DiagnosticOption(id="vocab", label="Vốn từ vựng học thuật (Collocations & Idioms)", subtext="Dễ quên từ và dịch câu thô cứng"),
-                    DiagnosticOption(id="reading", label="Tốc độ đọc hiểu và bẫy câu hỏi suy luận", subtext="Mất nhiều thời gian đọc bài đọc dài")
+                    DiagnosticOption(id="thematic_vocab", label="Thiếu từ vựng theo chủ đề mới (Trí tuệ nhân tạo, Môi trường, Lối sống xanh)", subtext="Gặp nhiều từ lạ trong bài đọc dẫn đến mất phương hướng"),
+                    DiagnosticOption(id="reading_stamina", label="Yếu phản xạ đọc hiểu đoạn văn dài và bẫy câu hỏi suy luận (Inference)", subtext="Mất quá nhiều thời gian đọc từng chữ, không kịp giờ làm bài"),
+                    DiagnosticOption(id="phonetics_traps", label="Bẫy trọng âm - phát âm và ngữ điệu câu giao tiếp", subtext="Dễ mất điểm ở phần ngữ âm do quen phát âm theo thói quen"),
+                    DiagnosticOption(id="complex_structures", label="Nhầm lẫn các thì và cấu trúc câu phức, câu đảo ngữ, giả định", subtext="Khó nhận biết công thức khi đề bài thay đổi trật tự từ")
+                ]
+            ),
+            DiagnosticQuestion(
+                id="eng_method",
+                subject="Tiếng Anh",
+                question="Phương pháp bạn muốn áp dụng để nâng bậc điểm môn Tiếng Anh:",
+                category="method",
+                options=[
+                    DiagnosticOption(id="context_collocations", label="Học từ vựng qua ngữ cảnh văn cảnh & cụm Collocations / Idioms", subtext="Ghi nhớ từ đi kèm với giới từ và ví dụ câu thực tế"),
+                    DiagnosticOption(id="skimming_scanning", label="Kỹ thuật Skimming & Scanning dò từ khóa bài đọc chuẩn xác", subtext="Định vị nhanh thông tin mà không cần dịch từng câu chữ")
                 ]
             )
         ]
@@ -211,7 +382,7 @@ def get_diagnostic_questions(subject: str, grade: str = "10"):
                 question=f"Mục tiêu quan trọng nhất với môn {subject} trong 30 ngày tới:",
                 category="blocker",
                 options=[
-                    DiagnosticOption(id="core_foundation", label="Lấp đầy các lỗ hổng kiến thức nền tảng", subtext="Hiểu rõ các khái niệm căn bản và định nghĩa"),
+                    DiagnosticOption(id="core_foundation", label="Lấp đầy các lỗ hổng kiến thức nền tảng", subtext="Hiểu rõ các khái niệm căn bản và định lý cốt lõi"),
                     DiagnosticOption(id="practice_speed", label="Tăng tốc độ làm bài và độ chính xác", subtext="Rèn luyện phản xạ giải đề thi"),
                     DiagnosticOption(id="confidence", label="Xóa bỏ cảm giác sợ môn học, tạo thói quen học nhẹ nhàng", subtext="Tự tin mỗi khi mở sách vở ra học")
                 ]
@@ -285,7 +456,27 @@ async def onboard_student(data: StudentCreate, db: Session = Depends(get_db)):
     )
     db.add(initial_flower)
     db.commit()
-    db.refresh(student)
+
+    # Khởi tạo Inventory khiên hộ mệnh và gieo mầm badge ban đầu
+    inventory = get_or_create_inventory(student_id, db)
+    ensure_badges_seeded(db)
+    # Thưởng huy hiệu Tiên Phong ngày đầu
+    check_and_award_badges(student_id, 1, None, db)
+
+    # Lưu tâm thư ngày 1 nếu có
+    if data.initial_time_capsule and data.initial_time_capsule.strip():
+        capsule_id = f"cap_{uuid.uuid4().hex[:8]}"
+        capsule = TimeCapsule(
+            id=capsule_id,
+            student_id=student_id,
+            author_type="STUDENT",
+            title="Tâm thư ngày đầu tiên gửi người vượt trọng lực",
+            letter_content=data.initial_time_capsule.strip(),
+            target_unlock_day=21,
+            status=CapsuleStatus.SEALED
+        )
+        db.add(capsule)
+        db.commit()
 
     return StudentResponse(
         id=student.id,
@@ -455,18 +646,27 @@ async def submit_daily_checkin(data: CheckinCreate, db: Session = Depends(get_db
 
     checkin_record = DailyCheckin(
         student_id=data.student_id,
-        completion_rate=data.completion_rate,
+        completion_rate=data.completion_rate or 75,
         subject_difficulty=data.subject_difficulty,
         action_reflection=data.action_reflection,
-        mood=data.mood,
+        mood=data.mood or MoodType.HAPPY,
         emotion_scale=scale,
+        energy_level=data.energy_level if data.energy_level is not None else 70,
+        confidence_stars=data.confidence_stars if data.confidence_stars is not None else 3,
+        completed_subjects=data.completed_subjects or [],
+        micro_wins=data.micro_wins or [],
+        bottleneck_key=data.bottleneck_key or "none",
+        weekday_answer=data.weekday_answer,
         ai_feedback=ai_feedback,
         needs_attention=needs_attention
     )
     db.add(checkin_record)
 
     flower = db.query(FlowerStatus).filter(FlowerStatus.student_id == data.student_id).first()
+    inventory = get_or_create_inventory(data.student_id, db)
     today = date.today()
+    shield_used = False
+    shield_message = None
 
     if not flower:
         flower = FlowerStatus(
@@ -479,13 +679,14 @@ async def submit_daily_checkin(data: CheckinCreate, db: Session = Depends(get_db
         )
         db.add(flower)
     else:
-        new_state, new_consecutive, story = calculate_flower_state(
+        new_state, new_consecutive, story, shield_used, shield_message = calculate_flower_state(
             current_state=flower.current_state,
             last_checkin_date=flower.last_checkin_date,
             checkin_date=today,
             consecutive_days=flower.consecutive_days,
-            completion_rate=data.completion_rate,
-            mood=data.mood
+            completion_rate=data.completion_rate or 75,
+            mood=data.mood or MoodType.HAPPY,
+            inventory=inventory
         )
         flower.current_state = new_state
         flower.consecutive_days = new_consecutive
@@ -493,9 +694,32 @@ async def submit_daily_checkin(data: CheckinCreate, db: Session = Depends(get_db
         flower.water_drops += 1
         flower.story_message = story
 
+    # Kiểm tra trao thưởng cột mốc streak & hành vi
+    newly_unlocked = check_and_award_badges(
+        student_id=data.student_id,
+        streak=flower.consecutive_days,
+        micro_wins=data.micro_wins,
+        db=db
+    )
+
+    # Thưởng khiên hộ mệnh tại mốc ngày 3
+    if flower.consecutive_days == 3 and inventory.freeze_shields_available < 2:
+        inventory.freeze_shields_available += 1
+
+    # Tự động mở khóa Time Capsule nếu đạt ngày 21
+    if flower.consecutive_days >= 21:
+        caps = db.query(TimeCapsule).filter(
+            TimeCapsule.student_id == data.student_id,
+            TimeCapsule.status == CapsuleStatus.SEALED
+        ).all()
+        for c in caps:
+            c.status = CapsuleStatus.UNLOCKED
+            c.unlocked_at = datetime.now()
+
     db.commit()
     db.refresh(checkin_record)
     db.refresh(flower)
+    db.refresh(inventory)
 
     return CheckinResponse(
         id=checkin_record.id,
@@ -505,12 +729,21 @@ async def submit_daily_checkin(data: CheckinCreate, db: Session = Depends(get_db
         action_reflection=checkin_record.action_reflection,
         mood=checkin_record.mood,
         emotion_scale=scale,
+        energy_level=checkin_record.energy_level,
+        confidence_stars=checkin_record.confidence_stars,
+        completed_subjects=checkin_record.completed_subjects,
+        micro_wins=checkin_record.micro_wins,
+        bottleneck_key=checkin_record.bottleneck_key,
+        weekday_answer=checkin_record.weekday_answer,
         ai_feedback=checkin_record.ai_feedback,
         needs_attention=checkin_record.needs_attention,
         created_at=checkin_record.created_at,
         streak_days=flower.consecutive_days,
         flower_state=flower.current_state,
-        water_drops=flower.water_drops
+        water_drops=flower.water_drops,
+        shield_used=shield_used,
+        shield_message=shield_message,
+        newly_unlocked_badges=newly_unlocked
     )
 
 # --- 6. KHU VƯỜN & TƯỚI NƯỚC (GARDEN STATUS) ---
@@ -553,6 +786,49 @@ def get_garden_status(student_id: str, db: Session = Depends(get_db)):
     recent_moods = [c.mood.value for c in reversed(recent_checkins)]
     completion_trend = [c.completion_rate for c in reversed(recent_checkins)]
 
+    inventory = get_or_create_inventory(student_id, db)
+    ensure_badges_seeded(db)
+
+    # Danh sách badges
+    student_badge_records = db.query(StudentBadge).filter(StudentBadge.student_id == student_id).all()
+    unlocked_badge_map = {sb.badge_id: sb.unlocked_at for sb in student_badge_records}
+    all_badges = db.query(Badge).all()
+    badge_responses = []
+    for b in all_badges:
+        is_unlocked = b.id in unlocked_badge_map
+        badge_responses.append(BadgeResponse(
+            id=b.id,
+            category=b.category.value if hasattr(b.category, "value") else str(b.category),
+            title=b.title,
+            description=b.description,
+            icon=b.icon,
+            required_streak=b.required_streak,
+            unlocked=is_unlocked,
+            unlocked_at=unlocked_badge_map.get(b.id)
+        ))
+
+    # Time capsule
+    capsule = db.query(TimeCapsule).filter(TimeCapsule.student_id == student_id).order_by(desc(TimeCapsule.created_at)).first()
+    capsule_resp = None
+    if capsule:
+        capsule_resp = TimeCapsuleResponse(
+            id=capsule.id,
+            student_id=capsule.student_id,
+            author_type=capsule.author_type,
+            title=capsule.title,
+            letter_content=capsule.letter_content,
+            target_unlock_day=capsule.target_unlock_day,
+            unlock_at_date=capsule.unlock_at_date,
+            status=capsule.status.value if hasattr(capsule.status, "value") else str(capsule.status),
+            created_at=capsule.created_at,
+            unlocked_at=capsule.unlocked_at
+        )
+
+    # Hành trình 21 ngày
+    journey_milestones = [
+        MilestoneReward(**m) for m in get_journey_milestones_status(flower.consecutive_days)
+    ]
+
     return GardenStatusResponse(
         student_id=student.id,
         student_name=student.name,
@@ -562,7 +838,13 @@ def get_garden_status(student_id: str, db: Session = Depends(get_db)):
         last_checkin_date=flower.last_checkin_date,
         story_message=flower.story_message or STORY_MESSAGES[flower.current_state],
         recent_moods=recent_moods,
-        completion_trend=completion_trend
+        completion_trend=completion_trend,
+        shields_available=inventory.freeze_shields_available,
+        grace_passes_available=inventory.grace_passes_available,
+        unlocked_badges_count=len(unlocked_badge_map),
+        badges=badge_responses,
+        active_capsule=capsule_resp,
+        journey_milestones=journey_milestones
     )
 
 @router.post("/garden/{student_id}/water", response_model=WaterActionResponse)
@@ -597,6 +879,136 @@ def water_flower(student_id: str, db: Session = Depends(get_db)):
         new_state=flower.current_state,
         water_drops=flower.water_drops
     )
+
+# --- 7. TIME CAPSULE & BADGES ENDPOINTS ---
+@router.post("/capsule", response_model=TimeCapsuleResponse, status_code=status.HTTP_201_CREATED)
+def create_time_capsule(data: TimeCapsuleCreate, db: Session = Depends(get_db)):
+    student = db.query(Student).filter(Student.id == data.student_id).first()
+    if not student:
+        raise HTTPException(status_code=404, detail="Không tìm thấy học sinh")
+
+    capsule_id = f"cap_{uuid.uuid4().hex[:8]}"
+    capsule = TimeCapsule(
+        id=capsule_id,
+        student_id=data.student_id,
+        author_type="STUDENT",
+        title=data.title,
+        letter_content=data.letter_content.strip(),
+        target_unlock_day=data.target_unlock_day or 21,
+        status=CapsuleStatus.SEALED
+    )
+    db.add(capsule)
+    db.commit()
+    db.refresh(capsule)
+
+    return TimeCapsuleResponse(
+        id=capsule.id,
+        student_id=capsule.student_id,
+        author_type=capsule.author_type,
+        title=capsule.title,
+        letter_content=capsule.letter_content,
+        target_unlock_day=capsule.target_unlock_day,
+        unlock_at_date=capsule.unlock_at_date,
+        status=capsule.status.value,
+        created_at=capsule.created_at,
+        unlocked_at=capsule.unlocked_at
+    )
+
+@router.get("/capsule/{student_id}", response_model=List[TimeCapsuleResponse])
+def get_student_capsules(student_id: str, db: Session = Depends(get_db)):
+    student = db.query(Student).filter(Student.id == student_id).first()
+    if not student:
+        raise HTTPException(status_code=404, detail="Không tìm thấy học sinh")
+
+    capsules = db.query(TimeCapsule).filter(TimeCapsule.student_id == student_id).order_by(desc(TimeCapsule.created_at)).all()
+    return [
+        TimeCapsuleResponse(
+            id=c.id,
+            student_id=c.student_id,
+            author_type=c.author_type,
+            title=c.title,
+            letter_content=c.letter_content,
+            target_unlock_day=c.target_unlock_day,
+            unlock_at_date=c.unlock_at_date,
+            status=c.status.value if hasattr(c.status, "value") else str(c.status),
+            created_at=c.created_at,
+            unlocked_at=c.unlocked_at
+        )
+        for c in capsules
+    ]
+
+@router.post("/capsule/{capsule_id}/unlock", response_model=TimeCapsuleResponse)
+def unlock_time_capsule(capsule_id: str, db: Session = Depends(get_db)):
+    capsule = db.query(TimeCapsule).filter(TimeCapsule.id == capsule_id).first()
+    if not capsule:
+        raise HTTPException(status_code=404, detail="Không tìm thấy tâm thư")
+
+    flower = db.query(FlowerStatus).filter(FlowerStatus.student_id == capsule.student_id).first()
+    current_streak = flower.consecutive_days if flower else 0
+
+    if current_streak < capsule.target_unlock_day:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Tâm thư này được phong ấn đến ngày {capsule.target_unlock_day}. Hiện tại bạn đang ở ngày {current_streak}. Hãy kiên trì thêm chút nữa nhé!"
+        )
+
+    capsule.status = CapsuleStatus.UNLOCKED
+    capsule.unlocked_at = datetime.now()
+    db.commit()
+    db.refresh(capsule)
+
+    return TimeCapsuleResponse(
+        id=capsule.id,
+        student_id=capsule.student_id,
+        author_type=capsule.author_type,
+        title=capsule.title,
+        letter_content=capsule.letter_content,
+        target_unlock_day=capsule.target_unlock_day,
+        unlock_at_date=capsule.unlock_at_date,
+        status=capsule.status.value,
+        created_at=capsule.created_at,
+        unlocked_at=capsule.unlocked_at
+    )
+
+@router.get("/badges/{student_id}", response_model=List[BadgeResponse])
+def get_student_badges(student_id: str, db: Session = Depends(get_db)):
+    student = db.query(Student).filter(Student.id == student_id).first()
+    if not student:
+        raise HTTPException(status_code=404, detail="Không tìm thấy học sinh")
+
+    ensure_badges_seeded(db)
+    student_badge_records = db.query(StudentBadge).filter(StudentBadge.student_id == student_id).all()
+    unlocked_map = {sb.badge_id: sb.unlocked_at for sb in student_badge_records}
+
+    all_badges = db.query(Badge).all()
+    return [
+        BadgeResponse(
+            id=b.id,
+            category=b.category.value if hasattr(b.category, "value") else str(b.category),
+            title=b.title,
+            description=b.description,
+            icon=b.icon,
+            required_streak=b.required_streak,
+            unlocked=b.id in unlocked_map,
+            unlocked_at=unlocked_map.get(b.id)
+        )
+        for b in all_badges
+    ]
+
+@router.get("/inventory/{student_id}", response_model=StreakInventoryResponse)
+def get_student_inventory(student_id: str, db: Session = Depends(get_db)):
+    student = db.query(Student).filter(Student.id == student_id).first()
+    if not student:
+        raise HTTPException(status_code=404, detail="Không tìm thấy học sinh")
+
+    inv = get_or_create_inventory(student_id, db)
+    return StreakInventoryResponse(
+        freeze_shields_available=inv.freeze_shields_available,
+        grace_passes_available=inv.grace_passes_available,
+        total_shields_used=inv.total_shields_used,
+        last_shield_used_at=inv.last_shield_used_at
+    )
+
 
 # --- 7. TEACHER DASHBOARD ---
 @router.get("/teacher/dashboard", response_model=TeacherDashboardResponse)
@@ -671,3 +1083,50 @@ def get_teacher_dashboard(db: Session = Depends(get_db)):
         students_needing_attention=alert_items,
         all_students=all_items
     )
+
+# --- 8. MICRO-QUIZ ENGINE ENDPOINTS (plan-Quest.txt) ---
+@router.get("/quiz/daily/{student_id}", response_model=DailyQuizPackageResponse)
+def get_daily_quiz(student_id: str, block: Optional[str] = None, db: Session = Depends(get_db)):
+    """
+    Lấy bộ 3 câu trắc nghiệm nhanh hằng ngày (45s - 60s - 90s) theo khối thi.
+    Tự động áp dụng cơ chế Ổ khóa 30 ngày (30-Day Streak Gatekeeper) để mở câu hỏi Boss phân hóa 8.5+.
+    """
+    try:
+        return get_daily_quiz_package(db=db, student_id=student_id, requested_block=block)
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+
+@router.post("/quiz/submit", response_model=QuizSubmissionResponse)
+def submit_quiz_attempt(data: QuizSubmissionCreate, db: Session = Depends(get_db)):
+    """
+    Nộp bài trắc nghiệm nhanh 3 câu: chấm điểm tự động, giải thích vi mô tức thì,
+    cộng giọt nước tưới cây và chuyển tiếp câu hỏi Boss sai đến Giáo viên Dashboard.
+    """
+    try:
+        return submit_student_quiz(db=db, submission=data)
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+
+@router.post("/quiz/inject", status_code=status.HTTP_201_CREATED)
+def inject_new_quiz_question(data: TeacherInjectQuizCreate, db: Session = Depends(get_db)):
+    """
+    Giáo viên nạp câu hỏi mới từ Đề thi tốt nghiệp hoặc đề khảo sát vào Slot trống động.
+    """
+    try:
+        new_q = inject_teacher_quiz(db=db, data=data)
+        return {
+            "success": True,
+            "message": "Nạp câu hỏi mới vào Slot trống thành công!",
+            "question_id": new_q.id,
+            "block": new_q.block,
+            "subject": new_q.subject
+        }
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+@router.get("/quiz/teacher/stats", response_model=List[TeacherQuizStatsItem])
+def get_quiz_analytics_for_teacher(db: Session = Depends(get_db)):
+    """
+    Thống kê câu hỏi trắc nghiệm, tỉ lệ đúng/sai và phát hiện điểm nghẽn cho giáo viên.
+    """
+    return get_teacher_quiz_stats(db=db)

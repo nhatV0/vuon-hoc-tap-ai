@@ -1,0 +1,328 @@
+Môn thi cuối cùng hoàn thiện danh mục 10 môn thi trong chương trình GDPT và là môn thi chiến lược dành cho các thí sinh xét tuyển vào nhóm ngành Công nghệ thông tin (IT), Trí tuệ nhân tạo (AI), Khoa học dữ liệu và An ninh mạng chính là MÔN TIN HỌC.
+
+---
+
+ Sự Thay Đổi Bản Chất của Môn Tin Học theo Chương Trình GDPT
+
+Môn Tin học đã có sự chuyển dịch toàn diện từ kỹ năng văn phòng cơ bản sang Tư duy máy tính (Computational Thinking) và Khoa học dữ liệu:
+1. Chuẩn hóa Ngôn ngữ Lập trình Hiện đại: Thay thế Pascal cũ kỹ bằng Python và C++; bám sát tư duy giải thuật, kiểu dữ liệu có cấu trúc (List, String, Tuple, Dictionary) và đệ quy.
+2. Cấu trúc Đề thi Chuẩn Hóa (50 phút / 28 câu hỏi):
+    Phần I (6.0 điểm): 24 câu trắc nghiệm nhiều lựa chọn 4 phương án (Nhận biết – Thông hiểu).
+    Phần II (4.0 điểm): 4 câu trắc nghiệm Đúng/Sai (Mỗi câu gồm 4 ý a, b, c, d – Đọc hiểu code/truy vết biến (Tracing code), phân tích lược đồ Cơ sở dữ liệu quan hệ, viết mã HTML/CSS hoặc cấu hình mạng máy tính).
+3. Hai Nhánh Định Hướng Chuyên Sâu (CS & ICT):
+    Khoa học máy tính (Computer Science - CS): Thuật toán tìm kiếm, sắp xếp, lập trình hàm, đệ quy, phân tích độ phức tạp thời gian $O(n), O(n \log n)$.
+    Tin học ứng dụng (Applied Informatics - ICT): Thiết kế Web (HTML5/CSS3), Hệ quản trị Cơ sở dữ liệu quan hệ (RDBMS), Truy vấn SQL (SELECT, INSERT, UPDATE, JOIN), Mạng máy tính (IP, Subnet, LAN/WAN) và An toàn thông tin trên không gian mạng.
+4. Điểm nghẽn lớn nhất của học sinh: "Mù mờ" khi truy vết biến trong các vòng lặp lồng nhau hoặc hàm đệ quy; nhầm lẫn giữa Khóa chính (Primary Key) và Khóa ngoại (Foreign Key); sai cú pháp thẻ HTML hoặc cú pháp truy vấn SQL; nhầm lẫn địa chỉ IP công cộng (Public IP) với IP cục bộ (Private IP).
+
+Dưới đây là ma trận 5 Trường Hợp Học Sinh Điển Hình Môn Tin Học và lộ trình cá nhân hóa chi tiết.
+
+---
+
+ BẢNG MA TRẬN 5 TRƯỜNG HỢP HỌC SINH MÔN TIN HỌC
+
+| Trường hợp | Điểm xuất phát (Point A) | Mục tiêu hướng tới (Point B) | Quỹ thời gian & Thời hạn | Điểm nghẽn cốt lõi |
+| :--- | :--- | :--- | :--- | :--- |
+| TH 1: Phá Băng Sợ Code / Xây Gốc Lập Trình & Mạng (The Syntax Rescuer) | Level 1 - 2 (3.0 – 5.2)<br>Sợ đọc code, hổng cú pháp Python/HTML | 6.5 – 7.5<br>Đủ điểm xét tuyển ĐH khối A01, D01, D07 vào trường tầm trung | 45 – 60 phút/ngày<br>Thời gian: 12 – 14 tuần | Sợ vòng lặp for/while, không hiểu hàm (def); nhầm lẫn thẻ mở/đóng HTML; đoán mò câu Đúng/Sai. |
+| TH 2: Bứt Phá Bình Nguyên 7+ / Bậc Thầy Tracing Code & SQL (The Database & Logic Pro) | Level 3 (6.5 – 7.5)<br>Chắc cú pháp đơn nhưng hay sai câu Đúng/Sai | 8.2 – 8.8<br>Đỗ Đại học Top đầu (Bưu chính Viễn thông, Công nghiệp, Phenikaa...) | 60 – 75 phút/ngày<br>Thời gian: 10 – 12 tuần | Mắc bẫy ở câu Đúng/Sai truy vết biến (Tracing code); yếu phần liên kết bảng (Khóa ngoại) trong CSDL; nhầm lẫn CSS selector. |
+| TH 3: Chinh Phục Điểm 9.5 - 10 / Bậc Thầy Khoa Học Máy Tính (The Algorithm Master) | Level 4 (8.0 – 8.6)<br>Tư duy thuật toán tốt, xử lý Phần I trong 16 phút | 9.5 – 10.0<br>Thủ khoa IT1 Bách Khoa, AI & Khoa học máy tính ĐHQG | 75 – 90 phút/ngày<br>Thời gian: 12 – 16 tuần | Cần làm chủ bài toán phân tích độ phức tạp thuật toán, đệ quy sâu, chuẩn hóa CSDL (1NF, 2NF, 3NF) và bảo mật mạng nâng cao. |
+| TH 4: Chiến Dịch 30 Ngày "Gom Điểm Lý Thuyết Mạng & Web" (The 30-Day Sprint) | Bất kỳ (Level 2 hoặc 3)<br>Chỉ còn 30 – 40 ngày trước kỳ thi | Tăng ngay +1.0 đến +1.5<br>Ăn chắc 24 câu Phần I và 2 câu Phần II | 60 phút/ngày<br>Thời gian: 4 tuần | Quá tải tâm lý trước các đoạn code dài; hoảng sợ quên cú pháp SQL; hay bị lừa bởi các thẻ HTML hiếm. |
+| TH 5: Nuôi Dưỡng Tư Duy Thuật Toán & Công Nghệ Số (Lớp 10-11) (The Early Coder) | Lớp 10 - 11 (Level 2 - 3)<br>Chuẩn bị thi Học sinh giỏi / Đánh giá tư duy Bách Khoa | 8.5+ Bền vững<br>Xây dựng tư duy giải thuật bài bản & kỹ năng full-stack cơ bản | 30 – 45 phút/ngày<br>Thời gian: 9 – 12 tháng | Học lập trình theo kiểu "học vẹt code mẫu", thiếu tư duy tối ưu giải thuật và thiết kế hệ thống dữ liệu. |
+
+---
+
+---
+
+ LỘ TRÌNH CHI TIẾT DÀNH CHO TỪNG TRƯỜNG HỢP
+
+---
+
+ TRƯỜNG HỢP 1: "PHÁ BĂNG SỢ CODE / XÂY GỐC LẬP TRÌNH & MẠNG" (THE SYNTAX RESCUER)
+Dành cho học sinh mất gốc môn Tin, điểm thi thử từ 3.0 đến 5.2, nhìn đoạn code Python hoặc thẻ HTML là hoang mang; mục tiêu đạt 6.5 – 7.5 an toàn.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Nguyên tắc "Đọc Code Từng Dòng Bằng Bút Chì (Dry-run by Hand)": Tuyệt đối không đọc lướt một đoạn code. Đọc đến dòng nào, lập bảng theo dõi giá trị của biến trên giấy nháp (ví dụ: dòng 1: $i=0, s=0$; dòng 2: $s = s + i = 0$; bước lặp tiếp theo $i=1, s=1$).
+   Cố Định 5 Cấu Trúc Lập Trình Python Bất Di Bất Dịch:
+    1. Rẽ nhánh: if condition: ... elif condition: ... else: ...
+    2. Vòng lặp xác định: for i in range(start, stop, step): (chú ý: dừng trước giá trị stop).
+    3. Hàm: def functionname(args): ... return value
+    4. Danh sách (List): Chỉ số bắt đầu từ $0$, chỉ số cuối là $-1$; các thao tác append(), len().
+    5. Xâu ký tự (String): Cắt chuỗi sstart:stop, đếm ký tự.
+   Chiến Lược Gom 6.0 Điểm Cơ Bản: Ăn chắc 24 câu Phần I (6.0 điểm) ở các câu hỏi lý thuyết Mạng máy tính, An toàn thông tin, Thẻ HTML căn bản; lấy tối thiểu 1.0 – 1.5 điểm từ các ý nhận biết ở Phần II.
+
+ 2. Lộ trình 3 Giai đoạn (Tổng thời gian: 14 tuần)
+
+
+ GĐ 1: Cú Pháp Python Cơ Bản & Mạng Máy Tính  ➔  GĐ 2: Cơ Sở Dữ Liệu SQL & Thiết Kế Web HTML/CSS  ➔  GĐ 3: Luyện Đề Chuẩn Format 2 Phần 
+                 (Tuần 1 - Tuần 5: 3.0 ➔ 5.2)                                    (Tuần 6 - Tuần 10: 5.2 ➔ 6.5)                     (Tuần 11 - Tuần 14: 6.5 ➔ 7.5)
+
+
+ Giai đoạn 1: Cú Pháp Python Căn Bản & Mạng Máy Tính (Tuần 1 – Tuần 5)
+   Mục tiêu: Đọc hiểu và dự đoán chính xác kết quả xuất ra của đoạn code Python dưới 10 dòng; nắm vững kiến thức Mạng máy tính cơ bản.
+   Nội dung chuyên đề:
+       Tuần 1: Biến, kiểu dữ liệu (int, float, str, bool); Các phép toán số học (+, -, , /, // chia lấy phần nguyên, % chia lấy phần dư); Cấu trúc rẽ nhánh if-else.
+       Tuần 2: Vòng lặp for với hàm range() và vòng lặp while; Lệnh break (ngắt vòng lặp) và continue (bỏ qua bước lặp hiện tại).
+       Tuần 3: Kiểu dữ liệu Danh sách (List) và Xâu ký tự (String): Cách truy cập phần tử qua chỉ số (Index); Các phương thức cơ bản: len(), append(), split(), join().
+       Tuần 4: Khái niệm Hàm (Function) trong Python: Tham số truyền vào, giá trị trả về (return); Phạm vi của biến (biến cục bộ vs biến toàn cục).
+       Tuần 5: Mạng máy tính & An toàn thông tin: Phân biệt mạng cục bộ (LAN) và mạng diện rộng (WAN); Vai trò của Router, Switch, Modem; Địa chỉ IP (IPv4 gồm 4 byte, từ $0$ đến $255$); Các biện pháp phòng chống mã độc (virus, trojan, spyware, phishing).
+
+ Giai đoạn 2: Cơ Sở Dữ Liệu Quan Hệ SQL & Thiết Kế Web HTML/CSS (Tuần 6 – Tuần 10)
+   Mục tiêu: Nắm vững cấu trúc bảng CSDL, khóa chính; viết được mã HTML cơ bản cho một trang web đơn giản.
+   Nội dung chuyên đề:
+       Tuần 6: Cơ sở dữ liệu quan hệ: Khái niệm bảng (Table), bản ghi (Record/Row), trường (Field/Column); Khóa chính (Primary Key - duy nhất, không rỗng) và Khóa ngoại (Foreign Key - tạo liên kết giữa các bảng).
+       Tuần 7: Ngôn ngữ truy vấn SQL cơ bản: Lệnh truy vấn trích xuất dữ liệu:
+        $$\text{SELECT } \text{column\name } \text{FROM } \text{table\name } \text{WHERE } \text{condition}$$
+        Sắp xếp kết quả với ORDER BY (ASC/DESC).
+       Tuần 8: Cấu trúc một tệp HTML chuẩn: Cặp thẻ <!DOCTYPE html>, <html>, <head>, <title>, <body>; Các thẻ định dạng văn bản: <h1> - <h6>, <p>, <br>, <b>, <i>, <hr>.
+       Tuần 9: Chèn liên kết, hình ảnh và tạo bảng trong HTML: Thẻ <a> (thuộc tính href), thẻ <img> (thuộc tính src, alt), thẻ <table>, <tr>, <td>, <th>.
+       Tuần 10: Giới thiệu CSS cơ bản: 3 cách nhúng CSS (Inline, Internal, External); Cú pháp CSS: selector { property: value; }; Đổi màu chữ (color), màu nền (background-color), cỡ chữ (font-size).
+
+ Giai đoạn 3: Thực Chiến Đề Chuẩn Format 2 Phần (Tuần 11 – Tuần 14)
+   Mục tiêu: Bấm giờ 45 phút cho đề thi 28 câu; triệt tiêu 100% lỗi đọc nhầm chỉ số index trong Python ($0$ vs $1$).
+   Nội dung thực chiến:
+       Luyện 12 đề chuẩn cấu trúc: Ăn chắc 24 câu Phần I trong 20 phút $\rightarrow$ Dành 20 phút giải quyết các ý nhận biết của 4 câu Đúng/Sai ở Phần II.
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày (Tuần 2 - Giai đoạn 1)
+Quỹ thời gian: 45 phút/ngày vào Khung giờ tối (20h00 – 20h45).
+
+   Thứ Hai (45 phút):
+       Micro-task: Học cú pháp hàm range(start, stop, step). Dự đoán các dãy số sinh ra từ: range(5), range(1, 6), range(0, 10, 2), range(5, 0, -1). Viết kết quả ra giấy nháp.
+   Thứ Ba (45 phút):
+       Micro-task: Tracing code vòng lặp for: Cho đoạn code tính tổng các số lẻ từ 1 đến 9. Lập bảng theo dõi giá trị biến tích lũy total qua từng bước lặp.
+   Thứ Tư (45 phút):
+       Micro-task: Học lệnh break và continue. Giải thích sự khác biệt giữa hai lệnh khi đặt trong vòng lặp while. Làm 4 bài tập trắc nghiệm Thông hiểu.
+   Thứ Năm (45 phút):
+       Micro-task: Làm quen 1 câu hỏi Trắc nghiệm Đúng/Sai (Phần II) 4 ý phân tích một đoạn code Python tìm giá trị lớn nhất (max) trong một danh sách số nguyên.
+   Thứ Sáu (45 phút):
+       Micro-task: Thử thách Tốc độ: Bấm giờ 15 phút giải quyết 15 câu trắc nghiệm Phần I về cấu trúc điều khiển trong Python. Sửa chi tiết các câu sai.
+   Thứ Bảy (45 phút):
+       Micro-task: "Sổ tay Sai lầm Code": Chép lại 2 đoạn code chạy sai kết quả do nhầm chặn stop của hàm range() đã làm sai trong tuần.
+   Chủ Nhật (30 phút nhẹ nhàng):
+       Micro-task: Xem 1 video hoạt hình giải thích nguyên lý hoạt động của Internet và cáp quang biển; check-in chuỗi Streak cùng AI Companion.
+
+ 4. Cơ chế Cảnh báo Giáo viên (Teacher-in-the-loop Red Flags)
+   🚨 Cảnh báo Đỏ 1: Học sinh liên tục tính sai giá trị kết thúc của hàm range(1, 5) (cho rằng vòng lặp chạy đến 5 thay vì dừng ở 4) qua 3 ngày check-in. $\rightarrow$ Giáo viên gửi công thức quy ước: "Hàm range luôn dừng trước giá trị stop 1 đơn vị ($stop - 1$)".
+   🚨 Cảnh báo Đỏ 2: Học sinh nhầm lẫn giữa thẻ đóng </html> và thẻ mở <html> hoặc quên đóng thẻ </p> trong bài tập HTML. $\rightarrow$ Giáo viên can thiệp: Gửi sơ đồ quy tắc mở - đóng thẻ HTML trực quan.
+
+ 5. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Lập Trình Viên Đồng Hành Kiên Nhẫn (Step-by-Step Coder).
+   Mẫu phản hồi AI: "Hôm nay em đã lập bảng truy vết biến total rất chuẩn xác ở câu số 8! Đọc hiểu code cũng giống như học một ngôn ngữ mới, chỉ cần kiên nhẫn bóc tách từng dòng lệnh, máy tính sẽ phải chạy chính xác theo ý em. Ngày mai chúng ta sẽ khám phá sức mạnh của danh sách (List) nhé!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 2: "BỨT PHÁ BÌNH NGUYÊN 7+ / BẬC THẦY TRACING CODE & SQL" (THE DATABASE & LOGIC PRO)
+Dành cho học sinh nắm vững cú pháp cơ bản nhưng điểm số luôn mắc kẹt ở mốc 6.8 – 7.6; làm câu Đúng/Sai hay bị mất điểm ở ý phân tích truy vấn SQL kết nối bảng hoặc CSS nâng cao; mục tiêu bứt phá lên 8.2 – 8.8.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Kỹ Thuật "Lập Bảng Theo Dõi Bộ Nhớ (Trace Table Method)": Đối với các bài toán vòng lặp lồng nhau hoặc xử lý chuỗi phức tạp ở Phần II Đúng/Sai, vẽ nhanh bảng theo dõi giá trị biến:
+    | Bước lặp ($i$) | Biến phụ ($j$) | Điều kiện if (True/False) | Mảng/Biến kết quả ($a$) |
+    | :--- | :--- | :--- | :--- |
+    | $0$ | $1$ | $a0 > a1 \rightarrow$ True | Hoán đổi: $2, 5, 1, 4$ |
+    | $1$ | $2$ | $a1 > a2 \rightarrow$ False | Giữ nguyên |
+    $\rightarrow$ Nhìn vào bảng truy vết là khẳng định được 100% giá trị cuối cùng mà không bị ảo giác thị giác.
+   Làm Chủ 4 Ý Của Câu Trắc Nghiệm Đúng/Sai (Phần II):
+     Ý (a): Nhận diện cú pháp đúng/sai của câu lệnh hoặc thẻ HTML.
+     Ý (b): Xác định kiểu dữ liệu của biến hoặc cấu trúc bảng CSDL.
+     Ý (c): Dự đoán kết quả đầu ra khi thay đổi giá trị đầu vào.
+     Ý (d): Đánh giá tính tối ưu hoặc phát hiện lỗi logic tiềm ẩn (lỗi lặp vô tận, lỗi truy vấn sai điều kiện WHERE).
+   Chinh Phục Ngôn Ngữ Truy Vấn SQL Nâng Cao: Làm chủ các hàm tổng hợp (COUNT, SUM, AVG, MAX, MIN), mệnh đề gom nhóm GROUP BY và phép nối bảng INNER JOIN.
+
+ 2. Lộ trình 3 Giai đoạn (Tổng thời gian: 12 tuần)
+
+
+ GĐ 1: Bậc Thầy Truy Vết Code Python & Thuật Toán Cơ Bản  ➔  GĐ 2: Thiết Kế Web CSS & Truy Vấn SQL Đa Bảng  ➔  GĐ 3: Tối Ưu Tốc Độ 50 Phút 
+                       (Tuần 1 - Tuần 4: 7.0 ➔ 7.6)                                      (Tuần 5 - Tuần 8: 7.6 ➔ 8.2)                         (Tuần 9 - Tuần 12: 8.2 ➔ 8.8)
+
+
+ Giai đoạn 1: Làm Chủ Kỹ Thuật Truy Vết Code & Thuật Toán Tìm Kiếm, Sắp Xếp (Tuần 1 – Tuần 4)
+   Mục tiêu: Không còn sai câu hỏi truy vết biến trong Python; hiểu bản chất các thuật toán kinh điển.
+   Nội dung chuyên đề:
+       Tuần 1: Thuật toán Tìm kiếm tuần tự (Linear Search) và Tìm kiếm nhị phân (Binary Search): Điều kiện áp dụng tìm kiếm nhị phân (danh sách đã được sắp xếp); Số phép so sánh tối đa $\approx \log2(n)$.
+       Tuần 2: Thuật toán Sắp xếp cơ bản: Sắp xếp chọn (Selection Sort), Sắp xếp chèn (Insertion Sort), Sắp xếp nổi bọt (Bubble Sort); Theo dõi từng bước hoán đổi phần tử qua từng lượt lặp.
+       Tuần 3: Kiểu dữ liệu Dictionary (Từ điển) trong Python: Cặp khóa - giá trị (key: value); Các thao tác truy cập dictkey, keys(), values(), items().
+       Tuần 4: Kỹ thuật xử lý tệp văn bản trong Python: Đọc tệp (open('data.txt', 'r'), read(), readline()) và Ghi tệp ('w', 'a'); Cơ chế tự động đóng tệp với từ khóa with.
+
+ Giai đoạn 2: Thiết Kế Web CSS Box Model & Hệ Quản Trị CSDL SQL (Tuần 5 – Tuần 8)
+   Mục tiêu: Ăn trọn điểm câu hỏi Đúng/Sai về thiết kế trang web và truy vấn dữ liệu từ nhiều bảng liên kết.
+   Nội dung chuyên đề:
+       Tuần 5: Mô hình hộp trong CSS (CSS Box Model): Phân biệt rành mạch content, padding (khoảng đệm), border (đường viền), margin (khoảng lề); Thuộc tính hiển thị display: block, inline, flex.
+       Tuần 6: Thiết kế Form trong HTML: Thẻ <form>, các loại <input> (text, password, radio, checkbox, submit), thẻ <select>, <option>, <textarea>.
+       Tuần 7: Khóa ngoại và Liên kết bảng trong CSDL: Toàn vẹn tham chiếu (Referential Integrity); Phép nối bảng trong SQL:
+        $$\text{SELECT } \dots \text{ FROM TableA INNER JOIN TableB ON TableA.id = TableB.a\id}$$
+       Tuần 8: Mạng máy tính & An ninh mạng nâng cao: Phân biệt địa chỉ MAC (vật lý, không đổi) và IP (logic, thay đổi); Giao thức TCP/IP, DNS, HTTP/HTTPS; Tường lửa (Firewall) và các hình thức tấn công mạng (DDoS, Man-in-the-middle).
+
+ Giai đoạn 3: Ép Tốc Độ Thực Chiến & Quản Trị 50 Phút (Tuần 9 – Tuần 12)
+   Mục tiêu: Xử lý 24 câu Phần I trong 18 phút, 4 câu Phần II trong 27 phút, dành 5 phút rà soát phiếu tô trắc nghiệm.
+   Nội dung thực chiến:
+       Luyện 15 đề chuẩn cấu trúc đề thi tốt nghiệp của các Sở GD&ĐT.
+       Rèn kỹ năng nhận diện nhanh lỗi cú pháp SQL (quên dấu phẩy, dùng nhầm điều kiện = thay cho LIKE).
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày (Tuần 2 - Giai đoạn 1)
+Quỹ thời gian: 60 phút/ngày vào Khung giờ vàng (19h30 – 20h30).
+
+   Thứ Hai (60 phút):
+       Micro-task: Học thuật toán Sắp xếp nổi bọt (Bubble Sort). Cho danh sách $A = 5, 2, 8, 1, 4$. Tự tay mô phỏng từng lượt hoán đổi phần tử trên giấy nháp và ghi lại trạng thái danh sách sau mỗi lượt.
+   Thứ Ba (60 phút):
+       Micro-task: Đọc hiểu đoạn code Python cài đặt thuật toán Sắp xếp nổi bọt. Dự đoán số lần hoán đổi phần tử khi mảng đầu vào đã được sắp xếp tăng dần.
+   Thứ Tư (60 phút):
+       Micro-task: Xử lý 1 câu hỏi Trắc nghiệm Đúng/Sai (Phần II) 4 ý phân tích một đoạn code Python tìm kiếm nhị phân phần tử $x$ trong danh sách có sẵn.
+   Thứ Năm (60 phút):
+       Micro-task: Rèn kỹ năng truy vấn SQL: Cho 2 bảng HocSinh và Lop. Viết câu lệnh SQL trích xuất danh sách học sinh đạt điểm trung bình $\ge 8.0$ thuộc lớp '12A1'.
+   Thứ Sáu (60 phút):
+       Micro-task: Thử thách Tốc độ: Bấm giờ 17 phút giải quyết sạch 24 câu Phần I trắc nghiệm đơn. Sửa chi tiết các câu sai.
+   Thứ Bảy (60 phút):
+       Micro-task: Mini-Test cuối tuần: Làm 1 đề rút gọn gồm 12 câu Phần I và 2 câu Phần II Đúng/Sai (1 câu Python, 1 câu SQL). Chấm điểm theo barem chính thức.
+   Chủ Nhật (45 phút):
+       Micro-task: Tổng kết tuần, cập nhật Sổ tay Thuật toán & Câu lệnh SQL; check-in tuần cùng AI Companion.
+
+ 4. Cơ chế Cảnh báo Giáo viên (Teacher-in-the-loop Red Flags)
+   🚨 Cảnh báo Vàng: Học sinh làm câu truy vấn SQL có gom nhóm nhưng lại đặt điều kiện lọc vào mệnh đề WHERE thay vì HAVING (chưa phân biệt được lọc trước khi gom nhóm vs lọc sau khi gom nhóm). $\rightarrow$ Giáo viên gửi bài giảng phân biệt WHERE và HAVING.
+   🚨 Cảnh báo Đỏ: Học sinh áp dụng thuật toán tìm kiếm nhị phân cho một danh sách chưa được sắp xếp. $\rightarrow$ Giáo viên can thiệp: Nhắc nhở điều kiện tiên quyết bắt buộc của Binary Search.
+
+ 5. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Kỹ Sư Phần Mềm Đồng Hành (Software Engineer Coach).
+   Mẫu phản hồi AI: "Hôm nay em đã lập bảng theo dõi thuật toán Bubble Sort rất tỉ mỉ và xác định chính xác số lượt đổi chỗ ở câu số 16! Sự kiên nhẫn với từng bước lặp chính là phẩm chất cốt lõi của một lập trình viên giỏi. Cứ tiếp tục rèn giũa tư duy logic này, mốc 8.8 Tin học chắc chắn nằm trong tay em!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 3: "CHINH PHỤC ĐỈNH CAO 9.5 - 10 / BẬC THẦY KHOA HỌC MÁY TÍNH" (THE ALGORITHM MASTER)
+Dành cho học sinh giỏi xuất sắc, nắm chắc cú pháp lập trình và cơ sở dữ liệu; mục tiêu đạt từ 9.5 đến 10.0 để cạnh tranh suất vào Khoa học máy tính Bách Khoa (IT1), Trí tuệ nhân tạo ĐHQG, An toàn thông tin.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Tư Duy Giải Thuật Đỉnh Cao & Đánh Giá Độ Phức Tạp (Algorithm & Complexity Analysis): Học sinh ở mức này không chỉ viết code chạy đúng mà phải phân tích được:
+     Độ phức tạp thời gian ($Time Complexity$) theo ký pháp Big-O: $O(1), O(\log n), O(n), O(n \log n), O(n^2)$.
+     Kỹ thuật Đệ quy (Recursion) và khử đệ quy; Phân tích ngăn xếp bộ nhớ (Call Stack) khi hàm tự gọi lại chính nó.
+     Kỹ thuật Quy hoạch động (Dynamic Programming) cơ bản: Lưu trữ kết quả bài toán con (Memoization) để tránh tính toán lặp.
+   Làm Chủ Hoàn Toàn Phần II Đúng/Sai (Đạt 4.0/4.0 Điểm Tuyệt Đối): Không để mất điểm ở các câu hỏi bẫy logic sâu:
+     Nhận diện lỗi rò rỉ bộ nhớ, lỗi tràn ngăn xếp (Stack Overflow) trong hàm đệ quy.
+     Chuẩn hóa Cơ sở dữ liệu: Dạng chuẩn 1 (1NF), Dạng chuẩn 2 (2NF), Dạng chuẩn 3 (3NF) để triệt tiêu dị thường dữ liệu (dị thường thêm, sửa, xóa).
+   Triệt Tiêu 100% Sai Sót Ở Phần I: Xử lý 24 câu Phần I trong vòng 14–15 phút với độ chính xác tuyệt đối, dành trọn vẹn 30 phút cho 4 câu tình huống phân hóa cao ở Phần II và 5 phút rà soát.
+
+ 2. Lộ trình 3 Giai đoạn (Tổng thời gian: 16 tuần)
+
+
+ GĐ 1: Đệ Quy, Phân Tích Big-O & Cấu Trúc Dữ Liệu Nâng Cao  ➔  GĐ 2: Chuẩn Hóa CSDL, SQL Nâng Cao & Bảo Mật Mạng  ➔  GĐ 3: Đề Chuyên & Tốc Độ 38 Phút 
+                       (Tuần 1 - Tuần 6: 8.2 ➔ 8.8)                                          (Tuần 7 - Tuần 11: 8.8 ➔ 9.4)                         (Tuần 12 - Tuần 16: 9.4 ➔ 10.0)
+
+
+ Giai đoạn 1: Đệ Quy Sâu, Phân Tích Độ Phức Tạp & Cấu Trúc Dữ Liệu (Tuần 1 – Tuần 6)
+   Nội dung chuyên đề:
+       Tuần 1-2: Hàm đệ quy trong Python: Điều kiện dừng (Base case) và Bước đệ quy (Recursive step); Mô phỏng cây đệ quy của bài toán tính giai thừa, dãy số Fibonacci, tháp Hà Nội.
+       Tuần 3-4: Phân tích độ phức tạp thời gian thuật toán: So sánh thuật toán sắp xếp nhanh (Quick Sort - $O(n \log n)$) vs Sắp xếp nổi bọt ($O(n^2)$); Kỹ thuật hai con trỏ (Two Pointers) duyệt mảng hiệu quả.
+       Tuần 5-6: Kiểu dữ liệu Tập hợp (Set) và Dictionary lồng nhau: Các phép toán tập hợp (Hợp, Giao, Hiệu); Ứng dụng cấu trúc dữ liệu bảng băm (Hash Table) để tối ưu thời gian tìm kiếm về $O(1)$.
+
+ Giai đoạn 2: Chuẩn Hóa CSDL Quan Hệ & An Toàn Thông Tin Mạng Chuyên Sâu (Tuần 7 – Tuần 11)
+   Nội dung chuyên đề:
+       Tuần 7: Chuẩn hóa dữ liệu quan hệ:
+         1NF: Các thuộc tính đều là nguyên tố (đơn trị).
+         2NF: Đạt 1NF và mọi thuộc tính không khóa đều phụ thuộc hàm đầy đủ vào khóa chính.
+         3NF: Đạt 2NF và không có phụ thuộc hàm bắc cầu giữa các thuộc tính không khóa.
+       Tuần 8: Truy vấn SQL nâng cao: Truy vấn con lồng nhau (Subquery trong WHERE, FROM), phép kết nối ngoài (LEFT JOIN, RIGHT JOIN), ràng buộc toàn vẹn dữ liệu (CHECK, UNIQUE, DEFAULT).
+       Tuần 9: Bảo mật mạng và Mã hóa thông tin: Mật mã khóa đối xứng (AES, DES) vs Mật mã khóa công khai bất đối xứng (RSA); Chữ ký số, chứng chỉ bảo mật kỹ thuật số SSL/TLS; Cơ chế ngăn chặn tấn công SQL Injection và Cross-Site Scripting (XSS).
+       Tuần 10: Khai thác các bài toán lập trình ứng dụng AI và Khoa học dữ liệu: Tiền xử lý dữ liệu với thư viện Python, khái niệm máy học (Machine Learning) cơ bản.
+       Tuần 11: Quét sạch 100% các câu hỏi phân hóa đỉnh cao trong đề thi thử của các trường Chuyên Sư Phạm, Chuyên KHTN.
+
+ Giai đoạn 3: Thực Chiến Đề Chuyên & Tối Ưu Điểm Tuyệt Đối (Tuần 12 – Tuần 16)
+   Nội dung thực chiến:
+       Luyện các đề thi thử đỉnh cao với áp lực thời gian: Ép thời gian làm bài 50 phút xuống còn 38 phút (để dành 12 phút kiểm tra lại từng dòng mã truy vết ở 4 câu Phần II).
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày (Tuần 7 - Giai đoạn 2)
+Quỹ thời gian: 80 phút/ngày vào Khung giờ tối (20h30 – 21h50).
+
+   Thứ Hai (80 phút):
+       Micro-task: Học lý thuyết Chuẩn hóa CSDL: Phân tích một bảng dữ liệu quản lý bán hàng đang ở dạng 1NF nhưng bị dị thường khi cập nhật. Tách bảng để đạt dạng chuẩn 3NF.
+   Thứ Ba (80 phút):
+       Micro-task: Xử lý 1 câu hỏi Trắc nghiệm Đúng/Sai (Phần II) 4 ý phân tích một đoạn code Python đệ quy tính số cách bước lên cầu thang $n$ bậc. Phân tích số lần gọi hàm và tối ưu bằng mảng ghi nhớ (Memoization).
+   Thứ Tư (80 phút):
+       Micro-task: Viết câu truy vấn SQL lồng nhau: Tìm thông tin những nhân viên có mức lương cao hơn mức lương trung bình của phòng ban mà họ đang làm việc.
+   Thứ Năm (80 phút):
+       Micro-task: Bài toán An toàn thông tin: Phân tích cơ chế hoạt động của thuật toán băm mật khẩu (Hashing with Salt) và giải thích tại sao không thể dịch ngược mã băm về mật khẩu gốc.
+   Thứ Sáu (80 phút):
+       Micro-task: Thử thách Tốc độ: Bấm giờ 32 phút làm trọn vẹn 1 đề thi thử chuyên Tin học. Đặt mục tiêu đạt 9.75+ điểm.
+   Thứ Bảy (80 phút):
+       Micro-task: "Sáng tạo bài toán thuật toán": Tự viết 1 bài toán phân tích độ phức tạp thời gian của hàm xử lý chuỗi ký tự và tự thiết lập 1 câu hỏi trắc nghiệm Đúng/Sai 4 ý từ bài toán đó.
+   Chủ Nhật (45 phút):
+       Micro-task: Đọc bài viết khoa học về kiến trúc mô hình ngôn ngữ lớn (LLM) trên diễn đàn công nghệ; check-in tuần cùng AI Companion.
+
+ 4. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Kỹ Sư Trí Tuệ Nhân Tạo Đồng Đẳng (AI & CS Peer).
+   Mẫu phản hồi AI: "Cách em nhận diện bẫy rò rỉ nhánh đệ quy và tối ưu thời gian chạy từ $O(2^n)$ về $O(n)$ bằng mảng ghi nhớ tối nay thực sự rất đẳng cấp! Đó chính là tư duy của một kỹ sư phần mềm xuất sắc. Cứ giữ vững niềm đam mê và độ sắc sảo này, điểm 10 môn Tin học hoàn toàn xứng đáng với em!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 4: "CHIẾN DỊCH 30 NGÀY GOM ĐIỂM LÝ THUYẾT MẠNG & WEB" (THE 30-DAY SPRINT)
+Dành cho học sinh chỉ còn 4 tuần trước kỳ thi tốt nghiệp THPT; môn Tin đang ở mức trung bình (5.5 - 6.5); mục tiêu tối ưu hóa điểm số lên 7.5 – 8.0 bằng cách quét sạch câu hỏi nhận biết lý thuyết mạng, thẻ HTML và cú pháp Python cơ bản.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Tuyệt Đối Bỏ Qua Bài Toán Thuật Toán Phức Tạp: Trong 30 ngày cuối, việc cố giải các bài toán đệ quy phức tạp hay chuẩn hóa CSDL chỉ gây hoang mang.
+   Chiến Thuật "Bảo Toàn 6.5 Điểm Cơ Bản":
+       Ăn chắc 5.5 – 6.0 điểm của Phần I (24 câu trắc nghiệm đơn) trong 18 phút.
+       Lấy trọn 1.5 – 2.0 điểm từ các ý nhận biết/thông hiểu trong 4 câu Đúng/Sai của Phần II (tập trung vào câu HTML/CSS và Mạng máy tính).
+   Chiến Dịch Rà Soát Bộ "Từ Khóa Vàng Tin Học":
+     HTML: <a> liên kết, <img> hình ảnh, <table> bảng, <form> biểu mẫu.
+     CSS: color màu chữ, background-color màu nền, id chọn định danh, .class chọn lớp.
+     Python: len() độ dài, range() khoảng số, append() thêm phần tử cuối.
+     Mạng: Router định tuyến, Switch chuyển mạch, Firewall ngăn chặn truy cập trái phép.
+
+ 2. Kịch bản 4 Tuần Nước Rút (30 Ngày)
+
+   Tuần 1 (Ngày 1 – 7): Đóng Băng Thẻ HTML & Cú Pháp CSS Cơ Bản
+       Nhiệm vụ: Mỗi ngày làm 1 phiếu 30 câu hỏi trắc nghiệm chỉ xoay quanh: Thẻ HTML định dạng văn bản, danh sách, hình ảnh, bảng và cú pháp CSS.
+       Trọng tâm: Thuộc lòng ý nghĩa các thuộc tính: src, href, alt, type.
+   Tuần 2 (Ngày 8 – 14): Nắm Chắc Mạng Máy Tính & An Toàn Thông Tin
+       Nhiệm vụ: Rà soát toàn bộ các thiết bị mạng (Modem, Switch, Router), địa chỉ IP, các quy tắc an toàn khi sử dụng Internet.
+       Thực hành: Giải 8 câu trắc nghiệm Đúng/Sai (Phần II) chỉ tập trung vào Mạng máy tính và Thiết kế web.
+   Tuần 3 (Ngày 15 – 21): Quét Sạch Khái Niệm CSDL & Lệnh SQL SELECT
+       Nhiệm vụ: Ôn lại định nghĩa Bảng, Bản ghi, Trường, Khóa chính, Khóa ngoại; Cú pháp câu lệnh SELECT ... FROM ... WHERE.
+       Thực hành: Luyện kỹ năng đọc hiểu code Python 5 dòng, rèn thói quen dùng bút chì ghi giá trị biến ra nháp.
+   Tuần 4 (Ngày 22 – 30): Luyện Đề Khung Giờ Thi Thật & Giữ Nhịp Phong Độ
+       Nhiệm vụ: Làm 3 đề thi thử chuẩn vào đúng khung giờ thi thật buổi sáng (hoặc chiều).
+       Mục tiêu: Rèn kỹ năng tô phiếu trắc nghiệm; không để sai nhảm bất kỳ câu nhận biết nào; giữ tâm lý thoải mái và tự tin.
+
+ 3. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Người Giữ Lửa & Trấn An Tâm Lý (Reassuring Coach).
+   Mẫu phản hồi AI: "Chỉ còn 10 ngày nữa thôi! Em đã nhớ rất chính xác các thẻ HTML, thiết bị mạng và cú pháp vòng lặp Python rồi. Đừng lo lắng về những đoạn code quá dài, hãy bình tĩnh đọc kỹ từng câu chữ và áp dụng mẹo truy vết biến. Cứ giữ vững sự tự tin, điểm 7.5 chắc chắn nằm trong tầm tay em!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 5: "NUÔI DƯỠNG TƯ DUY THUẬT TOÁN & CÔNG NGHỆ SỐ (LỚP 10-11)" (THE EARLY CODER)
+Dành cho học sinh lớp 10, 11 định hướng thi khối A01, D01, D07 vào ngành CNTT hoặc các kỳ thi Đánh giá tư duy Bách Khoa; mục tiêu xây nền tảng tư duy giải thuật và kỹ năng công nghệ 8.5+ bền vững không áp lực.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Học Lập Trình Qua Dự Án Nhỏ Thực Tế (Project-Based Learning): Không học lập trình bằng lý thuyết suông. Viết các chương trình nhỏ có ứng dụng: Trò chơi đoán số (Number Guessing Game), Máy tính cầm tay đơn giản, Trang web giới thiệu bản thân bằng HTML/CSS.
+   Phát Triển Tư Duy Thuật Toán Tự Nhiên (Algorithmic Mindset): Tập thói quen phân rã một bài toán lớn phức tạp thành các bài toán con nhỏ hơn (Divide and Conquer); Vẽ sơ đồ khối (Flowchart) trước khi viết mã code.
+   Nuôi Dưỡng Ý Thức Đạo Đức & Trách Nhiệm Số (Digital Citizenship): Hiểu rõ quyền tác giả phần mềm, quy tắc ứng xử văn minh trên không gian mạng và tầm quan trọng của việc bảo vệ dữ liệu cá nhân.
+
+ 2. Lộ trình Phân Kỳ Theo Năm Học (Lớp 10 & 11)
+
+
+ Chặng 1: Tư Duy Lập Trình Python Căn Bản (Lớp 10)  ➔  Chặng 2: CSDL Quan Hệ & Thiết Kế Web HTML/CSS (Lớp 11)  ➔  Chặng 3: Học Vượt Tin 12 
+
+
+   Chặng 1 (Lớp 10): Nắm vững Biến, Kiểu dữ liệu, Câu lệnh rẽ nhánh, Vòng lặp, Xử lý chuỗi và Danh sách trong Python; Viết được các chương trình giải quyết bài toán toán học thực tế.
+   Chặng 2 (Lớp 11): Nắm vững Hệ quản trị CSDL quan hệ (Access/MySQL); Viết câu lệnh truy vấn SQL; Thiết kế giao diện trang web cơ bản với HTML5 và CSS3; Hiểu về nguyên lý hoạt động của Internet.
+   Chặng 3 (Mùa hè chuyển cấp lên Lớp 12): Hoàn thành trước toàn bộ 2 chuyên đề lớn lớp 12: Mạng máy tính nâng cao và Thuật toán tìm kiếm, sắp xếp chuyên sâu trước ngày 31/08.
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày
+Quỹ thời gian: 35 phút/ngày vào Khung giờ linh hoạt.
+
+   Thứ Hai (35 phút): Viết chương trình Python kiểm tra một số nguyên nhập vào từ bàn phím có phải là số nguyên tố hay không. Chạy thử chương trình với các giá trị khác nhau.
+   Thứ Ba (35 phút): Tạo một trang web HTML đơn giản chứa tiêu đề, một đoạn văn giới thiệu sở thích cá nhân và chèn 1 hình ảnh yêu thích.
+   Thứ Tư (35 phút): Thêm định dạng CSS cho trang web vừa tạo: Đổi màu nền, căn giữa văn bản, bo tròn viền hình ảnh (border-radius: 10px).
+   Thứ Năm (35 phút): Tìm hiểu nguyên lý hoạt động của công cụ tìm kiếm Google: Cách các "con bọ" (Web Crawler) thu thập dữ liệu và lập chỉ mục trang web.
+   Thứ Sáu (35 phút): Giải 1 câu trắc nghiệm Đúng/Sai mô phỏng format đề thi mới về bảo mật mạng Wi-Fi gia đình.
+   Thứ Bảy (35 phút): Viết 1 đoạn phản chiếu ngắn: "Một ứng dụng công nghệ thú vị em đã học được trong tuần này và ý tưởng phát triển nó".
+   Chủ Nhật (20 phút): Thư giãn, check-in chuỗi Streak cùng AI Companion.
+
+ 4. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Người Cố Vấn Công Nghệ Trẻ (Inspiring Tech Mentor).
+   Mẫu phản hồi AI: "Đoạn code kiểm tra số nguyên tố của em hôm nay viết rất sáng sủa và tối ưu điều kiện lặp đến căn bậc hai của $n$! Em đang phát triển tư duy thuật toán rất đúng hướng. Cứ tiếp tục mày mò và sáng tạo với các dòng lệnh nhé, thế giới công nghệ tương lai đang chờ đón em!"
+
+-

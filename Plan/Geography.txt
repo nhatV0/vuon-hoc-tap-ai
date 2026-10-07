@@ -1,0 +1,336 @@
+Tiếp nối Lịch sử, môn học thứ hai trong khối Khoa học Xã hội (nằm trong tổ hợp xét tuyển kinh điển Khối C00: Văn – Sử – Địa, các ngành Quản trị Du lịch, Kinh tế phát triển, Quy hoạch đô thị, Quản lý tài nguyên môi trường, Báo chí, Luật) chính là MÔN ĐỊA LÍ.
+
+---
+
+ Sự Thay Đổi Bản Chất của Môn Địa Lí theo Chương Trình GDPT 2018
+
+Đề thi tốt nghiệp THPT và tuyển sinh môn Địa lí mới (thời gian làm bài: 50 phút) đã có sự chuyển dịch mang tính bước ngoặt:
+1. Rời xa sự phụ thuộc hoàn toàn vào cuốn Atlat in ấn truyền thống: Đề thi không còn những câu hỏi tra cứu cơ học thuần túy (ví dụ: "Căn cứ vào Atlat trang 9, cho biết bão đổ bộ vào đâu nhiều nhất"). Thay vào đó, đề thi tích hợp Lược đồ chuyên đề, Bản đồ vệ tinh số, Hệ thống bản đồ trích xuất trực tiếp trong đề và đòi hỏi năng lực đọc hiểu không gian địa lí tự thân.
+2. Cấu trúc Đề thi 3 Phần Chuẩn Hóa:
+    Phần I (4.5 điểm): 18 câu trắc nghiệm nhiều lựa chọn 4 phương án (Nhận biết – Thông hiểu về đặc điểm tự nhiên, dân cư, kinh tế các ngành và các vùng).
+    Phần II (4.0 điểm): 4 câu trắc nghiệm Đúng/Sai (Mỗi câu gồm 4 ý a, b, c, d dựa trên Bảng số liệu thống kê tổng hợp, Biểu đồ phức hợp hoặc Đoạn văn bản địa lí kinh tế – xã hội – Đòi hỏi năng lực đối chiếu số liệu, phân tích quy luật nhân – quả và liên hệ thực tế).
+    Phần III (1.5 điểm): 6 câu trắc nghiệm Trả lời ngắn điền số (Đo lường năng lực tính toán định lượng địa lí: biên độ nhiệt năm, nhiệt độ trung bình, mật độ dân số, tỉ lệ dân thành thị, cán cân thương mại xuất – nhập khẩu, cự ly vận chuyển trung bình, độ che phủ rừng, sản lượng bình quân đầu người... có làm tròn số).
+3. Trọng tâm Nội dung Địa lí Việt Nam & Toàn Cầu Hóa (Lớp 12):
+    Địa lí Tự nhiên Việt Nam: Vị trí địa lí và phạm vi lãnh thổ; Thiên nhiên nhiệt đới ẩm gió mùa (hoạt động của các khối khí, gió mùa); Đất, sinh vật, tài nguyên khoáng sản, hải đảo; Vấn đề suy thoái môi trường và phòng chống thiên tai (bão, lũ quét, sạt lở, hạn hán, xâm nhập mặn).
+    Địa lí Dân cư & Đô thị hóa: Quy mô dân số, cơ cấu dân số vàng và già hóa; Quá trình đô thị hóa gắn với công nghiệp hóa; Vấn đề việc làm và phân bố lại lao động.
+    Địa lí các Ngành Kinh tế: Nông – Lâm – Thủy sản (nông nghiệp sinh thái, công nghệ cao); Công nghiệp (chuyển dịch cơ cấu công nghiệp, trung tâm công nghiệp); Dịch vụ (giao thông vận tải, thương mại quốc tế, du lịch).
+    Địa lí các Vùng Kinh tế & Kinh tế Biển Đảo: Khai thác thế mạnh từng vùng (Trung du miền núi Bắc Bộ, Đồng bằng sông Hồng, Bắc Trung Bộ, Duyên hải Nam Trung Bộ, Tây Nguyên, Đông Nam Bộ, Đồng bằng sông Cửu Long); Chiến lược kinh tế biển gắn với bảo vệ chủ quyền quốc gia.
+4. Điểm nghẽn lớn nhất của học sinh: Lúng túng khi nhận diện dạng biểu đồ (nhầm lẫn giữa biểu đồ Miền và biểu đồ Tròn/Cột chồng); nhầm lẫn hướng gió và đặc điểm thời tiết từng mùa (gió mùa Đông Bắc vs gió phơn Tây Nam); tính toán số liệu hay quên công thức hoặc sai quy tắc làm tròn số; không giải thích được mối quan hệ nhân quả (tại sao vùng này trồng được cây công nghiệp lâu năm, tại sao vùng kia lại bị hạn mặn sâu).
+
+Dưới đây là ma trận 5 Trường Hợp Học Sinh Điển Hình Môn Địa Lí và lộ trình cá nhân hóa chi tiết.
+
+---
+
+ BẢNG MA TRẬN 5 TRƯỜNG HỢP HỌC SINH MÔN ĐỊA LÍ
+
+| Trường hợp | Điểm xuất phát (Point A) | Mục tiêu hướng tới (Point B) | Quỹ thời gian & Thời hạn | Điểm nghẽn cốt lõi |
+| :--- | :--- | :--- | :--- | :--- |
+| TH 1: Phá Băng Mất Gốc / Xóa Mù Số Liệu & Bản Đồ (The Data & Map Rescuer) | Level 1 - 2 (3.0 – 5.2)<br>Nhầm các hướng gió, sợ bảng số liệu, không biết tính toán | 6.5 – 7.5<br>Đủ điểm xét tuyển ĐH khối C, D tầm trung hoặc xét học bạ | 45 – 60 phút/ngày<br>Thời gian: 12 – 14 tuần | Hổng kiến thức tự nhiên; không phân biệt được các loại gió; không thuộc công thức tính mật độ, cán cân thương mại. |
+| TH 2: Bứt Phá Bình Nguyên 7+ / Bậc Thầy Quy Luật Địa Lí (The Spatial Analyst) | Level 3 (6.5 – 7.5)<br>Thuộc bài nhưng hay sai câu Đúng/Sai và câu tính toán | 8.2 – 8.8<br>Đỗ trường Top đầu (Luật, Báo chí, KHXH&NV, Sư phạm, Du lịch...) | 60 – 75 phút/ngày<br>Thời gian: 10 – 12 tuần | Mắc bẫy ở câu Đúng/Sai phân tích biểu đồ; yếu phần nguyên nhân tự nhiên tác động đến kinh tế vùng; tính toán Phần III hay làm tròn sai. |
+| TH 3: Chinh Phục Điểm 9.5 - 10 / Bậc Thầy Địa Kinh Tế (The Master Geographer) | Level 4 (8.0 – 8.6)<br>Tư duy tốt, xử lý Phần I trong 15 phút | 9.5 – 10.0<br>Thủ khoa khối C00, các ngành Kinh tế đối ngoại, Quản trị chuỗi cung ứng | 75 – 90 phút/ngày<br>Thời gian: 12 – 16 tuần | Cần làm chủ bài toán tích hợp liên vùng, phân tích xu thế chuyển dịch kinh tế biển đảo, độ chuẩn xác tuyệt đối 6 câu Phần III. |
+| TH 4: Chiến Dịch 30 Ngày "Gom Điểm Bảng Số Liệu & Tự Nhiên" (The 30-Day Sprint) | Bất kỳ (Level 2 hoặc 3)<br>Chỉ còn 30 – 40 ngày trước kỳ thi | Tăng ngay +1.0 đến +1.5<br>Quét sạch 18 câu Phần I và 3 câu Phần III | 60 phút/ngày<br>Thời gian: 4 tuần | Quá tải tâm lý trước bảng số liệu dài; hoảng loạn vì nhầm lẫn đặc trưng các vùng kinh tế; tính toán nhầm đơn vị. |
+| TH 5: Nuôi Dưỡng Tư Duy Không Gian & Địa Lí Ứng Dụng (Lớp 10-11) (The Early Geographer) | Lớp 10 - 11 (Level 2 - 3)<br>Chuẩn bị thi Học sinh giỏi / Đánh giá năng lực | 8.5+ Bền vững<br>Làm chủ tư duy phân tích không gian GIS & bản đồ số | 30 – 45 phút/ngày<br>Thời gian: 9 – 12 tháng | Học nặng về ghi nhớ địa danh, thiếu kỹ năng đọc biểu đồ khí hậu và liên hệ quy hoạch vùng thực tế. |
+
+---
+
+---
+
+ LỘ TRÌNH CHI TIẾT DÀNH CHO TỪNG TRƯỜNG HỢP
+
+---
+
+ TRƯỜNG HỢP 1: "PHÁ BĂNG MẤT GỐC / XÓA MÙ SỐ LIỆU & BẢN ĐỒ" (THE DATA & MAP RESCUER)
+Dành cho học sinh mất gốc môn Địa, điểm thi thử từ 3.0 đến 5.2, hay bị "rối loạn" khi nhìn bảng số liệu hoặc bản đồ địa hình; mục tiêu đạt 6.5 – 7.5 an toàn.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Nguyên tắc "Cố Định 6 Công Thức Tính Toán Sống Còn": Không học nhiều công thức phức tạp, chỉ cần đóng đinh 6 công thức cơ bản dùng cho cả Phần I, Phần II và Phần III:
+    1. Mật độ dân số ($người/km^2$) = $\frac{\text{Số dân (người)}}{\text{Diện tích } (km^2)}$.
+    2. Tỉ lệ dân thành thị ($\%$) = $\frac{\text{Dân số thành thị}}{\text{Tổng số dân}} \times 100\%$.
+    3. Cán cân xuất nhập khẩu (USD) = $\text{Giá trị Xuất khẩu} - \text{Giá trị Nhập khẩu}$ (Dương: Xuất siêu; Âm: Nhập siêu).
+    4. Tỉ lệ che phủ rừng ($\%$) = $\frac{\text{Diện tích rừng}}{\text{Tổng diện tích tự nhiên}} \times 100\%$.
+    5. Năng suất cây trồng ($tạ/ha$) = $\frac{\text{Sản lượng (tạ)}}{\text{Diện tích gieo trồng } (ha)}$.
+    6. Biên độ nhiệt năm ($^\circ C$) = $\text{Nhiệt độ tháng cao nhất} - \text{Nhiệt độ tháng thấp nhất}$.
+   Bản Đồ Hóa Tự Nhiên Bằng "Quy Tắc 2 Mùa Gió":
+     Gió mùa mùa đông (Gió mùa Đông Bắc): Hoạt động từ tháng 11 đến tháng 4 năm sau. Nửa đầu mùa đông lạnh khô; nửa sau mùa đông lạnh ẩm, mưa phùn ở đồng bằng và ven biển Bắc Bộ.
+     Gió mùa mùa hạ (Gió mùa Tây Nam): Hoạt động từ tháng 5 đến tháng 10. Đầu mùa gây mưa lớn cho Nam Bộ, Tây Nguyên và gây hiệu ứng phơn khô nóng (gió Lào) cho ven biển Trung Bộ.
+   Chiến Lược Gom 5.5 Điểm Cơ Bản: Ăn chắc 18 câu Phần I (4.5 điểm) và lấy ít nhất 1.0 – 1.5 điểm từ các ý nhận biết ở Phần II.
+
+ 2. Lộ trình 3 Giai đoạn (Tổng thời gian: 14 tuần)
+
+
+ GĐ 1: Chuẩn Hóa Công Thức & Tự Nhiên Nhiệt Đới Ẩm  ➔  GĐ 2: Dân Cư & Thế Mạnh 7 Vùng Kinh Tế  ➔  GĐ 3: Luyện Đề Chuẩn Format 3 Phần 
+                   (Tuần 1 - Tuần 5: 3.0 ➔ 5.2)                                (Tuần 6 - Tuần 10: 5.2 ➔ 6.5)                 (Tuần 11 - Tuần 14: 6.5 ➔ 7.5)
+
+
+ Giai đoạn 1: Chuẩn Hóa Công Thức Tính Toán & Thiên Nhiên Việt Nam (Tuần 1 – Tuần 5)
+   Mục tiêu: Nắm chắc vị trí địa lí, phạm vi lãnh thổ, tính chất nhiệt đới ẩm gió mùa; thuộc lòng 6 công thức tính toán địa lí.
+   Nội dung chuyên đề:
+       Tuần 1: Vị trí địa lí và lãnh thổ: Nằm hoàn toàn trong vùng nội chí tuyến Bắc bán cầu, tiếp giáp Biển Đông; Ý nghĩa tự nhiên, kinh tế, quốc phòng của vị trí địa lí.
+       Tuần 2: Thiên nhiên nhiệt đới ẩm gió mùa: Cơ chế hoạt động của gió mùa mùa đông và gió mùa mùa hạ; Sự phân hóa thiên nhiên theo Bắc – Nam và theo Đông – Tây.
+       Tuần 3: Địa hình và sông ngòi Việt Nam: 4 vùng núi (Đông Bắc, Tây Bắc, Trường Sơn Bắc, Trường Sơn Nam); Đặc điểm sông ngòi (mạng lưới dày đặc, nhiều nước, giàu phù sa, chế độ nước theo mùa).
+       Tuần 4: Các loại thiên tai và biện pháp phòng chống: Bão (hoạt động chậm dần từ Bắc vào Nam), lũ lụt, lũ quét, hạn hán, sạt lở bờ biển.
+       Tuần 5: Rèn luyện 6 công thức tính toán địa lí: Luyện thao tác bấm máy tính và quy tắc làm tròn đến 1 chữ số thập phân ($0.1$) hoặc hàng đơn vị theo yêu cầu đề bài.
+
+ Giai đoạn 2: Địa Lí Dân Cư & Phân Hóa Các Ngành, Các Vùng Kinh Tế (Tuần 6 – Tuần 10)
+   Mục tiêu: Nắm vững đặc trưng dân cư, chuyển dịch cơ cấu kinh tế và thế mạnh nổi bật nhất của 7 vùng kinh tế.
+   Nội dung chuyên đề:
+       Tuần 6: Địa lí dân cư: Dân số đông, nhiều thành phần dân tộc; Cơ cấu dân số vàng; Đô thị hóa diễn ra chậm nhưng chuyển biến tích cực.
+       Tuần 7: Địa lí nông – lâm – thủy sản: Chuyển dịch từ sản xuất tự cung tự cấp sang sản xuất hàng hóa nông nghiệp sinh thái; Vùng trọng điểm lương thực (ĐBSCL, ĐBSH).
+       Tuần 8: Thế mạnh vùng Trung du và miền núi Bắc Bộ (thủy điện, khoáng sản, cây công nghiệp cận nhiệt và ôn đới) vs Đồng bằng sông Hồng (vùng có mật độ dân số cao nhất, thâm canh lúa nước, cơ sở hạ tầng tốt).
+       Tuần 9: Thế mạnh Bắc Trung Bộ và Duyên hải Nam Trung Bộ (kinh tế biển: cảng biển, du lịch, đánh bắt nuôi trồng hải sản, làm muối) vs Tây Nguyên (cây công nghiệp lâu năm số 1: cà phê, hồ tiêu, cao su).
+       Tuần 10: Thế mạnh Đông Nam Bộ (vùng kinh tế năng động nhất, dẫn đầu về công nghiệp, dịch vụ và thu hút FDI) vs Đồng bằng sông Cửu Long (vựa lúa, vựa thủy sản lớn nhất, thích ứng với biến đổi khí hậu và xâm nhập mặn).
+
+ Giai đoạn 3: Thực Chiến Đề Chuẩn Format 3 Phần (Tuần 11 – Tuần 14)
+   Mục tiêu: Hoàn thành 18 câu Phần I trong 18 phút; xử lý các ý nhận biết của câu Đúng/Sai mà không bị nhầm lẫn; làm đúng ít nhất 2 câu tính toán ở Phần III.
+   Nội dung thực chiến:
+       Luyện 12 đề chuẩn cấu trúc: Nhận diện nhanh các từ khóa chỉ dạng biểu đồ ("cơ cấu" $\rightarrow$ Tròn hoặc Miền; "tốc độ tăng trưởng" $\rightarrow$ Đường; "tình hình phát triển / khối lượng" $\rightarrow$ Cột).
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày (Tuần 1 - Giai đoạn 1)
+Quỹ thời gian: 45 phút/ngày vào Khung giờ tối (20h00 – 20h45).
+
+   Thứ Hai (45 phút):
+       Micro-task: Học bảng tóm tắt: Vị trí địa lí Việt Nam (nằm trong vùng nội chí tuyến, tiếp giáp biển Đông, nằm trong múi giờ số 7). Giải thích tại sao nước ta không bị khô hạn như các nước cùng vĩ độ ở Tây Á hay Bắc Phi.
+   Thứ Ba (45 phút):
+       Micro-task: Học cơ chế hoạt động của Gió mùa mùa đông (hướng Đông Bắc, nguồn gốc từ áp cao Xibia, phạm vi từ vĩ tuyến $16^\circ B$ trở ra). Làm 5 câu trắc nghiệm nhận biết.
+   Thứ Tư (45 phút):
+       Micro-task: Thực hành tính toán: Áp dụng công thức tính Mật độ dân số ($người/km^2$) cho 3 tỉnh/thành phố dựa trên bảng số liệu có sẵn diện tích và dân số.
+   Thứ Năm (45 phút):
+       Micro-task: Làm quen 1 câu hỏi Trắc nghiệm Đúng/Sai (Phần II) 4 ý dựa trên bảng số liệu về nhiệt độ trung bình các tháng trong năm tại Hà Nội và TP. Hồ Chí Minh.
+   Thứ Sáu (45 phút):
+       Micro-task: Luyện 1 câu hỏi Phần III (Điền đáp án ngắn): Cho bảng số liệu nhiệt độ tháng 1 và tháng 7 của trạm Lạng Sơn. Tính biên độ nhiệt năm của Lạng Sơn và điền số vào ô đáp án.
+   Thứ Bảy (45 phút):
+       Micro-task: "Sổ tay Công thức Địa lí": Chép lại 6 công thức cơ bản kèm ví dụ mẫu và đơn vị tính vào trang đầu sổ tay.
+   Chủ Nhật (30 phút nhẹ nhàng):
+       Micro-task: Xem 1 video đồ họa mô phỏng hoạt động của gió mùa ở Việt Nam trên Youtube; check-in chuỗi Streak cùng AI Companion.
+
+ 4. Cơ chế Cảnh báo Giáo viên (Teacher-in-the-loop Red Flags)
+   🚨 Cảnh báo Đỏ 1: Học sinh tính mật độ dân số mà lấy diện tích chia cho dân số (lộn ngược công thức) qua 2 bài check-in liên tiếp. $\rightarrow$ Giáo viên gửi ngay công thức kèm thần chú: "Người đứng trên Đất $\rightarrow$ Lấy Người chia cho Đất".
+   🚨 Cảnh báo Đỏ 2: Học sinh nhầm lẫn tác động của gió mùa Tây Nam đầu mùa (gây mưa lớn cho Nam Bộ) với gió phơn Tây Nam (gây khô nóng cho miền Trung). $\rightarrow$ Giáo viên can thiệp: Gửi sơ đồ chắn địa hình của dãy Trường Sơn.
+
+ 5. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Người Hướng Dẫn Bản Đồ Tận Tâm (Supportive Guide).
+   Mẫu phản hồi AI: "Hôm nay em đã nhớ chuẩn xác công thức tính mật độ dân số và tính đúng biên độ nhiệt của trạm Lạng Sơn! Địa lí thực chất là một môn khoa học rất thực tế gắn liền với khí hậu và đời sống quanh ta. Cứ tiếp tục bước từng bước vững chắc thế này, mốc 7.0 hoàn toàn nằm trong tầm tay em!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 2: "BỨT PHÁ BÌNH NGUYÊN 7+ / BẬC THẦY QUY LUẬT ĐỊA LÍ" (THE SPATIAL ANALYST)
+Dành cho học sinh làm tốt phần trắc nghiệm đơn nhưng điểm số luôn mắc kẹt ở mốc 6.8 – 7.6; làm câu Đúng/Sai hay bị mất điểm ở ý phân tích nguyên nhân; lúng túng khi đề bài yêu cầu chọn dạng biểu đồ thích hợp nhất; mục tiêu bứt phá lên 8.2 – 8.8.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Bẻ Khóa Ma Trận Nhận Dạng Biểu Đồ Chuẩn Tuyệt Đối:
+     Biểu đồ CỘT (Đơn, Đôi, Nhóm, Chồng): Thể hiện Quy mô, Số lượng, Sản lượng, Khối lượng của một hoặc nhiều đối tượng qua các năm.
+     Biểu đồ ĐƯỜNG (Line graph): Thể hiện Tốc độ tăng trưởng, Tốc độ phát triển (thường có đơn vị là $\%$ và năm gốc bằng $100\%$).
+     Biểu đồ TRÒN: Thể hiện Cơ cấu, Tỉ trọng, Phân bố của một đối tượng trong phạm vi từ 1 đến 3 năm hoặc 1 đến 3 vùng (có thể có bán kính khác nhau thể hiện quy mô).
+     Biểu đồ MIỀN (Area graph): Thể hiện Sự thay đổi cơ cấu, Chuyển dịch cơ cấu của đối tượng qua từ 4 năm trở lên (tổng bằng $100\%$).
+     Biểu đồ KẾT HỢP (Cột và Đường): Thể hiện Hai đối tượng khác nhau về đơn vị đo nhưng có mối quan hệ (ví dụ: Diện tích và Sản lượng; Tổng sản phẩm và Tốc độ tăng trưởng).
+   Làm Chủ 4 Ý Của Câu Trắc Nghiệm Đúng/Sai (Phần II):
+     Ý (a): Nhận xét xu hướng tăng/giảm trực tiếp của số liệu.
+     Ý (b): Tính toán tốc độ tăng trưởng hoặc tỉ trọng tương đối.
+     Ý (c): Giải thích nguyên nhân tự nhiên hoặc kinh tế dẫn đến xu hướng đó.
+     Ý (d): Dự báo tác động hoặc nêu giải pháp định hướng phát triển trong tương lai.
+   Chinh Phục Phần III (Trả Lời Ngắn): Ăn trọn tối thiểu 4/6 câu điền số liên quan đến Cán cân thương mại, Tỉ lệ thành thị hóa và Tốc độ tăng trưởng.
+
+ 2. Lộ trình 3 Giai đoạn (Tổng thời gian: 12 tuần)
+
+
+ GĐ 1: Bậc Thầy Bảng Số Liệu & Giải Thích Tự Nhiên  ➔  GĐ 2: Bản Chất Kinh Tế Vùng & Biển Đảo  ➔  GĐ 3: Tối Ưu Tốc Độ 50 Phút 
+                     (Tuần 1 - Tuần 4: 7.0 ➔ 7.6)                                (Tuần 5 - Tuần 8: 7.6 ➔ 8.2)                      (Tuần 9 - Tuần 12: 8.2 ➔ 8.8)
+
+
+ Giai đoạn 1: Làm Chủ Kỹ Năng Số Liệu & Giải Thích Tự Nhiên Sâu Sắc (Tuần 1 – Tuần 4)
+   Mục tiêu: Ăn trọn điểm câu hỏi nhận dạng biểu đồ và giải thích bản chất thiên nhiên phân hóa theo độ cao.
+   Nội dung chuyên đề:
+       Tuần 1: Giải mã mọi bẫy nhận dạng biểu đồ qua các từ khóa đề bài ("quy mô", "cơ cấu", "chuyển dịch cơ cấu", "tốc độ tăng trưởng").
+       Tuần 2: Phân tích chuyên sâu 3 đai cao thiên nhiên: Đai nhiệt đới gió mùa chân núi (dưới $600-700m$ ở miền Bắc, dưới $900-1000m$ ở miền Nam) $\rightarrow$ Đai cận nhiệt đới gió mùa trên núi $\rightarrow$ Đai ôn đới gió mùa trên núi (chỉ có ở dãy Hoàng Liên Sơn trên $2600m$).
+       Tuần 3: Cơ chế phân hóa mưa ở Việt Nam: Tại sao Huế - Đà Nẵng mưa cực lớn vào thu đông? (Do gió mùa Đông Bắc qua biển kết hợp địa hình chắn gió của dãy Bạch Mã và dải hội tụ nhiệt đới).
+       Tuần 4: Kỹ năng tính toán số liệu nâng cao cho Phần III: Tính tốc độ tăng trưởng lấy năm đầu $= 100\%$; Tính độ che phủ rừng; Tính tỉ lệ sinh, tỉ lệ tử, tỉ lệ gia tăng tự nhiên ($\%o \rightarrow \%$).
+
+ Giai đoạn 2: Địa Lí Kinh Tế Vùng & Chiến Lược Biển Đảo (Tuần 5 – Tuần 8)
+   Mục tiêu: Giải quyết triệt để các câu hỏi so sánh thế mạnh giữa các vùng kinh tế và bài toán kinh tế biển.
+   Nội dung chuyên đề:
+       Tuần 5: So sánh 2 vùng chuyên canh cây công nghiệp lớn nhất nước: Tây Nguyên (chuyên canh cây lâu năm số 1: đất đỏ bazan màu mỡ, cao nguyên xếp tầng) vs Đông Nam Bộ (vùng chuyên canh cây công nghiệp cao su số 1 gắn với công nghiệp chế biến và thị trường tiêu thụ).
+       Tuần 6: So sánh Đồng bằng sông Hồng và Đồng bằng sông Cửu Long: Điểm giống nhau (đều là đồng bằng châu thổ sông lớn) và Khác nhau (ĐBSH có đê ngăn lũ, đất trong đê bị bạc màu; ĐBSCL không có đê, đất phù sa ngọt ven sông Tiền, sông Hậu, đất phèn đất mặn chiếm diện tích lớn).
+       Tuần 7: Khai thác thế mạnh kinh tế biển: 4 ngành kinh tế biển then chốt (Đánh bắt nuôi trồng hải sản, Khai thác khoáng sản dầu khí, Giao thông vận tải biển với hệ thống cảng nước sâu, Du lịch biển đảo).
+       Tuần 8: Vấn đề bảo vệ chủ quyền biển đảo gắn với an ninh quốc phòng: Khẳng định chủ quyền với 2 quần đảo Hoàng Sa và Trường Sa; Khái niệm nội thủy, lãnh hải, vùng tiếp giáp lãnh hải, vùng đặc quyền kinh tế (EEZ) và thềm lục địa.
+
+ Giai đoạn 3: Ép Tốc Độ Thực Chiến & Quản Trị 50 Phút (Tuần 9 – Tuần 12)
+   Mục tiêu: Xử lý 18 câu Phần I trong 16 phút, Phần II trong 20 phút, Phần III trong 12 phút, dành 2 phút kiểm tra phiếu tô.
+   Nội dung thực chiến:
+       Luyện 15 đề chuẩn cấu trúc đề thi minh họa Bộ GD&ĐT: Rèn kỹ năng bóc tách bẫy câu chữ ở câu Đúng/Sai (ví dụ: "tăng liên tục" vs "có biến động", "tăng nhanh hơn" vs "tăng nhiều hơn").
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày (Tuần 1 - Giai đoạn 1)
+Quỹ thời gian: 60 phút/ngày vào Khung giờ vàng (19h30 – 20h30).
+
+   Thứ Hai (60 phút):
+       Micro-task: Học ma trận nhận diện 5 dạng biểu đồ. Giải 10 câu trắc nghiệm xác định tên biểu đồ thích hợp nhất dựa trên bảng số liệu và từ khóa đề bài.
+   Thứ Ba (60 phút):
+       Micro-task: Phân tích chuyên sâu bảng số liệu về diện tích và sản lượng lúa của nước ta qua các năm. Viết 3 nhận xét rút ra từ bảng số liệu (nhận xét về diện tích, sản lượng và tính năng suất lúa).
+   Thứ Tư (60 phút):
+       Micro-task: Xử lý 1 câu hỏi Trắc nghiệm Đúng/Sai (Phần II) 4 ý dựa trên biểu đồ miền thể hiện sự chuyển dịch cơ cấu GDP phân theo ngành kinh tế của Việt Nam giai đoạn 2010 – 2024.
+   Thứ Năm (60 phút):
+       Micro-task: Luyện 3 câu hỏi Phần III (Điền đáp án ngắn): Cho bảng số liệu trị giá xuất khẩu và nhập khẩu của nước ta. Tính cán cân thương mại (làm tròn đến hàng đơn vị của triệu USD) và điền số vào ô đáp án.
+   Thứ Sáu (60 phút):
+       Micro-task: Thử thách Tốc độ: Bấm giờ 16 phút giải quyết sạch 18 câu Phần I trắc nghiệm đơn. Sửa kỹ các câu sai.
+   Thứ Bảy (60 phút):
+       Micro-task: Mini-Test cuối tuần: Làm 1 đề rút gọn gồm 2 câu Đúng/Sai (1 câu Biểu đồ, 1 câu Tự nhiên) và 3 câu Trả lời ngắn. Chấm điểm theo barem chính thức.
+   Chủ Nhật (45 phút):
+       Micro-task: Tổng kết tuần, cập nhật Sổ tay Ma trận Biểu đồ; check-in tuần cùng AI Companion.
+
+ 4. Cơ chế Cảnh báo Giáo viên (Teacher-in-the-loop Red Flags)
+   🚨 Cảnh báo Vàng: Học sinh làm câu nhận dạng biểu đồ luôn chọn biểu đồ Miền khi đề bài hỏi "tốc độ tăng trưởng" (chưa phân biệt được giữa chuyển dịch cơ cấu $\%$ với tốc độ tăng trưởng $\%$ có năm gốc $100\%$). $\rightarrow$ Giáo viên gửi bài tập chuyên đề phân biệt 2 dạng này.
+   🚨 Cảnh báo Đỏ: Học sinh làm câu Phần III tính cán cân thương mại mà lấy Nhập khẩu trừ Xuất khẩu (ngược dấu) dẫn đến kết quả bị âm/dương sai lệch. $\rightarrow$ Giáo viên can thiệp sửa dứt điểm công thức.
+
+ 5. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Chuyên Gia Phân Tích Không Gian (Analytical & Precision Coach).
+   Mẫu phản hồi AI: "Hôm nay em đã bắt đúng từ khóa 'chuyển dịch cơ cấu qua 5 năm' để chọn chính xác biểu đồ Miền ở câu số 12! Đó là sự khác biệt giữa học sinh mức 7 và mức 8.5+. Chỉ cần rèn thêm sự cẩn thận khi làm tròn số ở Phần III, điểm 9 Địa lí hoàn toàn nằm trong tầm tay em!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 3: "CHINH PHỤC ĐỈNH CAO 9.5 - 10 / BẬC THẦY ĐỊA KINH TẾ" (THE MASTER GEOGRAPHER)
+Dành cho học sinh giỏi xuất sắc, nắm chắc toàn bộ kiến thức giáo khoa, phản xạ câu nhận biết cực nhanh; mục tiêu đạt từ 9.5 đến 10.0 để cạnh tranh vị trí Thủ khoa khối C00, xét tuyển các ngành Kinh tế đối ngoại, Ngoại giao, Quản lý tài nguyên.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Tư Duy Địa Kinh Tế Tích Hợp (Integrated Socio-Economic Geography): Học sinh không nhìn các vùng kinh tế như những mảnh ghép tách rời mà nhìn thấy sự tương tác không gian và chuỗi giá trị liên vùng:
+     Mối liên kết giữa vùng nguyên liệu Tây Nguyên với trung tâm chế biến và cảng biển xuất khẩu ở Đông Nam Bộ.
+     Vai trò của việc xây dựng tuyến đường cao tốc Bắc – Nam và hành lang kinh tế Đông – Tây đối với sự phát triển của Duyên hải miền Trung.
+     Giải quyết bài toán an ninh năng lượng (chuyển dịch từ điện than sang điện gió ngoài khơi, điện mặt trời) và an ninh nguồn nước ở Đồng bằng sông Cửu Long.
+   Làm Chủ Hoàn Toàn 6 Câu Phần III (Điền Đáp Án Ngắn - Vùng Đất Điểm 10): Đòi hỏi tốc độ bấm máy tính và kỹ năng xử lý số liệu địa lí chuẩn xác tuyệt đối:
+     Tính toán cự ly vận chuyển trung bình của các loại hình giao thông vận tải ($km = \frac{\text{Khối lượng luân chuyển (tấn.km)}}{\text{Khối lượng vận chuyển (tấn)}}$).
+     Tính nhiệt độ trung bình năm, lượng mưa, độ ẩm, độ bốc hơi từ các trạm quan trắc khí tượng.
+   Triệt Tiêu 100% Sai Sót Ở Phần I & II: Xử lý 18 câu Phần I trong vòng 14 phút, 4 câu Phần II trong 20 phút, dành trọn vẹn 14 phút cho Phần III và 2 phút cuối soát lại từng chữ số.
+
+ 2. Lộ trình 3 Giai đoạn (Tổng thời gian: 16 tuần)
+
+
+ GĐ 1: Phân Tích Địa Lí Tự Nhiên & Biến Đổi Khí Hậu  ➔  GĐ 2: Chuỗi Giá Trị Liên Vùng & Kinh Tế Biển  ➔  GĐ 3: Đề Chuyên & Tốc Độ 38 Phút 
+                     (Tuần 1 - Tuần 6: 8.2 ➔ 8.8)                                      (Tuần 7 - Tuần 11: 8.8 ➔ 9.4)                     (Tuần 12 - Tuần 16: 9.4 ➔ 10.0)
+
+
+ Giai đoạn 1: Địa Lí Tự Nhiên Chuyên Sâu & Mô Hình Biến Đổi Khí Hậu (Tuần 1 – Tuần 6)
+   Nội dung chuyên đề:
+       Tuần 1-2: Cơ chế hoạt động chi tiết của Foehn (hiệu ứng phơn): Độ dốc sườn đón gió và sườn khuất gió, quy luật giảm nhiệt độ theo độ cao (lên cao $100m$ nhiệt độ giảm $0.6^\circ C$, xuống dốc $100m$ nhiệt độ tăng $1^\circ C$); Hiện tượng nghịch nhiệt và sương mù.
+       Tuần 3-4: Cấu trúc địa chất và khoáng sản Việt Nam: Các giai đoạn hình thành lãnh thổ (Tiền Cambri, Cổ kiến tạo, Tân kiến tạo); Nguồn gốc hình thành các bể dầu khí ngoài thềm lục địa (Cửu Long, Nam Côn Sơn, Sông Hồng).
+       Tuần 5-6: Biến đổi khí hậu toàn cầu tác động đến Việt Nam: Hiện tượng nước biển dâng, sạt lở bờ sông bờ biển ở ĐBSCL; Chiến lược thích ứng (sống chung với lũ, chuyển đổi cơ cấu mùa vụ từ 3 vụ lúa sang mô hình lúa – tôm, lúa – cá).
+
+ Giai đoạn 2: Chuỗi Giá Trị Liên Vùng & Kinh Tế Biển Đảo Chiến Lược (Tuần 7 – Tuần 11)
+   Nội dung chuyên đề:
+       Tuần 7: Chuyển dịch cơ cấu ngành kinh tế Việt Nam theo hướng kinh tế số, kinh tế xanh và kinh tế tuần hoàn: Giảm tỉ trọng nông – lâm – thủy sản, tăng tỉ trọng công nghiệp và dịch vụ giá trị gia tăng cao.
+       Tuần 8: Nâng tầm các vùng kinh tế trọng điểm: Vùng kinh tế trọng điểm Bắc Bộ, Miền Trung, Phía Nam và Đồng bằng sông Cửu Long; Vai trò đầu tàu kinh tế của Tứ giác kinh tế phía Nam (TP.HCM – Bình Dương – Đồng Nai – Bà Rịa Vũng Tàu).
+       Tuần 9: Chiến lược phát triển bền vững kinh tế biển Việt Nam đến năm 2030, tầm nhìn 2045: Quy hoạch không gian biển, xây dựng các cảng trung chuyển quốc tế (Cần Giờ, Cái Mép – Thị Vải, Lạch Huyện); Bảo vệ nguồn lợi thủy sản xa bờ gắn với an ninh quốc phòng.
+       Tuần 10: Khai thác các câu hỏi tích hợp tư liệu kinh tế – xã hội dài 1 trang giấy ở Phần II Đúng/Sai: Phân tích các nghị quyết của Bộ Chính trị về phát triển kinh tế vùng (Nghị quyết 13 về ĐBSCL, Nghị quyết 24 về Đông Nam Bộ, Nghị quyết 26 về Bắc Trung Bộ và Duyên hải Trung Bộ).
+       Tuần 11: Quét sạch 100% các bài toán tính toán định lượng Phần III trong đề thi thử của các trường Chuyên.
+
+ Giai đoạn 3: Thực Chiến Đề Chuyên & Tối Ưu Điểm Tuyệt Đối (Tuần 12 – Tuần 16)
+   Nội dung thực chiến:
+       Luyện các đề thi thử đỉnh cao của Chuyên KHXH&NV, Chuyên Sư Phạm, Chuyên Lam Sơn, Chuyên Quốc Học Huế.
+       Ép thời gian làm bài 50 phút xuống còn 38 phút (để dành 12 phút kiểm tra lại từng phép tính và số liệu của 6 câu Phần III).
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày (Tuần 8 - Giai đoạn 2)
+Quỹ thời gian: 80 phút/ngày vào Khung giờ tối (20h30 – 21h50).
+
+   Thứ Hai (80 phút):
+       Micro-task: Phân tích chuyên sâu bài toán Chuyển dịch cơ cấu năng lượng Việt Nam: Đọc tài liệu Quy hoạch điện VIII về việc giảm điện than, phát triển điện gió ngoài khơi tại Nam Trung Bộ và Tây Nguyên. Trả lời 4 câu hỏi phân tích nguyên nhân địa lí.
+   Thứ Ba (80 phút):
+       Micro-task: Xử lý 1 câu hỏi Trắc nghiệm Đúng/Sai (Phần II) 4 ý dựa trên đoạn trích Nghị quyết 24-NQ/TW của Bộ Chính trị về phát triển kinh tế – xã hội vùng Đông Nam Bộ. Đánh giá thế mạnh trung tâm tài chính quốc tế của TP. Hồ Chí Minh.
+   Thứ Tư (80 phút):
+       Micro-task: Luyện 3 câu hỏi Phần III (Điền đáp án ngắn) về tính cự ly vận chuyển trung bình của ngành đường sắt và đường biển nước ta. Chú ý đơn vị tính và quy tắc làm tròn.
+   Thứ Năm (80 phút):
+       Micro-task: Bài toán Địa lí Tự nhiên Vận dụng cao: Tính độ cao của điểm bắt đầu xuất hiện đai cận nhiệt đới gió mùa trên núi dựa trên quy luật giảm nhiệt độ theo độ cao và nhiệt độ chân núi.
+   Thứ Sáu (80 phút):
+       Micro-task: Thử thách Tốc độ: Bấm giờ 32 phút làm trọn vẹn 1 đề thi thử chuyên khối C00 môn Địa. Đặt mục tiêu đạt 9.75+ điểm.
+   Thứ Bảy (80 phút):
+       Micro-task: "Sáng tạo bài toán địa lí": Tự thiết lập một bài toán tính tỉ lệ xuất siêu/nhập siêu của Việt Nam với các đối tác thương mại lớn (Hoa Kỳ, Trung Quốc, ASEAN) và tự giải chi tiết.
+   Chủ Nhật (45 phút):
+       Micro-task: Đọc bài phân tích quy hoạch kinh tế vùng trên Tạp chí Kinh tế & Dự báo; check-in tuần cùng AI Companion.
+
+ 4. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Chuyên Gia Địa Kinh Tế Đồng Đẳng (Academic Peer).
+   Mẫu phản hồi AI: "Cách em phân tích mối liên kết giữa cụm cảng Cái Mép – Thị Vải với các khu công nghiệp Đông Nam Bộ ở câu số 15 tối nay rất sắc sảo và mang tầm vóc của một chuyên gia kinh tế! Em đã làm chủ hoàn toàn bản chất quy hoạch không gian. Cứ giữ vững nhãn quan chiến lược này, điểm 10 Địa lí hoàn toàn nằm trong tầm tay em!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 4: "CHIẾN DỊCH 30 NGÀY GOM ĐIỂM BẢNG SỐ LIỆU & TỰ NHIÊN" (THE 30-DAY SPRINT)
+Dành cho học sinh chỉ còn 4 tuần trước kỳ thi tốt nghiệp THPT; môn Địa đang ở mức trung bình (5.5 - 6.5); mục tiêu tối ưu hóa điểm số lên 7.5 – 8.0 bằng cách quét sạch câu hỏi nhận biết tự nhiên, từ khóa biểu đồ và công thức tính nhanh.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Tuyệt Đối Không Học Lại Mớ Lý Thuyết Dài Dòng: 30 ngày cuối là lúc tập trung vào các Mẹo Nhận Dạng & Công Thức Bỏ Túi.
+   Chiến Thuật "Bảo Toàn 6.5 Điểm Cơ Bản":
+       Ăn chắc 4.5 điểm của Phần I (18 câu trắc nghiệm đơn) trong 16 phút.
+       Lấy trọn 1.5 điểm từ 6 ý nhận biết/thông hiểu trong 4 câu Đúng/Sai của Phần II.
+       Lấy trọn 0.5 – 0.8 điểm từ 2-3 câu tính toán đơn giản ở Phần III (mật độ dân số, cán cân thương mại, tỉ lệ dân thành thị).
+   Chiến Dịch Rà Soát Bộ "Từ Khóa Biểu Đồ & Mùa Gió": Nắm chắc dấu hiệu chọn biểu đồ và đặc trưng của 2 mùa gió để không bị mất điểm oan.
+
+ 2. Kịch bản 4 Tuần Nước Rút (30 Ngày)
+
+   Tuần 1 (Ngày 1 – 7): Đóng Băng Lý Thuyết Địa Lí Tự Nhiên & Công Thức Tính
+       Nhiệm vụ: Mỗi ngày làm 1 phiếu 25 câu hỏi trắc nghiệm chỉ xoay quanh: Vị trí địa lí, Khí hậu gió mùa, Thiên tai, và 6 công thức tính toán cơ bản.
+       Trọng tâm: Thuộc lòng quy ước: Mật độ dân số ($người/km^2$), Cán cân thương mại ($XK - NK$), Biên độ nhiệt ($T{max} - T{min}$).
+   Tuần 2 (Ngày 8 – 14): Làm Chủ Nhận Dạng Biểu Đồ & Dân Cư
+       Nhiệm vụ: Rà soát toàn bộ các dạng biểu đồ (Cột, Đường, Tròn, Miền) và đặc trưng dân cư (cơ cấu dân số vàng, đô thị hóa).
+       Thực hành: Giải 8 câu trắc nghiệm Đúng/Sai (Phần II) chỉ tập trung vào phân tích bảng số liệu và biểu đồ.
+   Tuần 3 (Ngày 15 – 21): Quét Sạch Thế Mạnh Nổi Bật Của 7 Vùng Kinh Tế
+       Nhiệm vụ: Ôn lại thế mạnh độc nhất của từng vùng (Tây Nguyên: cà phê; Đông Nam Bộ: FDI và công nghiệp; ĐBSCL: thủy sản và lúa; ĐBSH: thâm canh lúa và mật độ dân số cao).
+       Thực hành: Luyện 12 câu Trả lời ngắn điền số ở mức độ 1 phép tính (thay số tính ra đáp án).
+   Tuần 4 (Ngày 22 – 30): Luyện Đề Khung Giờ Thi Thật & Giữ Nhịp Phong Độ
+       Nhiệm vụ: Làm 3 đề thi thử chuẩn vào đúng khung giờ thi thật buổi sáng.
+       Mục tiêu: Rèn kỹ năng tô phiếu trắc nghiệm; không để sai nhảm bất kỳ câu nhận biết nào; chuẩn bị máy tính Casio pin mới.
+
+ 3. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Người Giữ Lửa & Trấn An Tâm Lý (Reassuring Coach).
+   Mẫu phản hồi AI: "Chỉ còn 10 ngày nữa thôi! Em đã nhớ rất rõ các công thức tính mật độ, cán cân thương mại và mẹo nhận diện biểu đồ rồi. Đừng lo lắng về những câu hỏi quá phức tạp, hãy làm thật cẩn thận 18 câu đầu tiên. Cứ giữ vững sự tự tin, điểm 7.5 chắc chắn nằm trong tầm tay em!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 5: "NUÔI DƯỠNG TƯ DUY KHÔNG GIAN & ĐỊA LÍ ỨNG DỤNG (LỚP 10-11)" (THE EARLY GEOGRAPHER)
+Dành cho học sinh lớp 10, 11 định hướng thi khối C00 hoặc các kỳ thi Đánh giá năng lực ĐHQG; mục tiêu xây nền tảng tư duy phân tích không gian và địa lí số 8.5+ bền vững không áp lực.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Học Địa Lí Qua Bản Đồ Số & Ứng Dụng Thực Tế (Digital & Spatial Geography): Khuyến khích học sinh sử dụng Google Earth, phần mềm GIS, quan sát ảnh vệ tinh dự báo thời tiết. Tiếp cận môn Địa như một ngành khoa học khám phá thế giới sống động.
+   Hiểu Rõ Bản Chất Các Quy Luật Địa Lí Đại Cương: Nắm chắc các quy luật tự nhiên từ lớp 10 (Quy luật địa đới, Quy luật phi địa đới, Hoàn lưu khí quyển) để làm nền tảng giải thích cho toàn bộ Địa lí Việt Nam lớp 12.
+   Liên Kết Với Các Vấn Đề Toàn Cầu: Tìm hiểu về biến đổi khí hậu, an ninh lương thực, chuyển dịch năng lượng tái tạo, đô thị thông minh.
+
+ 2. Lộ trình Phân Kỳ Theo Năm Học (Lớp 10 & 11)
+
+
+ Chặng 1: Địa Lí Tự Nhiên & Kinh Tế Xã Hội Đại Cương (Lớp 10)  ➔  Chặng 2: Địa Lí Khu Vực & Các Quốc Gia (Lớp 11)  ➔  Chặng 3: Học Vượt Địa 12 
+
+
+   Chặng 1 (Lớp 10): Nắm chắc Vũ trụ và các hệ quả chuyển động của Trái Đất (ngày đêm dài ngắn theo mùa, giờ trên Trái Đất); Khí quyển (khí áp, gió, mưa); Thủy quyển, Thổ nhưỡng và Sinh quyển; Địa lí dân cư và các ngành kinh tế đại cương.
+   Chặng 2 (Lớp 11): Tìm hiểu các khu vực và nền kinh tế lớn trên thế giới (Hoa Kỳ, Liên minh châu Âu - EU, Nhật Bản, Trung Quốc, khu vực Đông Nam Á); Hiệp hội ASEAN.
+   Chặng 3 (Mùa hè chuyển cấp lên Lớp 12): Hoàn thành trước toàn bộ 2 chuyên đề lớn lớp 12: Địa lí tự nhiên Việt Nam và Địa lí dân cư trước ngày 31/08.
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày
+Quỹ thời gian: 35 phút/ngày vào Khung giờ linh hoạt.
+
+   Thứ Hai (35 phút): Mở Google Earth quan sát địa hình dãy Hoàng Liên Sơn và dòng chảy sông Hồng từ Vân Nam (Trung Quốc) đổ vào Việt Nam. Ghi lại 3 đặc điểm nhận xét.
+   Thứ Ba (35 phút): Xem 1 video tài liệu 15 phút về tác động của hiện tượng El Niño và La Niña đến thời tiết Việt Nam. Trả lời 2 câu hỏi về hạn hán và mưa lũ.
+   Thứ Tư (35 phút): Thực hành đọc biểu đồ khí hậu của một trạm khí tượng: Xác định tháng nóng nhất, tháng lạnh nhất, tháng mưa nhiều nhất.
+   Thứ Năm (35 phút): Tìm hiểu về dự án đô thị thông minh và mô hình thành phố sinh thái (Eco-city) trên thế giới.
+   Thứ Sáu (35 phút): Giải 1 câu trắc nghiệm Đúng/Sai mô phỏng format đề thi mới về quy luật địa đới.
+   Thứ Bảy (35 phút): Viết 1 đoạn phản chiếu ngắn: "Một hiện tượng thời tiết đặc biệt em quan sát thấy trong tuần này và cách giải thích theo quy luật địa lí".
+   Chủ Nhật (20 phút): Thư giãn, check-in chuỗi Streak cùng AI Companion.
+
+ 4. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Người Cố Vấn Khám Phá Trái Đất (Curious Earth Mentor).
+   Mẫu phản hồi AI: "Quan sát của em hôm nay về việc tại sao các dòng sông ở miền Trung nước ta thường ngắn và dốc đổ thẳng ra biển do địa hình Trường Sơn ăn lan ra sát bờ biển cho thấy tư duy không gian của em rất sắc sảo! Đó chính là cách các nhà địa lí đọc hiểu thế giới. Cứ tiếp tục nuôi dưỡng niềm đam mê khám phá tuyệt vời này nhé!"
+
+---
+
+---
+
+ TỔNG KẾT BẢN THIẾT KẾ MÔN ĐỊA LÍ & BƯỚC TIẾP THEO
+
+Toàn bộ 5 kịch bản lộ trình chi tiết môn Địa lí trên đã hoàn thiện đầy đủ:
+1.  Cập nhật 100% Format Mới GDPT 2018: Bám sát định dạng cấu trúc đề thi 3 phần (18 câu nhiều lựa chọn 4.5đ + 4 câu Đúng/Sai 4.0đ + 6 câu Trả lời ngắn điền số 1.5đ; thời gian 50 phút).
+2.  Khắc phục Triệt để Điểm nghẽn Cốt lõi: Chuyển đổi từ lối tra cứu cơ học sang Năng lực phân tích bảng số liệu tổng hợp, Ma trận nhận diện biểu đồ, Hiểu sâu quy luật nhân – quả tự nhiên và Chuỗi giá trị liên vùng kinh tế.
+3.  Tích hợp Hoàn hảo vào Hệ sinh thái: Khớp nối chặt chẽ giữa Ngân sách thời gian sinh học, Nhiệm vụ Micro-task hằng ngày, Cảnh báo Teacher-in-the-loop, và Prompt AI theo từng phong cách tâm lý.
+
+Môn học tiếp theo cần xây dựng lộ trình chi tiết: Môn Giáo dục Kinh tế & Pháp luật (GDKT & PL) (để hoàn tất trọn vẹn khối Khoa học Xã hội) hay chuyển sang Môn Tin học?

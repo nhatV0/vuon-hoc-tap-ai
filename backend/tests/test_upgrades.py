@@ -32,10 +32,12 @@ app.dependency_overrides[get_db] = override_get_db
 client = TestClient(app)
 
 def test_auth_and_diagnostics_and_planning():
+    import uuid
+    test_email = f"baongoc_{uuid.uuid4().hex[:6]}@example.com"
     # 1. Test Register
     reg_payload = {
         "name": "Lê Bảo Ngọc",
-        "email": "baongoc@example.com",
+        "email": test_email,
         "password": "password123",
         "role": "student"
     }
@@ -48,7 +50,7 @@ def test_auth_and_diagnostics_and_planning():
 
     # 2. Test Login
     login_payload = {
-        "email": "baongoc@example.com",
+        "email": test_email,
         "password": "password123"
     }
     res_login = client.post("/api/auth/login", json=login_payload)

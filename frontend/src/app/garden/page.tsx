@@ -1,335 +1,609 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import Link from "next/link";
 import {
   Sparkles,
   Calendar,
   CheckCircle2,
   Droplets,
-  UserCheck,
   ListTodo,
-  LogIn,
-  LogOut,
-  ChevronRight,
-  TrendingUp,
-  ArrowLeft
+  Flame,
+  Mail,
+  Archive,
+  PenLine,
+  Check,
+  ChevronDown,
+  RotateCcw,
+  Clock
 } from "lucide-react";
 import SunflowerVisual from "@/components/SunflowerVisual";
 import DailyCheckinModal from "@/components/DailyCheckinModal";
-import { Student, GardenStatus, API_BASE } from "@/lib/types";
+import UserProfileModal from "@/components/UserProfileModal";
+import TimeCapsuleVaultModal from "@/components/TimeCapsuleVaultModal";
+import DailyMicroQuizModal from "@/components/DailyMicroQuizModal";
+import { Student, GardenStatus, API_BASE, PlannedTask } from "@/lib/types";
 import { useAuth } from "@/lib/auth-context";
 
+interface AnimatedTaskItem extends PlannedTask {
+  animState?: "idle" | "striked" | "sliding" | "hidden";
+}
+
 export default function StudentGardenDashboard() {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   const [student, setStudent] = useState<Student | null>(null);
   const [garden, setGarden] = useState<GardenStatus | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+
+  // Modals state
   const [showCheckinModal, setShowCheckinModal] = useState<boolean>(false);
+  const [showProfileModal, setShowProfileModal] = useState<boolean>(false);
+  const [showCapsuleVault, setShowCapsuleVault] = useState<boolean>(false);
+  const [capsuleVaultMode, setCapsuleVaultMode] = useState<"list" | "compose">("list");
+  const [showQuizModal, setShowQuizModal] = useState<boolean>(false);
+
+  // Watering action
   const [isWatering, setIsWatering] = useState<boolean>(false);
   const [waterToast, setWaterToast] = useState<string | null>(null);
 
-  const fetchStudentData = React.useCallback(async () => {
-    try {
-      let sid = localStorage.getItem("sunflower_student_id");
+  // Tasks checklist state
+  const [tasks, setTasks] = useState<AnimatedTaskItem[]>([]);
+  const [tasksLoading, setTasksLoading] = useState<boolean>(true);
+  const [showCompletedAccordion, setShowCompletedAccordion] = useState<boolean>(false);
 
-      if (!sid) {
-        const res = await fetch(`${API_BASE}/api/onboarding`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: user?.name || "Nguyễn Mai Anh",
-            grade: "11",
-            target_subject: "Hóa học",
-            weakness: "Phương trình hữu cơ",
-            long_term_goal: "Đạt 9.0 điểm kỳ 1",
-            timeframe: "3 tháng",
-            learning_style: "visual",
-          }),
-        });
-        const newStudent = await res.json();
-        sid = newStudent.id;
-        if (sid) localStorage.setItem("sunflower_student_id", sid);
+  // Time capsules count for prompt card
+  const [capsuleCount, setCapsuleCount] = useState<number>(0);
+
+  const fetchStudentData = useCallback(async () => {
+    try {
+      const storedId = typeof window !== "undefined" ? localStorage.getItem("current_student_id") : null;
+      const url = `${API_BASE}/api/student/${storedId || "hs_demo123"}`;
+      let res = await fetch(url);
+      if (!res.ok) {
+        const listRes = await fetch(`${API_BASE}/api/teacher/dashboard`);
+        if (listRes.ok) {
+          const dashData = await listRes.json();
+          if (dashData.all_students && dashData.all_students.length > 0) {
+            const first = dashData.all_students[0];
+            if (typeof window !== "undefined") {
+              localStorage.setItem("current_student_id", first.student_id);
+            }
+            res = await fetch(`${API_BASE}/api/student/${first.student_id}`);
+          }
+        }
       }
 
-      if (sid) {
-        const [sRes, gRes] = await Promise.all([
-          fetch(`${API_BASE}/api/student/${sid}`),
-          fetch(`${API_BASE}/api/garden/${sid}`),
+      if (res.ok) {
+        const studentData: Student = await res.json();
+        setStudent(studentData);
+
+        const [gRes, planRes, capRes] = await Promise.all([
+          fetch(`${API_BASE}/api/garden/${studentData.id}`),
+          fetch(`${API_BASE}/api/planning/${studentData.id}`),
+          fetch(`${API_BASE}/api/capsule/${studentData.id}`),
         ]);
 
-        if (sRes.ok) setStudent(await sRes.json());
-        if (gRes.ok) setGarden(await gRes.json());
+        if (gRes.ok) {
+          const gData = await gRes.json();
+          setGarden(gData);
+        }
+
+        if (capRes.ok) {
+          const capData = await capRes.json();
+          setCapsuleCount(Array.isArray(capData) ? capData.length : 0);
+        }
+
+        if (planRes.ok) {
+          const planData = await planRes.json();
+          let loadedTasks: PlannedTask[] = [];
+          if (planData.tasks_by_day) {
+            const todayTasks = planData.tasks_by_day[1] || planData.tasks_by_day[0] || [];
+            if (todayTasks.length > 0) {
+              loadedTasks = todayTasks;
+            } else {
+              const allDays = Object.values(planData.tasks_by_day) as PlannedTask[][];
+              loadedTasks = allDays.flat().slice(0, 5);
+            }
+          }
+
+          if (loadedTasks.length === 0 && studentData.roadmap?.initial_daily_tasks) {
+            loadedTasks = studentData.roadmap.initial_daily_tasks.map((t, idx) => ({
+              id: t.id || idx + 1,
+              student_id: studentData.id,
+              title: t.title,
+              duration_minutes: t.duration_minutes || 10,
+              subject: t.subject || studentData.target_subject,
+              category: t.category || "Học tập",
+              tip: t.tip,
+              is_completed: false,
+              day_offset: 1,
+              created_at: new Date().toISOString(),
+            }));
+          }
+
+          setTasks(loadedTasks.map((t) => ({ ...t, animState: "idle" })));
+        } else if (studentData.roadmap?.initial_daily_tasks) {
+          setTasks(
+            studentData.roadmap.initial_daily_tasks.map((t, idx) => ({
+              id: t.id || idx + 1,
+              student_id: studentData.id,
+              title: t.title,
+              duration_minutes: t.duration_minutes || 10,
+              subject: t.subject || studentData.target_subject,
+              category: t.category || "Học tập",
+              tip: t.tip,
+              is_completed: false,
+              day_offset: 1,
+              created_at: new Date().toISOString(),
+              animState: "idle",
+            }))
+          );
+        }
       }
     } catch (err) {
-      console.error(err);
+      console.error("Failed to fetch student data:", err);
     } finally {
       setLoading(false);
+      setTasksLoading(false);
     }
-  }, [user?.name]);
+  }, []);
 
   useEffect(() => {
     fetchStudentData();
   }, [fetchStudentData]);
 
   const handleWaterClick = async () => {
-    if (!student || !garden || garden.water_drops <= 0 || isWatering) return;
+    if (!student || !garden || garden.water_drops <= 0) return;
     setIsWatering(true);
     try {
       const res = await fetch(`${API_BASE}/api/garden/${student.id}/water`, {
         method: "POST",
       });
-      const data = await res.json();
-      if (data.success) {
-        setGarden((prev) =>
-          prev
-            ? { ...prev, current_state: data.new_state, water_drops: data.water_drops }
-            : null
-        );
+      if (res.ok) {
+        const data = await res.json();
         setWaterToast(data.message);
         setTimeout(() => setWaterToast(null), 3500);
+        await fetchStudentData();
       }
-    } catch (e) {
-      console.error(e);
+    } catch (err) {
+      console.error(err);
     } finally {
-      setTimeout(() => setIsWatering(false), 1200);
+      setIsWatering(false);
     }
   };
 
   const handleCheckinSuccess = async () => {
-    if (!student) return;
+    setShowCheckinModal(false);
+    await fetchStudentData();
+  };
+
+  // Interactive Task Completion with 3-stage animation:
+  // 1. striked (0ms): line-through text-stone-400 decoration-amber-500
+  // 2. sliding (350ms): translate-x, fade out, scale down
+  // 3. hidden (650ms): height collapses to 0, marked completed
+  const handleToggleTask = async (task: AnimatedTaskItem) => {
+    const nextCompleted = !task.is_completed;
+
+    if (nextCompleted) {
+      // Step 1: Strike-through immediately
+      setTasks((prev) =>
+        prev.map((t) => (t.id === task.id ? { ...t, animState: "striked" } : t))
+      );
+
+      // Step 2: Slide & fade out after 350ms
+      setTimeout(() => {
+        setTasks((prev) =>
+          prev.map((t) => (t.id === task.id ? { ...t, animState: "sliding" } : t))
+        );
+      }, 350);
+
+      // Step 3: Collapse and mark completed after 650ms
+      setTimeout(() => {
+        setTasks((prev) =>
+          prev.map((t) =>
+            t.id === task.id
+              ? { ...t, is_completed: true, animState: "hidden" }
+              : t
+          )
+        );
+      }, 650);
+    } else {
+      // Uncheck task
+      setTasks((prev) =>
+        prev.map((t) =>
+          t.id === task.id
+            ? { ...t, is_completed: false, animState: "idle" }
+            : t
+        )
+      );
+    }
+
+    // Call background API
     try {
-      const gRes = await fetch(`${API_BASE}/api/garden/${student.id}`);
-      if (gRes.ok) setGarden(await gRes.json());
-    } catch (e) {
-      console.error(e);
+      await fetch(`${API_BASE}/api/planning/task/${task.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ is_completed: nextCompleted }),
+      });
+    } catch (err) {
+      console.error("Failed to update task status in background:", err);
     }
   };
+
+  const activeTasks = useMemo(() => {
+    return tasks.filter((t) => !t.is_completed || t.animState !== "hidden");
+  }, [tasks]);
+
+  const completedTasks = useMemo(() => {
+    return tasks.filter((t) => t.is_completed && t.animState === "hidden");
+  }, [tasks]);
+
+  const streakDays = garden?.consecutive_days ?? 1;
+  const initialLetter = (student?.name || user?.name || "H").trim().charAt(0).toUpperCase();
 
   if (loading) {
     return (
       <div className="min-h-screen bg-[#FAF8F5] flex items-center justify-center">
-        <div className="flex items-center gap-2 text-xs text-stone-500 font-medium">
-          <span className="w-4 h-4 border-2 border-amber-500 border-t-transparent rounded-full animate-spin" />
-          Đang tải khu vườn...
+        <div className="flex flex-col items-center gap-3">
+          <span className="text-4xl animate-bounce">🌻</span>
+          <p className="text-xs font-semibold text-stone-500">Đang chăm sóc không gian học tập...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-stone-800 pb-16 select-none">
-      {/* Minimalist Top Bar */}
-      <header className="border-b border-stone-200/70 bg-white/70 backdrop-blur-md sticky top-0 z-30">
-        <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <Link
-              href="/"
-              className="text-stone-400 hover:text-stone-700 transition-colors mr-1"
-              title="Về trang chủ giới thiệu"
-            >
-              <ArrowLeft className="w-4 h-4" />
-            </Link>
+    <div className="min-h-screen bg-[#FAF8F5] text-stone-800 pb-20 select-none antialiased">
+      {/* 1. TOP BAR SIÊU TINH GỌN */}
+      <header className="border-b border-stone-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-30">
+        <div className="max-w-4xl mx-auto px-4 h-14 flex items-center justify-between">
+          {/* Trái: Logo & Tên ứng dụng */}
+          <div className="flex items-center gap-2">
             <span className="text-xl">🌻</span>
-            <span className="font-bold text-xs text-stone-900 tracking-tight">
-              Khu Vườn Của Bạn
+            <span className="font-extrabold text-sm text-stone-900 tracking-tight">
+              Sunflower
             </span>
           </div>
 
-          <nav className="flex items-center gap-2 text-xs">
-            <Link
-              href="/planning"
-              className="px-3 py-1.5 rounded-lg border border-stone-200 bg-white hover:bg-stone-50 text-stone-700 font-medium flex items-center gap-1.5 transition-colors"
-            >
-              <ListTodo className="w-3.5 h-3.5 text-stone-500" />
-              Kế Hoạch 7 Ngày
-            </Link>
+          {/* Giữa: Badge Ngọn Lửa Streak Tinh Tế */}
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/80 shadow-xs">
+            <Flame className="w-4 h-4 fill-amber-500 text-amber-500 animate-pulse" />
+            <span className="text-xs font-extrabold text-amber-900">
+              {streakDays} Ngày kỷ luật
+            </span>
+          </div>
 
-            <Link
-              href="/onboarding"
-              className="px-3 py-1.5 rounded-lg border border-stone-200 bg-white hover:bg-stone-50 text-stone-700 font-medium flex items-center gap-1.5 transition-colors"
+          {/* Phải: Nút Điểm Danh 3 Phút + Avatar Hồ Sơ */}
+          <div className="flex items-center gap-2.5">
+            <button
+              onClick={() => setShowCheckinModal(true)}
+              className="px-3.5 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs flex items-center gap-1.5 transition-all shadow-xs active:scale-95"
             >
-              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-              Chẩn Đoán Mới
-            </Link>
+              <Calendar className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Điểm danh</span> (3p)
+            </button>
 
-            <Link
-              href="/teacher"
-              className="px-3 py-1.5 rounded-lg border border-stone-200 bg-white hover:bg-stone-50 text-stone-600 font-medium flex items-center gap-1.5 transition-colors"
+            {/* Nút Kích hoạt Bộ 3 Câu Trắc Nghiệm Nhanh */}
+            <button
+              onClick={() => setShowQuizModal(true)}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold text-xs shadow-xs transition-colors"
+              title="Làm 3 câu trắc nghiệm vi mô hôm nay"
             >
-              <UserCheck className="w-3.5 h-3.5 text-emerald-600" />
-              Giáo Viên
-            </Link>
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Quiz (3p)</span>
+            </button>
 
-            {user ? (
-              <button
-                onClick={logout}
-                title="Đăng xuất"
-                className="p-1.5 rounded-lg border border-stone-200 hover:bg-rose-50 text-stone-400 hover:text-rose-600 transition-colors"
-              >
-                <LogOut className="w-3.5 h-3.5" />
-              </button>
-            ) : (
-              <Link
-                href="/auth"
-                className="px-3 py-1.5 rounded-lg bg-stone-900 text-white font-medium flex items-center gap-1.5 hover:bg-stone-800 transition-colors"
-              >
-                <LogIn className="w-3.5 h-3.5" />
-                Đăng Nhập
-              </Link>
-            )}
-          </nav>
+            {/* Avatar Người Dùng Kích Hoạt Pop-up Hồ Sơ */}
+            <button
+              onClick={() => setShowProfileModal(true)}
+              className="flex items-center gap-2 p-1 pl-1.5 pr-2 rounded-full border border-stone-200 bg-white hover:border-amber-400 hover:bg-amber-50/40 transition-all shadow-xs group"
+              title="Mở Hồ Sơ & Bảng Phong Thần"
+            >
+              <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-amber-500 to-amber-400 text-white font-bold text-xs flex items-center justify-center shadow-xs">
+                {initialLetter}
+              </div>
+              <span className="text-xs font-bold text-stone-700 group-hover:text-stone-900 hidden sm:inline max-w-[90px] truncate">
+                {student?.name?.split(" ").slice(-1)[0] || "Hồ sơ"}
+              </span>
+            </button>
+          </div>
         </div>
       </header>
 
-      {/* Main Container Bento Layout */}
-      <main className="max-w-5xl mx-auto px-4 mt-6 space-y-5">
-        {/* Compact Welcome & Mood Action Strip */}
-        <div className="bg-white rounded-2xl border border-stone-200 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xs">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold text-stone-900">
-                {student?.name || "Bạn học"}
-              </span>
-              <span className="text-[10px] font-semibold text-stone-500 bg-stone-100 px-2 py-0.5 rounded-md">
-                Lớp {student?.grade} • {student?.target_subject}
-              </span>
-            </div>
-            <p className="text-xs text-stone-500 mt-0.5">
-              Mục tiêu: <span className="text-stone-800 font-medium">{student?.long_term_goal}</span>
-            </p>
-          </div>
-
-          <button
-            onClick={() => setShowCheckinModal(true)}
-            className="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-xs"
-          >
-            <Calendar className="w-3.5 h-3.5" />
-            Điểm Danh Cảm Xúc (5 Phút)
-          </button>
-        </div>
-
-        {/* 2-Column Bento Box */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
-          {/* CỘT TRÁI: KHU VƯỜN & HOA HƯỚNG DƯƠNG */}
-          <div className="md:col-span-5 bg-white rounded-2xl border border-stone-200 p-5 flex flex-col items-center shadow-xs">
-            <div className="w-full flex items-center justify-between">
-              <span className="text-xs font-bold text-stone-700">Chậu Cây Học Tập</span>
-              <div className="flex items-center gap-1 text-xs font-semibold text-sky-700 bg-sky-50 border border-sky-200 px-2.5 py-0.5 rounded-full">
-                <Droplets className="w-3.5 h-3.5 fill-sky-500 text-sky-500" />
-                <span>{garden?.water_drops ?? 0} giọt</span>
+      {/* 2. MAIN WORKSPACE TẬP TRUNG */}
+      <main className="max-w-3xl mx-auto px-4 mt-6 space-y-6">
+        {/* BANNER NGỌN LỬA & HOA HƯỚNG DƯƠNG TINH GIẢN */}
+        <div className="p-5 sm:p-6 rounded-3xl bg-white border border-stone-200/90 shadow-sm relative overflow-hidden">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-5">
+            {/* Lời nhắn ngắn & Trạng thái Streak */}
+            <div className="space-y-2 text-center sm:text-left flex-1">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-100/70 text-amber-900 text-[10px] font-bold uppercase tracking-wider">
+                <Sparkles className="w-3 h-3 text-amber-600" />
+                Hôm Nay: Ngày {streakDays} Vượt Quán Tính
               </div>
-            </div>
 
-            {/* Sunflower Vector Visual */}
-            {garden && (
-              <SunflowerVisual
-                state={garden.current_state}
-                streak={garden.consecutive_days}
-                waterDrops={garden.water_drops}
-                isWatering={isWatering}
-              />
-            )}
+              <h1 className="text-xl sm:text-2xl font-extrabold text-stone-900 tracking-tight">
+                Chào {student?.name || "bạn học"}, giữ vững ngọn lửa nhé!
+              </h1>
 
-            {waterToast && (
-              <div className="text-xs text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-lg text-center mt-1">
-                {waterToast}
-              </div>
-            )}
+              <p className="text-xs sm:text-sm text-stone-600 italic leading-relaxed max-w-lg">
+                &ldquo;{garden?.story_message || "Chỉ cần 5 phút hôm nay để giữ cho chuỗi không bị đứt đoạn."}&rdquo;
+              </p>
 
-            <button
-              onClick={handleWaterClick}
-              disabled={!garden || garden.water_drops <= 0 || isWatering}
-              className="w-full mt-3 py-2 rounded-xl bg-sky-500 hover:bg-sky-600 disabled:opacity-40 text-white font-semibold text-xs transition-colors shadow-xs flex items-center justify-center gap-1.5"
-            >
-              <Droplets className="w-3.5 h-3.5 fill-white" />
-              Tưới Nước (-1 giọt)
-            </button>
-
-            {/* Subtle Healing Note */}
-            {garden && (
-              <div className="mt-4 p-3 bg-stone-50 border border-stone-200 rounded-xl w-full text-xs text-stone-600 leading-relaxed italic">
-                &ldquo;{garden.story_message}&rdquo;
-              </div>
-            )}
-          </div>
-
-          {/* CỘT PHẢI: NHIỆM VỤ VI MÔ & TIẾN TRÌNH */}
-          <div className="md:col-span-7 space-y-4">
-            {/* Quick Task List */}
-            <div className="bg-white rounded-2xl border border-stone-200 p-5 shadow-xs space-y-3">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                  <h3 className="text-xs font-bold text-stone-900">
-                    5 Nhiệm Vụ Hôm Nay (5 - 10 Phút)
-                  </h3>
-                </div>
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 pt-1 text-xs">
+                <button
+                  onClick={handleWaterClick}
+                  disabled={isWatering || !garden || garden.water_drops <= 0}
+                  className="px-3.5 py-1.5 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-200 font-bold flex items-center gap-1.5 transition-all disabled:opacity-50"
+                  title="Tưới nước để giữ hoa tươi tốt"
+                >
+                  <Droplets className="w-3.5 h-3.5 fill-sky-500 text-sky-500" />
+                  <span>Tưới nước ({garden?.water_drops ?? 0})</span>
+                </button>
 
                 <Link
                   href="/planning"
-                  className="text-[11px] font-semibold text-amber-600 hover:text-amber-700 flex items-center gap-0.5"
+                  className="px-3 py-1.5 rounded-xl text-stone-500 hover:text-stone-800 hover:bg-stone-100 font-medium flex items-center gap-1 transition-colors"
                 >
-                  Xem kế hoạch 7 ngày
-                  <ChevronRight className="w-3 h-3" />
+                  <ListTodo className="w-3.5 h-3.5" />
+                  Kế hoạch 7 ngày
                 </Link>
               </div>
 
-              <div className="space-y-2">
-                {student?.roadmap?.initial_daily_tasks.slice(0, 4).map((task) => (
-                  <div
-                    key={task.id}
-                    className="p-3 rounded-xl border border-stone-200 bg-stone-50/50 flex items-center justify-between gap-3 text-xs"
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <span className="w-5 h-5 rounded-md bg-stone-200/80 text-stone-700 font-bold text-[10px] flex items-center justify-center shrink-0">
-                        {task.id}
-                      </span>
-                      <span className="font-medium text-stone-800">{task.title}</span>
-                    </div>
-                    <span className="text-[10px] text-stone-400 font-semibold shrink-0">
-                      {task.duration_minutes}m
-                    </span>
-                  </div>
-                ))}
-              </div>
+              {waterToast && (
+                <p className="text-xs text-emerald-600 font-medium animate-in fade-in">
+                  ✨ {waterToast}
+                </p>
+              )}
             </div>
 
-            {/* 3 Milestones Timeline */}
-            <div className="bg-white rounded-2xl border border-stone-200 p-5 shadow-xs space-y-3">
-              <div className="flex items-center gap-1.5">
-                <TrendingUp className="w-4 h-4 text-amber-500" />
-                <h3 className="text-xs font-bold text-stone-900">
-                  Lộ Trình 3 Chặng Mốc
-                </h3>
+            {/* Chậu hoa hướng dương thu nhỏ */}
+            <div className="shrink-0 flex flex-col items-center justify-center scale-90 sm:scale-100">
+              <div className="w-28 h-28 relative flex items-center justify-center">
+                <SunflowerVisual
+                  state={garden?.current_state || "tich_cuc"}
+                  streak={streakDays}
+                  waterDrops={garden?.water_drops ?? 0}
+                  isWatering={isWatering}
+                />
               </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                {student?.roadmap?.milestones.map((m) => (
-                  <div
-                    key={m.stage}
-                    className="p-3 rounded-xl border border-stone-200 bg-stone-50/30 space-y-1"
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="text-[11px] font-bold text-stone-800">
-                        Chặng {m.stage}
-                      </span>
-                      <span className="text-[9px] font-semibold text-amber-800 bg-amber-100/70 px-1.5 py-0.2 rounded">
-                        {m.duration}
-                      </span>
-                    </div>
-                    <p className="text-[11px] text-stone-500 line-clamp-2 leading-relaxed">
-                      {m.goal}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              <span className="text-[10px] font-bold text-stone-400 mt-1 uppercase tracking-wider">
+                {garden?.current_state === "cham_hoc"
+                  ? "Hoa đang rạng rỡ"
+                  : garden?.current_state === "tich_cuc"
+                  ? "Hoa đang phát triển"
+                  : "Hoa cần tưới nước"}
+              </span>
             </div>
           </div>
         </div>
+
+        {/* 3. BẢNG NHIỆM VỤ HÔM NAY (INTERACTIVE CHECKLIST WITH DISMISS ANIMATION) */}
+        <section className="bg-white rounded-3xl border border-stone-200/90 p-5 sm:p-6 shadow-sm space-y-4">
+          <div className="flex items-center justify-between border-b border-stone-100 pb-3">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700">
+                <CheckCircle2 className="w-4 h-4" />
+              </div>
+              <div>
+                <h2 className="text-sm sm:text-base font-extrabold text-stone-900">
+                  Nhiệm Vụ Hôm Nay
+                </h2>
+                <p className="text-[11px] text-stone-500">
+                  Hoàn thành từng mục tiêu vi mô (5 - 10 phút) để giải phóng quán tính
+                </p>
+              </div>
+            </div>
+
+            <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-stone-100 text-stone-600">
+              {completedTasks.length} / {tasks.length} Đã xong
+            </span>
+          </div>
+
+          {/* Danh sách nhiệm vụ đang làm */}
+          {tasksLoading ? (
+            <div className="py-8 text-center text-xs text-stone-400 flex items-center justify-center gap-2">
+              <Clock className="w-4 h-4 animate-spin text-amber-500" />
+              <span>Đang tải các bước vi mô...</span>
+            </div>
+          ) : activeTasks.length === 0 ? (
+            <div className="py-8 px-4 rounded-2xl bg-emerald-50/60 border border-emerald-200/80 text-center flex flex-col items-center gap-2 animate-in fade-in">
+              <span className="text-3xl">🎉</span>
+              <h3 className="text-sm font-bold text-emerald-900">
+                Xuất sắc! Bạn đã dọn sạch toàn bộ nhiệm vụ hôm nay
+              </h3>
+              <p className="text-xs text-emerald-800/80 max-w-sm leading-relaxed">
+                Ngọn lửa kỷ luật hôm nay đã được bảo toàn trọn vẹn. Hãy dành chút thời gian tĩnh lặng gửi đôi lời tới bản thân trong tương lai bên dưới nhé!
+              </p>
+            </div>
+          ) : (
+            <div className="space-y-2.5">
+              {activeTasks.map((t) => {
+                const isStriked = t.animState === "striked";
+                const isSliding = t.animState === "sliding";
+
+                return (
+                  <div
+                    key={t.id}
+                    className={`p-3.5 rounded-2xl border transition-all duration-300 flex items-center justify-between gap-3 ${
+                      isSliding
+                        ? "opacity-0 -translate-x-4 scale-95 duration-400 bg-amber-50/40 border-amber-200"
+                        : isStriked
+                        ? "bg-amber-50/60 border-amber-300 shadow-xs"
+                        : "bg-stone-50/50 hover:bg-stone-50 border-stone-200 hover:border-amber-300"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3 flex-1 min-w-0">
+                      {/* Checkbox tròn tương tác */}
+                      <button
+                        type="button"
+                        onClick={() => handleToggleTask(t)}
+                        className={`w-6 h-6 rounded-full border flex items-center justify-center shrink-0 transition-all ${
+                          isStriked || isSliding || t.is_completed
+                            ? "bg-amber-500 border-amber-600 text-white scale-105"
+                            : "border-stone-300 hover:border-amber-500 bg-white"
+                        }`}
+                        title="Đánh dấu hoàn thành"
+                      >
+                        {(isStriked || isSliding || t.is_completed) && (
+                          <Check className="w-3.5 h-3.5 stroke-[3]" />
+                        )}
+                      </button>
+
+                      {/* Tiêu đề & Thông tin task */}
+                      <div className="flex-1 min-w-0">
+                        <p
+                          className={`text-xs sm:text-sm font-semibold text-stone-800 transition-all duration-300 truncate ${
+                            isStriked || isSliding
+                              ? "line-through text-stone-400 decoration-amber-500 decoration-2"
+                              : ""
+                          }`}
+                        >
+                          {t.title}
+                        </p>
+                        <div className="flex items-center gap-2 text-[10px] text-stone-400 mt-0.5">
+                          {t.subject && (
+                            <span className="font-medium text-stone-500">{t.subject}</span>
+                          )}
+                          <span>&bull;</span>
+                          <span>{t.duration_minutes} phút</span>
+                          {t.tip && (
+                            <>
+                              <span>&bull;</span>
+                              <span className="text-amber-700/80 italic truncate">{t.tip}</span>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
+                    <span className="text-[10px] font-bold text-stone-400 bg-white px-2 py-0.5 rounded-md border border-stone-200 shrink-0">
+                      Vi mô
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Accordion xem lại các nhiệm vụ đã hoàn thành */}
+          {completedTasks.length > 0 && (
+            <div className="pt-2 border-t border-stone-100">
+              <button
+                type="button"
+                onClick={() => setShowCompletedAccordion(!showCompletedAccordion)}
+                className="text-xs text-stone-500 hover:text-stone-800 font-semibold flex items-center gap-1.5 transition-colors"
+              >
+                <span>Xem lại {completedTasks.length} nhiệm vụ đã xong hôm nay</span>
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    showCompletedAccordion ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {showCompletedAccordion && (
+                <div className="space-y-2 mt-3 animate-in fade-in">
+                  {completedTasks.map((t) => (
+                    <div
+                      key={t.id}
+                      className="p-3 rounded-xl border border-stone-200 bg-stone-100/50 flex items-center justify-between gap-3 text-xs opacity-75"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                          <Check className="w-3 h-3 stroke-[3]" />
+                        </div>
+                        <span className="line-through text-stone-500 font-medium">{t.title}</span>
+                      </div>
+                      <button
+                        onClick={() => handleToggleTask(t)}
+                        title="Bỏ đánh dấu hoàn thành"
+                        className="text-[10px] text-stone-400 hover:text-stone-700 flex items-center gap-1"
+                      >
+                        <RotateCcw className="w-3 h-3" />
+                        Làm lại
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </section>
+
+        {/* 4. KHUNG GỢI Ý VIẾT TÂM THƯ GỬI TƯƠNG LAI (TIME CAPSULE PROMPT CARD) */}
+        <section className="p-5 sm:p-6 rounded-3xl bg-gradient-to-tr from-amber-50 via-stone-50 to-amber-100/40 border border-amber-200/80 shadow-sm space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-amber-100 border border-amber-300 text-amber-800 flex items-center justify-center shrink-0 shadow-xs">
+                <Mail className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-sm sm:text-base font-extrabold text-stone-900">
+                    Tâm Thư Gửi Tương Lai
+                  </h3>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-200/70 text-amber-900">
+                    Mỏ neo cảm xúc
+                  </span>
+                </div>
+                <p className="text-xs text-stone-600 mt-0.5 leading-relaxed max-w-lg">
+                  Hôm nay bạn có muốn gửi một lá thư nhắn nhủ bản thân trong tương lai không? Mỗi lá thư được phong ấn thời gian thực và mở ra đúng mốc Ngày 21.
+                </p>
+              </div>
+            </div>
+
+            {/* Các nút hành động */}
+            <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto shrink-0">
+              <button
+                onClick={() => {
+                  setCapsuleVaultMode("compose");
+                  setShowCapsuleVault(true);
+                }}
+                className="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs flex items-center gap-1.5 transition-all shadow-xs active:scale-95"
+              >
+                <PenLine className="w-3.5 h-3.5" />
+                Viết tâm thư ngay ✍️
+              </button>
+
+              <button
+                onClick={() => {
+                  setCapsuleVaultMode("list");
+                  setShowCapsuleVault(true);
+                }}
+                className="px-3.5 py-2 rounded-xl bg-white border border-stone-200 hover:bg-stone-50 text-stone-700 font-bold text-xs flex items-center gap-1.5 transition-colors shadow-xs"
+              >
+                <Archive className="w-3.5 h-3.5 text-stone-500" />
+                Kho Lưu Trữ ({capsuleCount})
+              </button>
+            </div>
+          </div>
+        </section>
       </main>
 
-      {/* Checkin Dialog */}
+      {/* POP-UP 1: HỒ SƠ NGƯỜI DÙNG & BẢNG PHONG THẦN */}
+      <UserProfileModal
+        isOpen={showProfileModal}
+        onClose={() => setShowProfileModal(false)}
+        student={student}
+        garden={garden}
+        onOpenCapsuleVault={(mode) => {
+          setCapsuleVaultMode(mode || "list");
+          setShowCapsuleVault(true);
+        }}
+      />
+
+      {/* POP-UP 2: KHO LƯU TRỮ TÂM THƯ THỜI GIAN THỰC */}
+      <TimeCapsuleVaultModal
+        isOpen={showCapsuleVault}
+        onClose={() => setShowCapsuleVault(false)}
+        studentId={student?.id || "hs_demo123"}
+        currentStreak={streakDays}
+        initialMode={capsuleVaultMode}
+        onCapsuleCreated={fetchStudentData}
+      />
+
+      {/* POP-UP 3: ĐIỂM DANH 4 TRẠM 3 PHÚT */}
       {showCheckinModal && student && (
         <DailyCheckinModal
           studentId={student.id}
@@ -337,6 +611,16 @@ export default function StudentGardenDashboard() {
           targetSubject={student.target_subject}
           onCheckinSuccess={handleCheckinSuccess}
           onClose={() => setShowCheckinModal(false)}
+        />
+      )}
+
+      {/* POP-UP 4: BỘ 3 CÂU TRẮC NGHIỆM ĐỘNG HẰNG NGÀY (plan-Quest.txt) */}
+      {showQuizModal && student && (
+        <DailyMicroQuizModal
+          isOpen={showQuizModal}
+          onClose={() => setShowQuizModal(false)}
+          studentId={student.id}
+          onQuizCompleted={fetchStudentData}
         />
       )}
     </div>

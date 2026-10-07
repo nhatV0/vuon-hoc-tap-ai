@@ -1,0 +1,320 @@
+Tiếp nối môn Toán, Tiếng Anh và Ngữ văn, môn tiếp theo trong tổ hợp Khoa học Tự nhiên và Kỹ thuật (Khối A00, A01) chính là MÔN VẬT LÍ.
+
+---
+
+ Sự Thay Đổi Cốt Lõi của Môn Vật Lí theo Chương Trình GDPT 2018
+
+Đề thi môn Vật lí mới (thời gian làm bài: 50 phút) đã có sự chuyển dịch bản chất rất lớn so với chương trình cũ:
+1. Triệt tiêu "Toán học hóa phi lý": Đề thi mới loại bỏ các bài toán mẹo vặt cồng kềnh, đánh đố về mặt đại số (như bài toán cực trị điện xoay chiều hộp đen phức tạp hay trùng phùng dao động cơ học thuần toán).
+2. Cấu trúc Đề thi 3 Phần Chuẩn hóa:
+    Phần I (4.5 điểm): 18 câu trắc nghiệm 4 lựa chọn (Nhận biết – Thông hiểu).
+    Phần II (4.0 điểm): 4 câu trắc nghiệm Đúng/Sai (Mỗi câu gồm 4 ý a, b, c, d – Đòi hỏi hiểu sâu bản chất hiện tượng và xử lý đồ thị/thí nghiệm).
+    Phần III (1.5 điểm): 6 câu trắc nghiệm Trả lời ngắn điền số (Đo lường năng lực tính toán hiện tượng thực tế và thứ nguyên đơn vị).
+3. Trọng tâm Nội dung Lớp 12 Mới: Bám sát 4 mạch kiến thức hiện đại:
+    Vật lí nhiệt: Nhiệt độ, thang nhiệt độ, nhiệt dung riêng, nhiệt nóng chảy/hóa hơi riêng, Định luật 1 Nhiệt động lực học.
+    Khí lí tưởng: Mô hình động học phân tử, định luật Boyle, Charles, phương trình trạng thái khí lí tưởng Clapeyron – Mendeleev.
+    Từ trường & Cảm ứng điện từ: Lực từ, cảm ứng từ, hiện tượng cảm ứng điện từ và sóng điện từ.
+    Vật lí hạt nhân: Năng lượng liên kết, phóng xạ, phản ứng hạt nhân và ứng dụng y học/công nghiệp.
+4. Điểm nghẽn lớn nhất của học sinh: Quen học vẹt công thức để thay số mà không hiểu bản chất hiện tượng vật lí; không đọc được bảng số liệu thực nghiệm; hay sai nhầm đơn vị đo ($J, kJ, cal, K, ^\circ C, atm, Pa, \mu C, mT$).
+
+Dưới đây là ma trận 5 Trường Hợp Học Sinh Điển Hình Môn Vật Lí và lộ trình cá nhân hóa chi tiết.
+
+---
+
+ BẢNG MA TRẬN 5 TRƯỜNG HỢP HỌC SINH MÔN VẬT LÍ
+
+| Trường hợp | Điểm xuất phát (Point A) | Mục tiêu hướng tới (Point B) | Quỹ thời gian & Thời hạn | Điểm nghẽn cốt lõi |
+| :--- | :--- | :--- | :--- | :--- |
+| TH 1: Phá Băng Mất Gốc / Gỡ Điểm Căn Bản (The Concept Rescuer) | Level 1 - 2 (3.0 – 5.2)<br>Hổng định nghĩa, sợ đổi đơn vị, bấm máy chậm | 6.5 – 7.5<br>Đủ điểm xét tuyển ĐH khối Kỹ thuật tầm trung / Công nghệ | 45 – 60 phút/ngày<br>Thời gian: 12 – 14 tuần | Thuộc công thức rời rạc nhưng không biết áp dụng vào hiện tượng nào; đọc đồ thị lúng túng; hay sai thứ nguyên. |
+| TH 2: Bứt Phá Bình Nguyên 7+ / Làm Chủ Đồ Thị (The Phenomenon Decoder) | Level 3 (6.5 – 7.5)<br>Chắc công thức cơ bản nhưng hay sai câu Đúng/Sai | 8.2 – 8.8<br>Đỗ Đại học Top đầu (Bách Khoa, Sư phạm Kỹ thuật, Giao thông...) | 60 – 75 phút/ngày<br>Thời gian: 10 – 12 tuần | Mắc bẫy ở câu Đúng/Sai; yếu kỹ năng phân tích thí nghiệm thực hành; tính toán còn chậm ở phần Điền đáp án ngắn. |
+| TH 3: Chinh Phục Điểm 9+ / Bậc Thầy Thực Nghiệm (The Master Physicist) | Level 4 (8.0 – 8.6)<br>Tư duy tốt, xong Phần I trong 18 phút | 9.2 – 10.0<br>Thủ khoa khối A00, A01; Khoa học máy tính, Vi mạch bán dẫn | 75 – 90 phút/ngày<br>Thời gian: 12 – 16 tuần | Cần mài giũa các bài toán mô hình nhiệt - khí phức hợp, xử lý sai số đo lường nâng cao và hiện tượng hạt nhân phi chuẩn. |
+| TH 4: Chiến Dịch 30 Ngày "Gom Điểm Hiện Tượng" (The 30-Day Sprint) | Bất kỳ (Level 2 hoặc 3)<br>Chỉ còn 30 – 40 ngày trước kỳ thi | Tăng ngay +1.0 đến +1.5<br>Ăn chắc 18 câu Phần I và 2 câu Phần III | 60 phút/ngày<br>Thời gian: 4 tuần | Quá tải tâm lý, hoảng sợ trước câu hỏi thí nghiệm thực tế, bấm máy tính hay nhầm đơn vị chuẩn. |
+| TH 5: Xây Móng Dài Hạn Từ Lớp 10-11 (The Early Physicist) | Lớp 10 - 11 (Level 2 - 3)<br>Chuẩn bị thi Đánh giá tư duy Bách Khoa / ĐGNL | 8.5+ Bền vững<br>Phát triển tư duy thực nghiệm & giải quyết vấn đề kỹ thuật | 30 – 45 phút/ngày<br>Thời gian: 9 – 12 tháng | Học nặng về giải toán công thức, thiếu trải nghiệm quan sát hiện tượng đời sống và thực hành thí nghiệm. |
+
+---
+
+---
+
+ LỘ TRÌNH CHI TIẾT DÀNH CHO TỪNG TRƯỜNG HỢP
+
+---
+
+ TRƯỜNG HỢP 1: "PHÁ BĂNG MẤT GỐC / GỠ ĐIỂM CĂN BẢN" (THE CONCEPT RESCUER)
+Dành cho học sinh sợ môn Lí, điểm thi thử từ 3.0 đến 5.2, hay bị "loạn công thức", mục tiêu gỡ lại điểm số 6.5 – 7.5 an toàn.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Nguyên tắc "Hiện Tượng Trước – Công Thức Sau": Tuyệt đối không bắt học sinh học thuộc lòng một bảng công thức vô hồn. Mỗi công thức bắt buộc phải gắn với một hiện tượng đời thực (ví dụ: Công thức $Q = mc\Delta T$ gắn liền với việc đun nước pha trà; tại sao đun dầu ăn lại sôi nhanh hơn đun nước?).
+   Chiến thuật "Thước Đo Đơn Vị Chuẩn (SI Check)": 50% học sinh mất gốc làm sai bài tập lí không phải do không thuộc công thức, mà do quên đổi đơn vị. Bắt buộc rèn phản xạ: Đọc đề bài là dùng bút dạ quang tô ngay các đơn vị: $cm \rightarrow m$, $g \rightarrow kg$, $^\circ C \rightarrow K$ ($T = t + 273$), $cal \rightarrow J$ ($1 cal = 4.184 J$), $atm \rightarrow Pa$.
+   Chiến lược 80/20 Vét Cạn Điểm Phần I: Dồn toàn lực ăn trọn 18 câu trắc nghiệm nhiều lựa chọn (4.5 điểm) và lấy tối thiểu 2/4 câu Đúng/Sai ở các ý nhận biết.
+
+ 2. Lộ trình 3 Giai đoạn (Tổng thời gian: 14 tuần)
+
+
+ GĐ 1: Xây Gốc Nhiệt Học & Khí Lí Tưởng  ➔  GĐ 2: Làm Chủ Từ Trường & Hạt Nhân  ➔  GĐ 3: Luyện Đề Bám Sát Format 3 Phần 
+        (Tuần 1 - Tuần 5: 3.5 ➔ 5.5)                  (Tuần 6 - Tuần 10: 5.5 ➔ 6.8)                 (Tuần 11 - Tuần 14: 6.8 ➔ 7.5)
+
+
+ Giai đoạn 1: Làm Chủ Vật Lí Nhiệt & Chất Khí (Tuần 1 – Tuần 5)
+   Mục tiêu: Hiểu rõ các trạng thái nhiệt, định luật 1 nhiệt động lực học; giải tốt các bài toán chất khí đơn giản.
+   Nội dung chuyên đề:
+       Tuần 1: Khái niệm mô hình phân tử chất khí, chất lỏng, chất rắn; Thang nhiệt độ Celsius, Kelvin, Fahrenheit (công thức chuyển đổi qua lại); Nội năng và hai cách làm thay đổi nội năng (thực hiện công và truyền nhiệt).
+       Tuần 2: Định luật 1 Nhiệt động lực học ($\Delta U = A + Q$) và Quy ước dấu sống còn: $Q > 0$ (nhận nhiệt), $Q < 0$ (truyền nhiệt), $A > 0$ (nhận công), $A < 0$ (thực hiện công).
+       Tuần 3: Nhiệt dung riêng ($Q = mc\Delta T$), Nhiệt nóng chảy riêng ($Q = m\lambda$), Nhiệt hóa hơi riêng ($Q = mL$). Phương trình cân bằng nhiệt căn bản.
+       Tuần 4: Quá trình đẳng nhiệt – Định luật Boyle ($p1V1 = p2V2$); Quá trình đẳng áp – Định luật Charles ($V1/T1 = V2/T2$). Nhận diện đồ thị các đường đẳng nhiệt, đẳng áp trên hệ trục tọa độ $(p, V), (V, T), (p, T)$.
+       Tuần 5: Phương trình trạng thái khí lí tưởng Clapeyron – Mendeleev ($pV = nRT = \frac{m}{M}RT$). Rèn kỹ năng tính toán khối lượng mol $M$ và số mol chất khí.
+
+ Giai đoạn 2: Quét Sạch Từ Trường & Vật Lí Hạt Nhân (Tuần 6 – Tuần 10)
+   Mục tiêu: Nắm chắc quy tắc bàn tay trái, bàn tay phải; giải quyết trọn vẹn các câu hỏi cấu tạo hạt nhân và phản ứng phóng xạ.
+   Nội dung chuyên đề:
+       Tuần 6: Từ trường của dòng điện chạy trong dây dẫn thẳng dài, ống dây hình trụ; Lực từ tác dụng lên đoạn dây dẫn mang dòng điện (Quy tắc bàn tay trái xác định chiều lực từ $\vec{F}$).
+       Tuần 7: Hiện tượng cảm ứng điện từ: Từ thông ($\Phi = BScos\alpha$), Định luật Faraday và Định luật Lenz (xác định chiều dòng điện cảm ứng chống lại nguyên nhân sinh ra nó).
+       Tuần 8: Cấu tạo hạt nhân ($^AZ X$): Số proton $Z$, số neutron $N = A - Z$, điện tích hạt nhân; Độ hụt khối ($\Delta m$) và Năng lượng liên kết hạt nhân ($E{lk} = \Delta m \cdot c^2$).
+       Tuần 9: Năng lượng liên kết riêng ($E{lkr} = E{lk}/A$) – Đại lượng đặc trưng cho độ bền vững của hạt nhân (hạt nhân có $50 < A < 80$ bền vững nhất).
+       Tuần 10: Hiện tượng phóng xạ ($\alpha, \beta^-, \beta^+, \gamma$); Định luật phóng xạ ($N(t) = N0 \cdot 2^{-t/T}$); Ứng dụng đồng vị phóng xạ trong y tế (chẩn đoán ung thư, xạ trị).
+
+ Giai đoạn 3: Thực Chiến Đề 3 Phần Chuẩn Cấu Trúc (Tuần 11 – Tuần 14)
+   Mục tiêu: Bấm giờ 45 phút cho đề thi chuẩn; triệt tiêu 100% lỗi đọc nhầm đề bài ("chọn câu SAI" nhưng lại khoanh câu đúng).
+   Nội dung thực chiến:
+       Luyện 12 đề chuẩn cấu trúc: Ăn chắc 18 câu Phần I trong 20 phút $\rightarrow$ Dành 15 phút xử lý 8 ý dễ của Phần II Đúng/Sai $\rightarrow$ Dành 10 phút tính 2 câu điền đáp án ngắn đơn giản nhất.
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày (Tuần 2 - Giai đoạn 1)
+Quỹ thời gian: 45 phút/ngày vào Khung giờ tối (20h00 – 20h45).
+
+   Thứ Hai (45 phút):
+       Micro-task: Học lý thuyết Định luật 1 Nhiệt động lực học. Vẽ lại bảng quy ước dấu của $\Delta U, A, Q$ vào sổ tay bỏ túi. Làm 4 bài tập trắc nghiệm nhận diện dấu khi chất khí bị nén hoặc giãn nở.
+   Thứ Ba (45 phút):
+       Micro-task: Giải bài toán tính công của chất khí: Khi áp suất không đổi, $A = -p\Delta V$. Làm 4 bài tập thay số, chú ý đổi $1 lít = 10^{-3} m^3$, $1 atm = 1.013 \times 10^5 Pa$.
+   Thứ Tư (45 phút):
+       Micro-task: Xử lý 1 câu hỏi Trắc nghiệm Đúng/Sai (Phần II) gồm 4 ý về một chu trình giãn khí trong xi lanh có pít-tông.
+   Thứ Năm (45 phút):
+       Micro-task: Bấm máy tính Casio: Luyện chuyển đổi qua lại giữa thang nhiệt độ Celsius ($^\circ C$) và Kelvin ($K$). Làm 6 câu trắc nghiệm Thông hiểu nhanh trong 15 phút.
+   Thứ Sáu (45 phút):
+       Micro-task: Thử sức với 1 câu hỏi Trả lời ngắn (Phần III): Tính độ biến thiên nội năng $\Delta U$ của khối khí khi nhận nhiệt lượng $100 J$ và thực hiện công $60 J$ đẩy pít-tông. Điền số vào ô đáp án.
+   Thứ Bảy (45 phút):
+       Micro-task: "Sổ tay Sai lầm Vật lí": Chép lại 2 câu nhầm lẫn dấu $A$ và $Q$ đã làm sai trong tuần, ghi chú cách phòng tránh bẫy.
+   Chủ Nhật (30 phút nhẹ nhàng):
+       Micro-task: Xem 1 video thí nghiệm trực quan về động cơ nhiệt trên Youtube; check-in chuỗi Streak cùng AI Companion.
+
+ 4. Cơ chế Cảnh báo Giáo viên (Teacher-in-the-loop Red Flags)
+   🚨 Cảnh báo Đỏ 1: Học sinh liên tục sai quy ước dấu trong phương trình $\Delta U = A + Q$ qua 3 ngày check-in liên tiếp. $\rightarrow$ Hệ thống gửi cờ cảnh báo: Giáo viên gửi 1 hình vẽ minh họa pít-tông nén/giãn kèm quy ước dấu trực quan trong 2 phút.
+   🚨 Cảnh báo Đỏ 2: Học sinh bỏ trống hoàn toàn 6 câu Phần III (Điền đáp án ngắn) trong các bài kiểm tra tuần. $\rightarrow$ Giáo viên can thiệp: Hướng dẫn kỹ thuật điền số thập phân và làm tròn theo đúng yêu cầu đề bài.
+
+ 5. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Người Bạn Đồng Hành Kiên Nhẫn (Encouraging & Methodical).
+   Mẫu phản hồi AI: "Hôm nay em đã đổi đơn vị từ lít sang $m^3$ rất chuẩn xác ở câu số 4! Vật lí không hề đáng sợ như em từng nghĩ, nó chỉ cần sự cẩn thận ở từng bước đổi đơn vị và quy ước dấu. Ngày mai chúng ta sẽ chinh phục phương trình chất khí cực kỳ thú vị nhé!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 2: "BỨT PHÁ BÌNH NGUYÊN 7+ / LÀM CHỦ ĐỒ THỊ" (THE PHENOMENON DECODER)
+Dành cho học sinh làm tốt phần trắc nghiệm đơn nhưng điểm số luôn mắc kẹt ở mốc 6.8 – 7.6; làm câu Đúng/Sai hay bị sai ở ý c, d; lúng túng khi đề bài cho đồ thị hoặc bảng số liệu thí nghiệm; mục tiêu bứt phá lên 8.2 – 8.8.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Kỹ Thuật "Bóc Tách Câu Trắc Nghiệm Đúng/Sai (Phần II)": Mỗi câu Đúng/Sai thực chất là 4 câu hỏi nhỏ độc lập được liên kết theo một kịch bản hiện tượng vật lí:
+     Ý (a) & (b): Thường là câu hỏi Định tính / Nhận biết bản chất hiện tượng.
+     Ý (c) & (d): Đòi hỏi tính toán liên đới hoặc đọc đồ thị biến thiên.
+    $\rightarrow$ Chiến thuật: Không được suy luận cảm tính; mỗi nhận định bắt buộc phải chứng minh bằng 1 phương trình hoặc 1 định luật cụ thể.
+   Đọc Đồ Thị Như Một Ngôn Ngữ Vật Lí (Graph Decoding): 
+     Xác định rõ 2 trục tọa độ đại diện cho đại lượng nào (áp suất theo thể tích, nhiệt độ theo thời gian, số hạt nhân theo chu kỳ bán rã).
+     Tìm 3 điểm đặc biệt: Giao điểm với trục tung, giao điểm với trục hoành, và các điểm gãy khúc/chuyển pha.
+   Chiến Dịch Phần III (Trả Lời Ngắn): Ăn trọn tối thiểu 4/6 câu điền số (chiếm 1.0 điểm quý giá không có đáp án nhiễu để đoán).
+
+ 2. Lộ trình 3 Giai đoạn (Tổng thời gian: 12 tuần)
+
+
+ GĐ 1: Bậc Thầy Đồ Thị Nhiệt & Khí Lí Tưởng  ➔  GĐ 2: Xử Lý Thí Nghiệm & Từ - Hạt Nhân  ➔  GĐ 3: Tối Ưu Tốc Độ & Ép Giờ 50 Phút 
+             (Tuần 1 - Tuần 4: 7.0 ➔ 7.6)                         (Tuần 5 - Tuần 8: 7.6 ➔ 8.2)                     (Tuần 9 - Tuần 12: 8.2 ➔ 8.8)
+
+
+ Giai đoạn 1: Làm Chủ Đồ Thị Chuyển Pha & Quá Trình Biến Đổi Khí (Tuần 1 – Tuần 4)
+   Mục tiêu: Ăn trọn điểm các câu hỏi liên quan đến đồ thị nhiệt độ theo thời gian và chu trình chất khí.
+   Nội dung chuyên đề:
+       Tuần 1: Đồ thị chuyển thể (nóng chảy, sôi, ngưng tụ, đông đặc): Đoạn nằm ngang biểu thị giai đoạn chuyển pha (nhiệt độ không đổi dù vẫn nhận nhiệt lượng); Tính nhiệt dung riêng từ độ dốc của đồ thị ($slope = \frac{1}{mc}$).
+       Tuần 2: Chu trình kín của chất khí (Đẳng nhiệt $\rightarrow$ Đẳng tích $\rightarrow$ Đẳng áp): Tính công chất khí sinh ra trong một chu trình kín (chính bằng diện tích hình phẳng giới hạn bởi chu trình trên hệ trục tọa độ $p-V$).
+       Tuần 3: Hiệu suất của động cơ nhiệt ($H = \frac{A}{Q1} = 1 - \frac{Q2}{Q1}$); Hiệu suất cực đại theo chu trình Carnot ($H{max} = 1 - \frac{T2}{T1}$).
+       Tuần 4: Kỹ năng xử lý bài toán buồng khí có pít-tông chuyển động có ma sát hoặc nối với lò xo đàn hồi.
+
+ Giai đoạn 2: Giải Mã Bài Toán Thí Nghiệm Thực Hành & Từ Trường - Hạt Nhân (Tuần 5 – Tuần 8)
+   Mục tiêu: Không còn sợ các câu hỏi thí nghiệm thực hành; làm chủ các bài toán phóng xạ nhiều nguồn.
+   Nội dung chuyên đề:
+       Tuần 5: Thí nghiệm đo nhiệt nóng chảy riêng của nước đá hoặc nhiệt hóa hơi riêng của nước (sử dụng oát kế, nhiệt lượng kế, cân điện tử, đồng hồ bấm giây); Phân tích sai số thực nghiệm và nguyên nhân gây hao phí nhiệt ra môi trường.
+       Tuần 6: Thí nghiệm kiểm chứng định luật Boyle (dùng ống xilanh đo thể tích khí kết hợp áp kế cảm biến điện tử).
+       Tuần 7: Lực từ tác dụng lên khung dây dẫn mang dòng điện (nguyên lý hoạt động của động cơ điện một chiều); Hiện tượng tự cảm (suất điện động tự cảm $e{tc} = -L \frac{\Delta i}{\Delta t}$).
+       Tuần 8: Bài toán Phóng xạ ứng dụng: Phương pháp định tuổi bằng đồng vị Carbon $^{14}C$ để xác định niên đại cổ vật; Phương pháp xác định tuổi đất đá/khoáng vật bằng chuỗi phân rã Urani.
+
+ Giai đoạn 3: Ép Tốc Độ Thực Chiến & Quản Trị 50 Phút Phòng Thi (Tuần 9 – Tuần 12)
+   Mục tiêu: Hoàn thành toàn bộ đề thi trong 45 phút, dành 5 phút rà soát các câu điền đáp án ngắn.
+   Nội dung thực chiến:
+       Luyện 15 đề thi thử chuẩn cấu trúc đề minh họa của Bộ GD&ĐT và các Sở GD&ĐT.
+       Thực hiện nghiêm ngặt nguyên tắc: Phần I giải quyết tối đa 18 phút $\rightarrow$ Phần II giải quyết trong 20 phút $\rightarrow$ Phần III giải quyết trong 10 phút.
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày (Tuần 5 - Giai đoạn 2)
+Quỹ thời gian: 60 phút/ngày vào Khung giờ vàng (19h30 – 20h30).
+
+   Thứ Hai (60 phút):
+       Micro-task: Học bản chất bài toán Thí nghiệm đo nhiệt dung riêng của kim loại bằng phương pháp nhiệt lượng kế. Đọc hiểu quy trình 5 bước và các thiết bị đo lường trong phòng thí nghiệm.
+   Thứ Ba (60 phút):
+       Micro-task: Giải quyết 1 câu hỏi Trắc nghiệm Đúng/Sai (Phần II) 4 ý khai thác bảng số liệu thu được từ thí nghiệm đun nước đá bằng ấm điện.
+   Thứ Tư (60 phút):
+       Micro-task: Rèn kỹ năng tính sai số: Tính sai số tuyệt đối, sai số tỉ đối của phép đo thể tích và khối lượng. Làm 3 bài tập trắc nghiệm Thông hiểu.
+   Thứ Năm (60 phút):
+       Micro-task: Luyện 3 câu hỏi Phần III (Điền đáp án ngắn) về tính hiệu suất của bình đun nước nóng lạnh. Chú ý làm tròn kết quả đến 1 chữ số sau dấu phẩy.
+   Thứ Sáu (60 phút):
+       Micro-task: Thử thách Tốc độ: Bấm giờ 16 phút giải quyết sạch 18 câu Phần I trắc nghiệm đơn. Sửa chi tiết các câu phân vân.
+   Thứ Bảy (60 phút):
+       Micro-task: Mini-Test cuối tuần: Làm 1 đề rút gọn gồm 2 câu Đúng/Sai và 3 câu Trả lời ngắn. Chấm điểm theo barem chính thức.
+   Chủ Nhật (45 phút):
+       Micro-task: Cập nhật "Sổ tay Đồ thị & Công thức": Vẽ lại 3 dạng đồ thị biến thiên chất khí vào sổ; check-in tuần cùng AI.
+
+ 4. Cơ chế Cảnh báo Giáo viên (Teacher-in-the-loop Red Flags)
+   🚨 Cảnh báo Vàng: Học sinh làm câu Đúng/Sai thường đúng ý a, b nhưng sai ý c, d (chứng tỏ hiểu lý thuyết nhưng yếu năng lực tính toán kết nối hoặc đọc sai số liệu đồ thị). $\rightarrow$ Giáo viên gửi bài tập chuyên đề bóc tách đồ thị mẫu.
+   🚨 Cảnh báo Đỏ: Học sinh làm sai các câu hỏi liên quan đến Thí nghiệm thực hành do không nắm được tên gọi và chức năng của các dụng cụ thí nghiệm (oát kế, vôn kế, cảm biến nhiệt độ). $\rightarrow$ Giáo viên can thiệp bằng tài liệu hình ảnh thực tế phòng thí nghiệm.
+
+ 5. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Huấn Luyện Viên Chiến Thuật (Strategic & Precision Coach).
+   Mẫu phản hồi AI: "Hôm nay em đã bắt đúng bẫy đơn vị $kJ$ sang $J$ ở câu hỏi tính nhiệt hóa hơi, đó là lý do em ăn trọn điểm câu Đúng/Sai số 2! Chỉ cần duy trì độ sắc bén này khi đọc đồ thị áp suất, mốc 8.5+ hoàn toàn nằm trong tầm tay em. Tối mai tiếp tục phong độ này nhé!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 3: "CHINH PHỤC ĐỈNH CAO 9+ / BẬC THẦY THỰC NGHIỆM" (THE MASTER PHYSICIST)
+Dành cho học sinh giỏi, phản xạ cực nhanh với công thức và bài tập cơ bản; mục tiêu đạt từ 9.2 đến 10.0 để cạnh tranh vào các ngành công nghệ cao, tự động hóa, kỹ thuật máy tính, bán dẫn.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Tư Duy Vật Lí Thực Tiễn Đỉnh Cao (First-Principles Thinking): Không sử dụng công thức tính nhanh một cách mù quáng. Bắt buộc hiểu tận gốc rễ cơ chế vi mô của hiện tượng: Tại sao áp suất chất khí lại tăng khi thể tích giảm? (Do mật độ hạt tăng dẫn đến tần số va chạm lên thành bình tăng).
+   Làm Chủ Hoàn Toàn Phần III (Trả Lời Ngắn - 1.5 Điểm Phân Hóa Tuyệt Đối): Không có 4 phương án A, B, C, D để loại trừ. Đòi hỏi độ chuẩn xác tuyệt đối về thuật toán, kỹ năng tính toán chuỗi đại số và quy tắc làm tròn số học.
+   Giải Mã Các Bài Toán Mô Hình Phức Hợp (Multi-Physics Models): Xử lý thành thạo các bài toán giao thoa giữa: Nhiệt động lực học + Cơ học chuyển động; Từ trường + Dẫn hạt tích điện trong chất bán dẫn; Năng lượng phản ứng hạt nhân + Hiệu suất phát điện của nhà máy điện nguyên tử.
+
+ 2. Lộ trình 3 Giai đoạn (Tổng thời gian: 16 tuần)
+
+
+ GĐ 1: Mô Hình Khí - Nhiệt Phức Hợp & Bán Dẫn  ➔  GĐ 2: Chinh Phục Câu Vận Dụng Cao Phần II & III  ➔  GĐ 3: Đỉnh Cao Đề Chuyên & Tốc Độ 40 Phút 
+                  (Tuần 1 - Tuần 6: 8.2 ➔ 8.8)                                   (Tuần 7 - Tuần 11: 8.8 ➔ 9.4)                     (Tuần 12 - Tuần 16: 9.4 ➔ 10.0)
+
+
+ Giai đoạn 1: Làm Chủ Các Mô Hình Vật Lí Nâng Cao (Tuần 1 – Tuần 6)
+   Nội dung chuyên đề:
+       Tuần 1-2: Bài toán chất khí trong bình thông nhau, chất khí ngăn cách bởi cột thủy ngân chuyển động có gia tốc; Bài toán rò rỉ khí qua van an toàn (vận dụng phương trình Clapeyron – Mendeleev với khối lượng khí thay đổi theo thời gian).
+       Tuần 3-4: Bài toán truyền nhiệt phức tạp có tính đến bức xạ nhiệt và định luật làm nguội của Newton; Bài toán cân bằng nhiệt giữa 3 vật khác trạng thái (nước đá, nước, hơi nước) có trao đổi nhiệt với môi trường.
+       Tuần 5-6: Chuyển động của hạt điện tích trong từ trường đều và điện trường đều (máy gia tốc cyclotron, máy khối phổ phân tách đồng vị); Hiện tượng Hall và ứng dụng trong cảm biến từ trường.
+
+ Giai đoạn 2: Chinh Phục Nhóm Câu Hỏi Phân Hóa Cực Đại (Tuần 7 – Tuần 11)
+   Nội dung chuyên đề:
+       Tuần 7: Làm chủ Phần II (Đúng/Sai) mức Vận dụng cao: 4 ý a, b, c, d liên quan đến một mô hình vật lí thực tế dài 1 trang giấy (ví dụ: chu trình hoạt động của động cơ phản lực khí nén hoặc chu trình làm lạnh của tủ lạnh biến tần).
+       Tuần 8: Quét sạch các dạng bài Phần III (Điền đáp án ngắn) về Hạt nhân: Tính năng lượng tỏa ra trong phản ứng nhiệt hạch tổng hợp Heli; Tính khối lượng nhiên liệu Urani cần thiết để vận hành lò phản ứng hạt nhân công suất hàng ngàn Megawatt trong 1 năm.
+       Tuần 9: Bài toán Xử lý Bảng Số Liệu Thực Nghiệm phi tuyến tính: Sử dụng phương pháp bình phương tối thiểu hoặc đổi trục tọa độ logarit để tìm các hằng số vật lí chưa biết.
+       Tuần 10: Bài toán ứng dụng y học của bức xạ hạt nhân: Tính liều lượng chiếu xạ, thời gian lưu giữ chất phóng xạ trong cơ thể người bệnh.
+       Tuần 11: Rèn kỹ năng kiểm soát sai số và kiểm tra đơn vị thứ nguyên: Nhìn công thức cuối cùng để biết chắc chắn biểu thức đại số đúng hay sai thông qua thứ nguyên ($kg \cdot m^2 / s^2 = J$).
+
+ Giai đoạn 3: Thực Chiến Đề Chuyên & Tối Ưu Điểm Tuyệt Đối (Tuần 12 – Tuần 16)
+   Nội dung thực chiến:
+       Luyện các đề thi thử khó nhất của các trường Chuyên KHTN, Chuyên Sư Phạm, Chuyên Lam Sơn, Chuyên Phan Bội Châu.
+       Ép thời gian làm bài từ 50 phút xuống còn 40 phút (để dư trọn vẹn 10 phút kiểm tra lại từng phép tính của 6 câu Phần III).
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày (Tuần 8 - Giai đoạn 2)
+Quỹ thời gian: 80 phút/ngày vào Khung giờ tối (20h30 – 21h50).
+
+   Thứ Hai (80 phút):
+       Micro-task: Chuyên đề Năng lượng Hạt nhân: Tính khối lượng nước biển cần thiết để chiết xuất Deuterium phục vụ phản ứng nhiệt hạch $D + T \rightarrow \alpha + n + 17.6 MeV$. Giải 3 bài toán lớn.
+   Thứ Ba (80 phút):
+       Micro-task: Xử lý 1 câu Đúng/Sai (Phần II) về chu trình động cơ Stirling (gồm 2 quá trình đẳng nhiệt và 2 quá trình đẳng tích). Tính toán công và hiệu suất thực tế.
+   Thứ Tư (80 phút):
+       Micro-task: Giải 4 câu hỏi Phần III (Điền đáp án ngắn) trích từ đề thi Đánh giá tư duy Bách Khoa về mô hình chất khí trong xilanh có lò xo đàn hồi.
+   Thứ Năm (80 phút):
+       Micro-task: Bài toán thực tế Y học: Phân rã phóng xạ của dược chất phóng xạ $^{131}I$ dùng điều trị tuyến giáp. Tính hoạt độ phóng xạ của bệnh nhân sau 14 ngày.
+   Thứ Sáu (80 phút):
+       Micro-task: Thử thách Tốc độ: Bấm giờ 35 phút làm trọn vẹn 1 đề thi thử chuẩn. Đặt mục tiêu đạt 9.5+ điểm.
+   Thứ Bảy (80 phút):
+       Micro-task: "Sáng tạo bài toán": Tự biến tấu một bài toán thí nghiệm nhiệt học bằng cách thêm yếu tố hao phí nhiệt ra môi trường và giải chi tiết.
+   Chủ Nhật (45 phút):
+       Micro-task: Đọc bài báo khoa học về tiến bộ công nghệ nhiệt hạch quốc tế (dự án ITER); check-in tuần cùng AI.
+
+ 4. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Chuyên Gia Vật Lí Đồng Đẳng (Academic Peer).
+   Mẫu phản hồi AI: "Cách em dùng định luật bảo toàn năng lượng để giải bài toán pít-tông tối nay rất gọn gàng và bản chất! Em đã không bị sa đà vào các phép tính cơ học thuần túy. Ở đẳng cấp này, mỗi bài tập là một trải nghiệm giải mã thực nghiệm. Mai chúng ta sẽ thử sức với bài toán cảm ứng từ trong máy gia tốc nhé!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 4: "CHIẾN DỊCH 30 NGÀY GOM ĐIỂM HIỆN TƯỢNG" (THE 30-DAY SPRINT)
+Dành cho học sinh chỉ còn 4 tuần trước kỳ thi tốt nghiệp THPT; môn Lí đang ở mức trung bình (5.5 - 6.5); mục tiêu tối ưu hóa điểm số lên 7.5 – 8.0 bằng cách quét sạch câu hỏi định tính và công thức cơ bản.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Tuyệt Đối Không Làm Bài Toán Lạ 9+: Trong 30 ngày cuối, việc cố gắng học các bài toán mô hình phức tạp chỉ gây hoang mang và lo âu.
+   Chiến Thuật "Bảo Toàn 6.5 Điểm Nhận Biết – Thông Hiểu":
+       Ăn trọn 4.5 điểm của Phần I (18 câu trắc nghiệm đơn) trong 18 phút.
+       Lấy trọn 1.5 điểm từ 6 ý nhận biết/thông hiểu trong 4 câu Đúng/Sai của Phần II.
+       Lấy trọn 0.5 – 0.8 điểm từ 2-3 câu tính toán đơn giản ở Phần III.
+   Chiến Dịch Rà Soát Sổ Tay Định Lệ & Đơn Vị: Rèn thói quen kiểm tra đơn vị trước khi bấm dấu bằng máy tính.
+
+ 2. Kịch bản 4 Tuần Nước Rút (30 Ngày)
+
+   Tuần 1 (Ngày 1 – 7): Đóng Băng Lý Thuyết Vật Lí Nhiệt & Đơn Vị
+       Nhiệm vụ: Mỗi ngày làm 1 phiếu 25 câu hỏi lý thuyết hiện tượng về Thang nhiệt độ, Định luật 1 Nhiệt động lực học, Nhiệt nóng chảy/hóa hơi riêng.
+       Trọng tâm: Thuộc lòng bảng quy ước dấu và công thức chuyển đổi giữa Celsius và Kelvin.
+   Tuần 2 (Ngày 8 – 14): Nắm Chắc Khí Lí Tưởng & Đồ Thị Biến Đổi Khí
+       Nhiệm vụ: Rèn luyện kỹ năng nhận diện đồ thị các định luật Boyle và Charles trên các hệ trục tọa độ khác nhau.
+       Thực hành: Giải 10 câu trắc nghiệm Đúng/Sai (Phần II) chỉ tập trung vào hiện tượng nén khí và dãn khí.
+   Tuần 3 (Ngày 15 – 21): Quét Sạch Từ Trường & Hạt Nhân Cơ Bản
+       Nhiệm vụ: Nắm chắc quy tắc bàn tay trái xác định lực từ; công thức tính độ hụt khối $\Delta m$ và năng lượng liên kết $E{lk}$; công thức chu kỳ bán rã $T$.
+       Thực hành: Luyện 15 câu Trả lời ngắn điền số ở mức độ 1 phép tính (thay số tính ra đáp án).
+   Tuần 4 (Ngày 22 – 30): Luyện Đề Khung Giờ Thi Thật & Giữ Nhịp Phong Độ
+       Nhiệm vụ: Làm 3 đề thi thử chuẩn vào đúng khung giờ thi thật buổi sáng (hoặc chiều).
+       Mục tiêu: Rèn kỹ năng tô phiếu trắc nghiệm chuẩn xác; không để sai nhảm bất kỳ câu lý thuyết nào; chuẩn bị 2 máy tính Casio pin mới.
+
+ 3. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Người Giữ Lửa & Trấn An Tâm Lý (Reassuring Coach).
+   Mẫu phản hồi AI: "Chỉ còn 10 ngày nữa thôi! Em đã nắm rất chắc các định luật nhiệt và công thức hạt nhân rồi. Đừng lo lắng về những câu hỏi quá khó, hãy tập trung làm thật cẩn thận 18 câu đầu tiên. Cứ giữ vững sự bình tĩnh, điểm 7.5 chắc chắn nằm trong tay em!"
+
+---
+
+---
+
+ TRƯỜNG HỢP 5: "XÂY MÓNG DÀI HẠN TỪ LỚP 10-11" (THE EARLY PHYSICIST)
+Dành cho học sinh lớp 10, 11 định hướng thi khối A00, A01 hoặc các kỳ thi Đánh giá năng lực ĐHQG, Đánh giá tư duy ĐH Bách Khoa; mục tiêu xây nền tảng tư duy vật lí thực nghiệm 8.5+ bền vững không áp lực.
+
+ 1. Nguyên tắc sư phạm cốt lõi
+   Học Vật Lí Bằng Trực Giác Thực Nghiệm (Visual & Experimental Learning): Khuyến khích học sinh tự làm các thí nghiệm đơn giản tại nhà (đo nhiệt dung riêng bằng phích nước nóng, đo chu kỳ con lắc, quan sát từ trường bằng mạt sắt và nam châm).
+   Liên Kết Chặt Chẽ Với Đời Sống & Kỹ Thuật Hiện Đại: Hiểu được ứng dụng của các định luật vật lí trong: Động cơ ô tô, pin mặt trời, tàu đệm từ trường (Maglev), máy cộng hưởng từ (MRI).
+   Nuôi Dưỡng Thói Quen Phản Chiếu Khoa Học (Scientific Inquiry): Luôn tự đặt câu hỏi: "Tại sao hiện tượng này lại diễn ra như vậy? Nếu thay đổi điều kiện nhiệt độ/áp suất thì kết quả sẽ thế nào?".
+
+ 2. Lộ trình Phân Kỳ Theo Năm Học (Lớp 10 & 11)
+
+
+ Chặng 1: Nền Tảng Cơ Học & Năng Lượng (Lớp 10)  ➔  Chặng 2: Điện Trường & Sóng Cơ - Sóng Ánh Sáng (Lớp 11)  ➔  Chặng 3: Học Trước Học Kỳ 1 Lớp 12 
+
+
+   Chặng 1 (Lớp 10): Nắm chắc Động học chất điểm, 3 Định luật Newton, Công và Năng lượng, Định luật bảo toàn động lượng và cơ năng. Đây là nền tảng để học Định luật 1 Nhiệt động lực học lớp 12.
+   Chặng 2 (Lớp 11): Nắm chắc bản chất Điện trường, Điện thế, Dòng điện không đổi; Hiện tượng Dao động điều hòa và Sóng cơ học; Giao thoa sóng ánh sáng.
+   Chặng 3 (Mùa hè chuyển cấp lên Lớp 12): Hoàn thành trước toàn bộ 2 chuyên đề lớn lớp 12: Vật lí nhiệt và Khí lí tưởng trước ngày 31/08.
+
+ 3. Kịch bản Tuần Mẫu & Phân rã Micro-Task Hằng Ngày
+Quỹ thời gian: 35 phút/ngày vào Khung giờ linh hoạt.
+
+   Thứ Hai (35 phút): Đọc 1 bài viết khoa học về nguyên lý hoạt động của máy điều hòa không khí (inverter heat pump). Ghi lại sơ đồ chu trình chuyển pha môi chất lạnh vào sổ tay.
+   Thứ Ba (35 phút): Xem 1 video mô phỏng chuyển động nhiệt phân tử trên phần mềm PhET Interactive Simulations. Trả lời 2 câu hỏi định tính.
+   Thứ Tư (35 phút): Giải 3 bài tập vận dụng công thức tính nhiệt dung riêng gắn với thực tế nhà bếp.
+   Thứ Năm (35 phút): Tìm hiểu về thang nhiệt độ tuyệt đối Kelvin và câu chuyện các nhà khoa học đạt tới nhiệt độ gần độ 0 tuyệt đối ($0 K$).
+   Thứ Sáu (35 phút): Giải 1 câu trắc nghiệm Đúng/Sai mô phỏng format đề thi mới.
+   Thứ Bảy (35 phút): Viết 1 đoạn phản chiếu ngắn: "Một hiện tượng vật lí em quan sát thấy trong tuần này và cách giải thích bằng khoa học".
+   Chủ Nhật (20 phút): Thư giãn, check-in chuỗi Streak cùng AI.
+
+ 4. Tone giọng AI Phản chiếu mỗi tối (21h30)
+   Phong cách: Người Cố Vấn Tò Mò Khoa Học (Curious Science Mentor).
+   Mẫu phản hồi AI: "Câu hỏi của em hôm nay về việc tại sao áp suất trong lốp xe ô tô lại tăng lên sau khi chạy đường dài vào mùa hè cho thấy tư duy quan sát vật lí của em rất sắc sảo! Đó chính là định luật chất khí trong đời thực. Cứ tiếp tục tò mò và khám phá thế giới nhé!"
+
+---
+
+---
+
+ TỔNG KẾT BẢN THIẾT KẾ MÔN VẬT LÍ & BƯỚC TIẾP THEO
+
+Toàn bộ 5 kịch bản lộ trình chi tiết môn Vật lí trên đã hoàn thiện đầy đủ:
+1.  Cập nhật 100% Cấu trúc Mới GDPT 2018: Bám sát định dạng đề thi 3 phần (18 câu nhiều lựa chọn, 4 câu Đúng/Sai, 6 câu Trả lời ngắn điền số; thời gian 50 phút).
+2.  Khắc phục Triệt để Điểm nghẽn Cốt lõi: Chuyển đổi từ lối học vẹt mẹo toán sang năng lực thấu hiểu hiện tượng vật lí, xử lý đồ thị thực tế, bảng số liệu thí nghiệm và kiểm soát thứ nguyên đơn vị.
+3.  Tích hợp Hoàn hảo vào Hệ thống: Khớp nối chặt chẽ giữa Ngân sách thời gian sinh học, Nhiệm vụ Micro-task hằng ngày, Cảnh báo Teacher-in-the-loop, và Prompt AI theo từng phong cách tâm lý.
+
+Môn tiếp theo cần xây dựng lộ trình chi tiết: Môn Hóa học (Khối A00, B00) hay Môn Sinh học (Khối B00)?

@@ -23,6 +23,16 @@ class MoodType(str, enum.Enum):
     STRESSED = "stressed"     # Căng thẳng / Áp lực
     TIRED = "tired"           # Mệt mỏi / Buồn ngủ
 
+class BadgeCategory(str, enum.Enum):
+    STREAK_MILESTONE = "streak_milestone"
+    ACADEMIC_BEHAVIOR = "academic_behavior"
+    RESILIENCE = "resilience"
+    SPECIAL_EVENT = "special_event"
+
+class CapsuleStatus(str, enum.Enum):
+    SEALED = "sealed"
+    UNLOCKED = "unlocked"
+    READ = "read"
 class User(Base):
     __tablename__ = "users"
 
@@ -59,6 +69,10 @@ class Student(Base):
     checkins = relationship("DailyCheckin", back_populates="student", cascade="all, delete-orphan")
     flower_status = relationship("FlowerStatus", back_populates="student", uselist=False, cascade="all, delete-orphan")
     planned_tasks = relationship("PlannedTask", back_populates="student", cascade="all, delete-orphan")
+    badges = relationship("StudentBadge", back_populates="student", cascade="all, delete-orphan")
+    streak_inventory = relationship("StreakInventory", back_populates="student", uselist=False, cascade="all, delete-orphan")
+    time_capsules = relationship("TimeCapsule", back_populates="student", cascade="all, delete-orphan")
+    quiz_attempts = relationship("StudentQuizAttempt", back_populates="student", cascade="all, delete-orphan")
 
 class Roadmap(Base):
     __tablename__ = "roadmaps"
@@ -98,6 +112,12 @@ class DailyCheckin(Base):
     action_reflection = Column(Text, nullable=True) # Điều làm tốt hoặc trở ngại
     mood = Column(SQLEnum(MoodType), nullable=False) # happy, neutral, stressed, tired
     emotion_scale = Column(Integer, default=4, nullable=True) # Thang đo cảm xúc 1 - 7
+    energy_level = Column(Integer, default=70, nullable=False) # 15, 40, 70, 100
+    confidence_stars = Column(Integer, default=3, nullable=False) # 1 - 5
+    completed_subjects = Column(JSON, nullable=True) # e.g. ["Toán học", "Hóa học"]
+    micro_wins = Column(JSON, nullable=True) # e.g. ["solve_problems", "fix_gap"]
+    bottleneck_key = Column(String, default="none", nullable=True) # phone_distraction, hard_problem, fatigue, time_crunch, none
+    weekday_answer = Column(Text, nullable=True)
     ai_feedback = Column(Text, nullable=False) # Lời nhắn thấu cảm của AI Mentor
     needs_attention = Column(Boolean, default=False) # Đánh dấu nếu học sinh gặp áp lực liên tục
     created_at = Column(DateTime, default=utcnow, index=True)
@@ -115,3 +135,90 @@ class FlowerStatus(Base):
     story_message = Column(Text, nullable=True) # Câu chuyện chữa lành tương ứng
 
     student = relationship("Student", back_populates="flower_status")
+
+class Badge(Base):
+    __tablename__ = "badges"
+
+    id = Column(String, primary_key=True) # e.g. "pioneer_seed", "streak_3", "diamond_week"
+    category = Column(SQLEnum(BadgeCategory), nullable=False)
+    title = Column(String, nullable=False)
+    description = Column(Text, nullable=False)
+    icon = Column(String, nullable=False)
+    required_streak = Column(Integer, default=0, nullable=False)
+
+class StudentBadge(Base):
+    __tablename__ = "student_badges"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    student_id = Column(String, ForeignKey("students.id", ondelete="CASCADE"), nullable=False, index=True)
+    badge_id = Column(String, ForeignKey("badges.id", ondelete="CASCADE"), nullable=False)
+    unlocked_at = Column(DateTime, default=utcnow, nullable=False)
+    is_showcased = Column(Boolean, default=False, nullable=False)
+
+    student = relationship("Student", back_populates="badges")
+    badge = relationship("Badge")
+
+class StreakInventory(Base):
+    __tablename__ = "streak_inventories"
+
+    student_id = Column(String, ForeignKey("students.id", ondelete="CASCADE"), primary_key=True)
+    freeze_shields_available = Column(Integer, default=1, nullable=False)
+    grace_passes_available = Column(Integer, default=0, nullable=False)
+    total_shields_used = Column(Integer, default=0, nullable=False)
+    last_shield_used_at = Column(DateTime, nullable=True)
+
+    student = relationship("Student", back_populates="streak_inventory", uselist=False)
+
+class TimeCapsule(Base):
+    __tablename__ = "time_capsules"
+
+    id = Column(String, primary_key=True, index=True)
+    student_id = Column(String, ForeignKey("students.id", ondelete="CASCADE"), nullable=False, index=True)
+    author_type = Column(String, default="STUDENT", nullable=False) # "STUDENT" or "TEACHER"
+    title = Column(String, nullable=False)
+    letter_content = Column(Text, nullable=False)
+    target_unlock_day = Column(Integer, default=21, nullable=False) # e.g. 21
+    unlock_at_date = Column(Date, nullable=True)
+    status = Column(SQLEnum(CapsuleStatus), default=CapsuleStatus.SEALED, nullable=False)
+    created_at = Column(DateTime, default=utcnow, nullable=False)
+    unlocked_at = Column(DateTime, nullable=True)
+
+    student = relationship("Student", back_populates="time_capsules")
+
+class QuizQuestion(Base):
+    __tablename__ = "quiz_questions"
+
+    id = Column(String, primary_key=True, index=True) # e.g. "A00-D1-Q1"
+    block = Column(String, nullable=False, index=True) # A00, A01, B00, C00, D01
+    subject = Column(String, nullable=False) # e.g. Toán học
+    slot_type = Column(String, default="DYNAMIC_3", nullable=False) # REFLEX_1, TRAP_2, DYNAMIC_3, BOSS_30D, TEACHER_INJECTED
+    source = Column(String, default="Ngân hàng chuẩn hóa GDPT 2018", nullable=False)
+    bloom_level = Column(String, default="Thông hiểu", nullable=False) # Nhận biết, Thông hiểu, Vận dụng, Vận dụng cao 8+
+    lock_condition = Column(String, default="MOTUDO", nullable=False) # MOTUDO, YEUCAUSTREAK30NGAY
+    time_limit_seconds = Column(Integer, default=60, nullable=False)
+    question_text = Column(Text, nullable=False)
+    options = Column(JSON, nullable=False) # {"A": "...", "B": "...", "C": "...", "D": "..."}
+    correct_answer = Column(String(5), nullable=False) # "A", "B", "C", "D"
+    micro_explanation = Column(Text, nullable=False)
+    growth_mindset_tip = Column(Text, nullable=True)
+    creator_role = Column(String, default="SYSTEM", nullable=False) # SYSTEM or TEACHER
+    creator_id = Column(String, nullable=True)
+    is_active = Column(Boolean, default=True, nullable=False)
+    created_at = Column(DateTime, default=utcnow, nullable=False)
+
+class StudentQuizAttempt(Base):
+    __tablename__ = "student_quiz_attempts"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    student_id = Column(String, ForeignKey("students.id", ondelete="CASCADE"), nullable=False, index=True)
+    quiz_date = Column(Date, default=date.today, nullable=False, index=True)
+    block = Column(String, nullable=False) # A00, D01...
+    total_questions = Column(Integer, default=3, nullable=False)
+    correct_answers = Column(Integer, default=0, nullable=False)
+    details = Column(JSON, default=list, nullable=False) # list of {question_id, selected_answer, is_correct, time_spent}
+    streak_at_attempt = Column(Integer, default=0, nullable=False)
+    is_boss_unlocked = Column(Boolean, default=False, nullable=False)
+    needs_teacher_support = Column(Boolean, default=False, nullable=False)
+    created_at = Column(DateTime, default=utcnow, nullable=False)
+
+    student = relationship("Student", back_populates="quiz_attempts")
