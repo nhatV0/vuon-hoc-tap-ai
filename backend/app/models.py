@@ -42,8 +42,8 @@ class User(Base):
     name = Column(String, nullable=False)
     role = Column(SQLEnum(UserRole), default=UserRole.STUDENT, nullable=False)
     assigned_classes = Column(JSON, default=list, nullable=True) # Danh sách lớp được phân công phụ trách: ["12A1", "12A2"]
+    assigned_subject = Column(String, default="Toán học", nullable=True) # Môn học chuyên trách được phân công (ví dụ: Toán học, Vật lí...)
     created_at = Column(DateTime, default=utcnow)
-
     # Quan hệ 1-1 với Student profile nếu role = student
     student_profile = relationship("Student", back_populates="user", uselist=False, cascade="all, delete-orphan")
 

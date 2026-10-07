@@ -20,6 +20,7 @@ class UserResponse(BaseModel):
     name: str
     role: UserRole
     assigned_classes: Optional[List[str]] = Field(default_factory=list)
+    assigned_subject: Optional[str] = "Toán học"
     created_at: datetime
     student_id: Optional[str] = None
     model_config = ConfigDict(from_attributes=True)
@@ -385,10 +386,12 @@ class TeacherCreateRequest(BaseModel):
     email: str = Field(..., description="Email/Tài khoản giáo viên")
     password: str = Field(default="123456", min_length=6, description="Mật khẩu khởi tạo")
     assigned_classes: List[str] = Field(default_factory=lambda: ["12A1"], description="Các lớp được phân công phụ trách")
+    assigned_subject: str = Field(default="Toán học", description="Môn học chuyên trách được phân công (ví dụ: Toán học, Vật lí...)")
 
 class TeacherUpdateRequest(BaseModel):
     name: Optional[str] = None
     assigned_classes: Optional[List[str]] = None
+    assigned_subject: Optional[str] = None
     password: Optional[str] = None
 
 class TeacherResponseItem(BaseModel):
@@ -397,6 +400,7 @@ class TeacherResponseItem(BaseModel):
     email: str
     role: UserRole
     assigned_classes: List[str]
+    assigned_subject: Optional[str] = "Toán học"
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
@@ -424,3 +428,21 @@ class AdminOverviewStats(BaseModel):
     classrooms_details: List[ClassroomItem] = Field(default_factory=list)
     teachers: List[TeacherResponseItem]
     students: List[StudentAlertItem]
+# --- Quiz Question Update & Management Schemas ---
+class QuizQuestionUpdateRequest(BaseModel):
+    subject: Optional[str] = None
+    block: Optional[str] = None
+    bloom_level: Optional[str] = None
+    time_limit_seconds: Optional[int] = None
+    source: Optional[str] = None
+    question_text: Optional[str] = None
+    options: Optional[Dict[str, str]] = None
+    correct_answer: Optional[str] = None
+    micro_explanation: Optional[str] = None
+    growth_mindset_tip: Optional[str] = None
+    is_active: Optional[bool] = None
+
+class SubjectQuestionGroup(BaseModel):
+    subject: str
+    total_count: int
+    questions: List[QuizQuestionAdmin]

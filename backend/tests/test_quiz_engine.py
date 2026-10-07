@@ -147,35 +147,95 @@ def test_submit_quiz_and_water_reward(db_session):
         assert len(r.micro_explanation) > 0
 
 def test_teacher_quiz_injection_and_analytics(db_session, client):
-    """Giáo viên nạp câu hỏi mới vào Slot Trống và API phản hồi chuẩn xác."""
-    inject_data = {
+    """Admin tạo tài khoản giáo viên Toán, giáo viên tạo câu môn Toán thành công nhưng tạo môn khác bị chặn."""
+    from app.models import User, UserRole
+    # Tạo GV Toán
+    tch = User(
+        id="usr_tch_toan_test",
+        email="gv_toan_test",
+        name="Thầy Nam",
+        password_hash="fake:hash",
+        role=UserRole.TEACHER,
+        assigned_subject="Toán học",
+        assigned_classes=["12A1"]
+    )
+    db_session.add(tch)
+    # Tạo Admin
+    admin = User(
+        id="usr_adm_test",
+        email="admin_quiz_test",
+        name="Admin Test",
+        password_hash="fake:hash",
+        role=UserRole.ADMIN,
+        assigned_subject="ALL",
+        assigned_classes=["ALL"]
+    )
+    db_session.add(admin)
+    db_session.commit()
+
+    tch_token = "usr_tch_toan_test:faketoken"
+    adm_token = "usr_adm_test:faketoken"
+
+    # 1. GV Toán tạo câu hỏi môn Vật lí -> Bị từ chối 403
+    fail_data = {
+        "block": "A00",
+        "subject": "Vật lí",
+        "source": "Đề Vật lí 2026",
+        "question_text": "Tính công suất...",
+        "options": {"A": "1", "B": "2", "C": "3", "D": "4"},
+        "correct_answer": "A",
+        "micro_explanation": "Giải thích"
+    }
+    res_fail = client.post("/api/quiz/inject", json=fail_data, headers={"Authorization": f"Bearer {tch_token}"})
+    assert res_fail.status_code == 403
+    assert "chỉ được phân công phụ trách môn 'Toán học'" in res_fail.json()["detail"]
+
+    # 2. GV Toán tạo câu hỏi môn Toán học -> Thành công 201
+    pass_data = {
         "block": "A00",
         "subject": "Toán học",
-        "source": "Đề Khảo Sát Chất Lượng THPT Chuyên Bến Tre 2026",
-        "bloom_level": "Vận dụng cao 8+",
-        "lock_condition": "MOTUDO",
-        "time_limit_seconds": 90,
-        "question_text": "Tìm số nghiệm nguyên của bất phương trình logarit...",
-        "options": {
-            "A": "2",
-            "B": "4",
-            "C": "6",
-            "D": "8"
-        },
+        "source": "Đề Chuyên Bến Tre 2026",
+        "question_text": "Tính tích phân...",
+        "options": {"A": "1", "B": "2", "C": "3", "D": "4"},
         "correct_answer": "B",
-        "micro_explanation": "Đặt điều kiện xác định trước khi cô lập tham số m.",
-        "growth_mindset_tip": "Luôn nhớ điều kiện biểu thức dưới dấu logarit dương!",
-        "teacher_id": "GV_TOAN_01"
+        "micro_explanation": "Đổi biến t = x"
     }
+    res_pass = client.post("/api/quiz/inject", json=pass_data, headers={"Authorization": f"Bearer {tch_token}"})
+    assert res_pass.status_code == 201
+    q_id = res_pass.json()["question_id"]
 
-    res = client.post("/api/quiz/inject", json=inject_data)
-    assert res.status_code == 201
-    json_data = res.json()
-    assert json_data["success"] is True
-    assert "A00-TCH-" in json_data["question_id"]
+    # 3. GV khác (hoặc chưa có quyền) cố xóa câu hỏi của Thầy Nam -> 403
+    other_tch = User(
+        id="usr_other_tch",
+        email="gv_khac",
+        name="Cô Lan",
+        password_hash="fake:hash",
+        role=UserRole.TEACHER,
+        assigned_subject="Toán học"
+    )
+    db_session.add(other_tch)
+    db_session.commit()
+    res_del_fail = client.delete(f"/api/quiz/questions/{q_id}", headers={"Authorization": "Bearer usr_other_tch:faketoken"})
+    assert res_del_fail.status_code == 403
 
-    # Kiểm tra endpoint thống kê giáo viên
-    stats_res = client.get("/api/quiz/teacher/stats")
-    assert stats_res.status_code == 200
-    stats = stats_res.json()
-    assert isinstance(stats, list)
+    # 4. Admin có quyền Sửa/Xóa bất kỳ câu hỏi nào
+    res_update_adm = client.patch(
+        f"/api/quiz/questions/{q_id}",
+        json={"question_text": "Tính tích phân mở rộng (đã chỉnh sửa bởi Admin)..."},
+        headers={"Authorization": f"Bearer {adm_token}"}
+    )
+    assert res_update_adm.status_code == 200
+    assert "Admin" in res_update_adm.json()["question_text"]
+
+    # 5. GV chính chủ tự xóa câu của mình -> Thành công
+    res_del_ok = client.delete(f"/api/quiz/questions/{q_id}", headers={"Authorization": f"Bearer {tch_token}"})
+    assert res_del_ok.status_code == 200
+    assert res_del_ok.json()["success"] is True
+
+    # 6. Kiểm tra API grouped questions trả về danh sách phân theo môn
+    res_grp = client.get("/api/quiz/questions/grouped")
+    assert res_grp.status_code == 200
+    groups = res_grp.json()
+    assert len(groups) >= 3
+    subjects = [g["subject"] for g in groups]
+    assert "Toán học" in subjects

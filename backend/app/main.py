@@ -27,7 +27,8 @@ with engine.connect() as conn:
         "ALTER TABLE daily_checkins ADD COLUMN weekday_answer TEXT",
         "ALTER TABLE students ADD COLUMN target_block VARCHAR DEFAULT 'A00'",
         "ALTER TABLE students ADD COLUMN classroom VARCHAR DEFAULT '12A1'",
-        "ALTER TABLE users ADD COLUMN assigned_classes JSON"
+        "ALTER TABLE users ADD COLUMN assigned_classes JSON",
+        "ALTER TABLE users ADD COLUMN assigned_subject VARCHAR DEFAULT 'Toán học'"
     ]:
         try:
             conn.execute(text(col_def))
@@ -43,9 +44,9 @@ with Session(engine) as init_db:
             id="usr_admin_master",
             email="admin",
             name="Quản Trị Viên (Admin)",
-            password_hash=hash_password("123456"),
             role=UserRole.ADMIN,
-            assigned_classes=["ALL"]
+            assigned_classes=["ALL"],
+            assigned_subject="ALL"
         )
         init_db.add(admin_user)
         init_db.commit()
@@ -54,7 +55,8 @@ with Session(engine) as init_db:
         admin_user.password_hash = hash_password("123456")
         admin_user.role = UserRole.ADMIN
         admin_user.assigned_classes = ["ALL"]
-    # Khởi tạo các lớp học mặc định nếu chưa có
+        admin_user.assigned_subject = "ALL"
+        init_db.commit()
     if init_db.query(Classroom).count() == 0:
         for c_id, gr in [("12A1", "12"), ("12A2", "12"), ("12A3", "12"), ("11B1", "11"), ("11B2", "11"), ("10C1", "10")]:
             init_db.add(Classroom(id=c_id, name=f"Lớp {c_id}", grade=gr, description=f"Khối {gr} chuyên sâu"))

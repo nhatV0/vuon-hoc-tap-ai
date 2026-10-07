@@ -9,7 +9,7 @@ from app.database import get_db
 from app.models import (
     User, UserRole, Student, Roadmap, DailyCheckin, FlowerStatus,
     FlowerState, MoodType, PlannedTask, Badge, StudentBadge, StreakInventory,
-    TimeCapsule, CapsuleStatus, Classroom
+    TimeCapsule, CapsuleStatus, Classroom, QuizQuestion, StudentQuizAttempt
 )
 from app.schemas import (
     UserRegister, UserLogin, UserResponse, AuthTokenResponse,
@@ -24,7 +24,7 @@ from app.schemas import (
     TeacherInjectQuizCreate, TeacherQuizStatsItem, QuizQuestionAdmin,
     TeacherCreateRequest, TeacherUpdateRequest, TeacherResponseItem,
     StudentAssignClassRequest, AdminStudentCreateRequest, AdminOverviewStats,
-    ClassroomCreateRequest, ClassroomItem
+    ClassroomCreateRequest, ClassroomItem, QuizQuestionUpdateRequest, SubjectQuestionGroup
 )
 from app.services.quiz_service import (
     get_daily_quiz_package, submit_student_quiz,
@@ -1144,29 +1144,146 @@ def submit_quiz_attempt(data: QuizSubmissionCreate, db: Session = Depends(get_db
     except ValueError as e:
         raise HTTPException(status_code=404, detail=str(e))
 
+@router.get("/quiz/questions/grouped", response_model=List[SubjectQuestionGroup])
+def get_all_questions_grouped_by_subject(
+    authorization: Optional[str] = Header(None),
+    db: Session = Depends(get_db)
+):
+    """
+    Quy toàn bộ câu hỏi (hệ thống tự sinh, giáo viên nạp, admin nạp) về 1 nơi lưu trữ tập trung
+    và phân chia theo từng môn học có cấu trúc dữ liệu KaTeX.
+    """
+    ensure_quiz_bank_seeded(db)
+    questions = db.query(QuizQuestion).order_by(QuizQuestion.subject, desc(QuizQuestion.created_at)).all()
+    
+    grouped: Dict[str, List[QuizQuestionAdmin]] = {}
+    for q in questions:
+        sub = q.subject or "Chung"
+        if sub not in grouped:
+            grouped[sub] = []
+        grouped[sub].append(QuizQuestionAdmin.model_validate(q))
+    
+    result: List[SubjectQuestionGroup] = []
+    for sub, q_list in sorted(grouped.items(), key=lambda x: x[0]):
+        result.append(SubjectQuestionGroup(
+            subject=sub,
+            total_count=len(q_list),
+            questions=q_list
+        ))
+    return result
+
 @router.post("/quiz/inject", status_code=status.HTTP_201_CREATED)
-def inject_new_quiz_question(data: TeacherInjectQuizCreate, db: Session = Depends(get_db)):
+def inject_new_quiz_question(
+    data: TeacherInjectQuizCreate,
+    authorization: Optional[str] = Header(None),
+    db: Session = Depends(get_db)
+):
     """
-    Giáo viên nạp câu hỏi mới từ Đề thi tốt nghiệp hoặc đề khảo sát vào Slot trống động.
+    Nạp câu hỏi mới:
+    - Admin: Toàn quyền nạp mọi môn học.
+    - Giáo viên: Chỉ được nạp câu hỏi thuộc môn được phân công (assigned_subject).
     """
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="Vui lòng đăng nhập để nạp câu hỏi")
+    
+    token = authorization.split(" ")[1]
+    u_id = token.split(":")[0] if ":" in token else None
+    current_user = db.query(User).filter(User.id == u_id).first()
+    if not current_user or current_user.role not in [UserRole.TEACHER, UserRole.ADMIN]:
+        raise HTTPException(status_code=403, detail="Chỉ có Giáo viên hoặc Quản trị viên mới có quyền nạp câu hỏi")
+
+    # Kiểm tra ràng buộc phân công môn của Giáo viên
+    if current_user.role == UserRole.TEACHER:
+        teacher_sub = current_user.assigned_subject or "Toán học"
+        if teacher_sub != "ALL" and teacher_sub.strip().lower() != data.subject.strip().lower():
+            raise HTTPException(
+                status_code=403,
+                detail=f"Thầy/Cô chỉ được phân công phụ trách môn '{teacher_sub}', không thể tạo câu hỏi cho môn '{data.subject}'."
+            )
+
     try:
         new_q = inject_teacher_quiz(db=db, data=data)
+        # Ghi nhận người tạo cụ thể
+        new_q.creator_role = "ADMIN" if current_user.role == UserRole.ADMIN else "TEACHER"
+        new_q.creator_id = current_user.id
+        db.commit()
+        db.refresh(new_q)
         return {
             "success": True,
-            "message": "Nạp câu hỏi mới vào Slot trống thành công!",
+            "message": "Nạp câu hỏi mới vào hệ thống thành công!",
             "question_id": new_q.id,
             "block": new_q.block,
-            "subject": new_q.subject
+            "subject": new_q.subject,
+            "creator_id": new_q.creator_id
         }
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
-@router.get("/quiz/teacher/stats", response_model=List[TeacherQuizStatsItem])
-def get_quiz_analytics_for_teacher(db: Session = Depends(get_db)):
+@router.patch("/quiz/questions/{question_id}", response_model=QuizQuestionAdmin)
+def update_quiz_question(
+    question_id: str,
+    data: QuizQuestionUpdateRequest,
+    authorization: Optional[str] = Header(None),
+    db: Session = Depends(get_db)
+):
     """
-    Thống kê câu hỏi trắc nghiệm, tỉ lệ đúng/sai và phát hiện điểm nghẽn cho giáo viên.
+    Sửa câu hỏi:
+    - Admin: Có toàn quyền sửa bất kỳ câu hỏi nào.
+    - Giáo viên: Chỉ được sửa câu hỏi do chính mình tạo (creator_id == current_user.id).
     """
-    return get_teacher_quiz_stats(db=db)
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="Vui lòng đăng nhập")
+    token = authorization.split(" ")[1]
+    u_id = token.split(":")[0] if ":" in token else None
+    current_user = db.query(User).filter(User.id == u_id).first()
+    if not current_user or current_user.role not in [UserRole.TEACHER, UserRole.ADMIN]:
+        raise HTTPException(status_code=403, detail="Không có quyền chỉnh sửa câu hỏi")
+
+    q = db.query(QuizQuestion).filter(QuizQuestion.id == question_id).first()
+    if not q:
+        raise HTTPException(status_code=404, detail="Không tìm thấy câu hỏi")
+
+    if current_user.role == UserRole.TEACHER and q.creator_id != current_user.id:
+        raise HTTPException(status_code=403, detail="Giáo viên chỉ có quyền chỉnh sửa câu hỏi do chính mình tạo")
+
+    # Cập nhật các trường
+    update_data = data.model_dump(exclude_unset=True)
+    for field, val in update_data.items():
+        setattr(q, field, val)
+
+    db.commit()
+    db.refresh(q)
+    return QuizQuestionAdmin.model_validate(q)
+
+@router.delete("/quiz/questions/{question_id}")
+def delete_quiz_question(
+    question_id: str,
+    authorization: Optional[str] = Header(None),
+    db: Session = Depends(get_db)
+):
+    """
+    Xóa câu hỏi:
+    - Admin: Có toàn quyền xóa bất kỳ câu hỏi nào.
+    - Giáo viên: Chỉ có quyền xóa các câu hỏi do chính mình tạo.
+    """
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="Vui lòng đăng nhập")
+    token = authorization.split(" ")[1]
+    u_id = token.split(":")[0] if ":" in token else None
+    current_user = db.query(User).filter(User.id == u_id).first()
+    if not current_user or current_user.role not in [UserRole.TEACHER, UserRole.ADMIN]:
+        raise HTTPException(status_code=403, detail="Không có quyền xóa câu hỏi")
+
+    q = db.query(QuizQuestion).filter(QuizQuestion.id == question_id).first()
+    if not q:
+        raise HTTPException(status_code=404, detail="Không tìm thấy câu hỏi")
+
+    if current_user.role == UserRole.TEACHER and q.creator_id != current_user.id:
+        raise HTTPException(status_code=403, detail="Giáo viên chỉ có quyền xóa các câu hỏi do chính mình tạo")
+
+    db.delete(q)
+    db.commit()
+    return {"success": True, "message": f"Đã xóa thành công câu hỏi {question_id}"}
 
 # --- 9. ADMIN PANEL APIS (QUẢN TRỊ VIÊN: THÊM/XÓA GIÁO VIÊN & HỌC SINH, PHÂN LỚP) ---
 def require_admin_user(authorization: Optional[str] = Header(None), db: Session = Depends(get_db)) -> User:

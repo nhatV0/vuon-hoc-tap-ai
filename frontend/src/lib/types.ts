@@ -10,6 +10,7 @@ export interface User {
   name: string;
   role: UserRole;
   assigned_classes?: string[];
+  assigned_subject?: string;
   created_at: string;
   student_id?: string | null;
 }
@@ -190,6 +191,25 @@ export interface QuizQuestionItem {
   question_text: string;
   options: Record<string, string>;
   growth_mindset_tip?: string | null;
+  correct_answer?: string;
+  micro_explanation?: string;
+  creator_role?: string;
+  creator_id?: string | null;
+  is_active?: boolean;
+}
+
+export interface QuizQuestionAdmin extends QuizQuestionItem {
+  correct_answer: string;
+  micro_explanation: string;
+  creator_role: string;
+  creator_id?: string | null;
+  is_active: boolean;
+}
+
+export interface SubjectQuestionGroup {
+  subject: string;
+  total_count: number;
+  questions: QuizQuestionAdmin[];
 }
 
 export interface DailyQuizPackage {
@@ -260,6 +280,7 @@ export interface TeacherItem {
   email: string;
   role: UserRole;
   assigned_classes: string[];
+  assigned_subject?: string;
   created_at: string;
 }
 

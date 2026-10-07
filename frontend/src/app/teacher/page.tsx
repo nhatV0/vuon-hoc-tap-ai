@@ -10,8 +10,6 @@ import {
   HeartPulse,
   RefreshCw,
   Sparkles,
-  BarChart2,
-  SendHorizontal,
   LogOut,
   ShieldCheck,
   UserPlus,
@@ -26,7 +24,7 @@ import {
   API_BASE
 } from "@/lib/types";
 import { useAuth } from "@/lib/auth-context";
-import MathText from "@/components/MathText";
+import CentralizedQuestionManager from "@/components/CentralizedQuestionManager";
 
 export default function TeacherDashboardPage() {
   const router = useRouter();
@@ -54,28 +52,7 @@ export default function TeacherDashboardPage() {
   });
   const [newClassForm, setNewClassForm] = useState({ id: "", name: "", grade: "12" });
   const [adminMsg, setAdminMsg] = useState<{ text: string; type: "success" | "error" } | null>(null);
-
-  // Quiz injector form state
   const [quizStats, setQuizStats] = useState<TeacherQuizStatsItem[]>([]);
-  const [isInjecting, setIsInjecting] = useState<boolean>(false);
-  const [injectSuccess, setInjectSuccess] = useState<string | null>(null);
-  const [injectForm, setInjectForm] = useState({
-    block: "A00",
-    subject: "Toán học",
-    source: "Đề Tốt nghiệp THPT Mới Nhất 2026 - Mã đề 101",
-    bloom_level: "Vận dụng (Mức 8+)",
-    lock_condition: "MOTUDO",
-    time_limit_seconds: 90,
-    question_text: "",
-    optA: "",
-    optB: "",
-    optC: "",
-    optD: "",
-    correct_answer: "A",
-    micro_explanation: "",
-    growth_mindset_tip: "",
-  });
-
   const fetchDashboardData = useCallback(async (classFilter: string = "ALL") => {
     setLoading(true);
     try {
@@ -139,70 +116,6 @@ export default function TeacherDashboardPage() {
       }
     }
   }, [authLoading, user, router, selectedClassFilter, fetchDashboardData, fetchQuizStats, fetchAdminData]);
-
-  const handleInjectQuizSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!injectForm.question_text || !injectForm.optA || !injectForm.optB) {
-      alert("Vui lòng nhập nội dung câu hỏi và các phương án trả lời!");
-      return;
-    }
-
-    try {
-      setIsInjecting(true);
-      setInjectSuccess(null);
-      const res = await fetch(`${API_BASE}/api/quiz/inject`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          block: injectForm.block,
-          subject: injectForm.subject,
-          source: injectForm.source,
-          bloom_level: injectForm.bloom_level,
-          lock_condition: injectForm.lock_condition,
-          time_limit_seconds: injectForm.time_limit_seconds,
-          question_text: injectForm.question_text,
-          options: {
-            A: injectForm.optA,
-            B: injectForm.optB,
-            C: injectForm.optC || "",
-            D: injectForm.optD || "",
-          },
-          correct_answer: injectForm.correct_answer,
-          micro_explanation: injectForm.micro_explanation,
-          growth_mindset_tip: injectForm.growth_mindset_tip,
-          teacher_id: user?.name || "GV_ADMIN",
-        }),
-      });
-
-      if (!res.ok) {
-        throw new Error("Không thể nạp câu hỏi mới.");
-      }
-
-      setInjectSuccess("🎉 Đã nạp thành công câu hỏi vào Slot Trống! Câu hỏi sẽ xuất hiện ngay trong phiên Quiz tối nay.");
-      setInjectForm({
-        block: "A00",
-        subject: "Toán học",
-        source: "Đề Tốt nghiệp THPT Mới Nhất 2026 - Mã đề 101",
-        bloom_level: "Vận dụng (Mức 8+)",
-        lock_condition: "MOTUDO",
-        time_limit_seconds: 90,
-        question_text: "",
-        optA: "",
-        optB: "",
-        optC: "",
-        optD: "",
-        correct_answer: "A",
-        micro_explanation: "",
-        growth_mindset_tip: "",
-      });
-      fetchQuizStats();
-    } catch (err: unknown) {
-      alert(err instanceof Error ? err.message : "Đã có lỗi xảy ra");
-    } finally {
-      setIsInjecting(false);
-    }
-  };
-
   const displayedStudents = filterMode === "alert"
     ? data?.students_needing_attention || []
     : data?.all_students || [];
@@ -276,7 +189,7 @@ export default function TeacherDashboardPage() {
               }`}
             >
               <Sparkles className="w-4 h-4 text-orange-500" />
-              Nạp Đề Mới (Quiz Injector)
+              Nạp & Quản Lý Câu Hỏi
             </button>
             {user?.role === "admin" && (
               <button
@@ -455,233 +368,12 @@ export default function TeacherDashboardPage() {
             </div>
           </>
         ) : activeTab === "quiz_injector" ? (
-          /* TAB 2: NẠP ĐỀ THI VÀO SLOT TRỐNG ĐỘNG */
-          <div className="space-y-6">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Form Nạp Câu Hỏi */}
-              <div className="lg:col-span-2 bg-white rounded-3xl border border-cream-200 p-6 shadow-xs space-y-5">
-                <div className="flex items-center justify-between pb-3 border-b border-cream-200">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center font-bold text-sm">
-                      ⚡
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-sm text-stone-900">
-                        Nạp Đề Mới Vào Slot Trống Chờ (Dynamic Injector)
-                      </h3>
-                      <p className="text-[11px] text-stone-500">
-                        Phân phối ngay vào bài làm trắc nghiệm 3 câu mỗi tối lúc 21h30
-                      </p>
-                    </div>
-                  </div>
-                  <span className="px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 font-bold text-[10px] uppercase">
-                    Quy Trình 60s
-                  </span>
-                </div>
-
-                {injectSuccess && (
-                  <div className="p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs font-semibold leading-relaxed">
-                    {injectSuccess}
-                  </div>
-                )}
-
-                <form onSubmit={handleInjectQuizSubmit} className="space-y-4 text-xs">
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    <div>
-                      <label className="block font-bold text-stone-700 mb-1">Khối Áp Dụng</label>
-                      <select
-                        value={injectForm.block}
-                        onChange={(e) => setInjectForm({ ...injectForm, block: e.target.value })}
-                        className="w-full p-2.5 rounded-xl border border-stone-200 bg-white font-medium"
-                      >
-                        <option value="A00">A00 (Toán - Lí - Hóa)</option>
-                        <option value="D01">D01 (Toán - Văn - Anh)</option>
-                        <option value="B00">B00 (Toán - Hóa - Sinh)</option>
-                        <option value="C00">C00 (Văn - Sử - Địa)</option>
-                        <option value="A01">A01 (Toán - Lí - Anh)</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block font-bold text-stone-700 mb-1">Môn Học</label>
-                      <input
-                        type="text"
-                        value={injectForm.subject}
-                        onChange={(e) => setInjectForm({ ...injectForm, subject: e.target.value })}
-                        placeholder="Ví dụ: Toán học"
-                        className="w-full p-2.5 rounded-xl border border-stone-200 bg-white"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block font-bold text-stone-700 mb-1">Điều Kiện Mở Khóa</label>
-                      <select
-                        value={injectForm.lock_condition}
-                        onChange={(e) => setInjectForm({ ...injectForm, lock_condition: e.target.value })}
-                        className="w-full p-2.5 rounded-xl border border-stone-200 bg-white font-medium"
-                      >
-                        <option value="MOTUDO">Xuất hiện cho toàn bộ học sinh</option>
-                        <option value="YEUCAUSTREAK30NGAY">Chỉ dành cho Streak &ge; 30 ngày (Boss)</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block font-bold text-stone-700 mb-1">Nguồn Đề Thi / Trích Dẫn</label>
-                    <input
-                      type="text"
-                      value={injectForm.source}
-                      onChange={(e) => setInjectForm({ ...injectForm, source: e.target.value })}
-                      placeholder="Ví dụ: Đề Tốt nghiệp THPT Chính thức 2026 - Mã đề 101 - Câu 38"
-                      className="w-full p-2.5 rounded-xl border border-stone-200 bg-white"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block font-bold text-stone-700 mb-1">Nội Dung Câu Hỏi Trắc Nghiệm</label>
-                    <textarea
-                      rows={3}
-                      value={injectForm.question_text}
-                      onChange={(e) => setInjectForm({ ...injectForm, question_text: e.target.value })}
-                      placeholder="Gõ nội dung câu hỏi mới (hỗ trợ công thức LaTeX $...$)..."
-                      className="w-full p-3 rounded-2xl border border-stone-200 bg-white resize-none"
-                      required
-                    />
-                  </div>
-
-                  {/* 4 Phương án */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div>
-                      <label className="block font-semibold text-stone-600 mb-1">Phương Án A</label>
-                      <input
-                        type="text"
-                        value={injectForm.optA}
-                        onChange={(e) => setInjectForm({ ...injectForm, optA: e.target.value })}
-                        placeholder="Nội dung đáp án A"
-                        className="w-full p-2 rounded-xl border border-stone-200"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block font-semibold text-stone-600 mb-1">Phương Án B</label>
-                      <input
-                        type="text"
-                        value={injectForm.optB}
-                        onChange={(e) => setInjectForm({ ...injectForm, optB: e.target.value })}
-                        placeholder="Nội dung đáp án B"
-                        className="w-full p-2 rounded-xl border border-stone-200"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block font-semibold text-stone-600 mb-1">Phương Án C</label>
-                      <input
-                        type="text"
-                        value={injectForm.optC}
-                        onChange={(e) => setInjectForm({ ...injectForm, optC: e.target.value })}
-                        placeholder="Nội dung đáp án C"
-                        className="w-full p-2 rounded-xl border border-stone-200"
-                      />
-                    </div>
-                    <div>
-                      <label className="block font-semibold text-stone-600 mb-1">Phương Án D</label>
-                      <input
-                        type="text"
-                        value={injectForm.optD}
-                        onChange={(e) => setInjectForm({ ...injectForm, optD: e.target.value })}
-                        placeholder="Nội dung đáp án D"
-                        className="w-full p-2 rounded-xl border border-stone-200"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    <div>
-                      <label className="block font-bold text-stone-700 mb-1">Đáp Án Đúng</label>
-                      <select
-                        value={injectForm.correct_answer}
-                        onChange={(e) => setInjectForm({ ...injectForm, correct_answer: e.target.value })}
-                        className="w-full p-2.5 rounded-xl border border-stone-200 bg-white font-bold text-amber-900"
-                      >
-                        <option value="A">Đáp án A</option>
-                        <option value="B">Đáp án B</option>
-                        <option value="C">Đáp án C</option>
-                        <option value="D">Đáp án D</option>
-                      </select>
-                    </div>
-
-                    <div className="sm:col-span-2">
-                      <label className="block font-bold text-stone-700 mb-1">Giải Thích Vi Mô (Dưới 3 dòng)</label>
-                      <input
-                        type="text"
-                        value={injectForm.micro_explanation}
-                        onChange={(e) => setInjectForm({ ...injectForm, micro_explanation: e.target.value })}
-                        placeholder="Chỉ rõ bẫy và tư duy giải nhanh..."
-                        className="w-full p-2.5 rounded-xl border border-stone-200 bg-white"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex justify-end pt-2">
-                    <button
-                      type="submit"
-                      disabled={isInjecting}
-                      className="px-6 py-2.5 rounded-2xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all disabled:opacity-50"
-                    >
-                      <SendHorizontal className="w-4 h-4" />
-                      {isInjecting ? "Đang Nạp Đề..." : "Nạp Đề Vào Slot Trống Ngay"}
-                    </button>
-                  </div>
-                </form>
-              </div>
-
-              {/* Bảng Thống Kê Điểm Nghẽn Câu Hỏi */}
-              <div className="bg-white rounded-3xl border border-cream-200 p-6 shadow-xs space-y-4">
-                <div className="flex items-center gap-2 pb-2 border-b border-cream-200">
-                  <BarChart2 className="w-4 h-4 text-amber-600" />
-                  <h4 className="font-bold text-xs text-stone-900 uppercase tracking-wider">
-                    Thống Kê Điểm Nghẽn Câu Hỏi
-                  </h4>
-                </div>
-
-                <div className="space-y-3 overflow-y-auto max-h-[500px]">
-                  {quizStats.length === 0 ? (
-                    <div className="py-12 text-center text-xs text-stone-400">
-                      Chưa có lượt làm bài nào được ghi nhận.
-                    </div>
-                  ) : (
-                    quizStats.map((st) => (
-                      <div
-                        key={st.question_id}
-                        className="p-3.5 rounded-2xl border border-cream-200 bg-cream-50/50 space-y-1.5 text-xs"
-                      >
-                        <div className="flex items-center justify-between">
-                          <span className="font-bold text-amber-900">
-                            {st.block} • {st.subject}
-                          </span>
-                          <span className={`px-2 py-0.5 rounded-full font-bold text-[10px] ${
-                            st.correct_rate >= 70
-                              ? "bg-emerald-100 text-emerald-800"
-                              : "bg-red-100 text-red-800"
-                          }`}>
-                            Tỉ lệ đúng: {st.correct_rate}%
-                          </span>
-                        </div>
-                        <div className="text-stone-700 font-medium line-clamp-2">
-                          <MathText content={st.question_text} />
-                        </div>
-                        <p className="text-[10px] text-stone-400">
-                          {st.total_attempts} lượt làm • {st.wrong_count} lần mắc bẫy
-                        </p>
-                      </div>
-                    ))
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
+          /* TAB 2: NẠP & QUẢN LÝ CÂU HỎI THEO MÔN (KHO LƯU TRỮ TẬP TRUNG) */
+          <CentralizedQuestionManager
+            user={user}
+            quizStats={quizStats}
+            onStatsRefresh={fetchQuizStats}
+          />
         ) : (
           /* TAB 3: ADMIN PANEL (QUẢN TRỊ VIÊN: THÊM/XÓA GIÁO VIÊN & HỌC SINH, PHÂN LỚP) */
           <div className="space-y-6 animate-in fade-in duration-200">
