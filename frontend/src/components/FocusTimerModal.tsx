@@ -23,8 +23,23 @@ import { PlannedTask, API_BASE } from "@/lib/types";
 import { FlowerSpecies } from "./SunflowerVisual";
 
 export type FocusStage = "focus" | "short_break" | "long_break";
-export type AmbientSoundType = "none" | "zen_bell" | "rain" | "waves" | "wind";
+export type AmbientSoundType = "none" | "rain" | "waves" | "wind" | "stream" | "fire";
 
+// Đường dẫn các file âm thanh chuẩn được lưu tại public/assets/audio/timer/
+export const AUDIO_PATHS = {
+  chimes: {
+    zen: "/assets/audio/timer/bell_zen.mp3",
+    chime: "/assets/audio/timer/bell_chime.mp3",
+    break: "/assets/audio/timer/bell_break.mp3",
+  },
+  ambient: {
+    rain: "/assets/audio/timer/ambient_rain.mp3",
+    waves: "/assets/audio/timer/ambient_waves.mp3",
+    wind: "/assets/audio/timer/ambient_wind.mp3",
+    stream: "/assets/audio/timer/ambient_stream.mp3",
+    fire: "/assets/audio/timer/ambient_fire.mp3",
+  }
+};
 export interface FocusTimerModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -104,42 +119,54 @@ export default function FocusTimerModal({
   const ambientAudioCtxRef = useRef<AudioContext | null>(null);
   const ambientNodesRef = useRef<{ source?: AudioNode; gain?: GainNode; cleanup?: () => void } | null>(null);
   // Audio completion chime synthesis via Web Audio API (gentle Tibetan singing bowl / zen bell)
+  // Audio completion chime: ưu tiên phát file audio thật nếu có, fallback tự tổng hợp qua Web Audio API
   const playCompletionChime = useCallback(() => {
     if (!soundEnabled || typeof window === "undefined") return;
-    try {
-      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-      if (!AudioCtx) return;
-      const ctx = new AudioCtx();
 
-      // Create warm harmonic bell chord (528Hz Solfeggio Love/Healing + harmonics)
-      const freqs = [528, 792, 1056];
-      freqs.forEach((freq, idx) => {
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
+    const chimeFile = currentStage === "focus" ? AUDIO_PATHS.chimes.zen : AUDIO_PATHS.chimes.break;
+    const audio = new Audio(chimeFile);
+    audio.volume = 0.8;
 
-        osc.type = "sine";
-        osc.frequency.setValueAtTime(freq, ctx.currentTime);
-
-        const startTime = ctx.currentTime + idx * 0.12;
-        const duration = 2.4;
-
-        gain.gain.setValueAtTime(0, startTime);
-        gain.gain.linearRampToValueAtTime(0.25 / (idx + 1), startTime + 0.08);
-        gain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
-
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-
-        osc.start(startTime);
-        osc.stop(startTime + duration);
+    const playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Fallback Web Audio API nếu chưa có file mp3 trong thư mục
+        try {
+          const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+          if (!AudioCtx) return;
+          const ctx = new AudioCtx();
+          const freqs = [528, 792, 1056];
+          freqs.forEach((freq, idx) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = "sine";
+            osc.frequency.setValueAtTime(freq, ctx.currentTime);
+            const startTime = ctx.currentTime + idx * 0.12;
+            const duration = 2.4;
+            gain.gain.setValueAtTime(0, startTime);
+            gain.gain.linearRampToValueAtTime(0.25 / (idx + 1), startTime + 0.08);
+            gain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(startTime);
+            osc.stop(startTime + duration);
+          });
+        } catch (e) {
+          console.warn("Audio chime fallback error:", e);
+        }
       });
-    } catch (e) {
-      console.warn("Audio chime not supported or muted by browser policy:", e);
     }
-  }, [soundEnabled]);
+  }, [soundEnabled, currentStage]);
 
-  // Ambient White Noise Synthesis (Rain, Waves, Wind, Zen Bell)
+  const ambientAudioElementRef = useRef<HTMLAudioElement | null>(null);
+
+  // Ambient Sound player: ưu tiên phát file mp3 loop, fallback Web Audio noise
   const stopAmbientSound = useCallback(() => {
+    if (ambientAudioElementRef.current) {
+      ambientAudioElementRef.current.pause();
+      ambientAudioElementRef.current.currentTime = 0;
+      ambientAudioElementRef.current = null;
+    }
     if (ambientNodesRef.current?.cleanup) {
       ambientNodesRef.current.cleanup();
     }
@@ -150,6 +177,27 @@ export default function FocusTimerModal({
     stopAmbientSound();
     if (type === "none" || typeof window === "undefined") return;
 
+    // 1. Thử phát file mp3 thật nếu người dùng đã đặt vào thư mục
+    const filePath = AUDIO_PATHS.ambient[type as keyof typeof AUDIO_PATHS.ambient];
+    if (filePath) {
+      const audio = new Audio(filePath);
+      audio.loop = true;
+      audio.volume = 0.45;
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          ambientAudioElementRef.current = audio;
+        }).catch(() => {
+          // File chưa tồn tại hoặc browser chặn -> chạy fallback tổng hợp âm thanh Web Audio
+          synthesizeWebAudioNoise(type);
+        });
+        return;
+      }
+    }
+    synthesizeWebAudioNoise(type);
+  }, [stopAmbientSound]);
+
+  const synthesizeWebAudioNoise = (type: AmbientSoundType) => {
     try {
       const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
       if (!AudioCtx) return;
@@ -166,7 +214,6 @@ export default function FocusTimerModal({
       masterGain.connect(ctx.destination);
 
       if (type === "rain") {
-        // Pink noise buffer for gentle rainfall
         const bufferSize = ctx.sampleRate * 2;
         const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
         const output = noiseBuffer.getChannelData(0);
@@ -185,25 +232,18 @@ export default function FocusTimerModal({
         const whiteNoise = ctx.createBufferSource();
         whiteNoise.buffer = noiseBuffer;
         whiteNoise.loop = true;
-
-        // Low-pass filter for cozy muffled rain
         const filter = ctx.createBiquadFilter();
         filter.type = "lowpass";
         filter.frequency.setValueAtTime(1000, ctx.currentTime);
-
         whiteNoise.connect(filter);
         filter.connect(masterGain);
         whiteNoise.start();
-
         ambientNodesRef.current = {
           source: whiteNoise,
           gain: masterGain,
-          cleanup: () => {
-            try { whiteNoise.stop(); whiteNoise.disconnect(); } catch {}
-          }
+          cleanup: () => { try { whiteNoise.stop(); whiteNoise.disconnect(); } catch {} }
         };
       } else if (type === "waves") {
-        // Ocean surf: filtered noise with periodic LFO gain
         const bufferSize = ctx.sampleRate * 2;
         const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
         const output = noiseBuffer.getChannelData(0);
@@ -213,40 +253,29 @@ export default function FocusTimerModal({
         const noise = ctx.createBufferSource();
         noise.buffer = noiseBuffer;
         noise.loop = true;
-
         const filter = ctx.createBiquadFilter();
         filter.type = "lowpass";
         filter.frequency.setValueAtTime(500, ctx.currentTime);
-
         const waveGain = ctx.createGain();
         waveGain.gain.setValueAtTime(0.04, ctx.currentTime);
-
-        // LFO for surf wave rhythm (~0.1Hz = 10s wave period)
         const lfo = ctx.createOscillator();
         lfo.type = "sine";
         lfo.frequency.setValueAtTime(0.1, ctx.currentTime);
-
         const lfoGain = ctx.createGain();
         lfoGain.gain.setValueAtTime(0.08, ctx.currentTime);
         lfo.connect(lfoGain);
         lfoGain.connect(waveGain.gain);
-
         noise.connect(filter);
         filter.connect(waveGain);
         waveGain.connect(masterGain);
-
         noise.start();
         lfo.start();
-
         ambientNodesRef.current = {
           source: noise,
           gain: masterGain,
-          cleanup: () => {
-            try { noise.stop(); lfo.stop(); noise.disconnect(); lfo.disconnect(); } catch {}
-          }
+          cleanup: () => { try { noise.stop(); lfo.stop(); noise.disconnect(); lfo.disconnect(); } catch {} }
         };
-      } else if (type === "wind") {
-        // Gentle mountain breeze
+      } else if (type === "wind" || type === "stream" || type === "fire") {
         const bufferSize = ctx.sampleRate * 2;
         const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
         const output = noiseBuffer.getChannelData(0);
@@ -256,28 +285,23 @@ export default function FocusTimerModal({
         const noise = ctx.createBufferSource();
         noise.buffer = noiseBuffer;
         noise.loop = true;
-
         const filter = ctx.createBiquadFilter();
         filter.type = "bandpass";
         filter.frequency.setValueAtTime(320, ctx.currentTime);
         filter.Q.setValueAtTime(1.5, ctx.currentTime);
-
         noise.connect(filter);
         filter.connect(masterGain);
         noise.start();
-
         ambientNodesRef.current = {
           source: noise,
           gain: masterGain,
-          cleanup: () => {
-            try { noise.stop(); noise.disconnect(); } catch {}
-          }
+          cleanup: () => { try { noise.stop(); noise.disconnect(); } catch {} }
         };
       }
     } catch (err) {
-      console.warn("Failed to generate ambient sound:", err);
+      console.warn("Failed to generate ambient sound fallback:", err);
     }
-  }, [stopAmbientSound]);
+  };
 
   // Synchronize ambient sound state
   useEffect(() => {
@@ -707,6 +731,8 @@ export default function FocusTimerModal({
               <option value="rain" className="bg-stone-900 text-white">Mưa rào êm</option>
               <option value="waves" className="bg-stone-900 text-white">Sóng biển dịu</option>
               <option value="wind" className="bg-stone-900 text-white">Gió đồi hoa</option>
+              <option value="stream" className="bg-stone-900 text-white">Suối róc rách</option>
+              <option value="fire" className="bg-stone-900 text-white">Lửa củi tí tách</option>
             </select>
           </div>
 
