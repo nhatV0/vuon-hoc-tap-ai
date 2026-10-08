@@ -1285,6 +1285,52 @@ def delete_quiz_question(
     db.commit()
     return {"success": True, "message": f"Đã xóa thành công câu hỏi {question_id}"}
 
+@router.get("/quiz/teacher/stats", response_model=List[TeacherQuizStatsItem])
+def get_teacher_quiz_stats(db: Session = Depends(get_db)):
+    """
+    Thống kê các câu hỏi trắc nghiệm hay sai nhất để giáo viên nắm bắt lỗ hổng kiến thức của học sinh.
+    """
+    # Gom toàn bộ attempts
+    attempts = db.query(StudentQuizAttempt).all()
+    stat_map = {} # question_id -> {"total": int, "correct": int, "wrong": int}
+
+    for a in attempts:
+        if not a.details or not isinstance(a.details, list):
+            continue
+        for item in a.details:
+            qid = item.get("question_id")
+            if not qid:
+                continue
+            is_correct = bool(item.get("is_correct", False))
+            if qid not in stat_map:
+                stat_map[qid] = {"total": 0, "correct": 0, "wrong": 0}
+            stat_map[qid]["total"] += 1
+            if is_correct:
+                stat_map[qid]["correct"] += 1
+            else:
+                stat_map[qid]["wrong"] += 1
+
+    results: List[TeacherQuizStatsItem] = []
+    for qid, s in stat_map.items():
+        q = db.query(QuizQuestion).filter(QuizQuestion.id == qid).first()
+        if not q:
+            continue
+        correct_rate = round((s["correct"] / s["total"] * 100), 1) if s["total"] > 0 else 0.0
+        results.append(TeacherQuizStatsItem(
+            question_id=q.id,
+            block=q.block,
+            subject=q.subject,
+            question_text=q.question_text,
+            source=q.source,
+            total_attempts=s["total"],
+            correct_rate=correct_rate,
+            wrong_count=s["wrong"]
+        ))
+
+    # Sắp xếp câu hỏi có tỷ lệ sai nhiều nhất lên đầu
+    results.sort(key=lambda x: (x.wrong_count, -x.correct_rate), reverse=True)
+    return results
+
 # --- 9. ADMIN PANEL APIS (QUẢN TRỊ VIÊN: THÊM/XÓA GIÁO VIÊN & HỌC SINH, PHÂN LỚP) ---
 def require_admin_user(authorization: Optional[str] = Header(None), db: Session = Depends(get_db)) -> User:
     if not authorization or not authorization.startswith("Bearer "):
