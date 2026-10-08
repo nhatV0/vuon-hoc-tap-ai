@@ -1,7 +1,7 @@
 from datetime import date, datetime, timedelta, timezone
 from typing import Tuple, List, Dict, Any, Optional
 from sqlalchemy.orm import Session
-from app.models import FlowerState, MoodType, Badge, BadgeCategory, StudentBadge, StreakInventory, TimeCapsule, CapsuleStatus
+from app.models import FlowerState, MoodType, Badge, BadgeCategory, StudentBadge, StreakInventory, TimeCapsule, CapsuleStatus, FlowerStatus
 STORY_MESSAGES = {
     FlowerState.CHAM_HOC: (
         "🌻 Bông hoa hướng dương của bạn đang nở rộ rực rỡ và tỏa ánh hào quang ấm áp! "
@@ -25,52 +25,108 @@ STORY_MESSAGES = {
 }
 DEFAULT_BADGES = [
     {
-        "id": "pioneer_seed",
+        "id": "stage_0_seed",
         "category": BadgeCategory.STREAK_MILESTONE,
-        "title": "🌱 Mầm Sống Tiên Phong",
-        "description": "Hoàn thành phản chiếu ngày đầu tiên, vượt qua lực cản quán tính ban đầu.",
-        "icon": "🌱",
-        "required_streak": 1
+        "title": "🌰 Hạt Mầm Khởi Nguyên",
+        "description": "0 ngày - Hạt mầm tiềm năng được chọn để chuẩn bị gieo mầm hy vọng.",
+        "icon": "🌰",
+        "required_streak": 0
     },
     {
-        "id": "flame_3",
+        "id": "stage_3_sowing",
         "category": BadgeCategory.STREAK_MILESTONE,
-        "title": "⚡ Bệ Phóng Quán Tính",
-        "description": "3 ngày liên tiếp thắp sáng ngọn lửa học tập bền bỉ.",
-        "icon": "⚡",
+        "title": "🪴 Đất Ấm Gieo Mầm",
+        "description": "3 ngày - Hạt giống snug trong chậu đất ẩm, tiếp nhận ánh mặt trời đầu tiên.",
+        "icon": "🪴",
         "required_streak": 3
     },
     {
-        "id": "diamond_week",
+        "id": "stage_7_sprout",
         "category": BadgeCategory.STREAK_MILESTONE,
-        "title": "💎 Tuần Lễ Kim Cương",
-        "description": "7 ngày liên tục! Bạn đã vượt lên trên 80% người dễ bỏ cuộc.",
-        "icon": "💎",
+        "title": "🌱 Mầm Xanh Vươn Lên",
+        "description": "7 ngày - Đâm chồi nảy lộc, hai lá mầm đầu tiên phá đất vươn lên đón sáng.",
+        "icon": "🌱",
         "required_streak": 7
     },
     {
-        "id": "double_digits",
+        "id": "stage_14_seedling",
         "category": BadgeCategory.STREAK_MILESTONE,
-        "title": "🔥 Chiến Binh Bền Bỉ",
-        "description": "Cán mốc 10 ngày hai chữ số - Kỷ luật trở thành sự lựa chọn tự nhiên.",
-        "icon": "🔥",
-        "required_streak": 10
-    },
-    {
-        "id": "gravity_half",
-        "category": BadgeCategory.STREAK_MILESTONE,
-        "title": "🛡️ Nửa Vòng Quán Tính",
-        "description": "14 ngày kiên định, bộ não bắt đầu tái cấu trúc nếp nhăn thói quen mới.",
-        "icon": "🛡️",
+        "title": "🌿 Cây Con Sức Sống",
+        "description": "14 ngày - Thân cây mảnh mai xanh biếc, hấp thụ ánh sáng với nhịp thở vững vàng.",
+        "icon": "🌿",
         "required_streak": 14
     },
     {
-        "id": "gravity_escaped",
+        "id": "stage_21_mature",
         "category": BadgeCategory.STREAK_MILESTONE,
-        "title": "👑 Người Vượt Trọng Lực",
-        "description": "21 ngày! Đánh bại sự trì hoãn nguyên bản, thói quen đã là một phần của bạn.",
-        "icon": "👑",
+        "title": "🌻 Cây Lớn Rực Rỡ (Thoát Trọng Lực)",
+        "description": "21 ngày - Cây lớn hoàn chỉnh, bung nở cánh hoa với nụ cười ấm áp, thoát khỏi trọng lực trì hoãn!",
+        "icon": "🌻",
         "required_streak": 21
+    },
+    {
+        "id": "aura_lvl1_white",
+        "category": BadgeCategory.STREAK_MILESTONE,
+        "title": "⚪ Hào Quang Bạch Ngọc (Bậc 1)",
+        "description": "30 ngày - Cây bậc 1 phát hào quang trắng tinh khiết, tâm trí thanh tịnh kiên cường.",
+        "icon": "⚪",
+        "required_streak": 30
+    },
+    {
+        "id": "aura_lvl2_blue",
+        "category": BadgeCategory.STREAK_MILESTONE,
+        "title": "🔵 Hào Quang Lam Ngọc (Bậc 2)",
+        "description": "50 ngày - Cây bậc 2 tỏa sắc lam trí tuệ, sự điềm tĩnh và phong độ học tập ổn định.",
+        "icon": "🔵",
+        "required_streak": 50
+    },
+    {
+        "id": "aura_lvl3_aqua",
+        "category": BadgeCategory.STREAK_MILESTONE,
+        "title": "💧 Hào Quang Thủy Triều (Bậc 3)",
+        "description": "100 ngày - Cây bậc 3 ngọc biển mát lành, dòng chảy kiến thức xuyên suốt không cản bước.",
+        "icon": "💧",
+        "required_streak": 100
+    },
+    {
+        "id": "aura_lvl4_purple",
+        "category": BadgeCategory.STREAK_MILESTONE,
+        "title": "🟣 Hào Quang Tinh Vân Tím (Bậc 4)",
+        "description": "200 ngày - Cây bậc 4 tím huyền bí, thói quen tự học đã khắc sâu vào bản sắc vĩnh cửu.",
+        "icon": "🟣",
+        "required_streak": 200
+    },
+    {
+        "id": "aura_lvl5_red",
+        "category": BadgeCategory.STREAK_MILESTONE,
+        "title": "🔴 Hào Quang Hồng Ngọc Lửa (Bậc 5)",
+        "description": "300 ngày - Cây bậc 5 đỏ rực lửa, ý chí kiên định và ngọn lửa đam mê bất khả chiến bại.",
+        "icon": "🔴",
+        "required_streak": 300
+    },
+    {
+        "id": "aura_lvl6_gold",
+        "category": BadgeCategory.STREAK_MILESTONE,
+        "title": "🟡 Hào Quang Kim Thái Dương (Bậc 6)",
+        "description": "450 ngày - Cây bậc 6 vàng kim rực rỡ như vầng thái dương ban trưa, uy nghiêm đỉnh cao.",
+        "icon": "🟡",
+        "required_streak": 450
+    },
+    {
+        "id": "aura_lvl7_rainbow",
+        "category": BadgeCategory.STREAK_MILESTONE,
+        "title": "🌈 Hào Quang Cực Quang Ngũ Sắc (Bậc 7)",
+        "description": "700 ngày - Cây bậc 7 cực quang cầu vồng chuyển màu mềm mại, kiệt tác kỷ luật học đường.",
+        "icon": "🌈",
+        "required_streak": 700
+    },
+    {
+        "id": "aura_lvl8_divine",
+        "category": BadgeCategory.STREAK_MILESTONE,
+        "title": "✨ Hào Quang Thiên Giới Tối Thượng",
+        "description": "900 ngày - Cây tối thượng, ánh sáng kim cương thần thánh khai sáng mọi thử thách tri thức!",
+        "icon": "✨",
+        "required_streak": 900
     },
     {
         "id": "night_owl",
@@ -91,50 +147,27 @@ DEFAULT_BADGES = [
     {
         "id": "resilient_comeback",
         "category": BadgeCategory.RESILIENCE,
-        "title": "🌈 Lội Ngược Dòng",
-        "description": "Dù có những ngày năng lượng cạn kiệt, bạn vẫn trở lại bàn học mạnh mẽ.",
-        "icon": "🌈",
+        "title": "🌟 Hồi Sinh Chuỗi Bền Bỉ",
+        "description": "Khôi phục chuỗi thành công, tiếp tục hành trình nuôi dưỡng cây hoa.",
+        "icon": "🌟",
         "required_streak": 0
     }
 ]
 
 JOURNEY_MILESTONES = [
-    {
-        "day": 1,
-        "title": "Bệ Phóng Rực Lửa",
-        "reward_text": "Huy hiệu Tiên Phong + 01 Khiên Hộ Mệnh + Viết tâm thư ngày 1",
-        "quote": "Bước chân đầu tiên không đưa bạn đến đích, nhưng kéo bạn ra khỏi nơi bạn đã giậm chân suốt thời gian qua."
-    },
-    {
-        "day": 3,
-        "title": "Vượt Qua Quán Tính",
-        "reward_text": "Tặng thêm 01 Khiên Hộ Mệnh dự phòng + Danh hiệu Bệ Phóng",
-        "quote": "3 ngày không tạo nên một thiên tài, nhưng đủ để chứng minh bạn không phải là người nói suông."
-    },
-    {
-        "day": 7,
-        "title": "Tuần Lễ Kim Cương",
-        "reward_text": "Huy hiệu Kim Cương + Mở khóa Bảng Phong Thần + Lời nhắn động viên đặc biệt",
-        "quote": "Hầu hết mọi người bỏ cuộc vào ngày thứ 4. Bạn đã đi qua 7 ngày. Bạn đã chính thức vượt lên trên số đông."
-    },
-    {
-        "day": 10,
-        "title": "Hai Chữ Số Đầu Tiên",
-        "reward_text": "Danh hiệu Chiến Binh Bền Bỉ + Hiệu ứng ngọn lửa cấp độ 2",
-        "quote": "Con số 10 tròn trĩnh là bằng chứng rõ nhất: Kỷ luật không phải là cảm xúc, kỷ luật là sự lựa chọn."
-    },
-    {
-        "day": 14,
-        "title": "Nửa Vòng Quán Tính",
-        "reward_text": "Huy hiệu Chiến Hạm Vượt Sóng + Tặng 01 Vé Hồi Sinh Chuỗi Khẩn Cấp (Grace Pass)",
-        "quote": "Bộ não của bạn đang bắt đầu tái cấu trúc các nếp nhăn thói quen mới. Đừng dừng lại khi động cơ đang nóng!"
-    },
-    {
-        "day": 21,
-        "title": "VƯỢT TRỌNG LỰC (HABIT BORN)",
-        "reward_text": "Vương miện Vượt Trọng Lực + MỞ KHÓA TÂM THƯ NGÀY 1 + Vinh danh",
-        "quote": "21 ngày! Bạn đã chính thức đánh bại kẻ thù lớn nhất đời mình: Sự trì hoãn nguyên bản. Thói quen này giờ đã là một phần của bạn."
-    }
+    {"day": 0, "title": "Hạt Mầm", "reward_text": "01 Lượt Khôi Phục Chuỗi ngay khi bắt đầu", "quote": "Hành trình vạn dặm bắt đầu từ một hạt giống nhỏ."},
+    {"day": 3, "title": "Gieo Vào Chậu", "reward_text": "Cây bắt rễ đất ấm + Danh hiệu Đất Ấm", "quote": "3 ngày bền bỉ chứng minh bạn đã sẵn sàng bắt rễ vào mảnh đất kỷ luật."},
+    {"day": 7, "title": "Nảy Mầm", "reward_text": "2 lá mầm đầu tiên vươn lên + Danh hiệu Mầm Xanh", "quote": "7 ngày! Mầm xanh đã vượt qua lớp đất dày để đón nhận ánh mặt trời."},
+    {"day": 14, "title": "Lên Cây Con", "reward_text": "Cây con xanh biếc + Danh hiệu Cây Con", "quote": "14 ngày kiên định, thói quen bắt đầu bén rễ sâu sắc vào nếp sống của bạn."},
+    {"day": 21, "title": "Cây Lớn Rực Rỡ", "reward_text": "Cây trưởng thành nở rộ + Mở Khóa Tâm Thư Ngày 1 + Danh hiệu Cây Lớn", "quote": "21 ngày! Bạn đã chính thức vượt thoát lực cản quán tính của sự trì hoãn!"},
+    {"day": 30, "title": "Cây Bậc 1 (Bạch Ngọc)", "reward_text": "Hào quang trắng ngọc trai + Tặng thêm 01 Lượt Khôi Phục Chuỗi", "quote": "30 ngày kiên định! Một tháng trọn vẹn thắp sáng tâm trí thanh khiết."},
+    {"day": 50, "title": "Cây Bậc 2 (Lam Ngọc)", "reward_text": "Hào quang xanh lam trí tuệ + Tặng 01 Lượt Khôi Phục", "quote": "50 ngày! Sắc lam của sự điềm tĩnh và trí tuệ vững vàng."},
+    {"day": 100, "title": "Cây Bậc 3 (Thủy Triều)", "reward_text": "Hào quang ngọc biển mát lành + Tặng 01 Lượt Khôi Phục", "quote": "100 ngày! Dòng chảy tự học như dòng sông lớn không gì ngăn cản được."},
+    {"day": 200, "title": "Cây Bậc 4 (Tinh Vân Tím)", "reward_text": "Hào quang tím huyền bí + Tặng 01 Lượt Khôi Phục", "quote": "200 ngày! Kỷ luật tự giác đã trở thành một phần bản sắc không thể tách rời."},
+    {"day": 300, "title": "Cây Bậc 5 (Hồng Ngọc Lửa)", "reward_text": "Hào quang đỏ rực lửa + Tặng 01 Lượt Khôi Phục", "quote": "300 ngày! Ngọn lửa đam mê và ý chí học tập bất khả chiến bại."},
+    {"day": 450, "title": "Cây Bậc 6 (Kim Thái Dương)", "reward_text": "Hào quang vàng kim chói lọi + Tặng 01 Lượt Khôi Phục", "quote": "450 ngày! Vầng thái dương rực rỡ soi sáng con đường chinh phục ước mơ."},
+    {"day": 700, "title": "Cây Bậc 7 (Cực Quang Ngũ Sắc)", "reward_text": "Hào quang cực quang cầu vồng + Tặng 01 Lượt Khôi Phục", "quote": "700 ngày! Kiệt tác của lòng kiên trì và vẻ đẹp của sự nỗ lực không ngừng."},
+    {"day": 900, "title": "Cây Tối Thượng (Thiên Giới)", "reward_text": "Hào quang kim cương tối thượng + Vương miện Thần Thánh", "quote": "900 ngày huyền thoại! Bạn đã chạm đến đỉnh cao tối thượng của sự tự học!"}
 ]
 
 def ensure_badges_seeded(db: Session):
@@ -158,15 +191,24 @@ def ensure_badges_seeded(db: Session):
 def get_or_create_inventory(student_id: str, db: Session) -> StreakInventory:
     inventory = db.query(StreakInventory).filter(StreakInventory.student_id == student_id).first()
     if not inventory:
+        # Vừa trồng (mới bắt đầu) có ngay 1 lượt khôi phục chuỗi (grace_passes_available = 1)
         inventory = StreakInventory(
             student_id=student_id,
             freeze_shields_available=1,
-            grace_passes_available=0,
+            grace_passes_available=1,
+            restores_claimed_count=0,
+            saved_streak_before_break=0,
             total_shields_used=0
         )
         db.add(inventory)
         db.commit()
         db.refresh(inventory)
+    else:
+        # Đảm bảo người dùng cũ có ít nhất 1 lượt nếu chưa từng nhận
+        if inventory.grace_passes_available is None:
+            inventory.grace_passes_available = 1
+            db.commit()
+            db.refresh(inventory)
     return inventory
 
 def check_and_award_badges(student_id: str, streak: int, micro_wins: Optional[List[str]], db: Session) -> List[str]:
@@ -176,12 +218,19 @@ def check_and_award_badges(student_id: str, streak: int, micro_wins: Optional[Li
     new_unlocked = []
 
     streak_map = {
-        1: "pioneer_seed",
-        3: "flame_3",
-        7: "diamond_week",
-        10: "double_digits",
-        14: "gravity_half",
-        21: "gravity_escaped"
+        0: "stage_0_seed",
+        3: "stage_3_sowing",
+        7: "stage_7_sprout",
+        14: "stage_14_seedling",
+        21: "stage_21_mature",
+        30: "aura_lvl1_white",
+        50: "aura_lvl2_blue",
+        100: "aura_lvl3_aqua",
+        200: "aura_lvl4_purple",
+        300: "aura_lvl5_red",
+        450: "aura_lvl6_gold",
+        700: "aura_lvl7_rainbow",
+        900: "aura_lvl8_divine"
     }
 
     for req_streak, b_id in streak_map.items():
@@ -191,7 +240,7 @@ def check_and_award_badges(student_id: str, streak: int, micro_wins: Optional[Li
             existing_student_badges.add(b_id)
             new_unlocked.append(b_id)
 
-    # Kiểm tra huy hiệu hành vi micro_wins
+    # Huy hiệu hành vi micro_wins
     if micro_wins and "solve_problems" in micro_wins and "barrier_crusher" not in existing_student_badges:
         sb = StudentBadge(student_id=student_id, badge_id="barrier_crusher")
         db.add(sb)
@@ -213,9 +262,15 @@ def calculate_flower_state(
     legacy_tuple: bool = False
 ):
     """
-    Quy tắc chuyển đổi trạng thái hoa và chuỗi ngày tích hợp Khiên Hộ Mệnh (Streak Freeze):
-    - Khoảng cách delta_days == 2 (bỏ lỡ 1 ngày hôm qua):
-      Nếu còn khiên (freeze_shields_available > 0): Tự động tiêu thụ 1 khiên, bảo toàn streak!
+    Quy tắc chuyển đổi trạng thái hoa và chuỗi ngày:
+    1. Nếu quên chuỗi mà streak < 21 ngày:
+       - Không bị reset về 0/1 mà được CỘNG DỒN các ngày check-in tích lũy để người dùng đủ 21 ngày thoát trọng lực.
+       - Hoa luôn giữ trạng thái tích cực hoặc mầm xanh vươn lên.
+    2. Nếu quên chuỗi từ 21 ngày trở đi (streak >= 21):
+       - Hoa chuyển qua CÂY HÉO (THIEU_NUOC).
+       - Lưu lại chuỗi streak cũ vào inventory.saved_streak_before_break để người dùng có thể dùng lượt Khôi Phục Chuỗi!
+       - Nếu còn Khiên Hộ Mệnh (chỉ nhỡ 1 ngày hôm qua delta_days == 2): tự động dùng khiên bảo toàn chuỗi.
+       - Nếu không dùng khiên: streak tạm về 1 hoặc chờ khôi phục, trạng thái cây héo nhắc nhở yêu thương.
     """
     delta_days = (checkin_date - last_checkin_date).days
     shield_used = False
@@ -226,22 +281,48 @@ def calculate_flower_state(
     elif delta_days == 1:
         new_consecutive = consecutive_days + 1
     elif delta_days == 2:
+        # Nhỡ 1 ngày hôm qua
         if inventory and inventory.freeze_shields_available > 0:
             inventory.freeze_shields_available -= 1
             inventory.total_shields_used += 1
             inventory.last_shield_used_at = datetime.now(timezone.utc)
             shield_used = True
-            shield_message = "Hôm qua hẳn bạn đã có một ngày rất bận rộn. Khiên hộ mệnh đã giữ lại ngọn lửa cho bạn. Tối nay cùng tiếp tục nhé!"
+            shield_message = "Khiên hộ mệnh đã giữ lại ngọn lửa cho bạn ngày hôm qua!"
             new_consecutive = consecutive_days + 1
         else:
-            # Nhỡ 1 ngày không có khiên
-            new_consecutive = max(1, consecutive_days // 2 + 1)
+            if consecutive_days < 21:
+                # Dưới 21 ngày: Cộng dồn tiếp tục để đủ 21 ngày
+                new_consecutive = consecutive_days + 1
+                shield_message = "Dưới 21 ngày, chuỗi được cộng dồn tiếp tục để bạn hoàn thành mốc 21 ngày thoát lực cản!"
+            else:
+                # Từ 21 ngày trở đi: lưu lại chuỗi để khôi phục
+                if inventory:
+                    inventory.saved_streak_before_break = max(inventory.saved_streak_before_break or 0, consecutive_days)
+                new_consecutive = 1
     else:
-        # Bị gián đoạn lâu
-        new_consecutive = 1
+        # Nghỉ nhiều ngày (delta_days >= 3)
+        if consecutive_days < 21:
+            # Dưới 21 ngày: Cộng dồn không phạt mất chuỗi
+            new_consecutive = consecutive_days + 1
+            shield_message = "Chào mừng bạn quay lại! Chuỗi được cộng dồn để giúp bạn vững vàng đạt 21 ngày."
+        else:
+            # Từ 21 ngày trở đi: chuyển qua cây héo, lưu streak để phục hồi
+            if inventory:
+                inventory.saved_streak_before_break = max(inventory.saved_streak_before_break or 0, consecutive_days)
+            new_consecutive = 1
+
+    # Cập nhật số lượt khôi phục chuỗi: Mỗi mốc 30 ngày streak được nhận 1 lượt khôi phục
+    if inventory and new_consecutive >= 30:
+        milestones_30 = new_consecutive // 30
+        current_claimed = inventory.restores_claimed_count or 0
+        if milestones_30 > current_claimed:
+            new_passes = milestones_30 - current_claimed
+            inventory.grace_passes_available = (inventory.grace_passes_available or 0) + new_passes
+            inventory.restores_claimed_count = milestones_30
 
     # Phân định trạng thái hoa sau khi nhận nước tưới từ check-in
-    if new_consecutive >= 7:
+    # Đạt mốc 21 ngày (hoặc streak cao) kích hoạt CHAM_HOC (Hoa nở rộ đón nắng / Hào quang)
+    if new_consecutive >= 21:
         new_state = FlowerState.CHAM_HOC
     else:
         new_state = FlowerState.TICH_CUC
@@ -250,19 +331,65 @@ def calculate_flower_state(
     if inventory is None:
         return new_state, new_consecutive, story
     return new_state, new_consecutive, story, shield_used, shield_message
-def evaluate_inactive_state(last_checkin_date: date, today: date) -> Tuple[FlowerState, str]:
+
+def evaluate_inactive_state(last_checkin_date: date, today: date, consecutive_days: Optional[int] = None) -> Tuple[FlowerState, str]:
     """
-    Đánh giá trạng thái khi người dùng vào xem vườn mà chưa check-in trong nhiều ngày
+    Đánh giá trạng thái khi người dùng vào xem vườn mà chưa check-in trong ngày:
+    - Nếu nghỉ >= 30 ngày: Mùa đông HEO_KHO
+    - Nếu consecutive_days được chỉ định và < 21 ngày: giữ TICH_CUC để cộng dồn
+    - Ngược lại khi vắng mặt >= 3 ngày: THIEU_NUOC
     """
     delta_days = (today - last_checkin_date).days
     if delta_days >= 30:
         state = FlowerState.HEO_KHO
+    elif consecutive_days is not None and consecutive_days < 21:
+        state = FlowerState.TICH_CUC
     elif delta_days >= 3:
         state = FlowerState.THIEU_NUOC
     else:
         state = FlowerState.TICH_CUC
     return state, STORY_MESSAGES[state]
 
+def restore_student_streak(student_id: str, db: Session) -> Tuple[bool, str, int, int, FlowerState]:
+    """
+    Khôi phục chuỗi học tập khi cây bị héo hoặc đứt chuỗi (tiêu thụ 1 Grace Pass)
+    """
+    inventory = get_or_create_inventory(student_id=student_id, db=db)
+    flower = db.query(FlowerStatus).filter(FlowerStatus.student_id == student_id).first()
+
+    if not flower:
+        return False, "Không tìm thấy dữ liệu hoa của học sinh.", 0, inventory.grace_passes_available or 0, FlowerState.TICH_CUC
+
+    if (inventory.grace_passes_available or 0) <= 0:
+        return False, "Bạn đã hết lượt khôi phục chuỗi. Mỗi 30 ngày kiên trì sẽ được nhận thêm 1 lượt!", flower.consecutive_days, 0, flower.current_state
+
+    target_streak = inventory.saved_streak_before_break or 0
+    if target_streak <= flower.consecutive_days:
+        # Không có chuỗi cao hơn để khôi phục
+        return False, "Chuỗi của bạn hiện đang ở mức cao nhất, không cần khôi phục.", flower.consecutive_days, inventory.grace_passes_available or 0, flower.current_state
+
+    # Tiêu thụ 1 lượt khôi phục
+    inventory.grace_passes_available -= 1
+    inventory.last_restore_used_at = datetime.now(timezone.utc)
+    flower.consecutive_days = target_streak
+    flower.current_state = FlowerState.CHAM_HOC if target_streak >= 21 else FlowerState.TICH_CUC
+    flower.story_message = f"🌟 Chuỗi {target_streak} ngày đã được khôi phục thành công! Chào mừng ngọn lửa kiên trì trở lại!"
+
+    # Trao huy hiệu hồi sinh chuỗi
+    resilient_badge = db.query(Badge).filter(Badge.id == "resilient_comeback").first()
+    if resilient_badge:
+        existing = db.query(StudentBadge).filter(
+            StudentBadge.student_id == student_id,
+            StudentBadge.badge_id == "resilient_comeback"
+        ).first()
+        if not existing:
+            db.add(StudentBadge(student_id=student_id, badge_id="resilient_comeback"))
+
+    db.commit()
+    db.refresh(flower)
+    db.refresh(inventory)
+
+    return True, f"Khôi phục thành công chuỗi {target_streak} ngày!", target_streak, inventory.grace_passes_available or 0, flower.current_state
 def get_journey_milestones_status(current_streak: int) -> List[Dict[str, Any]]:
     results = []
     for m in JOURNEY_MILESTONES:

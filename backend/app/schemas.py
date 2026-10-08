@@ -201,11 +201,19 @@ class BadgeResponse(BaseModel):
 
 class StreakInventoryResponse(BaseModel):
     freeze_shields_available: int = 1
-    grace_passes_available: int = 0
+    grace_passes_available: int = 1
+    restores_claimed_count: int = 0
+    saved_streak_before_break: int = 0
     total_shields_used: int = 0
     last_shield_used_at: Optional[datetime] = None
+    last_restore_used_at: Optional[datetime] = None
 
-    model_config = ConfigDict(from_attributes=True)
+class StreakRestoreResponse(BaseModel):
+    success: bool
+    message: str
+    restored_streak: int
+    grace_passes_left: int
+    flower_state: FlowerState
 
 class TimeCapsuleCreate(BaseModel):
     student_id: str
@@ -246,7 +254,9 @@ class GardenStatusResponse(BaseModel):
     recent_moods: List[str] = Field(default_factory=list)
     completion_trend: List[int] = Field(default_factory=list)
     shields_available: int = 1
-    grace_passes_available: int = 0
+    grace_passes_available: int = 1
+    saved_streak_before_break: int = 0
+    can_restore_streak: bool = False
     unlocked_badges_count: int = 0
     badges: List[BadgeResponse] = Field(default_factory=list)
     active_capsule: Optional[TimeCapsuleResponse] = None

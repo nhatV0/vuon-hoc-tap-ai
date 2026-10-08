@@ -169,7 +169,7 @@ export default function UserProfileModal({
           {activeTab === "overview" && (
             <div className="space-y-5">
               {/* Stat Chips Row */}
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 <div className="p-3.5 rounded-2xl bg-white border border-stone-200/80 shadow-xs">
                   <div className="flex items-center gap-1.5 text-amber-600 mb-1">
                     <Flame className="w-4 h-4 fill-amber-500 text-amber-500" />
@@ -193,19 +193,30 @@ export default function UserProfileModal({
                   </div>
                   <p className="text-xl font-extrabold text-stone-900">{garden?.shields_available ?? 1} <span className="text-xs font-medium text-stone-500">Chiếc</span></p>
                 </div>
+
+                <div className="p-3.5 rounded-2xl bg-white border border-stone-200/80 shadow-xs">
+                  <div className="flex items-center gap-1.5 text-indigo-600 mb-1">
+                    <Sparkles className="w-4 h-4 text-indigo-600" />
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-stone-500">Vé Khôi Phục</span>
+                  </div>
+                  <p className="text-xl font-extrabold text-stone-900">{garden?.grace_passes_available ?? 1} <span className="text-xs font-medium text-stone-500">Lượt</span></p>
+                </div>
               </div>
 
-              {/* Widget Khiên Hộ Mệnh Giải Thích */}
-              <div className="p-4 rounded-2xl bg-gradient-to-r from-sky-50 to-blue-50 border border-sky-200 flex items-start gap-3">
+              {/* Widget Khiên Hộ Mệnh & Khôi Phục Chuỗi */}
+              <div className="p-4 rounded-2xl bg-gradient-to-r from-sky-50 via-blue-50 to-indigo-50 border border-sky-200 flex items-start gap-3">
                 <div className="w-9 h-9 rounded-xl bg-sky-100 flex items-center justify-center text-sky-700 shrink-0">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
-                <div className="text-xs leading-relaxed">
+                <div className="text-xs leading-relaxed space-y-1">
                   <p className="font-bold text-sky-950">
-                    Cơ chế Bảo toàn Chuỗi Kỷ Luật (Streak Freeze)
+                    Quy tắc Bảo toàn & Khôi phục Chuỗi
                   </p>
-                  <p className="text-sky-800/90 mt-0.5">
-                    Bạn hiện có <strong>{garden?.shields_available ?? 1} khiên hộ mệnh</strong>. Nếu lỡ quên điểm danh 1 ngày, hệ thống sẽ tự động kích hoạt khiên để bảo toàn chuỗi {streakDays} ngày của bạn, không bị đứt đoạn hay trở về số 0.
+                  <p className="text-sky-900/90">
+                    • <strong>Dưới 21 ngày:</strong> Quên điểm danh sẽ được <em>cộng dồn tiếp tục</em> để đảm bảo bạn đạt mốc 21 ngày Cây Lớn Rực Rỡ.
+                  </p>
+                  <p className="text-sky-900/90">
+                    • <strong>Từ 21 ngày trở đi:</strong> Quên điểm danh cây sẽ chuyển sang trạng thái <em>Cây Héo</em>. Bạn có sẵn <strong>{garden?.grace_passes_available ?? 1} vé khôi phục chuỗi</strong> (nhận thêm 1 lượt mỗi mốc 30 ngày) để hồi sinh chuỗi ban đầu bất cứ lúc nào!
                   </p>
                 </div>
               </div>

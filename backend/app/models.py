@@ -174,10 +174,12 @@ class StreakInventory(Base):
 
     student_id = Column(String, ForeignKey("students.id", ondelete="CASCADE"), primary_key=True)
     freeze_shields_available = Column(Integer, default=1, nullable=False)
-    grace_passes_available = Column(Integer, default=0, nullable=False)
+    grace_passes_available = Column(Integer, default=1, nullable=False) # Lượt khôi phục chuỗi: Vừa trồng có ngay 1 lượt, mỗi 30 ngày nhận thêm 1 lượt
+    restores_claimed_count = Column(Integer, default=0, nullable=False) # Số mốc 30 ngày đã nhận quà khôi phục
+    saved_streak_before_break = Column(Integer, default=0, nullable=False) # Lưu chuỗi streak trước khi đứt để phục hồi
     total_shields_used = Column(Integer, default=0, nullable=False)
     last_shield_used_at = Column(DateTime, nullable=True)
-
+    last_restore_used_at = Column(DateTime, nullable=True)
     student = relationship("Student", back_populates="streak_inventory", uselist=False)
 
 class TimeCapsule(Base):

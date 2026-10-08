@@ -7,7 +7,9 @@ import {
   Flame,
   Sprout,
   CheckCircle2,
-  Lock
+  Lock,
+  RotateCcw,
+  ShieldCheck
 } from "lucide-react";
 import SunflowerVisual, {
   AURA_LEVELS,
@@ -25,6 +27,10 @@ interface FlowerShowcaseModalProps {
   currentStreak: number;
   waterDrops: number;
   studentName?: string;
+  gracePassesAvailable?: number;
+  savedStreakBeforeBreak?: number;
+  canRestoreStreak?: boolean;
+  onRestoreStreak?: () => Promise<void>;
 }
 
 export default function FlowerShowcaseModal({
@@ -33,28 +39,41 @@ export default function FlowerShowcaseModal({
   currentState,
   currentStreak,
   waterDrops,
-  studentName = "Học sinh"
+  studentName = "Học sinh",
+  gracePassesAvailable = 1,
+  savedStreakBeforeBreak = 0,
+  canRestoreStreak = false,
+  onRestoreStreak
 }: FlowerShowcaseModalProps) {
   const [displayMode, setDisplayMode] = useState<DisplayMode>("3d_motion");
   const [selectedAuraLevel, setSelectedAuraLevel] = useState<number | null>(null);
-  const [activeTab, setActiveTab] = useState<"aura" | "growth">("aura");
   const [selectedGrowthStage, setSelectedGrowthStage] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<"aura" | "growth">("aura");
+  const [restoring, setRestoring] = useState<boolean>(false);
 
   if (!isOpen) return null;
 
   const currentAura = getAuraLevelByStreak(currentStreak);
   const nextAura = getNextAuraLevel(currentStreak);
 
-  // Xem hào quang nào đang được chọn xem trước (nếu không chọn thì dùng hào quang hiện tại)
   const activeViewingAura = selectedAuraLevel
     ? AURA_LEVELS.find((a) => a.level === selectedAuraLevel)
     : currentAura;
 
-  // Tính số ngày còn lại đến mốc kế tiếp
   const daysToNext = nextAura ? Math.max(0, nextAura.minStreak - currentStreak) : 0;
   const progressPercent = nextAura
     ? Math.min(100, Math.round((currentStreak / nextAura.minStreak) * 100))
     : 100;
+
+  const handleRestoreClick = async () => {
+    if (!onRestoreStreak || restoring) return;
+    setRestoring(true);
+    try {
+      await onRestoreStreak();
+    } finally {
+      setRestoring(false);
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-stone-900/60 backdrop-blur-md animate-in fade-in duration-200">
@@ -68,14 +87,14 @@ export default function FlowerShowcaseModal({
             <div>
               <div className="flex items-center gap-2">
                 <h2 className="text-base sm:text-lg font-black text-stone-900 tracking-tight">
-                  Khu Vườn Hoa 3D & 8 Cấp Hào Quang
+                  Khu Vườn Hoa 3D: 5 Mốc Vòng Đời & 8 Bậc Hào Quang
                 </h2>
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300">
                   Chuỗi {currentStreak} ngày
                 </span>
               </div>
               <p className="text-xs text-stone-500">
-                Không gian nghệ thuật 3D sinh động theo sát hành trình nuôi dưỡng thói quen tự học của {studentName}
+                0d (Hạt) → 3d (Gieo) → 7d (Mầm) → 14d (Cây con) → 21d (Cây lớn) → Hào quang 30d đến 900d của {studentName}
               </p>
             </div>
           </div>
@@ -97,12 +116,15 @@ export default function FlowerShowcaseModal({
               <span>Streak: {currentStreak} Ngày</span>
             </div>
 
-            {selectedAuraLevel && (
+            {(selectedAuraLevel || selectedGrowthStage) && (
               <button
-                onClick={() => setSelectedAuraLevel(null)}
+                onClick={() => {
+                  setSelectedAuraLevel(null);
+                  setSelectedGrowthStage(null);
+                }}
                 className="absolute top-4 right-4 z-10 text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-500 hover:bg-amber-600 text-white shadow-xs transition-colors"
               >
-                Trở về hoa của tôi
+                Trở về hoa hiện tại
               </button>
             )}
 
@@ -115,6 +137,7 @@ export default function FlowerShowcaseModal({
                 size="lg"
                 displayMode={displayMode}
                 previewAuraLevel={selectedAuraLevel}
+                previewGrowthStage={selectedGrowthStage}
                 interactiveControls={true}
                 onModeChange={setDisplayMode}
               />
@@ -123,20 +146,66 @@ export default function FlowerShowcaseModal({
             {/* Thông điệp ý nghĩa mốc hiện tại */}
             <div className="mt-2 text-center max-w-sm px-4 py-2.5 rounded-2xl bg-stone-50 border border-stone-200/80 text-xs text-stone-700">
               <p className="font-semibold text-stone-900 mb-0.5">
-                {activeViewingAura ? activeViewingAura.name : "Hoa Hướng Dương Rực Rỡ"}
+                {activeViewingAura
+                  ? activeViewingAura.name
+                  : selectedGrowthStage && GROWTH_STAGES[selectedGrowthStage]
+                  ? GROWTH_STAGES[selectedGrowthStage].name
+                  : currentStreak >= 21
+                  ? "Hoa Hướng Dương Rực Rỡ"
+                  : "Mầm Xanh Vươn Lên (Dưới 21 ngày cộng dồn)"}
               </p>
               <p className="text-[11px] text-stone-600 leading-relaxed italic">
-                &ldquo;{activeViewingAura ? activeViewingAura.meaning : "Mỗi ngày hoàn thành nhiệm vụ vi mô, hoa sẽ đón nhận thêm ánh nắng và hào quang rực rỡ."}&rdquo;
+                &ldquo;
+                {activeViewingAura
+                  ? activeViewingAura.meaning
+                  : selectedGrowthStage && GROWTH_STAGES[selectedGrowthStage]
+                  ? GROWTH_STAGES[selectedGrowthStage].description
+                  : currentStreak < 21
+                  ? "Dưới 21 ngày, nếu lỡ quên điểm danh ngày nào, chuỗi của bạn sẽ được cộng dồn tiếp tục để đảm bảo bạn đạt mốc 21 ngày thoát khỏi lực cản trì hoãn!"
+                  : "Từ 21 ngày trở đi, cây hoa bước vào giai đoạn rèn đúc bản sắc. Hãy chăm sóc đều đặn nhé!"}
+                &rdquo;
               </p>
+            </div>
+
+            {/* KHỐI KHÔI PHỤC CHUỖI (NẾU CÓ CƠ CHẾ CẦN KHÔI PHỤC HOẶC HIỂN THỊ LƯỢT CÒN LẠI) */}
+            <div className="w-full mt-4 p-3.5 rounded-2xl bg-gradient-to-r from-sky-50 via-blue-50 to-indigo-50 border border-sky-200 text-xs space-y-2">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-1.5 font-bold text-sky-950">
+                  <ShieldCheck className="w-4 h-4 text-sky-600" />
+                  <span>Vé Khôi Phục Chuỗi</span>
+                </div>
+                <span className="font-extrabold px-2 py-0.5 rounded-full bg-sky-200/80 text-sky-900 text-[11px]">
+                  {gracePassesAvailable} Lượt khả dụng
+                </span>
+              </div>
+              <p className="text-[11px] text-sky-800 leading-relaxed">
+                Vừa trồng bạn có sẵn <strong>1 lượt khôi phục chuỗi</strong>. Mỗi 30 ngày kiên trì bạn sẽ nhận thêm 1 lượt mới.
+                {canRestoreStreak && (
+                  <span className="block mt-1 font-semibold text-rose-700">
+                    ⚠️ Chuỗi cũ của bạn là {savedStreakBeforeBreak} ngày. Bạn có thể khôi phục lại ngay bây giờ!
+                  </span>
+                )}
+              </p>
+              {canRestoreStreak && (
+                <button
+                  type="button"
+                  disabled={restoring}
+                  onClick={handleRestoreClick}
+                  className="w-full py-2 px-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-xs transition-colors active:scale-98 disabled:opacity-50"
+                >
+                  <RotateCcw className={`w-3.5 h-3.5 ${restoring ? "animate-spin" : ""}`} />
+                  <span>Khôi Phục Về Chuỗi {savedStreakBeforeBreak} Ngày Ngay</span>
+                </button>
+              )}
             </div>
 
             {/* Thanh tiến độ đến cấp kế tiếp */}
             {nextAura && (
-              <div className="w-full mt-4 p-3 rounded-2xl bg-amber-50/70 border border-amber-200 text-xs space-y-1.5">
+              <div className="w-full mt-3 p-3 rounded-2xl bg-amber-50/70 border border-amber-200 text-xs space-y-1.5">
                 <div className="flex items-center justify-between text-[11px] font-bold text-amber-900">
                   <span className="flex items-center gap-1">
                     <Sparkles className="w-3 h-3 text-amber-600" />
-                    Cấp tiếp theo: {nextAura.name} (Cấp {nextAura.level})
+                    Cấp tiếp theo: {nextAura.name} ({nextAura.minStreak} ngày)
                   </span>
                   <span>Còn {daysToNext} ngày</span>
                 </div>
@@ -150,7 +219,7 @@ export default function FlowerShowcaseModal({
             )}
           </div>
 
-          {/* CỘT PHẢI: BỘ SƯU TẬP 8 CẤP HÀO QUANG & 6 GIAI ĐOẠN SINH TRƯỞNG */}
+          {/* CỘT PHẢI: BỘ SƯU TẬP 8 CẤP HÀO QUANG & 5 MỐC VÒNG ĐỜI */}
           <div className="lg:col-span-6 space-y-4">
             {/* TAB SELECTOR */}
             <div className="flex items-center p-1 bg-stone-200/80 rounded-2xl">
@@ -167,7 +236,7 @@ export default function FlowerShowcaseModal({
                 }`}
               >
                 <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-                <span>8 Cấp Độ Hào Quang Streak</span>
+                <span>8 Cấp Hào Quang (30d - 900d)</span>
               </button>
 
               <button
@@ -183,19 +252,19 @@ export default function FlowerShowcaseModal({
                 }`}
               >
                 <Sprout className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Vòng Đời Sinh Trưởng (6 Chặng)</span>
+                <span>5 Mốc Sinh Trưởng (0d - 21d)</span>
               </button>
             </div>
 
-            {/* TAB 1: 8 CẤP ĐỘ HÀO QUANG */}
+            {/* TAB 1: 8 CẤP ĐỘ HÀO QUANG (30, 50, 100, 200, 300, 450, 700, 900 ngày) */}
             {activeTab === "aura" && (
               <div className="space-y-2.5 animate-in fade-in">
                 <div className="text-[11px] text-stone-500 px-1 flex items-center justify-between">
-                  <span>Nhấn vào từng cấp để xem trước hiệu ứng hoa tỏa sáng:</span>
-                  <span className="font-bold text-amber-700">Mốc 3 → 150 ngày</span>
+                  <span>Nhấn vào từng cấp để xem trước hoa 3D tỏa sáng:</span>
+                  <span className="font-bold text-amber-700">Mốc 30 → 900 ngày</span>
                 </div>
 
-                <div className="space-y-2 max-h-[460px] overflow-y-auto pr-1">
+                <div className="space-y-2 max-h-[480px] overflow-y-auto pr-1">
                   {AURA_LEVELS.map((aura) => {
                     const isUnlocked = currentStreak >= aura.minStreak;
                     const isSelected = selectedAuraLevel === aura.level;
@@ -204,7 +273,10 @@ export default function FlowerShowcaseModal({
                     return (
                       <div
                         key={aura.level}
-                        onClick={() => setSelectedAuraLevel(aura.level)}
+                        onClick={() => {
+                          setSelectedAuraLevel(aura.level);
+                          setSelectedGrowthStage(null);
+                        }}
                         className={`p-3 rounded-2xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
                           isSelected
                             ? "bg-white border-amber-500 ring-2 ring-amber-400/40 shadow-md"
@@ -246,7 +318,7 @@ export default function FlowerShowcaseModal({
                           <div>
                             <div className="flex items-center gap-2">
                               <h4 className="text-xs font-bold text-stone-900">
-                                Cấp {aura.level}: {aura.name}
+                                {aura.name}
                               </h4>
                               {isCurrent && (
                                 <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full bg-amber-500 text-white">
@@ -281,36 +353,63 @@ export default function FlowerShowcaseModal({
               </div>
             )}
 
-            {/* TAB 2: VÒNG ĐỜI SINH TRƯỞNG */}
+            {/* TAB 2: 5 MỐC VÒNG ĐỜI SINH TRƯỞNG (0, 3, 7, 14, 21 ngày) */}
             {activeTab === "growth" && (
               <div className="space-y-2.5 animate-in fade-in">
-                <p className="text-[11px] text-stone-500 px-1">
-                  6 giai đoạn lớn lên từ hạt mầm đến khi bung nở rực rỡ trong chậu gốm pastel:
-                </p>
+                <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900 leading-relaxed">
+                  💡 <strong>Quy tắc cộng dồn dưới 21 ngày:</strong> Trong 21 ngày đầu tiên, bạn sẽ không bị mất chuỗi nếu quên điểm danh. Tất cả ngày thực hiện sẽ được cộng dồn tích lũy để bạn vững vàng đạt cột mốc Cây Lớn Rực Rỡ!
+                </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[460px] overflow-y-auto pr-1">
-                  {Object.values(GROWTH_STAGES).map((stg) => {
+                <div className="space-y-2 max-h-[440px] overflow-y-auto pr-1">
+                  {[
+                    GROWTH_STAGES.seed,
+                    GROWTH_STAGES.sowing,
+                    GROWTH_STAGES.sprout,
+                    GROWTH_STAGES.seedling,
+                    GROWTH_STAGES.bloom,
+                    GROWTH_STAGES.wilting
+                  ].map((stg) => {
                     const isSelected = selectedGrowthStage === stg.stageKey;
+                    const isReached = currentStreak >= stg.minStreak;
 
                     return (
                       <div
                         key={stg.stageKey}
-                        onClick={() => setSelectedGrowthStage(stg.stageKey)}
-                        className={`p-3 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between ${
+                        onClick={() => {
+                          setSelectedGrowthStage(stg.stageKey);
+                          setSelectedAuraLevel(null);
+                        }}
+                        className={`p-3 rounded-2xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
                           isSelected
                             ? "bg-white border-emerald-500 ring-2 ring-emerald-300 shadow-md"
-                            : "bg-white/90 border-stone-200 hover:border-emerald-300 hover:bg-white shadow-xs"
+                            : isReached
+                            ? "bg-white border-stone-200 hover:border-emerald-300"
+                            : "bg-stone-100/80 border-stone-200/80 opacity-75 hover:opacity-100 hover:bg-white"
                         }`}
                       >
-                        <div className="flex items-center gap-2 mb-1.5">
-                          <div className="w-7 h-7 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center text-xs font-bold shrink-0">
-                            <Sprout className="w-3.5 h-3.5" />
+                        <div className="flex items-center gap-3">
+                          <div className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center text-xs font-bold shrink-0">
+                            <Sprout className="w-4 h-4" />
                           </div>
-                          <h4 className="text-xs font-bold text-stone-900">{stg.name}</h4>
+                          <div>
+                            <h4 className="text-xs font-bold text-stone-900">{stg.name}</h4>
+                            <p className="text-[11px] text-stone-600 line-clamp-1">
+                              {stg.description}
+                            </p>
+                          </div>
                         </div>
-                        <p className="text-[11px] text-stone-600 leading-relaxed">
-                          {stg.description}
-                        </p>
+
+                        <div className="shrink-0">
+                          {isReached ? (
+                            <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                              Đạt mốc
+                            </span>
+                          ) : (
+                            <span className="text-[10px] font-medium text-stone-500 bg-stone-200/80 px-2 py-0.5 rounded-full">
+                              {stg.minStreak} ngày
+                            </span>
+                          )}
+                        </div>
                       </div>
                     );
                   })}
@@ -323,7 +422,7 @@ export default function FlowerShowcaseModal({
         {/* FOOTER MODAL */}
         <div className="px-5 py-3.5 bg-stone-100/90 border-t border-stone-200/80 flex items-center justify-between shrink-0">
           <span className="text-[11px] text-stone-500 italic">
-            💡 Gợi ý: Chế độ Hoạt ảnh 3D chạy mượt 60fps với chu kỳ thở lặp vô tận (Seamless Loop).
+            🌱 Hệ thống chuẩn: Dưới 21 ngày cộng dồn • Trên 21 ngày rèn đúc bản sắc • Nhận 1 lượt khôi phục chuỗi mỗi 30 ngày.
           </span>
           <button
             onClick={onClose}

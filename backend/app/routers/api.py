@@ -17,7 +17,7 @@ from app.schemas import (
     StudentCreate, StudentResponse, RoadmapResponse,
     PlannedTaskCreate, PlannedTaskUpdate, PlannedTaskResponse, PlanningOverviewResponse,
     CheckinCreate, CheckinResponse,
-    GardenStatusResponse, WaterActionResponse,
+    GardenStatusResponse, WaterActionResponse, StreakRestoreResponse,
     TeacherDashboardResponse, StudentAlertItem,
     BadgeResponse, StreakInventoryResponse, TimeCapsuleCreate, TimeCapsuleResponse,
     MilestoneReward, DailyQuizPackageResponse, QuizSubmissionCreate, QuizSubmissionResponse,
@@ -35,7 +35,7 @@ from app.services.ai_service import call_ai_roadmap, call_ai_mentor
 from app.services.garden_service import (
     calculate_flower_state, evaluate_inactive_state, STORY_MESSAGES,
     ensure_badges_seeded, get_or_create_inventory, check_and_award_badges,
-    get_journey_milestones_status, DEFAULT_BADGES
+    get_journey_milestones_status, DEFAULT_BADGES, restore_student_streak
 )
 router = APIRouter(prefix="/api", tags=["Sunflower API"])
 
@@ -851,7 +851,9 @@ def get_garden_status(student_id: str, db: Session = Depends(get_db)):
         recent_moods=recent_moods,
         completion_trend=completion_trend,
         shields_available=inventory.freeze_shields_available,
-        grace_passes_available=inventory.grace_passes_available,
+        grace_passes_available=inventory.grace_passes_available or 0,
+        saved_streak_before_break=inventory.saved_streak_before_break or 0,
+        can_restore_streak=(inventory.grace_passes_available or 0) > 0 and (inventory.saved_streak_before_break or 0) > flower.consecutive_days,
         unlocked_badges_count=len(unlocked_badge_map),
         badges=badge_responses,
         active_capsule=capsule_resp,
@@ -889,6 +891,19 @@ def water_flower(student_id: str, db: Session = Depends(get_db)):
         message="Tưới nước thành công! Bông hoa đang mỉm cười đón nhận sự chăm sóc của bạn.",
         new_state=flower.current_state,
         water_drops=flower.water_drops
+    )
+@router.post("/garden/{student_id}/restore-streak", response_model=StreakRestoreResponse)
+def restore_streak_endpoint(student_id: str, db: Session = Depends(get_db)):
+    """Khôi phục lại chuỗi streak cho học sinh khi cây bị héo/đứt chuỗi"""
+    success, msg, restored_streak, passes_left, flower_state = restore_student_streak(student_id=student_id, db=db)
+    if not success:
+        raise HTTPException(status_code=400, detail=msg)
+    return StreakRestoreResponse(
+        success=True,
+        message=msg,
+        restored_streak=restored_streak,
+        grace_passes_left=passes_left,
+        flower_state=flower_state
     )
 
 # --- 7. TIME CAPSULE & BADGES ENDPOINTS ---

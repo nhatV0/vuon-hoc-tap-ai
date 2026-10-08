@@ -146,6 +146,8 @@ export interface GardenStatus {
   completion_trend: number[];
   shields_available?: number;
   grace_passes_available?: number;
+  saved_streak_before_break?: number;
+  can_restore_streak?: boolean;
   unlocked_badges_count?: number;
   badges?: BadgeItem[];
   active_capsule?: TimeCapsuleItem | null;

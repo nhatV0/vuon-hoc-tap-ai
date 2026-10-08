@@ -19,8 +19,7 @@ import {
   LogOut,
   Eye,
   Film,
-  Image as ImageIcon,
-  Code2
+  Image as ImageIcon
 } from "lucide-react";
 import SunflowerVisual, { DisplayMode } from "@/components/SunflowerVisual";
 import FlowerShowcaseModal from "@/components/FlowerShowcaseModal";
@@ -184,12 +183,30 @@ export default function StudentGardenDashboard() {
       setIsWatering(false);
     }
   };
+  const handleRestoreStreak = async () => {
+    if (!student) return;
+    try {
+      const res = await fetch(`${API_BASE}/api/garden/${student.id}/restore-streak`, {
+        method: "POST"
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setWaterToast(`🌟 ${data.message}`);
+        setTimeout(() => setWaterToast(null), 4000);
+        await fetchStudentData();
+      } else {
+        const errData = await res.json();
+        alert(errData.detail || "Không thể khôi phục chuỗi.");
+      }
+    } catch (err) {
+      console.error("Failed to restore streak:", err);
+    }
+  };
 
   const handleCheckinSuccess = async () => {
     setShowCheckinModal(false);
     await fetchStudentData();
   };
-
   // Interactive Task Completion with 3-stage animation:
   // 1. striked (0ms): line-through text-stone-400 decoration-amber-500
   // 2. sliding (350ms): translate-x, fade out, scale down
@@ -372,6 +389,17 @@ export default function StudentGardenDashboard() {
                   <Droplets className="w-3.5 h-3.5 fill-sky-500 text-sky-500" />
                   <span>Tưới nước ({garden?.water_drops ?? 0})</span>
                 </button>
+                {garden?.can_restore_streak && (
+                  <button
+                    type="button"
+                    onClick={handleRestoreStreak}
+                    className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-700 hover:to-indigo-700 text-white font-bold flex items-center gap-1.5 transition-all shadow-xs active:scale-95 animate-pulse"
+                    title="Khôi phục lại chuỗi ngày học tập ban đầu"
+                  >
+                    <RotateCcw className="w-3.5 h-3.5" />
+                    <span>Khôi phục chuỗi ({garden?.saved_streak_before_break} ngày)</span>
+                  </button>
+                )}
 
                 <Link
                   href="/planning"
@@ -403,12 +431,12 @@ export default function StudentGardenDashboard() {
                 />
               </div>
 
-              {/* CÔNG TẮC CHUYỂN CHẾ ĐỘ HIỂN THỊ (3D MOTION / ẢNH HD / SVG) */}
+              {/* CÔNG TẮC CHUYỂN CHẾ ĐỘ HIỂN THỊ (3D MOTION / ẢNH HD) */}
               <div className="mt-2.5 flex items-center p-0.5 rounded-xl bg-stone-100/90 border border-stone-200/90 shadow-2xs text-[10px]">
                 <button
                   type="button"
                   onClick={() => setGardenDisplayMode("3d_motion")}
-                  className={`px-2 py-0.5 rounded-lg font-bold flex items-center gap-1 transition-all ${
+                  className={`px-2.5 py-0.5 rounded-lg font-bold flex items-center gap-1 transition-all ${
                     gardenDisplayMode === "3d_motion"
                       ? "bg-white text-amber-700 shadow-2xs"
                       : "text-stone-500 hover:text-stone-800"
@@ -422,7 +450,7 @@ export default function StudentGardenDashboard() {
                 <button
                   type="button"
                   onClick={() => setGardenDisplayMode("3d_static")}
-                  className={`px-2 py-0.5 rounded-lg font-bold flex items-center gap-1 transition-all ${
+                  className={`px-2.5 py-0.5 rounded-lg font-bold flex items-center gap-1 transition-all ${
                     gardenDisplayMode === "3d_static"
                       ? "bg-white text-amber-700 shadow-2xs"
                       : "text-stone-500 hover:text-stone-800"
@@ -430,21 +458,7 @@ export default function StudentGardenDashboard() {
                   title="Chế độ Ảnh 3D tĩnh sắc nét tách nền"
                 >
                   <ImageIcon className="w-2.5 h-2.5 text-blue-500" />
-                  <span>Ảnh HD</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setGardenDisplayMode("svg_vector")}
-                  className={`px-2 py-0.5 rounded-lg font-bold flex items-center gap-1 transition-all ${
-                    gardenDisplayMode === "svg_vector"
-                      ? "bg-white text-amber-700 shadow-2xs"
-                      : "text-stone-500 hover:text-stone-800"
-                  }`}
-                  title="Chế độ Vector SVG nhẹ nhàng"
-                >
-                  <Code2 className="w-2.5 h-2.5 text-emerald-500" />
-                  <span>SVG</span>
+                  <span>Ảnh 3D HD</span>
                 </button>
               </div>
 
@@ -717,6 +731,10 @@ export default function StudentGardenDashboard() {
         currentStreak={streakDays}
         waterDrops={garden?.water_drops ?? 0}
         studentName={student?.name}
+        gracePassesAvailable={garden?.grace_passes_available ?? 1}
+        savedStreakBeforeBreak={garden?.saved_streak_before_break ?? 0}
+        canRestoreStreak={garden?.can_restore_streak ?? false}
+        onRestoreStreak={handleRestoreStreak}
       />
     </div>
   );

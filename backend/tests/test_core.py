@@ -34,22 +34,21 @@ app.dependency_overrides[get_db] = override_get_db
 client = TestClient(app)
 
 def test_garden_state_machine_streak():
-    # Kiểm tra streak 7 ngày kích hoạt CHAM_HOC
-    today = date(2026, 10, 3)
+    # Kiểm tra streak 21 ngày kích hoạt CHAM_HOC (Cây Lớn Rực Rỡ)
+    today = date(2026, 10, 22)
     yesterday = today - timedelta(days=1)
     
     state, streak, story = calculate_flower_state(
         current_state=FlowerState.TICH_CUC,
         last_checkin_date=yesterday,
         checkin_date=today,
-        consecutive_days=6,
+        consecutive_days=20,
         completion_rate=80,
         mood=MoodType.HAPPY
     )
-    assert streak == 7
+    assert streak == 21
     assert state == FlowerState.CHAM_HOC
     assert "hào quang" in story
-
 def test_garden_inactive_evaluation():
     # Kiểm tra vắng mặt 4 ngày chuyển THIEU_NUOC
     today = date(2026, 10, 10)

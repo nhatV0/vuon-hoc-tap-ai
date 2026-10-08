@@ -31,20 +31,19 @@ def test_streak_calculation_consecutive_days():
     )
     assert streak == 2
 
-    # Đến ngày 7: Kích hoạt Hoa Chăm Học
-    day_7 = base_date + timedelta(days=6)
-    state_7, streak_7, story_7 = calculate_flower_state(
+    # Đến ngày 21: Kích hoạt Hoa Chăm Học (Cây Lớn Rực Rỡ)
+    day_21 = base_date + timedelta(days=20)
+    state_21, streak_21, story_21 = calculate_flower_state(
         current_state=state,
-        last_checkin_date=day_7 - timedelta(days=1),
-        checkin_date=day_7,
-        consecutive_days=6,
+        last_checkin_date=day_21 - timedelta(days=1),
+        checkin_date=day_21,
+        consecutive_days=20,
         completion_rate=90,
         mood=MoodType.HAPPY
     )
-    assert streak_7 == 7
-    assert state_7 == FlowerState.CHAM_HOC
-    assert "hào quang" in story_7
-
+    assert streak_21 == 21
+    assert state_21 == FlowerState.CHAM_HOC
+    assert "hào quang" in story_21
 def test_water_deficiency_and_recovery():
     """Kiểm tra hoa thiếu nước và phục hồi khi checkin trở lại"""
     today = date(2026, 10, 10)
@@ -55,7 +54,7 @@ def test_water_deficiency_and_recovery():
     assert state == FlowerState.THIEU_NUOC
     assert "khát nước" in story
 
-    # Khi học sinh check-in trở lại: Hồi sinh hoa tích cực
+    # 1. Khi học sinh streak < 21 ngày check-in trở lại: Được cộng dồn chuỗi (4 + 1 = 5)
     recovered_state, new_streak, new_story = calculate_flower_state(
         current_state=state,
         last_checkin_date=last_active,
@@ -65,4 +64,15 @@ def test_water_deficiency_and_recovery():
         mood=MoodType.NEUTRAL
     )
     assert recovered_state == FlowerState.TICH_CUC
-    assert new_streak == 1 # Bắt đầu chuỗi mới sau khi vắng mặt
+    assert new_streak == 5 # Cộng dồn để đủ 21 ngày
+
+    # 2. Khi học sinh streak >= 21 ngày vắng mặt: Chuyển về 1 để chờ khôi phục
+    recovered_mature, mature_streak, _ = calculate_flower_state(
+        current_state=FlowerState.THIEU_NUOC,
+        last_checkin_date=last_active,
+        checkin_date=today,
+        consecutive_days=35,
+        completion_rate=75,
+        mood=MoodType.NEUTRAL
+    )
+    assert mature_streak == 1
