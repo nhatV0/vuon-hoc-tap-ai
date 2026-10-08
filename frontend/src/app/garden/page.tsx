@@ -871,7 +871,13 @@ export default function StudentGardenDashboard() {
       <FocusTimerModal
         isOpen={showFocusTimer}
         onClose={() => setShowFocusTimer(false)}
+        studentId={student?.id}
         associatedTask={focusTimerTask}
+        onRewardClaimed={(earned) => {
+          setWaterToast(`💧 Tuyệt vời! Bạn nhận được +${earned} giọt nước từ phiên tập trung Pomodoro!`);
+          setTimeout(() => setWaterToast(null), 4000);
+          fetchStudentData();
+        }}
         onTaskCompleted={(completedTask) => {
           const animatedTask = tasks.find((t) => t.id === completedTask.id);
           if (animatedTask && !animatedTask.is_completed) {

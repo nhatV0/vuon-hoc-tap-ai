@@ -17,7 +17,7 @@ from app.schemas import (
     StudentCreate, StudentResponse, RoadmapResponse,
     PlannedTaskCreate, PlannedTaskUpdate, PlannedTaskResponse, PlanningOverviewResponse,
     CheckinCreate, CheckinResponse,
-    GardenStatusResponse, WaterActionResponse, StreakRestoreResponse,
+    GardenStatusResponse, WaterActionResponse, StreakRestoreResponse, PomodoroRewardRequest, PomodoroRewardResponse,
     TeacherDashboardResponse, StudentAlertItem,
     BadgeResponse, StreakInventoryResponse, TimeCapsuleCreate, TimeCapsuleResponse,
     MilestoneReward, DailyQuizPackageResponse, QuizSubmissionCreate, QuizSubmissionResponse,
@@ -920,6 +920,50 @@ def restore_streak_endpoint(student_id: str, db: Session = Depends(get_db)):
         grace_passes_left=passes_left,
         flower_state=flower_state
     )
+@router.post("/garden/{student_id}/pomodoro-reward", response_model=PomodoroRewardResponse)
+def reward_pomodoro_session(
+    student_id: str,
+    data: Optional[PomodoroRewardRequest] = None,
+    db: Session = Depends(get_db)
+):
+    """Thưởng giọt nước khi học sinh hoàn thành phiên tập trung Pomodoro"""
+    student = db.query(Student).filter(Student.id == student_id).first()
+    if not student:
+        raise HTTPException(status_code=404, detail="Không tìm thấy học sinh")
+
+    flower = db.query(FlowerStatus).filter(FlowerStatus.student_id == student_id).first()
+    if not flower:
+        flower = FlowerStatus(
+            student_id=student_id,
+            consecutive_days=1,
+            current_state=FlowerState.TICH_CUC,
+            water_drops=1,
+            story_message="Cây hoa bắt đầu đón nhận ánh sáng tập trung của bạn."
+        )
+        db.add(flower)
+        db.flush()
+
+    # Thưởng 1 giọt nước cho mỗi phiên tập trung >= 5 phút, 2 giọt cho phiên sâu >= 25 phút
+    duration = data.duration_minutes if data else 25
+    earned = 2 if duration >= 25 else 1
+    flower.water_drops += earned
+
+    # Cập nhật trạng thái cây nếu đang thiếu nước
+    if flower.current_state == FlowerState.THIEU_NUOC:
+        flower.current_state = FlowerState.TICH_CUC
+        flower.story_message = "Cây hoa đã hồi sinh và rạng rỡ nhờ tinh thần tập trung kiên trì của bạn!"
+
+    db.commit()
+    db.refresh(flower)
+
+    return PomodoroRewardResponse(
+        success=True,
+        message=f"Tuyệt vời! Hoàn thành {duration} phút tập trung sâu, bạn nhận được +{earned} giọt nước tưới cây!",
+        water_drops_earned=earned,
+        total_water_drops=flower.water_drops,
+        pomodoro_count=1
+    )
+
 
 # --- 7. TIME CAPSULE & BADGES ENDPOINTS ---
 @router.post("/capsule", response_model=TimeCapsuleResponse, status_code=status.HTTP_201_CREATED)

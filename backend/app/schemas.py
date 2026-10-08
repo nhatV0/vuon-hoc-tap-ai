@@ -270,6 +270,17 @@ class WaterActionResponse(BaseModel):
     message: str
     new_state: FlowerState
     water_drops: int
+class PomodoroRewardRequest(BaseModel):
+    duration_minutes: int = Field(25, ge=1, le=180)
+    task_id: Optional[str] = None
+    task_title: Optional[str] = None
+
+class PomodoroRewardResponse(BaseModel):
+    success: bool
+    message: str
+    water_drops_earned: int
+    total_water_drops: int
+    pomodoro_count: int
 
 # --- Teacher Dashboard Schemas ---
 class StudentAlertItem(BaseModel):
