@@ -461,12 +461,12 @@ export default function SunflowerVisual({
     }
   }, [currentVideo, internalMode]);
 
-  // Kích thước chuẩn tỉ lệ 1:1 vuông vức, cân đối hoàn hảo trong từng khung hình
+  // Kích thước chuẩn tỉ lệ 1:1 vuông vức, chiếm ~2/3 chiều rộng khung hiển thị
   const sizeClasses = {
     sm: "w-28 h-28 aspect-square",
-    md: "w-48 h-48 sm:w-56 sm:h-56 aspect-square",
-    lg: "w-60 h-60 sm:w-64 sm:h-64 aspect-square",
-    xl: "w-72 h-72 sm:w-80 sm:h-80 aspect-square"
+    md: "w-56 h-56 sm:w-64 sm:h-64 aspect-square",
+    lg: "w-72 h-72 sm:w-96 sm:h-96 aspect-square max-w-[85vw]",
+    xl: "w-88 h-88 sm:w-[420px] sm:h-[420px] aspect-square max-w-[90vw]"
   }[size];
   const handleModeSwitch = (newMode: DisplayMode) => {
     setInternalMode(newMode);

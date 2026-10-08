@@ -373,16 +373,16 @@ export default function StudentGardenDashboard() {
 
       {/* 2. MAIN WORKSPACE TẬP TRUNG */}
       <main className="max-w-3xl mx-auto px-4 mt-6 space-y-6">
-        {/* BANNER HOA HƯỚNG DƯƠNG 3D: CÂN ĐỐI, GỌN GÀNG, HỢP LÝ */}
-        <div className="p-5 sm:p-6 rounded-3xl bg-white border border-stone-200/90 shadow-sm relative overflow-hidden flex flex-col items-center text-center space-y-3">
-          {/* 1. Huy hiệu Streak Mốc Màu */}
+        {/* BANNER HOA HƯỚNG DƯƠNG 3D: HOA CHIẾM 2/3 KHUNG, NÚT THU NHỎ, TEXT XUỐNG DƯỚI CÙNG */}
+        <div className="p-5 sm:p-6 rounded-3xl bg-white border border-stone-200/90 shadow-sm relative overflow-hidden flex flex-col items-center text-center space-y-3.5">
+          {/* 1. Huy hiệu Streak Mốc Màu ở trên cùng */}
           <div>
             {(() => {
               const isWilting = garden?.current_state === "thieu_nuoc";
               const badgeStyle = getStreakBadgeStyle(streakDays, isWilting);
               return (
                 <div
-                  className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider border shadow-2xs ${badgeStyle.bg} ${badgeStyle.border} ${badgeStyle.text}`}
+                  className={`inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider border shadow-2xs ${badgeStyle.bg} ${badgeStyle.border} ${badgeStyle.text}`}
                 >
                   <Flame className={`w-3.5 h-3.5 ${badgeStyle.flameFill} ${badgeStyle.flameText}`} />
                   <span>Hôm Nay: {badgeStyle.label}</span>
@@ -391,8 +391,8 @@ export default function StudentGardenDashboard() {
             })()}
           </div>
 
-          {/* 2. CHẬU HOA HƯỚNG DƯƠNG 3D VÀO CHÍNH GIỮA */}
-          <div className="relative flex flex-col items-center justify-center">
+          {/* 2. CHẬU HOA HƯỚNG DƯƠNG 3D VÀO CHÍNH GIỮA, CHIẾM 2/3 KHUNG */}
+          <div className="relative flex flex-col items-center justify-center w-full max-w-md my-1">
             <SunflowerVisual
               state={garden?.current_state || "tich_cuc"}
               streak={streakDays}
@@ -402,34 +402,34 @@ export default function StudentGardenDashboard() {
               onModeChange={setGardenDisplayMode}
             />
 
-            {/* THANH ĐIỀU KHIỂN & PHÒNG TRƯNG BÀY (XẾP CHUNG 1 HÀNG GỌN GÀNG) */}
-            <div className="mt-2.5 flex flex-wrap items-center justify-center gap-2">
-              <div className="flex items-center p-0.5 rounded-xl bg-stone-100/90 border border-stone-200/90 shadow-2xs text-[11px]">
+            {/* THANH ĐIỀU KHIỂN THU NHỎ TINH TẾ */}
+            <div className="mt-2 flex flex-wrap items-center justify-center gap-1.5">
+              <div className="flex items-center p-0.5 rounded-lg bg-stone-100/90 border border-stone-200/90 shadow-2xs text-[10px]">
                 <button
                   type="button"
                   onClick={() => setGardenDisplayMode("3d_motion")}
-                  className={`px-2.5 py-1 rounded-lg font-bold flex items-center gap-1 transition-all ${
+                  className={`px-2 py-0.5 rounded-md font-bold flex items-center gap-1 transition-all ${
                     gardenDisplayMode === "3d_motion"
                       ? "bg-white text-amber-700 shadow-2xs"
                       : "text-stone-500 hover:text-stone-800"
                   }`}
                   title="Chế độ Hoạt ảnh 3D: Cây hoa thở nhẹ và chuyển động mượt mà 60fps"
                 >
-                  <Film className="w-3.5 h-3.5 text-amber-500" />
+                  <Film className="w-2.5 h-2.5 text-amber-500" />
                   <span>3D Motion</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setGardenDisplayMode("3d_static")}
-                  className={`px-2.5 py-1 rounded-lg font-bold flex items-center gap-1 transition-all ${
+                  className={`px-2 py-0.5 rounded-md font-bold flex items-center gap-1 transition-all ${
                     gardenDisplayMode === "3d_static"
                       ? "bg-white text-amber-700 shadow-2xs"
                       : "text-stone-500 hover:text-stone-800"
                   }`}
                   title="Chế độ Ảnh 3D HD: Hình ảnh tĩnh độ phân giải cao tách nền sắc nét"
                 >
-                  <ImageIcon className="w-3.5 h-3.5 text-blue-500" />
+                  <ImageIcon className="w-2.5 h-2.5 text-blue-500" />
                   <span>Ảnh 3D HD</span>
                 </button>
               </div>
@@ -437,27 +437,17 @@ export default function StudentGardenDashboard() {
               <button
                 type="button"
                 onClick={() => setShowFlowerShowcase(true)}
-                className="px-3 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 text-[11px] font-bold flex items-center gap-1.5 transition-colors shadow-2xs"
+                className="px-2.5 py-0.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 text-[10px] font-bold flex items-center gap-1 transition-colors shadow-2xs"
                 title="Xem phòng trưng bày: Chiêm ngưỡng đầy đủ 5 mốc sinh trưởng và 8 cấp độ hào quang tỏa sáng rực rỡ"
               >
-                <Eye className="w-3.5 h-3.5 text-amber-600" />
+                <Eye className="w-3 h-3 text-amber-600" />
                 <span>Phòng Trưng Bày Hào Quang</span>
               </button>
             </div>
           </div>
 
-          {/* 3. Lời chào và Thông điệp truyền cảm hứng */}
-          <div className="space-y-1 max-w-lg pt-1">
-            <h1 className="text-lg sm:text-xl font-extrabold text-stone-900 tracking-tight">
-              Chào {student?.name || "bạn học"}, giữ vững ngọn lửa nhé!
-            </h1>
-            <p className="text-xs text-stone-600 italic leading-relaxed">
-              &ldquo;{garden?.story_message || "Chỉ cần 5 phút hôm nay để giữ cho chuỗi không bị đứt đoạn."}&rdquo;
-            </p>
-          </div>
-
-          {/* 4. Các nút hành động chính (Nước thánh, Kế hoạch 7 ngày) */}
-          <div className="flex flex-wrap items-center justify-center gap-2 pt-0.5 text-xs">
+          {/* 3. CÁC NÚT HÀNH ĐỘNG CHÍNH (NƯỚC THÁNH, KẾ HOẠCH 7 NGÀY) */}
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-1 text-xs">
             {/* NÚT NƯỚC THÁNH (LƯỢT KHÔI PHỤC CHUỖI) */}
             <button
               onClick={handleRestoreStreak}
@@ -488,6 +478,16 @@ export default function StudentGardenDashboard() {
               <ListTodo className="w-3.5 h-3.5 text-stone-500" />
               <span>Kế hoạch 7 ngày</span>
             </Link>
+          </div>
+
+          {/* 4. DÒNG TEXT LỜI CHÀO & SUY NGẪM ĐƯỢC CHUYỂN XUỐNG DƯỚI CÙNG */}
+          <div className="space-y-1 max-w-lg pt-1 border-t border-stone-100/90 w-full">
+            <h1 className="text-base sm:text-lg font-extrabold text-stone-900 tracking-tight">
+              Chào {student?.name || "bạn học"}, giữ vững ngọn lửa nhé!
+            </h1>
+            <p className="text-[11px] sm:text-xs text-stone-500 italic leading-relaxed">
+              &ldquo;{garden?.story_message || "Chỉ cần 5 phút hôm nay để giữ cho chuỗi không bị đứt đoạn."}&rdquo;
+            </p>
           </div>
 
           {waterToast && (
