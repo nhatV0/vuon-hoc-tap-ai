@@ -214,16 +214,18 @@ export default function DailyCheckinModal({
       });
 
       if (!res.ok) {
-        throw new Error("Không thể gửi dữ liệu phản chiếu");
+        const errJson = await res.json().catch(() => null);
+        throw new Error(errJson?.detail || "Không thể gửi dữ liệu điểm danh");
       }
 
       const data = await res.json();
       setCheckinResult(data);
       onCheckinSuccess(data);
       setStation(4); // Chuyển sang trạm 4 hiển thị kết quả
-    } catch (err) {
+    } catch (err: unknown) {
       console.error(err);
-      alert("Có lỗi khi kết nối máy chủ. Vui lòng kiểm tra lại!");
+      const errMsg = err instanceof Error ? err.message : "Có lỗi khi kết nối máy chủ. Vui lòng kiểm tra lại!";
+      alert(errMsg);
     } finally {
       setIsSubmitting(false);
     }
