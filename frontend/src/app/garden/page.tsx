@@ -396,7 +396,7 @@ export default function StudentGardenDashboard() {
 
       {/* 2. MAIN WORKSPACE TẬP TRUNG */}
       <main className="max-w-3xl mx-auto px-4 mt-6 space-y-6">
-        {/* BANNER HOA HƯỚNG DƯƠNG 3D: HOA CHIẾM 2/3 KHUNG, NÚT THU NHỎ, TEXT XUỐNG DƯỚI CÙNG */}
+        {/* BANNER HOA CẢM XÚC 3D: CÂY HOA CHIẾM 2/3 KHUNG, NÚT THU NHỎ, TEXT XUỐNG DƯỚI CÙNG */}
         <div className="p-5 sm:p-6 rounded-3xl bg-white border border-stone-200/90 shadow-sm relative overflow-hidden flex flex-col items-center text-center space-y-3.5">
           {/* 1. Huy hiệu Streak Mốc Màu ở trên cùng */}
           <div>
@@ -530,7 +530,7 @@ export default function StudentGardenDashboard() {
             {/* NÚT KÍCH HOẠT HẸN GIỜ TẬP TRUNG TOÀN MÀN HÌNH */}
             <RichTooltip
               content="Hẹn Giờ Tập Trung (Focus Flow)"
-              subtext="Bật chế độ toàn màn hình tối giản với hoạt ảnh cánh đồng hoa hướng dương để học sâu không xao nhãng."
+              subtext="Bật chế độ toàn màn hình tối giản với hoạt ảnh cây hoa đồng hành để học sâu không xao nhãng."
               position="top"
             >
               <button
@@ -872,6 +872,7 @@ export default function StudentGardenDashboard() {
         isOpen={showFocusTimer}
         onClose={() => setShowFocusTimer(false)}
         studentId={student?.id}
+        species={((student?.selected_flower || garden?.selected_flower) as FlowerSpecies) || "sunflower"}
         associatedTask={focusTimerTask}
         onRewardClaimed={(earned) => {
           setWaterToast(`💧 Tuyệt vời! Bạn nhận được +${earned} giọt nước từ phiên tập trung Pomodoro!`);

@@ -20,6 +20,7 @@ import {
   SlidersHorizontal
 } from "lucide-react";
 import { PlannedTask, API_BASE } from "@/lib/types";
+import { FlowerSpecies } from "./SunflowerVisual";
 
 export type FocusStage = "focus" | "short_break" | "long_break";
 export type AmbientSoundType = "none" | "zen_bell" | "rain" | "waves" | "wind";
@@ -28,6 +29,7 @@ export interface FocusTimerModalProps {
   isOpen: boolean;
   onClose: () => void;
   studentId?: string;
+  species?: FlowerSpecies;
   associatedTask?: PlannedTask | null;
   onTaskCompleted?: (task: PlannedTask) => void;
   onRewardClaimed?: (earned: number) => void;
@@ -45,11 +47,11 @@ export default function FocusTimerModal({
   isOpen,
   onClose,
   studentId,
+  species = "sunflower",
   associatedTask,
   onTaskCompleted,
   onRewardClaimed,
 }: FocusTimerModalProps) {
-  // Pomodoro Stage & Cycle count
   const [currentStage, setCurrentStage] = useState<FocusStage>("focus");
   const [completedCycles, setCompletedCycles] = useState<number>(0);
   const [selectedPresetId, setSelectedPresetId] = useState<string>("classic");
@@ -79,16 +81,23 @@ export default function FocusTimerModal({
   const [rewardClaimed, setRewardClaimed] = useState<boolean>(false);
   const [waterDropsEarned, setWaterDropsEarned] = useState<number>(0);
 
-  // Background video options
-  const FOCUS_VIDEOS = [
-    { label: "Hoa Hướng Dương Nở", path: "/assets/flower/Sunflower/sunflower_bloom_motion.mp4" },
-    { label: "Hoa Hướng Dương Kim Thái Dương", path: "/assets/flower/Sunflower/sunflower_aura_lvl6_gold.mp4" },
-    { label: "Hoa Sen Tĩnh Tâm", path: "/assets/flower/lotus/lotus_bloom_motion.mp4" },
-    { label: "Hoa Sen Hào Quang Lam Ngọc", path: "/assets/flower/lotus/lotus_aura_lvl2_blue.mp4" },
-  ];
+  // Danh sách video nền tập trung: CHỈ HIỂN THỊ VIDEO CỦA ĐÚNG LOÀI HOA ĐÃ CHỌN
+  const isLotus = species === "lotus";
+  const FOCUS_VIDEOS = isLotus
+    ? [
+        { label: "Hoa Sen Nở Rộ", path: "/assets/flower/lotus/lotus_bloom_motion.mp4" },
+        { label: "Hoa Sen Lam Ngọc Trí Tuệ", path: "/assets/flower/lotus/lotus_aura_lvl2_blue.mp4" },
+        { label: "Hoa Sen Bạch Ngọc Tĩnh Lặng", path: "/assets/flower/lotus/lotus_aura_lvl1_white.mp4" },
+        { label: "Hoa Sen Kim Thái Dương", path: "/assets/flower/lotus/lotus_aura_lvl6_gold.mp4" },
+      ]
+    : [
+        { label: "Hoa Hướng Dương Nở Rộ", path: "/assets/flower/Sunflower/sunflower_bloom_motion.mp4" },
+        { label: "Hoa Hướng Dương Kim Thái Dương", path: "/assets/flower/Sunflower/sunflower_aura_lvl6_gold.mp4" },
+        { label: "Hoa Hướng Dương Bạch Ngọc", path: "/assets/flower/Sunflower/sunflower_aura_lvl1_white.mp4" },
+        { label: "Hoa Hướng Dương Cực Quang", path: "/assets/flower/Sunflower/sunflower_aura_lvl7_rainbow.mp4" },
+      ];
   const [videoIndex, setVideoIndex] = useState<number>(0);
-  const selectedVideo = FOCUS_VIDEOS[videoIndex].path;
-
+  const selectedVideo = FOCUS_VIDEOS[videoIndex % FOCUS_VIDEOS.length].path;
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const timerIntervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -906,7 +915,9 @@ export default function FocusTimerModal({
               </h2>
               <p className="text-xs text-stone-300 max-w-sm mx-auto leading-relaxed">
                 {currentStage === "focus"
-                  ? "Hòa mình cùng cánh đồng hoa và chu kỳ Pomodoro để học sâu không xao nhãng."
+                  ? isLotus
+                    ? "Bình tâm tĩnh lặng cùng đóa hoa sen thanh tao để học sâu không xao nhãng."
+                    : "Hòa mình cùng cánh đồng hoa hướng dương để học sâu không xao nhãng."
                   : "Thư giãn đôi mắt và hít thở nhẹ nhàng để chuẩn bị cho chu kỳ học tiếp theo."}
               </p>
             </div>
@@ -1074,7 +1085,11 @@ export default function FocusTimerModal({
       {/* 4. FOOTER QUOTE / THÔNG ĐIỆP BÌNH YÊN */}
       <footer className="relative z-10 w-full px-6 py-4 text-center">
         <p className="text-[11px] sm:text-xs text-white/60 italic drop-shadow-sm">
-          &ldquo;Hoa hướng dương chỉ nở rộ khi kiên nhẫn đón nhận từng tia nắng ấm áp.&rdquo;
+          &ldquo;
+          {isLotus
+            ? "Hoa sen vươn lên từ nước bùn tĩnh lặng, nở đóa hồng ngọc thanh tao giữa đời."
+            : "Hoa hướng dương chỉ nở rộ khi kiên nhẫn đón nhận từng tia nắng ấm áp."}
+          &rdquo;
         </p>
       </footer>
 

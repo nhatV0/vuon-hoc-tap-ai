@@ -48,18 +48,15 @@ export default function FlowerShowcaseModal({
   onRestoreStreak
 }: FlowerShowcaseModalProps) {
   const [displayMode, setDisplayMode] = useState<DisplayMode>("3d_motion");
-  const [activeSpecies, setActiveSpecies] = useState<FlowerSpecies>(species);
   const [selectedAuraLevel, setSelectedAuraLevel] = useState<number | null>(null);
   const [selectedGrowthStage, setSelectedGrowthStage] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<"aura" | "growth">("aura");
   const [restoring, setRestoring] = useState<boolean>(false);
 
-  // Đồng bộ loài hoa khi props thay đổi
-  React.useEffect(() => {
-    setActiveSpecies(species);
-  }, [species]);
-
   if (!isOpen) return null;
+
+  // CHỈ HIỂN THỊ CÂY HOA MÀ HỌC SINH ĐÃ CHỌN
+  const activeSpecies = species;
 
   const speciesConfig = FLOWER_SPECIES_CONFIG[activeSpecies];
   const speciesAuras = getAuraLevelsForSpecies(activeSpecies);
@@ -96,20 +93,18 @@ export default function FlowerShowcaseModal({
             <div className="w-10 h-10 rounded-2xl bg-amber-100 border border-amber-300 flex items-center justify-center text-amber-800 shadow-xs">
               <Sparkles className="w-5 h-5 text-amber-600 animate-spin" style={{ animationDuration: "10s" }} />
             </div>
-            <div>
               <div className="flex items-center gap-2">
                 <h2 className="text-base sm:text-lg font-black text-stone-900 tracking-tight">
-                  Khu Vườn Hoa 3D: 5 Mốc Vòng Đời & 8 Bậc Hào Quang
+                  {speciesConfig.symbol} {speciesConfig.name}: 5 Mốc Vòng Đời & 8 Bậc Hào Quang
                 </h2>
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300">
                   Chuỗi {currentStreak} ngày
                 </span>
               </div>
               <p className="text-xs text-stone-500">
-                0d (Hạt) → 3d (Gieo) → 7d (Mầm) → 14d (Cây con) → 21d (Cây lớn) → Hào quang 30d đến 900d của {studentName}
+                {speciesConfig.tagline} • Cây hoa đồng hành của {studentName}
               </p>
             </div>
-          </div>
 
           <button
             onClick={onClose}
@@ -123,32 +118,12 @@ export default function FlowerShowcaseModal({
         <div className="flex-1 overflow-y-auto p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* CỘT TRÁI: VIEWPORT HOA 3D NỔI BẬT TỈ LỆ 1:1 TO RÕ RÀNG */}
           <div className="lg:col-span-6 flex flex-col items-center justify-start bg-white rounded-3xl border border-stone-200/90 p-5 sm:p-6 shadow-xs relative">
-            {/* Selector chuyển loài hoa (Sunflower & Lotus) */}
+            {/* Huy hiệu loài hoa học sinh đã chọn & Nút Trở về nếu đang xem trước */}
             <div className="w-full flex items-center justify-between gap-2 mb-2">
-              <div className="flex items-center gap-1 p-0.5 rounded-xl bg-stone-100 border border-stone-200 text-xs">
-                {(["sunflower", "lotus"] as FlowerSpecies[]).map((spKey) => {
-                  const spCfg = FLOWER_SPECIES_CONFIG[spKey];
-                  const isActive = activeSpecies === spKey;
-                  return (
-                    <button
-                      key={spKey}
-                      type="button"
-                      onClick={() => {
-                        setActiveSpecies(spKey);
-                        setSelectedAuraLevel(null);
-                        setSelectedGrowthStage(null);
-                      }}
-                      className={`px-2.5 py-1 rounded-lg font-bold flex items-center gap-1 transition-all ${
-                        isActive
-                          ? "bg-white text-stone-900 shadow-2xs border border-stone-200/80"
-                          : "text-stone-500 hover:text-stone-800"
-                      }`}
-                    >
-                      <span>{spCfg.symbol}</span>
-                      <span>{spCfg.name}</span>
-                    </button>
-                  );
-                })}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-stone-100 border border-stone-200 text-xs font-bold text-stone-800 shadow-2xs">
+                <span className="text-sm">{speciesConfig.symbol}</span>
+                <span>{speciesConfig.name}</span>
+                <span className="text-[10px] text-stone-400 font-normal">| {speciesConfig.matureName}</span>
               </div>
 
               {(selectedAuraLevel || selectedGrowthStage) && (

@@ -535,6 +535,7 @@ def get_student(student_id: str, db: Session = Depends(get_db)):
         long_term_goal=student.long_term_goal,
         timeframe=student.timeframe,
         learning_style=student.learning_style,
+        selected_flower=getattr(student, "selected_flower", "sunflower") or "sunflower",
         diagnostic_answers=student.diagnostic_answers,
         created_at=student.created_at,
         roadmap=roadmap_resp,
