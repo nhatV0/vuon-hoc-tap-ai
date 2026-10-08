@@ -16,9 +16,14 @@ import {
   ChevronDown,
   RotateCcw,
   Clock,
-  LogOut
+  LogOut,
+  Eye,
+  Film,
+  Image as ImageIcon,
+  Code2
 } from "lucide-react";
-import SunflowerVisual from "@/components/SunflowerVisual";
+import SunflowerVisual, { DisplayMode } from "@/components/SunflowerVisual";
+import FlowerShowcaseModal from "@/components/FlowerShowcaseModal";
 import DailyCheckinModal from "@/components/DailyCheckinModal";
 import UserProfileModal from "@/components/UserProfileModal";
 import TimeCapsuleVaultModal from "@/components/TimeCapsuleVaultModal";
@@ -43,6 +48,8 @@ export default function StudentGardenDashboard() {
   const [showCapsuleVault, setShowCapsuleVault] = useState<boolean>(false);
   const [capsuleVaultMode, setCapsuleVaultMode] = useState<"list" | "compose">("list");
   const [showQuizModal, setShowQuizModal] = useState<boolean>(false);
+  const [showFlowerShowcase, setShowFlowerShowcase] = useState<boolean>(false);
+  const [gardenDisplayMode, setGardenDisplayMode] = useState<DisplayMode>("3d_motion");
 
   // Watering action
   const [isWatering, setIsWatering] = useState<boolean>(false);
@@ -382,23 +389,76 @@ export default function StudentGardenDashboard() {
               )}
             </div>
 
-            {/* Chậu hoa hướng dương thu nhỏ */}
-            <div className="shrink-0 flex flex-col items-center justify-center scale-90 sm:scale-100">
-              <div className="w-28 h-28 relative flex items-center justify-center">
+            {/* Chậu hoa hướng dương 3D tương tác với công tắc chuyển đổi Chế Độ (Display Mode) */}
+            <div className="shrink-0 flex flex-col items-center justify-center scale-95 sm:scale-100">
+              <div className="relative flex items-center justify-center">
                 <SunflowerVisual
                   state={garden?.current_state || "tich_cuc"}
                   streak={streakDays}
                   waterDrops={garden?.water_drops ?? 0}
                   isWatering={isWatering}
+                  size="md"
+                  displayMode={gardenDisplayMode}
+                  onModeChange={setGardenDisplayMode}
                 />
               </div>
-              <span className="text-[10px] font-bold text-stone-400 mt-1 uppercase tracking-wider">
-                {garden?.current_state === "cham_hoc"
-                  ? "Hoa đang rạng rỡ"
-                  : garden?.current_state === "tich_cuc"
-                  ? "Hoa đang phát triển"
-                  : "Hoa cần tưới nước"}
-              </span>
+
+              {/* CÔNG TẮC CHUYỂN CHẾ ĐỘ HIỂN THỊ (3D MOTION / ẢNH HD / SVG) */}
+              <div className="mt-2.5 flex items-center p-0.5 rounded-xl bg-stone-100/90 border border-stone-200/90 shadow-2xs text-[10px]">
+                <button
+                  type="button"
+                  onClick={() => setGardenDisplayMode("3d_motion")}
+                  className={`px-2 py-0.5 rounded-lg font-bold flex items-center gap-1 transition-all ${
+                    gardenDisplayMode === "3d_motion"
+                      ? "bg-white text-amber-700 shadow-2xs"
+                      : "text-stone-500 hover:text-stone-800"
+                  }`}
+                  title="Chế độ Hoạt ảnh 3D chuyển động mượt mà 60fps"
+                >
+                  <Film className="w-2.5 h-2.5 text-amber-500" />
+                  <span>3D Motion</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setGardenDisplayMode("3d_static")}
+                  className={`px-2 py-0.5 rounded-lg font-bold flex items-center gap-1 transition-all ${
+                    gardenDisplayMode === "3d_static"
+                      ? "bg-white text-amber-700 shadow-2xs"
+                      : "text-stone-500 hover:text-stone-800"
+                  }`}
+                  title="Chế độ Ảnh 3D tĩnh sắc nét tách nền"
+                >
+                  <ImageIcon className="w-2.5 h-2.5 text-blue-500" />
+                  <span>Ảnh HD</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setGardenDisplayMode("svg_vector")}
+                  className={`px-2 py-0.5 rounded-lg font-bold flex items-center gap-1 transition-all ${
+                    gardenDisplayMode === "svg_vector"
+                      ? "bg-white text-amber-700 shadow-2xs"
+                      : "text-stone-500 hover:text-stone-800"
+                  }`}
+                  title="Chế độ Vector SVG nhẹ nhàng"
+                >
+                  <Code2 className="w-2.5 h-2.5 text-emerald-500" />
+                  <span>SVG</span>
+                </button>
+              </div>
+
+              <div className="mt-1.5 flex items-center gap-1.5">
+                <button
+                  type="button"
+                  onClick={() => setShowFlowerShowcase(true)}
+                  className="px-2.5 py-1 rounded-full bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 text-[10px] font-bold flex items-center gap-1 transition-colors shadow-2xs"
+                  title="Mở phòng trưng bày 8 cấp hào quang và hoạt ảnh 3D"
+                >
+                  <Eye className="w-3 h-3 text-amber-600" />
+                  <span>Phòng Trưng Bày Hào Quang</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -648,6 +708,16 @@ export default function StudentGardenDashboard() {
           onQuizCompleted={fetchStudentData}
         />
       )}
+
+      {/* POP-UP 5: PHÒNG TRƯNG BÀY HOA 3D & 8 CẤP ĐỘ HÀO QUANG */}
+      <FlowerShowcaseModal
+        isOpen={showFlowerShowcase}
+        onClose={() => setShowFlowerShowcase(false)}
+        currentState={garden?.current_state || "tich_cuc"}
+        currentStreak={streakDays}
+        waterDrops={garden?.water_drops ?? 0}
+        studentName={student?.name}
+      />
     </div>
   );
 }
