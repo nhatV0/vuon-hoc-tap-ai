@@ -178,14 +178,17 @@ export default function LandingHomePage() {
                 </span>
               </div>
 
-              {/* Chậu hoa hướng dương thật bên khung cửa sổ chữa lành */}
-              <div className="py-4 flex flex-col items-center justify-center">
-                <div className="relative w-full max-w-[260px] aspect-[4/5] rounded-2xl overflow-hidden shadow-md border border-stone-100 group-hover:scale-[1.02] transition-transform duration-500">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent z-10 pointer-events-none" />
-                  <img
-                    src="/assets/Hoa%20h%C6%B0%E1%BB%9Bng%20d%C6%B0%C6%A1ng.png"
-                    alt="Chậu hoa hướng dương bên cửa sổ"
-                    className="w-full h-full object-cover"
+              {/* Chậu hoa hướng dương 3D tỉ lệ 1:1 to rõ ràng, hoạt ảnh mượt mà */}
+              <div className="py-2 flex flex-col items-center justify-center">
+                <div className="relative w-full max-w-[280px] aspect-square rounded-3xl overflow-hidden shadow-inner border border-amber-200/60 bg-gradient-to-b from-stone-50/80 to-amber-50/50 group-hover:scale-[1.02] transition-transform duration-500 flex items-center justify-center">
+                  <video
+                    src="/assets/flower/bloom_motion.mp4"
+                    poster="/assets/flower/bloom.png"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover aspect-square scale-110 drop-shadow-md"
                   />
                 </div>
 

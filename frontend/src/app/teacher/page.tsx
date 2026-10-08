@@ -915,16 +915,16 @@ export default function TeacherDashboardPage() {
             </div>
 
             {/* Cây hoa thực tế của học sinh */}
-            <div className="p-3 rounded-2xl bg-stone-50 border border-cream-200 flex flex-col items-center justify-center">
-              <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider mb-1">
+            <div className="p-4 rounded-3xl bg-stone-50 border border-cream-200 flex flex-col items-center justify-center">
+              <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider mb-2">
                 Khu vườn của học sinh (Chuỗi {selectedStudent.consecutive_days} ngày)
               </span>
-              <div className="w-36 h-36 relative flex items-center justify-center">
+              <div className="relative flex items-center justify-center">
                 <SunflowerVisual
                   state={selectedStudent.current_state}
                   streak={selectedStudent.consecutive_days}
                   waterDrops={10}
-                  size="sm"
+                  size="md"
                   displayMode="3d_motion"
                 />
               </div>

@@ -109,13 +109,11 @@ export default function FlowerShowcaseModal({
 
         {/* NỘI DUNG CHÍNH (2 CỘT RESPONSIVE) */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* CỘT TRÁI: VIEWPORT HOA 3D NỔI BẬT */}
-          <div className="lg:col-span-6 flex flex-col items-center justify-center bg-white rounded-3xl border border-stone-200/90 p-6 shadow-xs relative overflow-hidden">
+          {/* CỘT TRÁI: VIEWPORT HOA 3D NỔI BẬT TỈ LỆ 1:1 TO RÕ RÀNG */}
+          <div className="lg:col-span-6 flex flex-col items-center justify-center bg-white rounded-3xl border border-stone-200/90 p-5 sm:p-6 shadow-xs relative overflow-hidden">
             <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100/90 backdrop-blur-sm border border-stone-200 text-[11px] font-bold text-stone-700">
               <Flame className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
               <span>Streak: {currentStreak} Ngày</span>
-            </div>
-
             {(selectedAuraLevel || selectedGrowthStage) && (
               <button
                 onClick={() => {
@@ -128,8 +126,8 @@ export default function FlowerShowcaseModal({
               </button>
             )}
 
-            {/* Màn hình hoa trực quan */}
-            <div className="my-2 flex items-center justify-center">
+            {/* Màn hình hoa trực quan tỉ lệ 1:1 to rõ */}
+            <div className="my-2 w-full flex items-center justify-center">
               <SunflowerVisual
                 state={currentState}
                 streak={currentStreak}
@@ -142,9 +140,6 @@ export default function FlowerShowcaseModal({
                 onModeChange={setDisplayMode}
               />
             </div>
-
-            {/* Thông điệp ý nghĩa mốc hiện tại */}
-            <div className="mt-2 text-center max-w-sm px-4 py-2.5 rounded-2xl bg-stone-50 border border-stone-200/80 text-xs text-stone-700">
               <p className="font-semibold text-stone-900 mb-0.5">
                 {activeViewingAura
                   ? activeViewingAura.name

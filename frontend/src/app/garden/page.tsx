@@ -418,7 +418,7 @@ export default function StudentGardenDashboard() {
             </div>
 
             {/* Chậu hoa hướng dương 3D tương tác với công tắc chuyển đổi Chế Độ (Display Mode) */}
-            <div className="shrink-0 flex flex-col items-center justify-center scale-95 sm:scale-100">
+            <div className="shrink-0 flex flex-col items-center justify-center">
               <div className="relative flex items-center justify-center">
                 <SunflowerVisual
                   state={garden?.current_state || "tich_cuc"}

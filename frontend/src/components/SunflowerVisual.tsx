@@ -300,13 +300,13 @@ export default function SunflowerVisual({
     }
   }, [currentVideo, internalMode]);
 
+  // Kích thước chuẩn tỉ lệ 1:1 vuông vức, phóng to hoa để hiển thị rõ nét và choáng ngợp
   const sizeClasses = {
-    sm: "w-24 h-24",
-    md: "w-44 h-44 sm:w-52 sm:h-52",
-    lg: "w-64 h-64 sm:w-72 sm:h-72",
-    xl: "w-80 h-80 sm:w-96 sm:h-96"
+    sm: "w-28 h-28 aspect-square",
+    md: "w-60 h-60 sm:w-68 sm:h-68 aspect-square",
+    lg: "w-72 h-72 sm:w-84 sm:h-84 aspect-square",
+    xl: "w-88 h-88 sm:w-96 sm:h-96 aspect-square"
   }[size];
-
   const handleModeSwitch = (newMode: DisplayMode) => {
     setInternalMode(newMode);
     onModeChange?.(newMode);
@@ -339,8 +339,8 @@ export default function SunflowerVisual({
         </div>
       )}
 
-      {/* KHUNG HIỂN THỊ CHÍNH (3D Motion / 3D Static) */}
-      <div className={`relative flex items-center justify-center overflow-hidden rounded-3xl ${sizeClasses}`}>
+      {/* KHUNG HIỂN THỊ CHÍNH (TỈ LỆ 1:1 VUÔNG VỨC, HOA TO RÕ, ĐẦY ĐỦ CHI TIẾT) */}
+      <div className={`relative flex items-center justify-center overflow-hidden rounded-3xl bg-gradient-to-b from-stone-50/60 to-amber-50/40 border border-stone-200/60 shadow-inner ${sizeClasses}`}>
         {internalMode === "3d_motion" ? (
           <video
             ref={videoRef}
@@ -353,18 +353,17 @@ export default function SunflowerVisual({
             onError={() => {
               setInternalMode("3d_static");
             }}
-            className="w-full h-full object-contain drop-shadow-md transition-transform duration-500 hover:scale-105"
+            className="w-full h-full object-cover aspect-square drop-shadow-md scale-125 transition-transform duration-500 hover:scale-130"
           />
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={currentImage}
             alt={stageTitle}
-            className="w-full h-full object-contain drop-shadow-md transition-transform duration-500 hover:scale-105"
+            className="w-full h-full object-cover aspect-square drop-shadow-md scale-125 transition-transform duration-500 hover:scale-130"
           />
         )}
       </div>
-
       {/* THANH ĐIỀU KHIỂN CHẾ ĐỘ XEM (CHỈ GIỮ 3D MOTION & ẢNH HD) */}
       {interactiveControls && (
         <div className="mt-3 flex items-center justify-center gap-1.5 p-1 rounded-2xl bg-stone-100/80 border border-stone-200/80 backdrop-blur-sm shadow-inner text-xs">
