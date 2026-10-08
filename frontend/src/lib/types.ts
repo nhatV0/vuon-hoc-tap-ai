@@ -168,8 +168,9 @@ export interface StudentAlertItem {
   severity: "high" | "medium" | "low";
   needs_attention: boolean;
   latest_reflection?: string;
+  username?: string;
+  initial_password?: string;
 }
-
 export interface TeacherDashboardData {
   total_students: number;
   alert_students_count: number;

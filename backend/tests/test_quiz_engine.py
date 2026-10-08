@@ -239,3 +239,20 @@ def test_teacher_quiz_injection_and_analytics(db_session, client):
     assert len(groups) >= 3
     subjects = [g["subject"] for g in groups]
     assert "Toán học" in subjects
+
+def test_all_11_modular_subjects_present(client):
+    """Xác nhận toàn bộ 11 môn học đều có mặt trong ngân hàng câu hỏi phân nhóm."""
+    res = client.get("/api/quiz/questions/grouped")
+    assert res.status_code == 200
+    groups = res.json()
+    subject_names = set(g["subject"] for g in groups)
+    
+    expected_subjects = [
+        "Toán học", "Vật lí", "Hóa học", "Sinh học", "Ngữ văn",
+        "Tiếng Anh", "Lịch sử", "Địa lí", "Tin học", "GDKT & PL", "Công nghệ"
+    ]
+    for sub in expected_subjects:
+        assert sub in subject_names, f"Môn {sub} không có trong kết quả /quiz/questions/grouped"
+        
+    total_questions = sum(g["total_count"] for g in groups)
+    assert total_questions >= 132

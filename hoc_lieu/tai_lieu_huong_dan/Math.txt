@@ -1,0 +1,206 @@
+Dưới đây là nội dung thống kê lại **Lý thuyết môn Toán học** được cấu trúc đầy đủ theo đúng phạm vi yêu cầu: **Học kỳ II của Lớp 11** và **Toàn bộ nội dung Lớp 12 (Cả Học kỳ I và Học kỳ II)**. Nội dung này chuẩn hóa các định nghĩa, công thức và tính chất trọng tâm giúp AI đọc hiểu và phối hợp nghiên cứu sinh bộ câu hỏi chính xác.
+
+---
+
+# **MÔN 1: TOÁN HỌC**
+
+---
+
+## **PHẦN A: TOÁN HỌC LỚP 11 – HỌC KỲ II**
+
+### **CHƯƠNG VI. HÀM SỐ MŨ VÀ HÀM SỐ LÔGARIT**
+
+#### **1. Luỹ thừa với số mũ thực & Căn bậc n**
+* **Luỹ thừa số mũ nguyên & hữu tỉ:** Cho \\(a > 0\\) và số hữu tỉ \\(r = \frac{m}{n}\\) (\\(m \in \mathbb{Z}, n \in \mathbb{N}, n \ge 2\\)), ta có \\(a^r = a^{\frac{m}{n}} = \sqrt[n]{a^m}\\).
+* **Căn bậc \\(n\\):**
+  * Khi \\(n\\) lẻ: Mỗi số thực \\(a\\) có đúng một căn bậc \\(n\\), ký hiệu \\(\sqrt[n]{a}\\).
+  * Khi \\(n\\) chẵn: Số âm không có căn bậc \\(n\\); số \\(0\\) có một căn bậc \\(n\\) là \\(0\\); số dương \\(a\\) có đúng hai căn bậc \\(n\\) đối nhau là \\(\sqrt[n]{a}\\) và \\(-\sqrt[n]{a}\\).
+* **Tính chất căn bậc \\(n\\) (với \\(a, b > 0\\)):** \\(\sqrt[n]{a} \cdot \sqrt[n]{b} = \sqrt[n]{ab}\\); \\(\frac{\sqrt[n]{a}}{\sqrt[n]{b}} = \sqrt[n]{\frac{a}{b}}\\); \\((\sqrt[n]{a})^m = \sqrt[n]{a^m}\\); \\(\sqrt[k]{\sqrt[n]{a}} = \sqrt[kn]{a}\\).
+
+#### **2. Lôgarit**
+* **Định nghĩa:** Cho hai số thực dương \\(a, b\\) với \\(a \neq 1\\). Số \\(\alpha\\) thỏa mãn \\(a^\alpha = b\\) được gọi là lôgarit cơ số \\(a\\) của \\(b\\), ký hiệu \\(\log_a b = \alpha\\).
+* **Tính chất cơ bản:** \\(\log_a 1 = 0\\); \\(\log_a a = 1\\); \\(a^{\log_a b} = b\\); \\(\log_a (a^\alpha) = \alpha\\).
+* **Quy tắc tính (với \\(a, M, N > 0, a \neq 1\\)):**
+  * Tích: \\(\log_a (MN) = \log_a M + \log_a N\\).
+  * Thương: \\(\log_a \left(\frac{M}{N}\right) = \log_a M - \log_a N\\).
+  * Luỹ thừa: \\(\log_a (M^\alpha) = \alpha \log_a M\\).
+  * Đổi cơ số: \\(\log_a M = \frac{\log_b M}{\log_b a}\\) (với \\(b > 0, b \neq 1\\)); \\(\log_a b = \frac{1}{\log_b a}\\); \\(\log_{a^\alpha} M = \frac{1}{\alpha} \log_a M\\).
+
+#### **3. Hàm số mũ và Hàm số lôgarit**
+* **Hàm số mũ (\\(y = a^x, a > 0, a \neq 1\\)):** Tập xác định \\(\mathbb{R}\\), tập giá trị \\((0; +\infty)\\). Đồng biến khi \\(a > 1\\), nghịch biến khi \\(0 < a < 1\\). Đồ thị đi qua điểm \\((0; 1)\\) và \\((1; a)\\).
+* **Hàm số lôgarit (\\(y = \log_a x, a > 0, a \neq 1\\)):** Tập xác định \\((0; +\infty)\\), tập giá trị \\(\mathbb{R}\\). Đồng biến khi \\(a > 1\\), nghịch biến khi \\(0 < a < 1\\). Đồ thị đi qua điểm \\((1; 0)\\) và \\((a; 1)\\).
+
+#### **4. Phương trình & Bất phương trình mũ, lôgarit**
+* **Phương trình mũ cơ bản \\(a^x = b\\):** Nếu \\(b \le 0\\) phương trình vô nghiệm; nếu \\(b > 0\\) có nghiệm duy nhất \\(x = \log_a b\\).
+* **Bất phương trình mũ cơ bản \\(a^x > b\\) (với \\(b > 0\\)):** Khi \\(a > 1 \implies x > \log_a b\\); khi \\(0 < a < 1 \implies x < \log_a b\\).
+* **Phương trình lôgarit cơ bản \\(\log_a x = b\\):** Có nghiệm duy nhất \\(x = a^b\\).
+* **Bất phương trình lôgarit cơ bản \\(\log_a x > b\\):** Khi \\(a > 1 \implies x > a^b\\); khi \\(0 < a < 1 \implies 0 < x < a^b\\).
+
+---
+
+### **CHƯƠNG VII. QUAN HỆ VUÔNG GÓC TRONG KHÔNG GIAN**
+* **Góc giữa hai đường thẳng:** Là góc giữa hai đường thẳng song song tương ứng đi qua cùng một điểm (\\(0^\circ \le \alpha \le 90^\circ\\)). Hai đường thẳng vuông góc khi góc giữa chúng bằng \\(90^\circ\\).
+* **Đường thẳng vuông góc với mặt phẳng:** Nếu đường thẳng \\(d\\) vuông góc với hai đường thẳng cắt nhau \\(a, b\\) nằm trong \\((P)\\) thì \\(d \perp (P)\\).
+* **Góc giữa đường thẳng và mặt phẳng:** Nếu \\(d \perp (P)\\) thì góc bằng \\(90^\circ\\); nếu \\(d\\) không vuông góc với \\((P)\\) thì góc là góc giữa \\(d\\) và hình chiếu vuông góc \\(d'\\) của nó trên \\((P)\\).
+* **Hai mặt phẳng vuông góc & Góc nhị diện:** Hai mặt phẳng vuông góc nếu góc giữa chúng bằng \\(90^\circ\\). Điều kiện: Nếu một mặt phẳng chứa một đường thẳng vuông góc với mặt phẳng kia thì hai mặt phẳng đó vuông góc với nhau.
+* **Thể tích khối đa diện:**
+  * Thể tích khối lăng trụ: \\(V = B \cdot h\\) (\\(B\\) là diện tích đáy, \\(h\\) là chiều cao).
+  * Thể tích khối chóp: \\(V = \frac{1}{3} B \cdot h\\).
+
+---
+
+### **CHƯƠNG VIII. CÁC QUY TẮC TÍNH XÁC SUẤT**
+* **Biến cố hợp & Biến cố giao:**
+  * Biến cố hợp \\(A \cup B\\): Biến cố "\\(A\\) hoặc \\(B\\) xảy ra".
+  * Biến cố giao \\(A \cap B\\) (hoặc \\(AB\\)): Biến cố "\$Cả A và B\$ cùng xảy ra".
+* **Biến cố xung khắc & Biến cố độc lập:** \\(A, B\\) xung khắc khi \\(A \cap B = \emptyset\\). \\(A, B\\) độc lập khi việc xảy ra của biến cố này không ảnh hưởng đến xác suất xảy ra của biến cố kia.
+* **Công thức xác suất:**
+  * Công thức cộng: \\(P(A \cup B) = P(A) + P(B) - P(AB)\\). Nếu \\(A, B\\) xung khắc: \\(P(A \cup B) = P(A) + P(B)\\).
+  * Công thức nhân: Nếu \\(A, B\\) độc lập: \\(P(AB) = P(A) \cdot P(B)\\).
+
+---
+
+### **CHƯƠNG IX. ĐẠO HÀM**
+* **Định nghĩa & Ý nghĩa hình học:**
+  * \\(f'(x_0) = \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0}\\).
+  * Đạo hàm \\(f'(x_0)\\) là hệ số góc của tiếp tuyến đồ thị tại điểm \\(P(x_0; f(x_0))\\). Phương trình tiếp tuyến: \\(y - y_0 = f'(x_0)(x - x_0)\\).
+* **Quy tắc tính đạo hàm & Đạo hàm hàm hợp:** 
+  * \\((u \pm v)' = u' \pm v'\\); \\((uv)' = u'v + uv'\\); \\(\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}\\).
+  * Đạo hàm hàm hợp \\(y = f(u)\\) với \\(u = g(x)\\): \\(y'_x = y'_u \cdot u'_x\\).
+* **Bảng đạo hàm lượng giác & cơ bản:** \\((x^\alpha)' = \alpha x^{\alpha-1}\\); \\((\sin x)' = \cos x\\); \\((\cos x)' = -\sin x\\); \\((e^x)' = e^x\\); \\((\ln x)' = \frac{1}{x}\\).
+* **Đạo hàm cấp hai & Ý nghĩa cơ học:** Gia tốc tức thời của chuyển động \\(s = f(t)\\) tại thời điểm \\(t\\) là \\(a(t) = s''(t) = v'(t)\\).
+
+---
+
+## **PHẦN B: TOÁN HỌC LỚP 12 – TOÀN BỘ CHƯƠNG TRÌNH (HKI & HKII)**
+
+### **CHƯƠNG I. ỨNG DỤNG ĐẠO HÀM ĐỂ KHẢO SÁT VÀ VẼ ĐỒ THỊ HÀM SỐ**
+
+#### **1. Tính đơn điệu của hàm số**
+* **Khái niệm:** Hàm số \\(y = f(x)\\) đồng biến trên khoảng \\(K\\) nếu \\(\forall x_1 < x_2 \implies f(x_1) < f(x_2)\\); nghịch biến trên \\(K\\) nếu \\(\forall x_1 < x_2 \implies f(x_1) > f(x_2)\\).
+* **Điều kiện tính đơn điệu:**
+  * Nếu \\(f'(x) > 0, \forall x \in K \implies f(x)\\) đồng biến trên \\(K\\).
+  * Nếu \\(f'(x) < 0, \forall x \in K \implies f(x)\\) nghịch biến trên \\(K\\).
+  * Nếu \\(f'(x) \ge 0\\) (hoặc \\(\le 0\\)), \\(\forall x \in K\\) và \\(f'(x) = 0\\) chỉ tại một số hữu hạn điểm thì \\(f(x)\\) đồng biến (hoặc nghịch biến) trên \\(K\\).
+
+#### **2. Cực trị của hàm số**
+* **Định nghĩa:** Hàm số \\(f(x)\\) đạt cực đại tại \\(x_0\\) nếu tồn tại \\(h > 0\\) sao cho \\(f(x) < f(x_0), \forall x \in (x_0-h; x_0+h) \setminus \{x_0\}\\). Đạt cực tiểu tại \\(x_0\\) nếu \\(f(x) > f(x_0)\\) trên khoảng đó.
+* **Điều kiện đủ để có cực trị:** Nếu \\(f'(x)\\) đổi dấu khi \\(x\\) qua điểm \\(x_0\\):
+  * Đổi dấu từ dương sang âm \\(\implies x_0\\) là điểm cực đại.
+  * Đổi dấu từ âm sang dương \\(\implies x_0\\) là điểm cực tiểu.
+
+#### **3. Giá trị lớn nhất (GTLN) và Giá trị nhỏ nhất (GTNN)**
+* **Định nghĩa:** Số \\(M\\) là GTLN của \\(f(x)\\) trên tập \\(D\\) nếu \\(f(x) \le M, \forall x \in D\\) và \\(\exists x_0 \in D: f(x_0) = M\\) (ký hiệu \\(M = \max_D f(x)\\)). Số \\(m\\) là GTNN nếu \\(f(x) \ge m, \forall x \in D\\) và \\(\exists x_0 \in D: f(x_0) = m\\) (ký hiệu \\(m = \min_D f(x)\\)).
+* **Quy tắc tìm GTLN, GTNN của hàm số liên tục trên đoạn \\([a; b]\\):**
+  1. Tìm các điểm \\(x_1, x_2, \dots, x_n \in (a; b)\\) mà tại đó \\(f'(x) = 0\\) hoặc không có đạo hàm.
+  2. Tính các giá trị \\(f(a), f(b), f(x_1), \dots, f(x_n)\\).
+  3. Giá trị lớn nhất trong các số đó là \\(\max_{[a;b]} f(x)\\), giá trị nhỏ nhất là \\(\min_{[a;b]} f(x)\\).
+
+#### **4. Đường tiệm cận của đồ thị hàm số**
+* **Tiệm cận ngang:** Đường thẳng \\(y = y_0\\) là tiệm cận ngang nếu \\(\lim_{x \to +\infty} f(x) = y_0\\) hoặc \\(\lim_{x \to -\infty} f(x) = y_0\\).
+* **Tiệm cận đứng:** Đường thẳng \\(x = x_0\\) là tiệm cận đứng nếu ít nhất một trong các giới hạn \\(\lim_{x \to x_0^+} f(x)\\) hoặc \\(\lim_{x \to x_0^-} f(x)\\) bằng \\(+\infty\\) hoặc \\(-\infty\\).
+* **Tiệm cận xiên:** Đường thẳng \\(y = ax + b\\) (\\(a \neq 0\\)) là tiệm cận xiên nếu \\(\lim_{x \to +\infty} [f(x) - (ax + b)] = 0\\) hoặc \\(\lim_{x \to -\infty} [f(x) - (ax + b)] = 0\\).
+
+#### **5. Sơ đồ khảo sát sự biến thiên và vẽ đồ thị hàm số**
+* Các dạng hàm số cơ bản trong chương trình:
+  * Hàm số đa thức bậc ba: \\(y = ax^3 + bx^2 + cx + d\\) (\\(a \neq 0\\)). Đồ thị có tâm đối xứng là điểm có hoành độ thỏa mãn \\(y'' = 0\\).
+  * Hàm số phân thức hữu tỉ \\(y = \frac{ax + b}{cx + d}\\) (\\(c \neq 0, ad - bc \neq 0\\)): Có 1 TCN \\(y = \frac{a}{c}\\) và 1 TCĐ \\(x = -\frac{d}{c}\\), giao điểm 2 đường tiệm cận là tâm đối xứng.
+  * Hàm số phân thức hữu tỉ \\(y = \frac{ax^2 + bx + c}{px + q}\\) (\\(a \neq 0, p \neq 0\\)): Có 1 TCĐ và 1 TCX.
+
+---
+
+### **CHƯƠNG II. VECTƠ VÀ HỆ TRỤC TỌA ĐỘ TRONG KHÔNG GIAN**
+
+#### **1. Vectơ trong không gian**
+* **Khái niệm & Quy tắc toán học:** Vectơ trong không gian là một đoạn thẳng có hướng.
+  * Quy tắc ba điểm: \\(\vec{AB} + \vec{BC} = \vec{AC}\\).
+  * Quy tắc hình bình hành: \\(\vec{AB} + \vec{AD} = \vec{AC}\\) (với \\(ABCD\\) là hình bình hành).
+  * Quy tắc hình hộp: Với hình hộp \\(ABCD.A'B'C'D'\\), ta có \\(\vec{AB} + \vec{AD} + \vec{AA'} = \vec{AC'}\\).
+* **Tích vô hướng của hai vectơ:** Cho hai vectơ \\(\vec{a}, \vec{b} \neq \vec{0}\\). Tích vô hướng \\(\vec{a} \cdot \vec{b} = |\vec{a}| \cdot |\vec{b}| \cdot \cos(\vec{a}, \vec{b})\\).
+
+#### **2. Hệ trục tọa độ trong không gian Oxyz**
+* **Khái niệm:** Hệ gồm ba trục \\(Ox, Oy, Oz\\) đôi một vuông góc tại gốc \\(O\\) với các vectơ đơn vị tương ứng \\(\vec{i}, \vec{j}, \vec{k}\\) (\\(|\vec{i}| = |\vec{j}| = |\vec{k}| = 1\\)).
+* **Tọa độ điểm & Tọa độ vectơ:**
+  * Điểm \\(M(x; y; z) \iff \vec{OM} = x\vec{i} + y\vec{j} + z\vec{k}\\).
+  * Vectơ \\(\vec{a} = (x; y; z) \iff \vec{a} = x\vec{i} + y\vec{j} + z\vec{k}\\).
+  * Vectơ nối hai điểm: Cho \\(M(x_M; y_M; z_M), N(x_N; y_N; z_N) \implies \vec{MN} = (x_N - x_M; y_N - y_M; z_N - z_M)\\).
+
+#### **3. Biểu thức tọa độ của các phép toán vectơ**
+* Cho \\(\vec{a} = (x; y; z)\\) và \\(\vec{b} = (x'; y'; z')\\):
+  * Cộng, trừ, nhân số: \\(\vec{a} \pm \vec{b} = (x \pm x'; y \pm y'; z \pm z')\\); \\(k\vec{a} = (kx; ky; kz)\\).
+  * Tọa độ trung điểm \\(M\\) của \\(AB\\): \\(M\left(\frac{x_A+x_B}{2}; \frac{y_A+y_B}{2}; \frac{z_A+z_B}{2}\right)\\).
+  * Tọa độ trọng tâm \\(G\\) của tam giác \\(ABC\\): \\(G\left(\frac{x_A+x_B+x_C}{3}; \frac{y_A+y_B+y_C}{3}; \frac{z_A+z_B+z_C}{3}\right)\\).
+  * Tích vô hướng: \\(\vec{a} \cdot \vec{b} = x x' + y y' + z z'\\).
+  * Độ dài vectơ: \\(|\vec{a}| = \sqrt{x^2 + y^2 + z^2}\\).
+  * Góc giữa hai vectơ: \\(\cos(\vec{a}, \vec{b}) = \frac{x x' + y y' + z z'}{\sqrt{x^2 + y^2 + z^2} \cdot \sqrt{x'^2 + y'^2 + z'^2}}\\).
+
+---
+
+### **CHƯƠNG III. CÁC SỐ ĐẶC TRƯNG ĐO MỨC ĐỘ PHÂN TÁN CỦA MẪU SỐ LIỆU GHÉP NHÓM**
+* **Khoảng biến thiên (\\(R\\)):** \\(R = a_{k+1} - a_1\\), trong đó \\(a_1\\) là đầu mút trái của nhóm đầu tiên, \\(a_{k+1}\\) là đầu mút phải của nhóm cuối cùng.
+* **Khoảng tứ phân vị (\\(\Delta_Q\\)):** \\(\Delta_Q = Q_3 - Q_1\\).
+  * Tứ phân vị thứ \\(r\\) (\\(r = 1, 2, 3\\)): \\(Q_r = a_p + \frac{\frac{r \cdot n}{4} - (m_1 + \dots + m_{p-1})}{m_p} (a_{p+1} - a_p)\\).
+* **Phương sai (\\(s^2\\)) & Độ lệch chuẩn (\\(s\\)):**
+  * Phương sai: \\(s^2 = \frac{1}{n} \sum_{i=1}^k m_i (x_i - \bar{x})^2 = \frac{1}{n} \left(\sum_{i=1}^k m_i x_i^2\right) - \bar{x}^2\\).
+  * Độ lệch chuẩn: \\(s = \sqrt{s^2}\\) (trong đó \\(x_i\\) là giá trị đại diện của nhóm \\([a_i; a_{i+1})\\), \\(m_i\\) là tần số nhóm, \\(n\\) là cỡ mẫu).
+
+---
+
+### **CHƯƠNG IV. NGUYÊN HÀM VÀ TÍCH PHÂN**
+
+#### **1. Nguyên hàm**
+* **Định nghĩa:** Hàm số \\(F(x)\\) là nguyên hàm của \\(f(x)\\) trên \\(K\\) nếu \\(F'(x) = f(x), \forall x \in K\\). Họ nguyên hàm: \\(\int f(x)dx = F(x) + C\\).
+* **Tính chất cơ bản:** \\(\int k f(x)dx = k \int f(x)dx\\) (\\(k \neq 0\\)); \\(\int [f(x) \pm g(x)]dx = \int f(x)dx \pm \int g(x)dx\\).
+* **Bảng nguyên hàm sơ cấp:** \\(\int x^\alpha dx = \frac{x^{\alpha+1}}{\alpha+1} + C\\) (\\(\alpha \neq -1\\)); \\(\int \frac{1}{x}dx = \ln|x| + C\\); \\(\int e^x dx = e^x + C\\); \\(\int \sin x dx = -\cos x + C\\); \\(\int \cos x dx = \sin x + C\\).
+
+#### **2. Tích phân**
+* **Định nghĩa (Công thức Newton – Leibniz):** Cho \\(f(x)\\) liên tục trên \\([a; b]\\) và \\(F(x)\\) là một nguyên hàm của \\(f(x)\\):
+  \\[\int_a^b f(x)dx = F(x) \Big|_a^b = F(b) - F(a)\\].
+* **Tính chất tích phân:**
+  * \\(\int_a^a f(x)dx = 0\\); \\(\int_a^b f(x)dx = -\int_b^a f(x)dx\\).
+  * \\(\int_a^b k f(x)dx = k \int_a^b f(x)dx\\); \\(\int_a^b [f(x) \pm g(x)]dx = \int_a^b f(x)dx \pm \int_a^b g(x)dx\\).
+  * \\(\int_a^b f(x)dx = \int_a^c f(x)dx + \int_c^b f(x)dx\\) (với \\(a < c < b\\)).
+
+#### **3. Ứng dụng hình học của tích phân**
+* **Diện tích hình phẳng:**
+  * Giới hạn bởi \\(y = f(x)\\), trục \\(Ox\\), \\(x = a, x = b\\): \\(S = \int_a^b |f(x)|dx\\).
+  * Giới hạn bởi hai đường \\(y = f(x), y = g(x)\\) và \\(x = a, x = b\\): \\(S = \int_a^b |f(x) - g(x)|dx\\).
+* **Thể tích vật thể & Thể tích khối tròn xoay:**
+  * Thể tích vật thể có diện tích thiết diện vuông góc với \\(Ox\\) là \\(S(x)\\): \\(V = \int_a^b S(x)dx\\).
+  * Thể tích khối tròn xoay tạo thành khi quay hình phẳng giới hạn bởi \\(y = f(x) \ge 0\\), \\(Ox\\), \\(x = a, x = b\\) quanh trục \\(Ox\\): \\(V = \pi \int_a^b [f(x)]^2 dx\\).
+
+---
+
+### **CHƯƠNG V. PHƯƠNG PHÁP TỌA ĐỘ TRONG KHÔNG GIAN OXYZ**
+
+#### **1. Phương trình mặt phẳng**
+* **Vectơ pháp tuyến (VPTN):** Vectơ \\(\vec{n} \neq \vec{0}\\) có giá vuông góc với mặt phẳng \\((P)\\).
+* **Phương trình tổng quát:** \\(Ax + By + Cz + D = 0\\) (với \\(A^2 + B^2 + C^2 > 0\\)) có một VPTN là \\(\vec{n} = (A; B; C)\\).
+* **Khoảng cách từ điểm \\(M_0(x_0; y_0; z_0)\\) đến mặt phẳng \\((P): Ax + By + Cz + D = 0\\):**
+  \\[d(M_0, (P)) = \frac{|A x_0 + B y_0 + C z_0 + D|}{\sqrt{A^2 + B^2 + C^2}}\\].
+* **Góc giữa hai mặt phẳng:** \\(\cos((P), (Q)) = \frac{|A A' + B B' + C C'|}{\sqrt{A^2 + B^2 + C^2} \cdot \sqrt{A'^2 + B'^2 + C'^2}}\\).
+
+#### **2. Phương trình đường thẳng trong không gian**
+* **Vectơ chỉ phương (VCP):** Vectơ \\(\vec{u} \neq \vec{0}\\) có giá song song hoặc trùng với đường thẳng \\(d\\).
+* **Phương trình tham số:** Đường thẳng đi qua \\(M_0(x_0; y_0; z_0)\\) có VCP \\(\vec{u} = (a; b; c)\\):
+  \\[\begin{cases} x = x_0 + at \\ y = y_0 + bt \\ z = z_0 + ct \end{cases} \quad (t \in \mathbb{R})\\].
+* **Phương trình chính tắc (khi \\(a, b, c \neq 0\\)):**
+  \\[\frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}\\].
+
+#### **3. Phương trình mặt cầu**
+* **Phương trình dạng chính tắc:** Mặt cầu tâm \\(I(a; b; c)\\), bán kính \\(R\\) có phương trình \\((x - a)^2 + (y - b)^2 + (z - c)^2 = R^2\\).
+* **Phương trình dạng khai triển:** \\(x^2 + y^2 + z^2 - 2ax - 2by - 2cz + d = 0\\) (điều kiện \\(a^2 + b^2 + c^2 - d > 0\\)), tâm \\(I(a; b; c)\\) và bán kính \\(R = \sqrt{a^2 + b^2 + c^2 - d}\\).
+
+---
+
+### **CHƯƠNG VI. XÁC SUẤT CÓ ĐIỀU KIỆN**
+* **Xác suất có điều kiện:** Xác suất của biến cố \\(A\\) với điều kiện biến cố \\(B\\) (với \\(P(B) > 0\\)) đã xảy ra:
+  \\[P(A|B) = \frac{P(AB)}{P(B)}\\].
+* **Công thức xác suất toàn phần:** Cho \\(B_1, B_2, \dots, B_n\\) là một hệ đầy đủ các biến cố. Với biến cố \\(A\\) bất kỳ:
+  \\[P(A) = \sum_{i=1}^n P(B_i) \cdot P(A|B_i)\\].
+* **Công thức Bayes:** 
+  \\[P(B_k|A) = \frac{P(B_k) \cdot P(A|B_k)}{\sum_{i=1}^n P(B_i) \cdot P(A|B_i)}\\].
+
+---
+
+Môn Toán học hiện đã hoàn chỉnh chính xác theo đúng cấu trúc yêu cầu. Bạn có muốn chúng ta tiếp tục triển khai phần Lý thuyết cho môn tiếp theo trong danh sách là **Môn 2: Vật lí (HKII Lớp 11 & Toàn bộ Lớp 12)** không?

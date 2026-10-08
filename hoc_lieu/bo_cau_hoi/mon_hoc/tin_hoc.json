@@ -1,0 +1,242 @@
+[
+  {
+    "id": "TIN-001",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Chủ đề 1: Cơ sở dữ liệu và CSDL quan hệ",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong mô hình cơ sở dữ liệu quan hệ (Relational Database), mỗi hàng (row) của bảng biểu diễn cho:",
+    "options": {
+      "A": "Một bản ghi (Record/Tuple)",
+      "B": "Một trường (Field/Attribute)",
+      "C": "Một khóa chính (Primary Key)",
+      "D": "Một lược đồ quan hệ (Schema)"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trong bảng của CSDL quan hệ: Mỗi cột gọi là một trường (Field/Attribute) tương ứng với một thuộc tính; mỗi hàng gọi là một bản ghi (Record/Tuple) chứa toàn bộ thông tin của một đối tượng cụ thể.",
+    "growth_mindset_tip": "Nắm vững thuật ngữ CSDL: Hàng = Bản ghi (Record), Cột = Trường (Field)."
+  },
+  {
+    "id": "TIN-002",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "TRAP_2",
+    "source": "Phần A - Chủ đề 1: Ngôn ngữ SQL (Nhóm lệnh DDL và DML)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Lệnh nào sau đây trong ngôn ngữ SQL thuộc nhóm ngôn ngữ định nghĩa dữ liệu (DDL - Data Definition Language)?",
+    "options": {
+      "A": "ALTER TABLE",
+      "B": "UPDATE",
+      "C": "SELECT",
+      "D": "INSERT INTO"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Nhóm lệnh DDL định nghĩa và thay đổi cấu trúc bảng gồm: `CREATE`, `ALTER TABLE`, `DROP`. Trong khi đó `SELECT`, `INSERT`, `UPDATE`, `DELETE` thuộc nhóm thao tác dữ liệu (DML - Data Manipulation Language).",
+    "growth_mindset_tip": "Phân biệt rõ: DDL thay đổi 'khung xương/cấu trúc' (Data Definition), DML thao tác trên 'nội dung/dữ liệu' (Data Manipulation)!"
+  },
+  {
+    "id": "TIN-003",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Chủ đề 2: Kĩ thuật lập trình Python (Độ phức tạp thuật toán)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Thuật toán tìm kiếm nhị phân (Binary Search) trên một dãy gồm n phần tử đã được sắp xếp tăng dần có độ phức tạp thời gian trong trường hợp xấu nhất là:",
+    "options": {
+      "A": "O(log n)",
+      "B": "O(n)",
+      "C": "O(n^2)",
+      "D": "O(1)"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Thuật toán tìm kiếm nhị phân sau mỗi bước so sánh sẽ loại bỏ một nửa số phần tử còn lại của dãy, do đó số phép so sánh tối đa là $\\log_2 n$, tương đương độ phức tạp thời gian $O(\\log n)$.",
+    "growth_mindset_tip": "So sánh nhị phân với tìm kiếm tuần tự: Tuần tự là $O(n)$, nhị phân là $O(\\log n)$ - nhanh hơn hàng triệu lần khi dữ liệu lớn!"
+  },
+  {
+    "id": "TIN-004",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Chủ đề 2: Kĩ thuật lập trình Python (Xử lý chuỗi và danh sách)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Đoạn mã Python sau in ra kết quả gì?\n\n```python\na = [1, 3, 5, 7, 9]\nb = [x * 2 for x in a if x % 3 != 0]\nprint(len(b), sum(b))\n```",
+    "options": {
+      "A": "3 26",
+      "B": "4 32",
+      "C": "3 24",
+      "D": "5 50"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Dãy $a = [1, 3, 5, 7, 9]$. Các phần tử không chia hết cho 3 là: 1, 5, 7. Biểu thức list comprehension nhân đôi: $b = [1*2, 5*2, 7*2] = [2, 10, 14]$. Số phần tử $\\text{len}(b) = 3$. Tổng các phần tử $\\text{sum}(b) = 2 + 10 + 14 = 26$.",
+    "growth_mindset_tip": "Kỹ thuật List Comprehension trong Python: đọc lần lượt theo thứ tự: vòng lặp `for` -> điều kiện lọc `if` -> biểu thức tính toán ở đầu!"
+  },
+  {
+    "id": "TIN-005",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chủ đề 1: Trí tuệ nhân tạo (AI)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Hệ thống AI có khả năng tạo ra các nội dung hoàn toàn mới như văn bản, hình ảnh, mã nguồn dựa trên dữ liệu đã được học được gọi là:",
+    "options": {
+      "A": "Trí tuệ nhân tạo tạo sinh (Generative AI)",
+      "B": "Trí tuệ nhân tạo phân loại (Classification AI)",
+      "C": "Hệ chuyên gia cổ điển (Expert System)",
+      "D": "Trí tuệ nhân tạo quy tắc (Rule-based AI)"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trí tuệ nhân tạo tạo sinh (Generative AI) là nhánh AI có khả năng học các mẫu từ dữ liệu lớn để tự động sinh ra các dữ liệu mới sáng tạo (văn bản, tranh vẽ, âm thanh, video, code).",
+    "growth_mindset_tip": "Các mô hình ngôn ngữ lớn như ChatGPT, Gemini, Claude đều là ví dụ tiêu biểu của Generative AI."
+  },
+  {
+    "id": "TIN-006",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chủ đề 2: Thiết kế web với HTML và CSS (Mô hình hộp Box Model)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Trong mô hình hộp (Box Model) của CSS, vùng đệm nằm giữa nội dung (content) của phần tử và đường viền (border) được định dạng bởi thuộc tính nào?",
+    "options": {
+      "A": "padding",
+      "B": "margin",
+      "C": "outline",
+      "D": "spacing"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Thứ tự các lớp trong CSS Box Model từ trong ra ngoài: Content (nội dung) $\\to$ Padding (vùng đệm bên trong viền) $\\to$ Border (đường viền) $\\to$ Margin (lề ngoài cách ly với phần tử khác).",
+    "growth_mindset_tip": "Phân biệt Margin và Padding: Padding là đệm bên TRONG đường viền, Margin là khoảng cách bên NGOÀI đường viền!"
+  },
+  {
+    "id": "TIN-007",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chủ đề 1: Mạng máy tính và An toàn không gian mạng",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Giao thức nào có nhiệm vụ chuyển đổi tên miền dạng chữ dễ nhớ (ví dụ: `google.com`) thành địa chỉ IP dạng số tương ứng trên Internet?",
+    "options": {
+      "A": "DNS (Domain Name System)",
+      "B": "DHCP (Dynamic Host Configuration Protocol)",
+      "C": "HTTP (Hypertext Transfer Protocol)",
+      "D": "FTP (File Transfer Protocol)"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Hệ thống phân giải tên miền DNS (Domain Name System) hoạt động như cuốn danh bạ Internet, biên dịch tên miền thân thiện với con người thành địa chỉ IP mà máy tính sử dụng để định tuyến dữ liệu.",
+    "growth_mindset_tip": "Ghi nhớ: DNS = Danh bạ Internet ánh xạ Domain Name <-> IP Address."
+  },
+  {
+    "id": "TIN-008",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "BOSS_30D",
+    "source": "Phần A - Chủ đề 2: Quản trị CSDL với SQL (Truy vấn INNER JOIN)",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Cho hai bảng `HocSinh(MaHS, HoTen, MaLop)` và `Lop(MaLop, TenLop, GiaoVienCN)`. Câu truy vấn SQL nào sau đây lấy danh sách họ tên học sinh cùng tên lớp tương ứng của các học sinh thuộc lớp có giáo viên chủ nhiệm là 'Nguyễn Văn A'?",
+    "options": {
+      "A": "SELECT HocSinh.HoTen, Lop.TenLop FROM HocSinh INNER JOIN Lop ON HocSinh.MaLop = Lop.MaLop WHERE Lop.GiaoVienCN = 'Nguyễn Văn A';",
+      "B": "SELECT HoTen, TenLop FROM HocSinh WHERE GiaoVienCN = 'Nguyễn Văn A';",
+      "C": "SELECT * FROM HocSinh, Lop ON HocSinh.MaLop = Lop.MaLop;",
+      "D": "SELECT HocSinh.HoTen, Lop.TenLop FROM HocSinh JOIN Lop WHERE HocSinh.MaLop = Lop.GiaoVienCN;"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cú pháp liên kết chuẩn: `FROM HocSinh INNER JOIN Lop ON HocSinh.MaLop = Lop.MaLop` để kết nối 2 bảng qua khóa ngoại `MaLop`, sau đó lọc bản ghi với mệnh đề `WHERE Lop.GiaoVienCN = 'Nguyễn Văn A'`. Đáp án A là câu truy vấn đầy đủ và chính xác nhất.",
+    "growth_mindset_tip": "Mệnh đề INNER JOIN kết nối các bảng dựa trên khóa chính - khóa ngoài, kết hợp điều kiện lọc WHERE để lấy dữ liệu đa bảng chính xác!"
+  },
+  {
+    "id": "TIN-009",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Chủ đề 1: Khóa chính và Khóa ngoài trong CSDL",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Thuộc tính nào của một bảng trong CSDL quan hệ có vai trò tham chiếu đến khóa chính của một bảng khác để tạo mối liên kết dữ liệu?",
+    "options": {
+      "A": "Khóa ngoài (Foreign Key)",
+      "B": "Khóa chính (Primary Key)",
+      "C": "Khóa ứng viên (Candidate Key)",
+      "D": "Khóa thay thế (Surrogate Key)"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Khóa ngoài (Foreign Key) là một trường hoặc tập hợp các trường trong một bảng mà giá trị của nó bắt buộc phải tồn tại trong tập giá trị khóa chính của một bảng khác, nhằm đảm bảo tính toàn vẹn tham chiếu giữa hai bảng.",
+    "growth_mindset_tip": "Khóa chính nhận diện duy nhất bản ghi trong bảng hiện tại; Khóa ngoài liên kết bảng hiện tại tới bảng khác."
+  },
+  {
+    "id": "TIN-010",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Chủ đề 2: Thuật toán sắp xếp trong Python",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Trong thuật toán sắp xếp nổi bọt (Bubble Sort) trên dãy 5 số nguyên $[5, 1, 4, 2, 8]$ theo thứ tự tăng dần, sau khi hoàn thành lượt quét đầu tiên (Pass 1), trạng thái của dãy là:",
+    "options": {
+      "A": "[1, 4, 2, 5, 8]",
+      "B": "[1, 2, 4, 5, 8]",
+      "C": "[1, 5, 4, 2, 8]",
+      "D": "[4, 1, 2, 5, 8]"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Các bước so sánh và đổi chỗ liên tiếp của lượt 1:\n1) So sánh 5 và 1: đổi chỗ $\\to [1, 5, 4, 2, 8]$\n2) So sánh 5 và 4: đổi chỗ $\\to [1, 4, 5, 2, 8]$\n3) So sánh 5 và 2: đổi chỗ $\\to [1, 4, 2, 5, 8]$\n4) So sánh 5 và 8: đúng thứ tự, giữ nguyên $\\to [1, 4, 2, 5, 8]$. Kết thúc lượt 1, phần tử lớn nhất đã 'nổi bọt' về cuối dãy.",
+    "growth_mindset_tip": "Thuật toán Bubble Sort: Sau mỗi lượt $i$, phần tử lớn thứ $i$ chắc chắn sẽ nổi về đúng vị trí ở cuối dãy!"
+  },
+  {
+    "id": "TIN-011",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chủ đề 2: HTML cấu trúc trang web",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Thẻ HTML nào sau đây được sử dụng để tạo một ô tiêu đề trong bảng dữ liệu?",
+    "options": {
+      "A": "<th>",
+      "B": "<td>",
+      "C": "<tr>",
+      "D": "<header>"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trong cấu trúc thẻ `<table>`: `<tr>` (table row) định nghĩa hàng; `<td>` (table data) định nghĩa ô dữ liệu bình thường; `<th>` (table header) định nghĩa ô tiêu đề của cột/hàng (mặc định chữ in đậm và canh giữa).",
+    "growth_mindset_tip": "Nhớ nhanh bộ 3 thẻ bảng: table -> tr (row) -> th (header) hoặc td (data)!"
+  },
+  {
+    "id": "TIN-012",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chủ đề 1: An toàn mạng và Mã độc",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Hình thức tấn công mạng nào mà kẻ tấn công giả mạo tổ chức uy tín (như ngân hàng, trường học) gửi email hoặc tin nhắn chứa đường liên kết độc hại nhằm đánh cắp thông tin đăng nhập và mật khẩu của người dùng?",
+    "options": {
+      "A": "Tấn công lừa đảo (Phishing)",
+      "B": "Tấn công từ chối dịch vụ (DDoS)",
+      "C": "Tấn công tràn bộ đệm (Buffer Overflow)",
+      "D": "Tấn công trung gian (Man-in-the-Middle)"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Tấn công lừa đảo (Phishing) là kỹ thuật tấn công phi kỹ thuật (Social Engineering) lừa gạt người dùng nhấp vào liên kết giả mạo để chiếm đoạt tài khoản bí mật hoặc thông tin thẻ tín dụng.",
+    "growth_mindset_tip": "Luôn kiểm tra kỹ tên miền (domain URL) của thanh địa chỉ trình duyệt trước khi nhập mật khẩu vào bất kỳ website nào!"
+  }
+]

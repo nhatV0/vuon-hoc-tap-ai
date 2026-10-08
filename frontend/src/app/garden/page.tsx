@@ -58,6 +58,12 @@ export default function StudentGardenDashboard() {
 
   const fetchStudentData = useCallback(async () => {
     try {
+      // Nếu là Giáo viên hoặc Quản trị viên, tự động chuyển về /teacher
+      if (user?.role === "teacher" || user?.role === "admin") {
+        router.replace("/teacher");
+        return;
+      }
+
       const storedStudentId = typeof window !== "undefined" 
         ? (localStorage.getItem("sunflower_student_id") || localStorage.getItem("current_student_id"))
         : null;

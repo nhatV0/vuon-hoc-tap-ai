@@ -1,0 +1,242 @@
+[
+  {
+    "id": "SU-001",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Chương IV: Chiến tranh bảo vệ Tổ quốc và giải phóng dân tộc",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Chiến thắng quân sự nào của nghĩa quân Tây Sơn dưới sự chỉ huy của Nguyễn Huệ vào đầu năm 1785 đã đập tan hoàn toàn 5 vạn quân xâm lược Xiêm?",
+    "options": {
+      "A": "Chiến thắng Rạch Gầm - Xoài Mút",
+      "B": "Chiến thắng Ngọc Hồi - Đống Đa",
+      "C": "Chiến thắng Chi Lăng - Xương Giang",
+      "D": "Chiến thắng Bạch Đằng"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Đầu năm 1785, Nguyễn Huệ đã chọn đoạn sông Tiền từ Rạch Gầm đến Xoài Mút (nay thuộc Tiền Giang) làm trận địa mai phục, đánh tan 5 vạn quân Xiêm, đập tan mưu đồ xâm lược của phong kiến Xiêm.",
+    "growth_mindset_tip": "Nhớ mốc son của phong trào Tây Sơn: 1785 đánh tan quân Xiêm ở Rạch Gầm - Xoài Mút, 1789 đại phá 29 vạn quân Thanh ở Ngọc Hồi - Đống Đa!"
+  },
+  {
+    "id": "SU-002",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "TRAP_2",
+    "source": "Phần A - Chương V: Một số cuộc cải cách lớn trong lịch sử Việt Nam (Cải cách Minh Mạng)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Trong cuộc cải cách hành chính quy mô lớn nửa đầu thế kỷ XIX, vua Minh Mạng đã xóa bỏ chế độ tổng trấn ở Bắc Thành và Gia Định Thành để chia cả nước thành bao nhiêu tỉnh?",
+    "options": {
+      "A": "30 tỉnh và 1 phủ Thừa Thiên",
+      "B": "24 tỉnh và 2 đạo",
+      "C": "36 tỉnh và kinh thành Huế",
+      "D": "13 thừa tuyên"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Vua Minh Mạng tiến hành cải cách hành chính (1831 - 1832), xóa bỏ Bắc Thành và Gia Định Thành, thống nhất hệ thống hành chính cả nước thành 30 tỉnh và 1 phủ Thừa Thiên, đứng đầu mỗi tỉnh là Tổng đốc hoặc Tuần phủ.",
+    "growth_mindset_tip": "Phân biệt các cuộc cải cách hành chính: Lê Thánh Tông chia cả nước thành 13 đạo thừa tuyên (thế kỷ XV), Minh Mạng chia cả nước thành 30 tỉnh và 1 phủ Thừa Thiên (thế kỷ XIX)!"
+  },
+  {
+    "id": "SU-003",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Chương IV: Khởi nghĩa Lam Sơn (1418 - 1427)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Kế sách chiến lược mang tính bước ngoặt đưa cuộc khởi nghĩa Lam Sơn thoát khỏi thế bao vây hiểm nghèo ở vùng núi Thanh Hóa để chuyển sang giai đoạn tiến công giải phóng địa bàn rộng lớn là:",
+    "options": {
+      "A": "Tiến quân vào Nghệ An theo đề xuất của tướng Nguyễn Chích",
+      "B": "Tập trung lực lượng vây hãm thành Đông Quan",
+      "C": "Chủ động hòa hoãn lâu dài với quân Minh ở Lạng Sơn",
+      "D": "Xây dựng phòng tuyến sông Cầu chặn đường tiếp viện"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cuối năm 1424, theo kế sách sáng suốt của tướng Nguyễn Chích, Lê Lợi quyết định chuyển quân vào Nghệ An - nơi đất rộng người đông, hiểm yếu làm căn cứ đứng chân, từ đó giải phóng Tân Bình, Thuận Hóa, tạo thế bao vây tiến ra Bắc.",
+    "growth_mindset_tip": "Bài học chọn địa bàn chiến lược: Biết chuyển hướng chiến lược kịp thời khi bị vây ép là chìa khóa xoay chuyển cục diện chiến tranh!"
+  },
+  {
+    "id": "SU-004",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương I: Thế giới trong và sau Chiến tranh lạnh (Liên hợp quốc)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Cơ quan nào của Liên hợp quốc giữ vai trò trọng yếu nhất trong việc duy trì hòa bình và an ninh quốc tế, với quyền đưa ra các nghị quyết có tính chất ràng buộc pháp lý?",
+    "options": {
+      "A": "Hội đồng Bảo an",
+      "B": "Đại hội đồng",
+      "C": "Ban Thư ký",
+      "D": "Tòa án Công lý Quốc tế"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Hội đồng Bảo an là cơ quan duy nhất của Liên hợp quốc chịu trách nhiệm chính về duy trì hòa bình và an ninh quốc tế, gồm 5 ủy viên thường trực (Mỹ, Nga, Trung Quốc, Anh, Pháp có quyền phủ quyết) và 10 ủy viên không thường trực.",
+    "growth_mindset_tip": "Nắm vững cơ cấu Liên hợp quốc: Đại hội đồng là cơ quan đại diện rộng rãi nhất, còn Hội đồng Bảo an là cơ quan quyền lực chính trị - an ninh cao nhất!"
+  },
+  {
+    "id": "SU-005",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương II: Hiệp hội các quốc gia Đông Nam Á (ASEAN)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Việt Nam chính thức được kết nạp làm thành viên thứ 7 của Hiệp hội các quốc gia Đông Nam Á (ASEAN) vào năm nào?",
+    "options": {
+      "A": "1995",
+      "B": "1997",
+      "C": "1999",
+      "D": "1986"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Ngày 28 tháng 7 năm 1995, tại Hội nghị Bộ trưởng Ngoại giao ASEAN lần thứ 28 tại Brunei, Việt Nam chính thức trở thành thành viên thứ 7 của ASEAN, mở ra thời kỳ hội nhập khu vực toàn diện.",
+    "growth_mindset_tip": "Các mốc kết nạp ASEAN quan trọng: 1967 (5 nước sáng lập) -> 1984 (Brunei) -> 1995 (Việt Nam) -> 1997 (Lào, Myanmar) -> 1999 (Campuchia)."
+  },
+  {
+    "id": "SU-006",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương III: Cuộc kháng chiến chống thực dân Pháp (Chiến dịch Điện Biên Phủ)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Quyết định thay đổi phương châm tác chiến lịch sử từ 'Đánh nhanh, thắng nhanh' sang 'Đánh chắc, tiến chắc' của Đại tướng Võ Nguyên Giáp trong Chiến dịch Điện Biên Phủ (1954) được đưa ra dựa trên cơ sở cốt lõi nào?",
+    "options": {
+      "A": "Phân tích tương quan lực lượng, nhận thấy quân Pháp đã tăng cường công sự kiên cố và pháo binh, phương châm cũ tiềm ẩn rủi ro thất bại quá lớn",
+      "B": "Thời tiết chuyển biến xấu do mưa bão bất ngờ",
+      "C": "Bộ đội ta thiếu thốn nghiêm trọng về lương thực và đạn dược",
+      "D": "Yêu cầu ngừng bắn từ Hội nghị Geneva"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Đại tướng Võ Nguyên Giáp nhận thấy địch đã biến Điện Biên Phủ thành tập đoàn cứ điểm mạnh nhất Đông Dương với hầm hào bê tông cốt thép kiên cố. Nếu đánh nhanh, bộ đội ta không có pháo cao xạ che đầu sẽ thương vong lớn. Quyết định 'Đánh chắc, tiến chắc' bảo toàn sinh lực và bảo đảm chắc thắng 100%.",
+    "growth_mindset_tip": "Bài học lãnh đạo: 'Quyết định khó khăn nhất trong cuộc đời chỉ huy' - dám nhìn thẳng vào sự thật để thay đổi chiến thuật bảo vệ tính mạng chiến sĩ và giành thắng lợi triệt để!"
+  },
+  {
+    "id": "SU-007",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương III: Cuộc kháng chiến chống Mỹ (So sánh các chiến lược chiến tranh)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Điểm khác biệt cơ bản nhất về lực lượng nòng cốt trực tiếp tham chiến trên chiến trường giữa chiến lược 'Chiến tranh cục bộ' (1965 - 1968) so với chiến lược 'Chiến tranh đặc biệt' (1961 - 1965) của đế quốc Mỹ ở miền Nam là gì?",
+    "options": {
+      "A": "Chiến tranh cục bộ sử dụng quân viễn chinh Mỹ và quân đồng minh làm lực lượng nòng cốt mở các cuộc hành quân 'tìm diệt'",
+      "B": "Chiến tranh đặc biệt sử dụng hoàn toàn vũ khí trang bị hiện đại của Liên Xô",
+      "C": "Chiến tranh cục bộ không sử dụng lực lượng không quân và hải quân",
+      "D": "Chiến tranh đặc biệt diễn ra trên quy mô toàn cõi Đông Dương"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trong 'Chiến tranh đặc biệt', lực lượng nòng cốt là quân đội Sài Gòn dưới sự chỉ huy của cố vấn quân sự Mỹ. Đến 'Chiến tranh cục bộ', Mỹ trực tiếp đưa quân viễn chinh Mỹ và quân chư hầu ồ ạt đổ bộ vào miền Nam làm lực lượng nòng cốt tác chiến.",
+    "growth_mindset_tip": "So sánh chiến lược chiến tranh của Mỹ: 'Đặc biệt' = quân Sài Gòn + cố vấn Mỹ; 'Cục bộ' = quân đội Mỹ ồ ạt vào tham chiến trực tiếp; 'Việt Nam hóa' = rút quân Mỹ, dùng người Việt đánh người Việt!"
+  },
+  {
+    "id": "SU-008",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương III: Cuộc Tổng tiến công và nổi dậy mùa Xuân 1975",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Thắng lợi quân sự nào vào đầu năm 1975 được coi là 'đòn trinh sát chiến lược', chứng minh rõ rệt sự suy yếu bất lực của quân đội Sài Gòn và khả năng Mỹ can thiệp trở lại bằng quân sự là rất thấp, giúp Bộ Chính trị hạ quyết tâm giải phóng miền Nam trong năm 1975?",
+    "options": {
+      "A": "Chiến thắng Phước Long (6/1/1975)",
+      "B": "Chiến dịch Tây Nguyên",
+      "C": "Chiến dịch Huế - Đà Nẵng",
+      "D": "Chiến thắng Ấp Bắc"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Chiến thắng Phước Long ngày 6/1/1975 có ý nghĩa chiến lược sâu sắc: Phước Long là tỉnh đầu tiên ở miền Nam được giải phóng hoàn toàn; sau thất bại này, chính quyền Sài Gòn phản ứng yếu ớt và Mỹ chỉ phản ứng bằng lời đe dọa chứ không đưa quân trở lại. Đây là cơ sở thực tiễn để Bộ Chính trị chớp thời cơ giải phóng hoàn toàn miền Nam.",
+    "growth_mindset_tip": "Chiến thắng Phước Long là 'đòn trinh sát chiến lược' kinh điển giúp ta kiểm tra phản ứng của đối phương trước khi mở màn trận quyết chiến chiến lược!"
+  },
+  {
+    "id": "SU-009",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Chương VI: Lịch sử bảo vệ chủ quyền Biển Đông",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Dưới thời các chúa Nguyễn ở Đàng Trong, tổ chức bán quân sự nào được thành lập để thực thi việc thu lượm hải vật, đo đạc hải trình và cắm mốc chủ quyền tại quần đảo Hoàng Sa?",
+    "options": {
+      "A": "Đội Hoàng Sa",
+      "B": "Đội Thần cơ",
+      "C": "Hải đội Nam Hải",
+      "D": "Đội Cận vệ ngự lâm"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Từ thế kỷ XVII, các chúa Nguyễn đã thành lập Đội Hoàng Sa (và sau đó là Đội Bắc Hải) với nhiệm vụ hàng năm đi thuyền ra quần đảo Hoàng Sa và Trường Sa thu lượm vũ khí, đồ vật của tàu đắm, đánh bắt hải sản quý và đo đạc hải trình, khẳng định chủ quyền vững chắc của dân tộc.",
+    "growth_mindset_tip": "Bằng chứng lịch sử về chủ quyền Biển Đông: Đội Hoàng Sa và Đội Bắc Hải là chứng cứ đanh thép về việc nhà nước phong kiến Việt Nam đã xác lập và thực thi chủ quyền liên tục, hòa bình từ nhiều thế kỷ!"
+  },
+  {
+    "id": "SU-010",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Chương V: Cuộc cải cách của Hồ Quý Ly (cuối TK XIV - đầu TK XV)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Biện pháp kinh tế - tài chính nào của Hồ Quý Ly được đánh giá là rất tiến bộ và đi trước thời đại nhưng lại chưa phát huy được hiệu quả do tâm lý và điều kiện xã hội lúc bấy giờ?",
+    "options": {
+      "A": "Phát hành tiền giấy 'Thông bảo hội sao' thay thế tiền đồng",
+      "B": "Xây dựng thành lũy kiên cố bằng đá Tây Đô",
+      "C": "Ban hành chính sách hạn điền hạn nô",
+      "D": "Dịch sách chữ Hán sang chữ Nôm"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Năm 1396, Hồ Quý Ly cho phát hành tiền giấy 'Thông bảo hội sao' nhằm tập trung đồng để đúc vũ khí và phát triển lưu thông hàng hóa. Đây là tư tưởng rất tiến bộ nhưng do pháp luật bắt buộc quá ngặt nghèo và nhân dân chưa quen dùng tiền giấy nên gây xáo trộn đời sống.",
+    "growth_mindset_tip": "Một chính sách dù tiến bộ vượt bậc về lý thuyết nhưng nếu thiếu sự chuẩn bị tâm lý nhân dân và điều kiện xã hội chín muồi thì rất khó thành công!"
+  },
+  {
+    "id": "SU-011",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương I: Trật tự thế giới sau Chiến tranh lạnh",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Sau khi Trật tự hai cực I-an-ta sụp đổ (1991), xu thế chung trong quan hệ quốc tế của các quốc gia trên thế giới là:",
+    "options": {
+      "A": "Chuyển từ đối đầu sang hòa hoãn, đối thoại, hợp tác và lấy phát triển kinh tế làm trọng tâm",
+      "B": "Tập trung xây dựng các liên minh quân sự đối đầu vũ trang toàn diện",
+      "C": "Hình thành ngay lập tức trật tự thế giới đơn cực dưới sự lãnh đạo duy nhất của Mỹ",
+      "D": "Cắt đứt các mối quan hệ ngoại giao đa phương để đóng cửa phát triển nội bộ"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Sau Chiến tranh lạnh, hầu hết các quốc gia đều điều chỉnh chiến lược phát triển, coi trọng phát triển kinh tế để nâng cao sức mạnh tổng hợp quốc gia; quan hệ quốc tế chuyển sang xu thế hòa hoãn, hợp tác và cạnh tranh đa cực.",
+    "growth_mindset_tip": "Xu thế thế giới hiện đại: Cạnh tranh kinh tế thay thế cho đối đầu ý thức hệ và quân sự khốc liệt!"
+  },
+  {
+    "id": "SU-012",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương III: Cách mạng tháng Tám năm 1945",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "'Thời cơ ngàn năm có một' của Cách mạng tháng Tám năm 1945 ở Việt Nam được Đảng ta xác định bắt đầu xuất hiện và tồn tại trong khoảng thời gian nào?",
+    "options": {
+      "A": "Từ khi Nhật tuyên bố đầu hàng Đồng minh (15/8/1945) đến trước khi quân Đồng minh kéo vào giải giáp quân Nhật ở Đông Dương (đầu tháng 9/1945)",
+      "B": "Từ khi Nhật đảo chính Pháp (9/3/1945) đến khi Nhật đầu hàng",
+      "C": "Từ khi Liên Xô tuyên chiến với phát xít Đức đến khi tiêu diệt đạo quân Quan Đông",
+      "D": "Từ khi Bác Hồ về nước đầu năm 1941 đến Hội nghị Tân Trào"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Thời cơ tồn tại rất ngắn: Bắt đầu từ khi Nhật hoàng đầu hàng (quân Nhật rệu rã, chính quyền bù nhìn Trần Trọng Kim tê liệt) cho đến trước khi quân Đồng minh (quân Tưởng và quân Anh) tiến vào giải giáp. Nếu khởi nghĩa sớm hơn thì gặp sức kháng cự mạnh của Nhật; nếu muộn hơn thì phải đối đầu với quân Đồng minh.",
+    "growth_mindset_tip": "Nghệ thuật chớp thời cơ cách mạng: Nhận diện chính xác khoảng 'khoảng trống quyền lực' để tổng khởi nghĩa giành thắng lợi nhanh chóng và trọn vẹn nhất!"
+  }
+]

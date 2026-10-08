@@ -1,0 +1,199 @@
+Dưới đây là thống kê toàn bộ nội dung **Lý thuyết môn Hóa học (Học kỳ II Lớp 11 và Toàn bộ Lớp 12)** được tổng hợp chính xác từ SGK. Nội dung được cấu trúc chuẩn hóa, cô đọng đầy đủ các khái niệm, công thức, tính chất và phương trình phản ứng trọng tâm để gửi vào AI huấn luyện sinh bộ câu hỏi.
+
+---
+
+# **MÔN 3: HÓA HỌC**
+
+---
+
+## **PHẦN A: HÓA HỌC LỚP 11 – HỌC KỲ II**
+
+### **1. Dẫn xuất halogen**
+* **Khái niệm & Cấu tạo:** Khi thay thế nguyên tử hydrogen trong phân tử hydrocarbon bằng nguyên tử halogen, thu được dẫn xuất halogen. Công thức tổng quát: \\(RX_n\\) (\\(X\\) là \\(\text{F, Cl, Br, I}\\)). Liên kết \\(C-X\\) phân cực về phía nguyên tử halogen.
+* **Danh pháp:**
+  * *Danh pháp thay thế:* Vị trí halogen - halo + tên hydrocarbon tương ứng.
+  * *Tên gốc - chức:* Tên gốc hydrocarbon + halide (ví dụ: ethyl chloride, vinyl chloride).
+* **Tính chất vật lý:** Nhiệt độ sôi và nhiệt độ nóng chảy cao hơn hydrocarbon có phân tử khối tương đương; hầu như không tan trong nước, tan tốt trong dung môi hữu cơ.
+* **Tính chất hóa học:**
+  * *Phản ứng thế nguyên tử halogen:* Tác dụng với dung dịch kiềm nóng tạo alcohol:
+    \\[R-X + OH^- \xrightarrow{t^o} R-OH + X^-\\].
+  * *Phản ứng tách hydrogen halide (Quy tắc Zaitsev):* Khi đun nóng với base mạnh trong alcohol, nguyên tử halogen bị tách ưu tiên cùng với hydrogen ở carbon bên cạnh có bậc cao hơn để tạo alkene chính:
+    \\[CH_3-CH(Br)-CH_2-CH_3 \xrightarrow{NaOH/C_2H_5OH, t^o} CH_3-CH=CH-CH_3 + HBr\\].
+* **Ứng dụng & Môi trường:** Dùng làm dung môi, sản xuất polymer, dược phẩm, chất kích thích sinh trưởng. Các hợp chất CFC làm suy giảm tầng ozone nên đã bị hạn chế và cấm sử dụng.
+
+---
+
+### **2. Alcohol**
+* **Khái niệm & Phân loại:** Hợp chất hữu cơ trong phân tử có chứa nhóm hydroxy (\\(-OH\\)) liên kết trực tiếp với nguyên tử carbon no.
+  * *Alcohol no, đơn chức, mạch hở:* \\(C_nH_{2n+1}OH\\) (\\(n \ge 1\\)).
+  * *Bậc alcohol:* Là bậc của nguyên tử carbon liên kết với nhóm \\(-OH\\) (bậc I, II, III).
+* **Danh pháp:** Tên hydrocarbon mạch chính (bỏ "e" ở cuối) - vị trí nhóm \\(-OH\\) - "ol".
+* **Tính chất vật lý:** Do tạo được liên kết hydrogen giữa các phân tử alcohol với nhau và với nước nên alcohol có nhiệt độ sôi cao hơn hẳn hydrocarbon hoặc dẫn xuất halogen tương đương, và tan tốt trong nước.
+* **Tính chất hóa học:**
+  * *Phản ứng thế H của nhóm \\(-OH\\):* Tác dụng với kim loại kiềm (\\(Na, K\\)) giải phóng \\(H_2\\): \\(2ROH + 2Na \to 2RONa + H_2 \uparrow\\).
+  * *Phản ứng tạo ether:* \\(2C_2H_5OH \xrightarrow{H_2SO_4 \text{ đặc}, 140^\circ C} C_2H_5-O-C_2H_5 + H_2O\\).
+  * *Phản ứng tách nước tạo alkene:* \\(C_nH_{2n+1}OH \xrightarrow{H_2SO_4 \text{ đặc}, 170^\circ C} C_nH_{2n} + H_2O\\) (\\(n \ge 2\\)).
+  * *Phản ứng oxi hóa:*
+    * Oxi hóa không hoàn toàn bởi \\(CuO, t^o\\): Alcohol bậc I \\(\to\\) Aldehyde; Alcohol bậc II \\(\to\\) Ketone; Alcohol bậc III khó bị oxi hóa.
+    * Oxi hóa hoàn toàn (đốt cháy): \\(C_nH_{2n+1}OH + \frac{3n}{2}O_2 \xrightarrow{t^o} nCO_2 + (n+1)H_2O\\).
+  * *Phản ứng riêng của polyalcohol có các nhóm \\(-OH\\) liền kề:* Tác dụng với \\(Cu(OH)_2\\) tạo dung dịch phức chất màu xanh lam đậm đặc trưng (dùng nhận biết ethylene glycol, glycerol).
+* **Điều chế:** Hydrate hóa alkene (\\(C_2H_4 + H_2O \xrightarrow{H_3PO_4, t^o} C_2H_5OH\\)); lên men tinh bột.
+
+---
+
+### **3. Phenol**
+* **Khái niệm & Cấu tạo:** Hợp chất hữu cơ phân tử có nhóm \\(-OH\\) liên kết trực tiếp với nguyên tử carbon của vòng benzene. Công thức đơn giản nhất là \\(C_6H_5OH\\).
+* **Tính chất vật lý:** Chất rắn không màu, tan ít trong nước ở nhiệt độ thường, tan nhiều khi đun nóng (\\(>66^\circ C\\)), có tính độc và gây bỏng da.
+* **Tính chất hóa học:** Do ảnh hưởng của vòng benzene, liên kết \\(O-H\\) phân cực mạnh hơn alcohol, làm phenol thể hiện tính acid yếu.
+  * *Tính acid yếu:* Phản ứng với dung dịch \\(NaOH, Na_2CO_3\\) tạo muối phenolate, không làm đổi màu quỳ tím:
+    \\[C_6H_5OH + NaOH \to C_6H_5ONa + H_2O\\]
+    \\[C_6H_5OH + Na_2CO_3 \rightleftharpoons C_6H_5ONa + NaHCO_3\\].
+  * *Phản ứng thế vào vòng thơm (vị trí ortho và para):*
+    * Tác dụng với nước bromine tạo kết tủa trắng 2,4,6-tribromophenol (dùng nhận biết phenol).
+    * Tác dụng với \\(HNO_3\\) đặc (\\(H_2SO_4\\) đặc) tạo kết tủa màu vàng 2,4,6-trinitrophenol (picric acid).
+* **Điều chế:** Oxi hóa cumene thu được phenol và acetone; hoặc tách từ nhựa than đá.
+
+---
+
+### **4. Hợp chất Carbonyl (Aldehyde - Ketone)**
+* **Khái niệm:** Hợp chất hữu cơ trong phân tử chứa nhóm carbonyl (\\(>C=O\\)).
+  * *Aldehyde:* Nhóm \\(-CHO\\) liên kết với H hoặc gốc hydrocarbon (\\(R-CHO\\)).
+  * *Ketone:* Nhóm \\(>C=O\\) liên kết với hai gốc hydrocarbon (\\(R-CO-R'\\)).
+* **Tính chất vật lý:** Nhiệt độ sôi cao hơn hydrocarbon tương đương do nhóm \\(>C=O\\) phân cực, nhưng thấp hơn alcohol do không tạo liên kết hydrogen inter-molecular. Các hợp chất nhỏ (\\(HCHO, CH_3CHO, CH_3COCH_3\\)) tan vô hạn trong nước.
+* **Tính chất hóa học:**
+  * *Phản ứng khử:* Khử bởi \\(NaBH_4\\) hoặc \\(LiAlH_4\\): Aldehyde bị khử thành alcohol bậc I; Ketone bị khử thành alcohol bậc II.
+  * *Phản ứng oxi hóa aldehyde (phản ứng đặc trưng phân biệt với ketone):*
+    * Tác dụng với nước bromine: \\(RCHO + Br_2 + H_2O \to RCOOH + 2HBr\\).
+    * Tác dụng với thuốc thử Tollens (Phản ứng tráng bạc):
+      \\[RCHO + 2[Ag(NH_3)_2]OH \xrightarrow{t^o} RCOONH_4 + 2Ag \downarrow + 3NH_3 + H_2O\\].
+    * Tác dụng với \\(Cu(OH)_2/OH^-\\) đun nóng tạo kết tủa \\(Cu_2O\\) đỏ gạch.
+  * *Phản ứng tạo iodoform:* Các hợp chất có chứa nhóm \\(CH_3C=O\\) tác dụng với \\(I_2\\) trong môi trường \\(NaOH\\) tạo kết tủa \\(CHI_3\\) màu vàng.
+
+---
+
+### **5. Carboxylic acid**
+* **Khái niệm:** Hợp chất hữu cơ trong phân tử chứa nhóm carboxyl (\\(-COOH\\)) liên kết với nguyên tử H hoặc gốc hydrocarbon. CTTQ đơn chức: \\(R-COOH\\).
+* **Tính chất vật lý:** Nhóm \\(-COOH\\) phân cực mạnh và tạo liên kết hydrogen dạng dimer hoặc liên kết chuỗi giữa các phân tử, làm cho carboxylic acid có nhiệt độ sôi cao nhất so với hydrocarbon, alcohol, carbonyl có phân tử khối tương đương.
+* **Tính chất hóa học:**
+  * *Tính acid:* Mang đầy đủ tính chất của một acid yếu (phân li \\(H^+\\), làm quỳ tím hóa đỏ, tác dụng với kim loại trước H, oxide base, base, muối của acid yếu hơn).
+  * *Phản ứng ester hóa:* Phản ứng thuận nghịch có xúc tác \\(H_2SO_4\\) đặc, đun nóng:
+    \\[RCOOH + R'OH \xrightleftharpoons[t^o]{H_2SO_4 \text{ đặc}} RCOOR' + H_2O\\].
+* **Điều chế:** Phản ứng lên men giấm từ ethanol (\\(C_2H_5OH + O_2 \xrightarrow{\text{men giấm}} CH_3COOH + H_2O\\)); oxi hóa alkane.
+
+---
+
+## **PHẦN B: HÓA HỌC LỚP 12 – TOÀN BỘ CHƯƠNG TRÌNH**
+
+### **CHƯƠNG 1. ESTER - LIPID**
+* **Ester:**
+  * *Khái niệm & Cấu tạo:* Khi thay thế nhóm \\(-OH\\) ở nhóm carboxyl của carboxylic acid bằng nhóm \\(-OR'\\), thu được ester (\\(RCOOR'\\)).
+  * *Tên gọi:* Tên gốc \\(R'\\) + tên gốc acid (thay đuôi "oic/ic" bằng "ate").
+  * *Tính chất vật lý:* Nhiệt độ sôi thấp hơn hẳn alcohol và acid tương đương do không có liên kết hydrogen; có mùi thơm nhẹ đặc trưng của hoa quả, nhẹ hơn nước và ít tan trong nước.
+  * *Tính chất hóa học:*
+    * Thủy phân trong môi trường acid (thuận nghịch): \\(RCOOR' + H_2O \xrightleftharpoons[t^o]{H^+} RCOOH + R'OH\\).
+    * Thủy phân trong môi trường base (phản ứng xà phòng hóa, một chiều): \\(RCOOR' + NaOH \xrightarrow{t^o} RCOONa + R'OH\\).
+* **Chất béo (Triglyceride) & Acid béo:**
+  * *Khái niệm:* Chất béo là triester của glycerol với các acid béo, công thức chung \\((RCOO)_3C_3H_5\\).
+  * *Acid béo thường gặp:* Palmitic acid (\\(C_{15}H_{31}COOH\\)), Stearic acid (\\(C_{17}H_{35}COOH\\)) (no); Oleic acid (\\(C_{17}H_{33}COOH\\)), Linoleic acid (\\(C_{17}H_{31}COOH\\)) (không no).
+  * *Tính chất hóa học:*
+    * Phản ứng thủy phân/xà phòng hóa tạo glycerol và muối của acid béo (xà phòng).
+    * Phản ứng hydrogen hóa: Chuyển chất béo không no (dạng lỏng) thành chất béo no (dạng rắn/bơ nhân tạo).
+
+---
+
+### **CHƯƠNG 2. CARBOHYDRATE**
+* **Phân loại Carbohydrate:**
+  * *Monosaccharide:* Khái niệm là carbohydrate không bị thủy phân. Gồm Glucose và Fructose (\\(C_6H_{12}O_6\\)).
+  * *Disaccharide:* Khi thủy phân sinh ra 2 phân tử monosaccharide. Gồm Saccharose và Maltose (\\(C_{12}H_{22}O_{11}\\)).
+  * *Polysaccharide:* Khi thủy phân hoàn toàn sinh ra nhiều phân tử monosaccharide. Gồm Tinh bột và Cellulose (\\((C_6H_{10}O_5)_n\\)).
+* **Glucose & Fructose:**
+  * Glucose là hợp chất polyhydroxyaldehyde; Fructose là polyhydroxyketone. Trong môi trường kiềm, glucose và fructose chuyển hóa qua lại.
+  * *Tính chất polyalcohol:* Tác dụng với \\(Cu(OH)_2\\) ở nhiệt độ thường cho dung dịch màu xanh lam.
+  * *Tính chất aldehyde (Glucose):* Tráng bạc với thuốc thử Tollens; khử \\(Cu(OH)_2/OH^-\\) đun nóng tạo kết tủa đỏ gạch \\(Cu_2O\\); làm mất màu nước bromine.
+  * *Phản ứng lên men của glucose:* \\(C_6H_{12}O_6 \xrightarrow{\text{enzyme}} 2C_2H_5OH + 2CO_2 \uparrow\\).
+* **Saccharose, Tinh bột & Cellulose:**
+  * *Saccharose:* Cấu tạo từ 1 gốc \\(\alpha\\)-glucose và 1 gốc \\(\beta\\)-fructose. Không chứa nhóm \\(-CHO\\) tự do nên không tráng bạc; bị thủy phân trong môi trường acid/enzyme.
+  * *Tinh bột:* Gồm amylose (mạch không nhánh, liên kết \\(\alpha\\)-1,4-glycoside) và amylopectin (mạch phân nhánh, liên kết \\(\alpha\\)-1,4 và \\(\alpha\\)-1,6-glycoside). Phản ứng đặc trưng: Tạo màu xanh tím với dung dịch iodine.
+  * *Cellulose:* Cấu tạo từ các đơn vị \\(\beta\\)-glucose liên kết \\(\beta\\)-1,4-glycoside tạo chuỗi không nhánh. Tác dụng với \\(HNO_3/H_2SO_4\\) đặc tạo cellulose trinitrate.
+
+---
+
+### **CHƯƠNG 3. HỢP CHẤT CHỨA NITROGEN**
+* **Amine:**
+  * *Khái niệm & Bậc amine:* Dẫn xuất của \\(NH_3\\) khi thay thế H bằng gốc hydrocarbon. Bậc amine tính bằng số gốc hydrocarbon liên kết với N (bậc 1, 2, 3).
+  * *Tính chất vật lý & Hóa học:* \\(CH_3NH_2, (CH_3)_2NH, (CH_3)_3N, C_2H_5NH_2\\) là chất khí, mùi khai, tan nhiều trong nước. Aniline (\\(C_6H_5NH_2\\)) là chất lỏng, ít tan trong nước.
+  * *Tính base:* Dung dịch alkylamine làm quỳ tím hóa xanh; tác dụng với acid tạo muối. Aniline có tính base rất yếu, không làm đổi màu quỳ tím.
+  * *Phản ứng riêng của Aniline:* Tác dụng với nước bromine tạo kết tủa trắng 2,4,6-tribromoaniline.
+* **Amino acid, Peptide & Protein:**
+  * *Amino acid:* Hợp chất hữu cơ tạp chức chứa nhóm \\(-NH_2\\) và \\(-COOH\\). Tồn tại chủ yếu ở dạng ion lưỡng cực \\(H_3N^+-CH(R)-COO^-\\) nên là chất rắn, nhiệt độ nóng chảy cao, dễ tan trong nước.
+  * *Tính chất lưỡng tính:* Tác dụng được với cả acid mạnh và base mạnh.
+  * *Peptide:* Chứa liên kết peptide \\(-CO-NH-\\) giữa các đơn vị \\(\alpha\\)-amino acid.
+  * *Phản ứng thủy phân:* Peptide/protein bị thủy phân hoàn toàn tạo các \\(\alpha\\)-amino acid.
+  * *Phản ứng màu biuret:* Peptide (từ tripeptide trở lên) và protein tác dụng với \\(Cu(OH)_2/OH^-\\) tạo dung dịch màu tím đặc trưng.
+
+---
+
+### **CHƯƠNG 4. POLYMER VÀ VẬT LIỆU POLYMER**
+* **Khái niệm & Cấu trúc:** Polymer là những hợp chất có phân tử khối rất lớn do nhiều đơn vị nhỏ (mắt xích) liên kết với nhau tạo nên. Mạch polymer gồm: mạch không nhánh (PE, PVC, amylose), mạch nhánh (amylopectin, glycogen), mạch mạng không gian (cao su lưu hóa, nhựa bakelite).
+* **Phương pháp tổng hợp:**
+  * *Trùng hợp:* Quá trình kết hợp nhiều phân tử nhỏ (monomer) giống nhau hay tương tự nhau chứa liên kết bội hoặc vòng kém bền thành polymer (PE, PP, PVC, PS, cao su buna).
+  * *Trùng ngưng:* Quá trình kết hợp các monomer có ít nhất hai nhóm chức có khả năng phản ứng để tạo polymer đồng thời giải phóng các phân tử nhỏ như \\(H_2O\\) (Nylon-6,6, Tơ capron, PET).
+* **Vật liệu Polymer:**
+  * *Chất dẻo:* PE, PP, PVC, PS, PMA (thủy tinh hữu cơ), PPF.
+  * *Tơ:* Tơ tự nhiên (bông, tơ tằm), Tơ bán tổng hợp/nhân tạo (tơ visco, tơ cellulose acetate), Tơ tổng hợp (polyamide: nylon-6,6, capron; vinylic: nitron/ol游).
+  * *Cao su:* Cao su tự nhiên (polyisoprene), Cao su tổng hợp (buna, buna-S, buna-N).
+
+---
+
+### **CHƯƠNG 5. PIN ĐIỆN VÀ ĐIỆN PHÂN**
+* **Pin điện hóa:**
+  * *Cặp oxi hóa - khử:* Dạng oxi hóa (\\(M^{n+}\\)) và dạng khử (\\(M\\)) của cùng một nguyên tố kim loại tạo thành cặp \\(M^{n+}/M\\). Thế điện cực chuẩn \\(E^o_{M^{n+}/M}\\) đánh giá khả năng oxi hóa/khử.
+  * *Nguyên tắc hoạt động của Pin Galvanic:* Chuyển hóa hóa năng của phản ứng oxi hóa - khử tự diễn tiến thành điện năng.
+    * Tại Anode (cực âm): Xảy ra quá trình oxi hóa chất khử.
+    * Tại Cathode (cực dương): Xảy ra quá trình khử chất oxi hóa.
+    * Sức điện động chuẩn: \\(E^o_{\text{pin}} = E^o_{\text{cathode}} - E^o_{\text{anode}}\\).
+* **Điện phân:**
+  * *Khái niệm:* Quá trình oxi hóa - khử xảy ra trên bề mặt các điện cực dưới tác dụng của dòng điện một chiều.
+  * *Thứ tự điện phân:*
+    * Tại Anode (cực dương): Chất khử mạnh hơn bị oxi hóa trước.
+    * Tại Cathode (cực âm): Chất oxi hóa mạnh hơn bị khử trước.
+  * *Ứng dụng:* Sản xuất kim loại hoạt động mạnh (\\(Al, Na, Mg\\) bằng điện phân nóng chảy); tinh chế kim loại (\\(Cu\\)); mạ điện.
+
+---
+
+### **CHƯƠNG 6. ĐẠI CƯƠNG VỀ KIM LOẠI**
+* **Cấu tạo & Tính chất vật lý:**
+  * Tinh thể kim loại gồm ion dương kim loại ở các nút mạng và các electron tự do chuyển động xung quanh.
+  * Tính chất vật lý chung của kim loại (dẫn điện, dẫn nhiệt, tính dẻo, ánh kim) đều do các electron tự do gây ra. Dẫn điện tốt nhất: \\(Ag > Cu > Au > Al > Fe\\).
+* **Tính chất hóa học:** Tính chất hóa học đặc trưng của kim loại là **tính khử**: \\(M \to M^{n+} + ne\\). Tác dụng với phi kim, acid, dung dịch muối, nước.
+* **Phương pháp tách/điều chế kim loại:**
+  * *Nguyên tắc:* Khử ion kim loại thành nguyên tử: \\(M^{n+} + ne \to M\\).
+  * *Nhiệt luyện:* Khử oxide kim loại trung bình - yếu (\\(Fe, Cu, Zn\\)) bằng \\(CO, H_2, Al, C\\) ở nhiệt độ cao.
+  * *Thủy luyện:* Dùng kim loại tự do mạnh hơn đẩy ion kim loại yếu hơn ra khỏi dung dịch.
+  * *Điện phân:* Điện phân nóng chảy (điều chế kim loại mạnh: \\(IA, IIA, Al\\)); Điện phân dung dịch (kim loại trung bình, yếu).
+
+---
+
+### **CHƯƠNG 7. NGUYÊN TỐ NHÓM IA VÀ NHÓM IIA**
+* **Nhóm IA (Kim loại kiềm: \\(Li, Na, K, Rb, Cs\\)):**
+  * Cấu hình electron lớp ngoài cùng \\(ns^1\\). Năng lượng ion hóa nhỏ nhất nên có **tính khử rất mạnh**.
+  * Tác dụng mạnh với nước ở nhiệt độ thường tạo dung dịch base và \\(H_2\\). Bảo quản bằng cách ngâm trong dầu hỏa.
+  * Màu ngọn lửa đặc trưng: \\(Li^+\\) màu đỏ thắm, \\(Na^+\\) màu vàng, \\(K^+\\) màu tím.
+* **Nhóm IIA (Kim loại kiềm thổ: \\(Be, Mg, Ca, Sr, Ba\\)):**
+  * Cấu hình electron lớp ngoài cùng \\(ns^2\\). Tính khử mạnh.
+  * Bền nhiệt của muối carbonate và nitrate tăng dần từ \\(Be\\) đến \\(Ba\\).
+  * *Nước cứng:* Là nước chứa nhiều ion \\(Ca^{2+}\\) và \\(Mg^{2+}\\). Làm mềm bằng phương pháp kết tủa (\\(Na_2CO_3, Na_3PO_4\\)) hoặc trao đổi ion.
+
+---
+
+### **CHƯƠNG 8. SƠ LƯỢC VỀ DÃY KIM LOẠI CHUYỂN TIẾP THỨ NHẤT VÀ PHỨC CHẤT**
+* **Kim loại chuyển tiếp dãy thứ nhất (\\(Sc\\) đến \\(Cu\\)):**
+  * Các nguyên tố \\(d\\) có cấu hình electron phân lớp ngoài cùng dạng \\((n-1)d^{1-10}ns^{1-2}\\).
+  * Có nhiều trạng thái oxi hóa, nhiệt độ nóng chảy và khối lượng riêng cao, có tính chất dẫn điện và cơ học tốt.
+* **Sơ lược về Phức chất:**
+  * *Cấu tạo:* Gồm nguyên tử trung tâm (cation kim loại chuyển tiếp) liên kết phối trí với các phối tử (ion hoặc phân tử có cặp electron tự do).
+  * *Đặc điểm:* Phức chất thường có màu sắc đặc trưng, tham gia phản ứng thế phối tử, đóng vai trò sinh học quan trọng (Hemoglobin chứa \\(Fe^{2+}\\), Chlorophyll chứa \\(Mg^{2+}\\)) và ứng dụng lớn trong hóa phân tích, y học.
+
+---
+
+Bạn có muốn chúng ta tiếp tục chuyển sang thống kê phần Lý thuyết cho **Môn 4: Sinh học (Học kỳ II Lớp 11 & Toàn bộ Lớp 12)** không?

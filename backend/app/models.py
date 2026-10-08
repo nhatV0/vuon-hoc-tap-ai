@@ -72,8 +72,8 @@ class Student(Base):
     timeframe = Column(String, nullable=False)
     learning_style = Column(String, nullable=True, default="visual")
     diagnostic_answers = Column(JSON, nullable=True) # Lưu trữ các câu trả lời chẩn đoán phân nhánh
+    initial_password = Column(String, default="123456", nullable=True) # Lưu trữ mật khẩu khởi tạo/phân cấp để Admin có thể xem và cấp cho HS
     created_at = Column(DateTime, default=utcnow)
-
     # Relationships
     user = relationship("User", back_populates="student_profile")
     roadmaps = relationship("Roadmap", back_populates="student", cascade="all, delete-orphan")

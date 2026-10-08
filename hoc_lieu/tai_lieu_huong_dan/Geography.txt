@@ -1,0 +1,140 @@
+Dưới đây là thống kê chi tiết phần **Lý thuyết môn Địa lí** được tổng hợp và cấu trúc chuẩn hóa theo đúng yêu cầu: **Học kỳ II Lớp 11** và **Toàn bộ Lớp 12 (Cả Học kỳ I và Học kỳ II)** từ bộ sách giáo khoa hiện hành.
+
+---
+
+# **MÔN 6: ĐỊA LÍ**
+
+---
+
+## **PHẦN A: ĐỊA LÍ LỚP 11 – HỌC KỲ II (ĐỊA LÍ KHU VỰC VÀ QUỐC GIA)**
+
+### **1. Khu vực Mỹ La-tinh**
+* **Vị trí địa lí & Phạm vi lãnh thổ:** Diện tích khoảng 20 triệu \\(\text{km}^2\\), nằm hoàn toàn ở bán cầu Tây, gồm Mê-hi-cô, eo đất Trung Mỹ, các đảo/quần đảo trong biển Ca-ri-bê và toàn bộ lục địa Nam Mỹ. Tiếp giáp Thái Bình Dương, Đại Tây Dương và Nam Đại Dương.
+* **Điều kiện tự nhiên:**
+  * *Địa hình & Đất:* Phía tây là hệ thống núi trẻ An-đét cao đồ sộ; phía đông là các sơn nguyên (Bra-xin, Guy-a-na) và các đồng bằng rộng lớn (A-ma-zôn, La Pla-ta, Pam-pa).
+  * *Khí hậu:* Đa dạng, phần lớn nằm trong đới khí hậu xích đạo, nhiệt đới và cận nhiệt đới.
+  * *Sông, hồ:* Mạng lưới sông dày đặc với các sông lớn nhất thế giới như A-ma-zôn, Ô-ri-nô-cô; hồ Ti-ti-ca-ca.
+  * *Khoảng sản:* Phong phú, trữ lượng lớn như sắt, đồng, dầu mỏ, khí tự nhiên, bô-xít, vàng, bạc.
+* **Dân cư & Xã hội:** Quy mô dân số 652,3 triệu người (2020), tỉ lệ tăng dân số có xu hướng giảm. Thành phần dân cư đa dạng chủng tộc (người Tộc gốc, Châu Âu, Châu Phi và người lai). Đô thị hóa diễn ra nhanh nhưng mang tính tự phát.
+* **Kinh tế:**
+  * Quy mô GDP khoảng 6% toàn cầu nhưng chênh lệch lớn giữa các quốc gia (Bra-xin, Mê-hi-cô chiếm tỉ trọng lớn). Tốc độ tăng trưởng GDP không ổn định do phụ thuộc vốn đầu tư nước ngoài và biến động chính trị.
+  * Cơ cấu kinh tế chuyển dịch mạnh sang ngành dịch vụ. Nông nghiệp phát triển theo hướng chuyên môn hóa (cây công nghiệp: cà phê, ca cao, đậu tương, mía; chăn nuôi bò).
+
+---
+
+### **2. Liên minh Châu Âu (EU)**
+* **Quy mô & Mục tiêu:** Thành lập từ năm 1957 (tiền thân là Cộng đồng Than và Thép Châu Âu). Năm 2021 có 27 quốc gia thành viên, đóng góp khoảng 17,8% GDP toàn cầu. Mục tiêu thành lập một không gian tự do, an ninh, pháp lý và thị trường chung duy nhất.
+* **Vị thế kinh tế:** Là một trong những trung tâm kinh tế, tài chính và thương mại lớn nhất thế giới. Đứng đầu thế giới về trị giá xuất khẩu hàng hóa, dịch vụ và viện trợ phát triển (ODA).
+* **Biểu hiện liên kết:** Tự do lưu thông (con người, hàng hóa, dịch vụ, tiền vốn); sử dụng đồng tiền chung Euro; hợp tác sâu rộng trong sản xuất máy bay Airbus, vệ tinh Galileo, phát triển hạ tầng giao thông và ứng phó biến đổi khí hậu.
+
+---
+
+### **3. Khu vực Đông Nam Á**
+* **Vị trí địa lí & Phạm vi:** Diện tích khoảng 4,5 triệu \\(\text{km}^2\\), gồm 11 quốc gia. Nằm ở phía đông nam Châu Á, là cầu nối giữa đại lục Á – Âu và đại lục Ô-xtrây-li-a, nối liền Ấn Độ Dương và Thái Bình Dương. Có eo biển Ma-lắc-ca là tuyến đường hàng hải huyết mạch.
+* **Điều kiện tự nhiên:**
+  * Khí hậu nhiệt đới gió mùa và xích đạo ẩm; sông ngòi dày đặc (sông Mê Công, sông Hồng, sông I-ra-wa-đi).
+  * Địa hình đồi núi chiếm diện tích lớn, có nhiều đồng bằng phù sa màu mỡ ven sông và ven biển.
+  * Nguồn tài nguyên khoáng sản (dầu mỏ, khí tự nhiên, thiếc, đồng) và hải sản phong phú.
+* **Kinh tế & Hiệp hội ASEAN:**
+  * Nền kinh tế năng động, nông nghiệp nhiệt đới phát triển (lúa nước, cây công nghiệp cao su, cà phê, hồ tiêu, thủy sản). Công nghiệp chế biến, điện tử và dịch vụ du lịch tăng trưởng nhanh.
+  * *ASEAN:* Thành lập 8/8/1967. Mục tiêu thúc đẩy tăng trưởng kinh tế, hòa bình và ổn định khu vực. Việt Nam gia nhập ngày 28/7/1995, có vai trò tích cực củng cố đoàn kết và hợp tác nội khối.
+
+---
+
+### **4. Khu vực Tây Nam Á**
+* **Vị trí địa lí:** Diện tích khoảng 7 triệu \\(\text{km}^2\\), gồm 20 quốc gia. Nằm ở ngã ba của ba châu lục: Châu Á, Châu Âu và Châu Phi. Áp sát các tuyến đường biển quốc tế qua Kênh Xuy-ê, Biển Đỏ, Vịnh Péc-xích.
+* **Tự nhiên & Dân cư:** Khí hậu khô nóng, địa hình chủ yếu là núi, sơn nguyên và hoang mạc. Nổi bật với trữ lượng dầu mỏ và khí tự nhiên chiếm khoảng 50% thế giới (tập trung quanh Vịnh Péc-xích). Dân số 402,5 triệu người (2020), tôn giáo chủ yếu là Hồi giáo.
+* **Kinh tế:** Dầu khí là động lực phát triển kinh tế chính nhưng cũng là nguyên nhân dẫn đến các cuộc xung đột, tranh chấp kéo dài trong khu vực.
+
+---
+
+### **5. Một số quốc gia tiêu biểu**
+* **Hoa Kỳ:** 
+  * Diện tích khoảng 9,8 triệu \\(\text{km}^2\\), dân số 331,5 triệu người (2020). Địa hình phân hóa 3 vùng rõ rệt (Phía Tây: núi trẻ Cốc-đi-e; Trung tâm: đồng bằng rộng lớn; Phía Đông: dãy A-pa-lát).
+  * Nền kinh tế hàng đầu thế giới; quy mô GDP lớn nhất thế giới. Công nghiệp hiện đại (hàng không vũ trụ, điện tử - tin học, vành đai Mặt Trời). Phân hóa thành 4 vùng kinh tế: Đông Bắc, Trung Tây, Phía Nam, Phía Tây.
+* **Liên bang Nga:** Quốc gia có diện tích lớn nhất thế giới. Giàu tài nguyên khoáng sản và rừng ngập mặn/rừng lá kim. Phát triển các vùng kinh tế trọng điểm: Trung ương, Trung tâm đất đen, U-ran, Viễn Đông.
+* **Trung Quốc:**
+  * Địa hình phân hóa rõ rệt giữa miền Đông (đồng bằng phù sa rộng lớn, khí hậu gió mùa, dân cư đông đúc, kinh tế phát triển) và miền Tây (núi cao, sơn nguyên, hoang mạc, khí hậu lục địa khắc nghiệt).
+  * Kinh tế phát triển thần tốc; tổng GDP đứng thứ hai thế giới. Công nghiệp sản xuất thép, ô tô, điện tử, hàng không vũ trụ hàng đầu. Ngoại thương và thương mại nội địa phát triển mạnh.
+* **Australia:** Quốc gia duy nhất chiếm trọn một lục địa. Dân cư tập trung chủ yếu ở ven biển phía đông và đông nam. Nền kinh tế phát triển cao, thế mạnh về dịch vụ, công nghiệp khai khoáng, nông nghiệp quy mô lớn (chăn nuôi cừu, bò, trồng lúa mì).
+
+---
+
+## **PHẦN B: ĐỊA LÍ LỚP 12 – TOÀN BỘ CHƯƠNG TRÌNH (HKI & HKII - ĐỊA LÍ VIỆT NAM)**
+
+### **CHƯƠNG I. ĐỊA LÍ TỰ NHIÊN VIỆT NAM**
+
+#### **1. Vị trí địa lí và Phạm vi lãnh thổ**
+* **Vị trí:** Nằm ở ranh giới phía đông bán đảo Đông Dương, gần trung tâm khu vực Đông Nam Á. Trên đất liền tiếp giáp Trung Quốc, Lào, Cam-pu-chia; phía đông và nam giáp Biển Đông.
+* **Ý nghĩa:**
+  * *Tự nhiên:* Quy định tính chất nhiệt đới ẩm gió mùa của thiên nhiên; đặt Việt Nam ở vị trí tiếp giáp giữa các luồng sinh vật và vành đai sinh khoáng, tạo tài nguyên khoáng sản và sinh vật phong phú.
+  * *Kinh tế - Xã hội & Quốc phòng:* Cửa ngõ mở ra biển của các nước trong khu vực; thuận lợi giao lưu thương mại quốc tế; có vị trí đặc biệt quan trọng về an ninh - quốc phòng.
+
+#### **2. Đặc điểm chung của thiên nhiên Việt Nam**
+* **Địa hình nhiều đồi núi:** Đồi núi chiếm 3/4 diện tích lãnh thổ, chủ yếu là đồi núi thấp; đồng bằng chiếm 1/4 diện tích. Hướng địa hình chính là tây bắc - đông nam và hướng vòng cung.
+* **Thiên nhiên nhiệt đới ẩm gió mùa:**
+  * Khí hậu: Số giờ nắng cao, nhiệt độ trung bình năm \\(>20^\circ\text{C}\\); lượng mưa lớn (1500 – 2000 mm/năm). Có hai mùa gió chính: Gió mùa mùa đông (hướng bắc - đông bắc) và Gió mùa mùa hạ (hướng tây nam, nam).
+  * Địa hình & Sông ngòi: Quá trình xâm thực mạnh ở vùng đồi núi, bồi tụ nhanh ở vùng đồng bằng. Sông ngòi dày đặc, nhiều nước, giàu phù sa, chế độ nước theo mùa.
+  * Thổ nhưỡng & Sinh vật: Đất feralit là nhóm đất chính ở vùng đồi núi. Hệ sinh thái rừng nhiệt đới ẩm gió mùa phát triển rộng rãi.
+* **Sự phân hóa đa dạng của thiên nhiên:**
+  * *Phân hóa Bắc - Nam:* Ranh giới là dãy Bạch Mã. Phần phía Bắc có mùa đông lạnh, biên độ nhiệt năm lớn; phần phía Nam khí hậu cận xích đạo gió mùa, nóng quanh năm.
+  * *Phân hóa Đông - Tây:* Phân thành 3 dải: Vùng biển & thềm lục địa, Vùng đồng bằng ven biển, Vùng đồi núi.
+  * *Phân hóa theo độ cao:* Đai nhiệt đới chân núi, Đai cận nhiệt đới gió mùa trên núi, Đai ôn đới gió mùa trên núi.
+  * *Các miền địa lí tự nhiên:* Miền Bắc và Đông Bắc Bắc Bộ, Miền Tây Bắc và Bắc Trung Bộ, Miền Nam Trung Bộ và Nam Bộ.
+
+#### **3. Sử dụng hợp lý tài nguyên thiên nhiên và Bảo vệ môi trường**
+* **Tài nguyên rừng & Đa dạng sinh học:** Tổng diện tích rừng tăng nhưng diện tích rừng tự nhiên suy giảm chất lượng. Cần tăng cường bảo vệ rừng đầu nguồn, mở rộng các khu bảo tồn thiên nhiên và vườn quốc gia.
+* **Tài nguyên đất:** Vùng đồi núi chịu xói mòn, rửa trôi, đá sa mạc hóa; vùng đồng bằng nhiễm mặn, nhiễm chua, bạc màu.
+* **Tài nguyên nước & Ô nhiễm môi trường:** Nguy cơ suy giảm nguồn nước ngầm, ô nhiễm nước sông, biển do chất thải công nghiệp và sinh hoạt.
+
+---
+
+### **CHƯƠNG II. ĐỊA LÍ DÂN CƯ VIỆT NAM**
+* **Đặc điểm dân số & Phân bố dân cư:** Quy mô dân số đông (trên 100 triệu người); cơ cấu dân số đang ở thời kỳ "dân số vàng" nhưng có xu hướng già hóa. Mật độ dân số cao, phân bố không đều giữa đồng bằng và miền núi, giữa đô thị và nông thôn.
+* **Lao động và Việc làm:** Nguồn lao động dồi dào, cần cù, tỉ lệ lao động qua đào tạo ngày càng tăng. Chuyển dịch cơ cấu lao động theo hướng giảm tỉ trọng nông nghiệp, tăng tỉ trọng công nghiệp và dịch vụ.
+* **Đô thị hóa:** Tốc độ đô thị hóa nhanh, mở rộng các mạng lưới đô thị lớn (Hà Nội, TP. Hồ Chí Minh); tuy nhiên tỉ lệ dân đô thị vẫn thấp hơn bình quân khu vực.
+
+---
+
+### **CHƯƠNG III. ĐỊA LÍ CÁC NGÀNH KINH TẾ VIỆT NAM**
+
+#### **1. Chuyển dịch cơ cấu kinh tế**
+* Chuyển dịch cơ cấu ngành: Giảm tỉ trọng Nông - lâm - thủy sản, tăng tỉ trọng Công nghiệp - xây dựng và Dịch vụ.
+* Chuyển dịch cơ cấu thành phần: Phát triển nền kinh tế nhiều thành phần, giảm tỉ trọng kinh tế Nhà nước, tăng tỉ trọng kinh tế ngoài Nhà nước và kinh tế có vốn đầu tư nước ngoài (FDI).
+* Chuyển dịch cơ cấu lãnh thổ: Hình thành các vùng chuyên canh, các khu công nghiệp, khu kinh tế ven biển và các vùng kinh tế trọng điểm.
+
+#### **2. Địa lí ngành nông nghiệp, lâm nghiệp và thủy sản**
+* **Nông nghiệp:**
+  * *Trồng trọt:* Trồng lúa là ngành sản xuất chính (Đồng bằng sông Cửu Long, Đồng bằng sông Hồng). Cây công nghiệp lâu năm phát triển mạnh ở Tây Nguyên, Đông Nam Bộ (cà phê, cao su, điều, hồ tiêu).
+  * *Chăn nuôi:* Chuyển mạnh sang hình thức trang trại công nghiệp; tăng nhanh số lượng lợn, gia cầm, bò sữa.
+* **Lâm nghiệp:** Khai thác, chế biến gỗ gắn liền với trồng, chăm sóc và bảo vệ rừng.
+* **Thủy sản:** Tăng nhanh cả sản lượng khai thác và nuôi trồng (tôm, cá tra, cá ngừ). Vùng nuôi trồng thủy sản lớn nhất là Đồng bằng sông Cửu Long.
+
+#### **3. Địa lí ngành công nghiệp**
+* Cơ cấu ngành công nghiệp đa dạng, chuyển dịch theo hướng hiện đại, tăng tỉ trọng các ngành công nghiệp chế biến, chế tạo, công nghệ cao.
+* Các ngành công nghiệp trọng điểm: Công nghiệp năng lượng (than, dầu khí, nhiệt điện, thủy điện, năng lượng tái tạo); Công nghiệp chế biến thực phẩm; Công nghiệp điện tử - tin học.
+
+#### **4. Địa lí ngành dịch vụ**
+* **Giao thông vận tải & Bưu chính viễn thông:** Mạng lưới giao thông toàn diện (đường bộ, đường sắt, đường sông, đường biển, đường hàng không). Hạ tầng viễn thông, mạng internet phát triển nhanh.
+* **Thương mại & Du lịch:**
+  * Nội thương phát triển sôi động; Ngoại thương mở rộng thị trường xuất nhập khẩu.
+  * Du lịch trở thành ngành kinh tế mũi nhọn nhờ tài nguyên du lịch tự nhiên (vịnh biển, vườn quốc gia) và văn hóa (di sản văn hóa, di tích lịch sử) phong phú.
+
+---
+
+### **CHƯƠNG IV. ĐỊA LÍ CÁC VÙNG KINH TẾ VIỆT NAM**
+* **Trung du và miền núi Bắc Bộ:** Thế mạnh khai thác khoáng sản (than, sắt, thiếc), phát triển thủy điện (Hòa Bình, Sơn La), trồng cây công nghiệp cận nhiệt/ôn đới (chè, rau quả ôn đới) và chăn nuôi gia súc lớn (trâu, bò).
+* **Đồng bằng sông Hồng:** Vùng có mật độ dân số cao nhất cả nước; thế mạnh về nguồn lao động trình độ cao, hạ tầng hiện đại. Phát triển nông nghiệp thâm canh, công nghiệp chế biến, dịch vụ giao thông, ngân hàng, du lịch.
+* **Bắc Trung Bộ:** Thế mạnh phát triển nông - lâm - thủy sản, phát triển kinh tế biển và du lịch sinh thái/di sản. Thường xuyên chịu ảnh hưởng của thiên nhiên bão, lũ, cát bay.
+* **Duyên hải Nam Trung Bộ & Tây Nguyên:**
+  * *Duyên hải Nam Trung Bộ:* Thế mạnh kinh tế biển (khai thác/nuôi trồng hải sản, du lịch biển, cảng biển nước sâu) và năng lượng tái tạo (điện gió, điện mặt trời).
+  * *Tây Nguyên:* Vùng chuyên canh cây công nghiệp lâu năm lớn thứ hai cả nước (cà phê, cao su, chè, điều); giàu tiềm năng bô-xít và thủy điện.
+* **Đồng Nam Bộ:** Vùng kinh tế phát triển năng động nhất, dẫn đầu cả nước về GDP, giá trị sản xuất công nghiệp, thu hút FDI và ngoại thương. Thủ phủ cây công nghiệp cao su, điều và khai thác dầu khí ở thềm lục địa.
+* **Đồng bằng sông Cửu Long:** Vùng sản xuất lương thực, thực phẩm, thủy sản và ăn quả lớn nhất cả nước. Vấn đề quan trọng hàng đầu là sử dụng hợp lý tự nhiên, thích ứng với biến đổi khí hậu, xâm nhập mặn và lũ nguồn.
+* **Phát triển kinh tế biển & Đảm bảo quốc phòng an ninh ở Biển Đông:** Khai thác tổng hợp tài nguyên biển (hải sản, khoáng sản dầu khí, du lịch biển, giao thông vận tải biển) gắn liền với bảo vệ chủ quyền hai quần đảo Hoàng Sa và Trường Sa.
+
+---
+
+Nội dung phần Lý thuyết môn Địa lí đã hoàn thành đầy đủ và chuẩn hóa chính xác. 
+
+Bạn có muốn chúng ta chuyển sang môn tiếp theo trong danh sách là **Môn 7: Giáo dục Kinh tế và Pháp luật** không?

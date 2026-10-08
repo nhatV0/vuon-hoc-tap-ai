@@ -5,12 +5,22 @@ import Link from "next/link";
 import { ArrowLeft, CheckCircle2, Circle, Clock, Plus, Trash2, Target, Play, Pause } from "lucide-react";
 import { API_BASE, PlanningOverview, PlannedTask } from "@/lib/types";
 
+import { useAuth } from "@/lib/auth-context";
+import { useRouter } from "next/navigation";
+
 export default function PlanningPage() {
+  const router = useRouter();
+  const { user } = useAuth();
   const [data, setData] = useState<PlanningOverview | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [activeDay, setActiveDay] = useState<number>(1);
   const [showAddModal, setShowAddModal] = useState<boolean>(false);
 
+  useEffect(() => {
+    if (user?.role === "teacher" || user?.role === "admin") {
+      router.replace("/teacher");
+    }
+  }, [user, router]);
   // New task form state
   const [newTitle, setNewTitle] = useState<string>("");
   const [newDuration, setNewDuration] = useState<number>(15);

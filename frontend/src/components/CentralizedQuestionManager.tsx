@@ -350,7 +350,7 @@ export default function CentralizedQuestionManager({
                     onChange={(e) => setForm({ ...form, subject: e.target.value })}
                     className="w-full p-2.5 rounded-xl border border-stone-200 bg-white font-bold text-stone-800"
                   >
-                    {["Toán học", "Vật lí", "Hóa học", "Sinh học", "Ngữ văn", "Tiếng Anh", "Lịch sử", "Địa lí", "Tin học"].map(sub => (
+                    {["Toán học", "Vật lí", "Hóa học", "Sinh học", "Ngữ văn", "Tiếng Anh", "Lịch sử", "Địa lí", "Tin học", "GDKT & PL", "Công nghệ"].map(sub => (
                       <option key={sub} value={sub}>{sub}</option>
                     ))}
                   </select>

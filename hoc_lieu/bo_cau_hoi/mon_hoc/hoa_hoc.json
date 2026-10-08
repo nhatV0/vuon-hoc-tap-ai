@@ -1,0 +1,242 @@
+[
+  {
+    "id": "HOA-001",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương 1: Ester và Lipid",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Hợp chất hữu cơ nào sau đây là ester no, đơn chức, mạch hở?",
+    "options": {
+      "A": "CH_3COOCH_3",
+      "B": "CH_2=CHCOOCH_3",
+      "C": "HCOOCH=CH_2",
+      "D": "CH_3COOH"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Ester no, đơn chức, mạch hở có công thức chung $C_nH_{2n}O_2$ ($n \\ge 2$). Methyl acetate ($CH_3COOCH_3$) có công thức phân tử $C_3H_6O_2$, chứa toàn liên kết đơn trong mạch hydrocarbon nên là ester no đơn chức mạch hở.",
+    "growth_mindset_tip": "Nhớ nhanh công thức tổng quát $C_nH_{2n}O_2$ (độ bất bão hòa $k = 1$ ở nhóm carboxyl $C=O$) để nhận diện este no đơn chức."
+  },
+  {
+    "id": "HOA-002",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương 1: Ester và Phản ứng tráng bạc",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Cho các ester sau: ethyl formate, methyl acetate, vinyl acetate, ethyl propionate. Số ester có khả năng tham gia phản ứng tráng bạc với thuốc thử Tollens là:",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Chỉ có các ester của formic acid có cấu tạo chứa nhóm chức formate $HCOO-R$ mới có nhóm aldehyde $-CHO$ tự do để tham gia phản ứng tráng bạc. Trong 4 chất, chỉ có ethyl formate ($HCOOC_2H_5$) thỏa mãn.",
+    "growth_mindset_tip": "Gốc $HCOO-$ có đầu $-CHO$, vì vậy mọi ester format đều có phản ứng tráng bạc tạo 2 Ag!"
+  },
+  {
+    "id": "HOA-003",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương 1: Xà phòng hóa chất béo (Triglyceride)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Xà phòng hóa hoàn toàn $17{,}8\\text{ g}$ tristearin bằng dung dịch $NaOH$ vừa đủ, đun nóng. Khối lượng glycerol thu được sau phản ứng là:",
+    "options": {
+      "A": "1{,}84 g",
+      "B": "0{,}92 g",
+      "C": "3{,}68 g",
+      "D": "2{,}76 g"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Tristearin có công thức $(C_{17}H_{35}COO)_3C_3H_5$, phân tử khối $M = 890\\text{ g/mol}$. Số mol tristearin: $n = \\frac{17{,}8}{890} = 0{,}02\\text{ mol}$. Phương trình thủy phân tạo ra tỉ lệ $1\\text{ tristearin} : 1\\text{ glycerol} (C_3H_5(OH)_3, M = 92)$. Do đó $n_{glycerol} = 0{,}02\\text{ mol} \\Rightarrow m_{glycerol} = 0{,}02 \\times 92 = 1{,}84\\text{ g}$.",
+    "growth_mindset_tip": "Ghi nhớ các $M$ quen thuộc của chất béo: Triolein = 884, Tristearin = 890, Tripalmitin = 806; Glycerol = 92."
+  },
+  {
+    "id": "HOA-004",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương 2: Carbohydrate (Phân loại và tính chất)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Chất nào sau đây thuộc loại disaccharide?",
+    "options": {
+      "A": "Saccharose",
+      "B": "Glucose",
+      "C": "Fructose",
+      "D": "Cellulose"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Carbohydrate được chia thành: Monosaccharide (Glucose, Fructose), Disaccharide (Saccharose, Maltose) và Polysaccharide (Tinh bột, Cellulose). Saccharose có công thức $C_{12}H_{22}O_{11}$ là disaccharide cấu tạo từ 1 gốc $\\alpha$-glucose và 1 gốc $\\beta$-fructose.",
+    "growth_mindset_tip": "Nắm vững cây phân loại carbohydrate: Mono (1 gốc đường), Di (2 gốc đường), Poly (nhiều gốc đường nối nhau)!"
+  },
+  {
+    "id": "HOA-005",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương 2: Phản ứng hóa học của Carbohydrate",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Thuốc thử nào sau đây được dùng để phân biệt hai dung dịch glucose và fructose bằng phản ứng hóa học?",
+    "options": {
+      "A": "Dung dịch nước bromine",
+      "B": "Thuốc thử Tollens (AgNO3/NH3)",
+      "C": "Cu(OH)2 ở nhiệt độ thường",
+      "D": "Kim loại Na"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trong môi trường kiềm (như khi dùng thuốc thử Tollens hay $Cu(OH)_2/OH^-$), fructose chuyển hóa qua lại thành glucose nên cả hai đều tráng bạc và khử $Cu(OH)_2$. Ngược lại, trong môi trường trung tính hoặc acid yếu, glucose làm mất màu dung dịch nước bromine còn fructose thì không.",
+    "growth_mindset_tip": "Bẫy tráng bạc: Cả Glucose và Fructose đều tráng bạc do sự đồng hóa trong kiềm, chỉ có nước Bromine mới phân biệt được hai chất này!"
+  },
+  {
+    "id": "HOA-006",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương 3: Amine (Bậc amine và tính base)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Chất nào sau đây là amine bậc II?",
+    "options": {
+      "A": "Dimethylamine (CH3-NH-CH3)",
+      "B": "Ethylamine (CH3-CH2-NH2)",
+      "C": "Trimethylamine ((CH3)3N)",
+      "D": "Aniline (C6H5-NH2)"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Bậc của amine được tính bằng số nguyên tử H trong phân tử $NH_3$ bị thay thế bởi gốc hydrocarbon (hoặc số gốc hydrocarbon gắn với N). Dimethylamine ($CH_3-NH-CH_3$) có 2 gốc gắn trực tiếp vào N nên là amine bậc II.",
+    "growth_mindset_tip": "Khác với bậc của alcohol (tính theo bậc của C mang nhóm OH), bậc của amine tính theo số liên kết của nguyên tử Nitrogen!"
+  },
+  {
+    "id": "HOA-007",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương 3: Amino acid và Peptide",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Thủy phân hoàn toàn $1\\text{ mol}$ peptide mạch hở $Gly-Ala-Val-Gly-Ala$ cần tối thiểu bao nhiêu mol $NaOH$ trong dung dịch khi đun nóng?",
+    "options": {
+      "A": "5 mol",
+      "B": "4 mol",
+      "C": "1 mol",
+      "D": "6 mol"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Peptide $Gly-Ala-Val-Gly-Ala$ là pentapeptide có 5 gốc amino acid thông thường (chỉ chứa 1 nhóm $-COOH$ và 1 nhóm $-NH_2$). Phản ứng thủy phân hoàn toàn trong kiềm tiêu tốn số mol $NaOH$ đúng bằng số gốc amino acid: $n_{NaOH} = 5 n_{peptide} = 5\\text{ mol}$.",
+    "growth_mindset_tip": "Phân biệt: Pentapeptide có 4 liên kết peptide nhưng có 5 gốc amino acid, phản ứng với NaOH cần 5 mol NaOH và sinh ra 1 mol H2O!"
+  },
+  {
+    "id": "HOA-008",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương 5: Pin điện và Điện phân",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong một pin điện hóa Daniell cấu tạo từ cặp oxi hóa - khử $Zn^{2+}/Zn$ và $Cu^{2+}/Cu$, quá trình xảy ra tại cực âm (anode) là:",
+    "options": {
+      "A": "Sự oxi hóa kẽm: Zn -> Zn^{2+} + 2e",
+      "B": "Sự khử ion đồng: Cu^{2+} + 2e -> Cu",
+      "C": "Sự khử ion kẽm: Zn^{2+} + 2e -> Zn",
+      "D": "Sự oxi hóa đồng: Cu -> Cu^{2+} + 2e"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trong pin điện hóa: Cực âm là Anode (kim loại có tính khử mạnh hơn, tức thế điện cực nhỏ hơn), tại đây xảy ra sự oxi hóa kẽm: $Zn \\to Zn^{2+} + 2e$. Cực dương là Cathode, tại đây xảy ra sự khử ion đồng: $Cu^{2+} + 2e \\to Cu$.",
+    "growth_mindset_tip": "Ghi nhớ thần chú pin điện: 'Anode là cực âm - nơi xảy ra Oxi hóa' (An - Âm - Oxi hóa)!"
+  },
+  {
+    "id": "HOA-009",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương 5: Suất điện động của pin điện hóa",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Biết thế điện cực chuẩn của hai cặp oxi hóa - khử là $E^\\circ(Zn^{2+}/Zn) = -0{,}76\\text{ V}$ và $E^\\circ(Ag^+/Ag) = +0{,}80\\text{ V}$. Suất điện động chuẩn của pin điện hóa $Zn - Ag$ là:",
+    "options": {
+      "A": "+1{,}56 V",
+      "B": "+0{,}04 V",
+      "C": "-1{,}56 V",
+      "D": "+0{,}84 V"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Suất điện động chuẩn của pin điện hóa: $E^\\circ_{pin} = E^\\circ_{(+) - cathode} - E^\\circ_{(-) - anode} = E^\\circ(Ag^+/Ag) - E^\\circ(Zn^{2+}/Zn) = (+0{,}80) - (-0{,}76) = +1{,}56\\text{ V}$.",
+    "growth_mindset_tip": "Suất điện động của pin luôn có giá trị dương: lấy thế điện cực lớn hơn trừ đi thế điện cực nhỏ hơn!"
+  },
+  {
+    "id": "HOA-010",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương 4: Nhiệt động học hóa học (Enthalpy phản ứng)",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Cho nhiệt tạo thành chuẩn $\\Delta_f H^\\circ_{298}$ của các chất: $CH_4(g)$ là $-74{,}8\\text{ kJ/mol}$; $CO_2(g)$ là $-393{,}5\\text{ kJ/mol}$; $H_2O(l)$ là $-285{,}8\\text{ kJ/mol}$. Biến thiên enthalpy chuẩn của phản ứng đốt cháy hoàn toàn $1\\text{ mol}$ khí methane: $CH_4(g) + 2O_2(g) \\to CO_2(g) + 2H_2O(l)$ là:",
+    "options": {
+      "A": "-890{,}3 kJ",
+      "B": "-604{,}5 kJ",
+      "C": "+890{,}3 kJ",
+      "D": "-965{,}1 kJ"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Công thức tính theo nhiệt tạo thành chuẩn: $\\Delta_r H^\\circ_{298} = \\sum \\Delta_f H^\\circ_{298}(sp) - \\sum \\Delta_f H^\\circ_{298}(cd)$. Chú ý $\\Delta_f H^\\circ_{298}(O_2(g)) = 0$. Ta có: $\\Delta_r H^\\circ_{298} = [1(-393{,}5) + 2(-285{,}8)] - [1(-74{,}8) + 0] = [-393{,}5 - 571{,}6] - [-74{,}8] = -965{,}1 + 74{,}8 = -890{,}3\\text{ kJ}$. Phản ứng tỏa nhiệt mạnh.",
+    "growth_mindset_tip": "Tính Enthalpy phản ứng theo nhiệt tạo thành: 'Sản phẩm trừ Chất đầu'; nhớ nhân đúng hệ số tỉ lượng!"
+  },
+  {
+    "id": "HOA-011",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "TRAP_2",
+    "source": "Phần A - Mục 2: Alcohol và Phản ứng tách nước",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Đun nóng butan-2-ol với $H_2SO_4$ đặc ở $170^\\circ\\text{C}$ thu được sản phẩm chính theo quy tắc Zaitsev là:",
+    "options": {
+      "A": "But-2-ene",
+      "B": "But-1-ene",
+      "C": "Dibutyl ether",
+      "D": "Buta-1,3-diene"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Theo quy tắc Zaitsev: Trong phản ứng tách nước của alcohol, nhóm $-OH$ ưu tiên tách cùng nguyên tử H ở carbon liền kề có bậc cao hơn (chứa ít H hơn) để tạo alkene có nhiều nhóm thế hơn (bền hơn). Butan-2-ol ($CH_3-CH(OH)-CH_2-CH_3$) tách cùng H ở $C_3$ tạo sản phẩm chính là but-2-ene ($CH_3-CH=CH-CH_3$).",
+    "growth_mindset_tip": "Quy tắc Zaitsev: 'Tách ở carbon nghèo hydrogen hơn' để tạo alkene bền vững nhất!"
+  },
+  {
+    "id": "HOA-012",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương 5: Điện phân dung dịch",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Điện phân $200\\text{ mL}$ dung dịch $CuSO_4\\ 0{,}5\\text{ M}$ với điện cực trơ, cường độ dòng điện $I = 1{,}93\\text{ A}$ trong thời gian $1000\\text{ giây}$ (hiệu suất 100%). Khối lượng kim loại bám vào cathode là:",
+    "options": {
+      "A": "0{,}64 g",
+      "B": "1{,}28 g",
+      "C": "0{,}32 g",
+      "D": "0{,}96 g"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Số mol electron trao đổi: $n_e = \\frac{I t}{F} = \\frac{1{,}93 \\times 1000}{96500} = 0{,}02\\text{ mol}$. Tại cathode xảy ra quá trình: $Cu^{2+} + 2e \\to Cu$. Số mol $Cu^{2+}$ ban đầu: $0{,}2 \\times 0{,}5 = 0{,}1\\text{ mol}$. Vì $n_{Cu^{2+}} > \\frac{n_e}{2}$ nên $Cu^{2+}$ chưa bị điện phân hết. Số mol Cu sinh ra: $n_{Cu} = \\frac{n_e}{2} = 0{,}01\\text{ mol}$. Khối lượng Cu bám vào cathode: $m = 0{,}01 \\times 64 = 0{,}64\\text{ g}$.",
+    "growth_mindset_tip": "Định luật Faraday: Luôn tính số mol electron $n_e = It/F$ trước tiên để so sánh và kiểm tra phản ứng ở từng điện cực."
+  }
+]

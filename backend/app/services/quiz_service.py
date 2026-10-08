@@ -14,17 +14,13 @@ from app.schemas import (
     TeacherInjectQuizCreate,
     TeacherQuizStatsItem,
 )
-from app.services.quiz_bank_seed import SEED_QUIZ_QUESTIONS
+from app.services.quiz_bank_seed import SEED_QUIZ_QUESTIONS, seed_quiz_bank_to_db
 
 def ensure_quiz_bank_seeded(db: Session):
-    """Đảm bảo ngân hàng câu hỏi trắc nghiệm đã được nạp dữ liệu chuẩn vào DB."""
+    """Đảm bảo ngân hàng câu hỏi trắc nghiệm đã được nạp dữ liệu chuẩn vào DB (hỗ trợ modular upsert)."""
     count = db.query(QuizQuestion).count()
-    if count == 0:
-        for q_data in SEED_QUIZ_QUESTIONS:
-            q = QuizQuestion(**q_data)
-            db.add(q)
-        db.commit()
-
+    if count < 50:
+        seed_quiz_bank_to_db(db)
 def resolve_student_block(student: Student, requested_block: Optional[str] = None) -> str:
     """Xác định tổ hợp khối thi phù hợp nhất của học sinh."""
     if requested_block in ["A00", "A01", "B00", "C00", "D01"]:

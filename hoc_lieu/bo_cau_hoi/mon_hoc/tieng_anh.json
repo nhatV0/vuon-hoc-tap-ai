@@ -1,0 +1,242 @@
+[
+  {
+    "id": "ENG-001",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Unit 6: Preserving Our Heritage (To-infinitive clauses)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Mark the letter A, B, C, or D to indicate the correct answer to the following question:\n\nNeil Armstrong was the first person _______ on the surface of the Moon.",
+    "options": {
+      "A": "to walk",
+      "B": "walking",
+      "C": "walked",
+      "D": "walk"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Khi danh từ đứng trước có chứa từ chỉ thứ tự (*the first, the second, the last, the only*) hoặc so sánh nhất, ta rút gọn mệnh đề quan hệ bằng cụm động từ nguyên mẫu có to (*to-infinitive clause*). Ví dụ: 'the first person that walked' -> 'the first person to walk'.",
+    "growth_mindset_tip": "Nhớ công thức: 'The first/second/last/only + Noun + to-V'!"
+  },
+  {
+    "id": "ENG-002",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "TRAP_2",
+    "source": "Phần A - Unit 7: Education Options (Perfect gerunds & participle clauses)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Mark the letter A, B, C, or D to indicate the correct answer:\n\n_______ all her university entrance exams with flying colours, Linh felt completely relieved and confident.",
+    "options": {
+      "A": "Having passed",
+      "B": "Passing",
+      "C": "To have passed",
+      "D": "Passed"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Sử dụng phân từ hoàn thành (*Having + V3/ed*) để rút gọn mệnh đề trạng ngữ có cùng chủ ngữ khi muốn nhấn mạnh một hành động đã hoàn tất trước một hành động khác trong quá khứ. Việc Linh đỗ kỳ thi xảy ra trước cảm giác nhẹ nhõm, tự tin.",
+    "growth_mindset_tip": "Dùng 'Having + V3/ed' khi muốn nhấn mạnh thứ tự thời gian: Hành động xảy ra trước hoàn toàn so với mệnh đề chính!"
+  },
+  {
+    "id": "ENG-003",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Unit 8: Becoming Independent (Cleft sentences)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Mark the letter A, B, C, or D to indicate the correct answer:\n\nIt was in this small mountainous village _______ the young volunteer doctor devoted ten years of his youth.",
+    "options": {
+      "A": "that",
+      "B": "where",
+      "C": "which",
+      "D": "when"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cấu trúc câu chẻ nhấn mạnh (Cleft sentence): `It is/was + thành_phần_nhấn_mạnh + THAT + S + V`. Bẫy phổ biến: Thấy nơi chốn (*mountainous village*) liền vội vàng chọn *where*. Trong câu chẻ chuẩn, thành phần nối luôn dùng `that`.",
+    "growth_mindset_tip": "Bẫy câu chẻ kinh điển: Dù nhấn mạnh nơi chốn hay thời gian, liên từ chuẩn trong câu chẻ 'It was ... that' luôn là THAT, không dùng where/when!"
+  },
+  {
+    "id": "ENG-004",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Unit 4: Urbanisation (Double comparatives)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Choose the best option to complete the sentence:\n\n_______ the population in large metropolitan areas grows, _______ the strain on public transport and healthcare systems becomes.",
+    "options": {
+      "A": "The faster / the greater",
+      "B": "The faster / the greatest",
+      "C": "Faster / greater",
+      "D": "The fastest / greater"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cấu trúc so sánh kép (Double comparative) chỉ mối quan hệ tương hỗ nguyên nhân - kết quả: `The + comparative (adj/adv) + S1 + V1, the + comparative (adj/adv) + S2 + V2`. Do đó 'The faster ... the greater ...' là lựa chọn chính xác duy nhất.",
+    "growth_mindset_tip": "Cấu trúc 'The more... the more...': Hai vế đều phải có mạo từ 'The' kết hợp với cấp so sánh hơn!"
+  },
+  {
+    "id": "ENG-005",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Unit 2: A Multicultural World (Articles)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Choose the correct article to fill in the blank:\n\nMount Everest is the highest mountain in _______ Himalayas.",
+    "options": {
+      "A": "the",
+      "B": "a",
+      "C": "an",
+      "D": "Ø (no article)"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Quy tắc sử dụng mạo từ: Ta dùng mạo từ xác định `the` trước tên các dãy núi (danh từ số nhiều như *the Himalayas, the Alps, the Rocky Mountains*). Lưu ý không dùng mạo từ trước ngọn núi đơn lẻ (*Mount Everest*).",
+    "growth_mindset_tip": "Ngọn núi đứng một mình không có mạo từ, nhưng cả dãy núi (có 's') thì luôn phải có 'the'!"
+  },
+  {
+    "id": "ENG-006",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Unit 3: Green Living (Relative clauses referring to a whole sentence)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Choose the best answer to complete the sentence:\n\nMany factories continue dumping untreated toxic chemical waste directly into the river, _______ severely threatens aquatic ecosystems.",
+    "options": {
+      "A": "which",
+      "B": "that",
+      "C": "what",
+      "D": "who"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Đại từ quan hệ `which` đứng sau dấu phẩy được dùng để thay thế cho toàn bộ nội dung của mệnh đề đứng trước nó. Không được dùng `that` sau dấu phẩy hoặc khi thay thế cho cả câu.",
+    "growth_mindset_tip": "Nhớ quy tắc vàng: Sau dấu phẩy không dùng THAT. Để thay thế cả mệnh đề, chỉ dùng độc nhất ', which'!"
+  },
+  {
+    "id": "ENG-007",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Unit 6: Artificial Intelligence (Active and Passive Causatives)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Choose the correct verb form to fill in the blank:\n\nOur company had the entire customer database _______ by an experienced cybersecurity agency to prevent potential data breaches.",
+    "options": {
+      "A": "audited",
+      "B": "audit",
+      "C": "to audit",
+      "D": "auditing"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cấu trúc thể sai khiến bị động (Passive Causative): `have / get + something + V3/ed (past participle)`. Ở đây 'the entire customer database' là vật bị tác động (được kiểm toán) nên động từ chuyển thành `audited`.",
+    "growth_mindset_tip": "Cấu trúc truyền khiến: Chủ động là 'have someone DO' nhưng bị động luôn là 'have something DONE'!"
+  },
+  {
+    "id": "ENG-008",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Unit 8: Lifelong Learning (Collocations & Idioms)",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Choose the word/phrase that best completes the idiom:\n\nIn the rapidly evolving landscape of modern artificial intelligence, professionals must continuously upgrade their skills to avoid _______ in the job market.",
+    "options": {
+      "A": "falling behind",
+      "B": "running out",
+      "C": "dropping off",
+      "D": "cutting down"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cụm động từ `fall behind` có nghĩa là tụt hậu, bị bỏ lại phía sau so với sự phát triển chung. Các cụm khác: `run out` (cạn kiệt), `drop off` (ngủ thiếp đi/giảm dần), `cut down` (cắt giảm) không phù hợp về ngữ nghĩa.",
+    "growth_mindset_tip": "Học phrasal verbs theo ngữ cảnh: 'fall behind' thường đi với tốc độ thay đổi nhanh của công nghệ và sự nghiệp!"
+  },
+  {
+    "id": "ENG-009",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Unit 1: Life Stories We Admire (Pronunciation & Stress)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Mark the letter A, B, C, or D to indicate the word that differs from the other three in the position of primary stress:",
+    "options": {
+      "A": "biography",
+      "B": "education",
+      "C": "independent",
+      "D": "academic"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trọng âm các từ:\n- `biography` /baɪˈɒɡrəfi/: trọng âm rơi vào âm tiết thứ 2 (hậu tố -graphy có trọng âm ở âm tiết liền trước).\n- `education` /ˌedʒuˈkeɪʃn/: trọng âm rơi vào âm tiết thứ 3.\n- `independent` /ˌɪndɪˈpendənt/: trọng âm rơi vào âm tiết thứ 3.\n- `academic` /ˌækəˈdemɪk/: trọng âm rơi vào âm tiết thứ 3 (hậu tố -ic).",
+    "growth_mindset_tip": "Quy tắc trọng âm: Từ có đuôi -ic, -graphy, -tion thường có trọng âm rơi vào âm tiết ngay trước nó!"
+  },
+  {
+    "id": "ENG-010",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Unit 9: Social Issues (Linking words & phrases)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Mark the letter A, B, C, or D to indicate the correct conjunction:\n\n_______ extensive public awareness campaigns, cyberbullying among teenagers remains a prevalent and pressing issue.",
+    "options": {
+      "A": "In spite of",
+      "B": "Although",
+      "C": "Because of",
+      "D": "Moreover"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cụm 'extensive public awareness campaigns' là một cụm danh từ (Noun phrase). Giữa hai vế có mối quan hệ tương phản (mặc dù đã tuyên truyền nhưng vấn đề vẫn phổ biến). Do đó ta dùng `In spite of` (+ Noun phrase). `Although` phải đi với một mệnh đề (clause).",
+    "growth_mindset_tip": "Phân biệt cấu trúc: 'Although / Even though + S + V', nhưng 'In spite of / Despite + Noun phrase / V-ing'!"
+  },
+  {
+    "id": "ENG-011",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Unit 5: The World of Work (Compound sentences and prepositions)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Mark the letter A, B, C, or D to indicate the correct preposition:\n\nCandidates applying for this senior management role must be capable _______ handling high-pressure situations and resolving interdepartmental conflicts.",
+    "options": {
+      "A": "of",
+      "B": "in",
+      "C": "with",
+      "D": "for"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Tính từ `capable` luôn đi kèm với giới từ `of` (`capable of doing something`: có khả năng làm gì). Bẫy thường gặp: Nhầm lẫn với cấu trúc `able to do something`.",
+    "growth_mindset_tip": "So sánh: 'able TO do' nhưng 'capable OF doing' - nhớ cặp giới từ đi liền để không mất điểm oan!"
+  },
+  {
+    "id": "ENG-012",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Unit 10: Endangered Species (Inversion and advanced grammar)",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Mark the letter A, B, C, or D to indicate the correct answer:\n\nSeldom _______ such magnificent biological diversity in such a fragile and vulnerable ecosystem.",
+    "options": {
+      "A": "have researchers encountered",
+      "B": "researchers have encountered",
+      "C": "encountered researchers",
+      "D": "did researchers encountered"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Đảo ngữ với trạng từ mang nghĩa phủ định hoặc bán phủ định đứng đầu câu: `Seldom / Rarely / Never + Trợ động từ + S + V (nguyên thể)`. Câu này dùng thì hiện tại hoàn thành: `Seldom have researchers encountered...`.",
+    "growth_mindset_tip": "Khi từ bán phủ định (Seldom, Rarely, Hardly, Barely, Never) đứng đầu câu, luôn áp dụng đảo ngữ trợ động từ lên trước chủ ngữ!"
+  }
+]

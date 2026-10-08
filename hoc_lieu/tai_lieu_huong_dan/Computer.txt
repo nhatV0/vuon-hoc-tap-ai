@@ -1,0 +1,98 @@
+Dưới đây là thống kê chi tiết phần **Lý thuyết môn Tin học** được cấu trúc đầy đủ theo đúng phạm vi: **Học kỳ II Lớp 11** và **Toàn bộ Lớp 12 (Cả Học kỳ I và Học kỳ II)** từ bộ sách giáo khoa hiện hành (bao gồm cả hai định hướng Khoa học máy tính - CS và Tin học ứng dụng - ICT).
+
+---
+
+# **MÔN 8: TIN HỌC**
+
+---
+
+## **PHẦN A: TIN HỌC LỚP 11 – HỌC KỲ II**
+
+### **1. Chủ đề: Cơ sở dữ liệu và Hệ quản trị cơ sở dữ liệu**
+* **Khái niệm Cơ sở dữ liệu (CSDL):** CSDL là một tập hợp các dữ liệu có liên quan với nhau, được lưu trữ một cách có tổ chức trên hệ thống máy tính.
+* **Các thuộc tính cơ bản của CSDL:**
+  * *Tính cấu trúc:* Dữ liệu được lưu trữ theo một cấu trúc xác định.
+  * *Tính không dư thừa:* Hạn chế tối đa việc trùng lặp dữ liệu trong hệ thống.
+  * *Tính độc lập dữ liệu:* Dữ liệu tách biệt với các phần mềm ứng dụng khai thác dữ liệu.
+  * *Tính toàn vẹn, tính nhất quán, tính bảo mật và an toàn dữ liệu*.
+* **Hệ quản trị cơ sở dữ liệu (QTCSDL):** Là phần mềm cung cấp các phương thức để khởi tạo, lưu trữ, cập nhật, truy xuất, bảo mật và đảm bảo an toàn dữ liệu.
+  * *Các nhóm chức năng chính:* Nhóm chức năng định nghĩa dữ liệu; Nhóm chức năng cập nhật và truy xuất dữ liệu; Nhóm chức năng bảo mật, an toàn CSDL.
+  * *Phân loại Hệ CSDL:* Hệ CSDL tập trung (lưu trữ trên một máy tính) và Hệ CSDL phân tán (dữ liệu phân tán trên nhiều máy tính kết nối mạng).
+* **Cơ sở dữ liệu quan hệ (Relational Database):**
+  * *Cấu trúc:* Lưu trữ dữ liệu dưới dạng các bảng có quan hệ với nhau. Mỗi hàng trong bảng gọi là *bản ghi* (record/tuple), mỗi cột gọi là *trường* (field/attribute) đại diện cho một thuộc tính.
+  * *Khóa chính (Primary Key):* Một hoặc một tập hợp thuộc tính giúp xác định duy nhất mỗi bản ghi trong bảng.
+  * *Khóa ngoài (Foreign Key):* Thuộc tính của một bảng tham chiếu đến khóa chính của một bảng khác để tạo liên kết giữa các bảng.
+* **Ngôn ngữ truy vấn có cấu trúc (SQL):**
+  * *DDL (Data Definition Language):* Khởi tạo CSDL và cấu trúc bảng (`CREATE DATABASE`, `CREATE TABLE`, `ALTER TABLE`).
+  * *DML (Data Manipulation Language):* Cập nhật và truy xuất dữ liệu (`SELECT`, `INSERT`, `UPDATE`, `DELETE`).
+  * *DCL (Data Control Language):* Kiểm soát quyền truy cập của người dùng (`GRANT`, `REVOKE`).
+* **Bảo mật và an toàn CSDL:**
+  * *An toàn dữ liệu:* Phòng chống sự cố về nguồn điện, hư hỏng thiết bị lưu trữ bằng chính sách sao lưu định kỳ (backup) và phục hồi dữ liệu (restore).
+  * *Bảo mật:* Phân quyền tài khoản truy cập (User/Moderator/Admin) để kiểm soát quyền thao tác trên dữ liệu.
+
+---
+
+### **2. Chủ đề: Kĩ thuật lập trình & Quản trị CSDL (Chuyên sâu CS & ICT)**
+* **Kĩ thuật lập trình nâng cao trong Python (Định hướng CS):**
+  * *Cấu trúc dữ liệu mảng:* Mảng một chiều và hai chiều được biểu diễn bằng kiểu dữ liệu danh sách (`list`) trong Python.
+  * *Thao tác với Tệp văn bản:* Sử dụng hàm `open()` với các chế độ đọc (`"r"`), ghi (`"w"`), ghi tiếp (`"a"`) và đóng tệp với `close()`.
+  * *Thuật toán tìm kiếm và sắp xếp:*
+    * Tìm kiếm tuần tự (Linear Search) và Tìm kiếm nhị phân (Binary Search).
+    * Sắp xếp chọn (Selection Sort), Sắp xếp nổi bọt (Bubble Sort), Sắp xếp chèn (Insertion Sort).
+  * *Đánh giá độ phức tạp thời gian thuật toán:* Sử dụng độ lớn \\(O\\)-lớn (Big-O) để đánh giá hiệu năng thuật toán (ví dụ: \\(O(1)\\), \\(O(n)\\), \\(O(n^2)\\)).
+  * *Thiết kế chương trình theo mô đun & Thư viện:* Tách chương trình thành các hàm độc lập và đóng gói thành thư viện để tái sử dụng.
+* **Thực hành Quản trị CSDL trên máy tính (Định hướng ICT):**
+  * Sử dụng hệ QTCSDL MySQL và phần mềm quản trị HeidiSQL để tạo lập CSDL, khai báo bảng, thiết lập khóa chính, khóa ngoài và nhập dữ liệu.
+  * Thực hiện các truy vấn dữ liệu liên kết giữa nhiều bảng bằng mệnh đề `INNER JOIN ... ON` trong SQL.
+
+---
+
+## **PHẦN B: TIN HỌC LỚP 12 – TOÀN BỘ CHƯƠNG TRÌNH (HKI & HKII)**
+
+### **1. Chủ đề: Trí tuệ nhân tạo (AI) & Mạng máy tính**
+* **Trí tuệ nhân tạo (AI):**
+  * *Khái niệm:* AI là ngành khoa học máy tính nhằm tạo ra các hệ thống máy tính có khả năng thực hiện các công việc đòi hỏi trí thông minh của con người.
+  * *Phân loại:* AI hẹp (Weak AI) giải quyết các bài toán cụ thể; AI tạo sinh (Generative AI) có khả năng tự tạo ra nội dung mới (văn bản, hình ảnh, âm thanh).
+  * *Đạo đức AI:* Cần đảm bảo tính minh bạch, sự riêng tư dữ liệu và an toàn thông tin khi ứng dụng AI.
+* **Mạng máy tính và An toàn mạng:**
+  * *Thiết bị kết nối:* Switch, Router, Access Point kết nối và định tuyến dữ liệu trong mạng cục bộ (LAN) và mạng diện rộng (WAN).
+  * *Giao thức:* Sử dụng bộ giao thức TCP/IP, địa chỉ IP và hệ thống phân giải tên miền (DNS).
+  * *An toàn không gian mạng:* Nhận diện và phòng chống phần mềm độc hại (Malware, Virus, Trojan), phòng chống lừa đảo trực tuyến (Phishing) và tuân thủ Luật An ninh mạng.
+
+---
+
+### **2. Chủ đề: Thiết kế Trang web với HTML và CSS**
+* **Ngôn ngữ đánh dấu siêu văn bản (HTML):**
+  * *Khái niệm:* HTML (Hypertext Markup Language) là ngôn ngữ quy định cấu trúc và nội dung hiển thị của trang web.
+  * *Cấu trúc cơ bản của tệp HTML:* Khai báo `<!DOCTYPE html>`, phần tử gốc `<html>`, phần đầu `<head>` (chứa tiêu đề `<title>`, khai báo mã hóa `<meta charset="utf-8">`) và phần thân `<body>`.
+  * *Các thẻ định dạng văn bản:*
+    * Tiêu đề: `<h1>` đến `<h6>`.
+    * Đoạn văn: `<p>`, xuống dòng `<br>`, đường kẻ ngang `<hr>`.
+    * Định dạng chữ: `<b>` hoặc `<strong>` (in đậm), `<i>` hoặc `<em>` (in nghiêng), `<u>` (gạch chân), `<sub>` (chỉ số dưới), `<sup>` (chỉ số trên).
+  * *Tạo danh sách & Bảng:*
+    * Danh sách có thứ tự `<ol>`, danh sách không thứ tự `<ul>`, danh sách mô tả `<dl>` kết hợp thẻ `<li>`, `<dt>`, `<dd>`.
+    * Bảng dữ liệu: Thẻ `<table>`, hàng `<tr>`, ô dữ liệu `<td>`, ô tiêu đề `<th>`.
+  * *Chèn hình ảnh & Liên kết:* Thẻ `<img>` với thuộc tính `src`, thẻ liên kết `<a>` với thuộc tính `href`.
+* **Mẫu định dạng theo tầng (CSS - Cascading Style Sheets):**
+  * *Khái niệm & Cú pháp:* CSS dùng để định dạng cách hiển thị của các phần tử HTML. Cú pháp: `Bộ_chọn { thuộc_tính: giá_trị; }`.
+  * *Phân loại phần tử:* Phần tử khối (Block-level) bắt đầu từ dòng mới; Phần tử nội tuyến (Inline-level) nằm trên cùng một dòng. Thay đổi bằng thuộc tính `display` (`block`, `inline`, `none`).
+  * *Mô hình khung (Box Model):* Định dạng kích thước và khoảng cách gồm `width`, `height`, `margin` (lề ngoài), `border` (viền khung), `padding` (vùng đệm).
+  * *Hệ màu sắc:* Sử dụng tên màu, hệ màu RGB (`rgb(r,g,b)`), hệ màu Hex (`#rrggbb`) và hệ màu HSL.
+  * *Bộ chọn nâng cao:* Bộ chọn tổ hợp (`E F`, `E > F`, `E + F`, `E ~ F`), lớp giả Pseudo-class (`:hover`, `:link`, `:visited`), phần tử giả Pseudo-element (`::first-line`, `::first-letter`).
+  * *Tính kế thừa & Mức độ ưu tiên:* Mẫu CSS áp dụng theo tính kế thừa trong cây HTML. Độ ưu tiên quyết định bởi vị trí khai báo, trọng số bộ chọn và từ khóa `!important`.
+
+---
+
+### **3. Chủ đề chuyên sâu theo Định hướng (CS & ICT - Lớp 12)**
+* **Khoa học máy tính (CS):**
+  * *Khoa học dữ liệu (Data Science):* Vai trò của máy tính và thuật toán trong quy trình thu thập, xử lý, khám phá tri thức và trực quan hóa dữ liệu lớn.
+  * *Mô phỏng & Thiết kế mạng:* Phác thảo thiết kế hệ thống mạng máy tính, tìm hiểu đặc tính kỹ thuật của thiết bị mạng.
+* **Tin học ứng dụng (ICT):**
+  * *Dự án thiết kế Website:* Tổ chức cấu trúc thư mục, liên kết các trang web HTML với tệp CSS dùng chung để tạo website hoàn chỉnh.
+  * *Hướng nghiệp Công nghệ thông tin:* Tìm hiểu các nhóm nghề quản trị CSDL, dịch vụ mạng, phát triển phần mềm và bảo trì hệ thống.
+
+---
+
+Nội dung Lý thuyết môn Tin học đã hoàn thành đầy đủ.
+
+Bạn có muốn tiếp tục sang môn cuối cùng trong danh sách là **Môn 9: Công nghệ (HKII Lớp 11 & Toàn bộ Lớp 12)** không?

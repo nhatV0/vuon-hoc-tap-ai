@@ -1,0 +1,242 @@
+[
+  {
+    "id": "VATLI-001",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương I: Vật lí nhiệt (Nhiệt dung riêng)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong hệ đơn vị quốc tế SI, đơn vị đo của nhiệt dung riêng là:",
+    "options": {
+      "A": "J/kg",
+      "B": "J/(kg \\cdot K)",
+      "C": "W/(m \\cdot K)",
+      "D": "J/K"
+    },
+    "correct_answer": "B",
+    "micro_explanation": "Từ công thức nhiệt lượng truyền vào: $Q = mc\\Delta T \\Rightarrow c = \\frac{Q}{m\\Delta T}$. Đơn vị của $Q$ là Jun (J), khối lượng $m$ là kg, độ biến thiên nhiệt độ $\\Delta T$ là Kelvin (K), do đó đơn vị của $c$ là $\\text{J/(kg}\\cdot\\text{K)}$.",
+    "growth_mindset_tip": "Nắm vững thứ nguyên của đại lượng vật lý bằng cách suy ra từ biểu thức định nghĩa!"
+  },
+  {
+    "id": "VATLI-002",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương I: Vật lí nhiệt (Định luật I Nhiệt động lực học)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Một khối khí trong xilanh nhận nhiệt lượng 150 J từ môi trường ngoài và đồng thời bị pit-tông nén, nhận công 80 J. Độ biến thiên nội năng $\\Delta U$ của khối khí là:",
+    "options": {
+      "A": "+230 J",
+      "B": "+70 J",
+      "C": "-70 J",
+      "D": "-230 J"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Theo Định luật I Nhiệt động lực học: $\\Delta U = A + Q$. Khối khí nhận nhiệt lượng nên $Q = +150\\text{ J}$; khối khí nhận công (bị nén) nên $A = +80\\text{ J}$. Suy ra $\\Delta U = 80 + 150 = +230\\text{ J}$.",
+    "growth_mindset_tip": "Nhớ quy tắc dấu: 'Nhận thì dương, thực hiện/truyền thì âm' để không bao giờ bị nhầm lẫn trong các bài toán nhiệt động!"
+  },
+  {
+    "id": "VATLI-003",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương II: Khí lí tưởng (Định luật Boyle)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Ở nhiệt độ không đổi, một khối khí lí tưởng có thể tích $4\\text{ lít}$ ở áp suất $1\\text{ atm}$. Khi nén khí đẳng nhiệt đến thể tích $1{,}6\\text{ lít}$, áp suất của khối khí là:",
+    "options": {
+      "A": "2{,}5 atm",
+      "B": "0{,}4 atm",
+      "C": "3{,}2 atm",
+      "D": "2{,}0 atm"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Quá trình đẳng nhiệt tuân theo định luật Boyle: $p_1 V_1 = p_2 V_2 \\Rightarrow p_2 = \\frac{p_1 V_1}{V_2} = \\frac{1 \\times 4}{1{,}6} = 2{,}5\\text{ atm}$.",
+    "growth_mindset_tip": "Trong quá trình đẳng nhiệt, áp suất tỉ lệ nghịch với thể tích: thể tích giảm thì áp suất phải tăng tương ứng."
+  },
+  {
+    "id": "VATLI-004",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương II: Khí lí tưởng (Phương trình Clapeyron - Mendeleev)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Bình chứa $0{,}2\\text{ mol}$ khí lí tưởng ở nhiệt độ $27^\\circ\\text{C}$ có thể tích $8{,}31\\text{ lít}$. Lấy hằng số khí $R = 8{,}31\\text{ J/(mol}\\cdot\\text{K)}$. Áp suất của khối khí trong bình là:",
+    "options": {
+      "A": "60 000 Pa",
+      "B": "6 000 Pa",
+      "C": "600 Pa",
+      "D": "54 000 Pa"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Đổi đơn vị: $T = 27 + 273 = 300\\text{ K}$; $V = 8{,}31\\text{ lít} = 8{,}31 \\times 10^{-3}\\text{ m}^3$. Phương trình $pV = nRT \\Rightarrow p = \\frac{nRT}{V} = \\frac{0{,}2 \\times 8{,}31 \\times 300}{8{,}31 \\times 10^{-3}} = 60\\,000\\text{ Pa}$.",
+    "growth_mindset_tip": "Bẫy đơn vị kinh điển: luôn nhớ đổi $T$ sang Kelvin và thể tích $V$ từ lít sang $\\text{m}^3$ ($1\\text{ lít} = 10^{-3}\\text{ m}^3$)!"
+  },
+  {
+    "id": "VATLI-005",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương III: Từ trường và Cảm ứng điện từ",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Từ thông $\\Phi$ gửi qua diện tích $S$ của một khung dây phẳng đặt trong từ trường đều $\\vec{B}$ được tính theo công thức nào dưới đây (với $\\alpha$ là góc giữa vectơ cảm ứng từ $\\vec{B}$ và vectơ pháp tuyến $\\vec{n}$ của mặt phẳng khung)?",
+    "options": {
+      "A": "\\Phi = B S \\cos \\alpha",
+      "B": "\\Phi = B S \\sin \\alpha",
+      "C": "\\Phi = B S \\tan \\alpha",
+      "D": "\\Phi = \\frac{B S}{\\cos \\alpha}"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Theo định nghĩa từ thông qua diện tích $S$: $\\Phi = B S \\cos \\alpha$, trong đó $\\alpha = (\\vec{B}, \\vec{n})$ là góc giữa vectơ cảm ứng từ và pháp tuyến của khung dây.",
+    "growth_mindset_tip": "Chú ý góc $\\alpha$ là góc hợp bởi $\\vec{B}$ và pháp tuyến $\\vec{n}$, không phải góc hợp bởi $\\vec{B}$ và mặt phẳng khung dây!"
+  },
+  {
+    "id": "VATLI-006",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương III: Từ trường (Lực từ tác dụng lên đoạn dây dẫn)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Một đoạn dây dẫn thẳng dài $0{,}2\\text{ m}$ mang dòng điện $5\\text{ A}$ đặt trong từ trường đều có cảm ứng từ $B = 0{,}4\\text{ T}$. Dây dẫn hợp với các đường sức từ một góc $30^\\circ$. Độ lớn của lực từ tác dụng lên đoạn dây là:",
+    "options": {
+      "A": "0{,}20 N",
+      "B": "0{,}35 N",
+      "C": "0{,}40 N",
+      "D": "0{,}10 N"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Độ lớn lực từ tác dụng lên đoạn dây dẫn mang dòng điện: $F = I B l \\sin \\alpha = 5 \\times 0{,}4 \\times 0{,}2 \\times \\sin(30^\\circ) = 0{,}4 \\times 0{,}5 = 0{,}20\\text{ N}$.",
+    "growth_mindset_tip": "Phân biệt rõ: Lực từ dùng $\\sin \\alpha$ ($F = IBl\\sin\\alpha$), còn từ thông dùng $\\cos \\alpha$ ($\\Phi = BS\\cos\\alpha$)!"
+  },
+  {
+    "id": "VATLI-007",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương IV: Vật lí hạt nhân (Năng lượng liên kết)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Đại lượng nào sau đây đặc trưng cho mức độ bền vững của một hạt nhân nguyên tử?",
+    "options": {
+      "A": "Năng lượng liên kết riêng",
+      "B": "Năng lượng liên kết toàn phần",
+      "C": "Độ hụt khối của hạt nhân",
+      "D": "Số khối A của hạt nhân"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Năng lượng liên kết riêng $\\epsilon = \\frac{W_{lk}}{A}$ là năng lượng liên kết tính trên một nucleon. Đại lượng này đặc trưng cho mức độ bền vững của hạt nhân: hạt nhân có năng lượng liên kết riêng càng lớn thì càng bền vững.",
+    "growth_mindset_tip": "Hạt nhân có số khối trong khoảng $50 < A < 70$ (như sắt $^{56}\\text{Fe}$) có năng lượng liên kết riêng lớn nhất và bền vững nhất trong tự nhiên."
+  },
+  {
+    "id": "VATLI-008",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương IV: Vật lí hạt nhân (Định luật phóng xạ)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Chất phóng xạ $^{131}_{53}\\text{I}$ có chu kì bán rã là 8 ngày đêm. Ban đầu có $16\\text{ g}$ chất này. Sau 24 ngày đêm, khối lượng $^{131}_{53}\\text{I}$ còn lại là:",
+    "options": {
+      "A": "2 g",
+      "B": "4 g",
+      "C": "8 g",
+      "D": "1 g"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Số chu kì bán rã đã trôi qua: $k = \\frac{t}{T} = \\frac{24}{8} = 3$. Khối lượng còn lại sau $k$ chu kì: $m = m_0 \\times 2^{-k} = 16 \\times 2^{-3} = \\frac{16}{8} = 2\\text{ g}$.",
+    "growth_mindset_tip": "Nhớ nhanh quy tắc lũy thừa của 2: sau 1 chu kỳ còn 1/2, 2 chu kỳ còn 1/4, 3 chu kỳ còn 1/8."
+  },
+  {
+    "id": "VATLI-009",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương I: Vật lí nhiệt (Nhiệt hóa hơi riêng và cân bằng nhiệt)",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Dùng một bếp điện công suất $1000\\text{ W}$ để đun sôi và làm bay hơi $0{,}5\\text{ kg}$ nước đang ở $100^\\circ\\text{C}$. Biết nhiệt hóa hơi riêng của nước là $L = 2{,}26 \\times 10^6\\text{ J/kg}$ và hiệu suất của ấm đun là $80\\%$. Thời gian cần thiết để lượng nước trên hóa hơi hoàn toàn là:",
+    "options": {
+      "A": "1412{,}5 giây",
+      "B": "1130 giây",
+      "C": "904 giây",
+      "D": "1765 giây"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Nhiệt lượng cần thiết để hóa hơi hoàn toàn $0{,}5\\text{ kg}$ nước ở nhiệt độ sôi: $Q = m \\cdot L = 0{,}5 \\times 2{,}26 \\times 10^6 = 1{,}13 \\times 10^6\\text{ J}$. Nhiệt lượng toàn phần do bếp cung cấp: $Q_{tp} = \\frac{Q}{H} = \\frac{1{,}13 \\times 10^6}{0{,}8} = 1{,}4125 \\times 10^6\\text{ J}$. Thời gian đun: $t = \\frac{Q_{tp}}{\\mathcal{P}} = \\frac{1{,}4125 \\times 10^6}{1000} = 1412{,}5\\text{ s}$ (xấp xỉ 23,5 phút).",
+    "growth_mindset_tip": "Hiệu suất $H = Q_{ich}/Q_{tp}$, năng lượng hao phí làm công suất toàn phần cần chia cho $H$!"
+  },
+  {
+    "id": "VATLI-010",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Chương III: Điện trường và Định luật Coulomb",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Khi khoảng cách giữa hai điện tích điểm trong chân không tăng lên gấp đôi đồng thời độ lớn của một trong hai điện tích tăng lên gấp đôi thì lực tương tác tĩnh điện giữa chúng sẽ:",
+    "options": {
+      "A": "Giảm đi 2 lần",
+      "B": "Tăng lên 2 lần",
+      "C": "Không thay đổi",
+      "D": "Giảm đi 4 lần"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Theo định luật Coulomb: $F = k \\frac{|q_1 q_2|}{r^2}$. Khi $q_1' = 2q_1$ và $r' = 2r$, ta có $F' = k \\frac{|2q_1 q_2|}{(2r)^2} = \\frac{2}{4} F = \\frac{1}{2} F$. Lực tương tác giảm đi 2 lần.",
+    "growth_mindset_tip": "Chú ý mẫu số khoảng cách là bình phương $r^2$, nên khoảng cách tăng 2 thì mẫu số tăng gấp 4!"
+  },
+  {
+    "id": "VATLI-011",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "TRAP_2",
+    "source": "Phần A - Chương IV: Dòng điện không đổi và Mạch điện",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Một nguồn điện có suất điện động $\\mathcal{E} = 12\\text{ V}$ và điện trở trong $r = 1\\,\\Omega$ mắc với điện trở mạch ngoài $R = 5\\,\\Omega$ thành mạch kín. Hiệu điện thế giữa hai cực của nguồn điện là:",
+    "options": {
+      "A": "10 V",
+      "B": "12 V",
+      "C": "2 V",
+      "D": "8 V"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cường độ dòng điện trong toàn mạch: $I = \\frac{\\mathcal{E}}{R + r} = \\frac{12}{5 + 1} = 2\\text{ A}$. Hiệu điện thế giữa hai cực của nguồn điện chính là hiệu điện thế mạch ngoài: $U = I R = 2 \\times 5 = 10\\text{ V}$ (hoặc tính theo công thức $U = \\mathcal{E} - I r = 12 - 2 \\times 1 = 10\\text{ V}$).",
+    "growth_mindset_tip": "Hiệu điện thế giữa hai cực nguồn luôn nhỏ hơn suất điện động $\\mathcal{E}$ một lượng là độ giảm thế trong nguồn $Ir$."
+  },
+  {
+    "id": "VATLI-012",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương IV: Phản ứng hạt nhân (Năng lượng phản ứng)",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Cho phản ứng nhiệt hạch: $^2_1\\text{H} + ^3_1\\text{H} \\to ^4_2\\text{He} + ^1_0\\text{n} + 17{,}6\\text{ MeV}$. Năng lượng tỏa ra khi tổng hợp hoàn toàn $1\\text{ g}$ khí Heli ($^4_2\\text{He}$) xấp xỉ bằng bao nhiêu (lấy số Avogadro $N_A = 6{,}022 \\times 10^{23}\\text{ mol}^{-1}$, $1\\text{ eV} = 1{,}6 \\times 10^{-19}\\text{ J}$)?",
+    "options": {
+      "A": "4{,}24 \\times 10^{11} J",
+      "B": "2{,}65 \\times 10^{12} J",
+      "C": "1{,}06 \\times 10^{11} J",
+      "D": "8{,}48 \\times 10^{11} J"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Số hạt nhân $^4_2\\text{He}$ có trong $1\\text{ g}$ là: $N = \\frac{m}{A} N_A = \\frac{1}{4} \\times 6{,}022 \\times 10^{23} = 1{,}5055 \\times 10^{23}$ hạt. Mỗi phản ứng tạo ra 1 hạt He và tỏa ra $17{,}6\\text{ MeV}$. Tổng năng lượng tỏa ra: $E = N \\times 17{,}6\\text{ MeV} = 1{,}5055 \\times 10^{23} \\times 17{,}6 \\times 10^6 \\times 1{,}6 \\times 10^{-19}\\text{ J} \\approx 4{,}24 \\times 10^{11}\\text{ J}$.",
+    "growth_mindset_tip": "Năng lượng từ phản ứng nhiệt hạch cực kì khổng lồ: chỉ 1g Heli sinh ra tương đương năng lượng đốt cháy hàng chục tấn dầu mỏ!"
+  }
+]

@@ -82,10 +82,15 @@ const EMOTION_LEVELS = [
 export default function OnboardingPage() {
   const router = useRouter();
   const { user } = useAuth();
+
+  useEffect(() => {
+    if (user?.role === "teacher" || user?.role === "admin") {
+      router.replace("/teacher");
+    }
+  }, [user, router]);
+
   const [step, setStep] = useState<number>(1);
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
-
-  // Form State: Hỗ trợ Đa Lựa Chọn Môn Học và Thang Đo Cảm Xúc 7 Mức
   const [name, setName] = useState<string>(user?.name || "");
   const [grade, setGrade] = useState<string>("10");
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>(["Toán học"]);

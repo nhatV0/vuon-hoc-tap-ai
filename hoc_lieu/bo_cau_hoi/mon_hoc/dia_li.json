@@ -1,0 +1,242 @@
+[
+  {
+    "id": "DIA-001",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương I: Địa lí tự nhiên Việt Nam (Đặc điểm địa hình)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Hai hướng núi chính của địa hình Việt Nam là:",
+    "options": {
+      "A": "Tây bắc - đông nam và hướng vòng cung",
+      "B": "Bắc - nam và tây - đông",
+      "C": "Đông bắc - tây nam và hướng tuyến tính",
+      "D": "Tây nam - đông bắc và hướng nan quạt"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Địa hình đồi núi nước ta có hai hướng chính: Hướng tây bắc - đông nam (thể hiện rõ ở vùng núi Tây Bắc và Trường Sơn Bắc) và hướng vòng cung (thể hiện ở vùng núi Đông Bắc và Trường Sơn Nam).",
+    "growth_mindset_tip": "Nhớ nhanh 2 hướng núi: Tây Bắc và Trường Sơn Bắc chạy theo hướng Tây Bắc - Đông Nam; các cánh cung Sông Gâm, Ngân Sơn, Bắc Sơn, Đông Triều chạy theo hướng vòng cung!"
+  },
+  {
+    "id": "DIA-002",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương I: Sự phân hóa thiên nhiên Bắc - Nam",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Ranh giới tự nhiên phân chia khí hậu phần lãnh thổ phía Bắc và phần lãnh thổ phía Nam của nước ta là:",
+    "options": {
+      "A": "Dãy Bạch Mã",
+      "B": "Dãy Hoành Sơn",
+      "C": "Đèo Ngang",
+      "D": "Dãy Hoàng Liên Sơn"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Dãy Bạch Mã (khoảng vĩ tuyến $16^\\circ\\text{B}$) đóng vai trò như bức tường thành ngăn cản gió mùa Đông Bắc tràn xuống phía Nam, tạo nên ranh giới giữa phần lãnh thổ phía Bắc (có mùa đông lạnh) và phía Nam (nóng quanh năm, mang tính chất cận xích đạo gió mùa).",
+    "growth_mindset_tip": "Bẫy thường gặp: Nhầm giữa đèo Ngang/dãy Hoành Sơn (vĩ tuyến 18 độ B) và dãy Bạch Mã (vĩ tuyến 16 độ B - ranh giới chính xác Bắc/Nam)!"
+  },
+  {
+    "id": "DIA-003",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương I: Gió mùa và khí hậu Việt Nam",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Hiện tượng mưa phùn vào nửa cuối mùa đông ở vùng đồng bằng Bắc Bộ và Bắc Trung Bộ nước ta có nguyên nhân chủ yếu do:",
+    "options": {
+      "A": "Khối khí lạnh phương Bắc lệch đông di chuyển qua biển được tăng cường ẩm",
+      "B": "Gió mùa Tây Nam từ vịnh Băng-gan thổi vào",
+      "C": "Ảnh hưởng của dải hội tụ nhiệt đới và bão nhiệt đới",
+      "D": "Gió Tín phong bán cầu Bắc hoạt động mạnh mẽ"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Vào nửa cuối mùa đông, áp cao Siberi dịch chuyển về phía đông, khối khí cực đới lục địa di chuyển lệch qua biển Thái Bình Dương và vịnh Bắc Bộ nên được cung cấp lượng ẩm lớn, khi vào đất liền gặp lạnh ngưng tụ sinh ra mưa phùn ven biển và đồng bằng Bắc Bộ.",
+    "growth_mindset_tip": "Nhớ quy luật gió mùa Đông Bắc: Nửa đầu mùa đông đi qua lục địa khô và lạnh; Nửa sau mùa đông lệch đông qua biển ẩm và gây mưa phùn!"
+  },
+  {
+    "id": "DIA-004",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "DYNAMIC_3",
+    "source": "Kỹ năng tính toán địa lí (Mật độ dân số)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Năm 2022, vùng Đồng bằng sông Hồng có số dân là 23,4 triệu người và diện tích tự nhiên là 21 278 km2. Mật độ dân số của vùng Đồng bằng sông Hồng năm 2022 là bao nhiêu (làm tròn đến hàng đơn vị)?",
+    "options": {
+      "A": "1 100 người/km2",
+      "B": "1 050 người/km2",
+      "C": "980 người/km2",
+      "D": "1 250 người/km2"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Công thức tính mật độ dân số: $\\text{Mật độ dân số} = \\frac{\\text{Số dân}}{\\text{Diện tích}}$. Ta có: $\\frac{23\\,400\\,000}{21\\,278} \\approx 1\\,099{,}7$ làm tròn thành $1\\,100\\text{ người/km}^2$. Đây là vùng có mật độ dân số cao nhất cả nước.",
+    "growth_mindset_tip": "Chú ý đổi đơn vị dân số sang 'người' trước khi chia diện tích 'km2': 23,4 triệu người = 23 400 000 người!"
+  },
+  {
+    "id": "DIA-005",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Mục 2: Liên minh Châu Âu (EU)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Nội dung nào sau đây là một trong 'bốn mặt tự do lưu thông' then chốt của thị trường chung Liên minh Châu Âu (EU)?",
+    "options": {
+      "A": "Tự do lưu thông con người, hàng hóa, dịch vụ và tiền vốn",
+      "B": "Tự do lưu thông vũ khí và thiết bị quân sự",
+      "C": "Tự do khai thác tài nguyên lãnh hải toàn cầu",
+      "D": "Tự do thay đổi biên giới quốc gia các nước thành viên"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Bốn quyền tự do lưu thông cốt lõi của thị trường chung EU gồm: Tự do lưu thông con người (công dân tự do cư trú, làm việc), tự do lưu thông hàng hóa (không thuế quan nội khối), tự do dịch vụ và tự do tiền vốn.",
+    "growth_mindset_tip": "Nắm vững 4 trụ cột tự do của EU: Con người - Hàng hóa - Dịch vụ - Tiền vốn!"
+  },
+  {
+    "id": "DIA-006",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "TRAP_2",
+    "source": "Phần A - Mục 3: Khu vực Đông Nam Á",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Eo biển nào sau đây ở khu vực Đông Nam Á là tuyến giao thông hàng hải quốc tế huyết mạch kết nối Ấn Độ Dương với Biển Đông và Thái Bình Dương?",
+    "options": {
+      "A": "Eo biển Ma-lắc-ca (Malacca)",
+      "B": "Eo biển Xun-đa (Sunda)",
+      "C": "Eo biển Gi-bran-ta",
+      "D": "Eo biển Bô-xpho-rút"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Eo biển Ma-lắc-ca (nằm giữa bán đảo Mã Lai và đảo Sumatra của Indonesia) là một trong những tuyến đường biển nhộn nhịp nhất thế giới, vận chuyển khoảng 1/4 lượng dầu mỏ và hàng hóa giao thương toàn cầu.",
+    "growth_mindset_tip": "Vị trí địa chính trị của Ma-lắc-ca: 'Yết hầu hàng hải' của Đông Nam Á và thế giới!"
+  },
+  {
+    "id": "DIA-007",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương III: Địa lí ngành nông nghiệp Việt Nam",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Vùng nào sau đây là vùng chuyên canh cây cà phê lớn nhất của nước ta nhờ có diện tích đất đỏ bazan màu mỡ và tầng phong hóa sâu rộng lớn?",
+    "options": {
+      "A": "Tây Nguyên",
+      "B": "Đông Nam Bộ",
+      "C": "Trung du và miền núi Bắc Bộ",
+      "D": "Bắc Trung Bộ"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Tây Nguyên là thủ phủ cà phê của Việt Nam (nổi bật là các tỉnh Đắk Lắk, Lâm Đồng, Gia Lai) nhờ lợi thế các cao nguyên bazan xếp tầng màu mỡ, khí hậu cận xích đạo có hai mùa mưa nắng rõ rệt thuận tiện thu hoạch và phơi sấy.",
+    "growth_mindset_tip": "Phân biệt chuyên canh cây công nghiệp: Cà phê lớn nhất ở Tây Nguyên; Cao su lớn nhất ở Đông Nam Bộ; Chè lớn nhất ở Trung du miền núi Bắc Bộ!"
+  },
+  {
+    "id": "DIA-008",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương III: Chuyển dịch cơ cấu kinh tế Việt Nam",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Mục tiêu cơ bản và dài hạn nhất của việc chuyển dịch cơ cấu kinh tế theo ngành ở nước ta (giảm tỉ trọng nông nghiệp, tăng tỉ trọng công nghiệp - xây dựng và dịch vụ) là nhằm:",
+    "options": {
+      "A": "Thúc đẩy tăng trưởng kinh tế nhanh, hiện đại hóa đất nước và nâng cao hiệu quả sử dụng nguồn lực xã hội",
+      "B": "Xóa bỏ hoàn toàn ngành sản xuất nông nghiệp truyền thống",
+      "C": "Hạn chế việc thu hút vốn đầu tư trực tiếp nước ngoài (FDI)",
+      "D": "Tập trung toàn bộ lực lượng lao động về các đô thị đặc biệt"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Chuyển dịch cơ cấu ngành kinh tế là tất yếu khách quan của quá trình công nghiệp hóa, hiện đại hóa nhằm nâng cao năng suất lao động, khai thác tối ưu tiềm năng tài nguyên và vị thế địa kinh tế để đất nước phát triển nhanh và bền vững.",
+    "growth_mindset_tip": "Mục tiêu cốt lõi của công nghiệp hóa - hiện đại hóa: Nâng cao năng suất và chất lượng cuộc sống chứ không phải xóa bỏ nông nghiệp!"
+  },
+  {
+    "id": "DIA-009",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương I: Địa lí tự nhiên Việt Nam (Đặc điểm thổ nhưỡng)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Nhóm đất chiếm diện tích lớn nhất trong các loại đất ở vùng đồi núi nước ta là:",
+    "options": {
+      "A": "Đất feralit",
+      "B": "Đất phù sa ngọt",
+      "C": "Đất mùn thô trên núi cao",
+      "D": "Đất xám bạc màu"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Đất feralit là nhóm đất điển hình cho vùng khí hậu nhiệt đới ẩm gió mùa của nước ta, chiếm hơn 65% diện tích tự nhiên, hình thành chủ yếu trên các loại đá mẹ ở vùng đồi núi thấp.",
+    "growth_mindset_tip": "Đặc trưng khí hậu nhiệt đới ẩm: Quá trình phong hóa feralit diễn ra mạnh mẽ tích tụ oxit sắt và nhôm tạo màu đỏ vàng!"
+  },
+  {
+    "id": "DIA-010",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Mục 1: Khu vực Mỹ La-tinh",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Đặc điểm nổi bật của quá trình đô thị hóa ở khu vực Mỹ La-tinh là:",
+    "options": {
+      "A": "Tỉ lệ dân đô thị cao nhưng đô thị hóa mang tính tự phát, gắn liền với di dân nghèo khổ từ nông thôn ra thành phố",
+      "B": "Đô thị hóa gắn liền chặt chẽ với tốc độ tăng trưởng công nghiệp hiện đại",
+      "C": "Tỉ lệ dân thành thị rất thấp, đại đa số sống ở vùng nông thôn",
+      "D": "Phân bố đô thị đồng đều trên khắp các vùng lãnh thổ"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Mỹ La-tinh có tỉ lệ dân đô thị rất cao (khoảng 80%), tuy nhiên đây là quá trình 'đô thị hóa tự phát' do người nông dân mất đất đổ về các thành phố lớn tìm việc, tạo nên các khu ổ chuột rộng lớn với nhiều vấn đề an sinh xã hội nan giải.",
+    "growth_mindset_tip": "Phân biệt đô thị hóa: Đô thị hóa tự phát (chạy theo dân số) khác với đô thị hóa thực chất (gắn liền với công nghiệp hóa)!"
+  },
+  {
+    "id": "DIA-011",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương II: Địa lí dân cư Việt Nam",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Việt Nam hiện đang ở trong thời kỳ 'Cơ cấu dân số vàng' có nghĩa là:",
+    "options": {
+      "A": "Tỉ lệ người trong độ tuổi lao động gấp đôi hoặc nhiều hơn tỉ lệ người trong độ tuổi phụ thuộc",
+      "B": "Tỉ lệ trẻ em dưới 15 tuổi chiếm đa số trong dân số",
+      "C": "Tuổi thọ trung bình của người dân đạt mức cao nhất thế giới",
+      "D": "Không có người thất nghiệp trong xã hội"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Thời kỳ dân số vàng được định nghĩa khi tỉ lệ người trong độ tuổi lao động (15 - 64 tuổi) chiếm từ 66% trở lên, tức là cứ 2 người lao động thì gánh chưa tới 1 người phụ thuộc, mở ra cơ hội vàng phát triển kinh tế nếu tận dụng tốt nguồn nhân lực.",
+    "growth_mindset_tip": "Cơ cấu dân số vàng là lợi thế nhân lực lớn nhưng chỉ diễn ra một lần trong lịch sử phát triển của mỗi quốc gia!"
+  },
+  {
+    "id": "DIA-012",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương III: Vùng kinh tế Đồng bằng sông Cửu Long",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Phương châm chiến lược quan trọng hàng đầu trong việc thích ứng với biến đổi khí hậu và xâm nhập mặn ở Đồng bằng sông Cửu Long hiện nay là:",
+    "options": {
+      "A": "'Sống chung với mặn', chuyển đổi cơ cấu cây trồng, mùa vụ và mô hình sinh kế thích ứng thông minh với nguồn nước",
+      "B": "Xây đê bao ngăn mặn trên toàn bộ các nhánh sông lớn",
+      "C": "Ngừng hoàn toàn việc nuôi trồng thủy sản nước lợ",
+      "D": "Di dời toàn bộ dân cư khỏi các vùng bán đảo Cà Mau"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Nghị quyết 120 của Chính phủ về phát triển bền vững ĐBSCL nhấn mạnh tư duy 'thuận thiên' và thích ứng thông minh: Chuyển đổi mô hình sản xuất từ 'Lúa - Thủy sản - Cây ăn trái' sang 'Thủy sản - Cây ăn trái - Lúa', biến thách thức xâm nhập mặn thành cơ hội phát triển thủy sản nước lợ giá trị cao.",
+    "growth_mindset_tip": "Tư duy sinh thái hiện đại: 'Thuận thiên thích ứng' thay cho tư duy chế ngự thiên nhiên cứng nhắc!"
+  }
+]

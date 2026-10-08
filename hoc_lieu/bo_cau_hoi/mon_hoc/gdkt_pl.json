@@ -1,0 +1,242 @@
+[
+  {
+    "id": "GDKTPL-001",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Mục 1: Quyền bình đẳng của công dân trước pháp luật",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Mọi công dân không bị phân biệt đối xử bởi giới tính, dân tộc, tín ngưỡng, tôn giáo, địa vị xã hội và đều bình đẳng về quyền, nghĩa vụ cũng như trách nhiệm pháp lý trước pháp luật là biểu hiện của nguyên tắc nào?",
+    "options": {
+      "A": "Bình đẳng trước pháp luật",
+      "B": "Bình đẳng kinh tế tuyệt đối",
+      "C": "Phân hóa trách nhiệm xã hội",
+      "D": "Ưu tiên theo thành phần xuất thân"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Quyền bình đẳng của công dân trước pháp luật quy định: Mọi công dân đều bình đẳng về quyền, nghĩa vụ và bình đẳng về trách nhiệm pháp lý; bất kỳ ai vi phạm pháp luật đều phải chịu xử lý theo quy định, không có ngoại lệ hay phân biệt đối xử.",
+    "growth_mindset_tip": "Nắm vững 3 khía cạnh bình đẳng trước pháp luật: Bình đẳng về quyền, bình đẳng về nghĩa vụ, và bình đẳng về trách nhiệm pháp lý!"
+  },
+  {
+    "id": "GDKTPL-002",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "TRAP_2",
+    "source": "Phần A - Mục 2: Quyền dân chủ cơ bản (Bầu cử và ứng cử)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Theo quy định của Hiến pháp và pháp luật Việt Nam, công dân nước Cộng hòa xã hội chủ nghĩa Việt Nam có quyền bầu cử và quyền ứng cử vào Quốc hội, Hội đồng nhân dân các cấp khi đủ bao nhiêu tuổi?",
+    "options": {
+      "A": "Đủ 18 tuổi có quyền bầu cử, đủ 21 tuổi có quyền ứng cử",
+      "B": "Đủ 18 tuổi có quyền bầu cử và đủ 18 tuổi có quyền ứng cử",
+      "C": "Đủ 16 tuổi có quyền bầu cử, đủ 18 tuổi có quyền ứng cử",
+      "D": "Đủ 20 tuổi có quyền bầu cử, đủ 25 tuổi có quyền ứng cử"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Điều 27 Hiến pháp năm 2013 quy định: Công dân đủ 18 tuổi trở lên có quyền bầu cử và đủ 21 tuổi trở lên có quyền ứng cử vào Quốc hội, Hội đồng nhân dân. Bẫy thường gặp: Nhầm lẫn độ tuổi ứng cử cũng là 18 tuổi.",
+    "growth_mindset_tip": "Phân biệt mốc tuổi hiến định: 18 tuổi đi BẦU CỬ, 21 tuổi mới được ỨNG CỬ!"
+  },
+  {
+    "id": "GDKTPL-003",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Mục 2: Quyền khiếu nại và tố cáo",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Điểm khác biệt cơ bản về mục đích giữa quyền khiếu nại và quyền tố cáo của công dân là gì?",
+    "options": {
+      "A": "Khiếu nại nhằm khôi phục quyền và lợi ích hợp pháp của người khiếu nại; tố cáo nhằm phát giác, ngăn chặn hành vi vi phạm pháp luật bảo vệ lợi ích công cộng hoặc cá nhân",
+      "B": "Khiếu nại chỉ áp dụng cho tranh chấp kinh tế; tố cáo chỉ áp dụng cho tội phạm hình sự",
+      "C": "Khiếu nại do cơ quan công an thụ lý; tố cáo do tòa án trực tiếp giải quyết",
+      "D": "Người dưới 18 tuổi được quyền khiếu nại nhưng không được quyền tố cáo"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Khiếu nại là việc công dân đề nghị xem xét lại quyết định/hành vi hành chính khi có căn cứ cho rằng quyết định đó xâm phạm trực tiếp đến quyền, lợi ích của chính mình. Tố cáo là việc cá nhân báo cho cơ quan chức năng về hành vi vi phạm pháp luật của bất kỳ ai gây thiệt hại cho lợi ích nhà nước hoặc xã hội.",
+    "growth_mindset_tip": "Nhớ nhanh sự khác biệt: KHIẾU NẠI để bảo vệ quyền lợi của CHÍNH MÌNH; TỐ CÁO để vạch trần vi phạm pháp luật bảo vệ XÃ HỘI!"
+  },
+  {
+    "id": "GDKTPL-004",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Mục 3: Quyền bất khả xâm phạm về thân thể",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Theo quy định của pháp luật, trường hợp duy nhất nào cho phép bất kỳ người nào cũng có quyền bắt giữ một người mà không cần lệnh bắt của Tòa án hay Viện kiểm sát?",
+    "options": {
+      "A": "Bắt người đang phạm tội quả tang hoặc đang bị truy nã",
+      "B": "Bắt người khi có nghi ngờ thực hiện hành vi trộm cắp",
+      "C": "Bắt người không mang theo giấy tờ tùy thân khi ra đường",
+      "D": "Bắt người có tranh chấp hợp đồng kinh tế dân sự"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Không ai bị bắt nếu không có quyết định của Tòa án hoặc phê chuẩn của Viện kiểm sát, NGOẠI TRỪ trường hợp phạm tội quả tang hoặc người đang có lệnh truy nã (khi đó bất kỳ công dân nào cũng có quyền bắt và giải ngay đến cơ quan công an gần nhất).",
+    "growth_mindset_tip": "Quyền bất khả xâm phạm về thân thể là thiêng liêng: Bắt người khẩn cấp luôn phải có phê chuẩn, chỉ trừ phạm tội quả tang hoặc có lệnh truy nã!"
+  },
+  {
+    "id": "GDKTPL-005",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương I: Tăng trưởng kinh tế và Phát triển kinh tế",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Phát biểu nào sau đây phản ánh đúng mối quan hệ giữa Tăng trưởng kinh tế và Phát triển kinh tế?",
+    "options": {
+      "A": "Tăng trưởng kinh tế là điều kiện cần nhưng chưa đủ; phát triển kinh tế bao gồm tăng trưởng kinh tế gắn liền với tiến bộ, công bằng xã hội và bảo vệ môi trường",
+      "B": "Tăng trưởng kinh tế và phát triển kinh tế là hai khái niệm hoàn toàn đồng nhất",
+      "C": "Chỉ cần tốc độ tăng trưởng GDP cao là nền kinh tế chắc chắn đã đạt mức phát triển kinh tế bền vững",
+      "D": "Phát triển kinh tế chỉ quan tâm đến các chỉ số văn hóa, không liên quan đến thu nhập quốc dân"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Tăng trưởng kinh tế chỉ đo lường sự gia tăng về số lượng/quy mô (GDP, GNI). Phát triển kinh tế mang tính toàn diện hơn: Bao gồm tăng trưởng kinh tế bền vững đi đôi với chuyển dịch cơ cấu hợp lý, cải thiện chỉ số phát triển con người (HDI), giảm nghèo và bảo vệ môi trường sinh thái.",
+    "growth_mindset_tip": "Tăng trưởng là 'lượng' (GDP), Phát triển là 'chất' (chất lượng sống, công bằng xã hội, môi trường xanh)!"
+  },
+  {
+    "id": "GDKTPL-006",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương I: Bảo hiểm và An sinh xã hội",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Loại hình bảo hiểm nào do Nhà nước tổ chức thực hiện nhằm bù đắp hoặc thay thế một phần thu nhập của người lao động khi họ bị giảm hoặc mất thu nhập do ốm đau, thai sản, tai nạn lao động, hết tuổi lao động?",
+    "options": {
+      "A": "Bảo hiểm xã hội",
+      "B": "Bảo hiểm thương mại",
+      "C": "Bảo hiểm trách nhiệm dân sự",
+      "D": "Bảo hiểm tài sản doanh nghiệp"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Bảo hiểm xã hội (BHXH) gồm hai hình thức bắt buộc và tự nguyện, là trụ cột vững chắc của hệ thống an sinh xã hội nhằm bảo vệ người lao động trước các rủi ro làm giảm sút hoặc mất khả năng lao động.",
+    "growth_mindset_tip": "Phân biệt các loại bảo hiểm: BHXH bảo đảm thu nhập/hưu trí; BHYT hỗ trợ chi phí khám chữa bệnh; BHTN hỗ trợ khi mất việc làm!"
+  },
+  {
+    "id": "GDKTPL-007",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương II: Quyền tự do kinh doanh và nghĩa vụ của công dân",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Anh A đăng ký thành lập hộ kinh doanh dịch vụ ăn uống nhưng sau đó tự ý mở rộng kinh doanh thêm dịch vụ karaoke có vũ trường mà không thực hiện thủ tục đăng ký bổ sung ngành nghề kinh doanh có điều kiện. Hành vi của anh A đã vi phạm quy định nào?",
+    "options": {
+      "A": "Vi phạm nghĩa vụ kinh doanh đúng ngành, nghề đã đăng ký và điều kiện kinh doanh ngành nghề có điều kiện",
+      "B": "Vi phạm quyền tự do lựa chọn hình thức tổ chức kinh doanh",
+      "C": "Vi phạm nghĩa vụ nộp thuế thu nhập doanh nghiệp",
+      "D": "Vi phạm quyền bình đẳng giữa các thành phần kinh tế"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Công dân có quyền tự do kinh doanh nhưng có nghĩa vụ đăng ký kinh doanh và kinh doanh đúng ngành nghề ghi trong giấy chứng nhận đăng ký kinh doanh; đối với ngành nghề kinh doanh có điều kiện (như karaoke, vũ trường) phải đáp ứng đầy đủ điều kiện về an ninh trật tự và phòng cháy chữa cháy.",
+    "growth_mindset_tip": "Quyền tự do kinh doanh luôn đi kèm với trách nhiệm: Tự do trong khuôn khổ pháp luật, phải đăng ký và tuân thủ điều kiện luật định!"
+  },
+  {
+    "id": "GDKTPL-008",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương II: Trách nhiệm pháp lý và các loại vi phạm pháp luật",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Doanh nghiệp X xả trực tiếp hàng ngàn mét khối nước thải công nghiệp chưa qua xử lý ra sông gây ô nhiễm môi trường nghiêm trọng và làm chết hàng loạt thủy hải sản của các hộ nuôi trồng xung quanh. Doanh nghiệp X phải gánh chịu những loại trách nhiệm pháp lý nào?",
+    "options": {
+      "A": "Trách nhiệm hành chính (phạt tiền, đình chỉ hoạt động) và Trách nhiệm dân sự (bồi thường thiệt hại cho các hộ nuôi trồng)",
+      "B": "Chỉ phải chịu trách nhiệm kỷ luật nội bộ doanh nghiệp",
+      "C": "Chỉ phải chịu trách nhiệm dân sự bồi thường thiệt hại",
+      "D": "Không phải chịu trách nhiệm pháp lý nếu đã nộp phí bảo vệ môi trường hàng năm"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Hành vi xả thải trái phép xâm phạm trật tự quản lý môi trường của nhà nước nên bị xử phạt hành chính (phạt tiền, tước giấy phép); đồng thời xâm phạm tài sản của người nuôi cá nên phải chịu trách nhiệm dân sự bồi thường thiệt hại ngoài hợp đồng (nếu đủ yếu tố cấu thành tội phạm môi trường, cá nhân quản lý còn bị truy cứu trách nhiệm hình sự).",
+    "growth_mindset_tip": "Một hành vi vi phạm có thể cùng lúc phải gánh chịu nhiều loại trách nhiệm pháp lý khác nhau: vừa bị phạt hành chính vừa phải bồi thường dân sự!"
+  },
+  {
+    "id": "GDKTPL-009",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương I: Hội nhập kinh tế quốc tế (Nguyên tắc WTO)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Nguyên tắc 'Đối xử tối huệ quốc' (MFN - Most Favoured Nation) trong thương mại quốc tế của Tổ chức Thương mại Thế giới (WTO) đòi hỏi:",
+    "options": {
+      "A": "Mọi ưu đãi thương mại dành cho một nước thành viên phải được áp dụng bình đẳng cho tất cả các nước thành viên khác",
+      "B": "Dành sự ưu tiên tuyệt đối cho các nước có nền kinh tế phát triển nhất",
+      "C": "Miễn thuế nhập khẩu hoàn toàn cho hàng hóa của các nước láng giềng",
+      "D": "Áp đặt hàng rào phi thuế quan bảo hộ sản phẩm nội địa"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Nguyên tắc MFN quy định: Nếu một nước thành viên WTO dành cho một đối tác bất kỳ một sự ưu đãi nào (như giảm thuế quan) thì ưu đãi đó phải lập tức và vô điều kiện được mở rộng cho tất cả các thành viên khác trong WTO.",
+    "growth_mindset_tip": "Hai nguyên tắc không phân biệt đối xử của WTO: MFN (đối xử bình đẳng giữa các nước bạn bè) và NT (đối xử bình đẳng giữa hàng ngoại và hàng nội)!"
+  },
+  {
+    "id": "GDKTPL-010",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Mục 3: Quyền bất khả xâm phạm về chỗ ở",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Ai có thẩm quyền ra lệnh khám xét chỗ ở của công dân trong trường hợp cần phát hiện tài liệu, đồ vật liên quan đến vụ án hình sự theo quy định của pháp luật?",
+    "options": {
+      "A": "Người có thẩm quyền theo quy định của Bộ luật Tố tụng hình sự (như Thủ trưởng cơ quan điều tra, Viện trưởng Viện kiểm sát...)",
+      "B": "Tổ trưởng tổ dân phố hoặc Trưởng ban quản trị tòa nhà chung cư",
+      "C": "Chủ nhà trọ hoặc chủ bất động sản cho thuê",
+      "D": "Bất kỳ cán bộ công chức nào đang thi hành công vụ"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Chỗ ở của công dân được Hiến pháp bảo hộ nghiêm ngặt. Việc khám xét chỗ ở chỉ được tiến hành khi có căn cứ theo luật định và phải có lệnh của người có thẩm quyền tố tụng theo luật định, có sự chứng kiến của người đại diện chính quyền cơ sở và người bị khám xét.",
+    "growth_mindset_tip": "Quyền bất khả xâm phạm chỗ ở: Ngay cả công an khi khám xét chỗ ở cũng bắt buộc phải có lệnh khám xét hợp pháp có phê chuẩn của Viện kiểm sát!"
+  },
+  {
+    "id": "GDKTPL-011",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương II: Quyền học tập của công dân",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Nội dung quyền học tập của công dân được hiểu là:",
+    "options": {
+      "A": "Mọi công dân đều có quyền học từ thấp đến cao, có thể học bất cứ ngành, nghề nào phù hợp với năng khiếu và điều kiện của mình, học thường xuyên, học suốt đời",
+      "B": "Mọi công dân đều bắt buộc phải theo học lên đến trình độ đại học",
+      "C": "Học sinh xuất sắc được miễn trừ mọi nghĩa vụ học tập theo quy định",
+      "D": "Chỉ những người có đủ điều kiện kinh tế khá giả mới được quyền học tập"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Quyền học tập của công dân bao gồm: Quyền học không hạn chế (từ tiểu học lên đại học, sau đại học); quyền học bất cứ ngành nghề nào; quyền học thường xuyên, học suốt đời; và quyền được đối xử bình đẳng về cơ hội học tập.",
+    "growth_mindset_tip": "Quyền học tập là quyền cơ bản của con người: Học mọi ngành nghề, học ở mọi lứa tuổi và học tập suốt đời!"
+  },
+  {
+    "id": "GDKTPL-012",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương I: Trách nhiệm xã hội của doanh nghiệp (CSR)",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Thực hiện trách nhiệm xã hội của doanh nghiệp (CSR) mang lại lợi ích lâu dài cốt lõi nào cho chính bản thân doanh nghiệp trong nền kinh tế thị trường hiện đại?",
+    "options": {
+      "A": "Xây dựng thương hiệu uy tín, thu hút nhân tài, gia tăng lòng trung thành của khách hàng và đảm bảo phát triển bền vững",
+      "B": "Được miễn trừ hoàn toàn mọi khoản thuế phải nộp vào ngân sách nhà nước",
+      "C": "Được độc quyền kinh doanh toàn bộ thị trường ngành hàng",
+      "D": "Không phải tuân thủ các quy định về an toàn lao động"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trách nhiệm xã hội của doanh nghiệp không chỉ là hành động từ thiện mà là chiến lược kinh doanh nhân văn: Gắn kết lợi ích kinh tế với lợi ích của người lao động, cộng đồng và môi trường sinh thái, giúp nâng cao giá trị vô hình của thương hiệu và tạo dựng năng lực cạnh tranh bền vững.",
+    "growth_mindset_tip": "Kinh doanh hiện đại: Lợi nhuận phải song hành cùng đạo đức và trách nhiệm xã hội thì doanh nghiệp mới có thể trường tồn!"
+  }
+]

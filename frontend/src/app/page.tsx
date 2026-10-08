@@ -75,10 +75,10 @@ export default function LandingHomePage() {
           <nav className="flex items-center gap-3">
             {user ? (
               <Link
-                href="/garden"
+                href={user.role === "teacher" || user.role === "admin" ? "/teacher" : "/garden"}
                 className="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-semibold text-xs transition-all shadow-xs flex items-center gap-1.5"
               >
-                <span>Chào, {user.name}</span>
+                <span>Chào, {user.name} ({user.role === "admin" ? "Quản trị" : user.role === "teacher" ? "Giáo viên" : "Học sinh"})</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             ) : (
@@ -132,18 +132,20 @@ export default function LandingHomePage() {
 
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <Link
-                href="/onboarding"
+                href={user?.role === "teacher" || user?.role === "admin" ? "/teacher" : "/onboarding"}
                 className="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold transition-all shadow-sm flex items-center gap-2 group"
               >
-                <span>Chẩn Đoán & Nhận Lộ Trình</span>
+                <span>{user?.role === "teacher" || user?.role === "admin" ? "Vào Bảng Quản Trị Học Đường" : "Chẩn Đoán & Nhận Lộ Trình"}</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link
-                href="/auth"
-                className="px-5 py-3 rounded-xl border border-stone-200 bg-white hover:bg-stone-50 text-stone-700 text-xs font-semibold transition-colors"
-              >
-                Đăng Nhập Tài Khoản
-              </Link>
+              {!user && (
+                <Link
+                  href="/auth"
+                  className="px-5 py-3 rounded-xl border border-stone-200 bg-white hover:bg-stone-50 text-stone-700 text-xs font-semibold transition-colors"
+                >
+                  Đăng Nhập Tài Khoản
+                </Link>
+              )}
             </div>
 
             <div className="pt-4 flex items-center gap-6 text-stone-500 text-xs">

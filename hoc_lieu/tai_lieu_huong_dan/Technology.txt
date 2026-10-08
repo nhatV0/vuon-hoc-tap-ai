@@ -1,0 +1,135 @@
+Dưới đây là thống kê chi tiết phần **Lý thuyết môn Công nghệ** được phân loại rõ ràng theo hai nhánh **Nông nghiệp** và **Công nghiệp** theo đúng phạm vi: **Học kỳ II Lớp 11** và **Toàn bộ Lớp 12 (Cả Học kỳ I và Học kỳ II)** từ bộ sách giáo khoa hiện hành.
+
+---
+
+# **MÔN 9: CÔNG NGHỆ**
+
+---
+
+## **PHẦN A: CÔNG NGHỆ NÔNG NGHIỆP**
+
+### **I. CÔNG NGHỆ NÔNG NGHIỆP LỚP 11 – HỌC KỲ II (CÔNG NGHỆ CHĂN NUÔI)**
+
+#### **1. Phòng, trị bệnh cho vật nuôi**
+* **Khái niệm & Vai trò:** Bệnh là trạng thái bất thường về sinh lý của vật nuôi do các nguyên nhân bên trong (di truyền, rối loạn trao đổi chất) hoặc bên ngoài (vi sinh vật gây bệnh, môi trường). Phòng, trị bệnh giúp bảo vệ sức khỏe vật nuôi, nâng cao hiệu quả kinh tế chăn nuôi và ngăn ngừa lây nhiễm các bệnh zoonosis sang người.
+* **Một số bệnh phổ biến & Biện pháp phòng, trị:**
+  * *Ở lợn:* Bệnh Dịch tả lợn Châu Phi, bệnh Tụ huyết trùng, bệnh Tai xanh (PRRS).
+  * *Ở gia cầm:* Bệnh Cúm gia cầm (H5N1), bệnh Newcastle (gà rù), bệnh Tụ huyết trùng.
+  * *Ở trâu, bò:* Bệnh Lở cổ long mồm, bệnh Tụ huyết trùng, bệnh Viêm da nổi cục.
+  * *Biện pháp:* Tiêm vắc-xin định kỳ, vệ sinh khử trùng chuồng trại, thực hiện an toàn sinh học.
+* **Ứng dụng Công nghệ sinh học (CNSH) trong phòng, trị bệnh:**
+  * *Sản xuất Vắc-xin thế hệ mới:* Ứng dụng công nghệ DNA tái tổ hợp, vắc-xin mRNA sản xuất kháng nguyên tinh sạch, độ an toàn cao.
+  * *Sản xuất Chế phẩm vi sinh:* Sản xuất probiotics (chế phẩm *Bacillus sp.*) nâng cao hệ vi sinh đường ruột và tăng cường miễn dịch cho vật nuôi.
+  * *Chẩn đoán sớm:* Sử dụng kỹ thuật PCR, RT-PCR và xét nghiệm ELISA phát hiện nhanh mầm bệnh (virus H5N1, dịch tả).
+
+#### **2. Công nghệ chăn nuôi & Xử lý chất thải**
+* **Mô hình chăn nuôi hiện đại:** Chăn nuôi theo tiêu chuẩn VietGAP (đảm bảo an toàn thực phẩm, quản lý nhật ký nuôi); Chăn nuôi công nghệ cao (tự động hóa cung cấp thức ăn, kiểm soát nhiệt độ/độ ẩm chuồng trại).
+* **Bảo quản và Chế biến sản phẩm chăn nuôi:** Bảo quản thịt/sữa bằng phương pháp làm lạnh, cấp đông, sấy khô, tiệt trùng UHT; chế biến thịt thành thịt nguội, xúc xích, đồ hộp.
+* **Bảo vệ môi trường & Xử lý chất thải chăn nuôi:**
+  * *Công nghệ Biogas (Khí sinh học):* Phân hủy yếm khí chất thải tạo ra khí methane (\\(CH_4\\)) làm nhiên liệu đun nấu, phát điện và giảm ô nhiễm môi trường.
+  * *Ủ phân Compost:* Chuyển hóa phân và chất đọn chuồng thành phân bón hữu cơ nhờ vi sinh vật ở nhiệt độ \\(60 - 70^\circ\text{C}\\) giúp tiêu diệt mầm bệnh.
+  * *Đệm lót sinh học:* Trộn trấu, mùn cưa với men vi sinh phân giải phân và nước tiểu ngay tại nền chuồng, giảm mùi hôi thối.
+
+---
+
+### **II. CÔNG NGHỆ NÔNG NGHIỆP LỚP 12 – TOÀN BỘ CHƯƠNG TRÌNH (LÂM NGHIỆP – THỦY SẢN)**
+
+#### **1. Ngành Lâm nghiệp**
+* **Vai trò & Hoạt động Lâm nghiệp:** Cung cấp gỗ, lâm sản, duy trì cân bằng sinh thái, chống xói mòn, bảo vệ nguồn nước và điều hòa khí hậu.
+* **Sinh trưởng & Kỹ thuật trồng, chăm sóc rừng:**
+  * *Quy luật sinh trưởng:* Trải qua các giai đoạn cá thể (giai đoạn non, thanh xà, trưởng thành, già cỗi).
+  * *Kỹ thuật trồng rừng:* Trồng bằng cây con có bầu hoặc cây con rễ trần; chuẩn bị đất, đào hố, bón phân lót.
+  * *Chăm sóc rừng:* Phát quang thực vật cạnh tranh, làm cỏ, xới đất, bón phân, tỉa cành định kỳ.
+* **Bảo vệ & Khai thác tài nguyên rừng bền vững:**
+  * *Bảo vệ rừng:* Lập các khu bảo tồn thiên nhiên, vườn quốc gia, phòng chống cháy rừng và ngăn chặn chặt phá rừng trái phép.
+  * *Khai thác bền vững:* Khai thác chọn (chỉ chặt cây đến tuổi khai thác), không khai thác trắng ở rừng phòng hộ đầu nguồn.
+
+#### **2. Ngành Thủy sản**
+* **Vai trò & Các nhóm thủy sản:** Cung cấp thực phẩm giàu protein cho con người, nguyên liệu xuất khẩu (tôm, cá tra) và tạo việc làm cho ngư dân. Phân loại thành Thủy sản nước ngọt, nước lợ và nước mặn.
+* **Môi trường nuôi thủy sản:**
+  * *Quản lý môi trường:* Kiểm soát các chỉ số nhiệt độ, pH, độ mặn, lượng oxygen hòa tan (DO) và nồng độ khí độc (\\(NH_3, H_2S\\)).
+  * *Xử lý môi trường:* Lắng lọc, diệt khuẩn bằng hóa chất (chlorine, KMnO4), bón phân gây màu nước trước khi nuôi; dùng vi sinh vật (*Bacillus*, *Lactobacillus*) xử lý nước thải sau thu hoạch.
+* **Công nghệ Giống & Thức ăn thủy sản:**
+  * *Sinh sản nhân tạo:* Cho cá/tôm đẻ bằng hormone kích thích (LRHa, HCG), ươm nuôi từ cá bột lên cá giống.
+  * *Thức ăn:* Phân loại thức ăn tự nhiên (tảo, phiêu sinh) và thức ăn hỗn hợp công nghiệp; ứng dụng CNSH lên men tăng độ tiêu hóa.
+* **Công nghệ nuôi Thủy sản:**
+  * *Các mô hình nuôi:* Nuôi lồng bè, nuôi trong ao đất, nuôi theo tiêu chuẩn VietGAP/GlobalGAP.
+  * *Công nghệ cao:* Nuôi thủy sản siêu thâm canh công nghệ Biofloc (vi sinh vật dị dưỡng chuyển hóa chất thải thành hạt protein làm thức ăn cho tôm/cá); Hệ thống nuôi tuần hoàn RAS (Recirculating Aquaculture System) tiết kiệm nước.
+* **Phòng, trị bệnh & Bảo vệ nguồn lợi:**
+  * *Phòng bệnh:* Sử dụng vắc-xin ngâm/tiêm phòng bệnh đốm trắng, gan tụy cấp ở tôm và xuất huyết ở cá; ứng dụng chế phẩm probiotics.
+  * *Bảo vệ & Khai thác nguồn lợi:* Cấm đánh bắt bằng chất nổ, xung điện, lưới cào mắt nhỏ; thành lập các khu bảo tồn biển.
+
+---
+
+## **PHẦN B: CÔNG NGHỆ CÔNG NGHIỆP**
+
+### **I. CÔNG NGHỆ CÔNG NGHIỆP LỚP 11 – HỌC KỲ II (CÔNG NGHỆ CƠ KHÍ)**
+
+#### **1. Giới thiệu chung về Cơ khí động lực**
+* **Khái niệm:** Cơ khí động lực là ngành kĩ thuật nghiên cứu, thiết kế, chế tạo, vận hành và bảo dưỡng các máy động lực (động cơ đốt trong) và các thiết bị công tác gắn liền với nó.
+
+#### **2. Động cơ đốt trong (ĐCĐT)**
+* **Đại cương & Phân loại ĐCĐT:**
+  * *Khái niệm:* Là loại động cơ nhiệt mà quá trình đốt cháy nhiên liệu sinh nhiệt và chuyển hóa nhiệt năng thành cơ năng diễn ra ngay bên trong xi lanh.
+  * *Phân loại:* Theo nhiên liệu (Động cơ Xăng, Diesel, Gas); Theo số hành trình piston (Động cơ 4 kì, Động cơ 2 kì).
+  * *Các thông số cơ bản:* Điểm chết (ĐCT, ĐCD), Hành trình piston (\\(S = 2R\\)), Thể tích buồng cháy (\\(V_c\\)), Thể tích công tác (\\(V_s\\)), Thể tích toàn phần (\\(V_a = V_s + V_c\\)), Tỉ số nén (\\(\varepsilon = V_a / V_c\\)).
+* **Nguyên lý làm việc của ĐCĐT:**
+  * *Động cơ Xăng 4 kì:* Nạp (hút hòa khí) \\(\to\\) Nén (nén hòa khí) \\(\to\\) Cháy - Giãn nở (bu gi bật tia lửa điện đốt cháy hòa khí sinh công) \\(\to\\) Thải (đẩy khí thải ra ngoài).
+  * *Động cơ Diesel 4 kì:* Kỳ nạp chỉ hút không khí; cuối kỳ nền, vòi phun phun nhiên liệu Diesel áp suất cao vào gặp không khí nóng tự bốc cháy.
+  * *Động cơ 2 kì:* Chu trình công tác hoàn thành trong 2 hành trình của piston (1 vòng quay trục khuỷu); sử dụng các cửa khí (cửa nạp, cửa quét, cửa thải) thay cho xu páp.
+* **Cấu tạo các cơ cấu và hệ thống chính của ĐCĐT:**
+  * *Cơ cấu Trục khuỷu Thanh truyền:* Chuyển chuyển động tịnh tiến của piston thành chuyển động quay của trục khuỷu (Gồm: Piston, Thanh truyền, Trục khuỷu).
+  * *Cơ cấu Phối khí:* Đóng/mở các cửa nạp và cửa thải đúng thời điểm (Cơ cấu xu páp treo, xu páp đặt).
+  * *Thân máy & Nắp máy:* Nơi lắp đặt tất cả các cơ cấu, hệ thống của động cơ.
+  * *Hệ thống Bôi trơn:* Bôi trơn giảm ma sát, làm mát, rửa sạch, chống gỉ cho các bề mặt chuyển động (Bôi trơn cưỡng bức).
+  * *Hệ thống Làm mát:* Dùng nước hoặc không khí để duy trì nhiệt độ làm việc tối ưu cho động cơ.
+  * *Hệ thống Cung cấp nhiên liệu & Không khí:* Tạo hòa khí sạch phù hợp với các chế độ làm việc (Hệ thống phun xăng điện tử EFI ở động cơ xăng; Hệ thống phun nhiên liệu tích áp Common Rail ở động cơ Diesel).
+  * *Hệ thống Đánh lửa:* Bật tia lửa điện cao áp ở bu gi để đốt cháy hòa khí (Hệ thống đánh lửa điện tử).
+  * *Hệ thống Khởi động:* Dùng động cơ điện (đề-pô-tơ) quay trục khuỷu đạt tốc độ khởi động.
+  * *Hệ thống Xử lý khí thải:* Bộ tuần hoàn khí thải (EGR), Bộ xúc tác oxy hóa (DOC), Bộ lọc hạt (DPF) giảm khí độc \\(CO, HC, NO_x\\) ra môi trường.
+
+#### **3. Ô tô**
+* **Tổng quan & Hệ thống truyền lực:**
+  * *Vai trò:* Ô tô là phương tiện giao thông đường bộ chủ yếu.
+  * *Hệ thống truyền lực:* Truyền mô men quay từ động cơ đến các bánh xe chủ động. Gồm: Li hợp (ngắt/nối mô men) \\(\to\\) Hộp số (thay đổi tỉ số truyền, hướng chuyển động) \\(\to\\) Trục các đăng \\(\to\\) Truyền lực chính và Bộ vi sai \\(\to\\) Bán trục.
+* **Các hệ thống di chuyển & Điều khiển trên ô tô:**
+  * *Bánh xe & Hệ thống treo:* Nối êm dịu khung xe với cầu xe, dập tắt dao động.
+  * *Hệ thống Lái:* Thay đổi hoặc duy trì hướng chuyển động của ô tô.
+  * *Hệ thống Phanh:* Giảm tốc độ hoặc dừng hẳn ô tô, đảm bảo an toàn (Phanh đĩa, phanh guốc, hệ thống chống bó cứng phanh ABS).
+
+---
+
+### **II. CÔNG NGHỆ CÔNG NGHIỆP LỚP 12 – TOÀN BỘ CHƯƠNG TRÌNH (CÔNG NGHỆ ĐIỆN – ĐIỆN TỬ)**
+
+#### **1. Phần Một: Công nghệ Điện**
+* **Kĩ thuật điện đại cương:** Khái niệm kĩ thuật điện (nghiên cứu sản xuất, truyền tải, phân phối và sử dụng điện năng). Ngành nghề chính: Thiết kế, sản xuất thiết bị, lắp đặt, vận hành, bảo dưỡng hệ thống điện.
+* **Hệ thống điện quốc gia:**
+  * *Cấu tạo:* Nguồn điện (nhà máy thủy điện, nhiệt điện, điện gió/mặt trời) \\(\to\\) Lưới điện truyền tải (220kV, 500kV) và lưới điện phân phối (22kV, 35kV) \\(\to\\) Các hộ tiêu thụ điện.
+  * *Mạch điện ba pha:* Nguồn điện 3 pha mắc hình sao (\\(Y\\)) hoặc tam giác (\\(\Delta\\)); Các đại lượng dây và pha: \\(U_d = \sqrt{3} U_p\\) (khi nối \\(Y\\)), \\(I_d = \sqrt{3} I_p\\) (khi nối \\(\Delta\\)).
+* **Mạng điện hạ áp gia đình:**
+  * *Cấu trúc:* Tủ điện tổng \\(\to\\) Tủ điện nhánh \\(\to\\) Các mạch điện công tác/chiếu sáng.
+  * *Thiết bị đóng cắt, bảo vệ:* Aptomat (MCB, MCCB) bảo vệ quá tải và ngắn mạch; Cầu chì; Công tắc; Ổ cắm.
+  * *Sơ đồ điện:* Sơ đồ nguyên lý (thể hiện mối liên hệ điện) và Sơ đồ lắp đặt (thể hiện vị trí thực tế của thiết bị).
+* **An toàn & Tiết kiệm điện năng:** Tuân thủ các quy tắc an toàn điện (nối đất vỏ kim loại, dùng thiết bị chống rò điện ELCB); sử dụng thiết bị dán nhãn năng lượng tiết kiệm (đèn LED thay cho đèn sợi đốt).
+
+#### **2. Phần Hai: Công nghệ Điện tử**
+* **Kĩ thuật điện tử đại cương:** Khái niệm và vị trí của kĩ thuật điện tử trong đời sống và sản xuất.
+* **Linh kiện điện tử cơ bản:**
+  * *Điện trở (\\(R\\)):* Cản trở dòng điện, phân chia điện áp (Đơn vị: \\(\Omega\\)).
+  * *Tụ điện (\\(C\\)):* Tích và phóng điện, ngăn dòng một chiều, cho dòng xoay chiều đi qua (Đơn vị: Fara - \\(\text{F}\\)).
+  * *Cuộn cảm (\\(L\\)):* Tích lũy năng lượng từ trường, cản trở dòng điện xoay chiều cao tần (Đơn vị: Henry - \\(\text{H}\\)).
+  * *Bán dẫn:* Diode (cho dòng điện đi qua theo 1 chiều); Transistor (BJT, FET - dùng để khuếch đại tín hiệu hoặc làm khóa điện tử); Vi mạch tích hợp (IC).
+* **Điện tử tương tự (Analog Electronics):**
+  * *Tín hiệu tương tự:* Tín hiệu biến thiên liên tục theo thời gian (âm thanh, nhiệt độ).
+  * *Khuếch đại thuật toán (Op-Amp):* Linh kiện khuếch đại tín hiệu điện áp; mạch khuếch đại đảo, mạch khuếch đại không đảo.
+* **Điện tử số (Digital Electronics):**
+  * *Tín hiệu số:* Tín hiệu rời rạc theo thời gian, chỉ nhận các mức logic 0 và 1.
+  * *Cổng logic cơ bản:* Cổng AND, OR, NOT, NAND, NOR, XOR.
+  * *Mạch logic tổ hợp:* Mạch mã hóa, giải mã, mạch so sánh, mạch cộng nhị phân.
+  * *Mạch logic dãy:* Mạch Flip-Flop (FF), thanh ghi, bộ đếm.
+
+---
+
+Nội dung Lý thuyết môn **Công nghệ** (bao gồm đầy đủ hai nhánh **Nông nghiệp** và **Công nghiệp**) cho Khối 11 (HKII) và Khối 12 (Cả năm) đã được tổng hợp hoàn chỉnh.
+
+Chúng ta đã hoàn thành toàn bộ danh sách 9 môn học theo đúng yêu cầu! Bạn có cần mình hỗ trợ thêm về định dạng dữ liệu hay bước tiếp theo để đưa vào mô hình AI không?

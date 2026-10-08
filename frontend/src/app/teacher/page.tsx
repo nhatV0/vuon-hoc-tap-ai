@@ -21,6 +21,7 @@ import {
   StudentAlertItem,
   TeacherQuizStatsItem,
   AdminOverviewData,
+  TeacherItem,
   API_BASE
 } from "@/lib/types";
 import { useAuth } from "@/lib/auth-context";
@@ -38,11 +39,35 @@ export default function TeacherDashboardPage() {
 
   // Admin Panel states
   const [adminData, setAdminData] = useState<AdminOverviewData | null>(null);
+  const [editingTeacher, setEditingTeacher] = useState<TeacherItem | null>(null);
+  const [editTeacherForm, setEditTeacherForm] = useState({
+    name: "",
+    email: "",
+    assigned_subject: "Toán học",
+    assigned_classes: "12A1",
+    password: "",
+  });
+
+  const [editingStudent, setEditingStudent] = useState<StudentAlertItem | null>(null);
+  const [editStudentForm, setEditStudentForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    grade: "12",
+    classroom: "12A1",
+    target_subject: "Toán học",
+    weakness: "",
+    long_term_goal: "",
+    timeframe: "3 tháng",
+    emotion_scale: 4,
+  });
+
   const [newTeacherForm, setNewTeacherForm] = useState({
     name: "",
     email: "",
     password: "password123",
     assigned_classes: "12A1",
+    assigned_subject: "Toán học",
   });
   const [newStudentForm, setNewStudentForm] = useState({
     name: "",
@@ -574,7 +599,7 @@ export default function TeacherDashboardPage() {
                       const json = await res.json();
                       if (!res.ok) throw new Error(json.detail || "Không thể tạo tài khoản giáo viên");
                       setAdminMsg({ text: `🎉 Đã thêm giáo viên ${newTeacherForm.name} thành công!`, type: "success" });
-                      setNewTeacherForm({ name: "", email: "", password: "password123", assigned_classes: "12A1" });
+                      setNewTeacherForm({ name: "", email: "", password: "password123", assigned_classes: "12A1", assigned_subject: "Toán học" });
                       fetchAdminData();
                     } catch (err: unknown) {
                       setAdminMsg({ text: err instanceof Error ? err.message : "Đã có lỗi xảy ra", type: "error" });
@@ -642,7 +667,11 @@ export default function TeacherDashboardPage() {
                           </span>
                         </div>
                         <div className="flex items-center gap-1.5 mt-1">
-                          <span className="text-[10px] text-stone-500">Lớp phụ trách:</span>
+                          <span className="text-[10px] text-stone-500">Môn chuyên trách:</span>
+                          <span className="font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200">
+                            {t.assigned_subject || "Toán học"}
+                          </span>
+                          <span className="text-[10px] text-stone-500 ml-2">Lớp phụ trách:</span>
                           <span className="font-bold text-purple-800 bg-purple-50 px-2 py-0.5 rounded-md border border-purple-200">
                             {t.assigned_classes.join(", ") || "Chưa gán"}
                           </span>
@@ -651,32 +680,24 @@ export default function TeacherDashboardPage() {
 
                       <div className="flex items-center gap-1.5">
                         <button
-                          onClick={async () => {
-                            const newClasses = prompt(`Nhập danh sách lớp mới cho giáo viên ${t.name} (cách nhau dấu phẩy):`, t.assigned_classes.join(", "));
-                            if (newClasses === null) return;
-                            try {
-                              const token = localStorage.getItem("sunflower_auth_token");
-                              const arr = newClasses.split(",").map(c => c.trim().toUpperCase()).filter(Boolean);
-                              const res = await fetch(`${API_BASE}/api/admin/teachers/${t.id}`, {
-                                method: "PATCH",
-                                headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-                                body: JSON.stringify({ assigned_classes: arr })
-                              });
-                              if (!res.ok) throw new Error("Không thể cập nhật lớp");
-                              setAdminMsg({ text: `Đã phân công lại lớp cho ${t.name}: ${arr.join(", ")}`, type: "success" });
-                              fetchAdminData();
-                            } catch (err: unknown) {
-                              setAdminMsg({ text: err instanceof Error ? err.message : "Đã có lỗi xảy ra", type: "error" });
-                            }
+                          onClick={() => {
+                            setEditingTeacher(t);
+                            setEditTeacherForm({
+                              name: t.name,
+                              email: t.email,
+                              assigned_subject: t.assigned_subject || "Toán học",
+                              assigned_classes: t.assigned_classes.join(", "),
+                              password: "",
+                            });
                           }}
-                          className="p-2 rounded-xl bg-white border border-stone-200 hover:bg-stone-100 text-stone-600 transition-colors"
-                          title="Phân lại lớp"
+                          className="px-2.5 py-1.5 rounded-xl bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 font-semibold text-[11px] flex items-center gap-1 transition-colors"
+                          title="Chỉnh sửa thông tin giáo viên"
                         >
                           <Edit3 className="w-3.5 h-3.5 text-stone-600" />
+                          Sửa
                         </button>
                         <button
                           onClick={async () => {
-                            if (!confirm(`Bạn có chắc chắn muốn xóa tài khoản giáo viên ${t.name}?`)) return;
                             try {
                               const token = localStorage.getItem("sunflower_auth_token");
                               const res = await fetch(`${API_BASE}/api/admin/teachers/${t.id}`, {
@@ -789,36 +810,43 @@ export default function TeacherDashboardPage() {
                             Lớp {s.classroom || "12A1"}
                           </span>
                         </div>
-                        <p className="text-[10px] text-stone-500 mt-0.5">
-                          Môn: {s.target_subject} • Streak: {s.consecutive_days} ngày
-                        </p>
+                        <div className="flex flex-wrap items-center gap-2 mt-1">
+                          <span className="text-[10px] text-stone-500">Tài khoản:</span>
+                          <span className="font-mono font-bold text-stone-800 bg-white px-2 py-0.5 rounded-md border border-cream-200 text-[10px]">
+                            {s.username || `hs_${s.student_id}`}
+                          </span>
+                          <span className="text-[10px] text-stone-500 ml-1">Mật khẩu:</span>
+                          <span className="font-mono font-bold text-amber-900 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200 text-[10px]">
+                            {s.initial_password || "123456"}
+                          </span>
+                          <span className="text-[10px] text-stone-400 ml-1">
+                            • Môn: {s.target_subject} • Streak: {s.consecutive_days} ngày
+                          </span>
+                        </div>
                       </div>
 
                       <div className="flex items-center gap-1.5">
                         <button
-                          onClick={async () => {
-                            const newClass = prompt(`Chuyển học sinh ${s.student_name} sang lớp:`, s.classroom || "12A1");
-                            if (!newClass) return;
-                            try {
-                              const token = localStorage.getItem("sunflower_auth_token");
-                              const res = await fetch(`${API_BASE}/api/admin/students/${s.student_id}/classroom`, {
-                                method: "PATCH",
-                                headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-                                body: JSON.stringify({ classroom: newClass.trim().toUpperCase() })
-                              });
-                              if (!res.ok) throw new Error("Không thể chuyển lớp");
-                              setAdminMsg({ text: `Đã chuyển ${s.student_name} sang lớp ${newClass.toUpperCase()}`, type: "success" });
-                              fetchAdminData();
-                              fetchDashboardData(selectedClassFilter);
-                            } catch (err: unknown) {
-                              setAdminMsg({ text: err instanceof Error ? err.message : "Đã có lỗi xảy ra", type: "error" });
-                            }
+                          onClick={() => {
+                            setEditingStudent(s);
+                            setEditStudentForm({
+                              name: s.student_name,
+                              email: s.username || `hs_${s.student_id}@sunflower.edu.vn`,
+                              password: s.initial_password || "123456",
+                              grade: s.grade || "12",
+                              classroom: s.classroom || "12A1",
+                              target_subject: s.target_subject || "Toán học",
+                              weakness: "",
+                              long_term_goal: "",
+                              timeframe: "3 tháng",
+                              emotion_scale: s.emotion_scale || 4,
+                            });
                           }}
                           className="px-2.5 py-1.5 rounded-xl bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 font-semibold text-[11px] flex items-center gap-1 transition-colors"
-                          title="Đổi lớp học"
+                          title="Chỉnh sửa thông tin học sinh"
                         >
                           <Edit3 className="w-3 h-3" />
-                          Đổi Lớp
+                          Sửa
                         </button>
                         <button
                           onClick={async () => {
@@ -901,6 +929,321 @@ export default function TeacherDashboardPage() {
           </div>
         </div>
       )}
+      {/* MODAL CHỈNH SỬA TOÀN DIỆN GIÁO VIÊN */}
+      {editingTeacher && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/50 backdrop-blur-sm animate-fadeIn">
+          <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-cream-200 p-6 space-y-5">
+            <div className="flex justify-between items-start border-b border-cream-100 pb-3">
+              <div>
+                <h3 className="text-base font-bold text-stone-900 flex items-center gap-2">
+                  <Edit3 className="w-4 h-4 text-purple-600" />
+                  Chỉnh Sửa Thông Tin Giáo Viên
+                </h3>
+                <p className="text-xs text-stone-500 mt-0.5">Mã tài khoản: {editingTeacher.id}</p>
+              </div>
+              <button
+                onClick={() => setEditingTeacher(null)}
+                className="w-8 h-8 rounded-full bg-cream-100 hover:bg-cream-200 text-stone-600 flex items-center justify-center text-xs font-bold transition-colors"
+              >
+                ✕
+              </button>
+            </div>
+
+            <form
+              onSubmit={async (e) => {
+                e.preventDefault();
+                try {
+                  const token = localStorage.getItem("sunflower_auth_token");
+                  const classesArr = editTeacherForm.assigned_classes
+                    .split(",")
+                    .map((c) => c.trim().toUpperCase())
+                    .filter(Boolean);
+
+                  const payload: Record<string, unknown> = {
+                    name: editTeacherForm.name.trim(),
+                    email: editTeacherForm.email.trim().toLowerCase(),
+                    assigned_subject: editTeacherForm.assigned_subject,
+                    assigned_classes: classesArr,
+                  };
+                  if (editTeacherForm.password.trim()) {
+                    payload.password = editTeacherForm.password.trim();
+                  }
+
+                  const res = await fetch(`${API_BASE}/api/admin/teachers/${editingTeacher.id}`, {
+                    method: "PATCH",
+                    headers: {
+                      "Content-Type": "application/json",
+                      Authorization: `Bearer ${token}`,
+                    },
+                    body: JSON.stringify(payload),
+                  });
+
+                  if (!res.ok) {
+                    const err = await res.json();
+                    throw new Error(err.detail || "Không thể cập nhật thông tin giáo viên");
+                  }
+
+                  setAdminMsg({ text: `Đã cập nhật thành công giáo viên ${editTeacherForm.name}`, type: "success" });
+                  setEditingTeacher(null);
+                  fetchAdminData();
+                } catch (err: unknown) {
+                  setAdminMsg({ text: err instanceof Error ? err.message : "Đã có lỗi xảy ra", type: "error" });
+                }
+              }}
+              className="space-y-4 text-xs"
+            >
+              <div>
+                <label className="block font-bold text-stone-700 mb-1">Họ và Tên Giáo Viên *</label>
+                <input
+                  type="text"
+                  required
+                  value={editTeacherForm.name}
+                  onChange={(e) => setEditTeacherForm({ ...editTeacherForm, name: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-stone-200 bg-white font-medium"
+                />
+              </div>
+
+              <div>
+                <label className="block font-bold text-stone-700 mb-1">Email / Tên Đăng Nhập *</label>
+                <input
+                  type="text"
+                  required
+                  value={editTeacherForm.email}
+                  onChange={(e) => setEditTeacherForm({ ...editTeacherForm, email: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-stone-200 bg-white font-medium font-mono text-xs"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block font-bold text-stone-700 mb-1">Môn Chuyên Trách *</label>
+                  <select
+                    value={editTeacherForm.assigned_subject}
+                    onChange={(e) => setEditTeacherForm({ ...editTeacherForm, assigned_subject: e.target.value })}
+                    className="w-full p-2.5 rounded-xl border border-stone-200 bg-white font-medium"
+                  >
+                    {["Toán học", "Vật lí", "Hóa học", "Sinh học", "Ngữ văn", "Tiếng Anh", "Lịch sử", "Địa lí", "Tin học", "GDKT & PL", "Công nghệ"].map((sub) => (
+                      <option key={sub} value={sub}>{sub}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block font-bold text-stone-700 mb-1">Lớp Phụ Trách (cách nhau dấu phẩy)</label>
+                  <input
+                    type="text"
+                    placeholder="12A1, 12A2..."
+                    value={editTeacherForm.assigned_classes}
+                    onChange={(e) => setEditTeacherForm({ ...editTeacherForm, assigned_classes: e.target.value })}
+                    className="w-full p-2.5 rounded-xl border border-stone-200 bg-white font-medium uppercase font-mono"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block font-bold text-stone-700 mb-1">Đổi Mật Khẩu Mới (để trống nếu không đổi)</label>
+                <input
+                  type="password"
+                  placeholder="Nhập mật khẩu mới..."
+                  value={editTeacherForm.password}
+                  onChange={(e) => setEditTeacherForm({ ...editTeacherForm, password: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-stone-200 bg-white font-medium"
+                />
+              </div>
+
+              <div className="flex justify-end gap-2 pt-3 border-t border-cream-100">
+                <button
+                  type="button"
+                  onClick={() => setEditingTeacher(null)}
+                  className="px-4 py-2.5 rounded-xl border border-stone-200 hover:bg-stone-50 font-bold text-stone-600 transition-colors"
+                >
+                  Hủy
+                </button>
+                <button
+                  type="submit"
+                  className="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold transition-colors shadow-sm"
+                >
+                  Lưu Thay Đổi
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* MODAL CHỈNH SỬA TOÀN DIỆN HỌC SINH */}
+      {editingStudent && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/50 backdrop-blur-sm animate-fadeIn">
+          <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-cream-200 p-6 space-y-5">
+            <div className="flex justify-between items-start border-b border-cream-100 pb-3">
+              <div>
+                <h3 className="text-base font-bold text-stone-900 flex items-center gap-2">
+                  <Edit3 className="w-4 h-4 text-amber-600" />
+                  Chỉnh Sửa Hồ Sơ Học Sinh
+                </h3>
+                <p className="text-xs text-stone-500 mt-0.5">Mã học sinh: {editingStudent.student_id}</p>
+              </div>
+              <button
+                onClick={() => setEditingStudent(null)}
+                className="w-8 h-8 rounded-full bg-cream-100 hover:bg-cream-200 text-stone-600 flex items-center justify-center text-xs font-bold transition-colors"
+              >
+                ✕
+              </button>
+            </div>
+
+            <form
+              onSubmit={async (e) => {
+                e.preventDefault();
+                try {
+                  const token = localStorage.getItem("sunflower_auth_token");
+                  const payload: Record<string, unknown> = {
+                    name: editStudentForm.name.trim(),
+                    grade: editStudentForm.grade.trim(),
+                    classroom: editStudentForm.classroom.trim().toUpperCase(),
+                    target_subject: editStudentForm.target_subject,
+                    emotion_scale: Number(editStudentForm.emotion_scale),
+                  };
+                  if (editStudentForm.email.trim()) {
+                    payload.email = editStudentForm.email.trim().toLowerCase();
+                  }
+                  if (editStudentForm.password.trim()) {
+                    payload.password = editStudentForm.password.trim();
+                  }
+                  const res = await fetch(`${API_BASE}/api/admin/students/${editingStudent.student_id}`, {
+                    method: "PATCH",
+                    headers: {
+                      "Content-Type": "application/json",
+                      Authorization: `Bearer ${token}`,
+                    },
+                    body: JSON.stringify(payload),
+                  });
+
+                  if (!res.ok) {
+                    const err = await res.json();
+                    throw new Error(err.detail || "Không thể cập nhật thông tin học sinh");
+                  }
+
+                  setAdminMsg({ text: `Đã cập nhật thành công học sinh ${editStudentForm.name}`, type: "success" });
+                  setEditingStudent(null);
+                  fetchAdminData();
+                  fetchDashboardData(selectedClassFilter);
+                } catch (err: unknown) {
+                  setAdminMsg({ text: err instanceof Error ? err.message : "Đã có lỗi xảy ra", type: "error" });
+                }
+              }}
+              className="space-y-4 text-xs"
+            >
+              <div>
+                <label className="block font-bold text-stone-700 mb-1">Họ và Tên Học Sinh *</label>
+                <input
+                  type="text"
+                  required
+                  value={editStudentForm.name}
+                  onChange={(e) => setEditStudentForm({ ...editStudentForm, name: e.target.value })}
+                  className="w-full p-2.5 rounded-xl border border-stone-200 bg-white font-medium"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block font-bold text-stone-700 mb-1">Tài Khoản / Email Đăng Nhập</label>
+                  <input
+                    type="text"
+                    placeholder="hs_xxx@sunflower.edu.vn"
+                    value={editStudentForm.email}
+                    onChange={(e) => setEditStudentForm({ ...editStudentForm, email: e.target.value })}
+                    className="w-full p-2.5 rounded-xl border border-stone-200 bg-white font-medium font-mono text-xs"
+                  />
+                </div>
+                <div>
+                  <label className="block font-bold text-stone-700 mb-1">Mật Khẩu Đăng Nhập</label>
+                  <input
+                    type="text"
+                    placeholder="123456"
+                    value={editStudentForm.password}
+                    onChange={(e) => setEditStudentForm({ ...editStudentForm, password: e.target.value })}
+                    className="w-full p-2.5 rounded-xl border border-stone-200 bg-white font-medium font-mono text-xs"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block font-bold text-stone-700 mb-1">Khối Lớp *</label>
+                  <select
+                    value={editStudentForm.grade}
+                    onChange={(e) => setEditStudentForm({ ...editStudentForm, grade: e.target.value })}
+                    className="w-full p-2.5 rounded-xl border border-stone-200 bg-white font-medium"
+                  >
+                    <option value="10">Khối 10</option>
+                    <option value="11">Khối 11</option>
+                    <option value="12">Khối 12</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block font-bold text-stone-700 mb-1">Lớp Học Phân Bổ *</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="12A1"
+                    value={editStudentForm.classroom}
+                    onChange={(e) => setEditStudentForm({ ...editStudentForm, classroom: e.target.value })}
+                    className="w-full p-2.5 rounded-xl border border-stone-200 bg-white font-medium uppercase font-mono"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block font-bold text-stone-700 mb-1">Môn Học Mục Tiêu *</label>
+                  <select
+                    value={editStudentForm.target_subject}
+                    onChange={(e) => setEditStudentForm({ ...editStudentForm, target_subject: e.target.value })}
+                    className="w-full p-2.5 rounded-xl border border-stone-200 bg-white font-medium"
+                  >
+                    {["Toán học", "Vật lí", "Hóa học", "Sinh học", "Ngữ văn", "Tiếng Anh", "Lịch sử", "Địa lí", "Tin học", "GDKT & PL", "Công nghệ"].map((sub) => (
+                       <option key={sub} value={sub}>{sub}</option>
+                     ))}
+                   </select>
+                 </div>
+
+                 <div>
+                   <label className="block font-bold text-stone-700 mb-1">Thang Đo Cảm Xúc (1 - 7)</label>
+                   <select
+                     value={editStudentForm.emotion_scale}
+                     onChange={(e) => setEditStudentForm({ ...editStudentForm, emotion_scale: Number(e.target.value) })}
+                     className="w-full p-2.5 rounded-xl border border-stone-200 bg-white font-medium"
+                   >
+                     <option value={1}>1 - Rất tệ / Quá tải 😫</option>
+                     <option value={2}>2 - Khá chán nản 😞</option>
+                     <option value={3}>3 - Hơi lo âu 😟</option>
+                     <option value={4}>4 - Bình thường 😐</option>
+                     <option value={5}>5 - Khá ổn 🙂</option>
+                     <option value={6}>6 - Hứng thú 😃</option>
+                     <option value={7}>7 - Rất thích / Đam mê 🤩</option>
+                   </select>
+                 </div>
+               </div>
+
+               <div className="flex justify-end gap-2 pt-3 border-t border-cream-100">
+                 <button
+                   type="button"
+                   onClick={() => setEditingStudent(null)}
+                   className="px-4 py-2.5 rounded-xl border border-stone-200 hover:bg-stone-50 font-bold text-stone-600 transition-colors"
+                 >
+                   Hủy
+                 </button>
+                 <button
+                   type="submit"
+                   className="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold transition-colors shadow-sm"
+                 >
+                   Lưu Thay Đổi
+                 </button>
+               </div>
+             </form>
+           </div>
+         </div>
+       )}
     </div>
   );
 }

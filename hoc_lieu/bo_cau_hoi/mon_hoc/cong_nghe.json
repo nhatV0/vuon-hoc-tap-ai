@@ -1,0 +1,242 @@
+[
+  {
+    "id": "CONGNGHE-001",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Mục I: Công nghệ chăn nuôi (Ứng dụng CNSH trong phòng trị bệnh)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong công nghệ chăn nuôi hiện đại, chế phẩm vi sinh (probiotics) chứa vi khuẩn có lợi như Bacillus subtilis thường được bổ sung vào khẩu phần ăn của vật nuôi nhằm mục đích chính là gì?",
+    "options": {
+      "A": "Cân bằng hệ vi sinh đường ruột, tăng cường tiêu hóa và nâng cao khả năng miễn dịch tự nhiên",
+      "B": "Tiêu diệt hoàn toàn tất cả các loại vi sinh vật trong đường tiêu hóa",
+      "C": "Thay thế hoàn toàn nhu cầu về protein và khoáng chất trong khẩu phần ăn",
+      "D": "Làm cho vật nuôi ngủ nhiều hơn để tăng trọng nhanh chóng"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Probiotics là các chủng vi sinh vật sống hữu ích, khi đưa vào cơ thể vật nuôi sẽ cạnh tranh vị trí bám và dưỡng chất với vi khuẩn gây bệnh, sản sinh enzyme tiêu hóa giúp hấp thu dinh dưỡng tốt hơn và kích thích hệ miễn dịch đường ruột.",
+    "growth_mindset_tip": "Ứng dụng công nghệ sinh học trong chăn nuôi an toàn sinh học: Dùng men vi sinh Probiotics để giảm thiểu tối đa việc lạm dụng kháng sinh!"
+  },
+  {
+    "id": "CONGNGHE-002",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "TRAP_2",
+    "source": "Phần A - Mục I: Xử lý chất thải chăn nuôi (Công nghệ Biogas)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Khí sinh học (Biogas) sinh ra từ quá trình lên men yếm khí phân và chất thải hữu cơ chăn nuôi có thành phần khí cháy chủ yếu là:",
+    "options": {
+      "A": "Khí Methane (CH4) chiếm khoảng 50 - 70%",
+      "B": "Khí Carbon dioxide (CO2) chiếm 90%",
+      "C": "Khí Hydrogen sulfide (H2S) chiếm 80%",
+      "D": "Khí Oxygen (O2) chiếm 75%"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Khí sinh học (Biogas) là hỗn hợp khí tạo thành do vi sinh vật phân hủy chất hữu cơ trong điều kiện kỵ khí (không có oxy). Thành phần chính mang giá trị nhiệt lượng là khí Methane ($CH_4$) chiếm từ 50% đến 70%, phần còn lại chủ yếu là $CO_2$ và một lượng nhỏ tạp chất ($H_2S, N_2$).",
+    "growth_mindset_tip": "Công nghệ Biogas: Vừa xử lý ô nhiễm chất thải vừa thu hồi năng lượng tái tạo Methane ($CH_4$) phục vụ đun nấu và phát điện!"
+  },
+  {
+    "id": "CONGNGHE-003",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Mục II: Ngành Thủy sản (Công nghệ nuôi Biofloc)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Bản chất của công nghệ Biofloc ứng dụng trong nuôi trồng thủy sản thâm canh siêu sạch là gì?",
+    "options": {
+      "A": "Dùng vi sinh vật dị dưỡng kết tụ các chất hữu cơ dư thừa và khí độc thành các hạt 'floc' giàu dinh dưỡng làm thức ăn cho tôm cá",
+      "B": "Sử dụng hóa chất kháng sinh nồng độ cao liên tục khử trùng ao nuôi",
+      "C": "Thay nước liên tục 100% mỗi ngày từ sông hồ tự nhiên",
+      "D": "Bón phân hóa học đạm lân để kích thích rong rêu phát triển tự nhiên"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Công nghệ Biofloc bổ sung nguồn carbon (mật rỉ đường) kích thích vi khuẩn dị dưỡng phát triển, chuyển hóa các hợp chất nitơ độc hại ($NH_3, NO_2^-$) thành sinh khối vi khuẩn dạng hạt bông (floc). Hạt floc chứa hàm lượng đạm cao trở thành nguồn thức ăn tự nhiên giàu dinh dưỡng cho tôm, cá, giúp tiết kiệm chi phí thức ăn và không cần thay nước.",
+    "growth_mindset_tip": "Công nghệ tuần hoàn khép kín Biofloc: Biến chất thải nguy hại thành nguồn protein dinh dưỡng tự nhiên nuôi sống tôm cá!"
+  },
+  {
+    "id": "CONGNGHE-004",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Mục II: Kỹ thuật Lâm nghiệp và Khai thác rừng bền vững",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Để bảo vệ nguồn nước và chống xói mòn, sạt lở đất nghiêm trọng tại các vùng lưu vực sông đồi núi dốc, phương thức khai thác rừng nào bị nghiêm cấm áp dụng đối với rừng phòng hộ?",
+    "options": {
+      "A": "Khai thác trắng (chặt toàn bộ cây rừng trên diện tích lớn cùng một lúc)",
+      "B": "Khai thác chọn (chỉ tỉa thưa những cây đạt tuổi thành thục)",
+      "C": "Khai thác dần (chặt theo nhiều đợt có tái sinh tự nhiên)",
+      "D": "Tỉa thưa nuôi dưỡng rừng"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Khai thác trắng làm mất hoàn toàn thảm thực vật che phủ bề mặt đất trong thời gian dài, khi gặp mưa lớn sẽ gây xói mòn, rửa trôi tầng đất mặt màu mỡ và lũ quét sạt lở đất nghiêm trọng. Vì vậy, rừng phòng hộ đầu nguồn tuyệt đối không được khai thác trắng mà phải bảo vệ nghiêm ngặt hoặc chỉ khai thác chọn rất hạn chế.",
+    "growth_mindset_tip": "Nguyên tắc quản lý rừng bền vững: Rừng đầu nguồn là lá chắn sinh thái, mất thảm thực vật là mất đi lớp giáp bảo vệ sự sống trước thiên tai!"
+  },
+  {
+    "id": "CONGNGHE-005",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Mục I: Động cơ đốt trong (Nguyên lý động cơ xăng 4 kì)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong chu trình làm việc của động cơ xăng 4 kỳ, kỳ nào là kỳ duy nhất sinh công cơ học làm quay trục khuỷu?",
+    "options": {
+      "A": "Kỳ Cháy - Giãn nở",
+      "B": "Kỳ Nạp",
+      "C": "Kỳ Nén",
+      "D": "Kỳ Thải"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trong 4 kỳ (Nạp - Nén - Cháy, giãn nở - Thải), chỉ có kỳ Cháy - Giãn nở là kỳ sinh công: Bu-gi bật tia lửa điện đốt cháy hòa khí, áp suất và nhiệt độ tăng vọt đẩy piston từ ĐCT xuống ĐCD làm quay trục khuỷu sinh cơ năng hữu ích. Ba kỳ còn lại là các kỳ tiêu tốn công.",
+    "growth_mindset_tip": "Chu trình động cơ nhiệt 4 kỳ: 1 vòng sinh công đòi hỏi 2 vòng quay trục khuỷu, duy nhất kỳ Cháy - Giãn nở sinh công đẩy piston!"
+  },
+  {
+    "id": "CONGNGHE-006",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Mục I: So sánh động cơ Xăng và động cơ Diesel",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Điểm khác biệt cốt lõi trong quá trình nạp và tạo hòa khí giữa động cơ Diesel so với động cơ Xăng là:",
+    "options": {
+      "A": "Động cơ Diesel kỳ nạp chỉ hút không khí sạch vào xi lanh, nhiên liệu được phun vào cuối kỳ nén và tự bốc cháy",
+      "B": "Động cơ Diesel nạp hỗn hợp hòa khí xăng và không khí qua bộ chế hòa khí",
+      "C": "Động cơ Diesel bắt buộc phải sử dụng bu-gi đánh lửa điện áp cao",
+      "D": "Động cơ Diesel có tỉ số nén thấp hơn nhiều so với động cơ Xăng"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Động cơ xăng nạp hỗn hợp xăng + không khí (hòa khí) vào xi lanh và cuối kỳ nén dùng bu-gi đánh lửa. Động cơ Diesel chỉ nạp không khí sạch, nén với tỉ số nén rất cao làm nhiệt độ và áp suất không khí tăng vọt; cuối kỳ nén, kim phun phun sương dầu diesel vào gặp không khí nóng tự bốc cháy mà không cần bu-gi.",
+    "growth_mindset_tip": "Khác biệt cơ bản giữa Xăng và Diesel: Động cơ Diesel không có bu-gi đánh lửa, nhiên liệu tự bốc cháy do áp suất và nhiệt độ nén cực cao!"
+  },
+  {
+    "id": "CONGNGHE-007",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Mục I: Hệ thống truyền lực trên ô tô (Hộp số và Vi sai)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Bộ vi sai trong hệ thống truyền lực của ô tô có công dụng then chốt nào?",
+    "options": {
+      "A": "Cho phép hai bánh xe chủ động quay với vận tốc góc khác nhau khi xe quay vòng hoặc đi trên đường gồ ghề",
+      "B": "Ngắt và nối mô-men truyền lực từ động cơ sang hộp số",
+      "C": "Thay đổi chiều quay của trục khuỷu để xe đi lùi",
+      "D": "Dập tắt dao động của khung xe"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Khi ô tô quay vòng, bánh xe phía ngoài bán kính cua phải lăn quãng đường dài hơn bánh xe phía trong. Bộ vi sai phân chia mô-men và cho phép hai bánh xe chủ động quay với tốc độ khác nhau, tránh hiện tượng trượt bánh, mòn lốp và lật xe.",
+    "growth_mindset_tip": "Bộ vi sai là kiệt tác cơ khí: Giúp ô tô ôm cua mượt mà mà bánh xe không bị bó cứng hay trượt quét mặt đường!"
+  },
+  {
+    "id": "CONGNGHE-008",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Mục II: Kĩ thuật điện (Mạch điện ba pha đối xứng)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Một nguồn điện ba pha đối xứng có điện áp pha $U_p = 220\\text{ V}$ được nối hình sao ($Y$). Điện áp dây $U_d$ giữa hai dây pha của hệ thống này bằng bao nhiêu (lấy $\\sqrt{3} \\approx 1{,}732$)?",
+    "options": {
+      "A": "380 V",
+      "B": "220 V",
+      "C": "127 V",
+      "D": "440 V"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trong nguồn điện ba pha nối hình sao ($Y$), mối liên hệ giữa điện áp dây và điện áp pha là: $U_d = \\sqrt{3} U_p = 1{,}732 \\times 220 \\approx 381\\text{ V}$ (chuẩn lưới điện hạ áp công nghiệp Việt Nam là 380V/220V).",
+    "growth_mindset_tip": "Công thức kinh điển mạch 3 pha nối sao (Y): $U_d = \\sqrt{3} U_p$ và $I_d = I_p$; nối tam giác (Delta): $U_d = U_p$ và $I_d = \\sqrt{3} I_p$!"
+  },
+  {
+    "id": "CONGNGHE-009",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Mục II: Linh kiện điện tử (Diode bán dẫn)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Linh kiện điện tử bán dẫn Diode có tính chất dẫn điện đặc trưng cơ bản nào?",
+    "options": {
+      "A": "Chỉ cho dòng điện đi qua theo một chiều từ Anode sang Cathode (dẫn điện đơn hướng)",
+      "B": "Dẫn điện tốt theo cả hai chiều như một dây dẫn thuần trở",
+      "C": "Tích điện và phóng điện ở tần số cao",
+      "D": "Khuếch đại tín hiệu điện áp xoay chiều"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Diode bán dẫn có cấu tạo gồm một lớp chuyển tiếp P-N, có đặc tính dẫn điện theo một chiều duy nhất (khi phân cực thuận từ Anode sang Cathode) và ngăn chặn dòng điện theo chiều ngược lại. Tính chất này được ứng dụng làm mạch chỉnh lưu biến dòng xoay chiều thành dòng một chiều.",
+    "growth_mindset_tip": "Nhớ biểu tượng Diode: Mũi tên chỉ hướng cho phép dòng điện chạy qua từ A (Anode) sang K (Cathode)!"
+  },
+  {
+    "id": "CONGNGHE-010",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Mục II: Thiết bị đóng cắt bảo vệ mạng điện hạ áp",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Thiết bị bảo vệ Aptomat chống rò điện (ELCB - Earth Leakage Circuit Breaker) trong mạng điện gia đình có chức năng bảo vệ vượt trội nào so với Aptomat thông thường (MCB)?",
+    "options": {
+      "A": "Tự động ngắt nguồn điện khi phát hiện dòng điện rò ra vỏ thiết bị hoặc khi có người bị điện giật",
+      "B": "Chỉ có tác dụng đo đếm lượng điện năng tiêu thụ hàng tháng",
+      "C": "Tự động tăng điện áp khi nguồn điện bị sụt áp",
+      "D": "Biến đổi dòng điện xoay chiều thành dòng điện một chiều an toàn"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "MCB thông thường chỉ bảo vệ khi xảy ra quá tải dòng điện hoặc ngắn mạch. ELCB (hoặc RCBO) có thêm bộ cảm biến dòng rò so lệch giữa dây pha và dây trung tính; khi dòng điện rò đạt ngưỡng (thường từ 15mA - 30mA do hở điện chạm vỏ hoặc người chạm vào điện), ELCB sẽ nhảy trong mili-giây bảo vệ tính mạng con người và phòng chống cháy nổ.",
+    "growth_mindset_tip": "An toàn điện gia đình: Lắp đặt aptomat chống giật ELCB/RCBO cho các thiết bị dùng nước như bình nóng lạnh, máy giặt để phòng tránh rủi ro tai nạn rò điện!"
+  },
+  {
+    "id": "CONGNGHE-011",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Mục II: Linh kiện điện tử (Transistor)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Trong các mạch điện tử, Transistor (BJT) thường được sử dụng với hai chức năng cơ bản chủ yếu nào?",
+    "options": {
+      "A": "Khuếch đại tín hiệu điện và làm khóa đóng ngắt điện tử (Switch tử)",
+      "B": "Biến đổi điện áp một chiều thành điện áp xoay chiều ba pha",
+      "C": "Phát quang ánh sáng màu và tích trữ năng lượng từ trường",
+      "D": "Lọc sóng cao tần và chặn hoàn toàn dòng điện một chiều"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Transistor lưỡng cực BJT (gồm 3 cực B - Base, C - Collector, E - Emitter) hoạt động ở vùng tích cực làm phần tử khuếch đại dòng điện/điện áp; khi điều khiển ở trạng thái đóng - cắt (bão hòa - ngắt), Transistor đóng vai trò như một rơ-le điện tử không tiếp điểm tốc độ cao.",
+    "growth_mindset_tip": "Transistor là nền móng của cuộc cách mạng công nghệ số: Đóng ngắt hàng tỷ lần mỗi giây bên trong các con chip vi xử lý máy tính!"
+  },
+  {
+    "id": "CONGNGHE-012",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Mục I: Hệ thống an toàn trên ô tô hiện đại (Phanh ABS)",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Nguyên lý làm việc then chốt của Hệ thống chống bó cứng phanh (ABS - Anti-lock Braking System) trên ô tô khi người lái phanh gấp là:",
+    "options": {
+      "A": "Cảm biến tốc độ phát hiện nguy cơ bánh xe bị trượt lết và bộ điều khiển điện tử ECU liên tục nhấp nhả áp suất dầu phanh hàng chục lần mỗi giây để duy trì độ bám đường tối đa và khả năng đánh lái",
+      "B": "Tự động khóa cứng cả 4 bánh xe ngay lập tức để xe dừng lại trong quãng đường ngắn nhất",
+      "C": "Tắt động cơ đốt trong ngay khi người lái đạp bàn đạp phanh",
+      "D": "Chuyển mô-men xoắn toàn bộ sang hộp số lùi để hãm xe"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Khi phanh gấp, bánh xe rất dễ bị bó cứng (khóa chết) làm mất ma sát nghỉ, xe bị trượt lết mất kiểm soát hướng lái. Hệ thống ABS sử dụng cảm biến và van điện từ điều khiển bởi ECU để liên tục điều chỉnh áp suất dầu phanh (nhấp - nhả với tần số cao từ 15-20 lần/giây), giữ cho bánh xe luôn ở ngưỡng lăn có ma sát trượt tối ưu, giúp tài xế vừa phanh gấp vừa bẻ lái tránh chướng ngại vật an toàn.",
+    "growth_mindset_tip": "Hệ thống ABS cứu mạng: Không phải dừng xe tức thì, mà giữ cho bánh xe không bị khóa cứng để tài xế vẫn kiểm soát được vô-lăng lái khi khẩn cấp!"
+  }
+]

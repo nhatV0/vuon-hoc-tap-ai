@@ -1,15 +1,56 @@
 """
 Dữ liệu chuẩn hóa Ngân hàng câu hỏi trắc nghiệm vi mô theo plan-Quest.txt
-Phân phối theo 5 tổ hợp xét tuyển đại học:
-- A00: Toán - Lí - Hóa
-- D01: Toán - Văn - Anh
-- B00: Toán - Hóa - Sinh
-- C00: Văn - Sử - Địa
-- A01: Toán - Lí - Anh
-Kèm theo câu hỏi Boss phân hóa (Streak >= 30 ngày) và Slot chờ nạp giáo viên.
+Hỗ trợ cả:
+1. Bộ nạp động từ thư mục modular: hoc_lieu/bo_cau_hoi/mon_hoc/*.json
+2. Mảng tĩnh SEED_QUIZ_QUESTIONS dự phòng khi chưa có file hoặc fallback
 """
 
+import os
+import json
+import logging
 from typing import List, Dict, Any
+
+logger = logging.getLogger(__name__)
+
+def get_modular_questions_dir() -> str:
+    """Xác định đường dẫn tới thư mục lưu trữ câu hỏi modular theo từng môn."""
+    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+    # Thử các đường dẫn tương đối có thể có
+    candidates = [
+        os.path.join(base_dir, "hoc_lieu", "bo_cau_hoi", "mon_hoc"),
+        os.path.join(os.getcwd(), "hoc_lieu", "bo_cau_hoi", "mon_hoc"),
+        os.path.abspath(os.path.join("hoc_lieu", "bo_cau_hoi", "mon_hoc"))
+    ]
+    for p in candidates:
+        if os.path.isdir(p):
+            return p
+    return candidates[0]
+
+def load_all_modular_quiz_questions() -> List[Dict[str, Any]]:
+    """
+    Tự động quét và nạp toàn bộ câu hỏi từ các file JSON trong hoc_lieu/bo_cau_hoi/mon_hoc/*.json
+    """
+    questions_dir = get_modular_questions_dir()
+    loaded_questions: List[Dict[str, Any]] = []
+    if not os.path.exists(questions_dir):
+        logger.warning(f"Thư mục modular câu hỏi không tồn tại: {questions_dir}")
+        return loaded_questions
+
+    json_files = sorted([f for f in os.listdir(questions_dir) if f.endswith(".json")])
+    for filename in json_files:
+        filepath = os.path.join(questions_dir, filename)
+        try:
+            with open(filepath, "r", encoding="utf-8") as f:
+                items = json.load(f)
+                if isinstance(items, list):
+                    for item in items:
+                        if isinstance(item, dict) and "id" in item and "question_text" in item:
+                            loaded_questions.append(item)
+            logger.info(f"Đã nạp {filename} thành công ({len(items)} câu).")
+        except Exception as e:
+            logger.error(f"Lỗi khi đọc file câu hỏi {filepath}: {e}")
+
+    return loaded_questions
 
 SEED_QUIZ_QUESTIONS: List[Dict[str, Any]] = [
     # ================= KHỐI A00 =================
@@ -422,3 +463,46 @@ SEED_QUIZ_QUESTIONS: List[Dict[str, Any]] = [
         "growth_mindset_tip": "🔥 Chinh phục Boss Vật Lí 30 Ngày! Năng lượng toàn phần luôn phải lớn hơn năng lượng có ích!"
     }
 ]
+
+def seed_quiz_bank_to_db(db):
+    """
+    Nạp hoặc cập nhật (upsert) toàn bộ câu hỏi từ thư mục modular (hoặc fallback) vào database.
+    """
+    from app.models import QuizQuestion
+    modular_questions = load_all_modular_quiz_questions()
+    # Kết hợp cả SEED_QUIZ_QUESTIONS gốc (đảm bảo test suite và các khối thi A01) và modular questions
+    all_questions_dict = {q["id"]: q for q in SEED_QUIZ_QUESTIONS}
+    for q in modular_questions:
+        all_questions_dict[q["id"]] = q
+    questions = list(all_questions_dict.values())
+    added_count = 0
+    updated_count = 0
+    
+    for q_data in questions:
+        existing = db.query(QuizQuestion).filter(QuizQuestion.id == q_data["id"]).first()
+        if existing:
+            for key, val in q_data.items():
+                setattr(existing, key, val)
+            updated_count += 1
+        else:
+            new_q = QuizQuestion(**q_data)
+            db.add(new_q)
+            added_count += 1
+            
+    db.commit()
+    logger.info(f"Đã hoàn thành nạp ngân hàng câu hỏi: Thêm mới {added_count}, Cập nhật {updated_count}.")
+    return {"added": added_count, "updated": updated_count, "total": len(questions)}
+
+if __name__ == "__main__":
+    import sys
+    # Thêm đường dẫn backend vào sys.path để chạy dạng CLI module
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+    from app.database import SessionLocal
+    
+    db = SessionLocal()
+    try:
+        print("Đang quét và nạp ngân hàng câu hỏi modular...")
+        result = seed_quiz_bank_to_db(db)
+        print(f"Kết quả: {result}")
+    finally:
+        db.close()

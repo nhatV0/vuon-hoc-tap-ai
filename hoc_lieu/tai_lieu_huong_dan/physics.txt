@@ -1,0 +1,209 @@
+Dưới đây là thống kê lại toàn bộ phần **Lý thuyết môn Vật lí** được cấu trúc đầy đủ, chính xác theo đúng yêu cầu: **Học kỳ II Lớp 11** và **Toàn bộ Lớp 12 (Cả Học kỳ I và Học kỳ II)** từ bộ Sách giáo khoa hiện hành.
+
+---
+
+# **MÔN 2: VẬT LÍ**
+
+---
+
+## **PHẦN A: VẬT LÍ LỚP 11 – HỌC KỲ II**
+
+### **CHƯƠNG III. ĐIỆN TRƯỜNG**
+
+#### **1. Lực tương tác giữa các điện tích (Định luật Coulomb)**
+* **Khái niệm điện trường:** Điện trường được tạo ra bởi điện tích, là dạng vật chất tồn tại xung quanh điện tích và truyền tương tác giữa các điện tích.
+* **Định luật Coulomb (Cu-lông):** Lực tương tác giữa hai điện tích điểm \\(q_1, q_2\\) đặt trong chân không (hoặc không khí) có phương trùng với đường thẳng nối hai điện tích, có độ lớn tỉ lệ thuận với tích độ lớn hai điện tích và tỉ lệ nghịch với bình phương khoảng cách giữa chúng:
+  \\[F = k \frac{|q_1 q_2|}{r^2} = \frac{1}{4\pi\varepsilon_0} \frac{|q_1 q_2|}{r^2}\\]
+  Trong đó: \\(k = 9 \cdot 10^9 \text{ N}\cdot\text{m}^2/\text{C}^2\\), \\(\varepsilon_0 = 8,85 \cdot 10^{-12} \text{ C}^2/(\text{N}\cdot\text{m}^2)\\).
+* **Ảnh hưởng của môi trường điện môi:** Trong môi trường điện môi đồng nhất có hằng số điện môi \\(\varepsilon\\), lực tương tác giảm đi \\(\varepsilon\\) lần so với trong chân không.
+
+#### **2. Khái niệm điện trường và Cường độ điện trường**
+* **Vectơ cường độ điện trường (\\(\vec{E}\\)):** Đại lượng đặc trưng cho độ mạnh yếu của điện trường tại một điểm về mặt tác dụng lực, được xác định bằng tỉ số giữa vectơ lực điện \\(\vec{F}\\) tác dụng lên điện tích thử \\(q\\) đặt tại điểm đó và độ lớn của \\(q\\):
+  \\[\vec{E} = \frac{\vec{F}}{q} \implies E = \frac{F}{|q|}\\]
+  * **Đơn vị:** Vôn trên mét (\\(\text{V/m}\\)).
+  * Cường độ điện trường do một điện tích điểm \\(Q\\) gây ra tại điểm cách nó khoảng \\(r\\) trong chân không hoặc không khí:
+    \\[E = \frac{|Q|}{4\pi\varepsilon_0 r^2}\\]
+* **Đường sức điện:** Đường được vẽ trong điện trường sao cho hướng của vectơ cường độ điện trường tại mỗi điểm trùng với hướng của vectơ tiếp tuyến với đường sức điện tại điểm đó. Đường sức điện xuất phát từ điện tích dương và kết thúc ở điện tích âm.
+
+#### **3. Điện trường đều**
+* **Khái niệm:** Điện trường đều có cường độ điện trường tại mọi điểm bằng nhau về độ lớn, giống nhau về phương và chiều; các đường sức điện là các đường thẳng song song và cách đều nhau.
+* **Cường độ điện trường giữa hai bản phẳng song song tích điện trái dấu:** Với hiệu điện thế \\(U\\) và khoảng cách \\(d\\) giữa hai bản:
+  \\[E = \frac{U}{d}\\]
+* **Chuyển động của điện tích trong điện trường đều:** Khi điện tích bay vào điện trường đều theo phương vuông góc với đường sức, vận tốc theo phương vuông góc không đổi, vận tốc theo phương đường sức biến đổi; kết quả là quỹ đạo của điện tích trở thành đường parabol.
+
+#### **4. Thế năng điện và Công của lực điện**
+* **Công của lực điện:** Công của lực điện trong sự dịch chuyển của điện tích \\(q\\) từ \\(M\\) đến \\(N\\) trong điện trường đều không phụ thuộc vào hình dạng đường đi mà chỉ phụ thuộc vào vị trí điểm đầu \\(M\\) và điểm cuối \\(N\\) của độ dịch chuyển:
+  \\[A_{MN} = q E d\\]
+  (với \\(d\\) là độ dài đại số hình chiếu của đoạn dịch chuyển \\(MN\\) trên một đường sức điện).
+* **Thế năng điện:** Đại lượng đặc trưng cho khả năng sinh công của điện trường khi đặt điện tích \\(q\\) tại điểm đang xét:
+  * Trong điện trường đều: \\(W_M = qEd\\).
+  * Trong điện trường bất kỳ (mốc thế năng ở vô cực): \\(W_M = A_{M\infty}\\).
+
+#### **5. Điện thế và Hiệu điện thế**
+* **Điện thế (\\(V_M\\)):** Đặc trưng cho điện trường tại điểm \\(M\\) về mặt thế năng, được xác định bằng công dịch chuyển một đơn vị điện tích dương từ vô cực về điểm đó:
+  \\[V_M = \frac{W_M}{q} = \frac{A_{M\infty}}{q}\\]
+  Đơn vị điện thế là vôn (\\(\text{V}\\)).
+* **Hiệu điện thế (\\(U_{MN}\\)):** Là hiệu số điện thế giữa hai điểm \\(M\\) và \\(N\\):
+  \\[U_{MN} = V_M - V_N = \frac{A_{MN}}{q}\\]
+* **Mối liên hệ giữa cường độ điện trường và điện thế:** Dọc theo đường sức điện trong điện trường đều:
+  \\[E = \frac{U_{MN}}{MN} = \frac{V_M - V_N}{MN}\\]
+
+#### **6. Tụ điện**
+* **Khái niệm:** Tụ điện là hệ gồm hai vật dẫn đặt gần nhau và ngăn cách nhau bởi môi trường điện môi, có nhiệm vụ tích điện và phóng điện.
+* **Điện dung (\\(C\\)):** Đại lượng đặc trưng cho khả năng tích điện của tụ điện ở hiệu điện thế \\(U\\) đặt vào hai bản tụ:
+  \\[C = \frac{Q}{U}\\]
+  Đơn vị: fara (\\(\text{F}\\)).
+* **Năng lượng điện trường của tụ điện:** Năng lượng tích trữ trong tụ điện khi được tích điện:
+  \\[W = \frac{Q U}{2} = \frac{Q^2}{2C} = \frac{C U^2}{2}\\]
+
+---
+
+### **CHƯƠNG IV. DÒNG ĐIỆN. MẠCH ĐIỆN**
+
+#### **1. Cường độ dòng điện**
+* **Khái niệm & Công thức:** Cường độ dòng điện \\(I\\) đặc trưng cho tác dụng mạnh hay yếu của dòng điện, được đo bằng lượng điện lượng \\(\Delta q\\) dịch chuyển qua tiết diện thẳng của dây dẫn trong khoảng thời gian \\(\Delta t\\):
+  \\[I = \frac{\Delta q}{\Delta t}\\]
+  Đơn vị cường độ dòng điện là ampe (\\(\text{A}\\)), đơn vị điện lượng là culông (\\(1\text{ C} = 1\text{ A}\cdot\text{s}\\)).
+* **Liên hệ với mật độ và tốc độ hạt mang điện:** Trong dây dẫn kim loại:
+  \\[I = S n v e\\]
+  (với \\(S\\) là diện tích tiết diện thẳng, \\(n\\) là mật độ electron tự do, \\(v\\) là tốc độ dịch chuyển có hướng của electron, \\(e = 1,6 \cdot 10^{-19}\text{ C}\\)).
+
+#### **2. Điện trở và Định luật Ohm**
+* **Điện trở (\\(R\\)):** Đại lượng đặc trưng cho mức độ cản trở dòng điện của vật dẫn:
+  \\[R = \frac{U}{I}\\]
+  Đơn vị: ôm (\\(\Omega\\)).
+* **Định luật Ohm cho vật dẫn kim loại:** Cường độ dòng điện chạy qua vật dẫn kim loại tỉ lệ thuận với hiệu điện thế giữa hai đầu vật dẫn và tỉ lệ nghịch với điện trở của vật dẫn:
+  \\[I = \frac{U}{R}\\]
+* **Nguyên nhân gây ra điện trở & Ảnh hưởng của nhiệt độ:**
+  * Nguyên nhân: Do sự va chạm của các electron tự do với các ion dương dao động nhiệt tại các nút mạng tinh thể kim loại.
+  * Điện trở suất phụ thuộc nhiệt độ: \\(\rho = \rho_0 [1 + \alpha(t - t_0)]\\).
+* **Điện trở nhiệt (Thermistor):** Điện trở có giá trị thay đổi rõ rệt theo nhiệt độ, gồm loại NTC (điện trở giảm khi nhiệt độ tăng) và PTC (điện trở tăng khi nhiệt độ tăng).
+
+#### **3. Nguồn điện**
+* **Suất điện động (\\(\mathcal{E}\\)):** Đại lượng đặc trưng cho khả năng thực hiện công của nguồn điện, bằng thương số giữa công \\(A\\) của lực lạ khi dịch chuyển điện tích dương \\(q\\) bên trong nguồn từ cực âm đến cực dương và độ lớn của \\(q\\):
+  \\[\mathcal{E} = \frac{A}{q}\\]
+  Đơn vị: vôn (\\(\text{V}\\)).
+* **Định luật Ohm cho toàn mạch:**
+  \\[I = \frac{\mathcal{E}}{R + r}\\]
+  (với \\(R\\) là điện trở mạch ngoài, \\(r\\) là điện trở trong của nguồn điện).
+* **Mối liên hệ hiệu điện thế hai cực nguồn điện:** \\(U = \mathcal{E} - I r\\).
+
+#### **4. Năng lượng điện và Công suất điện**
+* **Năng lượng điện tiêu thụ:** Đo bằng công của lực điện thực hiện khi các điện tích dịch chuyển trong đoạn mạch:
+  \\[W = A = qU = U I t\\]
+  Đơn vị: jun (\\(\text{J}\\)).
+* **Định luật Joule – Lenz (Nhiệt lượng tỏa ra trên vật dẫn thuần điện trở):**
+  \\[Q = R I^2 t\\]
+* **Công suất điện:** Năng lượng điện mà đoạn mạch tiêu thụ trong một đơn vị thời gian:
+  \\[\mathcal{P} = \frac{A}{t} = U I\\]
+  Đơn vị: oát (\\(\text{W}\\)).
+
+---
+
+## **PHẦN B: VẬT LÍ LỚP 12 – TOÀN BỘ CHƯƠNG TRÌNH (CẢ NĂM)**
+
+### **CHƯƠNG I. VẬT LÍ NHIỆT**
+
+#### **1. Cấu trúc của chất & Sự chuyển thể**
+* **Mô hình động học phân tử về cấu tạo chất:**
+  * Các chất được cấu tạo từ các hạt riêng biệt là phân tử.
+  * Các phân tử chuyên động hỗn loạn không ngừng; nhiệt độ của vật càng cao thì tốc độ chuyển động trung bình của phân tử càng lớn.
+  * Giữa các phân tử có lực hút và lực đẩy phân tử.
+* **Sự chuyển thể:** Giải thích sự nóng chảy, sự bay hơi và sự sôi dựa trên sự biến đổi động năng phân tử và lực liên kết phân tử khi truyền nhiệt.
+
+#### **2. Nội năng & Định luật I của Nhiệt động lực học**
+* **Khái niệm Nội năng (\\(U\\)):** Tổng động năng và thế năng của các phân tử cấu tạo nên vật. Đơn vị: jun (\\(\text{J}\\)).
+* **Các cách làm thay đổi nội năng:** Thực hiện công và truyền nhiệt.
+* **Định luật I của Nhiệt động lực học:** Độ biến thiên nội năng của vật bằng tổng công và nhiệt lượng mà vật nhận được:
+  \\[\Delta U = A + Q\\]
+  * *Quy ước dấu:* \\(Q > 0\\) (vật nhận nhiệt lượng), \\(Q < 0\\) (vật truyền nhiệt lượng); \\(A > 0\\) (vật nhận công), \\(A < 0\\) (vật thực hiện công).
+
+#### **3. Nhiệt độ, Thang nhiệt độ và Nhiệt kế**
+* **Nhiệt độ & Cân bằng nhiệt:** Nhiệt độ cho biết trạng thái cân bằng nhiệt của các vật tiếp xúc và chiều truyền nhiệt năng (từ vật nóng sang vật lạnh).
+* **Các thang nhiệt độ:**
+  * *Thang Celsius (\\(^\circ\text{C}\\)):* Chọn điểm băng đang tan là \\(0^\circ\text{C}\\) và điểm nước sôi là \\(100^\circ\text{C}\\).
+  * *Thang Kelvin (\\(\text{K}\\)):* Thang nhiệt độ tuyệt đối có mốc \\(0\text{ K}\\) (độ tuyệt đối). Công thức chuyển đổi:
+    \\[T(\text{K}) = t(^\circ\text{C}) + 273,15\\]
+* **Nhiệt kế:** Thiết bị đo nhiệt độ chế tạo dựa trên các thuộc tính vật lí phụ thuộc nhiệt độ (sự nở vì nhiệt của chất lỏng, điện trở, hiệu điện thế cặp nhiệt điện).
+
+#### **4. Các đại lượng nhiệt riêng**
+* **Nhiệt dung riêng (\\(c\\)):** Nhiệt lượng cần thiết để làm cho \\(1\text{ kg}\\) chất đó tăng thêm \\(1^\circ\text{C}\\) (hoặc \\(1\text{ K}\\)):
+  \\[Q = m c \Delta t \implies c = \frac{Q}{m \Delta t}\quad (\text{J/kg}\cdot\text{K})\\]
+* **Nhiệt nóng chảy riêng (\\(\lambda\\)):** Nhiệt lượng cần cung cấp cho \\(1\text{ kg}\\) chất rắn kết tinh nóng chảy hoàn toàn ở nhiệt độ nóng chảy:
+  \\[Q = \lambda m \implies \lambda = \frac{Q}{m}\quad (\text{J/kg})\\]
+* **Nhiệt hóa hơi riêng (\\(L\\)):** Nhiệt lượng cần cung cấp cho \\(1\text{ kg}\\) chất lỏng hóa hơi hoàn toàn ở nhiệt độ sôi:
+  \\[Q = L m \implies L = \frac{Q}{m}\quad (\text{J/kg})\\]
+
+---
+
+### **CHƯƠNG II. KHÍ LÍ TƯỞNG**
+
+#### **1. Mô hình động học phân tử chất khí & Khí lí tưởng**
+* **Mô hình động học phân tử chất khí:** Chất khí gồm các phân tử kích thước rất nhỏ so với khoảng cách giữa chúng, chuyển động hỗn loạn không ngừng và va chạm vào thành bình gây ra áp suất.
+* **Khí lí tưởng:** Mô hình đơn giản hóa trong đó các phân tử khí được coi là các chất điểm và chỉ tương tác với nhau khi va chạm đàn hồi.
+
+#### **2. Các định luật về khí lí tưởng**
+* **Định luật Boyle (Định quá trình đẳng nhiệt):** Ở nhiệt độ không đổi, áp suất của một khối lượng khí xác định tỉ lệ nghịch với thể tích của nó:
+  \\[p V = \text{hằng số} \iff p_1 V_1 = p_2 V_2\\]
+* **Định luật Charles (Định quá trình đẳng áp):** Khi áp suất của một khối lượng khí xác định không đổi, thể tích của khí tỉ lệ thuận với nhiệt độ tuyệt đối của nó:
+  \\[\frac{V}{T} = \text{hằng số} \iff \frac{V_1}{T_1} = \frac{V_2}{T_2}\\]
+* **Phương trình trạng thái của khí lí tưởng:** Cho một khối lượng khí xác định chuyển từ trạng thái 1 \\((p_1, V_1, T_1)\\) sang trạng thái 2 \\((p_2, V_2, T_2)\\):
+  \\[\frac{p_1 V_1}{T_1} = \frac{p_2 V_2}{T_2} \iff \frac{p V}{T} = \text{hằng số}\\]
+  * Dạng tổng quát (Phương trình Clapeyron – Mendeleev): \\(p V = n R T = \frac{m}{M} R T\\) (với \\(R \approx 8,31\text{ J/mol}\cdot\text{K}\\)).
+
+#### **3. Áp suất khí theo mô hình động học phân tử**
+* **Công thức áp suất chất khí:**
+  \\[p = \frac{1}{3} \mu m v^2 = \frac{2}{3} \mu E_{đ}\\]
+  (với \\(\mu\\) là mật độ phân tử, \\(m\\) là khối lượng phân tử, \\(E_{đ}\\) là động năng trung bình của chuyển động nhiệt phân tử).
+* **Mối liên hệ động năng phân tử và nhiệt độ:** Động năng trung bình của phân tử tỉ lệ thuận với nhiệt độ tuyệt đối:
+  \\[E_{đ} = \frac{3}{2} k T\\]
+  (với \\(k = 1,38 \cdot 10^{-23}\text{ J/K}\\) là hằng số Boltzmann).
+
+---
+
+### **CHƯƠNG III. TỪ TRƯỜNG**
+
+#### **1. Từ trường & Cảm ứng từ**
+* **Từ trường:** Dạng vật chất tồn tại xung quanh hạt mang điện chuyển động (hoặc nam châm, dòng điện) và tác dụng lực từ lên dòng điện hoặc nam châm khác đặt trong nó.
+* **Lực từ tác dụng lên dây dẫn mang dòng điện:** Đoạn dây dẫn độ dài \\(L\\) có dòng điện \\(I\\) đặt trong từ trường đều \\(\vec{B}\\) hợp với \\(\vec{B}\\) góc \\(\theta\\) chịu lực từ có độ lớn:
+  \\[F = B I L \sin\theta\\]
+* **Vectơ cảm ứng từ (\\(\vec{B}\\)):** Đại lượng đặc trưng cho từ trường về mặt tác dụng lực. Đơn vị: tesla (\\(\text{T}\\)).
+
+#### **2. Hiện tượng cảm ứng điện từ & Máy phát điện xoay chiều**
+* **Từ thông (\\(\Phi\\)):** Đại lượng đo lượng đường sức từ qua một diện tích \\(S\\) đặt trong từ trường đều:
+  \\[\Phi = B S \cos\alpha\quad (\text{Đơn vị: Weber - Wb})\\]
+* **Định luật cảm ứng điện từ Faraday:** Suất điện động cảm ứng trong mạch kín tỉ lệ với tốc độ biến thiên từ thông qua mạch:
+  \\[\mathcal{E}_{cư} = -\frac{\Delta\Phi}{\Delta t}\\]
+* **Máy phát điện xoay chiều:** Hoạt động dựa trên hiện tượng cảm ứng điện từ, biến đổi cơ năng thành điện năng xoay chiều.
+
+#### **3. Điện từ trường & Sóng điện từ**
+* **Điện từ trường:** Từ trường biến thiên theo thời gian sinh ra điện trường xoáy; điện trường biến thiên theo thời gian sinh ra từ trường xoáy. Hai trường biến thiên này thống nhất thành điện từ trường.
+* **Sóng điện từ:** Là sự lan truyền của điện từ trường trong không gian, truyền được cả trong chân không với tốc độ \\(c \approx 3 \cdot 10^8\text{ m/s}\\).
+* **Thang sóng điện từ:** Gồm sóng vô tuyến, tia hồng ngoại, ánh sáng nhìn thấy, tia tử ngoại, tia X và tia gamma.
+
+---
+
+### **CHƯƠNG IV. VẬT LÍ HẠT NHÂN**
+
+#### **1. Cấu trúc hạt nhân & Năng lượng liên kết**
+* **Cấu trúc hạt nhân:** Hạt nhân được cấu tạo từ các nucleon gồm \\(Z\\) proton (mạch điện dương) và \\(N = A - Z\\) neutron (không mang điện); \\(A\\) là số khối. Ký hiệu hạt nhân: \\(^A_Z X\\).
+* **Độ hụt khối & Năng lượng liên kết:**
+  * Độ hụt khối: \\(\Delta m = [Z m_p + (A - Z) m_n] - m_{hn} > 0\\).
+  * Năng lượng liên kết: \\(E_{lk} = \Delta m \cdot c^2\\).
+  * Năng lượng liên kết riêng: \\(\varepsilon = \frac{E_{lk}}{A}\\) đặc trưng cho mức độ bền vững của hạt nhân (hạt nhân có \\(A\\) từ 50 đến 80 bền vững nhất).
+
+#### **2. Hiện tượng phóng xạ & Phản ứng hạt nhân**
+* **Hiện tượng phóng xạ:** Quá trình một hạt nhân không bền tự phân rã, phát ra các tia phóng xạ (\\(\alpha, \beta^-, \beta^+, \gamma\\)) và biến đổi thành hạt nhân khác.
+  * **Định luật phóng xạ:**
+    \\[N(t) = N_0 \cdot 2^{-\frac{t}{T}} = N_0 \cdot e^{-\lambda t}\\]
+    (với \\(T\\) là chu kỳ bán rã, \\(\lambda = \frac{\ln 2}{T}\\) là hằng số phóng xạ).
+* **Phản ứng hạt nhân:**
+  * *Phân hạch:* Hạt nhân rất nặng hấp thụ neutron chậm vỡ thành hai hạt nhân nhẹ hơn và giải phóng năng lượng.
+  * *Nhiệt hạch:* Hai hạt nhân rất nhẹ tổng hợp lại thành hạt nhân nặng hơn ở nhiệt độ cực cao.
+* **Công nghiệp hạt nhân:** Ứng dụng năng lượng hạt nhân trong sản xuất điện, y học (chẩn đoán và xạ trị cancer), nông nghiệp và công nghiệp.
+
+---
+
+Phần Lý thuyết môn **Vật lí** (HKII Lớp 11 và Toàn bộ Lớp 12) đã được cập nhật hoàn chỉnh, chính xác và trích dẫn trực tiếp từ bộ sách giáo khoa của bạn.
+
+Bạn có cần hỗ trợ gì thêm cho bài học hoặc công việc tiếp theo không?

@@ -274,6 +274,8 @@ class StudentAlertItem(BaseModel):
     severity: str
     needs_attention: bool
     latest_reflection: Optional[str] = None
+    username: Optional[str] = None # Email / Tên tài khoản đăng nhập của học sinh
+    initial_password: Optional[str] = None # Mật khẩu ban đầu hoặc mật khẩu được gán
 
 class TeacherDashboardResponse(BaseModel):
     total_students: int
@@ -390,9 +392,24 @@ class TeacherCreateRequest(BaseModel):
 
 class TeacherUpdateRequest(BaseModel):
     name: Optional[str] = None
+    email: Optional[str] = None
     assigned_classes: Optional[List[str]] = None
     assigned_subject: Optional[str] = None
     password: Optional[str] = None
+
+class StudentUpdateRequest(BaseModel):
+    name: Optional[str] = None
+    email: Optional[str] = None
+    password: Optional[str] = None
+    grade: Optional[str] = None
+    classroom: Optional[str] = None
+    target_subject: Optional[str] = None
+    target_subjects: Optional[List[str]] = None
+    weakness: Optional[str] = None
+    long_term_goal: Optional[str] = None
+    timeframe: Optional[str] = None
+    emotion_scale: Optional[int] = None
+    learning_style: Optional[str] = None
 
 class TeacherResponseItem(BaseModel):
     id: str

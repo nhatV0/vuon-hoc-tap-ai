@@ -42,8 +42,13 @@ export default function AuthPage() {
 
       login(data.token, data.user);
 
-      if (data.user.role === "teacher" || data.user.role === "admin") {
-        router.push("/teacher");
+      const normalizedRole = String(data.user.role).toLowerCase();
+      if (normalizedRole === "teacher" || normalizedRole === "admin") {
+        if (typeof window !== "undefined") {
+          localStorage.removeItem("sunflower_student_id");
+          localStorage.removeItem("current_student_id");
+        }
+        router.replace("/teacher");
       } else if (!data.user.student_id) {
         router.push("/onboarding");
       } else {

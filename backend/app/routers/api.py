@@ -1345,11 +1345,12 @@ def get_admin_overview(
             last_mood=None,
             alert_reason="Đã phân lớp",
             severity="low",
-            needs_attention=False
+            needs_attention=False,
+            username=s.user.email if s.user else f"hs_{s.id}",
+            initial_password=s.initial_password or "123456"
         )
         for s in students
     ]
-
     return AdminOverviewStats(
         total_teachers=len(teachers),
         total_students=len(students),
@@ -1403,12 +1404,20 @@ def update_teacher_assignment(
     if not teacher:
         raise HTTPException(status_code=404, detail="Không tìm thấy giáo viên")
 
-    if data.name is not None:
+    if data.name is not None and data.name.strip():
         teacher.name = data.name.strip()
+    if data.email is not None and data.email.strip():
+        new_email = data.email.strip().lower()
+        existing = db.query(User).filter(User.email == new_email, User.id != teacher_id).first()
+        if existing:
+            raise HTTPException(status_code=400, detail="Email này đã được sử dụng bởi người dùng khác")
+        teacher.email = new_email
     if data.assigned_classes is not None:
         teacher.assigned_classes = data.assigned_classes
-    if data.password:
-        teacher.password_hash = hash_password(data.password)
+    if data.assigned_subject is not None and data.assigned_subject.strip():
+        teacher.assigned_subject = data.assigned_subject.strip()
+    if data.password is not None and data.password.strip():
+        teacher.password_hash = hash_password(data.password.strip())
 
     db.commit()
     db.refresh(teacher)
@@ -1419,6 +1428,7 @@ def update_teacher_assignment(
         email=teacher.email,
         role=teacher.role,
         assigned_classes=teacher.assigned_classes or [],
+        assigned_subject=teacher.assigned_subject or "Toán học",
         created_at=teacher.created_at
     )
 
@@ -1473,7 +1483,8 @@ def admin_create_student(
         weakness=data.weakness,
         long_term_goal=data.long_term_goal,
         timeframe=data.timeframe,
-        emotion_scale=4
+        emotion_scale=4,
+        initial_password=data.password or "123456"
     )
     db.add(student)
     
@@ -1508,6 +1519,102 @@ def admin_assign_student_classroom(
     db.refresh(student)
 
     return {"success": True, "student_id": student.id, "new_classroom": student.classroom}
+
+@router.patch("/admin/students/{student_id}")
+def admin_update_student_profile(
+    student_id: str,
+    data: StudentUpdateRequest,
+    admin: User = Depends(require_admin_user),
+    db: Session = Depends(get_db)
+):
+    """Admin cập nhật toàn bộ thông tin của học sinh (họ tên, lớp, khối, môn học, cảm xúc...)."""
+    student = db.query(Student).filter(Student.id == student_id).first()
+    if not student:
+        raise HTTPException(status_code=404, detail="Không tìm thấy học sinh")
+
+    if data.name is not None and data.name.strip():
+        student.name = data.name.strip()
+        if student.user:
+            student.user.name = data.name.strip()
+
+    # Cập nhật hoặc cấp mới tài khoản User cho học sinh
+    if data.email is not None and data.email.strip():
+        new_email = data.email.strip().lower()
+        if student.user:
+            existing = db.query(User).filter(User.email == new_email, User.id != student.user.id).first()
+            if existing:
+                raise HTTPException(status_code=400, detail="Email này đã được sử dụng")
+            student.user.email = new_email
+        else:
+            existing = db.query(User).filter(User.email == new_email).first()
+            if existing:
+                raise HTTPException(status_code=400, detail="Email này đã được sử dụng")
+            pwd = data.password.strip() if (data.password and data.password.strip()) else (student.initial_password or "123456")
+            new_user = User(
+                id=f"usr_hs_{uuid.uuid4().hex[:8]}",
+                email=new_email,
+                name=student.name,
+                password_hash=hash_password(pwd),
+                role=UserRole.STUDENT
+            )
+            db.add(new_user)
+            db.flush()
+            student.user_id = new_user.id
+
+    if data.password is not None and data.password.strip():
+        pwd = data.password.strip()
+        student.initial_password = pwd
+        if student.user:
+            student.user.password_hash = hash_password(pwd)
+        else:
+            # Tạo user tự động với email mặc định nếu học sinh chưa có tài khoản
+            default_email = f"hs_{student.id}@sunflower.edu.vn"
+            existing = db.query(User).filter(User.email == default_email).first()
+            if not existing:
+                new_user = User(
+                    id=f"usr_hs_{uuid.uuid4().hex[:8]}",
+                    email=default_email,
+                    name=student.name,
+                    password_hash=hash_password(pwd),
+                    role=UserRole.STUDENT
+                )
+                db.add(new_user)
+                db.flush()
+                student.user_id = new_user.id
+            else:
+                existing.password_hash = hash_password(pwd)
+
+    if data.grade is not None and data.grade.strip():
+        student.grade = data.grade.strip()
+    if data.classroom is not None and data.classroom.strip():
+        student.classroom = data.classroom.strip().upper()
+    if data.target_subject is not None and data.target_subject.strip():
+        student.target_subject = data.target_subject.strip()
+    if data.target_subjects is not None:
+        student.target_subjects = data.target_subjects
+    if data.weakness is not None:
+        student.weakness = data.weakness
+    if data.long_term_goal is not None:
+        student.long_term_goal = data.long_term_goal
+    if data.timeframe is not None:
+        student.timeframe = data.timeframe
+    if data.emotion_scale is not None:
+        student.emotion_scale = data.emotion_scale
+    if data.learning_style is not None:
+        student.learning_style = data.learning_style
+    db.commit()
+    db.refresh(student)
+
+    return {
+        "success": True,
+        "student_id": student.id,
+        "name": student.name,
+        "grade": student.grade,
+        "classroom": student.classroom,
+        "target_subject": student.target_subject,
+        "target_subjects": student.target_subjects or [student.target_subject],
+        "emotion_scale": student.emotion_scale
+    }
 
 @router.delete("/admin/students/{student_id}")
 def admin_delete_student(

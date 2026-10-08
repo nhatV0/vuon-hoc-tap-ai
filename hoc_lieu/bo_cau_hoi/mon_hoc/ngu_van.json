@@ -1,0 +1,242 @@
+[
+  {
+    "id": "VAN-001",
+    "block": "D01",
+    "subject": "Ngữ văn",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Mục 1: Thể loại & Tác gia văn học trung đại (Nguyễn Du và Truyện Kiều)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong đoạn trích 'Trao duyên' (trích 'Truyện Kiều' của Nguyễn Du), vật đính ước nào mang tính thiêng liêng gắn liền với lời thề nguyền son sắt giữa Thúy Kiều và Kim Trọng được Kiều trao lại cho Thúy Vân?",
+    "options": {
+      "A": "Chiếc vành với bức tờ mây",
+      "B": "Khăn thêu với chén rượu thề",
+      "C": "Cây trâm cài tóc và chiếc thoa vàng",
+      "D": "Khúc đàn cầm và chiếc gương soi"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trong đoạn thơ 'Chiếc vành với bức tờ mây / Duyên này thì giữ vật này của chung', 'chiếc vành' (vòng đeo tay đính ước) và 'bức tờ mây' (giấy ghi lời thề nguyền kết duyên) là những kỷ vật thiêng liêng nhất mà Kiều gửi trao cho em gái.",
+    "growth_mindset_tip": "Ghi nhớ các biểu tượng ước lệ trong Truyện Kiều: 'tờ mây' là chứng nhân lời thề đôi lứa dưới bóng trăng vằng vặc!"
+  },
+  {
+    "id": "VAN-002",
+    "block": "D01",
+    "subject": "Ngữ văn",
+    "slot_type": "TRAP_2",
+    "source": "Phần A - Mục 2: Thực hành Tiếng Việt (Biện pháp tu từ lặp cấu trúc và đối)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Trong hai câu thơ: 'Dốc lên khúc khuỷu dốc thăm thẳm / Heo hút cồn mây súng ngửi trời' (Tây Tiến - Quang Dũng), biện pháp nghệ thuật nào nổi bật nhất góp phần đặc tả sự hiểm trở, trùng điệp của núi rừng Tây Bắc?",
+    "options": {
+      "A": "Điệp từ ngữ kết hợp sử dụng hệ thống từ láy tượng hình giàu tính tạo hình",
+      "B": "Nói giảm nói tránh và hoán dụ",
+      "C": "So sánh phóng đại và nghịch ngữ",
+      "D": "Chơi chữ và đảo ngữ toàn phần"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Câu thơ sử dụng điệp từ 'dốc' ('Dốc lên... dốc...') kết hợp các từ láy tượng hình gợi cảm 'khúc khuỷu', 'thăm thẳm', 'heo hút' tạo nhịp điệu gập ghềnh, dựng lên bức tranh thiên nhiên hiểm trở, hoang sơ và hùng vĩ.",
+    "growth_mindset_tip": "Khi phân tích thơ Tây Tiến: Chú ý phối hợp thanh điệu (nhiều thanh trắc) và từ láy tượng hình đặc sắc của Quang Dũng!"
+  },
+  {
+    "id": "VAN-003",
+    "block": "D01",
+    "subject": "Ngữ văn",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Mục 1: Khả năng lớn lao của Tiểu thuyết hiện đại (Vũ Trọng Phụng)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Ý nghĩa trào phúng sâu cay nhất toát lên từ đoạn trích 'Hạnh phúc của một tang gia' (trích 'Số đỏ' của Vũ Trọng Phụng) là gì?",
+    "options": {
+      "A": "Phơi bày bộ mặt giả dối, suy đồi đạo đức đến tột cùng của xã hội thượng lưu thành thị Âu hóa rởm đời",
+      "B": "Ca ngợi tấm lòng hiếu thảo của cụ cố Hồng đối với cha già",
+      "C": "Phản ánh nỗi khổ của những người phục vụ đám ma trong xã hội cũ",
+      "D": "Lên án phong tục ma chay tốn kém, lạc hậu của làng quê Bắc Bộ"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Đoạn trích thể hiện mâu thuẫn trào phúng đỉnh cao: Một đám ma lẽ ra phải đau buồn thì cả gia đình lại hân hoan, hạnh phúc vì cái chết của cụ tổ giúp chia gia tài và phô trương sự giàu sang, lố lăng của tầng lớp tư sản 'Âu hóa' rởm đời.",
+    "growth_mindset_tip": "Nghệ thuật trào phúng của Vũ Trọng Phụng: Tạo dựng tình huống nghịch lý - cái chết của một con người lại là niềm hạnh phúc cho cả bầy con cháu!"
+  },
+  {
+    "id": "VAN-004",
+    "block": "C00",
+    "subject": "Ngữ văn",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Mục 1: Thơ trữ tình hiện đại và Biểu tượng (Đàn ghi ta của Lor-ca - Thanh Thảo)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Hình ảnh 'tiếng đàn bọt nước' trong bài thơ 'Đàn ghi ta của Lor-ca' của Thanh Thảo mang ý nghĩa biểu tượng sâu sắc nào?",
+    "options": {
+      "A": "Gợi sự mong manh, ngắn ngủi của sinh mệnh nghệ sĩ nhưng cũng chứa đựng sức sống và sự sinh sôi không ngừng của nghệ thuật",
+      "B": "Âm thanh tiếng đàn du dương trên dòng sông thơ mộng",
+      "C": "Sự thất bại hoàn toàn của cuộc cách mạng nghệ thuật ở Tây Ban Nha",
+      "D": "Tiếng khóc thương xót của nhân dân Tây Ban Nha trước cái chết của Lor-ca"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "'Bọt nước' gợi vẻ đẹp mong manh, dễ tan biến (số phận bi kịch, ngắn ngủi của Lor-ca), nhưng bọt nước vỡ ra lại tạo nên hàng ngàn bọt nước mới, biểu tượng cho sự trường tồn, sức lay động mãnh liệt và bất tử của tư tưởng nghệ thuật tự do.",
+    "growth_mindset_tip": "Thơ hiện đại của Thanh Thảo giàu tính siêu thực: Các hình ảnh biểu tượng thường mang tính lưỡng trị, kết hợp giữa cái mong manh và sự bất tử!"
+  },
+  {
+    "id": "VAN-005",
+    "block": "D01",
+    "subject": "Ngữ văn",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Mục 1: Tác gia Hồ Chí Minh & Văn chính luận (Tuyên ngôn Độc lập)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong bản 'Tuyên ngôn Độc lập' (1945), Chủ tịch Hồ Chí Minh đã mở đầu bằng việc trích dẫn những bản tuyên ngôn lịch sử nào?",
+    "options": {
+      "A": "Tuyên ngôn Độc lập năm 1776 của nước Mỹ và Tuyên ngôn Nhân quyền và Dân quyền năm 1791 của Cách mạng Pháp",
+      "B": "Bình Ngô đại cáo của Nguyễn Trãi và Tuyên ngôn Nhân quyền của Liên hợp quốc",
+      "C": "Tuyên ngôn Giải phóng nô lệ của Mỹ và Đại Hiến chương Magna Carta của Anh",
+      "D": "Luận cương tháng Tư của Lê-nin và Tuyên ngôn của Đảng Cộng sản"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Bác Hồ khéo léo trích dẫn Tuyên ngôn Độc lập (1776) của nước Mỹ và Tuyên ngôn Nhân quyền và Dân quyền (1791) của Pháp để khẳng định quyền tự do, bình đẳng của dân tộc Việt Nam dựa trên những chân lý bất di bất dịch mà chính tổ tiên của kẻ thù đã công nhận.",
+    "growth_mindset_tip": "Chiến thuật lập luận 'gậy ông đập lưng ông': Dùng chính tư tưởng tiến bộ của các cường quốc phương Tây để bảo vệ quyền tự do độc lập cho dân tộc ta!"
+  },
+  {
+    "id": "VAN-006",
+    "block": "D01",
+    "subject": "Ngữ văn",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Mục 2: Thực hành Tiếng Việt (Biện pháp tu từ Nói mỉa và Nghịch ngữ)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Câu văn nào sau đây sử dụng biện pháp tu từ 'Nghịch ngữ' (Oxymoron) để tạo hiệu quả biểu đạt ấn tượng?",
+    "options": {
+      "A": "Đó là một sự im lặng đầy bão tố trong căn phòng xét xử.",
+      "B": "Trăng cứ tròn vành vạnh / Kể chi người vô tình.",
+      "C": "Người ta đi cày lúc trưa tróc vất vả như thế nào thì ai cũng biết.",
+      "D": "Hắn là một gã khổng lồ tí hon đang ngủ gật."
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Nghịch ngữ là sự kết hợp của hai khái niệm hoặc từ ngữ có ý nghĩa đối lập, tương phản trực tiếp trong cùng một cụm từ để bộc lộ bản chất nội tâm sâu sắc ('sự im lặng' tương phản với 'bão tố' -> im lặng đầy bão tố).",
+    "growth_mindset_tip": "Nghịch ngữ đặt hai từ trái ngược cạnh nhau để làm bật lên mâu thuẫn gay gắt của sự vật, tâm trạng!"
+  },
+  {
+    "id": "VAN-007",
+    "block": "C00",
+    "subject": "Ngữ văn",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Mục 1: Văn học và Cuộc đời (Hồn Trương Ba, da hàng thịt - Lưu Quang Vũ)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Trong vở kịch 'Hồn Trương Ba, da hàng thịt' của Lưu Quang Vũ, thông điệp triết lý nhân sinh sâu sắc nhất qua quyết định cuối cùng của Hồn Trương Ba là gì?",
+    "options": {
+      "A": "Con người chỉ thực sự hạnh phúc và thanh thản khi được sống là chính mình, có sự thống nhất hài hòa giữa linh hồn thanh cao và thể xác phàm tục",
+      "B": "Con người cần phải khuất phục trước hoàn cảnh để tồn tại bằng mọi giá",
+      "C": "Thể xác quyết định hoàn toàn bản chất và ý chí của linh hồn",
+      "D": "Sống bất tử là khát vọng tối thượng mà ai cũng hướng tới"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Hồn Trương Ba kiên quyết từ chối nhập vào xác cu Tị, chấp nhận cái chết vĩnh viễn để linh hồn được trong sạch: 'Không thể bên trong một đằng, bên ngoài một nẻo được. Tôi muốn được là tôi toàn vẹn'. Sống trọn vẹn, chân thực là chính mình quý giá hơn một sự tồn tại chắp vá, vay mượn.",
+    "growth_mindset_tip": "Vấn đề 'bên trong' và 'bên ngoài': Hãy dũng cảm sống trung thực với chính lương tri và nhân cách của bản thân!"
+  },
+  {
+    "id": "VAN-008",
+    "block": "C00",
+    "subject": "Ngữ văn",
+    "slot_type": "BOSS_30D",
+    "source": "Phần A - Mục 1: Cấu tứ và Hình ảnh trong thơ trữ tình (Độc Tiểu Thanh kí - Nguyễn Du)",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Hai câu thơ kết trong 'Độc Tiểu Thanh kí' của Nguyễn Du: 'Bất tri tam bách dư niên hậu / Thiên hạ hà nhân khấp Tố Như?' thể hiện chiều sâu tư tưởng nhân đạo nào của đại thi hào?",
+    "options": {
+      "A": "Từ niềm đồng cảm sâu sắc với số phận nàng Tiểu Thanh tài hoa bạc mệnh, Nguyễn Du tự thương cho chính số phận của mình và khát khao tìm kiếm một tấm lòng tri âm tri kỉ giữa cuộc đời",
+      "B": "Sự tự hào kiêu hãnh của một thiên tài văn chương tin tưởng tên tuổi mình sẽ lưu danh muôn thuở",
+      "C": "Nỗi lo sợ bị người đời sau lãng quên tác phẩm của mình",
+      "D": "Sự tuyệt vọng bế tắc trước quy luật nghiệt ngã của thời gian và cái chết"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Nguyễn Du thương người mệnh bạc (Tiểu Thanh) hơn 300 năm trước, rồi lại tự thương cho chính mình ('Tố Như'), tự hỏi hơn 300 năm sau liệu có ai trong cõi đời này nhỏ lệ khóc thương ông. Đó là đỉnh cao của cảm hứng tự thương và khát vọng tri âm tha thiết của trái tim nhân đạo lớn lao.",
+    "growth_mindset_tip": "Tư tưởng nhân đạo của Nguyễn Du: Không chỉ xót thương người khác mà còn thức tỉnh ý thức cá nhân, tự thương chính mình và khao khát đồng cảm tâm hồn!"
+  },
+  {
+    "id": "VAN-009",
+    "block": "D01",
+    "subject": "Ngữ văn",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Mục 1: Thể loại Tùy bút & Tản văn (Hoàng Phủ Ngọc Tường)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong tác phẩm tùy bút 'Ai đã đặt tên cho dòng sông?', nhà văn Hoàng Phủ Ngọc Tường đã so sánh sông Hương ở khúc thượng nguồn vùng rừng đại ngàn với hình ảnh nào?",
+    "options": {
+      "A": "Bản trường ca của rừng già mang tâm hồn cô gái Digan phóng khoáng và man dại",
+      "B": "Người mẹ phù sa dịu dàng của vùng đồng bằng châu thổ",
+      "C": "Một vũ nữ kiều diễm trong cung đình Huế cổ kính",
+      "D": "Một dải lụa mềm mại vắt ngang qua thành phố"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Ở vùng thượng nguồn, sông Hương được ví như 'bản trường ca của rừng già', rầm rộ giữa bóng cây đại ngàn, mãnh liệt qua ghềnh thác, mang vẻ đẹp phóng khoáng, man dại như một 'cô gái Digan'.",
+    "growth_mindset_tip": "Nhớ 4 vẻ đẹp biến hóa của sông Hương: Thượng nguồn (cô gái Digan man dại) -> Về đồng bằng (người tình dịu dàng) -> Vào thành phố (người tài nữ đánh đàn lúc đêm khuya)!"
+  },
+  {
+    "id": "VAN-010",
+    "block": "C00",
+    "subject": "Ngữ văn",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Mục 1: Thơ ca lãng mạn hiện đại (Vội vàng - Xuân Diệu)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Quan niệm thẩm mĩ mới mẻ và táo bạo nhất của thi sĩ Xuân Diệu trong phong trào Thơ mới thể hiện qua câu thơ 'Tháng giêng ngon như một cặp môi gần' là gì?",
+    "options": {
+      "A": "Lấy con người trần thế, trẻ trung, căng tràn sức sống làm chuẩn mực thước đo cho vẻ đẹp của vũ trụ và thiên nhiên",
+      "B": "Lấy vẻ đẹp thanh cao của thiên nhiên để so sánh với sự đoan trang của người phụ nữ",
+      "C": "Đồng nhất thời gian vô hình với hương vị của các món ăn trần tục",
+      "D": "Thể hiện sự bế tắc của cái tôi cá nhân trước dòng chảy thời gian"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Thơ trung đại thường lấy thiên nhiên làm chuẩn mực thẩm mỹ (khuôn trăng, nét ngài, tùng cúc trúc mai). Xuân Diệu đã tạo nên cuộc cách mạng thẩm mỹ: Lấy con người nơi trần thế, tuổi trẻ và tình yêu làm thước đo cao nhất cho vẻ đẹp của tự nhiên ('Tháng giêng ngon như một cặp môi gần').",
+    "growth_mindset_tip": "Cuộc cách mạng thơ ca của Xuân Diệu: Đưa con người vào vị trí trung tâm của vẻ đẹp vũ trụ!"
+  },
+  {
+    "id": "VAN-011",
+    "block": "D01",
+    "subject": "Ngữ văn",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Mục 2: Thực hành Tiếng Việt (Điển cố, điển tích)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Tác dụng chủ yếu của việc sử dụng các 'Điển cố, điển tích' trong văn học trung đại và thơ ca là:",
+    "options": {
+      "A": "Làm cho diễn đạt hàm súc, cô đọng, giàu sức gợi và tăng thêm chiều sâu văn hóa, lịch sử",
+      "B": "Khoe khoang tri thức uyên bác và làm cho tác phẩm khó hiểu",
+      "C": "Thay thế hoàn toàn cho việc biểu đạt cảm xúc chân thật của tác giả",
+      "D": "Tạo ra sự hài hước, tiếng cười châm biếm cho tác phẩm"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Điển cố là việc mượn những câu chuyện, nhân vật trong thư tịch cổ để biểu đạt ý tứ của mình. Tác dụng của điển cố giúp câu thơ 'ý tại ngôn ngoại' (ý ở ngoài lời), hàm súc, trang trọng và mang chiều sâu triết lý.",
+    "growth_mindset_tip": "Điển cố giúp gói ghém một câu chuyện dài hay triết lý lớn chỉ trong vài chữ ngắn gọn!"
+  },
+  {
+    "id": "VAN-012",
+    "block": "C00",
+    "subject": "Ngữ văn",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Mục 1: Văn bản nghị luận & Bản sắc văn hóa (Trần Đình Hượu)",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Trong tiểu luận 'Nhìn về vốn văn hóa dân tộc', nhà nghiên cứu Trần Đình Hượu đã chỉ ra đặc trưng cốt lõi nổi bật nhất của tâm lý và quan niệm sống của người Việt truyền thống là:",
+    "options": {
+      "A": "Chuộng sự hài hòa, thiết thực, yên ổn, chừng mực và lành mạnh",
+      "B": "Say mê với những khát vọng siêu hình, hoành tráng và phiêu lưu mạo hiểm",
+      "C": "Tuyệt đối hóa tư tưởng tôn giáo khổ hạnh và cách li với đời sống",
+      "D": "Coi trọng sự bùng nổ của các cuộc cách mạng tư tưởng triệt để"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trần Đình Hượu nhận định: Người Việt không say mê cái tráng lệ, phi thường mà ưa cái thanh nhã, vừa xinh; hướng tới cuộc sống thực tế, bình yên, sự hài hòa giữa con người với thiên nhiên và đạo lý nhân nghĩa chừng mực.",
+    "growth_mindset_tip": "Nắm vững đặc trưng văn hóa Việt: Thiết thực, linh hoạt, chuộng sự điều hòa và dung hợp, không cực đoan!"
+  }
+]

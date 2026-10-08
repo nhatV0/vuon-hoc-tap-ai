@@ -1,0 +1,242 @@
+[
+  {
+    "id": "SINH-001",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương I: Di truyền phân tử (Cấu trúc DNA và cơ chế tái bản)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong quá trình nhân đôi DNA ở sinh vật nhân thực, enzyme nào có vai trò chính lắp ráp các nucleotide tự do theo nguyên tắc bổ sung với mạch khuôn?",
+    "options": {
+      "A": "DNA polymerase",
+      "B": "RNA polymerase",
+      "C": "DNA ligase",
+      "D": "Helicase (Enzyme tháo xoắn)"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "DNA polymerase là enzyme chịu trách nhiệm kéo dài mạch mới bằng cách gắn các nucleotide tự do từ môi trường nội bào vào đầu $3'\\text{-OH}$ của đoạn mồi theo nguyên tắc bổ sung (A-T, G-C).",
+    "growth_mindset_tip": "Nhớ rằng DNA polymerase chỉ có thể kéo dài mạch theo chiều $5' \\to 3'$ trên mạch mới, đòi hỏi đầu $3'-OH$ tự do!"
+  },
+  {
+    "id": "SINH-002",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương I: Điều hòa biểu hiện gene (Mô hình Operon Lac)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Trong mô hình cấu trúc Operon Lac ở vi khuẩn E. coli, chất cảm ứng (allolactose) kích hoạt sự phiên mã của các gene cấu trúc bằng cách nào?",
+    "options": {
+      "A": "Liên kết với protein ức chế làm biến đổi cấu hình của nó, khiến protein này rời khỏi vùng vận hành (O)",
+      "B": "Liên kết trực tiếp với vùng khởi động (P) để kích hoạt RNA polymerase",
+      "C": "Phá hủy gene điều hòa (lacI) để ngăn cản việc sản xuất protein ức chế",
+      "D": "Liên kết với các gene cấu trúc Z, Y, A để thúc đẩy dịch mã"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Khi có lactose trong tế bào, một lượng nhỏ chuyển thành allolactose đóng vai trò là chất cảm ứng. Allolactose gắn vào protein ức chế làm thay đổi cấu hình không gian ba chiều của nó, làm protein ức chế mất khả năng liên kết với vùng vận hành ($O$), mở đường cho RNA polymerase tiến hành phiên mã các gene cấu trúc $Z, Y, A$.",
+    "growth_mindset_tip": "Bẫy thường gặp: Chất cảm ứng không tác động lên vùng P hay gene điều hòa, mà tương tác trực tiếp với protein ức chế!"
+  },
+  {
+    "id": "SINH-003",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương II: Di truyền nhiễm sắc thể (Cấu trúc siêu hiển vi của NST)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Mỗi đơn vị cấu trúc cơ bản của nhiễm sắc thể (nucleosome) ở sinh vật nhân thực gồm:",
+    "options": {
+      "A": "8 phân tử protein histone được quấn quanh bởi khoảng 146 cặp nucleotide của phân tử DNA",
+      "B": "4 phân tử protein histone được quấn quanh bởi 2 vòng xoắn DNA",
+      "C": "Một phân tử DNA dạng vòng liên kết với protein phi histone",
+      "D": "Sợi nhiễm sắc có đường kính 30 nm liên kết với màng nhân"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cấu trúc hiển vi của nucleosome gồm một lõi gồm 8 phân tử protein histone (octamer histone) được quấn xung quanh bởi $1\\frac{3}{4}$ vòng xoắn DNA chứa khoảng 146 cặp nucleotide.",
+    "growth_mindset_tip": "Nắm vững chuỗi kích thước của NST: Sợi cơ bản (10 nm) -> Sợi nhiễm sắc (30 nm) -> Ống siêu xoắn (300 nm) -> Chromatid (700 nm)."
+  },
+  {
+    "id": "SINH-004",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương IV: Di truyền học quần thể (Định luật Hardy - Weinberg)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Một quần thể thực vật giao phấn ngẫu nhiên đang ở trạng thái cân bằng di truyền có tỉ lệ kiểu hình hoa trắng (do allele lặn a quy định) là 16%. Tỉ lệ cá thể mang kiểu gene dị hợp (Aa) trong quần thể này là:",
+    "options": {
+      "A": "48%",
+      "B": "36%",
+      "C": "24%",
+      "D": "60%"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Vì quần thể cân bằng di truyền nên tần số kiểu gen đồng hợp lặn $aa = q^2 = 0{,}16 \\Rightarrow q_a = \\sqrt{0{,}16} = 0{,}4$. Tần số allele trội $p_A = 1 - 0{,}4 = 0{,}6$. Tỉ lệ kiểu gene dị hợp $Aa = 2pq = 2 \\times 0{,}6 \\times 0{,}4 = 0{,}48$ (tức 48%).",
+    "growth_mindset_tip": "Định luật Hardy - Weinberg: Luôn tìm tần số allele lặn $q = \\sqrt{aa}$ trước tiên khi đã biết tỉ lệ kiểu hình lặn!"
+  },
+  {
+    "id": "SINH-005",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương II: Quy luật di truyền liên kết và hoán vị gene",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Cơ thể có kiểu gene $\\frac{AB}{ab}$ giảm phân xảy ra hoán vị gene giữa hai gene $A$ và $B$ với tần số $f = 20\\%$. Tỉ lệ giao tử hoán vị $Ab$ tạo ra là:",
+    "options": {
+      "A": "10%",
+      "B": "20%",
+      "C": "40%",
+      "D": "5%"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Giao tử liên kết là $AB$ và $ab$, mỗi loại chiếm tỉ lệ $\\frac{1 - f}{2} = \\frac{1 - 0{,}2}{2} = 40\\%$. Giao tử hoán vị là $Ab$ và $aB$, mỗi loại chiếm tỉ lệ $\\frac{f}{2} = \\frac{20\\%}{2} = 10\\%$.",
+    "growth_mindset_tip": "Nhớ rằng tần số hoán vị gene $f$ là tổng tỉ lệ của CẢ HAI loại giao tử hoán vị, nên mỗi loại chỉ chiếm $f/2$!"
+  },
+  {
+    "id": "SINH-006",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Chương II: Cảm ứng ở thực vật (Hướng động và Ứng động)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Hiện tượng cụp lá của cây trinh nữ (Mimosa pudica) khi va chạm cơ học là ví dụ tiêu biểu của hình thức cảm ứng nào?",
+    "options": {
+      "A": "Ứng động không sinh trưởng do biến đổi áp suất thẩm thấu",
+      "B": "Ứng động sinh trưởng do quang chu kỳ",
+      "C": "Hướng tiếp xúc dương",
+      "D": "Hướng trọng lực âm"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cây trinh nữ cụp lá là ứng động không sinh trưởng (diễn ra rất nhanh, có tính thuận nghịch), cơ chế do sự thay đổi đột ngột hàm lượng nước và áp suất trương nước tại các tế bào thể gối ở gốc cuống lá.",
+    "growth_mindset_tip": "Phân biệt: Ứng động sinh trưởng diễn ra chậm liên quan đến phân chia tế bào (hoa nở), còn ứng động không sinh trưởng do biến đổi trương nước tức thì!"
+  },
+  {
+    "id": "SINH-007",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Chương III: Sinh trưởng và phát triển (Hormone thực vật)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Phytohormone nào dưới đây đóng vai trò chủ đạo trong việc kích thích quả nhanh chín và thúc đẩy quá trình rụng lá ở thực vật?",
+    "options": {
+      "A": "Ethylene",
+      "B": "Gibberellin (GA)",
+      "C": "Auxin (IAA)",
+      "D": "Cytokinin"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Ethylene là hormone thực vật duy nhất ở trạng thái khí, có vai trò xúc tiến quá trình chín của quả, thúc đẩy sự rụng lá, rụng quả và phản ứng già hóa của mô thực vật.",
+    "growth_mindset_tip": "Để giấm chín trái cây dân gian thường ủ chung với quả chín vì quả chín tự nhiên giải phóng khí ethylene kích hoạt các quả lân cận!"
+  },
+  {
+    "id": "SINH-008",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương II: Đột biến số lượng nhiễm sắc thể và di truyền học người",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Hội chứng Down ở người là dạng đột biến lệch bội thể ba ($2n+1$). Cơ chế phát sinh chủ yếu do sự không phân li của cặp nhiễm sắc thể nào trong giảm phân hình thành giao tử?",
+    "options": {
+      "A": "Cặp nhiễm sắc thể số 21",
+      "B": "Cặp nhiễm sắc thể giới tính XX/XY",
+      "C": "Cặp nhiễm sắc thể số 13",
+      "D": "Cặp nhiễm sắc thể số 18"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Hội chứng Down phát sinh do cặp nhiễm sắc thể số 21 (NST thường) không phân li trong giảm phân (chủ yếu trong quá trình giảm phân I ở mẹ), tạo ra giao tử chứa 2 chiếc NST số 21 ($n+1$). Khi thụ tinh với giao tử bình thường ($n$) tạo ra hợp tử có 3 chiếc NST 21 (thể ba cặp 21, $2n+1=47$).",
+    "growth_mindset_tip": "Nhớ các hội chứng lệch bội phổ biến: Cặp 21 là Down; Cặp 18 là Edwards; Cặp 13 là Patau; Cặp giới tính XO là Turner, XXY là Klinefelter."
+  },
+  {
+    "id": "SINH-009",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Mục Tiến hóa & Sinh thái học: Chuỗi và lưới thức ăn",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Trong một chuỗi thức ăn trên cạn gồm: Cỏ -> Cào cào -> Ếch đồng -> Rắn hổ mang -> Đại bàng. Sinh vật tiêu thụ bậc 2 trong chuỗi thức ăn này là:",
+    "options": {
+      "A": "Ếch đồng",
+      "B": "Cào cào",
+      "C": "Rắn hổ mang",
+      "D": "Cỏ"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cỏ là Sinh vật sản xuất (bậc dinh dưỡng 1). Cào cào ăn cỏ là Sinh vật tiêu thụ bậc 1 (bậc dinh dưỡng 2). Ếch đồng ăn cào cào là Sinh vật tiêu thụ bậc 2 (bậc dinh dưỡng 3). Rắn hổ mang là Sinh vật tiêu thụ bậc 3.",
+    "growth_mindset_tip": "Cẩn thận bẫy: 'Bậc dinh dưỡng' (tính từ sinh vật sản xuất) lệch 1 bậc so với 'Sinh vật tiêu thụ' (tính từ động vật ăn thực vật)!"
+  },
+  {
+    "id": "SINH-010",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Chương IV: Sinh sản ở thực vật có hoa",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong hiện tượng thụ tinh kép ở thực vật có hoa, giao tử đực thứ hai kết hợp với tế bào nào của túi phôi để tạo thành phôi nhũ dinh dưỡng?",
+    "options": {
+      "A": "Nhân lưỡng bội (2n) ở trung tâm tạo nội nhũ tam bội (3n)",
+      "B": "Tế bào trứng (n) tạo hợp tử (2n)",
+      "C": "Hai tế bào kèm (trợ bào) tạo vỏ hạt",
+      "D": "Tế bào đối cầu tiêu biến"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Thụ tinh kép gồm 2 quá trình thụ tinh đồng thời: Giao tử đực 1 ($n$) + Trứng ($n$) $\\to$ Hợp tử ($2n$); Giao tử đực 2 ($n$) + Nhân cực ở trung tâm ($2n$) $\\to$ Nhân tam bội ($3n$) phát triển thành nội nhũ cung cấp chất dinh dưỡng cho phôi.",
+    "growth_mindset_tip": "Thụ tinh kép là đặc trưng tiến hóa chỉ có ở ngành Thực vật hạt kín (Angiospermae) để tránh lãng phí chất dinh dưỡng trước thụ tinh!"
+  },
+  {
+    "id": "SINH-011",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương I: Đột biến gene và mã di truyền",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Đột biến điểm dạng nào sau đây trên vùng mã hóa của gene cấu trúc thường gây hậu quả nghiêm trọng nhất đối với cấu trúc của chuỗi polypeptide?",
+    "options": {
+      "A": "Thêm hoặc mất 1 cặp nucleotide ở đầu vùng mã hóa",
+      "B": "Thay thế 1 cặp nucleotide tạo codon đồng nghĩa",
+      "C": "Thay thế 1 cặp nucleotide ở giữa gene",
+      "D": "Mất 3 cặp nucleotide tương ứng với đúng 1 bộ ba"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Đột biến thêm hoặc mất 1 cặp nucleotide làm dịch khung đọc mã di truyền (frameshift mutation) từ vị trí xảy ra đột biến về sau, làm thay đổi toàn bộ trình tự axit amin của chuỗi polypeptide và có thể xuất hiện sớm bộ ba kết thúc. Đột biến xảy ra càng gần đầu gene thì chuỗi polypeptide càng bị biến đổi nghiêm trọng.",
+    "growth_mindset_tip": "Đột biến dịch khung (thêm/mất 1-2 cặp) luôn nguy hiểm hơn đột biến thay thế hay đột biến mất nguyên vẹn 1 bộ ba!"
+  },
+  {
+    "id": "SINH-012",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương II: Phả hệ và di truyền liên kết giới tính",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Ở người, bệnh mù màu đỏ - lục do một allele lặn nằm trên vùng không tương đồng của nhiễm sắc thể giới tính X quy định (gene $m$, allele bình thường $M$). Một cặp vợ chồng có thị giác bình thường sinh được con trai đầu lòng bị bệnh mù màu. Xác suất để đứa con thứ hai của họ là con gái không bị bệnh và không mang allele gây bệnh là:",
+    "options": {
+      "A": "25%",
+      "B": "50%",
+      "C": "12{,}5%",
+      "D": "0%"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Bố bình thường có kiểu gen $X^M Y$. Con trai đầu lòng mù màu có kiểu gen $X^m Y$, nhận NST $Y$ từ bố và $X^m$ từ mẹ. Mẹ bình thường nên kiểu gen của mẹ là dị hợp mang gene bệnh: $X^M X^m$. Sơ đồ lai: $X^M Y \\times X^M X^m \\to \\frac{1}{4} X^M X^M : \\frac{1}{4} X^M X^m : \\frac{1}{4} X^M Y : \\frac{1}{4} X^m Y$. Đứa con thứ hai là con gái không bệnh và không mang gene bệnh ($X^M X^M$) chiếm tỉ lệ đúng $\\frac{1}{4} = 25\\%$.",
+    "growth_mindset_tip": "Đọc kỹ yêu cầu: 'con gái không bệnh và KHÔNG mang allele gây bệnh' tức là $X^M X^M$, không tính thể dị hợp $X^M X^m$!"
+  }
+]
