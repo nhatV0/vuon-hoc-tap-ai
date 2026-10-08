@@ -1,273 +1,282 @@
-# HƯỚNG DẪN TẠO TÀI NGUYÊN ĐỒ HỌA, HOẠT ẢNH & ÂM THANH
-## DỰ ÁN: KHU VƯỜN CẢM XÚC ĐA DẠNG HOA & TƯƠNG TÁC ĐỘNG
+# HƯỚNG DẪN TẠO TÀI NGUYÊN ĐỒ HỌA & HOẠT ẢNH: HỆ THỐNG TRỒNG HOA & HÀO QUANG CẢM XÚC
+## DỰ ÁN: TRỢ LÝ HOA HƯỚNG DƯƠNG & KHU VƯỜN HỌC ĐƯỜNG CÁ NHÂN HÓA
 
-Tài liệu này đặc tả toàn bộ hệ thống tài nguyên (Assets) cần tạo bao gồm:
-1. **Các loài hoa biểu tượng cảm xúc** (Hoa Hướng Dương, Hoa Sen, Hoa Bồ Công Anh, Hoa Oải Hương, Xương Rồng Nở Hoa, Hoa Cẩm Tú Cầu).
-2. **Các giai đoạn sinh trưởng & trạng thái cảm xúc** (Mầm non, Tích cực, Chăm học/Nở rộ, Mệt mỏi/Thiếu nước, Tái sinh).
-3. **Hiệu ứng động (Animation / Lottie / Video Loops)**.
-4. **Vật phẩm & Phụ kiện khu vườn** (Bình tưới, Giọt nước sương mai, Khiên bảo vệ chuỗi, Viên nang thời gian, Đom đóm đêm).
-5. **Âm thanh & Nhạc nền (SFX & Ambient BGM)**.
+Tài liệu này là cẩm nang đặc tả toàn diện phục vụ việc tạo hình ảnh (Image) và hoạt ảnh chuyển động lặp (Motion Loop) bằng các công cụ AI (Google Imagen 3, Midjourney v6, DALL-E 3, Runway Gen-2, Pika, Kling AI, Luma Dream Machine).
 
 ---
 
-## I. QUY CHUẨN KỸ THUẬT & ĐỊNH DẠNG FILE
+## I. NGUYÊN TẮC CỐT LÕI & CÔNG THỨC KHÓA PHONG CÁCH (STYLE CONSISTENCY)
 
-| Loại tài nguyên | Định dạng ưu tiên | Độ phân giải / Thời lượng | Nền (Background) | Ghi chú |
-| :--- | :--- | :--- | :--- | :--- |
-| **Ảnh tĩnh / Sticker** | `.webp` hoặc `.png` | 1024x1024 px hoặc 512x512 px | Trong suốt (Transparent) | Tách nền sạch sẽ, không viền đen |
-| **Ảnh động / Motion** | `.gif` hoặc `.webm` (alpha) hoặc Lottie `.json` | 512x512 px (tối đa 2-4 giây loop) | Trong suốt (Transparent) | Vòng lặp mượt mà (Seamless loop) |
-| **Video bối cảnh** | `.mp4` (H.264) | 1920x1080 px (15 - 30 giây loop) | Full HD | Màu sắc dịu nhẹ, phong cách Studio Ghibli |
-| **Âm thanh hiệu ứng (SFX)** | `.mp3` hoặc `.wav` | 1 - 3 giây | - | Âm thanh trong trẻo, không chói tai |
-| **Nhạc nền (BGM)** | `.mp3` (128 - 192 kbps) | 1 - 3 phút (Seamless Loop) | - | Thư giãn, lofi nhẹ nhàng, 60-70 BPM |
+Để đảm bảo hàng chục hình ảnh và hoạt ảnh khi hiển thị trong ứng dụng trông như được thiết kế bởi **cùng một họa sĩ 3D trong cùng một tựa game**, mọi prompt bắt buộc phải tuân thủ công thức mỏ neo (Master Anchor Formula):
 
----
-
-## II. DANH SÁCH 6 LOÀI HOA & KEY PROMPT TẠO HÌNH (IMAGE & MOTION)
-
-> **Phong cách nghệ thuật khuyến nghị (Art Style Consistency):**
-> *3D Cute Stylized Claymation / Pixar-Ghibli hybrid, soft pastel aesthetic, cozy warm ambient lighting, emotional, clean transparent background.*
+### 1. Công thức khóa thuộc tính (Visual Anchors):
+- **Phong cách thị giác (Art Style):** `Tactile 3D cute claymation style, soft velvety matte finish, Pixar-Ghibli hybrid aesthetics`.
+- **Góc máy (Camera Angle):** `Front eye-level perspective with slight 15-degree tilt, centered in frame, 1:1 square ratio`.
+- **Ánh sáng (Lighting):** `Soft warm studio key lighting, subtle contact shadow under the pot`.
+- **Chậu cây cố định (Potted Plant):** `Minimalist cute rounded pastel ceramic pot centered in frame` *(Riêng Hoa Sen dùng `shallow minimalist pastel zen water bowl`)*.
+- **Phông nền (Background):** `Isolated on solid clean warm-white studio background (#FAFAFA), zero clutter, easy background cutout --no background`.
+- **Chuyển động (Motion Rule):** `Seamless continuous loop, gentle organic breathing pulse, soothing 60fps physics`.
 
 ---
 
-### 1. 🌻 Hoa Hướng Dương (Sunflower) — Biểu tượng: *Năng Lượng & Hy Vọng*
-- **Ý nghĩa:** Tiếp thêm năng lượng, phù hợp cho học sinh hướng ngoại, cần động lực vượt khó.
+## II. 6 LOÀI HOA HỌC SINH TỰ DO LỰA CHỌN KHI BẮT ĐẦU
 
-#### Các trạng thái cần tạo:
-1. **Trạng thái 1: Hạt mầm đang nhú (Sprout)**
-   - *Key Prompt (Midjourney / DALL-E 3 / Stable Diffusion):*
-     ```text
-     A cute tiny sunflower sprout popping out of rich soft soil in a miniature ceramic pastel pot, two vibrant green tiny leaves reaching up, soft morning sunlight, Pixar 3D stylized, cute kawaii face emotion, warm lighting, transparent background, isolated, 8k resolution, octane render --no background
-     ```
-   - *Motion Prompt (Runway Gen-2 / Pika / Kling AI):*
-     ```text
-     A small cute green sprout gently stretching and swaying in a soft breeze, tiny dewdrop glistening on the leaf, seamless loop, 3D animated style, smooth gentle motion.
-     ```
-
-2. **Trạng thái 2: Nở hoa khỏe mạnh / Tích cực (Healthy Bloom)**
-   - *Key Prompt:*
-     ```text
-     A cheerful 3D stylized sunflower in full bloom, warm bright golden yellow petals, cozy friendly smiling face in the flower center, planted in a minimalist terracotta pot, glowing with subtle warmth, Studio Ghibli warmth meets Pixar charm, soft shadows, transparent background, isolated --no background
-     ```
-   - *Motion Prompt:*
-     ```text
-     Cute sunflower gently nodding its head, smiling warmly, breathing slowly, petals fluttering softly in a warm summer wind, seamless loop, cute cozy aesthetic.
-     ```
-
-3. **Trạng thái 3: Nở rộ tỏa hào quang / Chăm học (Legendary Radiant Bloom - Streak >= 7 ngày)**
-   - *Key Prompt:*
-     ```text
-     A magnificent radiant sunflower blooming with sparkling golden aura, floating shimmering light particles, glowing warm golden energy halo around petals, crowned with tiny delicate flower crown, premium 3D isometric render, magical enchanting atmosphere, transparent background --no background
-     ```
-   - *Motion Prompt:*
-     ```text
-     Magical glowing sunflower pulsing with soft golden light waves, floating sparkling particles rising around it, cheerful energetic gentle sway, sparkling fantasy loop.
-     ```
-
-4. **Trạng thái 4: Mệt mỏi / Cần tưới nước (Tired / Wilting)**
-   - *Key Prompt:*
-     ```text
-     A slightly tired cute sunflower bending softly to the side, slightly drooping pastel yellow petals, sleepy sad cute expressive eyes, soft cozy muted colors, asking for care gently without being depressing, 3D stylized claymation, transparent background --no background
-     ```
-   - *Motion Prompt:*
-     ```text
-     Drooping sleepy sunflower nodding low, blinking slowly with tired cute eyes, waiting patiently for water droplets, subtle slow breathing loop.
-     ```
+| Biểu tượng | Loài Hoa | Ý Nghĩa Tâm Lý Sư Phạm | Màu Sắc & Nét Đặc Trưng Cố Định | Chậu Mặc Định |
+| :---: | :--- | :--- | :--- | :--- |
+| 🌻 | **Hoa Hướng Dương** | Năng lượng tích cực, ý chí kiên định, tinh thần vượt khó | Cánh vàng hổ phách (`#FACC15`), nhụy nâu ấm (`#5C3A21`), nụ cười ấm áp | Chậu gốm cam pastel |
+| 🪷 | **Hoa Sen** | Bình tâm, xoa dịu áp lực thi cử và lo âu đồng trang lứa | Cánh chuyển sắc hồng phấn sang trắng tuyết (`#F472B6`), lá ngọc bích | Bát nước gốm ngọc bích |
+| 🌾 | **Hoa Bồ Công Anh** | Tự do, buông bỏ muộn phiền, ước mơ bay xa theo gió | Cầu bông trắng xốp như kẹo bông (`#FFFFFF`), các hạt bay nhẹ nhàng | Chậu gốm xanh bạc hà (mint) |
+| 🪻 | **Hoa Oải Hương** | Thư giãn, giấc ngủ ngon sau 5 phút nhiệm vụ vi mô buổi tối | Chùm hoa tím violet dịu dàng (`#A855F7`), bụi sao thơm tím bay quanh | Chậu sứ trắng kem vintage |
+| 🌸 | **Hoa Anh Đào** | Hy vọng tương lai, vẻ đẹp thanh xuân, khởi đầu mới | Dáng bonsai mini thanh thoát, cánh hoa hồng đào phớt nhẹ (`#FBCFE8`) | Chậu gốm nâu đất nung tròn |
+| 🌵 | **Xương Rồng Nở Hoa** | Bền bỉ, kiên trì, gai góc bên ngoài nhưng rực rỡ bên trong | Thân mập tròn xanh ngọc (`#34D399`), gai mềm không nhọn, hoa đỏ ruby nở trên đỉnh | Chậu đất nung terracotta tròn |
 
 ---
 
-### 2. 🪷 Hoa Sen (Lotus) — Biểu tượng: *Bình Tâm & Tĩnh Lặng*
-- **Ý nghĩa:** Giúp học sinh giảm lo âu, xoa dịu áp lực thi cử và áp lực đồng trang lứa.
-
-#### Các trạng thái cần tạo:
-1. **Trạng thái 1: Búp sen thanh tịnh (Lotus Bud in Water Bowl)**
-   - *Key Prompt:*
-     ```text
-     A pristine delicate pink lotus bud resting peacefully in a miniature zen ceramic water bowl, tiny glossy green lily pad underneath, tiny water droplets on pink petals, serene calm ambiance, 3D stylized Ghibli aesthetic, transparent background, high detail --no background
-     ```
-2. **Trạng thái 2: Hoa sen nở rộ tỏa hương (Serene Blooming Lotus)**
-   - *Key Prompt:*
-     ```text
-     A stunning serene pink and white lotus flower fully opened, floating on clear calm water inside a pastel glazed bowl, soft teal and rose tones, gentle soft ambient glow, tranquil meditation vibe, cute 3D stylized render, transparent background --no background
-     ```
-   - *Motion Prompt:*
-     ```text
-     Lotus petals gently rippling over peaceful calm water with tiny floating light orbs, soft slow breathing rhythm, ultra calming loop.
-     ```
-3. **Trạng thái 3: Hào quang thiền định (Zen Golden Lotus)**
-   - *Key Prompt:*
-     ```text
-     A glowing sacred lotus with translucent crystal-like pink-gold petals, soft water ripples reflecting subtle light, surrounded by peaceful floating mist particles, 3D stylized game asset, transparent background --no background
-     ```
+## III. 7 GIAI ĐOẠN SINH TRƯỞNG & CHUYỂN ĐỘNG CỦA CÂY
 
 ---
 
-### 3. 🌾 Hoa Bồ Công Anh (Dandelion) — Biểu tượng: *Tự Do & Buông Bỏ Lo Âu*
-- **Ý nghĩa:** Giúp xả stress, thổi bay những cảm xúc tiêu cực sau các bài kiểm tra căng thẳng.
+### GIAI ĐOẠN 1: CHỌN HẠT GIỐNG (SEED SELECTION)
+> **Mô tả:** Học sinh lựa chọn loại hạt mầm yêu thích từ bộ sưu tập hạt giống trước khi gieo. Hạt mầm lơ lửng, tỏa sáng nhẹ nhàng.
 
-#### Các trạng thái cần tạo:
-1. **Trạng thái 1: Cầu bồ công anh tròn xoe (Fluffy Dandelion Puff)**
-   - *Key Prompt:*
-     ```text
-     A cute fluffy white dandelion seed head, perfectly round and soft cotton-like texture, standing in a pastel mint clay pot, whimsical dreamlike lighting, hyper-detailed soft fur fluff, 3D stylized art, transparent background --no background
-     ```
-2. **Trạng thái 2: Các cánh bay theo gió (Wind Wishes)**
-   - *Key Prompt:*
-     ```text
-     A cute white dandelion with several glowing soft seeds floating away gracefully into the air, magical sparkling trail, uplifting inspiring atmosphere, 3D Pixar style, transparent background --no background
-     ```
-   - *Motion Prompt:*
-     ```text
-     Soft fluffy dandelion seeds detaching gently and dancing upwards into the air with glittering sparks, seamless looping motion, soothing dreamlike breeze.
-     ```
-
----
-
-### 4. 🪻 Hoa Oải Hương (Lavender) — Biểu tượng: *Thư Giãn & Giấc Ngủ Ngon*
-- **Ý nghĩa:** Chống mất ngủ, đồng hành trong buổi tối trước khi đi ngủ sau 5 phút làm nhiệm vụ vi mô.
-
-#### Các trạng thái cần tạo:
-1. **Trạng thái: Bụi Lavender tím dịu dàng trong chậu gốm**
-   - *Key Prompt:*
-     ```text
-     A cozy cute bouquet of purple lavender stems in a rustic pastel white ceramic mug, pastel violet and soft purple hues, tiny soothing aroma sparkles floating around, cozy bedtime aesthetic, 3D cute stylized, transparent background --no background
-     ```
-   - *Motion Prompt:*
-     ```text
-     Lavender stalks swaying softly back and forth like a gentle lullaby, subtle purple mist and sleepy star sparkles floating up, relaxing slow motion loop.
-     ```
-
----
-
-### 5. 🌵 Xương Rồng Nở Hoa (Flowering Cactus) — Biểu tượng: *Kiên Trì & Vững Vàng*
-- **Ý nghĩa:** Biểu tượng của sự bền bỉ, gai góc bên ngoài nhưng nở hoa rực rỡ bên trong.
-
-#### Các trạng thái cần tạo:
-1. **Trạng thái: Cây xương rồng tròn xoe nở bông hoa nhỏ đỏ rực trên đỉnh**
-   - *Key Prompt:*
-     ```text
-     An adorable round chubby green cactus in a tiny terracotta pot with a bright pink-red flower blossoming proudly on top, soft friendly rounded thorns (not sharp), tiny smile, warm sun rays, 3D cute kawaii claymation, transparent background --no background
-     ```
-   - *Motion Prompt:*
-     ```text
-     Chubby cute cactus doing a happy little wobble wiggle, its little pink flower bobbing playfully, joyful proud vibe, seamless cute loop.
-     ```
-
----
-
-### 6. 🌸 Hoa Cẩm Tú Cầu (Hydrangea) — Biểu tượng: *Biết Ơn & Kết Nối*
-- **Ý nghĩa:** Bông hoa đổi màu theo cảm xúc (Xanh lam khi buồn -> Hồng phấn khi vui -> Tím nhạt khi bình yên).
-
-#### Các trạng thái cần tạo:
-1. **Trạng thái: Chùm hoa cẩm tú cầu chuyển màu gradient**
-   - *Key Prompt:*
-     ```text
-     A lush spherical cluster of cute pastel hydrangea petals with smooth gradient shifting from soft sky blue to sweet pastel pink, morning dew droplets on petals, warm cozy lighting, 3D stylized render, transparent background --no background
-     ```
-
----
-
-## III. VẬT PHẨM & HIỆU ỨNG TƯƠNG TÁC (INTERACTIVE PROPS & FX)
-
-| Tên vật thể | Mô tả mục đích | Key Prompt tạo ảnh / Asset |
-| :--- | :--- | :--- |
-| **Bình tưới nước ma thuật (Magic Watering Can)** | Dùng khi học sinh ấn nút "Tưới Nước Chăm Sóc" | `A cute pastel yellow and mint watering can tilted, pouring glowing crystal clear water droplets, sparkling magic splash, 3D stylized toy aesthetic, transparent background --no background` |
-| **Giọt sương pha lê (Crystal Dew Drop)** | Đơn vị tích lũy điểm giọt nước check-in | `A glowing glossy water droplet with a tiny golden sunflower reflection inside, sparkling iridescent highlights, 3D icon game asset, transparent background --no background` |
-| **Khiên Băng Đóng Băng Chuỗi (Streak Freeze Shield)** | Vật phẩm bảo lưu chuỗi khi học sinh bận đột xuất | `A magical translucent ice crystal shield with a warm glowing golden flower frozen safely inside, glistening frost runes, 3D stylized rpg game icon, transparent background --no background` |
-| **Viên Nang Thời Gian (Time Capsule Chest)** | Hòm thư gửi gắm ước mơ mở sau 21 - 30 ngày | `A whimsical vintage wooden and brass mini treasure chest with a glowing sunflower lock, floating tiny starry envelopes, 3D cozy adventure style, transparent background --no background` |
-| **Hào quang & Đom đóm (Ambient Fireflies)** | Hiệu ứng lơ lửng ban đêm trong khu vườn | `A cluster of soft glowing golden and mint fireflies and fairy dust sparkles floating in air, particle effect, transparent background --no background` |
-
----
-
-## IV. BỐI CẢNH NỀN KHU VƯỜN (GARDEN BACKGROUND ENVIRONMENTS)
-
-Cần 2 ảnh nền không gian để học sinh có thể đổi theme giao diện:
-
-### 1. Khu Vườn Ban Ngày (Daytime Sunny Balcony)
-- *Key Prompt:*
+- **Image Prompt (Chung cho các hạt mầm):**
   ```text
-  Wide view cozy sunlit greenhouse balcony filled with lush green houseplants, wooden shelf, warm sunlight streaming through glass window, view of soft blue sky with fluffy white clouds, Studio Ghibli anime background art style, warm cozy serene aesthetic, wide angle 16:9, high resolution, no characters
+  A single cute magical glowing [flower name] seed resting on a tiny minimalist pastel ceramic saucer, delicate organic shell details, soft bioluminescent inner glow, tactile 3D cute claymation style, velvety matte finish, Pixar aesthetic, centered composition, front view, soft warm studio lighting, isolated on solid clean warm-white background (#FAFAFA) --no background
   ```
-
-### 2. Khu Vườn Ban Đêm Thư Giãn (Nighttime Cozy Starlight Conservatory)
-- *Key Prompt:*
+- **Motion Prompt (Tạo chuyển động):**
   ```text
-  A peaceful quiet nighttime balcony garden illuminated by gentle string fairy lights and a crescent moon in a starry indigo sky, soft glowing lanterns, cozy study desk in background, serene calming midnight vibe, lofi anime aesthetic, 16:9 wallpaper, high resolution, no characters
+  The magical seed gently hovers 2 inches above the saucer, slowly rotating 360 degrees with a soft rhythmic breathing pulse, releasing subtle glistening fairy dust particles, seamless continuous loop, ultra smooth 60fps.
   ```
 
 ---
 
-## V. DANH MỤC ÂM THANH & HIỆU ỨNG NHẠC (SFX & BGM SPECIFICATIONS)
+### GIAI ĐOẠN 2: GIEO VÀO CHẬU (SOWING INTO POT)
+> **Mô tả:** Hạt giống được đặt cẩn thận vào giữa lớp đất ẩm tơi xốp, có tia nắng mặt trời ấm áp chiếu rọi vào hạt.
 
-> **Gợi ý công cụ AI tạo âm thanh & nhạc:**
-> - Nhạc nền (BGM): **Suno AI** (`https://suno.com`) hoặc **Udio** (`https://udio.com`).
-> - Hiệu ứng âm thanh (SFX): **ElevenLabs Sound Effects** hoặc **MyEdit / Freesound**.
-
-### 1. Hiệu ứng âm thanh tương tác (SFX - Sound Effects):
-1. **`water_pour.mp3` (Tưới nước):**
-   - *Mô tả:* Tiếng nước rót róc rách nhẹ nhàng êm tai kèm tiếng chuông gió phong linh tinh tang (1.5s).
-   - *Prompt tạo (ElevenLabs):* `Gentle water pouring droplets splashing softly into soil with subtle sweet wind chime ring, calming clean audio`.
-2. **`checkin_success.mp3` (Hoàn thành check-in):**
-   - *Mô tả:* Tiếng harp (đàn hạc) hoặc đàn celesta gảy nốt thăng hoa ngọt ngào, cảm giác hoàn thành nhẹ nhõm (1.5s).
-   - *Prompt tạo:* `A sweet uplifting magical acoustic harp arpeggio, feeling of accomplishment and gentle warmth`.
-3. **`level_up_radiant.mp3` (Nở hoa chăm học / Kỷ lục chuỗi):**
-   - *Mô tả:* Tiếng chuông ngân vang kỳ diệu lấp lánh (2s).
-   - *Prompt tạo:* `Magical fairy dust shimmer chime, golden sparkle sparkle sound, cheerful game achievement sound`.
-4. **`capsule_seal.mp3` (Khóa viên nang thời gian):**
-   - *Mô tả:* Tiếng khóa lách cách cổ điển ấm áp kèm tiếng sáp niêm phong thư (2s).
-   - *Prompt tạo:* `Soft wooden chest lid closing with a satisfying gentle click and warm acoustic resonance`.
-
-### 2. Nhạc nền thư giãn (Ambient Lo-fi BGM):
-1. **Bài 1: "Sunflower Morning" (Học tập & Tươi vui ban ngày)**
-   - *Thời lượng:* 2:00 (Loop)
-   - *Thể loại:* Acoustic Guitar, Kalimba, Soft Piano, Bird chirping, Lo-fi beats nhẹ.
-   - *Prompt cho Suno / Udio:*
-     ```text
-     [Style]: Instrumental, cozy lo-fi hip hop, warm acoustic nylon guitar melody, gentle kalimba chimes, soft morning birds singing in background, relaxing coffee shop vibe, bpm 68, warm bass, peaceful studying atmosphere, no vocals
-     ```
-2. **Bài 2: "Zen Garden Night" (Thư giãn xoa dịu áp lực & Ngủ ngon ban đêm)**
-   - *Thời lượng:* 2:30 (Loop)
-   - *Thể loại:* Neo-classical Ambient, Soft Cello, Ambient Rain, Piano Solo.
-   - *Prompt cho Suno / Udio:*
-     ```text
-     [Style]: Ambient peaceful piano solo, emotional warm cello harmony, subtle distant night rain on window, deeply calming meditation music, healing mental health, slow tempo, bpm 55, zero drum, nocturnal dream, no vocals
-     ```
+- **Image Prompt:**
+  ```text
+  A cute minimalist rounded pastel ceramic pot filled with rich dark soft crumbly soil, a single glowing [flower name] seed snugly tucked halfway into the center of the earth, a gentle warm sunbeam shining down directly onto the seed, 3D cute claymation, cozy greenhouse aesthetic, centered, clean solid warm-white background (#FAFAFA) --no background
+  ```
+- **Motion Prompt:**
+  ```text
+  Warm sunbeams dance and shimmer softly over the tucked seed, dark soil settling gently as sparkling moisture dew sinks into the earth, calming peaceful heartbeat rhythm, seamless loop.
+  ```
 
 ---
 
-## VI. CÁCH ĐẶT TÊN FILE KHI BẠN XUẤT ASSETS CHO LẬP TRÌNH VIÊN
+### GIAI ĐOẠN 3: NẢY MẦM (SPROUTING / GERMINATION)
+> **Mô tả:** Hạt giống phá vỡ lớp đất, vươn lên 2 lá mầm non xanh nõn nà, trên chóp lá có 1 giọt sương long lanh.
 
-Sau khi bạn tạo xong các file ảnh và âm thanh từ AI, hãy lưu vào thư mục `frontend/public/assets/` theo quy ước chuẩn sau:
+- **Image Prompt:**
+  ```text
+  An adorable tiny baby [flower name] plant sprout popping up through soft soil inside a cute rounded pastel ceramic pot, two chubby vibrant lime-green cotyledon leaves opening upwards toward light, a sparkling crystal dewdrop on the leaf tip, cute kawaii emotion, 3D stylized Pixar-Ghibli, centered, clean solid warm-white background (#FAFAFA) --no background
+  ```
+- **Motion Prompt:**
+  ```text
+  The tiny green sprout pushes upward out of the soil with a joyful gentle stretch, unfolding its two tiny leaves happily and wobbling softly in a warm spring breeze, sparkling dewdrop shivering on the leaf, seamless loop.
+  ```
+
+---
+
+### GIAI ĐOẠN 4: CÂY NON (YOUNG SEEDLING / SAPLING)
+> **Mô tả:** Cây cao khoảng 1/2 kích thước tối đa, thân mảnh khỏe khoắn, có 4–6 lá non xanh mướt, đung đưa nhịp nhàng như đang khiêu vũ đón nắng.
+
+- **Image Prompt:**
+  ```text
+  A thriving young [flower name] seedling with a slender healthy green stem and several tender vibrant leaves, growing happily in a cute minimalist pastel ceramic pot, bathed in cheerful morning sunlight, tactile 3D stylized character, soft shadows, centered, clean solid warm-white background (#FAFAFA) --no background
+  ```
+- **Motion Prompt:**
+  ```text
+  The young seedling sways rhythmically left and right like a happy dancing child, leaves fluttering gently in warm air, absorbing soft sunshine with a playful bouncy pulse, seamless cute loop.
+  ```
+
+---
+
+### GIAI ĐOẠN 5: CÂY HÉO / THIẾU NƯỚC (WILTING / THIRST)
+> **Mô tả:** Khi học sinh gián đoạn check-in, cây buồn rủ nhẹ sang một bên, mắt buồn chớp chậm, đất khô nhẹ. Cây giữ nét đáng yêu, khơi gợi lòng trắc ẩn để học sinh quay lại tưới nước, tuyệt đối không ghê rợn hay áp lực.
+
+- **Image Prompt:**
+  ```text
+  A cute slightly sad wilting [flower name] plant bending softly to the side inside a minimalist pastel ceramic pot, drooping soft pastel leaves, dry pale soil, cute sleepy expressive eyes looking up asking gently for care, cozy melancholic yet warm aesthetic, 3D claymation, centered, clean solid warm-white background (#FAFAFA) --no background
+  ```
+- **Motion Prompt:**
+  ```text
+  The drooping cute plant sighs softly, swaying low with slow tired breathing, blinking its big sleepy eyes slowly, waiting patiently for water droplets to revive it, gentle melancholic loop.
+  ```
+
+---
+
+### GIAI ĐOẠN 6: CÂY TRƯỞNG THÀNH NỞ HOA (MATURE BLOOM)
+> **Mô tả:** Cây đạt trạng thái hoàn thiện tuyệt mỹ, hoa nở rộ kích thước tối đa, cánh hoa bung nở rực rỡ, khuôn mặt vui tươi, tràn đầy nhựa sống.
+
+- **Image Prompt:**
+  ```text
+  A magnificent fully grown mature [flower name] in glorious full bloom, lush green leaves, perfectly formed vibrant healthy petals, warm joyful facial expression in the center, planted in a decorative minimalist pastel ceramic pot, Studio Ghibli warmth meets 3D Pixar, centered, clean solid warm-white background (#FAFAFA) --no background
+  ```
+- **Motion Prompt:**
+  ```text
+  The blooming flower nods gently with a warm loving smile, petals and leaves fluttering softly in a soothing summer wind, breathing with a natural calming organic pulse, seamless continuous loop.
+  ```
+
+---
+
+### GIAI ĐOẠN 7: CÂY HÀO QUANG STREAK (RADIANT AURA BLOOM) — 8 CẤP ĐỘ MÀU
+
+Khi học sinh duy trì chuỗi ngày check-in và học tập liên tục (Streak), cây hoa trưởng thành sẽ được bao bọc bởi vòng hào quang phát sáng. Hào quang tăng dần theo 8 cấp độ màu:
+
+---
+
+#### CẤP 1: ⚪ HÀO QUANG TRẮNG / NGỌC TRAI (PURE WHITE / PEARL AURA)
+- **Ý nghĩa:** Streak 3–5 ngày: Khởi đầu thanh khiết, tâm trí trong trẻo.
+- **Image Prompt:**
+  ```text
+  A mature blooming [flower name] in a pastel ceramic pot, surrounded by a soft translucent pure white ethereal aura, gentle pearl-like light shimmering around the flower petals, floating tiny white stardust particles, 3D cute stylized, centered, clean solid warm-white background (#FAFAFA) --no background
+  ```
+- **Motion Prompt:**
+  ```text
+  Soft waves of pure white ethereal light gently pulsate outward from the flower core, white stardust particles floating upwards in slow motion, calming pure meditative loop, 60fps.
+  ```
+
+---
+
+#### CẤP 2: 🔵 HÀO QUANG XANH LAM (DEEP BLUE / COBALT AURA)
+- **Ý nghĩa:** Streak 7 ngày: Trí tuệ, tĩnh lặng và sự kiên nhẫn bước đầu.
+- **Image Prompt:**
+  ```text
+  A mature blooming [flower name] in a pastel ceramic pot, radiating a serene cobalt blue and deep sapphire energy aura, glowing royal blue translucent rings expanding around the petals, mystical wisdom vibe, 3D claymation, centered, clean solid warm-white background (#FAFAFA) --no background
+  ```
+- **Motion Prompt:**
+  ```text
+  Glowing deep blue energy rings slowly expand and dissolve around the flower, shimmering sapphire light motes dancing around the swaying petals, seamless rhythmic pulsing loop.
+  ```
+
+---
+
+#### CẤP 3: 💧 HÀO QUANG XANH NƯỚC BIỂN (AQUA / CYAN WATER RIPPLE AURA)
+- **Ý nghĩa:** Streak 14 ngày: Sự mát lành, cuốn trôi mệt mỏi, dòng chảy cảm xúc thông suốt.
+- **Image Prompt:**
+  ```text
+  A mature blooming [flower name] in a pastel ceramic pot, enveloped in a flowing cyan and aqua water-like aura, liquid light ripples and crystal clear turquoise bubbles floating in zero gravity around the petals, refreshing aesthetic, 3D stylized, centered, clean solid warm-white background (#FAFAFA) --no background
+  ```
+- **Motion Prompt:**
+  ```text
+  Luminescent aqua water ripples and turquoise bubbles orbit the blooming flower gracefully, soft flowing fluid motion with shimmering liquid light waves, ultra calming loop.
+  ```
+
+---
+
+#### CẤP 4: 🟣 HÀO QUANG TÍM HUYỀN BÍ (MYSTIC PURPLE / AMETHYST AURA)
+- **Ý nghĩa:** Streak 21 ngày (Mốc vàng 3 tuần hình thành thói quen): Huyền bí, kết nối sâu sắc.
+- **Image Prompt:**
+  ```text
+  A mature blooming [flower name] in a pastel ceramic pot, glowing with a rich amethyst purple aura, floating lavender energy sparks, mystical galaxy star dust swirling gently around the petals, 3D cute Pixar render, centered, clean solid warm-white background (#FAFAFA) --no background
+  ```
+- **Motion Prompt:**
+  ```text
+  Hypnotic purple nebula spirals and amethyst crystal sparkles swirl smoothly around the flower stem and petals, breathing with a mystical cosmic rhythm, seamless enchanted loop.
+  ```
+
+---
+
+#### CẤP 5: 🔴 HÀO QUANG ĐỎ RỰC LỬA (CRIMSON RED / RUBY FLAME AURA)
+- **Ý nghĩa:** Streak 30 ngày (1 tháng kiên định): Lòng dũng cảm, đam mê rực cháy, không nản bước.
+- **Image Prompt:**
+  ```text
+  A mature blooming [flower name] in a pastel ceramic pot, enveloped in an intense crimson red and ruby flame aura, warm heroic courage energy field, burning with gentle soft harmless flame ribbons, glowing red fireflies, 3D stylized, centered, clean solid warm-white background (#FAFAFA) --no background
+  ```
+- **Motion Prompt:**
+  ```text
+  Gentle soft ruby flames and crimson light ribbons dance and flicker warmly around the flower without harming it, pulsing with bold passionate energy, dynamic looping motion.
+  ```
+
+---
+
+#### CẤP 6: 🟡 HÀO QUANG VÀNG KIM THÁI DƯƠNG (SOLAR GOLD / AMBER AURA)
+- **Ý nghĩa:** Streak 50 ngày: Vinh quang của người kiên trì, rạng rỡ như ánh mặt trời ban trưa.
+- **Image Prompt:**
+  ```text
+  A mature blooming [flower name] in a pastel ceramic pot, surrounded by an intense dazzling solar gold aura, shimmering amber light rays piercing outward, floating golden coins and solar flare particles, triumphant champion vibe, 3D Pixar, centered, clean solid warm-white background (#FAFAFA) --no background
+  ```
+- **Motion Prompt:**
+  ```text
+  Radiant solar golden light beams rotate slowly behind the flower like a celestial mandala, brilliant golden sparkles cascade down in continuous celebration, energetic glorious loop.
+  ```
+
+---
+
+#### CẤP 7: 🌈 HÀO QUANG NGŨ SẮC CẦU VỒNG (PRISMATIC RAINBOW / AURORA AURA)
+- **Ý nghĩa:** Streak 100 ngày (Kỷ lục 100 ngày): Đỉnh cao hài hòa, trọn vẹn mọi sắc thái cảm xúc.
+- **Image Prompt:**
+  ```text
+  A mature blooming [flower name] in a pastel ceramic pot, wrapped in a spectacular prismatic rainbow aurora borealis aura, shimmering iridescent color transitions of pink, cyan, yellow, violet, and green flowing seamlessly across the petals, magical fairy tale aesthetic, 3D stylized, centered, clean solid warm-white background (#FAFAFA) --no background
+  ```
+- **Motion Prompt:**
+  ```text
+  Mesmerizing rainbow aurora waves weave and shift fluidly in a spectrum of vibrant colors around the swaying flower, iridescent prismatic dust glittering in perpetual motion, dreamlike seamless loop.
+  ```
+
+---
+
+#### CẤP 8: ✨ HÀO QUANG SÁNG CHÓI CỰC ĐẠI (BLINDING CELESTIAL DIVINE LIGHT AURA)
+- **Ý nghĩa:** Streak siêu đỉnh (>150 ngày): Cảnh giới tối thượng, ánh sáng kim cương khai sáng tâm trí.
+- **Image Prompt:**
+  ```text
+  A transcendent celestial blooming [flower name] in a pastel ceramic pot, emanating blinding brilliant holy white-gold starlight, intense glowing lens flares, crowned with an angelic glowing halo, floating crystal geometry shards, ultimate mastery aura, 3D cinematic render, centered, clean solid warm-white background (#FAFAFA) --no background
+  ```
+- **Motion Prompt:**
+  ```text
+  Magnificent blinding starlight pulses with divine celestial power, radiant rays of intense brilliant white and diamond light burst outward in a glorious rotating cosmic burst, majestic high-energy seamless loop.
+  ```
+
+---
+
+## IV. BẢNG BIỂU MẪU PROMPT RÁP TỰ ĐỘNG CHO 6 LOÀI HOA CỤ THỂ
+
+Khi tạo cho loài hoa nào, bạn chỉ cần thay `[flower name]` bằng tên tiếng Anh tương ứng:
+
+1. **🌻 Hoa Hướng Dương:** `cheerful sunflower with bright golden-yellow petals and friendly smiling brown center`
+2. **🪷 Hoa Sen:** `serene pink and white lotus flower resting in a shallow pastel zen water bowl`
+3. **🌾 Hoa Bồ Công Anh:** `fluffy white dandelion seed puff with soft cotton parachute fibers`
+4. **🪻 Hoa Oải Hương:** `aromatic bouquet of purple lavender stems with sleepy lilac sparkles`
+5. **🌸 Hoa Anh Đào:** `graceful miniature cherry blossom bonsai with soft peach-pink petals`
+6. **🌵 Xương Rồng Nở Hoa:** `chubby round green cactus with friendly soft bumps and bright ruby-red blossom on top`
+
+---
+
+## V. QUY ƯỚC LƯU FILE CHUẨN ĐỂ TÍCH HỢP VÀO MÃ NGUỒN
+
+Lưu toàn bộ các file ảnh (`.webp` hoặc `.png` tách nền) và ảnh động (`.webm` hoặc `.mp4` lặp mượt) vào thư mục:
 
 ```text
-frontend/public/assets/
-├── flowers/
-│   ├── sunflower_sprout.webp          # Mầm hoa hướng dương
-│   ├── sunflower_bloom.webp           # Hoa hướng dương tích cực
-│   ├── sunflower_radiant.webp         # Hoa hướng dương chăm học (hào quang)
-│   ├── sunflower_wilting.webp         # Hoa hướng dương thiếu nước
-│   ├── lotus_bloom.webp               # Hoa sen tĩnh lặng
-│   ├── lotus_radiant.webp             # Hoa sen hào quang thiền
-│   ├── dandelion_puff.webp            # Hoa bồ công anh
-│   ├── dandelion_float.gif (hoặc webm)# Bồ công anh bay
-│   ├── lavender_cozy.webp             # Hoa oải hương
-│   ├── cactus_bloom.webp              # Xương rồng nở hoa
-│   └── hydrangea_pastel.webp          # Cẩm tú cầu
-├── props/
-│   ├── watering_can.webp              # Bình tưới nước
-│   ├── dew_drop.webp                  # Giọt nước sương
-│   ├── freeze_shield.webp             # Khiên đóng băng chuỗi
-│   └── time_capsule_chest.webp        # Hòm thư viên nang
-├── backgrounds/
-│   ├── garden_day.webp                # Khu vườn ban ngày
-│   └── garden_night.webp              # Khu vườn ban đêm
-└── audio/
-    ├── water_pour.mp3                 # Âm thanh tưới nước
-    ├── checkin_success.mp3            # Âm thanh hoàn thành nhiệm vụ
-    ├── level_up.mp3                   # Âm thanh nở hoa / lên cấp
-    ├── bgm_morning.mp3                # Nhạc nền ban ngày
-    └── bgm_night.mp3                  # Nhạc nền ban đêm
+frontend/public/assets/flowers/
+├── [flower_id]/
+│   ├── seed.webp                  # Trạng thái 1: Hạt giống
+│   ├── seed_motion.webm           # (Motion)
+│   ├── sowing.webp                # Trạng thái 2: Gieo vào chậu
+│   ├── sprout.webp                # Trạng thái 3: Nảy mầm
+│   ├── sprout_motion.webm         # (Motion)
+│   ├── seedling.webp              # Trạng thái 4: Cây non
+│   ├── seedling_motion.webm       # (Motion)
+│   ├── wilting.webp               # Trạng thái 5: Cây héo
+│   ├── wilting_motion.webm        # (Motion)
+│   ├── bloom.webp                 # Trạng thái 6: Trưởng thành
+│   ├── bloom_motion.webm          # (Motion)
+│   ├── aura_lvl1_white.webp       # Hào quang 1: Trắng
+│   ├── aura_lvl1_white.webm       # (Motion)
+│   ├── aura_lvl2_blue.webp        # Hào quang 2: Xanh lam
+│   ├── aura_lvl2_blue.webm        # (Motion)
+│   ├── aura_lvl3_aqua.webp        # Hào quang 3: Xanh nước
+│   ├── aura_lvl3_aqua.webm        # (Motion)
+│   ├── aura_lvl4_purple.webp      # Hào quang 4: Tím
+│   ├── aura_lvl4_purple.webm      # (Motion)
+│   ├── aura_lvl5_red.webp         # Hào quang 5: Đỏ
+│   ├── aura_lvl5_red.webm         # (Motion)
+│   ├── aura_lvl6_gold.webp        # Hào quang 6: Vàng
+│   ├── aura_lvl6_gold.webm        # (Motion)
+│   ├── aura_lvl7_rainbow.webp     # Hào quang 7: Ngũ sắc
+│   ├── aura_lvl7_rainbow.webm     # (Motion)
+│   ├── aura_lvl8_divine.webp      # Hào quang 8: Sáng chói
+│   └── aura_lvl8_divine.webm      # (Motion)
 ```
 
----
-
-*Tài liệu này đã được thiết kế sẵn sàng để bạn copy từng đoạn Prompt thả trực tiếp vào Midjourney, DALL-E, Leonardo AI, Runway Gen-2, Pika, Suno hoặc ElevenLabs!*
+*(Trong đó `flower_id` gồm: `sunflower`, `lotus`, `dandelion`, `lavender`, `cherry_blossom`, `cactus`)*
