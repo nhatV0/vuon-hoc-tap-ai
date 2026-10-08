@@ -22,6 +22,9 @@ Hệ thống web hỗ trợ học tập cá nhân hóa và chăm sóc sức kh�
    - Theo dõi tổng số học sinh, danh sách học sinh có dấu hiệu quá tải hoặc vắng mặt kéo dài.
    - Gợi ý lời nói và hành động tâm lý học đường phù hợp để thầy cô hỗ trợ kịp thời.
 
+5. **Hệ thống đa dạng loài hoa & Bộ tài nguyên Multimedia (Đang mở rộng)**:
+   - Mở rộng thêm 6 loài hoa chữa lành: Hoa Hướng Dương, Hoa Sen, Bồ Công Anh, Oải Hương, Xương Rồng, Cẩm Tú Cầu.
+   - Toàn bộ đặc tả tạo ảnh AI, chuyển động (Motion/Lottie), âm thanh SFX và nhạc nền BGM xem chi tiết tại [`ASSETS_CREATION_GUIDE.md`](./ASSETS_CREATION_GUIDE.md).
 ## 🚀 Khởi Chạy Dự Án
 
 ### Backend (FastAPI + Python 3.14 + SQLite)
