@@ -50,8 +50,7 @@ export default function StudentGardenDashboard() {
   const [showFlowerShowcase, setShowFlowerShowcase] = useState<boolean>(false);
   const [gardenDisplayMode, setGardenDisplayMode] = useState<DisplayMode>("3d_motion");
 
-  // Watering action
-  const [isWatering] = useState<boolean>(false);
+  // Notification toast
   const [waterToast, setWaterToast] = useState<string | null>(null);
 
   // Tasks checklist state
@@ -374,282 +373,306 @@ export default function StudentGardenDashboard() {
 
       {/* 2. MAIN WORKSPACE TẬP TRUNG */}
       <main className="max-w-3xl mx-auto px-4 mt-6 space-y-6">
-        {/* BANNER NGỌN LỬA & HOA HƯỚNG DƯƠNG TINH GIẢN */}
-        <div className="p-5 sm:p-6 rounded-3xl bg-white border border-stone-200/90 shadow-sm relative overflow-hidden">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            {/* Lời nhắn ngắn & Trạng thái Streak */}
-            <div className="space-y-2 text-center sm:text-left flex-1">
-              {(() => {
-                const isWilting = garden?.current_state === "thieu_nuoc";
-                const badgeStyle = getStreakBadgeStyle(streakDays, isWilting);
-                return (
-                  <div
-                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border shadow-2xs ${badgeStyle.bg} ${badgeStyle.border} ${badgeStyle.text}`}
-                  >
-                    <Flame className={`w-3.5 h-3.5 ${badgeStyle.flameFill} ${badgeStyle.flameText}`} />
-                    <span>Hôm Nay: {badgeStyle.label}</span>
-                  </div>
-                );
-              })()}
-              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 pt-1 text-xs">
-                {/* NÚT NƯỚC THÁNH (LƯỢT KHÔI PHỤC CHUỖI) */}
-                <button
-                  onClick={handleRestoreStreak}
-                  disabled={!garden?.can_restore_streak}
-                  className={`px-3.5 py-1.5 rounded-xl font-bold flex items-center gap-1.5 transition-all shadow-xs active:scale-95 ${
-                    garden?.can_restore_streak
-                      ? "bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-700 hover:to-indigo-700 text-white animate-pulse"
-                      : "bg-sky-50 text-sky-800 border border-sky-200 opacity-90 hover:bg-sky-100"
-                  }`}
-                  title={
-                    garden?.can_restore_streak
-                      ? `Nhấn để dùng 1 bình Nước Thánh khôi phục về chuỗi ${garden.saved_streak_before_break} ngày!`
-                      : `Nước Thánh (Lượt khôi phục chuỗi): Bạn hiện có ${garden?.grace_passes_available ?? 1} bình.`
-                  }
+        {/* BANNER HOA HƯỚNG DƯƠNG 3D TRUNG TÂM & NỔI BẬT */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-white border border-stone-200/90 shadow-sm relative overflow-hidden flex flex-col items-center text-center space-y-4">
+          {/* 1. Huy hiệu Streak Mốc Màu */}
+          <div>
+            {(() => {
+              const isWilting = garden?.current_state === "thieu_nuoc";
+              const badgeStyle = getStreakBadgeStyle(streakDays, isWilting);
+              return (
+                <div
+                  className={`inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider border shadow-2xs ${badgeStyle.bg} ${badgeStyle.border} ${badgeStyle.text}`}
                 >
-                  <Droplets className="w-3.5 h-3.5 fill-sky-500 text-sky-500" />
-                  <span>
-                    Nước Thánh ({garden?.grace_passes_available ?? 1})
-                    {garden?.can_restore_streak ? ` • Khôi phục ${garden.saved_streak_before_break}d` : ""}
-                  </span>
-                </button>
-
-                <Link
-                  href="/planning"
-                  className="px-3 py-1.5 rounded-xl text-stone-500 hover:text-stone-800 hover:bg-stone-100 font-medium flex items-center gap-1 transition-colors"
-                >
-                  <ListTodo className="w-3.5 h-3.5" />
-                  Kế hoạch 7 ngày
-                </Link>
-              </div>
-
-              {waterToast && (
-                <p className="text-xs text-emerald-600 font-medium animate-in fade-in">
-                  ✨ {waterToast}
-                </p>
-              )}
-            </div>
-
-            {/* Chậu hoa hướng dương 3D tương tác với công tắc chuyển đổi Chế Độ (Display Mode) */}
-            <div className="shrink-0 flex flex-col items-center justify-center">
-              <div className="relative flex items-center justify-center">
-                <SunflowerVisual
-                  state={garden?.current_state || "tich_cuc"}
-                  streak={streakDays}
-                  waterDrops={garden?.water_drops ?? 0}
-                  isWatering={isWatering}
-                  size="md"
-                  displayMode={gardenDisplayMode}
-                  onModeChange={setGardenDisplayMode}
-                />
-              </div>
-
-              {/* CÔNG TẮC CHUYỂN CHẾ ĐỘ HIỂN THỊ (3D MOTION / ẢNH HD) */}
-              <div className="mt-2.5 flex items-center p-0.5 rounded-xl bg-stone-100/90 border border-stone-200/90 shadow-2xs text-[10px]">
-                <button
-                  type="button"
-                  onClick={() => setGardenDisplayMode("3d_motion")}
-                  className={`px-2.5 py-0.5 rounded-lg font-bold flex items-center gap-1 transition-all ${
-                    gardenDisplayMode === "3d_motion"
-                      ? "bg-white text-amber-700 shadow-2xs"
-                      : "text-stone-500 hover:text-stone-800"
-                  }`}
-                  title="Chế độ Hoạt ảnh 3D chuyển động mượt mà 60fps"
-                >
-                  <Film className="w-2.5 h-2.5 text-amber-500" />
-                  <span>3D Motion</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setGardenDisplayMode("3d_static")}
-                  className={`px-2.5 py-0.5 rounded-lg font-bold flex items-center gap-1 transition-all ${
-                    gardenDisplayMode === "3d_static"
-                      ? "bg-white text-amber-700 shadow-2xs"
-                      : "text-stone-500 hover:text-stone-800"
-                  }`}
-                  title="Chế độ Ảnh 3D tĩnh sắc nét tách nền"
-                >
-                  <ImageIcon className="w-2.5 h-2.5 text-blue-500" />
-                  <span>Ảnh 3D HD</span>
-                </button>
-              </div>
-
-              <div className="mt-1.5 flex items-center gap-1.5">
-                <button
-                  type="button"
-                  onClick={() => setShowFlowerShowcase(true)}
-                  className="px-2.5 py-1 rounded-full bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 text-[10px] font-bold flex items-center gap-1 transition-colors shadow-2xs"
-                  title="Mở phòng trưng bày 8 cấp hào quang và hoạt ảnh 3D"
-                >
-                  <Eye className="w-3 h-3 text-amber-600" />
-                  <span>Phòng Trưng Bày Hào Quang</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 3. BẢNG NHIỆM VỤ HÔM NAY (INTERACTIVE CHECKLIST WITH DISMISS ANIMATION) */}
-        <section className="bg-white rounded-3xl border border-stone-200/90 p-5 sm:p-6 shadow-sm space-y-4">
-          <div className="flex items-center justify-between border-b border-stone-100 pb-3">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700">
-                <CheckCircle2 className="w-4 h-4" />
-              </div>
-              <div>
-                <h2 className="text-sm sm:text-base font-extrabold text-stone-900">
-                  Nhiệm Vụ Hôm Nay
-                </h2>
-                <p className="text-[11px] text-stone-500">
-                  Hoàn thành từng mục tiêu vi mô (5 - 10 phút) để giải phóng quán tính
-                </p>
-              </div>
-            </div>
-
-            <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-stone-100 text-stone-600">
-              {completedTasks.length} / {tasks.length} Đã xong
-            </span>
+                  <Flame className={`w-3.5 h-3.5 ${badgeStyle.flameFill} ${badgeStyle.flameText}`} />
+                  <span>Hôm Nay: {badgeStyle.label}</span>
+                </div>
+              );
+            })()}
           </div>
 
-          {/* Danh sách nhiệm vụ đang làm */}
-          {tasksLoading ? (
-            <div className="py-8 text-center text-xs text-stone-400 flex items-center justify-center gap-2">
-              <Clock className="w-4 h-4 animate-spin text-amber-500" />
-              <span>Đang tải các bước vi mô...</span>
-            </div>
-          ) : activeTasks.length === 0 ? (
-            <div className="py-8 px-4 rounded-2xl bg-emerald-50/60 border border-emerald-200/80 text-center flex flex-col items-center gap-2.5 animate-in fade-in">
-              <span className="text-3xl">🎉</span>
-              <h3 className="text-sm font-bold text-emerald-900">
-                Xuất sắc! Bạn đã hoàn thành 100% nhiệm vụ hôm nay
-              </h3>
-              <p className="text-xs text-emerald-800/80 max-w-sm leading-relaxed">
-                Tất cả nhiệm vụ vi mô đã xong! Giờ bạn đã mở khóa quyền điểm danh để cộng chuỗi Streak hôm nay.
-              </p>
+          {/* 2. CHẬU HOA HƯỚNG DƯƠNG 3D VÀO CHÍNH GIỮA, PHÓNG TO RÕ RÀNG */}
+          <div className="relative flex flex-col items-center justify-center my-2">
+            <SunflowerVisual
+              state={garden?.current_state || "tich_cuc"}
+              streak={streakDays}
+              waterDrops={garden?.water_drops ?? 0}
+              size="lg"
+              displayMode={gardenDisplayMode}
+              onModeChange={setGardenDisplayMode}
+            />
+
+            {/* CÔNG TẮC CHUYỂN CHẾ ĐỘ HIỂN THỊ (3D MOTION / ẢNH HD) */}
+            <div className="mt-3 flex items-center p-1 rounded-2xl bg-stone-100/90 border border-stone-200/90 shadow-2xs text-[11px]">
               <button
                 type="button"
-                onClick={() => setShowCheckinModal(true)}
-                className="mt-1 px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm active:scale-95 transition-all"
+                onClick={() => setGardenDisplayMode("3d_motion")}
+                className={`px-3 py-1 rounded-xl font-bold flex items-center gap-1.5 transition-all ${
+                  gardenDisplayMode === "3d_motion"
+                    ? "bg-white text-amber-700 shadow-2xs"
+                    : "text-stone-500 hover:text-stone-800"
+                }`}
+                title="Chế độ Hoạt ảnh 3D: Cây hoa thở nhẹ và chuyển động mượt mà 60fps"
               >
-                <Calendar className="w-3.5 h-3.5" />
-                <span>Tiến Hành Điểm Danh Ngay (3 phút)</span>
+                <Film className="w-3.5 h-3.5 text-amber-500" />
+                <span>3D Motion</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setGardenDisplayMode("3d_static")}
+                className={`px-3 py-1 rounded-xl font-bold flex items-center gap-1.5 transition-all ${
+                  gardenDisplayMode === "3d_static"
+                    ? "bg-white text-amber-700 shadow-2xs"
+                    : "text-stone-500 hover:text-stone-800"
+                }`}
+                title="Chế độ Ảnh 3D HD: Hình ảnh tĩnh độ phân giải cao tách nền sắc nét"
+              >
+                <ImageIcon className="w-3.5 h-3.5 text-blue-500" />
+                <span>Ảnh 3D HD</span>
               </button>
             </div>
-          ) : (
-            <div className="space-y-2.5">
-              {activeTasks.map((t) => {
-                const isStriked = t.animState === "striked";
-                const isSliding = t.animState === "sliding";
 
-                return (
-                  <div
-                    key={t.id}
-                    className={`p-3.5 rounded-2xl border transition-all duration-300 flex items-center justify-between gap-3 ${
-                      isSliding
-                        ? "opacity-0 -translate-x-4 scale-95 duration-400 bg-amber-50/40 border-amber-200"
-                        : isStriked
-                        ? "bg-amber-50/60 border-amber-300 shadow-xs"
-                        : "bg-stone-50/50 hover:bg-stone-50 border-stone-200 hover:border-amber-300"
-                    }`}
-                  >
-                    <div className="flex items-center gap-3 flex-1 min-w-0">
-                      {/* Checkbox tròn tương tác */}
-                      <button
-                        type="button"
-                        onClick={() => handleToggleTask(t)}
-                        className={`w-6 h-6 rounded-full border flex items-center justify-center shrink-0 transition-all ${
-                          isStriked || isSliding || t.is_completed
-                            ? "bg-amber-500 border-amber-600 text-white scale-105"
-                            : "border-stone-300 hover:border-amber-500 bg-white"
-                        }`}
-                        title="Đánh dấu hoàn thành"
-                      >
-                        {(isStriked || isSliding || t.is_completed) && (
-                          <Check className="w-3.5 h-3.5 stroke-[3]" />
-                        )}
-                      </button>
-
-                      {/* Tiêu đề & Thông tin task */}
-                      <div className="flex-1 min-w-0">
-                        <p
-                          className={`text-xs sm:text-sm font-semibold text-stone-800 transition-all duration-300 truncate ${
-                            isStriked || isSliding
-                              ? "line-through text-stone-400 decoration-amber-500 decoration-2"
-                              : ""
-                          }`}
-                        >
-                          {t.title}
-                        </p>
-                        <div className="flex items-center gap-2 text-[10px] text-stone-400 mt-0.5">
-                          {t.subject && (
-                            <span className="font-medium text-stone-500">{t.subject}</span>
-                          )}
-                          <span>&bull;</span>
-                          <span>{t.duration_minutes} phút</span>
-                          {t.tip && (
-                            <>
-                              <span>&bull;</span>
-                              <span className="text-amber-700/80 italic truncate">{t.tip}</span>
-                            </>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-
-                    <span className="text-[10px] font-bold text-stone-400 bg-white px-2 py-0.5 rounded-md border border-stone-200 shrink-0">
-                      Vi mô
-                    </span>
-                  </div>
-                );
-              })}
+            <div className="mt-2">
+              <button
+                type="button"
+                onClick={() => setShowFlowerShowcase(true)}
+                className="px-3.5 py-1.5 rounded-full bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 text-xs font-bold flex items-center gap-1.5 transition-colors shadow-2xs"
+                title="Xem phòng trưng bày: Chiêm ngưỡng đầy đủ 5 mốc sinh trưởng và 8 cấp độ hào quang tỏa sáng rực rỡ"
+              >
+                <Eye className="w-3.5 h-3.5 text-amber-600" />
+                <span>Phòng Trưng Bày Hào Quang</span>
+              </button>
             </div>
+          </div>
+
+          {/* 3. Lời chào và Thông điệp truyền cảm hứng */}
+          <div className="space-y-1.5 max-w-lg">
+            <h1 className="text-xl sm:text-2xl font-extrabold text-stone-900 tracking-tight">
+              Chào {student?.name || "bạn học"}, giữ vững ngọn lửa nhé!
+            </h1>
+            <p className="text-xs sm:text-sm text-stone-600 italic leading-relaxed">
+              &ldquo;{garden?.story_message || "Chỉ cần 5 phút hôm nay để giữ cho chuỗi không bị đứt đoạn."}&rdquo;
+            </p>
+          </div>
+
+          {/* 4. Các nút hành động chính (Nước thánh, Kế hoạch 7 ngày) */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 pt-1 text-xs">
+            {/* NÚT NƯỚC THÁNH (LƯỢT KHÔI PHỤC CHUỖI) */}
+            <button
+              onClick={handleRestoreStreak}
+              disabled={!garden?.can_restore_streak}
+              className={`px-4 py-2 rounded-xl font-bold flex items-center gap-1.5 transition-all shadow-xs active:scale-95 ${
+                garden?.can_restore_streak
+                  ? "bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-700 hover:to-indigo-700 text-white animate-pulse"
+                  : "bg-sky-50 text-sky-800 border border-sky-200 opacity-90 hover:bg-sky-100"
+              }`}
+              title={
+                garden?.can_restore_streak
+                  ? `Nhấn để dùng 1 bình Nước Thánh khôi phục về chuỗi ${garden.saved_streak_before_break} ngày đã mất!`
+                  : `Nước Thánh (Vé khôi phục chuỗi): Bạn hiện có ${garden?.grace_passes_available ?? 1} bình. Tặng 1 bình khi bắt đầu và mỗi 30 ngày kiên trì.`
+              }
+            >
+              <Droplets className="w-4 h-4 fill-sky-500 text-sky-500" />
+              <span>
+                Nước Thánh ({garden?.grace_passes_available ?? 1})
+                {garden?.can_restore_streak ? ` • Khôi phục ${garden.saved_streak_before_break}d` : ""}
+              </span>
+            </button>
+
+            <Link
+              href="/planning"
+              className="px-4 py-2 rounded-xl text-stone-600 hover:text-stone-900 bg-stone-100 hover:bg-stone-200 font-bold flex items-center gap-1.5 transition-colors shadow-2xs"
+              title="Mở bảng lộ trình 7 ngày: Lên kế hoạch chi tiết các bước học tập vi mô"
+            >
+              <ListTodo className="w-4 h-4 text-stone-500" />
+              <span>Kế hoạch 7 ngày</span>
+            </Link>
+          </div>
+
+          {waterToast && (
+            <p className="text-xs text-emerald-600 font-medium animate-in fade-in">
+              ✨ {waterToast}
+            </p>
           )}
+        </div>
+        {/* 3. BẢNG NHIỆM VỤ HÔM NAY (NẾU ĐÃ HOÀN THÀNH ĐIỂM DANH THÌ ẨN KHUNG NHIỆM VỤ) */}
+        {!garden?.has_checked_in_today ? (
+          <section className="bg-white rounded-3xl border border-stone-200/90 p-5 sm:p-6 shadow-sm space-y-4 animate-in fade-in">
+            <div className="flex items-center justify-between border-b border-stone-100 pb-3">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700">
+                  <CheckCircle2 className="w-4 h-4" />
+                </div>
+                <div>
+                  <h2 className="text-sm sm:text-base font-extrabold text-stone-900">
+                    Nhiệm Vụ Hôm Nay
+                  </h2>
+                  <p className="text-[11px] text-stone-500">
+                    Hoàn thành toàn bộ mục tiêu vi mô để mở khóa quyền điểm danh và thắp sáng chuỗi
+                  </p>
+                </div>
+              </div>
 
-          {/* Accordion xem lại các nhiệm vụ đã hoàn thành */}
-          {completedTasks.length > 0 && (
-            <div className="pt-2 border-t border-stone-100">
-              <button
-                type="button"
-                onClick={() => setShowCompletedAccordion(!showCompletedAccordion)}
-                className="text-xs text-stone-500 hover:text-stone-800 font-semibold flex items-center gap-1.5 transition-colors"
-              >
-                <span>Xem lại {completedTasks.length} nhiệm vụ đã xong hôm nay</span>
-                <ChevronDown
-                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                    showCompletedAccordion ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
+              <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-stone-100 text-stone-600">
+                {completedTasks.length} / {tasks.length} Đã xong
+              </span>
+            </div>
 
-              {showCompletedAccordion && (
-                <div className="space-y-2 mt-3 animate-in fade-in">
-                  {completedTasks.map((t) => (
+            {/* Danh sách nhiệm vụ đang làm */}
+            {tasksLoading ? (
+              <div className="py-8 text-center text-xs text-stone-400 flex items-center justify-center gap-2">
+                <Clock className="w-4 h-4 animate-spin text-amber-500" />
+                <span>Đang tải các bước vi mô...</span>
+              </div>
+            ) : activeTasks.length === 0 ? (
+              <div className="py-8 px-4 rounded-2xl bg-emerald-50/60 border border-emerald-200/80 text-center flex flex-col items-center gap-2.5 animate-in fade-in">
+                <span className="text-3xl">🎉</span>
+                <h3 className="text-sm font-bold text-emerald-900">
+                  Xuất sắc! Bạn đã hoàn thành 100% nhiệm vụ hôm nay
+                </h3>
+                <p className="text-xs text-emerald-800/80 max-w-sm leading-relaxed">
+                  Tất cả nhiệm vụ vi mô đã xong! Giờ bạn đã mở khóa quyền điểm danh để cộng chuỗi Streak hôm nay.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setShowCheckinModal(true)}
+                  className="mt-1 px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm active:scale-95 transition-all"
+                  title="Nhấn để bắt đầu 3 phút điểm danh và thắp sáng ngọn lửa ngày mới"
+                >
+                  <Calendar className="w-3.5 h-3.5" />
+                  <span>Tiến Hành Điểm Danh Ngay (3 phút)</span>
+                </button>
+              </div>
+            ) : (
+              <div className="space-y-2.5">
+                {activeTasks.map((t) => {
+                  const isStriked = t.animState === "striked";
+                  const isSliding = t.animState === "sliding";
+
+                  return (
                     <div
                       key={t.id}
-                      className="p-3 rounded-xl border border-stone-200 bg-stone-100/50 flex items-center justify-between gap-3 text-xs opacity-75"
+                      className={`p-3.5 rounded-2xl border transition-all duration-300 flex items-center justify-between gap-3 ${
+                        isSliding
+                          ? "opacity-0 -translate-x-4 scale-95 duration-400 bg-amber-50/40 border-amber-200"
+                          : isStriked
+                          ? "bg-amber-50/60 border-amber-300 shadow-xs"
+                          : "bg-stone-50/50 hover:bg-stone-50 border-stone-200 hover:border-amber-300"
+                      }`}
                     >
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
-                          <Check className="w-3 h-3 stroke-[3]" />
+                      <div className="flex items-center gap-3 flex-1 min-w-0">
+                        <button
+                          type="button"
+                          onClick={() => handleToggleTask(t)}
+                          className={`w-6 h-6 rounded-full border flex items-center justify-center shrink-0 transition-all ${
+                            t.is_completed || isStriked
+                              ? "bg-amber-500 border-amber-500 text-white"
+                              : "border-stone-300 bg-white hover:border-amber-400"
+                          }`}
+                          title={t.is_completed ? "Đánh dấu chưa hoàn thành" : "Đánh dấu đã hoàn thành nhiệm vụ này"}
+                        >
+                          {(t.is_completed || isStriked) && <Check className="w-3.5 h-3.5 stroke-[3]" />}
+                        </button>
+                        <div className="min-w-0 flex-1">
+                          <p
+                            className={`text-xs font-semibold text-stone-900 transition-all line-clamp-2 ${
+                              isStriked ? "line-through text-stone-400 decoration-amber-500" : ""
+                            }`}
+                          >
+                            {t.title}
+                          </p>
+                          <div className="flex items-center gap-2 mt-0.5 text-[10px] text-stone-400">
+                            {t.subject && <span className="font-medium text-stone-600">{t.subject}</span>}
+                            <span>•</span>
+                            <span>{t.duration_minutes} phút</span>
+                            {t.tip && (
+                              <>
+                                <span>•</span>
+                                <span className="text-stone-500 italic truncate max-w-[200px]">{t.tip}</span>
+                              </>
+                            )}
+                          </div>
                         </div>
-                        <span className="line-through text-stone-500 font-medium">{t.title}</span>
                       </div>
-                      <button
-                        onClick={() => handleToggleTask(t)}
-                        title="Bỏ đánh dấu hoàn thành"
-                        className="text-[10px] text-stone-400 hover:text-stone-700 flex items-center gap-1"
-                      >
-                        <RotateCcw className="w-3 h-3" />
-                        Làm lại
-                      </button>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 shrink-0">
+                        Vi mô
+                      </span>
                     </div>
-                  ))}
-                </div>
-              )}
+                  );
+                })}
+              </div>
+            )}
+
+            {/* Accordion nhiệm vụ đã xong */}
+            {completedTasks.length > 0 && (
+              <div className="pt-2 border-t border-stone-100">
+                <button
+                  type="button"
+                  onClick={() => setShowCompletedAccordion(!showCompletedAccordion)}
+                  className="w-full flex items-center justify-between text-xs text-stone-500 hover:text-stone-800 font-medium py-1"
+                  title="Bấm để xem lại hoặc làm lại các nhiệm vụ đã tích hoàn thành"
+                >
+                  <span>Xem lại {completedTasks.length} nhiệm vụ đã xong hôm nay</span>
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform duration-200 ${
+                      showCompletedAccordion ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                {showCompletedAccordion && (
+                  <div className="space-y-2 mt-3 animate-in fade-in">
+                    {completedTasks.map((t) => (
+                      <div
+                        key={t.id}
+                        className="p-3 rounded-xl bg-stone-50/70 border border-stone-200/60 flex items-center justify-between gap-3 opacity-75"
+                      >
+                        <span className="text-xs text-stone-500 line-through truncate flex-1">
+                          {t.title}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => handleToggleTask(t)}
+                          className="text-[10px] text-amber-700 hover:text-amber-900 font-bold flex items-center gap-1 hover:underline"
+                          title="Hoàn tác để làm lại nhiệm vụ này"
+                        >
+                          <RotateCcw className="w-3 h-3" />
+                          Làm lại
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+          </section>
+        ) : (
+          /* THÔNG BÁO HOÀN TẤT ĐIỂM DANH HÔM NAY (ẨN BẢNG NHIỆM VỤ ĐỂ KHÔNG GÂY RỐI MẮT) */
+          <section className="bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 rounded-3xl border border-emerald-200 p-6 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4 animate-in fade-in">
+            <div className="flex items-center gap-3 text-center sm:text-left">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-100 border border-emerald-300 text-emerald-800 flex items-center justify-center text-xl shrink-0 shadow-xs">
+                ✨
+              </div>
+              <div>
+                <h3 className="text-sm sm:text-base font-extrabold text-emerald-950">
+                  Nhiệm vụ & Điểm danh hôm nay đã hoàn tất!
+                </h3>
+                <p className="text-xs text-emerald-800/85 mt-0.5 leading-relaxed">
+                  Bạn đã thắp sáng chuỗi Ngày {streakDays} thành công. Khung nhiệm vụ đã được ẩn đi để bạn nghỉ ngơi thư thái. Hẹn gặp lại bạn sau 0h AM ngày mai!
+                </p>
+              </div>
             </div>
-          )}
-        </section>
+
+            <Link
+              href="/planning"
+              className="px-4 py-2 rounded-xl bg-white border border-emerald-300 text-emerald-900 font-bold text-xs hover:bg-emerald-50 shadow-2xs transition-colors shrink-0"
+              title="Xem trước kế hoạch học tập của các ngày tiếp theo"
+            >
+              Xem Kế Hoạch Ngày Mai
+            </Link>
+          </section>
+        )}
 
         {/* 4. KHUNG GỢI Ý VIẾT TÂM THƯ GỬI TƯƠNG LAI (TIME CAPSULE PROMPT CARD) */}
         <section className="p-5 sm:p-6 rounded-3xl bg-gradient-to-tr from-amber-50 via-stone-50 to-amber-100/40 border border-amber-200/80 shadow-sm space-y-4">

@@ -142,6 +142,8 @@ export interface GardenStatus {
   current_state: FlowerState;
   consecutive_days: number;
   water_drops: number;
+  last_checkin_date?: string;
+  story_message?: string;
   can_restore_streak?: boolean;
   has_checked_in_today?: boolean;
   unlocked_badges_count?: number;
