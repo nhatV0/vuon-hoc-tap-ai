@@ -76,6 +76,12 @@ export default function FocusTimerModal({
   const [shortBreakMinutes, setShortBreakMinutes] = useState<number>(5);
   const [longBreakMinutes, setLongBreakMinutes] = useState<number>(15);
 
+  const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
+  const [ambientSound, setAmbientSound] = useState<AmbientSoundType>("none");
+  const [ambientVolume, setAmbientVolume] = useState<number>(0.5);
+  const [selectedChime, setSelectedChime] = useState<"zen" | "chime">("zen");
+  const [confirmExit, setConfirmExit] = useState<boolean>(false);
+
   // Custom configuration modal / drawer
   const [showSettingsDrawer, setShowSettingsDrawer] = useState<boolean>(false);
 
@@ -88,10 +94,6 @@ export default function FocusTimerModal({
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
-  const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
-  const [ambientSound, setAmbientSound] = useState<AmbientSoundType>("none");
-  const [confirmExit, setConfirmExit] = useState<boolean>(false);
-
   // Reward state
   const [rewardClaimed, setRewardClaimed] = useState<boolean>(false);
   const [waterDropsEarned, setWaterDropsEarned] = useState<number>(0);
@@ -120,17 +122,19 @@ export default function FocusTimerModal({
   const ambientNodesRef = useRef<{ source?: AudioNode; gain?: GainNode; cleanup?: () => void } | null>(null);
   // Audio completion chime synthesis via Web Audio API (gentle Tibetan singing bowl / zen bell)
   // Audio completion chime: ưu tiên phát file audio thật nếu có, fallback tự tổng hợp qua Web Audio API
+  // Audio completion chime: phát file âm thanh mp3 thật đã thêm, fallback Web Audio
   const playCompletionChime = useCallback(() => {
     if (!soundEnabled || typeof window === "undefined") return;
 
-    const chimeFile = currentStage === "focus" ? AUDIO_PATHS.chimes.zen : AUDIO_PATHS.chimes.break;
+    const chimeFile = currentStage === "focus"
+      ? (selectedChime === "zen" ? AUDIO_PATHS.chimes.zen : AUDIO_PATHS.chimes.chime)
+      : AUDIO_PATHS.chimes.break;
     const audio = new Audio(chimeFile);
-    audio.volume = 0.8;
+    audio.volume = 0.85;
 
     const playPromise = audio.play();
     if (playPromise !== undefined) {
       playPromise.catch(() => {
-        // Fallback Web Audio API nếu chưa có file mp3 trong thư mục
         try {
           const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
           if (!AudioCtx) return;
@@ -156,8 +160,7 @@ export default function FocusTimerModal({
         }
       });
     }
-  }, [soundEnabled, currentStage]);
-
+  }, [soundEnabled, currentStage, selectedChime]);
   const ambientAudioElementRef = useRef<HTMLAudioElement | null>(null);
 
   // Ambient Sound player: ưu tiên phát file mp3 loop, fallback Web Audio noise
@@ -182,7 +185,7 @@ export default function FocusTimerModal({
     if (filePath) {
       const audio = new Audio(filePath);
       audio.loop = true;
-      audio.volume = 0.45;
+      audio.volume = ambientVolume;
       const playPromise = audio.play();
       if (playPromise !== undefined) {
         playPromise.then(() => {
@@ -195,8 +198,7 @@ export default function FocusTimerModal({
       }
     }
     synthesizeWebAudioNoise(type);
-  }, [stopAmbientSound]);
-
+  }, [stopAmbientSound, ambientVolume]);
   const synthesizeWebAudioNoise = (type: AmbientSoundType) => {
     try {
       const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
@@ -302,6 +304,13 @@ export default function FocusTimerModal({
       console.warn("Failed to generate ambient sound fallback:", err);
     }
   };
+
+  // Đồng bộ âm lượng khi thanh trượt thay đổi
+  useEffect(() => {
+    if (ambientAudioElementRef.current) {
+      ambientAudioElementRef.current.volume = ambientVolume;
+    }
+  }, [ambientVolume]);
 
   // Synchronize ambient sound state
   useEffect(() => {
@@ -1095,8 +1104,63 @@ export default function FocusTimerModal({
                     className="w-full p-2.5 rounded-xl bg-stone-800 border border-stone-700 text-white font-bold"
                   />
                 </div>
-              </div>
 
+                {/* Tùy chỉnh âm lượng White Noise */}
+                <div className="pt-1 border-t border-stone-800">
+                  <div className="flex justify-between items-center mb-1">
+                    <label className="text-stone-300 font-semibold">Âm lượng White Noise:</label>
+                    <span className="text-amber-400 font-bold">{Math.round(ambientVolume * 100)}%</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.05"
+                    value={ambientVolume}
+                    onChange={(e) => setAmbientVolume(parseFloat(e.target.value))}
+                    className="w-full accent-amber-400 cursor-pointer"
+                  />
+                </div>
+
+                {/* Tùy chọn chuông báo */}
+                <div>
+                  <label className="block text-stone-300 mb-1 font-semibold">Âm chuông kết thúc:</label>
+                  <div className="grid grid-cols-2 gap-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSelectedChime("zen");
+                        const a = new Audio(AUDIO_PATHS.chimes.zen);
+                        a.volume = 0.8;
+                        a.play().catch(() => {});
+                      }}
+                      className={`p-2 rounded-xl border text-xs font-bold transition-all ${
+                        selectedChime === "zen"
+                          ? "bg-amber-400 text-stone-950 border-amber-300"
+                          : "bg-stone-800 text-stone-300 border-stone-700 hover:text-white"
+                      }`}
+                    >
+                      Chuông Thiền Zen
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSelectedChime("chime");
+                        const a = new Audio(AUDIO_PATHS.chimes.chime);
+                        a.volume = 0.8;
+                        a.play().catch(() => {});
+                      }}
+                      className={`p-2 rounded-xl border text-xs font-bold transition-all ${
+                        selectedChime === "chime"
+                          ? "bg-amber-400 text-stone-950 border-amber-300"
+                          : "bg-stone-800 text-stone-300 border-stone-700 hover:text-white"
+                      }`}
+                    >
+                      Chuông Gió Ngân
+                    </button>
+                  </div>
+                </div>
+              </div>
               <button
                 type="button"
                 onClick={() => setShowSettingsDrawer(false)}
