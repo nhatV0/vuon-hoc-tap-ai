@@ -363,7 +363,7 @@ export default function StudentGardenDashboard() {
       <main className="max-w-3xl mx-auto px-4 mt-6 space-y-6">
         {/* BANNER NGỌN LỬA & HOA HƯỚNG DƯƠNG TINH GIẢN */}
         <div className="p-5 sm:p-6 rounded-3xl bg-white border border-stone-200/90 shadow-sm relative overflow-hidden">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-5">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Lời nhắn ngắn & Trạng thái Streak */}
             <div className="space-y-2 text-center sm:text-left flex-1">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-100/70 text-amber-900 text-[10px] font-bold uppercase tracking-wider">

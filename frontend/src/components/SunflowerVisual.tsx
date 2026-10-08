@@ -300,12 +300,12 @@ export default function SunflowerVisual({
     }
   }, [currentVideo, internalMode]);
 
-  // Kích thước chuẩn tỉ lệ 1:1 vuông vức, phóng to hoa để hiển thị rõ nét và choáng ngợp
+  // Kích thước chuẩn tỉ lệ 1:1 vuông vức, cân đối hoàn hảo trong từng khung hình
   const sizeClasses = {
     sm: "w-28 h-28 aspect-square",
-    md: "w-60 h-60 sm:w-68 sm:h-68 aspect-square",
-    lg: "w-72 h-72 sm:w-84 sm:h-84 aspect-square",
-    xl: "w-88 h-88 sm:w-96 sm:h-96 aspect-square"
+    md: "w-48 h-48 sm:w-56 sm:h-56 aspect-square",
+    lg: "w-60 h-60 sm:w-64 sm:h-64 aspect-square",
+    xl: "w-72 h-72 sm:w-80 sm:h-80 aspect-square"
   }[size];
   const handleModeSwitch = (newMode: DisplayMode) => {
     setInternalMode(newMode);
@@ -353,14 +353,14 @@ export default function SunflowerVisual({
             onError={() => {
               setInternalMode("3d_static");
             }}
-            className="w-full h-full object-cover aspect-square drop-shadow-md scale-125 transition-transform duration-500 hover:scale-130"
+            className="w-full h-full object-cover aspect-square drop-shadow-md scale-105 transition-transform duration-500 hover:scale-110"
           />
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={currentImage}
             alt={stageTitle}
-            className="w-full h-full object-cover aspect-square drop-shadow-md scale-125 transition-transform duration-500 hover:scale-130"
+            className="w-full h-full object-cover aspect-square drop-shadow-md scale-105 transition-transform duration-500 hover:scale-110"
           />
         )}
       </div>
