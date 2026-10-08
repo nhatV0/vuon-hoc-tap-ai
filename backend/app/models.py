@@ -71,6 +71,7 @@ class Student(Base):
     long_term_goal = Column(Text, nullable=False)
     timeframe = Column(String, nullable=False)
     learning_style = Column(String, nullable=True, default="visual")
+    selected_flower = Column(String, default="sunflower", nullable=False) # Loại hoa học sinh chọn: "sunflower" (Hướng dương), "lotus", v.v.
     diagnostic_answers = Column(JSON, nullable=True) # Lưu trữ các câu trả lời chẩn đoán phân nhánh
     initial_password = Column(String, default="123456", nullable=True) # Lưu trữ mật khẩu khởi tạo/phân cấp để Admin có thể xem và cấp cho HS
     created_at = Column(DateTime, default=utcnow)

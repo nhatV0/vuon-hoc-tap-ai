@@ -55,8 +55,10 @@ class StudentCreate(BaseModel):
     long_term_goal: Optional[str] = Field(None, description="Mục tiêu dài hạn")
     timeframe: Optional[str] = Field("3 tháng", description="Quỹ thời gian chuẩn bị")
     learning_style: Optional[str] = Field("visual", description="Phong cách học tập")
+    selected_flower: Optional[str] = Field("sunflower", description="Loại hoa chọn (sunflower)")
     diagnostic_answers: Optional[Dict[str, Any]] = Field(default_factory=dict, description="Các câu trả lời chẩn đoán")
     initial_time_capsule: Optional[str] = Field(None, description="Tâm thư gửi tương lai viết tại onboarding")
+
 class MilestoneItem(BaseModel):
     stage: int
     title: str
@@ -92,6 +94,7 @@ class StudentResponse(BaseModel):
     long_term_goal: str
     timeframe: str
     learning_style: Optional[str] = None
+    selected_flower: Optional[str] = "sunflower"
     diagnostic_answers: Optional[Dict[str, Any]] = None
     created_at: datetime
     roadmap: Optional[RoadmapResponse] = None
@@ -246,8 +249,8 @@ class MilestoneReward(BaseModel):
 class GardenStatusResponse(BaseModel):
     student_id: str
     student_name: str
+    selected_flower: Optional[str] = "sunflower"
     current_state: FlowerState
-    consecutive_days: int
     water_drops: int
     last_checkin_date: date
     story_message: str
@@ -280,6 +283,7 @@ class StudentAlertItem(BaseModel):
     consecutive_days: int
     days_since_last_checkin: int
     last_mood: Optional[MoodType]
+    selected_flower: Optional[str] = "sunflower"
     alert_reason: str
     severity: str
     needs_attention: bool

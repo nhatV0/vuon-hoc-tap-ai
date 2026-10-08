@@ -96,6 +96,7 @@ export interface Student {
   long_term_goal: string;
   timeframe: string;
   learning_style?: string;
+  selected_flower?: string;
   diagnostic_answers?: Record<string, string>;
   created_at: string;
   roadmap?: Roadmap;
@@ -137,6 +138,7 @@ export interface MilestoneRewardItem {
 export interface GardenStatus {
   student_id: string;
   student_name: string;
+  selected_flower?: string;
   current_state: FlowerState;
   consecutive_days: number;
   water_drops: number;
@@ -166,12 +168,13 @@ export interface StudentAlertItem {
   consecutive_days: number;
   days_since_last_checkin: number;
   last_mood?: MoodType;
+  selected_flower?: string;
   alert_reason: string;
-  severity: "high" | "medium" | "low";
-  needs_attention: boolean;
-  latest_reflection?: string;
-  username?: string;
-  initial_password?: string;
+  severity?: string;
+  needs_attention?: boolean;
+  latest_reflection?: string | null;
+  username?: string | null;
+  initial_password?: string | null;
 }
 export interface TeacherDashboardData {
   total_students: number;

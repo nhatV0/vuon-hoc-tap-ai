@@ -425,6 +425,7 @@ async def onboard_student(data: StudentCreate, db: Session = Depends(get_db)):
         long_term_goal=goal_val,
         timeframe=data.timeframe,
         learning_style=data.learning_style or "visual",
+        selected_flower=data.selected_flower or "sunflower",
         diagnostic_answers=data.diagnostic_answers or {}
     )
     db.add(student)
@@ -462,12 +463,10 @@ async def onboard_student(data: StudentCreate, db: Session = Depends(get_db)):
         current_state=FlowerState.TICH_CUC,
         consecutive_days=1,
         last_checkin_date=date.today(),
-        water_drops=3,
+        water_drops=1,
         story_message=STORY_MESSAGES[FlowerState.TICH_CUC]
     )
     db.add(initial_flower)
-    db.commit()
-
     # Khởi tạo Inventory khiên hộ mệnh và gieo mầm badge ban đầu
     inventory = get_or_create_inventory(student_id, db)
     ensure_badges_seeded(db)
@@ -843,6 +842,7 @@ def get_garden_status(student_id: str, db: Session = Depends(get_db)):
     return GardenStatusResponse(
         student_id=student.id,
         student_name=student.name,
+        selected_flower=getattr(student, "selected_flower", "sunflower") or "sunflower",
         current_state=flower.current_state,
         consecutive_days=flower.consecutive_days,
         water_drops=flower.water_drops,
@@ -1118,6 +1118,7 @@ def get_teacher_dashboard(
             consecutive_days=consecutive_days,
             days_since_last_checkin=days_inactive,
             last_mood=latest_checkin.mood if latest_checkin else None,
+            selected_flower=getattr(s, "selected_flower", "sunflower") or "sunflower",
             alert_reason=alert_reason,
             severity=severity,
             needs_attention=needs_attention,

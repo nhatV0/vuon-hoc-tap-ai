@@ -95,6 +95,7 @@ export default function OnboardingPage() {
   const [grade, setGrade] = useState<string>("10");
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>(["Toán học"]);
   const [emotionScale, setEmotionScale] = useState<number>(4);
+  const [selectedFlower, setSelectedFlower] = useState<string>("sunflower");
   const [learningStyle] = useState<string>("visual");
   const [targetGoal, setTargetGoal] = useState<string>("");
   const [timeframe, setTimeframe] = useState<string>("3 tháng");
@@ -163,20 +164,20 @@ export default function OnboardingPage() {
       const resolvedGoal = targetGoal.trim()
         ? targetGoal.trim()
         : `Đạt kết quả 8.0+ môn ${selectedSubjects.join(", ")} với tâm lý thoải mái`;
-
       const payload = {
-        user_id: user?.id || null,
-        name: name.trim() || user?.name || "Bạn học nhỏ",
-        grade: grade,
+        user_id: user?.id,
+        name: name.trim() || "Bạn học nhỏ",
+        grade,
         target_subject: selectedSubjects[0],
         target_subjects: selectedSubjects,
         emotion_scale: emotionScale,
+        selected_flower: selectedFlower,
         weakness: resolvedWeakness,
         long_term_goal: resolvedGoal,
-        timeframe: timeframe,
+        timeframe,
         learning_style: learningStyle,
         diagnostic_answers: diagnosticAnswers,
-        initial_time_capsule: initialTimeCapsule.trim() || null,
+        initial_time_capsule: initialTimeCapsule.trim() || undefined,
       };
       const res = await fetch(`${API_BASE}/api/onboarding`, {
         method: "POST",
@@ -310,8 +311,68 @@ export default function OnboardingPage() {
                   })}
                 </div>
               </div>
-            </div>
 
+              {/* CHỌN CÂY HOA ĐỒNG HÀNH (MẶC ĐỊNH HOA HƯỚNG DƯƠNG, CÁC LOÀI KHÁC SẮP RA MẮT) */}
+              <div>
+                <label className="block text-xs font-semibold text-stone-700 mb-1">
+                  Lựa Chọn Cây Hoa Đồng Hành Cùng Bạn:
+                </label>
+                <p className="text-[11px] text-stone-400 mb-2.5">
+                  Hoa sẽ lớn lên và phát sáng hào quang theo từng ngày bạn kiên trì học tập.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                  {/* Hoa Hướng Dương (Khả dụng) */}
+                  <div
+                    onClick={() => setSelectedFlower("sunflower")}
+                    className={`p-3 rounded-2xl border-2 transition-all cursor-pointer relative ${
+                      selectedFlower === "sunflower"
+                        ? "border-amber-500 bg-amber-50/80 shadow-xs"
+                        : "border-stone-200 bg-white hover:border-amber-300"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-2xl">🌻</span>
+                      <span className="text-[9px] font-black px-2 py-0.5 rounded-full bg-amber-500 text-white">
+                        Đang chọn
+                      </span>
+                    </div>
+                    <h4 className="text-xs font-bold text-stone-900">Hoa Hướng Dương</h4>
+                    <p className="text-[10px] text-stone-500 mt-0.5 leading-relaxed">
+                      Biểu tượng của năng lượng tích cực, ý chí kiên định và luôn vươn về phía ánh sáng.
+                    </p>
+                  </div>
+
+                  {/* Hoa Sen (Sắp ra mắt) */}
+                  <div className="p-3 rounded-2xl border border-stone-200/80 bg-stone-50/80 opacity-60 relative cursor-not-allowed">
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-2xl">🪷</span>
+                      <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-stone-200 text-stone-600">
+                        Sắp có
+                      </span>
+                    </div>
+                    <h4 className="text-xs font-bold text-stone-700">Hoa Sen</h4>
+                    <p className="text-[10px] text-stone-400 mt-0.5 leading-relaxed">
+                      Bình tâm, thanh khiết và xoa dịu những áp lực thi cử.
+                    </p>
+                  </div>
+
+                  {/* Hoa Bồ Công Anh (Sắp ra mắt) */}
+                  <div className="p-3 rounded-2xl border border-stone-200/80 bg-stone-50/80 opacity-60 relative cursor-not-allowed">
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-2xl">🌾</span>
+                      <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-stone-200 text-stone-600">
+                        Sắp có
+                      </span>
+                    </div>
+                    <h4 className="text-xs font-bold text-stone-700">Bồ Công Anh</h4>
+                    <p className="text-[10px] text-stone-400 mt-0.5 leading-relaxed">
+                      Tự do, buông bỏ muộn phiền, ước mơ bay xa theo ngọn gió.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="flex justify-end pt-2">
               <button
                 type="button"

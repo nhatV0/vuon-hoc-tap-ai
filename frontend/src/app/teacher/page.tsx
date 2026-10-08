@@ -26,7 +26,7 @@ import {
 } from "@/lib/types";
 import { useAuth } from "@/lib/auth-context";
 import CentralizedQuestionManager from "@/components/CentralizedQuestionManager";
-
+import SunflowerVisual from "@/components/SunflowerVisual";
 export default function TeacherDashboardPage() {
   const router = useRouter();
   const { user, logout, loading: authLoading } = useAuth();
@@ -377,12 +377,27 @@ export default function TeacherDashboardPage() {
                             </span>
                           </td>
                           <td className="py-3.5 px-4 text-right">
-                            <button
-                              onClick={() => setSelectedStudent(s)}
-                              className="px-3 py-1 rounded-lg border border-cream-200 hover:border-amber-400 bg-white text-stone-700 hover:text-amber-900 text-xs font-medium transition-colors"
-                            >
-                              Xem chi tiết
-                            </button>
+                            <div className="flex items-center justify-end gap-1.5">
+                              <button
+                                onClick={() => setSelectedStudent(s)}
+                                className="px-2.5 py-1 rounded-lg border border-cream-200 hover:border-amber-400 bg-white text-stone-700 hover:text-amber-900 text-xs font-medium transition-colors"
+                              >
+                                Xem chi tiết
+                              </button>
+                              <button
+                                onClick={() => {
+                                  if (typeof window !== "undefined") {
+                                    localStorage.setItem("current_student_id", s.student_id);
+                                    localStorage.setItem("sunflower_student_id", s.student_id);
+                                    window.open("/garden", "_blank");
+                                  }
+                                }}
+                                className="px-2.5 py-1 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold transition-all shadow-2xs"
+                                title="Mở trang khu vườn để xem cây của học sinh này"
+                              >
+                                🌻 Xem Cây
+                              </button>
+                            </div>
                           </td>
                         </tr>
                       ))
@@ -899,6 +914,22 @@ export default function TeacherDashboardPage() {
               </button>
             </div>
 
+            {/* Cây hoa thực tế của học sinh */}
+            <div className="p-3 rounded-2xl bg-stone-50 border border-cream-200 flex flex-col items-center justify-center">
+              <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider mb-1">
+                Khu vườn của học sinh (Chuỗi {selectedStudent.consecutive_days} ngày)
+              </span>
+              <div className="w-36 h-36 relative flex items-center justify-center">
+                <SunflowerVisual
+                  state={selectedStudent.current_state}
+                  streak={selectedStudent.consecutive_days}
+                  waterDrops={10}
+                  size="sm"
+                  displayMode="3d_motion"
+                />
+              </div>
+            </div>
+
             <div className="space-y-2 text-xs">
               <div className="p-3 rounded-xl bg-cream-50 border border-cream-200 space-y-1">
                 <p className="font-semibold text-stone-700">Tình trạng ghi nhận:</p>
@@ -909,15 +940,11 @@ export default function TeacherDashboardPage() {
                   </p>
                 )}
               </div>
-
-              <div className="p-3 rounded-xl bg-sunflower-50/70 border border-sunflower-200 space-y-1">
-                <p className="font-semibold text-sunflower-900">Gợi ý tâm lý học đường dành cho thầy cô:</p>
                 <p className="text-stone-700 leading-relaxed">
                   Hãy chủ động gặp riêng em trong giờ giải lao 5 phút với thái độ lắng nghe, không chất vấn: 
                   &ldquo;Thầy/cô thấy dạo này em có vẻ mệt mỏi, môn {selectedStudent.target_subject} có phần nào làm em thấy quá tải không? Chúng ta có thể cùng chia nhỏ bài tập ra nhé!&rdquo;
                 </p>
               </div>
-            </div>
             <div className="flex justify-end pt-2">
               <button
                 onClick={() => setSelectedStudent(null)}
