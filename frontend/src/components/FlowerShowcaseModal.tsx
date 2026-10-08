@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import {
   X,
   Sparkles,
-  Flame,
   Sprout,
   CheckCircle2,
   Lock,
@@ -12,11 +11,13 @@ import {
   ShieldCheck
 } from "lucide-react";
 import SunflowerVisual, {
-  AURA_LEVELS,
-  GROWTH_STAGES,
   DisplayMode,
+  FlowerSpecies,
+  getAuraLevelsForSpecies,
+  getGrowthStagesForSpecies,
   getAuraLevelByStreak,
-  getNextAuraLevel
+  getNextAuraLevel,
+  FLOWER_SPECIES_CONFIG
 } from "@/components/SunflowerVisual";
 import { FlowerState } from "@/lib/types";
 
@@ -26,19 +27,20 @@ interface FlowerShowcaseModalProps {
   currentState: FlowerState;
   currentStreak: number;
   waterDrops: number;
+  species?: FlowerSpecies;
   studentName?: string;
   gracePassesAvailable?: number;
   savedStreakBeforeBreak?: number;
   canRestoreStreak?: boolean;
   onRestoreStreak?: () => Promise<void>;
 }
-
 export default function FlowerShowcaseModal({
   isOpen,
   onClose,
   currentState,
   currentStreak,
   waterDrops,
+  species = "sunflower",
   studentName = "Học sinh",
   gracePassesAvailable = 1,
   savedStreakBeforeBreak = 0,
@@ -46,18 +48,28 @@ export default function FlowerShowcaseModal({
   onRestoreStreak
 }: FlowerShowcaseModalProps) {
   const [displayMode, setDisplayMode] = useState<DisplayMode>("3d_motion");
+  const [activeSpecies, setActiveSpecies] = useState<FlowerSpecies>(species);
   const [selectedAuraLevel, setSelectedAuraLevel] = useState<number | null>(null);
   const [selectedGrowthStage, setSelectedGrowthStage] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<"aura" | "growth">("aura");
   const [restoring, setRestoring] = useState<boolean>(false);
 
+  // Đồng bộ loài hoa khi props thay đổi
+  React.useEffect(() => {
+    setActiveSpecies(species);
+  }, [species]);
+
   if (!isOpen) return null;
 
-  const currentAura = getAuraLevelByStreak(currentStreak);
-  const nextAura = getNextAuraLevel(currentStreak);
+  const speciesConfig = FLOWER_SPECIES_CONFIG[activeSpecies];
+  const speciesAuras = getAuraLevelsForSpecies(activeSpecies);
+  const speciesStages = getGrowthStagesForSpecies(activeSpecies);
+
+  const currentAura = getAuraLevelByStreak(currentStreak, activeSpecies);
+  const nextAura = getNextAuraLevel(currentStreak, activeSpecies);
 
   const activeViewingAura = selectedAuraLevel
-    ? AURA_LEVELS.find((a) => a.level === selectedAuraLevel)
+    ? speciesAuras.find((a) => a.level === selectedAuraLevel)
     : currentAura;
 
   const daysToNext = nextAura ? Math.max(0, nextAura.minStreak - currentStreak) : 0;
@@ -111,11 +123,32 @@ export default function FlowerShowcaseModal({
         <div className="flex-1 overflow-y-auto p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* CỘT TRÁI: VIEWPORT HOA 3D NỔI BẬT TỈ LỆ 1:1 TO RÕ RÀNG */}
           <div className="lg:col-span-6 flex flex-col items-center justify-start bg-white rounded-3xl border border-stone-200/90 p-5 sm:p-6 shadow-xs relative">
-            {/* Top Badge & Reset Button */}
-            <div className="w-full flex items-center justify-between mb-2">
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100/90 backdrop-blur-sm border border-stone-200 text-[11px] font-bold text-stone-700">
-                <Flame className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
-                <span>Streak: {currentStreak} Ngày</span>
+            {/* Selector chuyển loài hoa (Sunflower & Lotus) */}
+            <div className="w-full flex items-center justify-between gap-2 mb-2">
+              <div className="flex items-center gap-1 p-0.5 rounded-xl bg-stone-100 border border-stone-200 text-xs">
+                {(["sunflower", "lotus"] as FlowerSpecies[]).map((spKey) => {
+                  const spCfg = FLOWER_SPECIES_CONFIG[spKey];
+                  const isActive = activeSpecies === spKey;
+                  return (
+                    <button
+                      key={spKey}
+                      type="button"
+                      onClick={() => {
+                        setActiveSpecies(spKey);
+                        setSelectedAuraLevel(null);
+                        setSelectedGrowthStage(null);
+                      }}
+                      className={`px-2.5 py-1 rounded-lg font-bold flex items-center gap-1 transition-all ${
+                        isActive
+                          ? "bg-white text-stone-900 shadow-2xs border border-stone-200/80"
+                          : "text-stone-500 hover:text-stone-800"
+                      }`}
+                    >
+                      <span>{spCfg.symbol}</span>
+                      <span>{spCfg.name}</span>
+                    </button>
+                  );
+                })}
               </div>
 
               {(selectedAuraLevel || selectedGrowthStage) && (
@@ -124,7 +157,7 @@ export default function FlowerShowcaseModal({
                     setSelectedAuraLevel(null);
                     setSelectedGrowthStage(null);
                   }}
-                  className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-500 hover:bg-amber-600 text-white shadow-xs transition-colors"
+                  className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-500 hover:bg-amber-600 text-white shadow-xs transition-colors shrink-0"
                 >
                   Trở về hoa hiện tại
                 </button>
@@ -137,6 +170,7 @@ export default function FlowerShowcaseModal({
                 state={currentState}
                 streak={currentStreak}
                 waterDrops={waterDrops}
+                species={activeSpecies}
                 size="md"
                 displayMode={displayMode}
                 previewAuraLevel={selectedAuraLevel}
@@ -151,21 +185,21 @@ export default function FlowerShowcaseModal({
               <p className="font-semibold text-stone-900 mb-0.5">
                 {activeViewingAura
                   ? activeViewingAura.name
-                  : selectedGrowthStage && GROWTH_STAGES[selectedGrowthStage]
-                  ? GROWTH_STAGES[selectedGrowthStage].name
+                  : selectedGrowthStage && speciesStages[selectedGrowthStage]
+                  ? speciesStages[selectedGrowthStage].name
                   : currentStreak >= 21
-                  ? "Hoa Hướng Dương Rực Rỡ"
+                  ? speciesConfig.matureName
                   : "Mầm Xanh Vươn Lên (Dưới 21 ngày cộng dồn)"}
               </p>
               <p className="text-[11px] text-stone-600 leading-relaxed italic">
                 &ldquo;
                 {activeViewingAura
                   ? activeViewingAura.meaning
-                  : selectedGrowthStage && GROWTH_STAGES[selectedGrowthStage]
-                  ? GROWTH_STAGES[selectedGrowthStage].description
+                  : selectedGrowthStage && speciesStages[selectedGrowthStage]
+                  ? speciesStages[selectedGrowthStage].description
                   : currentStreak < 21
                   ? "Dưới 21 ngày, nếu lỡ quên điểm danh ngày nào, chuỗi của bạn sẽ được cộng dồn tiếp tục để đảm bảo bạn đạt mốc 21 ngày thoát khỏi lực cản trì hoãn!"
-                  : "Từ 21 ngày trở đi, cây hoa bước vào giai đoạn rèn đúc bản sắc. Hãy chăm sóc đều đặn nhé!"}
+                  : speciesConfig.bloomDesc}
                 &rdquo;
               </p>
             </div>
@@ -265,11 +299,10 @@ export default function FlowerShowcaseModal({
                 </div>
 
                 <div className="space-y-2 max-h-[480px] overflow-y-auto pr-1">
-                  {AURA_LEVELS.map((aura) => {
+                  {speciesAuras.map((aura) => {
                     const isUnlocked = currentStreak >= aura.minStreak;
                     const isSelected = selectedAuraLevel === aura.level;
                     const isCurrent = currentAura?.level === aura.level;
-
                     return (
                       <div
                         key={aura.level}
@@ -362,12 +395,12 @@ export default function FlowerShowcaseModal({
 
                 <div className="space-y-2 max-h-[440px] overflow-y-auto pr-1">
                   {[
-                    GROWTH_STAGES.seed,
-                    GROWTH_STAGES.sowing,
-                    GROWTH_STAGES.sprout,
-                    GROWTH_STAGES.seedling,
-                    GROWTH_STAGES.bloom,
-                    GROWTH_STAGES.wilting
+                    speciesStages.seed,
+                    speciesStages.sowing,
+                    speciesStages.sprout,
+                    speciesStages.seedling,
+                    speciesStages.bloom,
+                    speciesStages.wilting
                   ].map((stg) => {
                     const isSelected = selectedGrowthStage === stg.stageKey;
                     const isReached = currentStreak >= stg.minStreak;

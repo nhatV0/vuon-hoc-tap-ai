@@ -26,7 +26,7 @@ import {
 } from "@/lib/types";
 import { useAuth } from "@/lib/auth-context";
 import CentralizedQuestionManager from "@/components/CentralizedQuestionManager";
-import SunflowerVisual from "@/components/SunflowerVisual";
+import SunflowerVisual, { FlowerSpecies } from "@/components/SunflowerVisual";
 export default function TeacherDashboardPage() {
   const router = useRouter();
   const { user, logout, loading: authLoading } = useAuth();
@@ -924,12 +924,12 @@ export default function TeacherDashboardPage() {
                   state={selectedStudent.current_state}
                   streak={selectedStudent.consecutive_days}
                   waterDrops={10}
+                  species={(selectedStudent.selected_flower as FlowerSpecies) || "sunflower"}
                   size="md"
                   displayMode="3d_motion"
                 />
               </div>
             </div>
-
             <div className="space-y-2 text-xs">
               <div className="p-3 rounded-xl bg-cream-50 border border-cream-200 space-y-1">
                 <p className="font-semibold text-stone-700">Tình trạng ghi nhận:</p>

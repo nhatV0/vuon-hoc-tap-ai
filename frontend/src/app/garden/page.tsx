@@ -19,15 +19,17 @@ import {
   LogOut,
   Eye,
   Film,
-  Image as ImageIcon
+  Image as ImageIcon,
+  Timer
 } from "lucide-react";
-import SunflowerVisual, { DisplayMode, getStreakBadgeStyle } from "@/components/SunflowerVisual";
+import SunflowerVisual, { DisplayMode, FlowerSpecies, getStreakBadgeStyle } from "@/components/SunflowerVisual";
 import FlowerShowcaseModal from "@/components/FlowerShowcaseModal";
 import RichTooltip from "@/components/RichTooltip";
 import DailyCheckinModal from "@/components/DailyCheckinModal";
 import UserProfileModal from "@/components/UserProfileModal";
 import TimeCapsuleVaultModal from "@/components/TimeCapsuleVaultModal";
 import DailyMicroQuizModal from "@/components/DailyMicroQuizModal";
+import FocusTimerModal from "@/components/FocusTimerModal";
 import { Student, GardenStatus, API_BASE, PlannedTask } from "@/lib/types";
 import { useAuth } from "@/lib/auth-context";
 import { useRouter } from "next/navigation";
@@ -50,6 +52,10 @@ export default function StudentGardenDashboard() {
   const [showQuizModal, setShowQuizModal] = useState<boolean>(false);
   const [showFlowerShowcase, setShowFlowerShowcase] = useState<boolean>(false);
   const [gardenDisplayMode, setGardenDisplayMode] = useState<DisplayMode>("3d_motion");
+
+  // Focus Timer state
+  const [showFocusTimer, setShowFocusTimer] = useState<boolean>(false);
+  const [focusTimerTask, setFocusTimerTask] = useState<PlannedTask | null>(null);
 
   // Notification toast
   const [waterToast, setWaterToast] = useState<string | null>(null);
@@ -414,11 +420,11 @@ export default function StudentGardenDashboard() {
               state={garden?.current_state || "tich_cuc"}
               streak={streakDays}
               waterDrops={garden?.water_drops ?? 0}
+              species={((student?.selected_flower || garden?.selected_flower) as FlowerSpecies) || "sunflower"}
               size="lg"
               displayMode={gardenDisplayMode}
               onModeChange={setGardenDisplayMode}
             />
-
             {/* THANH ĐIỀU KHIỂN THU NHỎ TINH TẾ */}
             <div className="mt-2 flex flex-wrap items-center justify-center gap-1.5">
               <div className="flex items-center p-0.5 rounded-lg bg-stone-100/90 border border-stone-200/90 shadow-2xs text-[10px]">
@@ -520,8 +526,26 @@ export default function StudentGardenDashboard() {
                 <span>Kế hoạch 7 ngày</span>
               </Link>
             </RichTooltip>
-          </div>
 
+            {/* NÚT KÍCH HOẠT HẸN GIỜ TẬP TRUNG TOÀN MÀN HÌNH */}
+            <RichTooltip
+              content="Hẹn Giờ Tập Trung (Focus Flow)"
+              subtext="Bật chế độ toàn màn hình tối giản với hoạt ảnh cánh đồng hoa hướng dương để học sâu không xao nhãng."
+              position="top"
+            >
+              <button
+                type="button"
+                onClick={() => {
+                  setFocusTimerTask(null);
+                  setShowFocusTimer(true);
+                }}
+                className="px-3.5 py-1.5 rounded-xl font-bold flex items-center gap-1.5 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-stone-950 transition-all shadow-xs active:scale-95"
+              >
+                <Timer className="w-3.5 h-3.5" />
+                <span>Hẹn Giờ Tập Trung</span>
+              </button>
+            </RichTooltip>
+          </div>
           {/* 4. DÒNG TEXT LỜI CHÀO & SUY NGẪM ĐƯỢC CHUYỂN XUỐNG DƯỚI CÙNG */}
           <div className="space-y-1 max-w-lg pt-1 border-t border-stone-100/90 w-full">
             <h1 className="text-base sm:text-lg font-extrabold text-stone-900 tracking-tight">
@@ -637,9 +661,29 @@ export default function StudentGardenDashboard() {
                           </div>
                         </div>
                       </div>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 shrink-0">
-                        Vi mô
-                      </span>
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        <RichTooltip
+                          content="Tập Trung Làm Nhiệm Vụ Này"
+                          subtext={`Kích hoạt hẹn giờ toàn màn hình (${t.duration_minutes} phút) kèm hoạt ảnh cánh đồng hoa.`}
+                          position="top"
+                        >
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setFocusTimerTask(t);
+                              setShowFocusTimer(true);
+                            }}
+                            className="px-2 py-1 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 text-[10px] font-bold flex items-center gap-1 transition-all shadow-2xs active:scale-95"
+                            title="Hẹn giờ tập trung làm nhiệm vụ này"
+                          >
+                            <Timer className="w-3 h-3 text-amber-600" />
+                            <span className="hidden sm:inline">Tập trung</span>
+                          </button>
+                        </RichTooltip>
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-stone-100 text-stone-600">
+                          Vi mô
+                        </span>
+                      </div>
                     </div>
                   );
                 })}
@@ -816,11 +860,24 @@ export default function StudentGardenDashboard() {
         currentState={garden?.current_state || "tich_cuc"}
         currentStreak={streakDays}
         waterDrops={garden?.water_drops ?? 0}
+        species={((student?.selected_flower || garden?.selected_flower) as FlowerSpecies) || "sunflower"}
         studentName={student?.name}
         gracePassesAvailable={garden?.grace_passes_available ?? 1}
         savedStreakBeforeBreak={garden?.saved_streak_before_break ?? 0}
         canRestoreStreak={garden?.can_restore_streak ?? false}
         onRestoreStreak={handleRestoreStreak}
+      />
+      {/* POP-UP 6: CÔNG CỤ HẸN GIỜ TẬP TRUNG TOÀN MÀN HÌNH (FOCUS FLOW TIMER) */}
+      <FocusTimerModal
+        isOpen={showFocusTimer}
+        onClose={() => setShowFocusTimer(false)}
+        associatedTask={focusTimerTask}
+        onTaskCompleted={(completedTask) => {
+          const animatedTask = tasks.find((t) => t.id === completedTask.id);
+          if (animatedTask && !animatedTask.is_completed) {
+            handleToggleTask(animatedTask);
+          }
+        }}
       />
     </div>
   );

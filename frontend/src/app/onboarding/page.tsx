@@ -343,20 +343,32 @@ export default function OnboardingPage() {
                     </p>
                   </div>
 
-                  {/* Hoa Sen (Sắp ra mắt) */}
-                  <div className="p-3 rounded-2xl border border-stone-200/80 bg-stone-50/80 opacity-60 relative cursor-not-allowed">
+                  {/* Hoa Sen (Khả dụng) */}
+                  <div
+                    onClick={() => setSelectedFlower("lotus")}
+                    className={`p-3 rounded-2xl border-2 transition-all cursor-pointer relative ${
+                      selectedFlower === "lotus"
+                        ? "border-pink-500 bg-pink-50/80 shadow-xs"
+                        : "border-stone-200 bg-white hover:border-pink-300"
+                    }`}
+                  >
                     <div className="flex items-center justify-between mb-1.5">
                       <span className="text-2xl">🪷</span>
-                      <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-stone-200 text-stone-600">
-                        Sắp có
-                      </span>
+                      {selectedFlower === "lotus" ? (
+                        <span className="text-[9px] font-black px-2 py-0.5 rounded-full bg-pink-500 text-white">
+                          Đang chọn
+                        </span>
+                      ) : (
+                        <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-pink-100 text-pink-700">
+                          Mới cập nhật
+                        </span>
+                      )}
                     </div>
-                    <h4 className="text-xs font-bold text-stone-700">Hoa Sen</h4>
-                    <p className="text-[10px] text-stone-400 mt-0.5 leading-relaxed">
-                      Bình tâm, thanh khiết và xoa dịu những áp lực thi cử.
+                    <h4 className="text-xs font-bold text-stone-900">Hoa Sen</h4>
+                    <p className="text-[10px] text-stone-500 mt-0.5 leading-relaxed">
+                      Bình tâm, thanh khiết và xoa dịu những áp lực thi cử, tĩnh tại bền bỉ.
                     </p>
                   </div>
-
                   {/* Hoa Bồ Công Anh (Sắp ra mắt) */}
                   <div className="p-3 rounded-2xl border border-stone-200/80 bg-stone-50/80 opacity-60 relative cursor-not-allowed">
                     <div className="flex items-center justify-between mb-1.5">

@@ -182,8 +182,8 @@ export default function LandingHomePage() {
               <div className="py-2 flex flex-col items-center justify-center">
                 <div className="relative w-full max-w-[280px] aspect-square rounded-3xl overflow-hidden shadow-inner border border-amber-200/60 bg-gradient-to-b from-stone-50/80 to-amber-50/50 group-hover:scale-[1.02] transition-transform duration-500 flex items-center justify-center">
                   <video
-                    src="/assets/flower/bloom_motion.mp4"
-                    poster="/assets/flower/bloom.png"
+                    src="/assets/flower/Sunflower/sunflower_bloom_motion.mp4"
+                    poster="/assets/flower/Sunflower/sunflower_bloom.png"
                     autoPlay
                     loop
                     muted
