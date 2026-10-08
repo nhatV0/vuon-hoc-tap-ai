@@ -277,11 +277,11 @@ def calculate_flower_state(
     shield_message = None
 
     if delta_days <= 0:
-        # TRONG SUỐT 24 GIỜ (cùng ngày đã điểm danh): không thể tăng thêm chuỗi streak
+        # Nếu đã điểm danh trong ngày hôm nay: không thể tăng thêm chuỗi trong cùng ngày 24h
         new_consecutive = consecutive_days
-        shield_message = "Hôm nay bạn đã thắp sáng chuỗi rồi! Hãy giữ vững phong độ và quay lại sau 0h AM ngày mai nhé."
+        shield_message = "Hôm nay bạn đã thắp sáng chuỗi rồi! Hãy giữ vững ngọn lửa và tiếp tục sau 0h AM nhé."
     elif delta_days == 1:
-        # Sang ngày tiếp theo (sau 0h AM): chuỗi được thắp sáng tăng thêm 1 ngày
+        # Sang ngày hôm sau (sau 0h AM): chuỗi thắp sáng tăng thêm 1 ngày
         new_consecutive = consecutive_days + 1
         shield_message = f"Chúc mừng bạn đã hoàn thành nhiệm vụ và thắp sáng chuỗi Ngày {new_consecutive}!"
     elif delta_days == 2:

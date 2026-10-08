@@ -142,16 +142,13 @@ export interface GardenStatus {
   current_state: FlowerState;
   consecutive_days: number;
   water_drops: number;
-  last_checkin_date: string;
-  story_message: string;
-  recent_moods: string[];
-  completion_trend: number[];
+  can_restore_streak?: boolean;
+  has_checked_in_today?: boolean;
+  unlocked_badges_count?: number;
+  badges?: BadgeItem[];
   shields_available?: number;
   grace_passes_available?: number;
   saved_streak_before_break?: number;
-  can_restore_streak?: boolean;
-  unlocked_badges_count?: number;
-  badges?: BadgeItem[];
   active_capsule?: TimeCapsuleItem | null;
   journey_milestones?: MilestoneRewardItem[];
 }

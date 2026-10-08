@@ -868,6 +868,7 @@ def get_garden_status(student_id: str, db: Session = Depends(get_db)):
         grace_passes_available=inventory.grace_passes_available or 0,
         saved_streak_before_break=inventory.saved_streak_before_break or 0,
         can_restore_streak=(inventory.grace_passes_available or 0) > 0 and (inventory.saved_streak_before_break or 0) > flower.consecutive_days,
+        has_checked_in_today=(flower.last_checkin_date == today and len(recent_checkins) > 0 and recent_checkins[0].created_at.date() == today),
         unlocked_badges_count=len(unlocked_badge_map),
         badges=badge_responses,
         active_capsule=capsule_resp,

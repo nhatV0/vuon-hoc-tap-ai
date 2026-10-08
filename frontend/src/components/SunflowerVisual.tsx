@@ -139,6 +139,167 @@ export const AURA_LEVELS: AuraLevelInfo[] = [
   }
 ];
 
+export function getStreakBadgeStyle(streak: number, isWilting: boolean = false) {
+  if (isWilting || streak === 0) {
+    return {
+      bg: "bg-stone-100",
+      border: "border-stone-300",
+      text: "text-stone-500",
+      flameFill: "fill-stone-300",
+      flameText: "text-stone-400",
+      label: streak === 0 ? "0 Ngày • Hạt Mầm" : "Chuỗi Đã Tắt • Cần Nước Thánh",
+      isExtinguished: true
+    };
+  }
+
+  // 8 Mốc Hào Quang
+  if (streak >= 900) {
+    return {
+      bg: "bg-gradient-to-r from-amber-100 via-yellow-100 to-amber-200",
+      border: "border-amber-400",
+      text: "text-amber-950 font-black",
+      flameFill: "fill-yellow-400",
+      flameText: "text-amber-500 animate-pulse",
+      label: `${streak} Ngày • Cây Tối Thượng`,
+      isExtinguished: false
+    };
+  }
+  if (streak >= 700) {
+    return {
+      bg: "bg-gradient-to-r from-pink-50 via-amber-50 to-emerald-50",
+      border: "border-indigo-300",
+      text: "text-indigo-900",
+      flameFill: "fill-purple-500",
+      flameText: "text-indigo-500 animate-pulse",
+      label: `${streak} Ngày • Cực Quang Ngũ Sắc`,
+      isExtinguished: false
+    };
+  }
+  if (streak >= 450) {
+    return {
+      bg: "bg-amber-50",
+      border: "border-amber-300",
+      text: "text-amber-900 font-bold",
+      flameFill: "fill-amber-500",
+      flameText: "text-amber-600 animate-pulse",
+      label: `${streak} Ngày • Kim Thái Dương`,
+      isExtinguished: false
+    };
+  }
+  if (streak >= 300) {
+    return {
+      bg: "bg-rose-50",
+      border: "border-rose-300",
+      text: "text-rose-900 font-bold",
+      flameFill: "fill-rose-500",
+      flameText: "text-rose-600 animate-pulse",
+      label: `${streak} Ngày • Hồng Ngọc Lửa`,
+      isExtinguished: false
+    };
+  }
+  if (streak >= 200) {
+    return {
+      bg: "bg-purple-50",
+      border: "border-purple-300",
+      text: "text-purple-900 font-bold",
+      flameFill: "fill-purple-500",
+      flameText: "text-purple-600 animate-pulse",
+      label: `${streak} Ngày • Tinh Vân Tím`,
+      isExtinguished: false
+    };
+  }
+  if (streak >= 100) {
+    return {
+      bg: "bg-cyan-50",
+      border: "border-cyan-300",
+      text: "text-cyan-900 font-bold",
+      flameFill: "fill-cyan-500",
+      flameText: "text-cyan-600 animate-pulse",
+      label: `${streak} Ngày • Thủy Triều Biển`,
+      isExtinguished: false
+    };
+  }
+  if (streak >= 50) {
+    return {
+      bg: "bg-blue-50",
+      border: "border-blue-300",
+      text: "text-blue-900 font-bold",
+      flameFill: "fill-blue-500",
+      flameText: "text-blue-600 animate-pulse",
+      label: `${streak} Ngày • Lam Ngọc`,
+      isExtinguished: false
+    };
+  }
+  if (streak >= 30) {
+    return {
+      bg: "bg-slate-50",
+      border: "border-slate-300",
+      text: "text-slate-800 font-bold",
+      flameFill: "fill-slate-400",
+      flameText: "text-slate-600 animate-pulse",
+      label: `${streak} Ngày • Bạch Ngọc`,
+      isExtinguished: false
+    };
+  }
+
+  // 5 Mốc Vòng Đời Cây: 21d, 14d, 7d, 3d, 1d
+  if (streak >= 21) {
+    return {
+      bg: "bg-amber-50",
+      border: "border-amber-300",
+      text: "text-amber-900 font-bold",
+      flameFill: "fill-amber-500",
+      flameText: "text-amber-500 animate-pulse",
+      label: `${streak} Ngày • Cây Lớn Rực Rỡ`,
+      isExtinguished: false
+    };
+  }
+  if (streak >= 14) {
+    return {
+      bg: "bg-emerald-50",
+      border: "border-emerald-300",
+      text: "text-emerald-900 font-bold",
+      flameFill: "fill-emerald-500",
+      flameText: "text-emerald-600 animate-pulse",
+      label: `${streak} Ngày • Cây Con`,
+      isExtinguished: false
+    };
+  }
+  if (streak >= 7) {
+    return {
+      bg: "bg-lime-50",
+      border: "border-lime-300",
+      text: "text-lime-900 font-bold",
+      flameFill: "fill-lime-500",
+      flameText: "text-lime-600 animate-pulse",
+      label: `${streak} Ngày • Nảy Mầm`,
+      isExtinguished: false
+    };
+  }
+  if (streak >= 3) {
+    return {
+      bg: "bg-amber-50/70",
+      border: "border-amber-200",
+      text: "text-amber-800 font-semibold",
+      flameFill: "fill-amber-400",
+      flameText: "text-amber-500 animate-pulse",
+      label: `${streak} Ngày • Đất Ấm`,
+      isExtinguished: false
+    };
+  }
+
+  // 1-2 ngày
+  return {
+    bg: "bg-amber-50/60",
+    border: "border-amber-200/80",
+    text: "text-amber-900 font-semibold",
+    flameFill: "fill-amber-500",
+    flameText: "text-amber-500 animate-pulse",
+    label: `${streak} Ngày kỷ luật`,
+    isExtinguished: false
+  };
+}
+
 export function getAuraLevelByStreak(streak: number): AuraLevelInfo | null {
   if (streak < 30) return null;
   for (let i = AURA_LEVELS.length - 1; i >= 0; i--) {

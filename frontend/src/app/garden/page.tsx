@@ -21,7 +21,7 @@ import {
   Film,
   Image as ImageIcon
 } from "lucide-react";
-import SunflowerVisual, { DisplayMode } from "@/components/SunflowerVisual";
+import SunflowerVisual, { DisplayMode, getStreakBadgeStyle } from "@/components/SunflowerVisual";
 import FlowerShowcaseModal from "@/components/FlowerShowcaseModal";
 import DailyCheckinModal from "@/components/DailyCheckinModal";
 import UserProfileModal from "@/components/UserProfileModal";
@@ -275,52 +275,57 @@ export default function StudentGardenDashboard() {
               Sunflower
             </span>
           </div>
-          {/* Giữa: Badge Ngọn Lửa Streak Tinh Tế (Thắp sáng hoặc Tắt khi mất chuỗi) */}
-          <div
-            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border shadow-xs transition-all ${
-              garden?.current_state === "thieu_nuoc"
-                ? "bg-stone-100 border-stone-300 text-stone-500 opacity-90"
-                : "bg-amber-50 border-amber-200/80 text-amber-900"
-            }`}
-          >
-            <Flame
-              className={`w-4 h-4 transition-all ${
-                garden?.current_state === "thieu_nuoc"
-                  ? "text-stone-400 fill-stone-300"
-                  : "fill-amber-500 text-amber-500 animate-pulse"
-              }`}
-            />
-            <span className="text-xs font-extrabold">
-              {garden?.current_state === "thieu_nuoc" ? (
-                <span>Chuỗi đã tắt • Cần Nước Thánh</span>
-              ) : (
-                <span>{streakDays} Ngày kỷ luật</span>
-              )}
-            </span>
-          </div>
+
+          {/* Giữa: Badge Ngọn Lửa Streak Đổi Màu Theo Mốc Sinh Trưởng & Hào Quang (Màu xám khi 0 ngày hoặc mất chuỗi) */}
+          {(() => {
+            const isWilting = garden?.current_state === "thieu_nuoc";
+            const badgeStyle = getStreakBadgeStyle(streakDays, isWilting);
+            return (
+              <div
+                className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border shadow-xs transition-all ${badgeStyle.bg} ${badgeStyle.border} ${badgeStyle.text}`}
+              >
+                <Flame
+                  className={`w-4 h-4 transition-all ${badgeStyle.flameFill} ${badgeStyle.flameText}`}
+                />
+                <span className="text-xs font-extrabold tracking-tight">
+                  {badgeStyle.label}
+                </span>
+              </div>
+            );
+          })()}
           {/* Phải: Nút Điểm Danh 3 Phút + Avatar Hồ Sơ */}
           {/* Phải: Nút Điểm Danh 3 Phút + Quiz + Avatar Hồ Sơ + Nút Đăng Xuất */}
           <div className="flex items-center gap-2">
-            {/* Nút Điểm danh: Chỉ kích hoạt khi đã hoàn thành tất cả nhiệm vụ */}
-            <button
-              onClick={() => {
-                if (activeTasks.length > 0) {
-                  alert(`Bạn còn ${activeTasks.length} nhiệm vụ chưa xong! Hãy hoàn thành toàn bộ nhiệm vụ bên dưới để được điểm danh và cộng chuỗi nhé.`);
-                  return;
-                }
-                setShowCheckinModal(true);
-              }}
-              className={`px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all shadow-xs active:scale-95 ${
-                activeTasks.length === 0 && tasks.length > 0
-                  ? "bg-amber-500 hover:bg-amber-600 text-white animate-pulse"
-                  : "bg-stone-200 text-stone-500 hover:bg-stone-300"
-              }`}
-              title={activeTasks.length > 0 ? `Còn ${activeTasks.length} việc chưa hoàn thành` : "Sẵn sàng điểm danh"}
-            >
-              <Calendar className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Điểm danh</span>
-              {activeTasks.length > 0 ? ` (${activeTasks.length} việc)` : " (Sẵn sàng)"}
-            </button>
+            {/* Nút Điểm danh: Phản ánh trạng thái đã điểm danh hôm nay, sẵn sàng điểm danh hoặc chưa xong việc */}
+            {garden?.has_checked_in_today ? (
+              <div
+                className="px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1.5 bg-emerald-50 text-emerald-800 border border-emerald-200 shadow-2xs"
+                title="Hôm nay bạn đã thắp sáng chuỗi rồi! Hãy quay lại sau 0h AM ngày mai."
+              >
+                <Check className="w-3.5 h-3.5 text-emerald-600 stroke-[3]" />
+                <span className="hidden sm:inline">Đã điểm danh</span> (Hôm nay)
+              </div>
+            ) : (
+              <button
+                onClick={() => {
+                  if (activeTasks.length > 0) {
+                    alert(`Bạn còn ${activeTasks.length} nhiệm vụ chưa xong! Hãy hoàn thành toàn bộ nhiệm vụ bên dưới để được điểm danh và cộng chuỗi nhé.`);
+                    return;
+                  }
+                  setShowCheckinModal(true);
+                }}
+                className={`px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all shadow-xs active:scale-95 ${
+                  activeTasks.length === 0 && tasks.length > 0
+                    ? "bg-amber-500 hover:bg-amber-600 text-white animate-pulse"
+                    : "bg-stone-200 text-stone-500 hover:bg-stone-300"
+                }`}
+                title={activeTasks.length > 0 ? `Còn ${activeTasks.length} việc chưa hoàn thành` : "Sẵn sàng điểm danh"}
+              >
+                <Calendar className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Điểm danh</span>
+                {activeTasks.length > 0 ? ` (${activeTasks.length} việc)` : " (Sẵn sàng)"}
+              </button>
+            )}
 
             {/* Nút Kích hoạt Bộ 3 Câu Trắc Nghiệm Nhanh */}
             <button
@@ -374,34 +379,18 @@ export default function StudentGardenDashboard() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Lời nhắn ngắn & Trạng thái Streak */}
             <div className="space-y-2 text-center sm:text-left flex-1">
-              <div
-                className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
-                  garden?.current_state === "thieu_nuoc"
-                    ? "bg-stone-200 text-stone-600 border border-stone-300"
-                    : "bg-amber-100/70 text-amber-900"
-                }`}
-              >
-                {garden?.current_state === "thieu_nuoc" ? (
-                  <>
-                    <Flame className="w-3 h-3 text-stone-400 fill-stone-300" />
-                    <span>Chuỗi Đã Tắt • Cần Dùng Nước Thánh Khôi Phục</span>
-                  </>
-                ) : (
-                  <>
-                    <Sparkles className="w-3 h-3 text-amber-600" />
-                    <span>Hôm Nay: Ngày {streakDays} Vượt Quán Tính</span>
-                  </>
-                )}
-              </div>
-
-              <h1 className="text-xl sm:text-2xl font-extrabold text-stone-900 tracking-tight">
-                Chào {student?.name || "bạn học"}, giữ vững ngọn lửa nhé!
-              </h1>
-
-              <p className="text-xs sm:text-sm text-stone-600 italic leading-relaxed max-w-lg">
-                &ldquo;{garden?.story_message || "Chỉ cần 5 phút hôm nay để giữ cho chuỗi không bị đứt đoạn."}&rdquo;
-              </p>
-
+              {(() => {
+                const isWilting = garden?.current_state === "thieu_nuoc";
+                const badgeStyle = getStreakBadgeStyle(streakDays, isWilting);
+                return (
+                  <div
+                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border shadow-2xs ${badgeStyle.bg} ${badgeStyle.border} ${badgeStyle.text}`}
+                  >
+                    <Flame className={`w-3.5 h-3.5 ${badgeStyle.flameFill} ${badgeStyle.flameText}`} />
+                    <span>Hôm Nay: {badgeStyle.label}</span>
+                  </div>
+                );
+              })()}
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 pt-1 text-xs">
                 {/* NÚT NƯỚC THÁNH (LƯỢT KHÔI PHỤC CHUỖI) */}
                 <button

@@ -244,13 +244,13 @@ class MilestoneReward(BaseModel):
     reward_text: str
     quote: str
     is_reached: bool = False
-
 # --- Garden Schemas ---
 class GardenStatusResponse(BaseModel):
     student_id: str
     student_name: str
     selected_flower: Optional[str] = "sunflower"
     current_state: FlowerState
+    consecutive_days: int
     water_drops: int
     last_checkin_date: date
     story_message: str
@@ -260,6 +260,7 @@ class GardenStatusResponse(BaseModel):
     grace_passes_available: int = 1
     saved_streak_before_break: int = 0
     can_restore_streak: bool = False
+    has_checked_in_today: bool = False
     unlocked_badges_count: int = 0
     badges: List[BadgeResponse] = Field(default_factory=list)
     active_capsule: Optional[TimeCapsuleResponse] = None
