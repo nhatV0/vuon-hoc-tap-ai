@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import SunflowerVisual, { DisplayMode, getStreakBadgeStyle } from "@/components/SunflowerVisual";
 import FlowerShowcaseModal from "@/components/FlowerShowcaseModal";
+import RichTooltip from "@/components/RichTooltip";
 import DailyCheckinModal from "@/components/DailyCheckinModal";
 import UserProfileModal from "@/components/UserProfileModal";
 import TimeCapsuleVaultModal from "@/components/TimeCapsuleVaultModal";
@@ -297,45 +298,61 @@ export default function StudentGardenDashboard() {
           <div className="flex items-center gap-2">
             {/* Nút Điểm danh: Phản ánh trạng thái đã điểm danh hôm nay, sẵn sàng điểm danh hoặc chưa xong việc */}
             {garden?.has_checked_in_today ? (
-              <div
-                className="px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1.5 bg-emerald-50 text-emerald-800 border border-emerald-200 shadow-2xs"
-                title="Hôm nay bạn đã thắp sáng chuỗi rồi! Hãy quay lại sau 0h AM ngày mai."
+              <RichTooltip
+                content="Đã Thắp Sáng Chuỗi Hôm Nay"
+                subtext="Hôm nay bạn đã hoàn thành điểm danh! Hãy quay lại sau 0h AM ngày mai."
+                position="bottom"
               >
-                <Check className="w-3.5 h-3.5 text-emerald-600 stroke-[3]" />
-                <span className="hidden sm:inline">Đã điểm danh</span> (Hôm nay)
-              </div>
+                <div className="px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1.5 bg-emerald-50 text-emerald-800 border border-emerald-200 shadow-2xs cursor-default">
+                  <Check className="w-3.5 h-3.5 text-emerald-600 stroke-[3]" />
+                  <span className="hidden sm:inline">Đã điểm danh</span> (Hôm nay)
+                </div>
+              </RichTooltip>
             ) : (
-              <button
-                onClick={() => {
-                  if (activeTasks.length > 0) {
-                    alert(`Bạn còn ${activeTasks.length} nhiệm vụ chưa xong! Hãy hoàn thành toàn bộ nhiệm vụ bên dưới để được điểm danh và cộng chuỗi nhé.`);
-                    return;
-                  }
-                  setShowCheckinModal(true);
-                }}
-                className={`px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all shadow-xs active:scale-95 ${
-                  activeTasks.length === 0 && tasks.length > 0
-                    ? "bg-amber-500 hover:bg-amber-600 text-white animate-pulse"
-                    : "bg-stone-200 text-stone-500 hover:bg-stone-300"
-                }`}
-                title={activeTasks.length > 0 ? `Còn ${activeTasks.length} việc chưa hoàn thành` : "Sẵn sàng điểm danh"}
+              <RichTooltip
+                content={activeTasks.length === 0 && tasks.length > 0 ? "Sẵn Sàng Điểm Danh!" : "Cần Hoàn Thành Nhiệm Vụ"}
+                subtext={
+                  activeTasks.length > 0
+                    ? `Bạn còn ${activeTasks.length} nhiệm vụ vi mô chưa xong hôm nay.`
+                    : "Nhấn để thực hiện 3 phút suy ngẫm và cộng 1 ngày Streak!"
+                }
+                position="bottom"
               >
-                <Calendar className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">Điểm danh</span>
-                {activeTasks.length > 0 ? ` (${activeTasks.length} việc)` : " (Sẵn sàng)"}
-              </button>
+                <button
+                  onClick={() => {
+                    if (activeTasks.length > 0) {
+                      alert(`Bạn còn ${activeTasks.length} nhiệm vụ chưa xong! Hãy hoàn thành toàn bộ nhiệm vụ bên dưới để được điểm danh và cộng chuỗi nhé.`);
+                      return;
+                    }
+                    setShowCheckinModal(true);
+                  }}
+                  className={`px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all shadow-xs active:scale-95 ${
+                    activeTasks.length === 0 && tasks.length > 0
+                      ? "bg-amber-500 hover:bg-amber-600 text-white animate-pulse"
+                      : "bg-stone-200 text-stone-500 hover:bg-stone-300"
+                  }`}
+                >
+                  <Calendar className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">Điểm danh</span>
+                  {activeTasks.length > 0 ? ` (${activeTasks.length} việc)` : " (Sẵn sàng)"}
+                </button>
+              </RichTooltip>
             )}
 
             {/* Nút Kích hoạt Bộ 3 Câu Trắc Nghiệm Nhanh */}
-            <button
-              onClick={() => setShowQuizModal(true)}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold text-xs shadow-xs transition-colors"
-              title="Làm 3 câu trắc nghiệm vi mô hôm nay"
+            <RichTooltip
+              content="Thử Thách Trắc Nghiệm Vi Mô"
+              subtext="3 câu hỏi rèn luyện phản xạ (3-5 phút) theo tổ hợp môn học."
+              position="bottom"
             >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Quiz (3p)</span>
-            </button>
-
+              <button
+                onClick={() => setShowQuizModal(true)}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold text-xs shadow-xs transition-colors"
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Quiz (3p)</span>
+              </button>
+            </RichTooltip>
             {/* Avatar Người Dùng Kích Hoạt Pop-up Hồ Sơ */}
             <button
               onClick={() => setShowProfileModal(true)}
@@ -405,79 +422,104 @@ export default function StudentGardenDashboard() {
             {/* THANH ĐIỀU KHIỂN THU NHỎ TINH TẾ */}
             <div className="mt-2 flex flex-wrap items-center justify-center gap-1.5">
               <div className="flex items-center p-0.5 rounded-lg bg-stone-100/90 border border-stone-200/90 shadow-2xs text-[10px]">
-                <button
-                  type="button"
-                  onClick={() => setGardenDisplayMode("3d_motion")}
-                  className={`px-2 py-0.5 rounded-md font-bold flex items-center gap-1 transition-all ${
-                    gardenDisplayMode === "3d_motion"
-                      ? "bg-white text-amber-700 shadow-2xs"
-                      : "text-stone-500 hover:text-stone-800"
-                  }`}
-                  title="Chế độ Hoạt ảnh 3D: Cây hoa thở nhẹ và chuyển động mượt mà 60fps"
+                <RichTooltip
+                  content="Chế Độ Hoạt Ảnh 3D"
+                  subtext="Cây hoa thở nhẹ và chuyển động mượt mà 60fps."
+                  position="top"
                 >
-                  <Film className="w-2.5 h-2.5 text-amber-500" />
-                  <span>3D Motion</span>
-                </button>
+                  <button
+                    type="button"
+                    onClick={() => setGardenDisplayMode("3d_motion")}
+                    className={`px-2 py-0.5 rounded-md font-bold flex items-center gap-1 transition-all ${
+                      gardenDisplayMode === "3d_motion"
+                        ? "bg-white text-amber-700 shadow-2xs"
+                        : "text-stone-500 hover:text-stone-800"
+                    }`}
+                  >
+                    <Film className="w-2.5 h-2.5 text-amber-500" />
+                    <span>3D Motion</span>
+                  </button>
+                </RichTooltip>
 
-                <button
-                  type="button"
-                  onClick={() => setGardenDisplayMode("3d_static")}
-                  className={`px-2 py-0.5 rounded-md font-bold flex items-center gap-1 transition-all ${
-                    gardenDisplayMode === "3d_static"
-                      ? "bg-white text-amber-700 shadow-2xs"
-                      : "text-stone-500 hover:text-stone-800"
-                  }`}
-                  title="Chế độ Ảnh 3D HD: Hình ảnh tĩnh độ phân giải cao tách nền sắc nét"
+                <RichTooltip
+                  content="Chế Độ Ảnh 3D HD"
+                  subtext="Hình ảnh tĩnh độ phân giải cao tách nền sắc nét."
+                  position="top"
                 >
-                  <ImageIcon className="w-2.5 h-2.5 text-blue-500" />
-                  <span>Ảnh 3D HD</span>
-                </button>
+                  <button
+                    type="button"
+                    onClick={() => setGardenDisplayMode("3d_static")}
+                    className={`px-2 py-0.5 rounded-md font-bold flex items-center gap-1 transition-all ${
+                      gardenDisplayMode === "3d_static"
+                        ? "bg-white text-amber-700 shadow-2xs"
+                        : "text-stone-500 hover:text-stone-800"
+                    }`}
+                  >
+                    <ImageIcon className="w-2.5 h-2.5 text-blue-500" />
+                    <span>Ảnh 3D HD</span>
+                  </button>
+                </RichTooltip>
               </div>
 
-              <button
-                type="button"
-                onClick={() => setShowFlowerShowcase(true)}
-                className="px-2.5 py-0.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 text-[10px] font-bold flex items-center gap-1 transition-colors shadow-2xs"
-                title="Xem phòng trưng bày: Chiêm ngưỡng đầy đủ 5 mốc sinh trưởng và 8 cấp độ hào quang tỏa sáng rực rỡ"
+              <RichTooltip
+                content="Phòng Trưng Bày Hào Quang"
+                subtext="Chiêm ngưỡng 5 mốc sinh trưởng và 8 cấp độ hào quang."
+                position="top"
               >
-                <Eye className="w-3 h-3 text-amber-600" />
-                <span>Phòng Trưng Bày Hào Quang</span>
-              </button>
+                <button
+                  type="button"
+                  onClick={() => setShowFlowerShowcase(true)}
+                  className="px-2.5 py-0.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 text-[10px] font-bold flex items-center gap-1 transition-colors shadow-2xs"
+                >
+                  <Eye className="w-3 h-3 text-amber-600" />
+                  <span>Phòng Trưng Bày Hào Quang</span>
+                </button>
+              </RichTooltip>
             </div>
           </div>
 
           {/* 3. CÁC NÚT HÀNH ĐỘNG CHÍNH (NƯỚC THÁNH, KẾ HOẠCH 7 NGÀY) */}
           <div className="flex flex-wrap items-center justify-center gap-2 pt-1 text-xs">
             {/* NÚT NƯỚC THÁNH (LƯỢT KHÔI PHỤC CHUỖI) */}
-            <button
-              onClick={handleRestoreStreak}
-              disabled={!garden?.can_restore_streak}
-              className={`px-3.5 py-1.5 rounded-xl font-bold flex items-center gap-1.5 transition-all shadow-xs active:scale-95 ${
+            <RichTooltip
+              content={garden?.can_restore_streak ? "Khôi Phục Chuỗi Ngay!" : "Kho Nước Thánh Tái Sinh"}
+              subtext={
                 garden?.can_restore_streak
-                  ? "bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-700 hover:to-indigo-700 text-white animate-pulse"
-                  : "bg-sky-50 text-sky-800 border border-sky-200 opacity-90 hover:bg-sky-100"
-              }`}
-              title={
-                garden?.can_restore_streak
-                  ? `Nhấn để dùng 1 bình Nước Thánh khôi phục về chuỗi ${garden.saved_streak_before_break} ngày đã mất!`
-                  : `Nước Thánh (Vé khôi phục chuỗi): Bạn hiện có ${garden?.grace_passes_available ?? 1} bình. Tặng 1 bình khi bắt đầu và mỗi 30 ngày kiên trì.`
+                  ? `Dùng 1 bình Nước Thánh để khôi phục về chuỗi ${garden.saved_streak_before_break} ngày!`
+                  : `Bạn có ${garden?.grace_passes_available ?? 1} bình. Nhận 1 bình khi bắt đầu và mỗi 30 ngày kiên trì.`
               }
+              position="top"
             >
-              <Droplets className="w-3.5 h-3.5 fill-sky-500 text-sky-500" />
-              <span>
-                Nước Thánh ({garden?.grace_passes_available ?? 1})
-                {garden?.can_restore_streak ? ` • Khôi phục ${garden.saved_streak_before_break}d` : ""}
-              </span>
-            </button>
+              <button
+                onClick={handleRestoreStreak}
+                disabled={!garden?.can_restore_streak}
+                className={`px-3.5 py-1.5 rounded-xl font-bold flex items-center gap-1.5 transition-all shadow-xs active:scale-95 ${
+                  garden?.can_restore_streak
+                    ? "bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-700 hover:to-indigo-700 text-white animate-pulse"
+                    : "bg-sky-50 text-sky-800 border border-sky-200 opacity-90 hover:bg-sky-100"
+                }`}
+              >
+                <Droplets className="w-3.5 h-3.5 fill-sky-500 text-sky-500" />
+                <span>
+                  Nước Thánh ({garden?.grace_passes_available ?? 1})
+                  {garden?.can_restore_streak ? ` • Khôi phục ${garden.saved_streak_before_break}d` : ""}
+                </span>
+              </button>
+            </RichTooltip>
 
-            <Link
-              href="/planning"
-              className="px-3.5 py-1.5 rounded-xl text-stone-600 hover:text-stone-900 bg-stone-100 hover:bg-stone-200 font-bold flex items-center gap-1.5 transition-colors shadow-2xs"
-              title="Mở bảng lộ trình 7 ngày: Lên kế hoạch chi tiết các bước học tập vi mô"
+            <RichTooltip
+              content="Kế Hoạch Học Tập 7 Ngày"
+              subtext="Xem và phân bổ các nhiệm vụ vi mô cho từng môn học."
+              position="top"
             >
-              <ListTodo className="w-3.5 h-3.5 text-stone-500" />
-              <span>Kế hoạch 7 ngày</span>
-            </Link>
+              <Link
+                href="/planning"
+                className="px-3.5 py-1.5 rounded-xl text-stone-600 hover:text-stone-900 bg-stone-100 hover:bg-stone-200 font-bold flex items-center gap-1.5 transition-colors shadow-2xs"
+              >
+                <ListTodo className="w-3.5 h-3.5 text-stone-500" />
+                <span>Kế hoạch 7 ngày</span>
+              </Link>
+            </RichTooltip>
           </div>
 
           {/* 4. DÒNG TEXT LỜI CHÀO & SUY NGẪM ĐƯỢC CHUYỂN XUỐNG DƯỚI CÙNG */}
