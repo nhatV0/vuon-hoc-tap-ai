@@ -1,5 +1,5 @@
 import uuid
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from typing import List, Optional, Dict
 from fastapi import APIRouter, Depends, HTTPException, status, Header
 from sqlalchemy.orm import Session
@@ -457,17 +457,17 @@ async def onboard_student(data: StudentCreate, db: Session = Depends(get_db)):
         )
         db.add(planned)
 
-    # Khởi tạo chậu hoa
+    # Khởi tạo chậu hoa ban đầu: 0 ngày (Hạt mầm), ngày điểm danh trước là hôm qua để hôm nay làm nhiệm vụ xong điểm danh sẽ lên Ngày 1!
+    yesterday = date.today() - timedelta(days=1)
     initial_flower = FlowerStatus(
         student_id=student.id,
         current_state=FlowerState.TICH_CUC,
-        consecutive_days=1,
-        last_checkin_date=date.today(),
+        consecutive_days=0,
+        last_checkin_date=yesterday,
         water_drops=1,
         story_message=STORY_MESSAGES[FlowerState.TICH_CUC]
     )
     db.add(initial_flower)
-    # Khởi tạo Inventory khiên hộ mệnh và gieo mầm badge ban đầu
     inventory = get_or_create_inventory(student_id, db)
     ensure_badges_seeded(db)
     # Thưởng huy hiệu Tiên Phong ngày đầu
@@ -789,13 +789,12 @@ def get_garden_status(student_id: str, db: Session = Depends(get_db)):
         db.refresh(flower)
     else:
         delta_days = (today - flower.last_checkin_date).days
-        if delta_days >= 3 and flower.current_state not in [FlowerState.THIEU_NUOC, FlowerState.HEO_KHO]:
-            new_state, story = evaluate_inactive_state(flower.last_checkin_date, today)
+        if delta_days >= 2 and flower.current_state not in [FlowerState.THIEU_NUOC, FlowerState.HEO_KHO]:
+            new_state, story = evaluate_inactive_state(flower.last_checkin_date, today, consecutive_days=flower.consecutive_days)
             flower.current_state = new_state
             flower.story_message = story
             db.commit()
             db.refresh(flower)
-
     recent_checkins = db.query(DailyCheckin)\
         .filter(DailyCheckin.student_id == student_id)\
         .order_by(desc(DailyCheckin.created_at))\

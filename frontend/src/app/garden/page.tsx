@@ -275,15 +275,29 @@ export default function StudentGardenDashboard() {
               Sunflower
             </span>
           </div>
-
-          {/* Giữa: Badge Ngọn Lửa Streak Tinh Tế */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/80 shadow-xs">
-            <Flame className="w-4 h-4 fill-amber-500 text-amber-500 animate-pulse" />
-            <span className="text-xs font-extrabold text-amber-900">
-              {streakDays} Ngày kỷ luật
+          {/* Giữa: Badge Ngọn Lửa Streak Tinh Tế (Thắp sáng hoặc Tắt khi mất chuỗi) */}
+          <div
+            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border shadow-xs transition-all ${
+              garden?.current_state === "thieu_nuoc"
+                ? "bg-stone-100 border-stone-300 text-stone-500 opacity-90"
+                : "bg-amber-50 border-amber-200/80 text-amber-900"
+            }`}
+          >
+            <Flame
+              className={`w-4 h-4 transition-all ${
+                garden?.current_state === "thieu_nuoc"
+                  ? "text-stone-400 fill-stone-300"
+                  : "fill-amber-500 text-amber-500 animate-pulse"
+              }`}
+            />
+            <span className="text-xs font-extrabold">
+              {garden?.current_state === "thieu_nuoc" ? (
+                <span>Chuỗi đã tắt • Cần Nước Thánh</span>
+              ) : (
+                <span>{streakDays} Ngày kỷ luật</span>
+              )}
             </span>
           </div>
-
           {/* Phải: Nút Điểm Danh 3 Phút + Avatar Hồ Sơ */}
           {/* Phải: Nút Điểm Danh 3 Phút + Quiz + Avatar Hồ Sơ + Nút Đăng Xuất */}
           <div className="flex items-center gap-2">
@@ -360,9 +374,24 @@ export default function StudentGardenDashboard() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Lời nhắn ngắn & Trạng thái Streak */}
             <div className="space-y-2 text-center sm:text-left flex-1">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-100/70 text-amber-900 text-[10px] font-bold uppercase tracking-wider">
-                <Sparkles className="w-3 h-3 text-amber-600" />
-                Hôm Nay: Ngày {streakDays} Vượt Quán Tính
+              <div
+                className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                  garden?.current_state === "thieu_nuoc"
+                    ? "bg-stone-200 text-stone-600 border border-stone-300"
+                    : "bg-amber-100/70 text-amber-900"
+                }`}
+              >
+                {garden?.current_state === "thieu_nuoc" ? (
+                  <>
+                    <Flame className="w-3 h-3 text-stone-400 fill-stone-300" />
+                    <span>Chuỗi Đã Tắt • Cần Dùng Nước Thánh Khôi Phục</span>
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="w-3 h-3 text-amber-600" />
+                    <span>Hôm Nay: Ngày {streakDays} Vượt Quán Tính</span>
+                  </>
+                )}
               </div>
 
               <h1 className="text-xl sm:text-2xl font-extrabold text-stone-900 tracking-tight">

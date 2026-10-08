@@ -277,9 +277,13 @@ def calculate_flower_state(
     shield_message = None
 
     if delta_days <= 0:
-        new_consecutive = max(1, consecutive_days)
+        # TRONG SUỐT 24 GIỜ (cùng ngày đã điểm danh): không thể tăng thêm chuỗi streak
+        new_consecutive = consecutive_days
+        shield_message = "Hôm nay bạn đã thắp sáng chuỗi rồi! Hãy giữ vững phong độ và quay lại sau 0h AM ngày mai nhé."
     elif delta_days == 1:
+        # Sang ngày tiếp theo (sau 0h AM): chuỗi được thắp sáng tăng thêm 1 ngày
         new_consecutive = consecutive_days + 1
+        shield_message = f"Chúc mừng bạn đã hoàn thành nhiệm vụ và thắp sáng chuỗi Ngày {new_consecutive}!"
     elif delta_days == 2:
         # Nhỡ 1 ngày hôm qua
         if inventory and inventory.freeze_shields_available > 0:
@@ -287,18 +291,19 @@ def calculate_flower_state(
             inventory.total_shields_used += 1
             inventory.last_shield_used_at = datetime.now(timezone.utc)
             shield_used = True
-            shield_message = "Khiên hộ mệnh đã giữ lại ngọn lửa cho bạn ngày hôm qua!"
+            shield_message = "Khiên hộ mệnh đã bảo vệ chuỗi cho bạn ngày hôm qua!"
             new_consecutive = consecutive_days + 1
         else:
             if consecutive_days < 21:
-                # Dưới 21 ngày: Cộng dồn tiếp tục để đủ 21 ngày
+                # Dưới 21 ngày: Quên chuỗi sẽ được CỘNG DỒN để đủ 21 ngày thoát trọng lực
                 new_consecutive = consecutive_days + 1
-                shield_message = "Dưới 21 ngày, chuỗi được cộng dồn tiếp tục để bạn hoàn thành mốc 21 ngày thoát lực cản!"
+                shield_message = "Dưới 21 ngày, chuỗi được cộng dồn tiếp tục để giúp bạn đạt mốc 21 ngày!"
             else:
-                # Từ 21 ngày trở đi: lưu lại chuỗi để khôi phục
+                # Từ 21 ngày trở đi: Chuỗi bị tắt, chuyển qua cây héo, lưu lại chuỗi để khôi phục bằng Nước Thánh
                 if inventory:
                     inventory.saved_streak_before_break = max(inventory.saved_streak_before_break or 0, consecutive_days)
                 new_consecutive = 1
+                shield_message = f"Chuỗi {consecutive_days} ngày đã tắt do lỡ hẹn! Bạn có thể dùng Nước Thánh để khôi phục lại."
     else:
         # Nghỉ nhiều ngày (delta_days >= 3)
         if consecutive_days < 21:
@@ -306,10 +311,11 @@ def calculate_flower_state(
             new_consecutive = consecutive_days + 1
             shield_message = "Chào mừng bạn quay lại! Chuỗi được cộng dồn để giúp bạn vững vàng đạt 21 ngày."
         else:
-            # Từ 21 ngày trở đi: chuyển qua cây héo, lưu streak để phục hồi
+            # Từ 21 ngày trở đi: Chuỗi bị tắt, lưu streak để phục hồi
             if inventory:
                 inventory.saved_streak_before_break = max(inventory.saved_streak_before_break or 0, consecutive_days)
             new_consecutive = 1
+            shield_message = f"Chuỗi {consecutive_days} ngày đã tắt! Hãy dùng Nước Thánh để thắp sáng lại nhé."
 
     # Cập nhật số lượt khôi phục chuỗi: Mỗi mốc 30 ngày streak được nhận 1 lượt khôi phục
     if inventory and new_consecutive >= 30:
@@ -319,8 +325,6 @@ def calculate_flower_state(
             new_passes = milestones_30 - current_claimed
             inventory.grace_passes_available = (inventory.grace_passes_available or 0) + new_passes
             inventory.restores_claimed_count = milestones_30
-
-    # Phân định trạng thái hoa sau khi nhận nước tưới từ check-in
     # Đạt mốc 21 ngày (hoặc streak cao) kích hoạt CHAM_HOC (Hoa nở rộ đón nắng / Hào quang)
     if new_consecutive >= 21:
         new_state = FlowerState.CHAM_HOC
@@ -336,7 +340,8 @@ def evaluate_inactive_state(last_checkin_date: date, today: date, consecutive_da
     """
     Đánh giá trạng thái khi người dùng vào xem vườn mà chưa check-in trong ngày:
     - Nếu nghỉ >= 30 ngày: Mùa đông HEO_KHO
-    - Nếu consecutive_days được chỉ định và < 21 ngày: giữ TICH_CUC để cộng dồn
+    - Nếu consecutive_days < 21 ngày: giữ TICH_CUC để cộng dồn không phạt
+    - Nếu consecutive_days >= 21 ngày và qua 0h ngày tiếp theo mà không làm nhiệm vụ (delta_days >= 2): chuỗi bị tắt, hoa héo THIEU_NUOC
     - Ngược lại khi vắng mặt >= 3 ngày: THIEU_NUOC
     """
     delta_days = (today - last_checkin_date).days
@@ -344,12 +349,13 @@ def evaluate_inactive_state(last_checkin_date: date, today: date, consecutive_da
         state = FlowerState.HEO_KHO
     elif consecutive_days is not None and consecutive_days < 21:
         state = FlowerState.TICH_CUC
+    elif consecutive_days is not None and consecutive_days >= 21 and delta_days >= 2:
+        state = FlowerState.THIEU_NUOC
     elif delta_days >= 3:
         state = FlowerState.THIEU_NUOC
     else:
         state = FlowerState.TICH_CUC
     return state, STORY_MESSAGES[state]
-
 def restore_student_streak(student_id: str, db: Session) -> Tuple[bool, str, int, int, FlowerState]:
     """
     Khôi phục chuỗi học tập khi cây bị héo hoặc đứt chuỗi (tiêu thụ 1 Grace Pass)
