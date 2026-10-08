@@ -1,0 +1,332 @@
+================================================================================
+BỘ PROMPT CHUẨN TẠO ẢNH & CHUYỂN ĐỘNG (IMAGE & MOTION PROMPTS)
+HỆ THỐNG VÒNG ĐỜI TRỒNG HOA & HÀO QUANG STREAK ĐA CẤP ĐỘ
+Dự án: Trợ Lý Hoa Hướng Dương & Khu Vườn Cảm Xúc
+================================================================================
+
+* Hướng dẫn sử dụng:
+  - IMAGE PROMPT: Dùng cho Midjourney, DALL-E 3, Leonardo AI, Stable Diffusion.
+    (Khuyến nghị: Style 3D Pixar/Ghibli Cute Claymation, ánh sáng ấm áp, tách nền).
+  - MOTION PROMPT: Dùng cho Runway Gen-2, Pika Labs, Kling AI, Luma Dream Machine.
+    (Chỉ định chuyển động tự nhiên, mượt mà, lặp vô tận - Seamless Loop).
+
+--------------------------------------------------------------------------------
+MỤC LỤC:
+PHẦN 1: QUY CHUẨN 7 TRẠNG THÁI SINH TRƯỞNG & CHUYỂN ĐỘNG (Áp dụng cho từng loài hoa)
+  - Trạng thái 1: Chọn hạt giống (Seed Selection)
+  - Trạng thái 2: Gieo vào chậu (Sowing into Pot)
+  - Trạng thái 3: Nảy mầm (Sprouting / Germination)
+  - Trạng thái 4: Cây non (Young Seedling / Sapling)
+  - Trạng thái 5: Cây héo / Thiếu nước (Wilting / Thirst)
+  - Trạng thái 6: Cây trưởng thành nở hoa (Mature Bloom)
+  - Trạng thái 7: Cây hào quang theo 8 CẤP ĐỘ MÀU STREAK (Radiant Aura - 8 Levels)
+    + Cấp 1: Hào quang Trắng (Pure White / Pearl Aura)
+    + Cấp 2: Hào quang Xanh Lam (Deep Blue / Cobalt Aura)
+    + Cấp 3: Hào quang Xanh Nước Biển (Aqua / Cyan / Water Ripple Aura)
+    + Cấp 4: Hào quang Tím Huyền Bí (Mystic Purple / Amethyst Aura)
+    + Cấp 5: Hào quang Đỏ Rực Lửa (Crimson Red / Ruby Flame Aura)
+    + Cấp 6: Hào quang Vàng Kim Thái Dương (Solar Gold / Amber Radiance Aura)
+    + Cấp 7: Hào quang Ngũ Sắc Cầu Vồng (Prismatic Rainbow / Aurora Borealis Aura)
+    + Cấp 8: Hào quang Sáng Chói Cực Đại (Blinding Celestial Divine Light Aura)
+
+PHẦN 2: BỘ PROMPT CHI TIẾT THEO TỪNG LOÀI HOA CỤ THỂ
+  - Loài 1: 🌻 Hoa Hướng Dương (Sunflower - Năng lượng & Ý chí)
+  - Loài 2: 🪷 Hoa Sen (Lotus - Bình tâm & Tĩnh lặng)
+  - Loài 3: 🌾 Hoa Bồ Công Anh (Dandelion - Tự do & Buông bỏ áp lực)
+  - Loài 4: 🪻 Hoa Oải Hương (Lavender - Thư giãn & An giấc)
+  - Loài 5: 🌸 Hoa Anh Đào (Cherry Blossom - Hy vọng & Khởi đầu mới)
+  - Loài 6: 🌵 Xương Rồng Nở Hoa (Flowering Cactus - Bền bỉ & Kiên định)
+
+================================================================================
+PHẦN 1: QUY TRÌNH 7 TRẠNG THÁI SINH TRƯỞNG & 8 CẤP ĐỘ MÀU HÀO QUANG
+================================================================================
+
+--------------------------------------------------------------------------------
+TRẠNG THÁI 1: CHỌN HẠT GIỐNG (SEED SELECTION)
+Ý nghĩa: Giao diện thẻ lựa chọn hạt mầm cho học sinh chọn trước khi gieo.
+--------------------------------------------------------------------------------
+* IMAGE PROMPT:
+A set of cute whimsical magical glowing flower seeds resting on a soft organic pastel cloth, detailed shell texture, subtle bioluminescent inner glow, Pixar 3D stylized asset, clean pastel lighting, isolated on transparent background, octane render, 8k --no background
+
+* MOTION PROMPT:
+The magical seed slowly rotates 360 degrees in place, hovering gently with a soft rhythmic breathing pulse, emitting tiny subtle glistening dust motes, smooth seamless loop, 60fps.
+
+--------------------------------------------------------------------------------
+TRẠNG THÁI 2: GIEO VÀO CHẬU (SOWING INTO POT)
+Ý nghĩa: Hạt giống vừa được đặt vào giữa lớp đất tơi xốp trong chậu gốm nhỏ.
+--------------------------------------------------------------------------------
+* IMAGE PROMPT:
+A cute minimalist ceramic terracotta pot filled with rich dark soft potting soil, a single magical glowing seed half-buried in the center of the earth, a tiny golden sunbeam shining down directly onto the seed, 3D stylized claymation, cozy greenhouse aesthetic, transparent background --no background
+
+* MOTION PROMPT:
+Soft soil gently settles around the glowing seed as warm sunlight ripples across the pot surface, tiny sparkling dew particles sink gently into the dark earth, calm heartwarming loop.
+
+--------------------------------------------------------------------------------
+TRẠNG THÁI 3: NẢY MẦM (SPROUTING / GERMINATION)
+Ý nghĩa: Hạt giống phá vỡ vỏ đất, nhú lên 2 chiếc lá mầm bé xíu xanh biếc.
+--------------------------------------------------------------------------------
+* IMAGE PROMPT:
+A tiny adorable baby plant sprout breaking through soft crumbly soil in a pastel ceramic pot, two tiny vibrant lime-green cotyledon leaves opening upwards toward light, single sparkling dewdrop on leaf tip, cute kawaii emotion, 3D Pixar style, transparent background --no background
+
+* MOTION PROMPT:
+The tiny green sprout pushes upward out of the soil in a smooth gentle motion, unfolding its two tiny leaves and stretching happily, wobbling softly in a warm spring breeze, seamless looping animation.
+
+--------------------------------------------------------------------------------
+TRẠNG THÁI 4: CÂY NON (YOUNG SEEDLING / SAPLING)
+Ý nghĩa: Cây phát triển thân mảnh, có nhiều lá con, tràn đầy sức sống tuổi trẻ.
+--------------------------------------------------------------------------------
+* IMAGE PROMPT:
+A thriving young seedling plant with a slender delicate stem and four lush emerald green leaves, growing vigorously in a clean pastel potted plant, bathed in soft warm morning sunshine, 3D stylized cheerful character, transparent background --no background
+
+* MOTION PROMPT:
+The young seedling sways rhythmically left and right like a happy dancing child, leaves fluttering softly, absorbing warm sunlight with gentle bouncing physics, seamless cute loop.
+
+--------------------------------------------------------------------------------
+TRẠNG THÁI 5: CÂY HÉO / THIẾU NƯỚC (WILTING / THIRST)
+Ý nghĩa: Khi học sinh gián đoạn check-in, cây buồn rủ xuống nhắc nhở ân cần.
+--------------------------------------------------------------------------------
+* IMAGE PROMPT:
+A cute slightly sad wilting potted plant bending gently to the side, drooping pastel muted leaves, cracked dry soil in a terracotta pot, cute sleepy expressive eyes looking up asking for care, cozy soft melancholic lighting, 3D stylized character, transparent background --no background
+
+* MOTION PROMPT:
+The drooping plant sighs slowly, swaying heavily and low to the ground with slow tired breathing, blinking its cute sleepy eyes slowly, waiting for water droplets to revive it, gentle slow loop.
+
+--------------------------------------------------------------------------------
+TRẠNG THÁI 6: CÂY TRƯỞNG THÀNH NỞ HOA (MATURE BLOOM)
+Ý nghĩa: Cây lớn hoàn chỉnh, bung nở những cánh hoa tươi tắn rực rỡ nhất.
+--------------------------------------------------------------------------------
+* IMAGE PROMPT:
+A beautiful fully grown mature flowering plant in full bloom, lush green leaves, perfectly formed vibrant healthy petals, warm joyful facial expression in the blossom center, planted in a decorative pastel glazed ceramic pot, Studio Ghibli warmth meets Pixar 3D, transparent background --no background
+
+* MOTION PROMPT:
+The flower opens its petals in full glory, nodding gently with a warm loving smile, petals and leaves fluttering softly in a soothing summer wind, breathing with natural organic pulse, seamless loop.
+
+--------------------------------------------------------------------------------
+TRẠNG THÁI 7: CÂY HÀO QUANG (RADIANT AURA BLOOM) - 8 CẤP ĐỘ MÀU STREAK
+Ý nghĩa: Biểu dương thành tích kiên trì học tập liên tục của học sinh.
+--------------------------------------------------------------------------------
+
+>>> CẤP ĐỘ 1: HÀO QUANG TRẮNG (PURE WHITE / PEARL AURA) - Streak 3-5 ngày
+- IMAGE PROMPT:
+A mature blooming flower surrounded by a soft translucent pure white aura, gentle pearl-like light shimmering around the flower petals, clean pure white glow, fairy dust particles, 3D stylized cute plant, transparent background --no background
+- MOTION PROMPT:
+Soft waves of pure white ethereal light gently pulsate outward from the flower core, white stardust particles floating upwards in slow motion, calming pure meditative loop.
+
+>>> CẤP ĐỘ 2: HÀO QUANG XANH LAM (DEEP BLUE / COBALT AURA) - Streak 7 ngày
+- IMAGE PROMPT:
+A magnificent blooming flower radiating a serene cobalt blue and sapphire energy aura, glowing royal blue translucent light rings expanding around the petals, mystical quiet wisdom vibe, 3D stylized octane render, transparent background --no background
+- MOTION PROMPT:
+Glowing deep blue energy rings slowly expand and dissolve around the flower, shimmering sapphire light motes dancing around the swaying petals, seamless rhythmic pulsing loop.
+
+>>> CẤP ĐỘ 3: HÀO QUANG XANH NƯỚC BIỂN (AQUA / CYAN / WATER RIPPLE AURA) - Streak 14 ngày
+- IMAGE PROMPT:
+A vibrant blooming flower surrounded by a flowing cyan and aqua water-like aura, liquid light ripples and crystal clear turquoise droplets floating in zero gravity around the flower, refreshing soothing aesthetic, 3D fantasy plant, transparent background --no background
+- MOTION PROMPT:
+Luminescent aqua water ripples and turquoise bubbles orbit the blooming flower gracefully, soft flowing fluid motion with shimmering liquid light waves, ultra calming loop.
+
+>>> CẤP ĐỘ 4: HÀO QUANG TÍM HUYỀN BÍ (MYSTIC PURPLE / AMETHYST AURA) - Streak 21 ngày
+- IMAGE PROMPT:
+An enchanting blooming flower glowing with a rich amethyst purple aura, floating lavender energy sparks, mystical galaxy star dust swirling around the flower petals, magical nighttime royalty vibe, 3D stylized game asset, transparent background --no background
+- MOTION PROMPT:
+Hypnotic purple nebula spirals and amethyst crystal sparkles swirl smoothly around the flower stem and petals, breathing with a mystical cosmic rhythm, seamless enchanted loop.
+
+>>> CẤP ĐỘ 5: HÀO QUANG ĐỎ RỰC LỬA (CRIMSON RED / RUBY FLAME AURA) - Streak 30 ngày
+- IMAGE PROMPT:
+A proud victorious blooming flower enveloped in an intense crimson red and ruby flame aura, warm passionate glowing fireflies, heroic courage energy field, burning with gentle soft flame petals, 3D stylized masterpiece, transparent background --no background
+- MOTION PROMPT:
+Gentle soft ruby flames and crimson light ribbons dance and flicker warmly around the flower without harming it, pulsing with bold passionate energy, dynamic looping motion.
+
+>>> CẤP ĐỘ 6: HÀO QUANG VÀNG KIM THÁI DƯƠNG (SOLAR GOLD / AMBER AURA) - Streak 50 ngày
+- IMAGE PROMPT:
+A legendary flowering plant surrounded by an intense dazzling solar gold aura, shimmering amber light rays piercing outward, floating golden coins and solar flare particles, divine triumphant champion achievement, 3D Pixar isometric, transparent background --no background
+- MOTION PROMPT:
+Radiant solar golden light beams rotate slowly behind the flower like a celestial mandala, brilliant golden sparkles cascade down in continuous celebration, energetic glorious loop.
+
+>>> CẤP ĐỘ 7: HÀO QUANG NGŨ SẮC CẦU VỒNG (PRISMATIC RAINBOW / AURORA AURA) - Streak 100 ngày
+- IMAGE PROMPT:
+A mythical blooming flower wrapped in a spectacular prismatic rainbow aurora borealis aura, shimmering iridescent color transitions of pink, cyan, yellow, violet, and green flowing seamlessly across the petals, magical fairy tale aesthetic, 3D stylized, transparent background --no background
+- MOTION PROMPT:
+Mesmerizing rainbow aurora waves weave and shift fluidly in a spectrum of vibrant colors around the swaying flower, iridescent prismatic dust glittering in perpetual motion, dreamlike seamless loop.
+
+>>> CẤP ĐỘ 8: HÀO QUANG SÁNG CHÓI CỰC ĐẠI (BLINDING CELESTIAL DIVINE LIGHT) - Streak Siêu Đỉnh (>150 ngày)
+- IMAGE PROMPT:
+A transcendent celestial blooming flower emanating blinding brilliant holy white-gold starlight, intense glowing lens flares, crowned with an angelic glowing halo, floating crystal geometry shards, ultimate enlightenment mastery aura, 3D cinematic render, transparent background --no background
+- MOTION PROMPT:
+Magnificent blinding starlight pulses with divine celestial power, radiant rays of intense brilliant white and diamond light burst outward in a glorious rotating cosmic burst, majestic high-energy seamless loop.
+
+
+================================================================================
+PHẦN 2: BỘ PROMPT CHI TIẾT THEO TỪNG LOÀI HOA CỤ THỂ
+================================================================================
+
+--------------------------------------------------------------------------------
+LOÀI 1: 🌻 HOA HƯỚNG DƯƠNG (SUNFLOWER)
+Biểu tượng: Ý chí kiên định, Tinh thần lạc quan, Năng lượng mặt trời
+--------------------------------------------------------------------------------
+1. HẠT GIỐNG:
+- Image: Cute plump striped sunflower seed with a tiny magical golden glow, resting on cozy dark garden soil, 3D claymation kawaii, transparent background --no background
+- Motion: Seed gently wobbles and hovers slightly, radiating tiny golden sunbeam pulses, smooth 3D loop.
+
+2. GIEO VÀO CHẬU:
+- Image: Sunflower seed tucked snugly into warm moist soil in a round pastel orange ceramic pot, single ray of sun hitting the seed, cute 3D render, transparent background --no background
+- Motion: Sunbeam shimmers over the buried seed while tiny golden dust motes settle into the pot soil, peaceful loop.
+
+3. NẢY MẦM:
+- Image: A vibrant tiny sunflower sprout with two chubby round green leaves cracking out of soil, smiling cute face on the stem, 3D Pixar, transparent background --no background
+- Motion: Sprout stretches up enthusiastically, shaking off a tiny clump of soil and nodding cheerfully, seamless cute loop.
+
+4. CÂY NON:
+- Image: Young sunflower stalk with miniature leaves and a tiny fuzzy green flower bud forming on top, basking in warm light, 3D stylized, transparent background --no background
+- Motion: The young sunflower sways back and forth towards the sunlight in a cheerful playful rhythm, smooth wind loop.
+
+5. CÂY HÉO:
+- Image: Wilting sunflower with drooping head, sleepy half-closed eyes, pale yellow drooping petals, dry cracked earth in pot, 3D cute cartoon, transparent background --no background
+- Motion: Sunflower nods low and breathes heavily with slow sad blinks, gently waiting for water, slow melancholic loop.
+
+6. TRƯỞNG THÀNH:
+- Image: Majestic cheerful sunflower in full bloom, big smiling brown center, bright golden yellow petals, standing tall and proud in clay pot, 3D Pixar, transparent background --no background
+- Motion: Sunflower laughs silently with happy eye blinks, turning its face towards the warm breeze with fluttering petals, looping joyfully.
+
+--------------------------------------------------------------------------------
+LOÀI 2: 🪷 HOA SEN (LOTUS)
+Biểu tượng: Bình tâm, Thanh tịnh, Vượt qua áp lực thi cử
+--------------------------------------------------------------------------------
+1. HẠT GIỐNG:
+- Image: Glossy emerald lotus seed with subtle pink mystical veins, floating gently above a jade water bowl, 3D stylized, transparent background --no background
+- Motion: Lotus seed spins slowly over subtle calm water ripples, glowing with soft pink light waves, seamless zen loop.
+
+2. GIEO VÀO CHẬU:
+- Image: Lotus seed resting in the center of a minimalist ceramic bowl filled with clean water and nutrient-rich silt, tiny water droplets, transparent background --no background
+- Motion: Water rings expand smoothly from the resting seed, surface ripples reflecting soft sky light, tranquil loop.
+
+3. NẢY MẦM:
+- Image: A tiny rolled-up baby lotus leaf sprout emerging above the calm water surface, fresh soft mint green color, 3D cute Ghibli style, transparent background --no background
+- Motion: Sprout uncurls gently above water, shaking off tiny glistening dew drops, peaceful nature animation.
+
+4. CÂY NON:
+- Image: Young lotus plant with two floating round lily pads and a tender slender pink bud rising between them, 3D stylized, transparent background --no background
+- Motion: Lily pads float rhythmically on gentle water swells while the lotus bud sways softly in tranquil meditation rhythm.
+
+5. CÂY HÉO:
+- Image: Depleted water bowl with a drooping lotus bud, slightly curled brownish leaf edges, cute tired face, muted colors, transparent background --no background
+- Motion: Lotus bud hangs its head low over receding water, slow melancholic sway, gentle waiting loop.
+
+6. TRƯỞNG THÀNH:
+- Image: A pristine pastel pink and pure white blooming lotus flower resting on a vibrant green lily pad, golden stamens, divine peace, 3D render, transparent background --no background
+- Motion: Lotus flower petals breathe slowly open and closed in harmony with gentle ripples, soothing meditation breathing loop.
+
+--------------------------------------------------------------------------------
+LOÀI 3: 🌾 HOA BỒ CÔNG ANH (DANDELION)
+Biểu tượng: Buông bỏ lo âu, Bay xa ước mơ, Tự do tâm trí
+--------------------------------------------------------------------------------
+1. HẠT GIỐNG:
+- Image: A single tiny brown seed attached to a fluffy white parachute umbrella, glowing softly, 3D cute character asset, transparent background --no background
+- Motion: The parachute seed drifts and floats up and down gently like a tiny feather in calm air, seamless hovering loop.
+
+2. GIEO VÀO CHẬU:
+- Image: Dandelion seed parachute landing softly into fluffy black soil in a cute mint-green cup pot, cozy aesthetic, transparent background --no background
+- Motion: Parachute folds gently as the seed nestles cozily into the earth, soft wind caressing the pot, cozy loop.
+
+3. NẢY MẦM:
+- Image: Tiny dandelion sprout with jagged cute serrated baby leaves pushing up from soil, bright lime green, 3D Pixar, transparent background --no background
+- Motion: Sprout pops upward with an energetic bounce, leaves spreading outward in joy, cute snappy loop.
+
+4. CÂY NON:
+- Image: Young green dandelion plant with a tight golden yellow flower bud preparing to transform into a seed ball, 3D stylized, transparent background --no background
+- Motion: Stalk stretches and wiggles softly, the little bud pulsing gently with anticipation, looping smoothly.
+
+5. CÂY HÉO:
+- Image: Sad dandelion with ruffled crushed fluff, drooping stalk, dry gray pot, cute teary eyes, soft pastel, transparent background --no background
+- Motion: Dandelion shivers softly in a cold breeze, head hanging low, breathing slowly and sadly, seamless loop.
+
+6. TRƯỞNG THÀNH:
+- Image: Perfect round fluffy white dandelion puffball, hundreds of delicate soft seeds, glowing gently with fairy dust, 3D stylized, transparent background --no background
+- Motion: Dandelion sways gracefully as a few glowing seeds detach and dance away in the wind with sparkling trails, continuous magical loop.
+
+--------------------------------------------------------------------------------
+LOÀI 4: 🪻 HOA OẢI HƯƠNG (LAVENDER)
+Biểu tượng: Giấc ngủ ngon, Xua tan căng thẳng, Hương thơm xoa dịu
+--------------------------------------------------------------------------------
+1. HẠT GIỐNG:
+- Image: Tiny dark violet aromatic seed with a glowing lavender fragrance mist swirling around it, 3D icon, transparent background --no background
+- Motion: Seed hovers gently with purple aroma spiral waves dancing continuously around it, smooth loop.
+
+2. GIEO VÀO CHẬU:
+- Image: Lavender seed buried in a rustic white ceramic pot with soft soil, tiny purple magical sparkles hovering above earth, transparent background --no background
+- Motion: Soil absorbs gentle purple mist pulses as starlight reflects softly off the pot, peaceful bedtime loop.
+
+3. NẢY MẦM:
+- Image: Slender silvery-green baby lavender shoot with delicate tiny paired leaves, cozy pastel clay pot, 3D claymation, transparent background --no background
+- Motion: Shoot stretches slowly and gracefully upward, swaying like a gentle lullaby, ultra soothing motion.
+
+4. CÂY NON:
+- Image: Small bush of young lavender stems with tiny purple buds beginning to form on the tips, cozy aesthetic, 3D render, transparent background --no background
+- Motion: Stems flutter gently in a relaxing breeze, releasing soft sleepy sparkles into the air, continuous calm loop.
+
+5. CÂY HÉO:
+- Image: Drooping lavender stems bent to the side, faded grayish-purple buds, dry soil, cute sleepy face, transparent background --no background
+- Motion: Stems droop and sway heavily, nodding in sleepy exhaustion, waiting for loving water droplets, slow loop.
+
+6. TRƯỞNG THÀNH:
+- Image: A lush vibrant bouquet of deep purple lavender stalks in full fragrant bloom, soft cozy lighting, cozy bedroom vibe, 3D Pixar, transparent background --no background
+- Motion: Lavender stalks sway in a hypnotic relaxing rhythm, releasing a visible cloud of soft glowing purple fragrance stars, peaceful loop.
+
+--------------------------------------------------------------------------------
+LOÀI 5: 🌸 HOA ANH ĐÀO (CHERRY BLOSSOM / SAKURA)
+Biểu tượng: Khởi đầu mới, Vẻ đẹp thanh xuân, Hy vọng tương lai
+--------------------------------------------------------------------------------
+1. HẠT GIỐNG:
+- Image: A polished smooth peach-pink sakura seed with a soft glowing cherry blossom petal crest, 3D cute asset, transparent background --no background
+- Motion: Seed rotates slowly with tiny floating pink petals orbiting in a spiral, seamless cute loop.
+
+2. GIEO VÀO CHẬU:
+- Image: Sakura seed planted in a traditional glazed ceramic bonsai pot with fine dark soil, morning sunbeam, transparent background --no background
+- Motion: Soft pink sunbeams dance across the soil surface as the seed glows warm and cozy inside the earth, gentle loop.
+
+3. NẢY MẦM:
+- Image: Tiny bonsai sakura twig sprout pushing up from soil with miniature reddish-pink baby leaves, 3D kawaii style, transparent background --no background
+- Motion: Tiny twig stretches upwards with an elegant little twist, leaves unfolding with a cheerful bounce, cute loop.
+
+4. CÂY NON:
+- Image: Miniature sakura bonsai sapling with delicate branching twigs and cluster of plump pink flower buds, 3D stylized, transparent background --no background
+- Motion: Sapling sways gently, buds swelling slightly with a rhythmic heartbeat of spring, smooth animation.
+
+5. CÂY HÉO:
+- Image: Bonsai sakura with drooping twigs, closed brownish buds, dry cracked moss in pot, sad cute expression, transparent background --no background
+- Motion: Slender twigs shudder softly in the wind, drooping closer to the pot rim, breathing tiredly, looping slowly.
+
+6. TRƯỞNG THÀNH:
+- Image: Exquisite miniature cherry blossom bonsai tree in magnificent bloom, cloud of soft pastel pink petals, 3D Ghibli aesthetic, transparent background --no background
+- Motion: Blossom branches flutter gently in spring wind, occasional soft pink petals swirling in a beautiful loop around the trunk.
+
+--------------------------------------------------------------------------------
+LOÀI 6: 🌵 XƯƠNG RỒNG NỞ HOA (FLOWERING CACTUS)
+Biểu tượng: Ý chí kiên cường, Vượt khó, Gai góc bên ngoài nhưng rực rỡ bên trong
+--------------------------------------------------------------------------------
+1. HẠT GIỐNG:
+- Image: Tiny hard desert seed with golden runic veins, resting on soft terracotta saucer, 3D stylized game asset, transparent background --no background
+- Motion: Seed pulses with a warm rhythmic golden desert glow, hovering slightly, looping smoothly.
+
+2. GIEO VÀO CHẬU:
+- Image: Seed nestled in sandy gravel soil inside a warm terracotta bowl, bright sun rays, 3D claymation, transparent background --no background
+- Motion: Sand particles settle gently around the seed under warm dancing sunbeams, peaceful loop.
+
+3. NẢY MẦM:
+- Image: Chubby round baby cactus ball popping out of gravel, two soft friendly rounded bumps, no sharp thorns, 3D cute kawaii, transparent background --no background
+- Motion: Chubby green ball wobbles joyfully from side to side like a happy baby, cute bouncy loop.
+
+4. CÂY NON:
+- Image: Growing round chubby cactus with soft white fuzz thorns and a bright neon pink flower bud on its head, 3D Pixar, transparent background --no background
+- Motion: Cactus does a tiny happy hip wiggle, the pink bud bobbing playfully with each movement, cheerful loop.
+
+5. CÂY HÉO:
+- Image: Cactus looking deflated and wrinkled, pale olive green skin, sad droopy eyes, cracked dry gravel, transparent background --no background
+- Motion: Deflated cactus sways weakly back and forth, sighing slowly with sad blinks, waiting for rain drops, slow loop.
+
+6. TRƯỞNG THÀNH:
+- Image: A proud plump healthy emerald cactus with a giant dazzling ruby-red and orange desert flower crowning its top, joyful smile, 3D render, transparent background --no background
+- Motion: Cactus stands tall and proud, doing a celebratory gentle sway, petals of its flower fluttering triumphantly in warm desert wind, looping happily.
+
+================================================================================
+HẾT BẢN ĐẶC TẢ - SẴN SÀNG COPY & PASTE TRỰC TIẾP VÀO CÁC CÔNG CỤ AI
+================================================================================
