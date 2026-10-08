@@ -640,6 +640,15 @@ async def submit_daily_checkin(data: CheckinCreate, db: Session = Depends(get_db
     if not student:
         raise HTTPException(status_code=404, detail="Không tìm thấy học sinh")
 
+    # Kiểm tra điều kiện: Phải hoàn thành tất cả nhiệm vụ trong To-do list hôm nay mới được điểm danh tính chuỗi
+    planned_tasks = db.query(PlannedTask).filter(PlannedTask.student_id == data.student_id).all()
+    if planned_tasks:
+        uncompleted_tasks = [t for t in planned_tasks if not t.is_completed]
+        if uncompleted_tasks:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Bạn còn {len(uncompleted_tasks)} nhiệm vụ chưa hoàn thành trong Kế hoạch hôm nay! Hãy tích chọn hoàn thành hết các nhiệm vụ vi mô để được điểm danh và cộng chuỗi nhé."
+            )
     ai_feedback = await call_ai_mentor(data, student)
 
     recent_checkins = db.query(DailyCheckin)\

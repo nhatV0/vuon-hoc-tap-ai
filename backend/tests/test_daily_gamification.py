@@ -85,6 +85,14 @@ def test_daily_checkin_4_stations_and_streak_freeze():
     s_res = client.post("/api/onboarding", json=payload)
     student_id = s_res.json()["id"]
 
+    # Hoàn thành các nhiệm vụ trước khi điểm danh
+    tasks_res = client.get(f"/api/planning/{student_id}")
+    if tasks_res.status_code == 200:
+        p_data = tasks_res.json()
+        for t_list in p_data.get("tasks_by_day", {}).values():
+            for t in t_list:
+                client.patch(f"/api/planning/task/{t['id']}", json={"is_completed": True})
+
     # 2. Checkin Ngày 1
     c1_payload = {
         "student_id": student_id,

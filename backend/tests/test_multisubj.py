@@ -66,6 +66,13 @@ def test_multi_subject_and_7_point_emotion():
     plan_data = res_plan.json()
     assert plan_data["emotion_scale"] == 2
     assert len(plan_data["target_subjects"]) == 3
+    # Hoàn thành các nhiệm vụ trước khi điểm danh
+    tasks_res = client.get(f"/api/planning/{student_id}")
+    if tasks_res.status_code == 200:
+        p_data = tasks_res.json()
+        for t_list in p_data.get("tasks_by_day", {}).values():
+            for t in t_list:
+                client.patch(f"/api/planning/task/{t['id']}", json={"is_completed": True})
 
     # 3. Test Checkin với thang đo cảm xúc 7 mức độ
     checkin_payload = {

@@ -51,7 +51,7 @@ export default function StudentGardenDashboard() {
   const [gardenDisplayMode, setGardenDisplayMode] = useState<DisplayMode>("3d_motion");
 
   // Watering action
-  const [isWatering, setIsWatering] = useState<boolean>(false);
+  const [isWatering] = useState<boolean>(false);
   const [waterToast, setWaterToast] = useState<string | null>(null);
 
   // Tasks checklist state
@@ -164,25 +164,6 @@ export default function StudentGardenDashboard() {
     fetchStudentData();
   }, [fetchStudentData]);
 
-  const handleWaterClick = async () => {
-    if (!student || !garden || garden.water_drops <= 0) return;
-    setIsWatering(true);
-    try {
-      const res = await fetch(`${API_BASE}/api/garden/${student.id}/water`, {
-        method: "POST",
-      });
-      if (res.ok) {
-        const data = await res.json();
-        setWaterToast(data.message);
-        setTimeout(() => setWaterToast(null), 3500);
-        await fetchStudentData();
-      }
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setIsWatering(false);
-    }
-  };
   const handleRestoreStreak = async () => {
     if (!student) return;
     try {
@@ -306,12 +287,25 @@ export default function StudentGardenDashboard() {
           {/* Phải: Nút Điểm Danh 3 Phút + Avatar Hồ Sơ */}
           {/* Phải: Nút Điểm Danh 3 Phút + Quiz + Avatar Hồ Sơ + Nút Đăng Xuất */}
           <div className="flex items-center gap-2">
+            {/* Nút Điểm danh: Chỉ kích hoạt khi đã hoàn thành tất cả nhiệm vụ */}
             <button
-              onClick={() => setShowCheckinModal(true)}
-              className="px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs flex items-center gap-1.5 transition-all shadow-xs active:scale-95"
+              onClick={() => {
+                if (activeTasks.length > 0) {
+                  alert(`Bạn còn ${activeTasks.length} nhiệm vụ chưa xong! Hãy hoàn thành toàn bộ nhiệm vụ bên dưới để được điểm danh và cộng chuỗi nhé.`);
+                  return;
+                }
+                setShowCheckinModal(true);
+              }}
+              className={`px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all shadow-xs active:scale-95 ${
+                activeTasks.length === 0 && tasks.length > 0
+                  ? "bg-amber-500 hover:bg-amber-600 text-white animate-pulse"
+                  : "bg-stone-200 text-stone-500 hover:bg-stone-300"
+              }`}
+              title={activeTasks.length > 0 ? `Còn ${activeTasks.length} việc chưa hoàn thành` : "Sẵn sàng điểm danh"}
             >
               <Calendar className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Điểm danh</span> (3p)
+              <span className="hidden sm:inline">Điểm danh</span>
+              {activeTasks.length > 0 ? ` (${activeTasks.length} việc)` : " (Sẵn sàng)"}
             </button>
 
             {/* Nút Kích hoạt Bộ 3 Câu Trắc Nghiệm Nhanh */}
@@ -380,26 +374,27 @@ export default function StudentGardenDashboard() {
               </p>
 
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 pt-1 text-xs">
+                {/* NÚT NƯỚC THÁNH (LƯỢT KHÔI PHỤC CHUỖI) */}
                 <button
-                  onClick={handleWaterClick}
-                  disabled={isWatering || !garden || garden.water_drops <= 0}
-                  className="px-3.5 py-1.5 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-200 font-bold flex items-center gap-1.5 transition-all disabled:opacity-50"
-                  title="Tưới nước để giữ hoa tươi tốt"
+                  onClick={handleRestoreStreak}
+                  disabled={!garden?.can_restore_streak}
+                  className={`px-3.5 py-1.5 rounded-xl font-bold flex items-center gap-1.5 transition-all shadow-xs active:scale-95 ${
+                    garden?.can_restore_streak
+                      ? "bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-700 hover:to-indigo-700 text-white animate-pulse"
+                      : "bg-sky-50 text-sky-800 border border-sky-200 opacity-90 hover:bg-sky-100"
+                  }`}
+                  title={
+                    garden?.can_restore_streak
+                      ? `Nhấn để dùng 1 bình Nước Thánh khôi phục về chuỗi ${garden.saved_streak_before_break} ngày!`
+                      : `Nước Thánh (Lượt khôi phục chuỗi): Bạn hiện có ${garden?.grace_passes_available ?? 1} bình.`
+                  }
                 >
                   <Droplets className="w-3.5 h-3.5 fill-sky-500 text-sky-500" />
-                  <span>Tưới nước ({garden?.water_drops ?? 0})</span>
+                  <span>
+                    Nước Thánh ({garden?.grace_passes_available ?? 1})
+                    {garden?.can_restore_streak ? ` • Khôi phục ${garden.saved_streak_before_break}d` : ""}
+                  </span>
                 </button>
-                {garden?.can_restore_streak && (
-                  <button
-                    type="button"
-                    onClick={handleRestoreStreak}
-                    className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-700 hover:to-indigo-700 text-white font-bold flex items-center gap-1.5 transition-all shadow-xs active:scale-95 animate-pulse"
-                    title="Khôi phục lại chuỗi ngày học tập ban đầu"
-                  >
-                    <RotateCcw className="w-3.5 h-3.5" />
-                    <span>Khôi phục chuỗi ({garden?.saved_streak_before_break} ngày)</span>
-                  </button>
-                )}
 
                 <Link
                   href="/planning"
@@ -506,14 +501,22 @@ export default function StudentGardenDashboard() {
               <span>Đang tải các bước vi mô...</span>
             </div>
           ) : activeTasks.length === 0 ? (
-            <div className="py-8 px-4 rounded-2xl bg-emerald-50/60 border border-emerald-200/80 text-center flex flex-col items-center gap-2 animate-in fade-in">
+            <div className="py-8 px-4 rounded-2xl bg-emerald-50/60 border border-emerald-200/80 text-center flex flex-col items-center gap-2.5 animate-in fade-in">
               <span className="text-3xl">🎉</span>
               <h3 className="text-sm font-bold text-emerald-900">
-                Xuất sắc! Bạn đã dọn sạch toàn bộ nhiệm vụ hôm nay
+                Xuất sắc! Bạn đã hoàn thành 100% nhiệm vụ hôm nay
               </h3>
               <p className="text-xs text-emerald-800/80 max-w-sm leading-relaxed">
-                Ngọn lửa kỷ luật hôm nay đã được bảo toàn trọn vẹn. Hãy dành chút thời gian tĩnh lặng gửi đôi lời tới bản thân trong tương lai bên dưới nhé!
+                Tất cả nhiệm vụ vi mô đã xong! Giờ bạn đã mở khóa quyền điểm danh để cộng chuỗi Streak hôm nay.
               </p>
+              <button
+                type="button"
+                onClick={() => setShowCheckinModal(true)}
+                className="mt-1 px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm active:scale-95 transition-all"
+              >
+                <Calendar className="w-3.5 h-3.5" />
+                <span>Tiến Hành Điểm Danh Ngay (3 phút)</span>
+              </button>
             </div>
           ) : (
             <div className="space-y-2.5">

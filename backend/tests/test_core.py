@@ -82,6 +82,13 @@ def test_onboarding_api_and_flow():
     assert data["flower_state"] == "tich_cuc"
 
     student_id = data["id"]
+    # Hoàn thành các nhiệm vụ trong planning trước khi điểm danh
+    tasks_res = client.get(f"/api/planning/{student_id}")
+    if tasks_res.status_code == 200:
+        p_data = tasks_res.json()
+        for t_list in p_data.get("tasks_by_day", {}).values():
+            for t in t_list:
+                client.patch(f"/api/planning/task/{t['id']}", json={"is_completed": True})
 
     # Test POST /api/checkin
     checkin_payload = {
