@@ -90,8 +90,24 @@ export default function TeacherDashboardPage() {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
       });
       if (res.ok) {
-        const json = await res.json();
-        setData(json);
+        const json: TeacherDashboardData = await res.json();
+        let customStudents: StudentAlertItem[] = [];
+        if (typeof window !== "undefined") {
+          try {
+            const saved = localStorage.getItem("sunflower_all_registered_students");
+            if (saved) customStudents = JSON.parse(saved);
+          } catch {}
+        }
+        const existingIds = new Set(json.all_students.map((s) => s.student_id));
+        const newCustom = customStudents.filter((s) => !existingIds.has(s.student_id));
+        const merged = [...newCustom, ...json.all_students];
+        setData({
+          ...json,
+          total_students: merged.length,
+          healthy_students_count: merged.filter((s) => !s.needs_attention).length,
+          alert_students_count: merged.filter((s) => s.needs_attention).length,
+          all_students: merged,
+        });
       } else {
         throw new Error("Backend not available");
       }
@@ -166,8 +182,21 @@ export default function TeacherDashboardPage() {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
       });
       if (res.ok) {
-        const json = await res.json();
-        setAdminData(json);
+        const json: AdminOverviewData = await res.json();
+        let customStudents: StudentAlertItem[] = [];
+        if (typeof window !== "undefined") {
+          try {
+            const saved = localStorage.getItem("sunflower_all_registered_students");
+            if (saved) customStudents = JSON.parse(saved);
+          } catch {}
+        }
+        const existingIds = new Set(json.students.map((s) => s.student_id));
+        const newCustom = customStudents.filter((s) => !existingIds.has(s.student_id));
+        setAdminData({
+          ...json,
+          total_students: json.total_students + newCustom.length,
+          students: [...newCustom, ...json.students],
+        });
       } else {
         throw new Error("Backend not available");
       }
