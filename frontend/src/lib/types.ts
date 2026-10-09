@@ -202,6 +202,20 @@ export interface QuizQuestionItem {
   creator_id?: string | null;
   is_active?: boolean;
 }
+export interface StreakInventoryData {
+  freeze_shields_available: number;
+  grace_passes_available: number;
+  restores_claimed_count: number;
+  saved_streak_before_break: number;
+  total_shields_used: number;
+  last_shield_used_at?: string | null;
+  last_restore_used_at?: string | null;
+  quiz_tickets: number;
+  holy_water: number;
+  conquest_streak: number;
+  holy_water_claimed_count: number;
+  quiz_stage_milestones_claimed: number[];
+}
 
 export interface QuizQuestionAdmin extends QuizQuestionItem {
   correct_answer: string;
@@ -210,7 +224,6 @@ export interface QuizQuestionAdmin extends QuizQuestionItem {
   creator_id?: string | null;
   is_active: boolean;
 }
-
 export interface SubjectQuestionGroup {
   subject: string;
   total_count: number;
@@ -224,6 +237,14 @@ export interface DailyQuizPackage {
   is_boss_unlocked: boolean;
   has_attempted_today: boolean;
   questions: QuizQuestionItem[];
+  quiz_tickets: number;
+  holy_water: number;
+  conquest_streak: number;
+  target_question_count: number;
+  current_bloom_stage: string;
+  can_start_quiz: boolean;
+  student_target_subjects?: string[];
+  available_subjects?: string[];
   last_attempt?: {
     correct_answers: number;
     total_questions: number;
@@ -235,6 +256,7 @@ export interface DailyQuizPackage {
       selected_answer: string;
       correct_answer: string;
       is_correct: boolean;
+      time_spent: number;
     }>;
   } | null;
 }
@@ -248,6 +270,13 @@ export interface QuizAnswerResult {
   growth_mindset_tip?: string | null;
 }
 
+export interface QuizStartResponse {
+  success: boolean;
+  message: string;
+  quiz_tickets_remaining: number;
+  package: DailyQuizPackage;
+}
+
 export interface QuizSubmissionResponse {
   total_questions: number;
   correct_answers: number;
@@ -258,6 +287,16 @@ export interface QuizSubmissionResponse {
   ai_mentor_encouragement: string;
   is_boss_conquered: boolean;
   routed_to_teacher: boolean;
+  conquest_streak: number;
+  conquest_streak_incremented: boolean;
+  quiz_tickets_remaining: number;
+}
+
+export interface ExchangeHolyWaterResponse {
+  success: boolean;
+  message: string;
+  quiz_tickets: number;
+  holy_water_remaining: number;
 }
 
 export interface TeacherQuizStatsItem {

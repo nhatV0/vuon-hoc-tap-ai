@@ -285,7 +285,7 @@ export default function FlowerShowcaseModal({
                           setSelectedAuraLevel(aura.level);
                           setSelectedGrowthStage(null);
                         }}
-                        className={`p-3 rounded-2xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
+                        className={`group p-3 rounded-2xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
                           isSelected
                             ? "bg-white border-amber-500 ring-2 ring-amber-400/40 shadow-md"
                             : isCurrent
@@ -295,7 +295,7 @@ export default function FlowerShowcaseModal({
                             : "bg-stone-100/80 border-stone-200/80 opacity-75 hover:opacity-100 hover:bg-white"
                         }`}
                       >
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-3 flex-1 min-w-0">
                           {/* Avatar icon hào quang */}
                           <div
                             className="w-10 h-10 rounded-xl flex items-center justify-center border font-black text-xs shrink-0 shadow-inner"
@@ -323,23 +323,26 @@ export default function FlowerShowcaseModal({
                             </span>
                           </div>
 
-                          <div>
+                          <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2">
-                              <h4 className="text-xs font-bold text-stone-900">
+                              <h4 className="text-xs font-bold text-stone-900 truncate">
                                 {aura.name}
                               </h4>
                               {isCurrent && (
-                                <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full bg-amber-500 text-white">
+                                <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full bg-amber-500 text-white shrink-0">
                                   Đang sở hữu
                                 </span>
                               )}
                             </div>
-                            <p className="text-[11px] text-stone-500 line-clamp-1">
-                              {aura.colorName} • Yêu cầu {aura.minStreak} ngày liên tục
-                            </p>
-                            <p className="text-[10px] text-stone-600 italic mt-0.5 line-clamp-1">
-                              {aura.meaning}
-                            </p>
+                            {/* Chú thích chỉ xuất hiện mượt mà khi hover vào nút */}
+                            <div className="opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-24 overflow-hidden transition-all duration-300 ease-out space-y-0.5 pt-0 group-hover:pt-1">
+                              <p className="text-[11px] text-stone-500 line-clamp-1">
+                                {aura.colorName} • Yêu cầu {aura.minStreak} ngày liên tục
+                              </p>
+                              <p className="text-[10px] text-stone-600 italic line-clamp-1">
+                                {aura.meaning}
+                              </p>
+                            </div>
                           </div>
                         </div>
 
@@ -387,7 +390,7 @@ export default function FlowerShowcaseModal({
                           setSelectedGrowthStage(stg.stageKey);
                           setSelectedAuraLevel(null);
                         }}
-                        className={`p-3 rounded-2xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
+                        className={`group p-3 rounded-2xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
                           isSelected
                             ? "bg-white border-emerald-500 ring-2 ring-emerald-300 shadow-md"
                             : isReached
@@ -395,15 +398,18 @@ export default function FlowerShowcaseModal({
                             : "bg-stone-100/80 border-stone-200/80 opacity-75 hover:opacity-100 hover:bg-white"
                         }`}
                       >
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-3 flex-1 min-w-0">
                           <div className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center text-xs font-bold shrink-0">
                             <Sprout className="w-4 h-4" />
                           </div>
-                          <div>
-                            <h4 className="text-xs font-bold text-stone-900">{stg.name}</h4>
-                            <p className="text-[11px] text-stone-600 line-clamp-1">
-                              {stg.description}
-                            </p>
+                          <div className="flex-1 min-w-0">
+                            <h4 className="text-xs font-bold text-stone-900 truncate">{stg.name}</h4>
+                            {/* Chú thích chỉ xuất hiện mượt mà khi hover vào nút */}
+                            <div className="opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-16 overflow-hidden transition-all duration-300 ease-out pt-0 group-hover:pt-0.5">
+                              <p className="text-[11px] text-stone-600 line-clamp-2">
+                                {stg.description}
+                              </p>
+                            </div>
                           </div>
                         </div>
 

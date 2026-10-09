@@ -27,8 +27,23 @@ with engine.connect() as conn:
         "ALTER TABLE daily_checkins ADD COLUMN weekday_answer TEXT",
         "ALTER TABLE students ADD COLUMN target_block VARCHAR DEFAULT 'A00'",
         "ALTER TABLE students ADD COLUMN classroom VARCHAR DEFAULT '12A1'",
+        "ALTER TABLE students ADD COLUMN selected_flower VARCHAR DEFAULT 'sunflower'",
+        "ALTER TABLE students ADD COLUMN initial_password VARCHAR DEFAULT '123456'",
         "ALTER TABLE users ADD COLUMN assigned_classes JSON",
-        "ALTER TABLE users ADD COLUMN assigned_subject VARCHAR DEFAULT 'Toán học'"
+        "ALTER TABLE users ADD COLUMN assigned_subject VARCHAR DEFAULT 'Toán học'",
+        "ALTER TABLE streak_inventories ADD COLUMN freeze_shields_available INTEGER DEFAULT 1",
+        "ALTER TABLE streak_inventories ADD COLUMN grace_passes_available INTEGER DEFAULT 1",
+        "ALTER TABLE streak_inventories ADD COLUMN restores_claimed_count INTEGER DEFAULT 0",
+        "ALTER TABLE streak_inventories ADD COLUMN saved_streak_before_break INTEGER DEFAULT 0",
+        "ALTER TABLE streak_inventories ADD COLUMN total_shields_used INTEGER DEFAULT 0",
+        "ALTER TABLE streak_inventories ADD COLUMN last_shield_used_at DATETIME",
+        "ALTER TABLE streak_inventories ADD COLUMN last_restore_used_at DATETIME",
+        "ALTER TABLE streak_inventories ADD COLUMN quiz_tickets INTEGER DEFAULT 1",
+        "ALTER TABLE streak_inventories ADD COLUMN holy_water INTEGER DEFAULT 0",
+        "ALTER TABLE streak_inventories ADD COLUMN conquest_streak INTEGER DEFAULT 0",
+        "ALTER TABLE streak_inventories ADD COLUMN last_daily_ticket_date DATE",
+        "ALTER TABLE streak_inventories ADD COLUMN holy_water_claimed_count INTEGER DEFAULT 0",
+        "ALTER TABLE streak_inventories ADD COLUMN quiz_stage_milestones_claimed JSON"
     ]:
         try:
             conn.execute(text(col_def))

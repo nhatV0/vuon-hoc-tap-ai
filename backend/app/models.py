@@ -181,6 +181,12 @@ class StreakInventory(Base):
     total_shields_used = Column(Integer, default=0, nullable=False)
     last_shield_used_at = Column(DateTime, nullable=True)
     last_restore_used_at = Column(DateTime, nullable=True)
+    quiz_tickets = Column(Integer, default=1, nullable=False) # Số vé quiz hiện có, khởi tạo có sẵn 1 vé
+    holy_water = Column(Integer, default=0, nullable=False) # Số bình nước thánh hiện có
+    conquest_streak = Column(Integer, default=0, nullable=False) # Chuỗi chinh phục - số lần hoàn thành trọn vẹn bài quiz
+    last_daily_ticket_date = Column(Date, default=date.today, nullable=True) # Ngày cuối cùng đã nhận vé miễn phí hàng ngày
+    holy_water_claimed_count = Column(Integer, default=0, nullable=False) # Số mốc 30 ngày đã đổi nước thánh để tránh nhận trùng
+    quiz_stage_milestones_claimed = Column(JSON, default=list, nullable=True) # Danh sách mốc cây đã nhận vé thưởng [3, 7, 14, 21, 30]
     student = relationship("Student", back_populates="streak_inventory", uselist=False)
 
 class TimeCapsule(Base):

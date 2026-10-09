@@ -210,7 +210,11 @@ class StreakInventoryResponse(BaseModel):
     total_shields_used: int = 0
     last_shield_used_at: Optional[datetime] = None
     last_restore_used_at: Optional[datetime] = None
-
+    quiz_tickets: int = 1
+    holy_water: int = 0
+    conquest_streak: int = 0
+    holy_water_claimed_count: int = 0
+    quiz_stage_milestones_claimed: List[int] = Field(default_factory=list)
 class StreakRestoreResponse(BaseModel):
     success: bool
     message: str
@@ -323,9 +327,10 @@ class QuizQuestionItem(BaseModel):
     question_text: str
     options: Dict[str, str]
     growth_mindset_tip: Optional[str] = None
+    correct_answer: Optional[str] = None
+    micro_explanation: Optional[str] = None
 
     model_config = ConfigDict(from_attributes=True)
-
 class QuizQuestionAdmin(QuizQuestionItem):
     correct_answer: str
     micro_explanation: str
@@ -341,12 +346,29 @@ class DailyQuizPackageResponse(BaseModel):
     has_attempted_today: bool
     questions: List[QuizQuestionItem]
     last_attempt: Optional[Dict[str, Any]] = None
+    quiz_tickets: int = 1
+    holy_water: int = 0
+    conquest_streak: int = 0
+    target_question_count: int = 3
+    current_bloom_stage: str = "Nhận biết"
+    can_start_quiz: bool = True
+    student_target_subjects: List[str] = Field(default_factory=list)
+    available_subjects: List[str] = Field(default_factory=list)
 
+class QuizStartRequest(BaseModel):
+    student_id: str
+    block: Optional[str] = "A00"
+    selected_subjects: List[str] = Field(default_factory=list)
+
+class QuizStartResponse(BaseModel):
+    success: bool
+    message: str
+    quiz_tickets_remaining: int
+    package: DailyQuizPackageResponse
 class QuizAnswerItem(BaseModel):
     question_id: str
     selected_answer: str # A, B, C, D
     time_spent_seconds: int = 45
-
 class QuizSubmissionCreate(BaseModel):
     student_id: str
     block: str
@@ -370,7 +392,15 @@ class QuizSubmissionResponse(BaseModel):
     ai_mentor_encouragement: str
     is_boss_conquered: bool
     routed_to_teacher: bool
+    conquest_streak: int = 0
+    conquest_streak_incremented: bool = False
+    quiz_tickets_remaining: int = 0
 
+class ExchangeHolyWaterResponse(BaseModel):
+    success: bool
+    message: str
+    quiz_tickets: int
+    holy_water_remaining: int
 class TeacherInjectQuizCreate(BaseModel):
     block: str # A00, A01, B00, C00, D01
     subject: str

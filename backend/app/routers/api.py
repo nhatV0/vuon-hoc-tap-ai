@@ -24,11 +24,13 @@ from app.schemas import (
     TeacherInjectQuizCreate, TeacherQuizStatsItem, QuizQuestionAdmin,
     TeacherCreateRequest, TeacherUpdateRequest, TeacherResponseItem,
     StudentAssignClassRequest, AdminStudentCreateRequest, AdminOverviewStats,
-    ClassroomCreateRequest, ClassroomItem, QuizQuestionUpdateRequest, SubjectQuestionGroup
+    ClassroomCreateRequest, ClassroomItem, QuizQuestionUpdateRequest, SubjectQuestionGroup,
+    ExchangeHolyWaterResponse, QuizStartRequest, QuizStartResponse
 )
 from app.services.quiz_service import (
     get_daily_quiz_package, submit_student_quiz,
-    inject_teacher_quiz, get_teacher_quiz_stats, ensure_quiz_bank_seeded
+    inject_teacher_quiz, get_teacher_quiz_stats, ensure_quiz_bank_seeded,
+    exchange_holy_water_for_tickets, start_student_quiz
 )
 from app.auth import hash_password, verify_password, generate_session_token
 from app.services.ai_service import call_ai_roadmap, call_ai_mentor
@@ -1089,10 +1091,18 @@ def get_student_inventory(student_id: str, db: Session = Depends(get_db)):
 
     inv = get_or_create_inventory(student_id, db)
     return StreakInventoryResponse(
-        freeze_shields_available=inv.freeze_shields_available,
-        grace_passes_available=inv.grace_passes_available,
-        total_shields_used=inv.total_shields_used,
-        last_shield_used_at=inv.last_shield_used_at
+        freeze_shields_available=inv.freeze_shields_available or 0,
+        grace_passes_available=inv.grace_passes_available or 0,
+        restores_claimed_count=inv.restores_claimed_count or 0,
+        saved_streak_before_break=inv.saved_streak_before_break or 0,
+        total_shields_used=inv.total_shields_used or 0,
+        last_shield_used_at=inv.last_shield_used_at,
+        last_restore_used_at=inv.last_restore_used_at,
+        quiz_tickets=inv.quiz_tickets if inv.quiz_tickets is not None else 1,
+        holy_water=inv.holy_water or 0,
+        conquest_streak=inv.conquest_streak or 0,
+        holy_water_claimed_count=inv.holy_water_claimed_count or 0,
+        quiz_stage_milestones_claimed=inv.quiz_stage_milestones_claimed or []
     )
 
 
@@ -1201,25 +1211,43 @@ def get_teacher_dashboard(
 @router.get("/quiz/daily/{student_id}", response_model=DailyQuizPackageResponse)
 def get_daily_quiz(student_id: str, block: Optional[str] = None, db: Session = Depends(get_db)):
     """
-    Lấy bộ 3 câu trắc nghiệm nhanh hằng ngày (45s - 60s - 90s) theo khối thi.
-    Tự động áp dụng cơ chế Ổ khóa 30 ngày (30-Day Streak Gatekeeper) để mở câu hỏi Boss phân hóa 8.5+.
+    Lấy thông tin và bộ câu hỏi trắc nghiệm theo khối thi (preview hoặc lấy đề).
     """
     try:
         return get_daily_quiz_package(db=db, student_id=student_id, requested_block=block)
     except ValueError as e:
         raise HTTPException(status_code=404, detail=str(e))
 
+@router.post("/quiz/start", response_model=QuizStartResponse)
+def start_quiz_session(data: QuizStartRequest, db: Session = Depends(get_db)):
+    """
+    Bắt đầu phiên trắc nghiệm: Học sinh xác nhận tổ hợp môn -> Trừ 1 vé quiz và cấp phát đề thi.
+    """
+    try:
+        return start_student_quiz(db=db, data=data)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
 @router.post("/quiz/submit", response_model=QuizSubmissionResponse)
 def submit_quiz_attempt(data: QuizSubmissionCreate, db: Session = Depends(get_db)):
     """
-    Nộp bài trắc nghiệm nhanh 3 câu: chấm điểm tự động, giải thích vi mô tức thì,
+    Nộp bài trắc nghiệm nhanh: chấm điểm tự động, giải thích vi mô tức thì,
+    tiêu hao 1 vé quiz, cộng chuỗi chinh phục nếu làm trọn vẹn,
     cộng giọt nước tưới cây và chuyển tiếp câu hỏi Boss sai đến Giáo viên Dashboard.
     """
     try:
         return submit_student_quiz(db=db, submission=data)
     except ValueError as e:
-        raise HTTPException(status_code=404, detail=str(e))
+        raise HTTPException(status_code=400, detail=str(e))
 
+@router.post("/quiz/exchange-holy-water", response_model=ExchangeHolyWaterResponse)
+def exchange_holy_water(student_id: str, db: Session = Depends(get_db)):
+    """
+    Đổi 1 bình Nước Thánh (tích lũy từ chuỗi 30 ngày) lấy 5 Vé Quiz.
+    """
+    try:
+        return exchange_holy_water_for_tickets(db=db, student_id=student_id)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
 @router.get("/quiz/questions/grouped", response_model=List[SubjectQuestionGroup])
 def get_all_questions_grouped_by_subject(
     authorization: Optional[str] = Header(None),

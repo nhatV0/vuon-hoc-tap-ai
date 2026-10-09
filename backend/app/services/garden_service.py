@@ -198,19 +198,41 @@ def get_or_create_inventory(student_id: str, db: Session) -> StreakInventory:
             grace_passes_available=1,
             restores_claimed_count=0,
             saved_streak_before_break=0,
-            total_shields_used=0
+            total_shields_used=0,
+            quiz_tickets=1,
+            holy_water=0,
+            conquest_streak=0,
+            last_daily_ticket_date=date.today(),
+            holy_water_claimed_count=0,
+            quiz_stage_milestones_claimed=[]
         )
         db.add(inventory)
         db.commit()
         db.refresh(inventory)
     else:
-        # Đảm bảo người dùng cũ có ít nhất 1 lượt nếu chưa từng nhận
+        updated = False
         if inventory.grace_passes_available is None:
             inventory.grace_passes_available = 1
+            updated = True
+        if inventory.quiz_tickets is None:
+            inventory.quiz_tickets = 1
+            updated = True
+        if inventory.holy_water is None:
+            inventory.holy_water = 0
+            updated = True
+        if inventory.conquest_streak is None:
+            inventory.conquest_streak = 0
+            updated = True
+        if inventory.holy_water_claimed_count is None:
+            inventory.holy_water_claimed_count = 0
+            updated = True
+        if inventory.quiz_stage_milestones_claimed is None:
+            inventory.quiz_stage_milestones_claimed = []
+            updated = True
+        if updated:
             db.commit()
             db.refresh(inventory)
     return inventory
-
 def check_and_award_badges(student_id: str, streak: int, micro_wins: Optional[List[str]], db: Session) -> List[str]:
     """Trao các huy hiệu thỏa mãn điều kiện và trả về danh sách ID huy hiệu mới mở"""
     ensure_badges_seeded(db)

@@ -8,7 +8,7 @@ from app.database import Base, get_db
 from app.main import app
 from app.models import (
     Student, FlowerStatus, FlowerState, MoodType,
-    QuizQuestion, StudentQuizAttempt
+    QuizQuestion, StudentQuizAttempt, StreakInventory
 )
 from app.services.quiz_bank_seed import SEED_QUIZ_QUESTIONS
 from app.services.quiz_service import (
@@ -55,99 +55,158 @@ def test_quiz_bank_seeding(db_session):
         q_count = db_session.query(QuizQuestion).filter(QuizQuestion.block == blk).count()
         assert q_count >= 3
 
-def test_daily_quiz_package_below_30_days_streak(db_session):
-    """Học sinh streak < 30 ngày: Không thấy câu Boss 30 ngày."""
-    student = Student(
-        id="hs_test_day5",
-        name="Nguyễn Văn A",
-        grade="12",
-        target_subject="Toán học",
-        target_subjects=["Toán học", "Vật lí", "Hóa học"],
-        weakness="Hình học",
-        long_term_goal="ĐH Bách Khoa",
-        timeframe="5 tháng"
-    )
-    db_session.add(student)
-    flower = FlowerStatus(
-        student_id=student.id,
-        current_state=FlowerState.CHAM_HOC,
-        consecutive_days=5,
-        water_drops=2,
-        last_checkin_date=date.today(),
-        story_message="Cây hoa đang lớn"
-    )
-    db_session.add(flower)
+def test_daily_quiz_package_bloom_stages(db_session):
+    """Kiểm tra phân bổ câu hỏi theo 4 mốc ngày: 1-7, 8-21, 22-30, >30."""
+    # Tạo học sinh mốc ngày 5 (1-7 ngày)
+    s1 = Student(id="hs_day5", name="Em Ngày 5", grade="12", target_subject="Toán học", target_subjects=["Toán học", "Vật lí", "Hóa học"], weakness="Hình học", long_term_goal="ĐH Bách Khoa", timeframe="5 tháng")
+    f1 = FlowerStatus(student_id=s1.id, current_state=FlowerState.CHAM_HOC, consecutive_days=5, water_drops=1)
+    db_session.add_all([s1, f1])
+
+    # Tạo học sinh mốc ngày 15 (8-21 ngày)
+    s2 = Student(id="hs_day15", name="Em Ngày 15", grade="12", target_subject="Toán học", target_subjects=["Toán học", "Vật lí", "Hóa học"], weakness="Hình học", long_term_goal="ĐH Bách Khoa", timeframe="5 tháng")
+    f2 = FlowerStatus(student_id=s2.id, current_state=FlowerState.CHAM_HOC, consecutive_days=15, water_drops=1)
+    db_session.add_all([s2, f2])
+
+    # Tạo học sinh mốc ngày 25 (22-30 ngày)
+    s3 = Student(id="hs_day25", name="Em Ngày 25", grade="12", target_subject="Toán học", target_subjects=["Toán học", "Vật lí", "Hóa học"], weakness="Hình học", long_term_goal="ĐH Bách Khoa", timeframe="5 tháng")
+    f3 = FlowerStatus(student_id=s3.id, current_state=FlowerState.CHAM_HOC, consecutive_days=25, water_drops=1)
+    db_session.add_all([s3, f3])
+
+    # Tạo học sinh mốc ngày 35 (>30 ngày)
+    s4 = Student(id="hs_day35", name="Em Ngày 35", grade="12", target_subject="Toán học", target_subjects=["Toán học", "Vật lí", "Hóa học"], weakness="Hình học", long_term_goal="ĐH Bách Khoa", timeframe="5 tháng")
+    f4 = FlowerStatus(student_id=s4.id, current_state=FlowerState.CHAM_HOC, consecutive_days=35, water_drops=1)
+    db_session.add_all([s4, f4])
+
+    db_session.commit()
+
+    # 1-7 ngày: 3 câu Nhận biết
+    pkg1 = get_daily_quiz_package(db=db_session, student_id=s1.id, requested_block="A00")
+    assert pkg1.target_question_count == 3
+    assert pkg1.current_bloom_stage == "Nhận biết"
+    assert len(pkg1.questions) == 3
+    assert all("Nhận biết" in q.bloom_level for q in pkg1.questions)
+
+    # 8-21 ngày: 3 câu Thông hiểu
+    pkg2 = get_daily_quiz_package(db=db_session, student_id=s2.id, requested_block="A00")
+    assert pkg2.target_question_count == 3
+    assert pkg2.current_bloom_stage == "Thông hiểu"
+    assert len(pkg2.questions) == 3
+    assert all("Thông hiểu" in q.bloom_level for q in pkg2.questions)
+
+    # 22-30 ngày: 5 câu Vận dụng
+    pkg3 = get_daily_quiz_package(db=db_session, student_id=s3.id, requested_block="A00")
+    assert pkg3.target_question_count == 5
+    assert pkg3.current_bloom_stage == "Vận dụng"
+    assert len(pkg3.questions) == 5
+    assert all("Vận dụng" in q.bloom_level for q in pkg3.questions)
+
+    # >30 ngày: 10 câu Hỗn hợp mọi cấp độ
+    pkg4 = get_daily_quiz_package(db=db_session, student_id=s4.id, requested_block="A00")
+    assert pkg4.target_question_count == 10
+    assert pkg4.current_bloom_stage == "Hỗn hợp tất cả"
+    assert len(pkg4.questions) == 10
+    assert pkg4.is_boss_unlocked is True
+
+def test_quiz_tickets_daily_and_milestones(db_session):
+    """Kiểm tra cấp vé miễn phí và thưởng vé theo mốc hoa."""
+    student = Student(id="hs_tickets", name="Học Sinh Vé", grade="12", target_subject="Toán học", target_subjects=["Toán học"], weakness="Hình học", long_term_goal="ĐH Bách Khoa", timeframe="3 tháng")
+    flower = FlowerStatus(student_id=student.id, current_state=FlowerState.CHAM_HOC, consecutive_days=21, water_drops=1)
+    db_session.add_all([student, flower])
     db_session.commit()
 
     pkg = get_daily_quiz_package(db=db_session, student_id=student.id, requested_block="A00")
-    assert pkg.student_id == student.id
-    assert pkg.block == "A00"
-    assert pkg.streak_days == 5
-    assert pkg.is_boss_unlocked is False
-    assert len(pkg.questions) == 3
+    # Khởi tạo có 1 vé + 1 vé ngày hôm nay (nếu refresh) + mốc 3(+1), 7(+2), 14(+2), 21(+3) = 1 + 1 + 2 + 2 + 3 = 9 vé
+    assert pkg.quiz_tickets >= 9
+    assert pkg.can_start_quiz is True
 
-    # Đảm bảo câu 3 không phải là BOSS_30D
-    q_types = [q.slot_type for q in pkg.questions]
-    assert "REFLEX_1" in q_types
-    assert "TRAP_2" in q_types
-    assert "BOSS_30D" not in q_types
-
-def test_daily_quiz_package_above_30_days_unlocks_boss(db_session):
-    """Học sinh streak >= 30 ngày: Tự động kích hoạt cơ chế Ổ Khóa 30 Ngày (Boss Item)."""
-    student = Student(
-        id="hs_test_boss30",
-        name="Trần Thị Bền Bỉ",
-        grade="12",
-        target_subject="Toán học",
-        target_subjects=["Toán học", "Ngữ văn", "Tiếng Anh"],
-        weakness="Từ vựng",
-        long_term_goal="ĐH Ngoại Thương",
-        timeframe="3 tháng"
-    )
-    db_session.add(student)
-    flower = FlowerStatus(
-        student_id=student.id,
-        current_state=FlowerState.CHAM_HOC,
-        consecutive_days=31,
-        water_drops=5,
-        last_checkin_date=date.today(),
-        story_message="Chiến binh kỷ luật"
-    )
-    db_session.add(flower)
+def test_holy_water_and_exchange(db_session, client):
+    """Kiểm tra tích lũy Nước Thánh từ chuỗi 30 ngày và đổi sang Vé Quiz."""
+    student = Student(id="hs_holy_water", name="Học Sinh Nước Thánh", grade="12", target_subject="Toán học", target_subjects=["Toán học"], weakness="Hình học", long_term_goal="ĐH Bách Khoa", timeframe="3 tháng")
+    # Chuỗi 62 ngày => 62 // 30 = 2 bình Nước Thánh
+    flower = FlowerStatus(student_id=student.id, current_state=FlowerState.CHAM_HOC, consecutive_days=62, water_drops=1)
+    db_session.add_all([student, flower])
     db_session.commit()
 
-    pkg = get_daily_quiz_package(db=db_session, student_id=student.id, requested_block="D01")
-    assert pkg.streak_days == 31
-    assert pkg.is_boss_unlocked is True
+    pkg = get_daily_quiz_package(db=db_session, student_id=student.id, requested_block="A00")
+    assert pkg.holy_water == 2
 
-    q_types = [q.slot_type for q in pkg.questions]
-    assert "BOSS_30D" in q_types
+    initial_tickets = pkg.quiz_tickets
 
-def test_submit_quiz_and_water_reward(db_session):
-    """Nộp bài trắc nghiệm: chấm điểm, giải thích vi mô và cộng giọt nước."""
+    # Đổi 1 Nước Thánh lấy 5 Vé Quiz
+    res = client.post(f"/api/quiz/exchange-holy-water?student_id={student.id}")
+    assert res.status_code == 200
+    data = res.json()
+    assert data["success"] is True
+    assert data["holy_water_remaining"] == 1
+    assert data["quiz_tickets"] == initial_tickets + 5
+def test_start_quiz_deducts_ticket_and_submit_increments_conquest_streak(db_session, client):
+    """Quy trình chuẩn: Bắt đầu quiz trừ 1 vé, nộp bài đủ câu cộng 1 chuỗi chinh phục."""
+    student = Student(id="hs_conquest", name="Học Sinh Chinh Phục", grade="12", target_subject="Toán học", target_subjects=["Toán học", "Vật lí", "Hóa học"], weakness="Hình học", long_term_goal="ĐH Bách Khoa", timeframe="3 tháng")
+    flower = FlowerStatus(student_id=student.id, current_state=FlowerState.CHAM_HOC, consecutive_days=5, water_drops=1)
+    db_session.add_all([student, flower])
+    db_session.commit()
+
+    pkg = get_daily_quiz_package(db=db_session, student_id=student.id, requested_block="A00")
+    initial_tickets = pkg.quiz_tickets
+    initial_conquest = pkg.conquest_streak
+    assert initial_tickets >= 1
+
+    # 1. Bắt đầu phiên thi: trừ 1 vé ngay lập tức
+    res_start = client.post("/api/quiz/start", json={"student_id": student.id, "selected_subjects": ["Toán học"]})
+    assert res_start.status_code == 200
+    start_data = res_start.json()
+    assert start_data["success"] is True
+    assert start_data["quiz_tickets_remaining"] == initial_tickets - 1
+
+    # 2. Nộp bài: Làm đúng cả 3/3 câu -> Chuỗi chinh phục tăng +1
+    # Lấy đúng đáp án để đạt 3/3
+    answers_correct = []
+    for q_data in start_data["package"]["questions"]:
+        answers_correct.append(QuizAnswerItem(question_id=q_data["id"], selected_answer=q_data["correct_answer"], time_spent_seconds=20))
+
     sub = QuizSubmissionCreate(
-        student_id="hs_test_day5",
+        student_id=student.id,
         block="A00",
-        answers=[
-            QuizAnswerItem(question_id="A00-Q1-REFLEX", selected_answer="B", time_spent_seconds=30), # đúng
-            QuizAnswerItem(question_id="A00-Q2-TRAP", selected_answer="B", time_spent_seconds=40), # đúng
-            QuizAnswerItem(question_id="A00-Q3-STANDARD", selected_answer="B", time_spent_seconds=50), # đúng
-        ]
+        answers=answers_correct
     )
 
     res = submit_student_quiz(db=db_session, submission=sub)
-    assert res.total_questions == 3
     assert res.correct_answers == 3
-    assert res.score_percentage == 100.0
-    assert res.water_drop_earned >= 2 # +1 hoàn thành, +1 làm đúng tuyệt đối
+    assert res.conquest_streak == initial_conquest + 1
+    assert res.conquest_streak_incremented is True
+    assert res.quiz_tickets_remaining == initial_tickets - 1
 
-    # Kiểm tra giải thích vi mô
-    for r in res.results:
-        assert r.is_correct is True
-        assert len(r.micro_explanation) > 0
+def test_subject_based_question_distribution(db_session, client):
+    """
+    - Chọn 1 môn ('Toán học'): 3 câu đều là môn Toán.
+    - Chọn 2 môn ('Toán học', 'Vật lí'): chắc chắn có ít nhất 1 câu Toán và 1 câu Lí.
+    """
+    student = Student(id="hs_subject_test", name="Học Sinh Chọn Môn", grade="12", target_subject="Toán học", target_subjects=["Toán học", "Vật lí"], weakness="Hình học", long_term_goal="ĐH Bách Khoa", timeframe="3 tháng")
+    flower = FlowerStatus(student_id=student.id, current_state=FlowerState.CHAM_HOC, consecutive_days=5, water_drops=1)
+    db_session.add_all([student, flower])
+    db_session.commit()
+
+    # 1. Chọn 1 môn: Toán học
+    res1 = client.post("/api/quiz/start", json={"student_id": student.id, "selected_subjects": ["Toán học"]})
+    assert res1.status_code == 200
+    q_subs1 = [q["subject"] for q in res1.json()["package"]["questions"]]
+    assert len(q_subs1) == 3
+    assert all(s == "Toán học" for s in q_subs1)
+
+    # 2. Chọn 2 môn: Toán học và Vật lí
+    # Cấp thêm vé để test
+    inv = db_session.query(StreakInventory).filter(StreakInventory.student_id == student.id).first()
+    inv.quiz_tickets = 5
+    db_session.commit()
+
+    res2 = client.post("/api/quiz/start", json={"student_id": student.id, "selected_subjects": ["Toán học", "Vật lí"]})
+    assert res2.status_code == 200
+    q_subs2 = [q["subject"] for q in res2.json()["package"]["questions"]]
+    assert len(q_subs2) == 3
+    assert "Toán học" in q_subs2
+    assert "Vật lí" in q_subs2
 
 def test_teacher_quiz_injection_and_analytics(db_session, client):
-    """Admin tạo tài khoản giáo viên Toán, giáo viên tạo câu môn Toán thành công nhưng tạo môn khác bị chặn."""
     from app.models import User, UserRole
     # Tạo GV Toán
     tch = User(

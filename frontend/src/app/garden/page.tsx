@@ -20,7 +20,9 @@ import {
   Eye,
   Film,
   Image as ImageIcon,
-  Timer
+  Timer,
+  Ticket,
+  Trophy
 } from "lucide-react";
 import SunflowerVisual, { DisplayMode, FlowerSpecies, getStreakBadgeStyle } from "@/components/SunflowerVisual";
 import FlowerShowcaseModal from "@/components/FlowerShowcaseModal";
@@ -30,10 +32,9 @@ import UserProfileModal from "@/components/UserProfileModal";
 import TimeCapsuleVaultModal from "@/components/TimeCapsuleVaultModal";
 import DailyMicroQuizModal from "@/components/DailyMicroQuizModal";
 import FocusTimerModal from "@/components/FocusTimerModal";
-import { Student, GardenStatus, API_BASE, PlannedTask } from "@/lib/types";
+import { Student, GardenStatus, API_BASE, PlannedTask, StreakInventoryData } from "@/lib/types";
 import { useAuth } from "@/lib/auth-context";
 import { useRouter } from "next/navigation";
-
 interface AnimatedTaskItem extends PlannedTask {
   animState?: "idle" | "striked" | "sliding" | "hidden";
 }
@@ -42,8 +43,8 @@ export default function StudentGardenDashboard() {
   const { user } = useAuth();
   const [student, setStudent] = useState<Student | null>(null);
   const [garden, setGarden] = useState<GardenStatus | null>(null);
+  const [inventory, setInventory] = useState<StreakInventoryData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-
   // Modals state
   const [showCheckinModal, setShowCheckinModal] = useState<boolean>(false);
   const [showProfileModal, setShowProfileModal] = useState<boolean>(false);
@@ -96,15 +97,21 @@ export default function StudentGardenDashboard() {
       const studentData: Student = await res.json();
       setStudent(studentData);
 
-        const [gRes, planRes, capRes] = await Promise.all([
+        const [gRes, planRes, capRes, invRes] = await Promise.all([
           fetch(`${API_BASE}/api/garden/${studentData.id}`),
           fetch(`${API_BASE}/api/planning/${studentData.id}`),
           fetch(`${API_BASE}/api/capsule/${studentData.id}`),
+          fetch(`${API_BASE}/api/inventory/${studentData.id}`),
         ]);
 
         if (gRes.ok) {
           const gData = await gRes.json();
           setGarden(gData);
+        }
+
+        if (invRes.ok) {
+          const invData = await invRes.json();
+          setInventory(invData);
         }
 
         if (capRes.ok) {
@@ -282,23 +289,46 @@ export default function StudentGardenDashboard() {
             </span>
           </div>
 
-          {/* Giữa: Badge Ngọn Lửa Streak Đổi Màu Theo Mốc Sinh Trưởng & Hào Quang (Màu xám khi 0 ngày hoặc mất chuỗi) */}
-          {(() => {
-            const isWilting = garden?.current_state === "thieu_nuoc";
-            const badgeStyle = getStreakBadgeStyle(streakDays, isWilting);
-            return (
-              <div
-                className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border shadow-xs transition-all ${badgeStyle.bg} ${badgeStyle.border} ${badgeStyle.text}`}
-              >
-                <Flame
-                  className={`w-4 h-4 transition-all ${badgeStyle.flameFill} ${badgeStyle.flameText}`}
-                />
+          {/* Giữa: Cụm Chuỗi Kỷ Luật (Flame Streak) & Chuỗi Chinh Phục (Trophy Conquest Streak) */}
+          <div className="flex items-center gap-2">
+            {/* Chuỗi Kỷ Luật (Streak) */}
+            {(() => {
+              const isWilting = garden?.current_state === "thieu_nuoc";
+              const badgeStyle = getStreakBadgeStyle(streakDays, isWilting);
+              return (
+                <RichTooltip
+                  content="Chuỗi Kỷ Luật (Discipline Streak)"
+                  subtext={`Bạn đã duy trì thói quen học tập liên tục ${streakDays} ngày. Giữ lửa mỗi ngày nhé!`}
+                  position="bottom"
+                >
+                  <div
+                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border shadow-xs transition-all cursor-default ${badgeStyle.bg} ${badgeStyle.border} ${badgeStyle.text}`}
+                  >
+                    <Flame
+                      className={`w-4 h-4 transition-all ${badgeStyle.flameFill} ${badgeStyle.flameText}`}
+                    />
+                    <span className="text-xs font-extrabold tracking-tight">
+                      {badgeStyle.label}
+                    </span>
+                  </div>
+                </RichTooltip>
+              );
+            })()}
+
+            {/* Chuỗi Chinh Phục (Conquest Streak) - Hiển thị ngay cạnh Chuỗi Streak */}
+            <RichTooltip
+              content="Chuỗi Chinh Phục (Conquest Streak)"
+              subtext={`Số lần bạn giải đúng 100% toàn bộ câu hỏi của phiên Quizz. Chuỗi này không bao giờ giảm!`}
+              position="bottom"
+            >
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-amber-300 bg-gradient-to-r from-amber-50 to-orange-50 text-amber-900 shadow-xs cursor-default">
+                <Trophy className="w-4 h-4 text-amber-600 fill-amber-500/20" />
                 <span className="text-xs font-extrabold tracking-tight">
-                  {badgeStyle.label}
+                  Chinh phục: <strong className="text-amber-800">{inventory?.conquest_streak || 0}</strong>
                 </span>
               </div>
-            );
-          })()}
+            </RichTooltip>
+          </div>
           {/* Phải: Nút Điểm Danh 3 Phút + Avatar Hồ Sơ */}
           {/* Phải: Nút Điểm Danh 3 Phút + Quiz + Avatar Hồ Sơ + Nút Đăng Xuất */}
           <div className="flex items-center gap-2">
@@ -345,21 +375,24 @@ export default function StudentGardenDashboard() {
               </RichTooltip>
             )}
 
-            {/* Nút Kích hoạt Bộ 3 Câu Trắc Nghiệm Nhanh */}
+            {/* Nút Kích hoạt Bộ Câu Trắc Nghiệm Nhanh & Chip Vé */}
             <RichTooltip
-              content="Thử Thách Trắc Nghiệm Vi Mô"
-              subtext="3 câu hỏi rèn luyện phản xạ (3-5 phút) theo tổ hợp môn học."
+              content="Đấu Trường Vi Mô Quiz"
+              subtext={`Chuỗi Chinh Phục: ${inventory?.conquest_streak || 0} • Có ${inventory?.quiz_tickets !== undefined ? inventory.quiz_tickets : 1} vé quiz • ${inventory?.holy_water || 0} Nước Thánh`}
               position="bottom"
             >
               <button
                 onClick={() => setShowQuizModal(true)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold text-xs shadow-xs transition-colors"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold text-xs shadow-xs transition-colors border border-stone-800"
               >
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Quiz (3p)</span>
+                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                <span>Quiz</span>
+                <span className="px-1.5 py-0.2 rounded-md bg-amber-500/20 text-amber-300 text-[10px] font-black border border-amber-500/30 flex items-center gap-0.5">
+                  <Ticket className="w-2.5 h-2.5" />
+                  {inventory?.quiz_tickets !== undefined ? inventory.quiz_tickets : 1}
+                </span>
               </button>
             </RichTooltip>
-            {/* Avatar Người Dùng Kích Hoạt Pop-up Hồ Sơ */}
             <button
               onClick={() => setShowProfileModal(true)}
               className="flex items-center gap-1.5 p-1 pl-1.5 pr-2 rounded-full border border-stone-200 bg-white hover:border-amber-400 hover:bg-amber-50/40 transition-all shadow-xs group"
