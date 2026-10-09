@@ -21,6 +21,8 @@ wheels/
 *.egg
 .pytest_cache/
 *.db
+*.db-wal
+*.db-shm
 *.sqlite3
 
 # Node / Frontend

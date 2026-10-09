@@ -1,6 +1,7 @@
 @echo off
-title FRONTEND - Vuon Hoa AI (Port 3000)
+title Sunflower Frontend Web (Vite + React Router)
+chcp 65001 >nul
 cd /d "%~dp0frontend"
-echo [2/2] Dang khoi dong Frontend tai http://localhost:3000 ...
-call npm run dev
+echo Dang khoi chay Vite React Frontend tren cong 3000...
+bun run dev
 pause

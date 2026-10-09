@@ -1,6 +1,7 @@
 @echo off
-title BACKEND - Vuon Hoa AI (Port 8000)
+title Sunflower Backend API (Hono)
+chcp 65001 >nul
 cd /d "%~dp0backend"
-echo [1/2] Dang khoi dong Backend tai http://localhost:8000 ...
-python -m uvicorn app.main:app --reload --port 8000
+echo Dang khoi chay Hono Backend tren cong 8000...
+bun run dev
 pause
