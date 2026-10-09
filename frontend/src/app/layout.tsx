@@ -1,6 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { AuthProvider } from "@/lib/auth-context";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: "#FAF8F5",
+};
 
 export const metadata: Metadata = {
   title: "Trợ Lý Hoa Hướng Dương & Khu Vườn Cảm Xúc",

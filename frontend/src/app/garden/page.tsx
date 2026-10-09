@@ -33,6 +33,7 @@ import TimeCapsuleVaultModal from "@/components/TimeCapsuleVaultModal";
 import DailyMicroQuizModal from "@/components/DailyMicroQuizModal";
 import FocusTimerModal from "@/components/FocusTimerModal";
 import { Student, GardenStatus, API_BASE, PlannedTask, StreakInventoryData } from "@/lib/types";
+import { DEMO_STUDENT, DEMO_GARDEN, DEMO_TASKS, DEMO_INVENTORY } from "@/lib/demo-data";
 import { useAuth } from "@/lib/auth-context";
 import { useRouter } from "next/navigation";
 interface AnimatedTaskItem extends PlannedTask {
@@ -83,43 +84,49 @@ export default function StudentGardenDashboard() {
 
       // Ưu tiên lấy student_id gắn liền với user đã đăng nhập
       const effectiveId = user?.student_id || storedStudentId;
-      if (!effectiveId) {
-        // Chưa có hồ sơ học sinh -> chuyển hướng sang Onboarding
-        router.push("/onboarding");
-        return;
-      }
-      const res = await fetch(`${API_BASE}/api/student/${effectiveId}`);
-      if (!res.ok) {
-        router.push("/onboarding");
-        return;
+      let studentData: Student | null = null;
+      try {
+        if (effectiveId) {
+          const res = await fetch(`${API_BASE}/api/student/${effectiveId}`);
+          if (res.ok) {
+            studentData = await res.json();
+          }
+        }
+      } catch {
+        // Fallback for standalone frontend mobile demo
       }
 
-      const studentData: Student = await res.json();
+      if (!studentData) {
+        // Use demo student when backend is not reachable or first time visit
+        studentData = DEMO_STUDENT;
+        setGarden(DEMO_GARDEN as unknown as GardenStatus);
+        setTasks(DEMO_TASKS.map((t) => ({ ...t, animState: "idle" })));
+        setInventory(DEMO_INVENTORY as unknown as StreakInventoryData);
+      }
       setStudent(studentData);
 
         const [gRes, planRes, capRes, invRes] = await Promise.all([
-          fetch(`${API_BASE}/api/garden/${studentData.id}`),
-          fetch(`${API_BASE}/api/planning/${studentData.id}`),
-          fetch(`${API_BASE}/api/capsule/${studentData.id}`),
-          fetch(`${API_BASE}/api/inventory/${studentData.id}`),
+          fetch(`${API_BASE}/api/garden/${studentData.id}`).catch(() => null),
+          fetch(`${API_BASE}/api/planning/${studentData.id}`).catch(() => null),
+          fetch(`${API_BASE}/api/capsule/${studentData.id}`).catch(() => null),
+          fetch(`${API_BASE}/api/inventory/${studentData.id}`).catch(() => null),
         ]);
 
-        if (gRes.ok) {
+        if (gRes && gRes.ok) {
           const gData = await gRes.json();
           setGarden(gData);
         }
 
-        if (invRes.ok) {
+        if (invRes && invRes.ok) {
           const invData = await invRes.json();
           setInventory(invData);
         }
 
-        if (capRes.ok) {
+        if (capRes && capRes.ok) {
           const capData = await capRes.json();
           setCapsuleCount(Array.isArray(capData) ? capData.length : 0);
         }
-
-        if (planRes.ok) {
+        if (planRes && planRes.ok) {
           const planData = await planRes.json();
           let loadedTasks: PlannedTask[] = [];
           if (planData.tasks_by_day) {
