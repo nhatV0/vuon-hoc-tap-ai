@@ -181,26 +181,30 @@ export default function TeacherDashboardPage() {
       const res = await fetch(`${API_BASE}/api/admin/overview`, {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
       });
+      let rawStudents: StudentAlertItem[] = [];
+      let rawTeachers: TeacherItem[] = [];
+      let totalClasses = 6;
+      let classList = ["10A1", "10A2", "11B1", "12A1", "12A2", "12A3"];
+
       if (res.ok) {
         const json: AdminOverviewData = await res.json();
-        let customStudents: StudentAlertItem[] = [];
-        if (typeof window !== "undefined") {
-          try {
-            const saved = localStorage.getItem("sunflower_all_registered_students");
-            if (saved) customStudents = JSON.parse(saved);
-          } catch {}
-        }
-        const existingIds = new Set(json.students.map((s) => s.student_id));
-        const newCustom = customStudents.filter((s) => !existingIds.has(s.student_id));
-        setAdminData({
-          ...json,
-          total_students: json.total_students + newCustom.length,
-          students: [...newCustom, ...json.students],
-        });
-      } else {
-        throw new Error("Backend not available");
+        rawStudents = json.students || [];
+        rawTeachers = json.teachers || [];
+        totalClasses = json.total_classes || 6;
+        classList = json.classes_list || classList;
       }
-    } catch {
+
+      // Luôn kết hợp với danh sách 207 học sinh từ Bảng điều hành (data.all_students)
+      const dashboardStudents = data?.all_students || [];
+      const existingIds = new Set(rawStudents.map((s) => s.student_id));
+      for (const ds of dashboardStudents) {
+        if (!existingIds.has(ds.student_id)) {
+          rawStudents.push(ds);
+          existingIds.add(ds.student_id);
+        }
+      }
+
+      // Kết hợp với học sinh tự đăng ký mới lưu tại máy
       let customStudents: StudentAlertItem[] = [];
       if (typeof window !== "undefined") {
         try {
@@ -208,18 +212,41 @@ export default function TeacherDashboardPage() {
           if (saved) customStudents = JSON.parse(saved);
         } catch {}
       }
+      for (const cs of customStudents) {
+        if (!existingIds.has(cs.student_id)) {
+          rawStudents.unshift(cs);
+          existingIds.add(cs.student_id);
+        }
+      }
 
-      // Lấy toàn bộ danh sách học sinh thực tế từ Bảng điều hành (207 học sinh)
-      const dashboardStudents = data?.all_students || [];
-      const existingIds = new Set(dashboardStudents.map((s) => s.student_id));
-      const combinedStudents = [
-        ...customStudents.filter((s) => !existingIds.has(s.student_id)),
-        ...dashboardStudents,
-      ];
+      if (rawTeachers.length === 0) {
+        rawTeachers = [
+          {
+            id: "teacher-01",
+            name: "Cô Nguyễn Thu Hà",
+            email: "teacher@khuvuoncamxuc.app",
+            role: "teacher",
+            assigned_subject: "Toán học",
+            assigned_classes: ["10A1", "10A2"],
+            created_at: new Date().toISOString(),
+          },
+        ];
+      }
 
       setAdminData({
-        total_students: combinedStudents.length,
-        total_teachers: 8,
+        total_students: rawStudents.length,
+        total_teachers: rawTeachers.length,
+        total_classes: totalClasses,
+        classes_list: classList,
+        teachers: rawTeachers,
+        students: rawStudents,
+      });
+    } catch {
+      // Nếu có lỗi mạng, vẫn lấy 207 học sinh từ data?.all_students
+      const fallbackStudents = [...(data?.all_students || [])];
+      setAdminData({
+        total_students: fallbackStudents.length,
+        total_teachers: 1,
         total_classes: 6,
         classes_list: ["10A1", "10A2", "11B1", "12A1", "12A2", "12A3"],
         teachers: [
@@ -233,7 +260,7 @@ export default function TeacherDashboardPage() {
             created_at: new Date().toISOString(),
           },
         ],
-        students: combinedStudents,
+        students: fallbackStudents,
       });
     }
   }, [user?.role]);
@@ -926,7 +953,12 @@ export default function TeacherDashboardPage() {
 
                 {/* Danh sách học sinh và nút chuyển lớp / xóa: Ưu tiên adminData, nếu chưa có thì lấy trực tiếp từ data?.all_students */}
                 <div className="space-y-2.5 max-h-[380px] overflow-y-auto">
-                  {((adminData?.students && adminData.students.length > 0) ? adminData.students : (data?.all_students || [])).map((s) => (
+                  {(adminData?.students && adminData.students.length > 1
+                    ? adminData.students
+                    : (data?.all_students && data.all_students.length > 0)
+                    ? data.all_students
+                    : (adminData?.students || [])
+                  ).map((s) => (
                     <div key={s.student_id} className="p-3.5 rounded-2xl border border-cream-200 bg-cream-50/50 flex items-center justify-between text-xs">
                       <div>
                         <div className="flex items-center gap-2">
