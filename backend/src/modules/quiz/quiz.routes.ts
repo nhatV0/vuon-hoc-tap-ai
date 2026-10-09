@@ -1,13 +1,28 @@
 import { Hono } from "hono";
 import { db } from "@/db/client";
 import { seedQuizQuestionsFromHocLieu } from "./quiz.seed";
+import { TwinQuizRequestSchema } from "./quiz.twin.schemas";
+import { synthesizeTwinQuestion } from "./quiz.twin.service";
+import { authMiddleware, AuthUser } from "@/middleware/auth.middleware";
+import { UserRole } from "@/common/types";
 
 export function createQuizRouter(): Hono {
   const router = new Hono();
   seedQuizQuestionsFromHocLieu();
 
+  router.use("*", authMiddleware);
+
+  const verifyStudentAccess = (c: any, targetStudentId: string): boolean => {
+    const user = c.get("user") as AuthUser;
+    if (user.role === UserRole.TEACHER || user.role === UserRole.ADMIN) return true;
+    return user.student_id === targetStudentId;
+  };
+
   router.get("/daily/:studentId", (c) => {
     const studentId = c.req.param("studentId");
+    if (!verifyStudentAccess(c, studentId)) {
+      return c.json({ detail: "Không có quyền truy cập bài thi của người khác" }, 403);
+    }
     const block = c.req.query("block") || "A00";
 
     const inv = db.query("SELECT * FROM streak_inventories WHERE student_id = ?").get(studentId) as {
@@ -42,6 +57,10 @@ export function createQuizRouter(): Hono {
   router.post("/start", async (c) => {
     const body = await c.req.json();
     const studentId = body.student_id;
+    if (!verifyStudentAccess(c, studentId)) {
+      return c.json({ detail: "Không có quyền bắt đầu phiên thi cho người khác" }, 403);
+    }
+
     const inv = db.query("SELECT * FROM streak_inventories WHERE student_id = ?").get(studentId) as {
       quiz_tickets: number;
     } | null;
@@ -57,6 +76,10 @@ export function createQuizRouter(): Hono {
   router.post("/submit", async (c) => {
     const body = await c.req.json();
     const { student_id, answers, block } = body;
+    if (!verifyStudentAccess(c, student_id)) {
+      return c.json({ detail: "Không có quyền nộp bài cho học sinh khác" }, 403);
+    }
+
     let correctCount = 0;
     const details = [];
 
@@ -95,9 +118,32 @@ export function createQuizRouter(): Hono {
     }, 200);
   });
 
+  // Feature 1: Twin Quiz Synthesizer Endpoint
+  router.post("/twin-challenge", async (c) => {
+    try {
+      const body = await c.req.json();
+      const validated = TwinQuizRequestSchema.parse(body);
+      if (!verifyStudentAccess(c, validated.student_id)) {
+        return c.json({ detail: "Không có quyền tạo thử thách sinh đôi cho học sinh khác" }, 403);
+      }
+      const twinQuestion = await synthesizeTwinQuestion(
+        validated.question_id,
+        validated.selected_wrong_answer,
+        validated.subject
+      );
+      return c.json(twinQuestion, 200);
+    } catch (err) {
+      return c.json({ detail: "Lỗi sinh câu hỏi sinh đôi", error: String(err) }, 400);
+    }
+  });
+
   router.post("/exchange-holy-water", async (c) => {
     const body = await c.req.json();
     const studentId = body.student_id;
+    if (!verifyStudentAccess(c, studentId)) {
+      return c.json({ detail: "Không có quyền đổi nước thánh cho học sinh khác" }, 403);
+    }
+
     const inv = db.query("SELECT * FROM streak_inventories WHERE student_id = ?").get(studentId) as {
       holy_water: number;
     } | null;

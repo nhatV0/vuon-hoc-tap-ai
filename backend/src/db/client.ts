@@ -1,7 +1,7 @@
 import { Database } from "bun:sqlite";
 import { env } from "@/config/env";
 import { hashPassword } from "@/common/utils";
-import { CREATE_TABLES_SQL } from "@/db/schema";
+import { CREATE_CORE_TABLES_SQL, CREATE_STUDENT_TABLES_SQL, CREATE_GAMIFICATION_TABLES_SQL } from "./schema";
 
 const dbFile = env.DATABASE_URL.replace("sqlite:///", "").replace("sqlite://", "");
 export const db = new Database(dbFile);
@@ -10,7 +10,9 @@ db.run("PRAGMA journal_mode = WAL;");
 db.run("PRAGMA foreign_keys = ON;");
 
 export function initDatabase() {
-  db.run(CREATE_TABLES_SQL);
+  db.run(CREATE_CORE_TABLES_SQL);
+  db.run(CREATE_STUDENT_TABLES_SQL);
+  db.run(CREATE_GAMIFICATION_TABLES_SQL);
 
   const admin = db.query("SELECT id FROM users WHERE email = 'admin' OR email = 'admin@sunflower.edu.vn'").get();
   if (!admin) {

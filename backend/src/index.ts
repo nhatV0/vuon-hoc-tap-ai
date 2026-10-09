@@ -12,6 +12,8 @@ import { createQuizRouter } from "@/modules/quiz/quiz.routes";
 import { createCapsuleBadgeRouter } from "@/modules/capsule/capsule.routes";
 import { createTeacherRouter } from "@/modules/teacher/teacher.routes";
 import { createDiagnosticsRouter } from "@/modules/diagnostics/diagnostics.routes";
+import { createSocraticRouter } from "@/modules/socratic/socratic.routes";
+import { createVisionRouter } from "@/modules/vision/vision.routes";
 
 initDatabase();
 
@@ -30,7 +32,7 @@ app.get("/", (c) => {
   return c.json({
     status: "healthy",
     message: "Hono Backend API - Sunflower Mentor & Emotional Garden",
-    version: "2.0.0"
+    version: "2.1.0"
   });
 });
 
@@ -43,6 +45,8 @@ app.route("/api/garden", createGardenRouter());
 app.route("/api/checkin", createCheckinRouter());
 app.route("/api/planning", createPlanningRouter());
 app.route("/api/quiz", createQuizRouter());
+app.route("/api/socratic", createSocraticRouter());
+app.route("/api/vision", createVisionRouter());
 app.route("/api/teacher", createTeacherRouter());
 app.route("/api/admin", createTeacherRouter());
 app.route("/api", createCapsuleBadgeRouter());

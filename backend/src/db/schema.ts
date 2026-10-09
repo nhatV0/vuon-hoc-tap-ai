@@ -1,4 +1,4 @@
-export const CREATE_TABLES_SQL = `
+export const CREATE_CORE_TABLES_SQL = `
   CREATE TABLE IF NOT EXISTS users (
     id TEXT PRIMARY KEY,
     email TEXT UNIQUE NOT NULL,
@@ -9,8 +9,6 @@ export const CREATE_TABLES_SQL = `
     assigned_subject TEXT DEFAULT 'Toán học',
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
-
-  -- Better Auth required standard tables
   CREATE TABLE IF NOT EXISTS user (
     id TEXT PRIMARY KEY,
     name TEXT NOT NULL,
@@ -23,7 +21,6 @@ export const CREATE_TABLES_SQL = `
     assigned_classes TEXT DEFAULT '[]',
     assigned_subject TEXT DEFAULT 'Toán học'
   );
-
   CREATE TABLE IF NOT EXISTS session (
     id TEXT PRIMARY KEY,
     expiresAt TEXT NOT NULL,
@@ -34,7 +31,6 @@ export const CREATE_TABLES_SQL = `
     userAgent TEXT,
     userId TEXT NOT NULL REFERENCES user(id) ON DELETE CASCADE
   );
-
   CREATE TABLE IF NOT EXISTS account (
     id TEXT PRIMARY KEY,
     accountId TEXT NOT NULL,
@@ -50,7 +46,6 @@ export const CREATE_TABLES_SQL = `
     createdAt TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
-
   CREATE TABLE IF NOT EXISTS verification (
     id TEXT PRIMARY KEY,
     identifier TEXT NOT NULL,
@@ -59,7 +54,6 @@ export const CREATE_TABLES_SQL = `
     createdAt TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updatedAt TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
-
   CREATE TABLE IF NOT EXISTS classrooms (
     id TEXT PRIMARY KEY,
     name TEXT NOT NULL,
@@ -67,7 +61,9 @@ export const CREATE_TABLES_SQL = `
     description TEXT,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
+`;
 
+export const CREATE_STUDENT_TABLES_SQL = `
   CREATE TABLE IF NOT EXISTS students (
     id TEXT PRIMARY KEY,
     user_id TEXT UNIQUE REFERENCES users(id) ON DELETE CASCADE,
@@ -86,7 +82,6 @@ export const CREATE_TABLES_SQL = `
     initial_password TEXT DEFAULT '123456',
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
-
   CREATE TABLE IF NOT EXISTS roadmaps (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     student_id TEXT NOT NULL REFERENCES students(id) ON DELETE CASCADE,
@@ -95,7 +90,6 @@ export const CREATE_TABLES_SQL = `
     encouraging_message TEXT NOT NULL,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
-
   CREATE TABLE IF NOT EXISTS planned_tasks (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     student_id TEXT NOT NULL REFERENCES students(id) ON DELETE CASCADE,
@@ -108,7 +102,6 @@ export const CREATE_TABLES_SQL = `
     day_offset INTEGER NOT NULL DEFAULT 1,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
-
   CREATE TABLE IF NOT EXISTS daily_checkins (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     student_id TEXT NOT NULL REFERENCES students(id) ON DELETE CASCADE,
@@ -127,7 +120,9 @@ export const CREATE_TABLES_SQL = `
     needs_attention INTEGER NOT NULL DEFAULT 0,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
+`;
 
+export const CREATE_GAMIFICATION_TABLES_SQL = `
   CREATE TABLE IF NOT EXISTS flower_status (
     student_id TEXT PRIMARY KEY REFERENCES students(id) ON DELETE CASCADE,
     current_state TEXT NOT NULL DEFAULT 'tich_cuc',
@@ -136,24 +131,6 @@ export const CREATE_TABLES_SQL = `
     water_drops INTEGER NOT NULL DEFAULT 1,
     story_message TEXT
   );
-
-  CREATE TABLE IF NOT EXISTS badges (
-    id TEXT PRIMARY KEY,
-    category TEXT NOT NULL,
-    title TEXT NOT NULL,
-    description TEXT NOT NULL,
-    icon TEXT NOT NULL,
-    required_streak INTEGER NOT NULL DEFAULT 0
-  );
-
-  CREATE TABLE IF NOT EXISTS student_badges (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    student_id TEXT NOT NULL REFERENCES students(id) ON DELETE CASCADE,
-    badge_id TEXT NOT NULL REFERENCES badges(id) ON DELETE CASCADE,
-    unlocked_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    is_showcased INTEGER NOT NULL DEFAULT 0
-  );
-
   CREATE TABLE IF NOT EXISTS streak_inventories (
     student_id TEXT PRIMARY KEY REFERENCES students(id) ON DELETE CASCADE,
     freeze_shields_available INTEGER NOT NULL DEFAULT 1,
@@ -170,7 +147,6 @@ export const CREATE_TABLES_SQL = `
     holy_water_claimed_count INTEGER NOT NULL DEFAULT 0,
     quiz_stage_milestones_claimed TEXT DEFAULT '[]'
   );
-
   CREATE TABLE IF NOT EXISTS time_capsules (
     id TEXT PRIMARY KEY,
     student_id TEXT NOT NULL REFERENCES students(id) ON DELETE CASCADE,
@@ -183,7 +159,6 @@ export const CREATE_TABLES_SQL = `
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     unlocked_at TEXT
   );
-
   CREATE TABLE IF NOT EXISTS quiz_questions (
     id TEXT PRIMARY KEY,
     block TEXT NOT NULL,
@@ -203,7 +178,6 @@ export const CREATE_TABLES_SQL = `
     is_active INTEGER NOT NULL DEFAULT 1,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
-
   CREATE TABLE IF NOT EXISTS student_quiz_attempts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     student_id TEXT NOT NULL REFERENCES students(id) ON DELETE CASCADE,
