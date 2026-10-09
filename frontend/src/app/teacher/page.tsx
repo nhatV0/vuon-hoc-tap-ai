@@ -96,54 +96,51 @@ export default function TeacherDashboardPage() {
         throw new Error("Backend not available");
       }
     } catch {
-      // Fallback demo teacher data
+      // Lấy danh sách học sinh tự đăng ký từ localStorage nếu có
+      let customStudents: StudentAlertItem[] = [];
+      if (typeof window !== "undefined") {
+        try {
+          const saved = localStorage.getItem("sunflower_all_registered_students");
+          if (saved) customStudents = JSON.parse(saved);
+        } catch {}
+      }
+
+      const defaultStudents: StudentAlertItem[] = [
+        {
+          student_id: "demo-student-01",
+          student_name: "Mai Thảo Vy",
+          grade: "10",
+          classroom: "10A1",
+          target_subject: "Toán",
+          emotion_scale: 6,
+          current_state: "cham_hoc",
+          consecutive_days: 7,
+          days_since_last_checkin: 0,
+          alert_reason: "Tích cực: Chuỗi kỷ luật 7 ngày xuất sắc.",
+          needs_attention: false,
+        },
+        {
+          student_id: "demo-student-02",
+          student_name: "Lê Hoàng Nam",
+          grade: "10",
+          classroom: "10A1",
+          target_subject: "Toán",
+          emotion_scale: 2,
+          current_state: "thieu_nuoc",
+          consecutive_days: 0,
+          days_since_last_checkin: 3,
+          alert_reason: "Vắng mặt liên tiếp 3 ngày.",
+          needs_attention: true,
+        },
+      ];
+
+      const mergedStudents = [...customStudents, ...defaultStudents];
       setData({
-        total_students: 35,
-        alert_students_count: 3,
-        healthy_students_count: 32,
-        students_needing_attention: [
-          {
-            student_id: "demo-student-02",
-            student_name: "Lê Hoàng Nam",
-            grade: "10",
-            classroom: "10A1",
-            target_subject: "Toán",
-            emotion_scale: 2,
-            current_state: "thieu_nuoc",
-            consecutive_days: 0,
-            days_since_last_checkin: 3,
-            alert_reason: "Vắng mặt liên tiếp 3 ngày, cảm xúc ở mức 2/7 (áp lực cao).",
-            needs_attention: true,
-          },
-        ],
-        all_students: [
-          {
-            student_id: "demo-student-01",
-            student_name: "Mai Thảo Vy",
-            grade: "10",
-            classroom: "10A1",
-            target_subject: "Toán",
-            emotion_scale: 6,
-            current_state: "cham_hoc",
-            consecutive_days: 7,
-            days_since_last_checkin: 0,
-            alert_reason: "Tích cực: Chuỗi kỷ luật 7 ngày xuất sắc.",
-            needs_attention: false,
-          },
-          {
-            student_id: "demo-student-02",
-            student_name: "Lê Hoàng Nam",
-            grade: "10",
-            classroom: "10A1",
-            target_subject: "Toán",
-            emotion_scale: 2,
-            current_state: "thieu_nuoc",
-            consecutive_days: 0,
-            days_since_last_checkin: 3,
-            alert_reason: "Vắng mặt liên tiếp 3 ngày.",
-            needs_attention: true,
-          },
-        ],
+        total_students: mergedStudents.length,
+        alert_students_count: mergedStudents.filter((s) => s.needs_attention).length,
+        healthy_students_count: mergedStudents.filter((s) => !s.needs_attention).length,
+        students_needing_attention: mergedStudents.filter((s) => s.needs_attention),
+        all_students: mergedStudents,
       });
     } finally {
       setLoading(false);
@@ -175,8 +172,35 @@ export default function TeacherDashboardPage() {
         throw new Error("Backend not available");
       }
     } catch {
+      let customStudents: StudentAlertItem[] = [];
+      if (typeof window !== "undefined") {
+        try {
+          const saved = localStorage.getItem("sunflower_all_registered_students");
+          if (saved) customStudents = JSON.parse(saved);
+        } catch {}
+      }
+
+      const baseStudents: StudentAlertItem[] = [
+        {
+          student_id: "demo-student-01",
+          student_name: "Mai Thảo Vy",
+          username: "hs_demo-student-01",
+          grade: "10",
+          classroom: "10A1",
+          target_subject: "Toán",
+          emotion_scale: 6,
+          current_state: "cham_hoc",
+          consecutive_days: 7,
+          days_since_last_checkin: 0,
+          alert_reason: "Tích cực: Chuỗi kỷ luật 7 ngày xuất sắc.",
+          needs_attention: false,
+          initial_password: "123456",
+        },
+      ];
+
+      const allStudentList = [...customStudents, ...baseStudents];
       setAdminData({
-        total_students: 120,
+        total_students: allStudentList.length,
         total_teachers: 8,
         total_classes: 4,
         classes_list: ["10A1", "10A2", "11B1", "12A1"],
@@ -191,21 +215,7 @@ export default function TeacherDashboardPage() {
             created_at: new Date().toISOString(),
           },
         ],
-        students: [
-          {
-            student_id: "demo-student-01",
-            student_name: "Mai Thảo Vy",
-            grade: "10",
-            classroom: "10A1",
-            target_subject: "Toán",
-            emotion_scale: 6,
-            current_state: "cham_hoc",
-            consecutive_days: 7,
-            days_since_last_checkin: 0,
-            alert_reason: "Tích cực: Chuỗi kỷ luật 7 ngày xuất sắc.",
-            needs_attention: false,
-          },
-        ],
+        students: allStudentList,
       });
     }
   }, [user?.role]);

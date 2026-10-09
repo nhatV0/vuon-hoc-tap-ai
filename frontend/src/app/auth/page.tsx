@@ -193,11 +193,34 @@ export default function AuthPage() {
               quiz_stage_milestones_claimed: []
             };
 
+            // Lưu profile học sinh và cập nhật danh sách tất cả học sinh đã đăng ký
             localStorage.setItem(`sunflower_student_profile_${newStudentId}`, JSON.stringify(initialProfile));
             localStorage.setItem(`sunflower_garden_${newStudentId}`, JSON.stringify(initialGarden));
             localStorage.setItem(`sunflower_inventory_${newStudentId}`, JSON.stringify(initialInventory));
             localStorage.setItem("sunflower_student_id", newStudentId);
             localStorage.setItem("current_student_id", newStudentId);
+
+            // Lưu vào danh mục học sinh toàn hệ thống để Admin và Giáo viên nhìn thấy ngay
+            try {
+              const registeredListStr = localStorage.getItem("sunflower_all_registered_students");
+              const registeredList = registeredListStr ? JSON.parse(registeredListStr) : [];
+              registeredList.unshift({
+                student_id: newStudentId,
+                student_name: name.trim() || "Học Sinh Mới",
+                username: email.trim(),
+                grade: "10",
+                classroom: "10A1",
+                target_subject: "Toán học",
+                emotion_scale: 4,
+                current_state: "tich_cuc",
+                consecutive_days: 0,
+                days_since_last_checkin: 0,
+                alert_reason: "Học sinh mới đăng ký - Ngày 0 Hạt mầm",
+                needs_attention: false,
+                initial_password: password.trim() || "123456"
+              });
+              localStorage.setItem("sunflower_all_registered_students", JSON.stringify(registeredList));
+            } catch {}
           }
         }
       }
