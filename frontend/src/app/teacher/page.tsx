@@ -209,30 +209,19 @@ export default function TeacherDashboardPage() {
         } catch {}
       }
 
-      const baseStudents: StudentAlertItem[] = [
-        {
-          student_id: "demo-student-01",
-          student_name: "Mai Thảo Vy",
-          username: "hs_demo-student-01",
-          grade: "10",
-          classroom: "10A1",
-          target_subject: "Toán",
-          emotion_scale: 6,
-          current_state: "cham_hoc",
-          consecutive_days: 7,
-          days_since_last_checkin: 0,
-          alert_reason: "Tích cực: Chuỗi kỷ luật 7 ngày xuất sắc.",
-          needs_attention: false,
-          initial_password: "123456",
-        },
+      // Lấy toàn bộ danh sách học sinh thực tế từ Bảng điều hành (207 học sinh)
+      const dashboardStudents = data?.all_students || [];
+      const existingIds = new Set(dashboardStudents.map((s) => s.student_id));
+      const combinedStudents = [
+        ...customStudents.filter((s) => !existingIds.has(s.student_id)),
+        ...dashboardStudents,
       ];
 
-      const allStudentList = [...customStudents, ...baseStudents];
       setAdminData({
-        total_students: allStudentList.length,
+        total_students: combinedStudents.length,
         total_teachers: 8,
-        total_classes: 4,
-        classes_list: ["10A1", "10A2", "11B1", "12A1"],
+        total_classes: 6,
+        classes_list: ["10A1", "10A2", "11B1", "12A1", "12A2", "12A3"],
         teachers: [
           {
             id: "teacher-01",
@@ -244,7 +233,7 @@ export default function TeacherDashboardPage() {
             created_at: new Date().toISOString(),
           },
         ],
-        students: allStudentList,
+        students: combinedStudents,
       });
     }
   }, [user?.role]);
