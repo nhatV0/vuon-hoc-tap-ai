@@ -935,9 +935,9 @@ export default function TeacherDashboardPage() {
                   </div>
                 </form>
 
-                {/* Danh sách học sinh và nút chuyển lớp / xóa */}
+                {/* Danh sách học sinh và nút chuyển lớp / xóa: Ưu tiên adminData, nếu chưa có thì lấy trực tiếp từ data?.all_students */}
                 <div className="space-y-2.5 max-h-[380px] overflow-y-auto">
-                  {adminData?.students.map((s) => (
+                  {((adminData?.students && adminData.students.length > 0) ? adminData.students : (data?.all_students || [])).map((s) => (
                     <div key={s.student_id} className="p-3.5 rounded-2xl border border-cream-200 bg-cream-50/50 flex items-center justify-between text-xs">
                       <div>
                         <div className="flex items-center gap-2">
