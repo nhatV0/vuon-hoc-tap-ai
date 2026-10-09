@@ -297,7 +297,7 @@ export default function StudentGardenDashboard() {
           </div>
 
           {/* Giữa: Cụm Chuỗi Kỷ Luật (Flame Streak) & Chuỗi Chinh Phục (Trophy Conquest Streak) */}
-          <div className="flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-2">
             {/* Chuỗi Kỷ Luật (Streak) */}
             {(() => {
               const isWilting = garden?.current_state === "thieu_nuoc";
@@ -336,9 +336,8 @@ export default function StudentGardenDashboard() {
               </div>
             </RichTooltip>
           </div>
-          {/* Phải: Nút Điểm Danh 3 Phút + Avatar Hồ Sơ */}
           {/* Phải: Nút Điểm Danh 3 Phút + Quiz + Avatar Hồ Sơ + Nút Đăng Xuất */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 sm:gap-2">
             {/* Nút Điểm danh: Phản ánh trạng thái đã điểm danh hôm nay, sẵn sàng điểm danh hoặc chưa xong việc */}
             {garden?.has_checked_in_today ? (
               <RichTooltip
