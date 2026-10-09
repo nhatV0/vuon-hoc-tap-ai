@@ -1,17 +1,31 @@
 @echo off
-echo ========================================================
-echo  KHOI DONG KHU VUON CAM XUC (BACKEND + FRONTEND)
-echo ========================================================
+title Khu Vuon Cam Xuc Server
+chcp 65001 >nul
+color 0A
 
-echo 1. Dang kiem tra moi truong...
-cd backend
-start "Sunflower Backend (FastAPI)" cmd /k "python -m uvicorn app.main:app --host 0.0.0.0 --port 8000"
+echo ======================================================================
+echo       🌻 HE THONG TRỢ LÝ HỌC TẬP - KHU VƯỜN CẢM XÚC 🌻
+echo ======================================================================
+echo.
 
-cd ..\frontend
-start "Sunflower Frontend (Next.js)" cmd /k "npm run start"
+set ROOT_DIR=%~dp0
+echo [1/2] Dang khoi dong Backend API (FastAPI - Port 8000)...
+cd /d "%ROOT_DIR%backend"
+start "Sunflower Backend API" cmd /k "python -m uvicorn app.main:app --host 0.0.0.0 --port 8000"
+
+timeout /t 2 /nobreak >nul
+
+echo [2/2] Dang khoi dong Frontend Web App (Next.js - Port 3000)...
+cd /d "%ROOT_DIR%frontend"
+start "Sunflower Frontend Web" cmd /k "npm run start"
 
 echo.
-echo He thong da khoi dong xong:
-echo - Frontend: http://localhost:3000
-echo - Backend:  http://localhost:8000
-echo ========================================================
+echo ======================================================================
+echo [THANH CONG] He thong dang chay tren may cua ban tai:
+echo  - Frontend Web: http://localhost:3000
+echo  - Backend API:  http://localhost:8000
+echo  - Tai lieu API: http://localhost:8000/docs
+echo ======================================================================
+echo Giu 2 cua so nay de he thong luon hoat dong.
+echo.
+pause
