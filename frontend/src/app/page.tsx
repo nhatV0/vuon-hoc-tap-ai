@@ -75,7 +75,13 @@ export default function LandingHomePage() {
           <nav className="flex items-center gap-3">
             {user ? (
               <Link
-                href={user.role === "teacher" || user.role === "admin" ? "/teacher" : "/garden"}
+                href={
+                  user.role === "teacher" || user.role === "admin"
+                    ? "/teacher"
+                    : !user.student_id
+                    ? "/onboarding"
+                    : "/garden"
+                }
                 className="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-semibold text-xs transition-all shadow-xs flex items-center gap-1.5"
               >
                 <span>Chào, {user.name} ({user.role === "admin" ? "Quản trị" : user.role === "teacher" ? "Giáo viên" : "Học sinh"})</span>

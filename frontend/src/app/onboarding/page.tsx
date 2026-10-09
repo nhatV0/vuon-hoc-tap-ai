@@ -81,8 +81,7 @@ const EMOTION_LEVELS = [
 
 export default function OnboardingPage() {
   const router = useRouter();
-  const { user } = useAuth();
-
+  const { user, token, login } = useAuth();
   useEffect(() => {
     if (user?.role === "teacher" || user?.role === "admin") {
       router.replace("/teacher");
@@ -91,7 +90,24 @@ export default function OnboardingPage() {
 
   const [step, setStep] = useState<number>(1);
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
-  const [name, setName] = useState<string>(user?.name || "");
+  const [name, setName] = useState<string>(() => {
+    if (user?.name) return user.name;
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("sunflower_temp_register_name") || "";
+    }
+    return "";
+  });
+
+  useEffect(() => {
+    if (!name) {
+      if (user?.name) {
+        setName(user.name);
+      } else if (typeof window !== "undefined") {
+        const temp = localStorage.getItem("sunflower_temp_register_name");
+        if (temp) setName(temp);
+      }
+    }
+  }, [user, name]);
   const [grade, setGrade] = useState<string>("10");
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>(["Toán học"]);
   const [emotionScale, setEmotionScale] = useState<number>(4);
@@ -283,6 +299,40 @@ export default function OnboardingPage() {
         localStorage.setItem("current_student_id", data.id);
         // Lưu profile học sinh mẫu vào local cache
         localStorage.setItem(`sunflower_student_profile_${data.id}`, JSON.stringify(data));
+
+        // Cập nhật lại phiên đăng nhập trong AuthContext với student_id mới tạo
+        if (user) {
+          const effectiveToken = token || localStorage.getItem("sunflower_auth_token") || `token-${Date.now()}`;
+          login(effectiveToken, { ...user, student_id: data.id });
+        }
+        try {
+          const registeredListStr = localStorage.getItem("sunflower_all_registered_students");
+          const registeredList = registeredListStr ? JSON.parse(registeredListStr) : [];
+          const tempPass = localStorage.getItem("sunflower_temp_register_password") || "123456";
+          const existingIdx = registeredList.findIndex((item: { student_id: string }) => item.student_id === data.id);
+          const newStudentEntry = {
+            student_id: data.id,
+            student_name: data.name,
+            grade: data.grade,
+            classroom: (data as unknown as { classroom?: string }).classroom || "12A1",
+            target_subject: data.target_subject,
+            target_subjects: data.target_subjects || [data.target_subject],
+            emotion_scale: data.emotion_scale || 4,
+            current_state: "tich_cuc",
+            consecutive_days: 0,
+            days_since_last_checkin: 0,
+            alert_reason: "Học sinh mới hoàn thành khảo sát chẩn đoán - Ngày 0 Hạt mầm",
+            needs_attention: false,
+            initial_password: tempPass,
+          };
+          if (existingIdx >= 0) {
+            registeredList[existingIdx] = newStudentEntry;
+          } else {
+            registeredList.unshift(newStudentEntry);
+          }
+          localStorage.setItem("sunflower_all_registered_students", JSON.stringify(registeredList));
+        } catch {}
+
         setStep(4); // Sang bước kết quả
       }
     } catch (err) {

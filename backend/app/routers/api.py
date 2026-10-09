@@ -488,8 +488,10 @@ async def onboard_student(data: StudentCreate, db: Session = Depends(get_db)):
             status=CapsuleStatus.SEALED
         )
         db.add(capsule)
-        db.commit()
 
+    # Luôn commit toàn bộ dữ liệu học sinh, lộ trình, nhiệm vụ, chậu hoa và tâm thư
+    db.commit()
+    db.refresh(student)
     return StudentResponse(
         id=student.id,
         user_id=student.user_id,
@@ -1777,15 +1779,27 @@ def admin_delete_student(
     if not student:
         raise HTTPException(status_code=404, detail="Không tìm thấy học sinh")
 
-    # Xóa cả user liên kết nếu có
-    if student.user_id:
-        u = db.query(User).filter(User.id == student.user_id).first()
+    student_name = student.name
+    user_id = student.user_id
+
+    # Xóa sạch các thực thể phụ thuộc để đảm bảo tính toàn vẹn dữ liệu
+    db.query(FlowerStatus).filter(FlowerStatus.student_id == student_id).delete(synchronize_session=False)
+    db.query(StreakInventory).filter(StreakInventory.student_id == student_id).delete(synchronize_session=False)
+    db.query(PlannedTask).filter(PlannedTask.student_id == student_id).delete(synchronize_session=False)
+    db.query(Roadmap).filter(Roadmap.student_id == student_id).delete(synchronize_session=False)
+    db.query(DailyCheckin).filter(DailyCheckin.student_id == student_id).delete(synchronize_session=False)
+    db.query(StudentBadge).filter(StudentBadge.student_id == student_id).delete(synchronize_session=False)
+    db.query(TimeCapsule).filter(TimeCapsule.student_id == student_id).delete(synchronize_session=False)
+    db.query(StudentQuizAttempt).filter(StudentQuizAttempt.student_id == student_id).delete(synchronize_session=False)
+
+    db.delete(student)
+    if user_id:
+        u = db.query(User).filter(User.id == user_id).first()
         if u:
             db.delete(u)
 
-    db.delete(student)
     db.commit()
-    return {"success": True, "message": f"Đã xóa học sinh {student.name}"}
+    return {"success": True, "message": f"Đã xóa học sinh {student_name}"}
 @router.post("/admin/classrooms", response_model=ClassroomItem, status_code=status.HTTP_201_CREATED)
 def admin_create_classroom(
     data: ClassroomCreateRequest,

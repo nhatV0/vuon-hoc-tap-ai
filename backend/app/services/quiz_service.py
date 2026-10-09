@@ -24,6 +24,51 @@ def ensure_quiz_bank_seeded(db: Session):
     count = db.query(QuizQuestion).count()
     if count < 50:
         seed_quiz_bank_to_db(db)
+
+def ensure_demo_student_in_db(db: Session, student_id: str = "demo-student-01") -> Student:
+    """Khởi tạo học sinh trải nghiệm demo trong DB nếu chưa tồn tại, đảm bảo không bao giờ bị 404."""
+    student = db.query(Student).filter(Student.id == student_id).first()
+    if not student:
+        student = Student(
+            id=student_id,
+            name="Mai Thảo Vy",
+            grade="10",
+            classroom="10A1",
+            target_subject="Toán học",
+            target_subjects=["Toán học", "Vật lí", "Hóa học"],
+            emotion_scale=5,
+            weakness="Cần củng cố phương pháp giải nhanh đồ thị hàm số và tích vô hướng",
+            long_term_goal="Đạt 8.5+ môn Toán học và vào trường Đại học mơ ước",
+            timeframe="6 tháng",
+            learning_style="visual",
+            selected_flower="sunflower",
+            initial_password="123"
+        )
+        db.add(student)
+        db.flush()
+
+        # Khởi tạo chậu hoa ngày 7 cho demo student
+        flower = db.query(FlowerStatus).filter(FlowerStatus.student_id == student_id).first()
+        if not flower:
+            from app.models import FlowerState
+            flower = FlowerStatus(
+                student_id=student_id,
+                current_state=FlowerState.TICH_CUC,
+                consecutive_days=7,
+                last_checkin_date=date.today(),
+                water_drops=3,
+                story_message="Khu vườn đang rạng ngời với chuỗi 7 ngày học tập chăm chỉ!"
+            )
+            db.add(flower)
+
+        # Khởi tạo inventory vé quiz & nước thánh
+        inv = get_or_create_inventory(student_id, db)
+        inv.quiz_tickets = max(inv.quiz_tickets or 0, 5)
+        inv.holy_water = max(inv.holy_water or 0, 3)
+        inv.conquest_streak = max(inv.conquest_streak or 0, 7)
+        db.commit()
+        db.refresh(student)
+    return student
 def resolve_student_block(student: Student, requested_block: Optional[str] = None) -> str:
     """Xác định tổ hợp khối thi phù hợp nhất của học sinh."""
     if requested_block in ["A00", "A01", "B00", "C00", "D01"]:
@@ -230,10 +275,12 @@ def start_student_quiz(db: Session, data: QuizStartRequest) -> QuizStartResponse
     - Kiểm tra và trừ ngay 1 vé quiz.
     - Cấp phát bộ câu hỏi theo đúng các môn học sinh đã chọn.
     """
-    student = db.query(Student).filter(Student.id == data.student_id).first()
+    if data.student_id == "demo-student-01" or data.student_id.startswith("demo-"):
+        student = ensure_demo_student_in_db(db, data.student_id)
+    else:
+        student = db.query(Student).filter(Student.id == data.student_id).first()
     if not student:
         raise ValueError(f"Không tìm thấy học sinh {data.student_id}")
-
     flower = db.query(FlowerStatus).filter(FlowerStatus.student_id == data.student_id).first()
     streak_days = flower.consecutive_days if flower else 1
     if streak_days <= 0:
@@ -268,11 +315,12 @@ def get_daily_quiz_package(
     selected_subjects: Optional[List[str]] = None
 ) -> DailyQuizPackageResponse:
     ensure_quiz_bank_seeded(db)
-
-    student = db.query(Student).filter(Student.id == student_id).first()
+    if student_id == "demo-student-01" or student_id.startswith("demo-"):
+        student = ensure_demo_student_in_db(db, student_id)
+    else:
+        student = db.query(Student).filter(Student.id == student_id).first()
     if not student:
         raise ValueError(f"Không tìm thấy học sinh {student_id}")
-
     block = resolve_student_block(student, requested_block)
     target_subjects = get_student_target_subjects(student)
 
@@ -360,7 +408,10 @@ def get_daily_quiz_package(
         available_subjects=all_available
     )
 def submit_student_quiz(db: Session, submission: QuizSubmissionCreate) -> QuizSubmissionResponse:
-    student = db.query(Student).filter(Student.id == submission.student_id).first()
+    if submission.student_id == "demo-student-01" or submission.student_id.startswith("demo-"):
+        student = ensure_demo_student_in_db(db, submission.student_id)
+    else:
+        student = db.query(Student).filter(Student.id == submission.student_id).first()
     if not student:
         raise ValueError(f"Không tìm thấy học sinh {submission.student_id}")
 

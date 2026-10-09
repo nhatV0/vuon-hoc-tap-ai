@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useCallback, useMemo, Suspense } from "react";
 import Link from "next/link";
 import {
   Sparkles,
@@ -35,12 +35,13 @@ import FocusTimerModal from "@/components/FocusTimerModal";
 import { Student, GardenStatus, API_BASE, PlannedTask, StreakInventoryData } from "@/lib/types";
 import { DEMO_STUDENT, DEMO_GARDEN, DEMO_TASKS, DEMO_INVENTORY } from "@/lib/demo-data";
 import { useAuth } from "@/lib/auth-context";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 interface AnimatedTaskItem extends PlannedTask {
   animState?: "idle" | "striked" | "sliding" | "hidden";
 }
-export default function StudentGardenDashboard() {
+function GardenDashboardContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { user } = useAuth();
   const [student, setStudent] = useState<Student | null>(null);
   const [garden, setGarden] = useState<GardenStatus | null>(null);
@@ -81,6 +82,13 @@ export default function StudentGardenDashboard() {
       const storedStudentId = typeof window !== "undefined" 
         ? (localStorage.getItem("sunflower_student_id") || localStorage.getItem("current_student_id"))
         : null;
+
+      // Route guard: Nếu user đã đăng nhập tài khoản học sinh nhưng chưa có student_id (chưa làm khảo sát chẩn đoán),
+      // bắt buộc chuyển hướng sang /onboarding ngay lập tức
+      if (user && user.role === "student" && !user.student_id && !storedStudentId) {
+        router.replace("/onboarding");
+        return;
+      }
 
       // Ưu tiên lấy student_id gắn liền với user đã đăng nhập
       const effectiveId = user?.student_id || storedStudentId;
@@ -263,10 +271,17 @@ export default function StudentGardenDashboard() {
     }
   }, [user, router]);
 
+  // Tự động mở Quiz Modal nếu URL có query param ?openQuiz=true hoặc ?quiz=1
+  useEffect(() => {
+    const shouldOpenQuiz = searchParams.get("openQuiz") === "true" || searchParams.get("quiz") === "1";
+    if (shouldOpenQuiz) {
+      setShowQuizModal(true);
+    }
+  }, [searchParams]);
+
   useEffect(() => {
     fetchStudentData();
   }, [fetchStudentData]);
-
   const handleRestoreStreak = async () => {
     if (!student) return;
     try {
@@ -1009,5 +1024,19 @@ export default function StudentGardenDashboard() {
         }}
       />
     </div>
+  );
+}
+
+export default function StudentGardenDashboard() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#FAF8F5] flex items-center justify-center">
+          <div className="w-8 h-8 border-3 border-amber-500 border-t-transparent rounded-full animate-spin" />
+        </div>
+      }
+    >
+      <GardenDashboardContent />
+    </Suspense>
   );
 }

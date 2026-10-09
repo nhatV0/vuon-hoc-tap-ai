@@ -14,7 +14,9 @@ import {
   ShieldCheck,
   UserPlus,
   Trash2,
-  Edit3
+  Edit3,
+  Search,
+  X
 } from "lucide-react";
 import {
   TeacherDashboardData,
@@ -33,9 +35,11 @@ export default function TeacherDashboardPage() {
   const [data, setData] = useState<TeacherDashboardData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [filterMode, setFilterMode] = useState<"all" | "alert">("alert");
+  const [selectedClassFilter, setSelectedClassFilter] = useState<string>("ALL");
   const [activeTab, setActiveTab] = useState<"students" | "quiz_injector" | "admin_panel">("students");
   const [selectedStudent, setSelectedStudent] = useState<StudentAlertItem | null>(null);
-  const [selectedClassFilter, setSelectedClassFilter] = useState<string>("ALL");
+  // Search state for student rosters
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   // Admin Panel states
   const [adminData, setAdminData] = useState<AdminOverviewData | null>(null);
@@ -278,9 +282,20 @@ export default function TeacherDashboardPage() {
       }
     }
   }, [authLoading, user, router, selectedClassFilter, fetchDashboardData, fetchQuizStats, fetchAdminData]);
-  const displayedStudents = filterMode === "alert"
+  const rawDisplayedStudents = filterMode === "alert"
     ? data?.students_needing_attention || []
     : data?.all_students || [];
+
+  const displayedStudents = rawDisplayedStudents.filter((s) => {
+    const q = searchQuery.toLowerCase().trim();
+    if (!q) return true;
+    return (
+      s.student_name.toLowerCase().includes(q) ||
+      (s.classroom && s.classroom.toLowerCase().includes(q)) ||
+      (s.target_subject && s.target_subject.toLowerCase().includes(q)) ||
+      (s.student_id && s.student_id.toLowerCase().includes(q))
+    );
+  });
 
   return (
     <div className="min-h-screen bg-cream-50 text-stone-800 pb-20">
@@ -340,7 +355,7 @@ export default function TeacherDashboardPage() {
               }`}
             >
               <Users className="w-4 h-4" />
-              Học Sinh Theo Lớp ({data?.total_students || 0})
+              Học Sinh Theo Lớp ({searchQuery.trim() ? `${displayedStudents.length}/${data?.total_students || 0}` : (data?.total_students || 0)})
             </button>
             <button
               onClick={() => setActiveTab("quiz_injector")}
@@ -371,23 +386,46 @@ export default function TeacherDashboardPage() {
             )}
           </div>
 
-          {/* Lọc Lớp Học */}
+          {/* Tìm kiếm & Lọc Lớp Học */}
           {activeTab === "students" && (
-            <div className="flex items-center gap-2 py-1.5 shrink-0">
-              <span className="text-[11px] font-bold text-stone-500">Lớp:</span>
-              <select
-                value={selectedClassFilter}
-                onChange={(e) => setSelectedClassFilter(e.target.value)}
-                className="px-2.5 py-1 text-xs rounded-lg border border-cream-200 bg-white font-semibold text-stone-700"
-              >
-                <option value="ALL">Tất cả lớp phụ trách</option>
-                {user?.assigned_classes?.filter(c => c !== "ALL").map(c => (
-                  <option key={c} value={c}>Lớp {c}</option>
-                ))}
-                {user?.role === "admin" && (adminData?.classes_list || ["12A1", "12A2", "12A3", "11B1", "11B2", "10C1"]).map(c => (
-                  <option key={c} value={c}>Lớp {c}</option>
-                ))}
-              </select>
+            <div className="flex items-center gap-2.5 py-1.5 shrink-0">
+              {/* Ô Tìm kiếm học sinh */}
+              <div className="relative flex items-center">
+                <Search className="w-3.5 h-3.5 text-stone-400 absolute left-2.5 pointer-events-none" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Tìm theo tên, lớp, môn, ID..."
+                  className="pl-8 pr-7 py-1 text-xs rounded-lg border border-cream-200 bg-white placeholder:text-stone-400 text-stone-800 focus:outline-none focus:ring-1 focus:ring-amber-500 w-44 md:w-56"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery("")}
+                    className="absolute right-2 text-stone-400 hover:text-stone-600"
+                    title="Xóa tìm kiếm"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                )}
+              </div>
+
+              <div className="flex items-center gap-1.5">
+                <span className="text-[11px] font-bold text-stone-500">Lớp:</span>
+                <select
+                  value={selectedClassFilter}
+                  onChange={(e) => setSelectedClassFilter(e.target.value)}
+                  className="px-2.5 py-1 text-xs rounded-lg border border-cream-200 bg-white font-semibold text-stone-700"
+                >
+                  <option value="ALL">Tất cả lớp phụ trách</option>
+                  {user?.assigned_classes?.filter(c => c !== "ALL").map(c => (
+                    <option key={c} value={c}>Lớp {c}</option>
+                  ))}
+                  {user?.role === "admin" && (adminData?.classes_list || ["12A1", "12A2", "12A3", "11B1", "11B2", "10C1"]).map(c => (
+                    <option key={c} value={c}>Lớp {c}</option>
+                  ))}
+                </select>
+              </div>
             </div>
           )}
         </div>
@@ -1008,16 +1046,67 @@ export default function TeacherDashboardPage() {
                         <button
                           onClick={async () => {
                             if (!confirm(`Bạn có chắc chắn muốn xóa học sinh ${s.student_name}?`)) return;
+                            const targetId = s.student_id;
                             try {
                               const token = localStorage.getItem("sunflower_auth_token");
-                              const res = await fetch(`${API_BASE}/api/admin/students/${s.student_id}`, {
-                                method: "DELETE",
-                                headers: { Authorization: `Bearer ${token}` }
+                              let apiSuccess = false;
+                              try {
+                                const res = await fetch(`${API_BASE}/api/admin/students/${targetId}`, {
+                                  method: "DELETE",
+                                  headers: token ? { Authorization: `Bearer ${token}` } : {},
+                                });
+                                if (res.ok) {
+                                  apiSuccess = true;
+                                }
+                              } catch {
+                                // API có thể offline hoặc ở chế độ độc lập
+                              }
+
+                              // 1. Cập nhật localStorage nếu học sinh được lưu cục bộ
+                              if (typeof window !== "undefined") {
+                                try {
+                                  const savedStr = localStorage.getItem("sunflower_all_registered_students");
+                                  if (savedStr) {
+                                    const list: StudentAlertItem[] = JSON.parse(savedStr);
+                                    const updated = list.filter((item) => item.student_id !== targetId);
+                                    localStorage.setItem("sunflower_all_registered_students", JSON.stringify(updated));
+                                  }
+                                } catch {}
+                              }
+
+                              // 2. Cập nhật tức thì state adminData
+                              setAdminData((prev) => {
+                                if (!prev) return prev;
+                                const updatedList = prev.students.filter((item) => item.student_id !== targetId);
+                                return {
+                                  ...prev,
+                                  total_students: updatedList.length,
+                                  students: updatedList,
+                                };
                               });
-                              if (!res.ok) throw new Error("Không thể xóa");
-                              setAdminMsg({ text: `Đã xóa học sinh ${s.student_name}`, type: "success" });
-                              fetchAdminData();
-                              fetchDashboardData(selectedClassFilter);
+
+                              // 3. Cập nhật tức thì state data (Bảng điều hành giáo viên)
+                              setData((prev) => {
+                                if (!prev) return prev;
+                                const updatedAll = prev.all_students.filter((item) => item.student_id !== targetId);
+                                const updatedAlert = prev.students_needing_attention.filter((item) => item.student_id !== targetId);
+                                return {
+                                  ...prev,
+                                  total_students: updatedAll.length,
+                                  healthy_students_count: updatedAll.filter((st) => !st.needs_attention).length,
+                                  alert_students_count: updatedAlert.length,
+                                  all_students: updatedAll,
+                                  students_needing_attention: updatedAlert,
+                                };
+                              });
+
+                              setAdminMsg({ text: `Đã xóa học sinh ${s.student_name} khỏi hệ thống`, type: "success" });
+
+                              // Nếu API thành công, đồng bộ lại danh mục
+                              if (apiSuccess) {
+                                fetchAdminData();
+                                fetchDashboardData(selectedClassFilter);
+                              }
                             } catch (err: unknown) {
                               setAdminMsg({ text: err instanceof Error ? err.message : "Đã có lỗi xảy ra", type: "error" });
                             }

@@ -22,6 +22,87 @@ import {
 import { DailyQuizPackage, QuizQuestionItem, QuizSubmissionResponse, ExchangeHolyWaterResponse, QuizStartResponse, API_BASE } from "@/lib/types";
 import MathText from "@/components/MathText";
 
+
+const FALLBACK_QUIZ_QUESTIONS: QuizQuestionItem[] = [
+  {
+    id: "fb_toan_01",
+    block: "A00",
+    subject: "Toán học",
+    slot_type: "REFLEX_1",
+    source: "Hệ thống",
+    bloom_level: "Nhận biết",
+    lock_condition: "MOTUDO",
+    question_text: "Tập xác định của hàm số $y = \\frac{1}{x - 2}$ là:",
+    options: {
+      A: "$\\mathbb{R} \\setminus \\{2\\}$",
+      B: "$\\mathbb{R}$",
+      C: "$(2; +\\infty)$",
+      D: "$(-\\infty; 2)$",
+    },
+    correct_answer: "A",
+    micro_explanation: "Mẫu số phải khác 0, do đó $x - 2 \\neq 0 \\Leftrightarrow x \\neq 2$. Tập xác định là $D = \\mathbb{R} \\setminus \\{2\\}$.",
+    growth_mindset_tip: "Luôn đặt điều kiện cho mẫu thức và biểu thức dưới dấu căn bậc hai trước tiên nhé!",
+    time_limit_seconds: 45,
+  },
+  {
+    id: "fb_ly_01",
+    block: "A00",
+    subject: "Vật lí",
+    slot_type: "TRAP_2",
+    source: "Hệ thống",
+    bloom_level: "Thông hiểu",
+    lock_condition: "MOTUDO",
+    question_text: "Một vật có khối lượng $m = 2\\text{ kg}$ chịu tác dụng của lực $F = 6\\text{ N}$. Gia tốc của vật là:",
+    options: {
+      A: "$3\\text{ m/s}^2$",
+      B: "$12\\text{ m/s}^2$",
+      C: "$4\\text{ m/s}^2$",
+      D: "$0.33\\text{ m/s}^2$",
+    },
+    correct_answer: "A",
+    micro_explanation: "Theo định luật II Newton: $a = \\frac{F}{m} = \\frac{6}{2} = 3\\text{ m/s}^2$.",
+    growth_mindset_tip: "Công thức $F = m \\cdot a$ là chiếc chìa khóa vạn năng cho cơ học cổ điển!",
+    time_limit_seconds: 45,
+  },
+  {
+    id: "fb_anh_01",
+    block: "D01",
+    subject: "Tiếng Anh",
+    slot_type: "REFLEX_1",
+    source: "Hệ thống",
+    bloom_level: "Nhận biết",
+    lock_condition: "MOTUDO",
+    question_text: "She usually ______ to school by bicycle every morning.",
+    options: {
+      A: "goes",
+      B: "go",
+      C: "is going",
+      D: "went",
+    },
+    correct_answer: "A",
+    micro_explanation: "Chủ ngữ ngôi thứ 3 số ít ('She') đi kèm trạng từ tần suất 'usually' nên động từ chia ở thì hiện tại đơn thêm '-es': 'goes'.",
+    growth_mindset_tip: "Chú ý dấu hiệu thì và sự hòa hợp giữa chủ ngữ - động từ bạn nhé!",
+    time_limit_seconds: 45,
+  }
+];
+
+const DEFAULT_PREVIEW_FALLBACK: DailyQuizPackage = {
+  student_id: "demo-student-01",
+  block: "A00",
+  streak_days: 7,
+  is_boss_unlocked: false,
+  has_attempted_today: false,
+  questions: FALLBACK_QUIZ_QUESTIONS,
+  last_attempt: null,
+  quiz_tickets: 5,
+  holy_water: 3,
+  conquest_streak: 7,
+  target_question_count: 3,
+  current_bloom_stage: "Nhận biết",
+  can_start_quiz: true,
+  student_target_subjects: ["Toán học", "Vật lí"],
+  available_subjects: ["Toán học", "Vật lí", "Hóa học", "Sinh học", "Tiếng Anh", "Ngữ văn", "Lịch sử", "Địa lí"]
+};
 interface DailyMicroQuizModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -76,11 +157,20 @@ export default function DailyMicroQuizModal({
     try {
       setLoading(true);
       setError(null);
-      const res = await fetch(`${API_BASE}/api/quiz/daily/${studentId}`);
-      if (!res.ok) {
-        throw new Error("Không thể tải thông tin trắc nghiệm hôm nay.");
+      let data: DailyQuizPackage;
+      try {
+        const res = await fetch(`${API_BASE}/api/quiz/daily/${studentId}`);
+        if (!res.ok) {
+          throw new Error("Không thể tải thông tin trắc nghiệm từ máy chủ.");
+        }
+        data = await res.json();
+      } catch {
+        // Fallback an toàn khi backend offline hoặc demo
+        data = {
+          ...DEFAULT_PREVIEW_FALLBACK,
+          student_id: studentId,
+        };
       }
-      const data: DailyQuizPackage = await res.json();
       setQuizPackage(data);
       // Mặc định chọn trước các môn học mà học sinh đã chọn ở hồ sơ
       if (data.student_target_subjects && data.student_target_subjects.length > 0) {
@@ -128,21 +218,39 @@ export default function DailyMicroQuizModal({
     try {
       setIsStarting(true);
       setError(null);
-      const res = await fetch(`${API_BASE}/api/quiz/start`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          student_id: studentId,
-          selected_subjects: selectedSubjects,
-        }),
-      });
+      let startData: QuizStartResponse | null = null;
+      try {
+        const res = await fetch(`${API_BASE}/api/quiz/start`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            student_id: studentId,
+            selected_subjects: selectedSubjects,
+          }),
+        });
 
-      if (!res.ok) {
-        const errJson = await res.json().catch(() => ({}));
-        throw new Error(errJson.detail || "Không thể bắt đầu làm bài.");
+        if (res.ok) {
+          startData = await res.json();
+        }
+      } catch {
+        // Fallback offline
       }
 
-      const startData: QuizStartResponse = await res.json();
+      if (!startData) {
+        // Offline fallback package
+        const remainingTickets = Math.max(0, (quizPackage.quiz_tickets || 1) - 1);
+        startData = {
+          success: true,
+          message: "Bắt đầu bài trắc nghiệm (Chế độ tự hành)",
+          quiz_tickets_remaining: remainingTickets,
+          package: {
+            ...quizPackage,
+            quiz_tickets: remainingTickets,
+            questions: FALLBACK_QUIZ_QUESTIONS,
+          },
+        };
+      }
+
       setQuizPackage({
         ...startData.package,
         quiz_tickets: startData.quiz_tickets_remaining,
@@ -273,22 +381,61 @@ export default function DailyMicroQuizModal({
 
     try {
       setIsSubmitting(true);
-      const res = await fetch(`${API_BASE}/api/quiz/submit`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          student_id: studentId,
-          block: quizPackage.block,
-          answers: formattedAnswers,
-        }),
-      });
+      let result: QuizSubmissionResponse | null = null;
+      try {
+        const res = await fetch(`${API_BASE}/api/quiz/submit`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            student_id: studentId,
+            block: quizPackage.block,
+            answers: formattedAnswers,
+          }),
+        });
 
-      if (!res.ok) {
-        const errJson = await res.json().catch(() => ({}));
-        throw new Error(errJson.detail || "Không thể nộp kết quả trắc nghiệm.");
+        if (res.ok) {
+          result = await res.json();
+        }
+      } catch {
+        // Fallback offline submit
       }
 
-      const result: QuizSubmissionResponse = await res.json();
+      if (!result) {
+        // Tự tính điểm cục bộ cho bài nộp khi máy chủ ngoại tuyến
+        let correctCount = 0;
+        const answerResults = quizPackage.questions.map((q) => {
+          const ans = answers[q.id]?.option || "";
+          const isCorrect = ans.trim().toUpperCase() === (q.correct_answer || "").trim().toUpperCase();
+          if (isCorrect) correctCount++;
+          return {
+            question_id: q.id,
+            selected_answer: ans,
+            correct_answer: q.correct_answer || "",
+            is_correct: isCorrect,
+            micro_explanation: q.micro_explanation || "Giải thích câu hỏi",
+            growth_mindset_tip: q.growth_mindset_tip,
+          };
+        });
+
+        result = {
+          total_questions: quizPackage.questions.length,
+          correct_answers: correctCount,
+          score_percentage: Math.round((correctCount / quizPackage.questions.length) * 100),
+          streak_days: quizPackage.streak_days || 7,
+          water_drop_earned: 1,
+          results: answerResults,
+          ai_mentor_encouragement:
+            correctCount === quizPackage.questions.length
+              ? "Tuyệt vời! Bạn đã hoàn thành xuất sắc tất cả câu hỏi hôm nay!"
+              : "Rất đáng khen ngợi tinh thần rèn luyện! Mỗi lỗi sai hôm nay là một bước tiến ngày mai.",
+          is_boss_conquered: false,
+          routed_to_teacher: false,
+          conquest_streak: (quizPackage.conquest_streak || 0) + (correctCount === quizPackage.questions.length ? 1 : 0),
+          conquest_streak_incremented: correctCount === quizPackage.questions.length,
+          quiz_tickets_remaining: Math.max(0, (quizPackage.quiz_tickets || 1)),
+        };
+      }
+
       setSubmissionResult(result);
       if (onQuizCompleted) {
         onQuizCompleted(result);

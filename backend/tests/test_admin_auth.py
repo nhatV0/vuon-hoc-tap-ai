@@ -127,3 +127,28 @@ def test_teacher_dashboard_filtered_by_assigned_class(client, db_session):
     student_names = [s["student_name"] for s in data["all_students"]]
     assert "Học Sinh Lớp 10C1" not in student_names
     assert "Học Sinh Lớp 12A1" in student_names
+
+def test_admin_delete_student(client, db_session):
+    """Admin xóa học sinh và các bản ghi liên quan thành công."""
+    admin_token = "usr_admin_test:faketoken"
+    headers = {"Authorization": f"Bearer {admin_token}"}
+    
+    # Tạo học sinh để test xóa
+    payload = {
+        "name": "Học Sinh Cần Xóa",
+        "grade": "12",
+        "classroom": "12A1",
+        "target_subject": "Toán học"
+    }
+    res_create = client.post("/api/admin/students", json=payload, headers=headers)
+    assert res_create.status_code == 201
+    s_id = res_create.json()["student_id"]
+
+    # Xóa học sinh
+    res_del = client.delete(f"/api/admin/students/{s_id}", headers=headers)
+    assert res_del.status_code == 200
+    assert res_del.json()["success"] is True
+
+    # Xác nhận học sinh không còn trong database
+    st = db_session.query(Student).filter(Student.id == s_id).first()
+    assert st is None
