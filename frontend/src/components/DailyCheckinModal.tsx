@@ -212,20 +212,67 @@ export default function DailyCheckinModal({
           weekday_answer: weekdayAnswer
         }),
       });
-
-      if (!res.ok) {
-        const errJson = await res.json().catch(() => null);
-        throw new Error(errJson?.detail || "Không thể gửi dữ liệu điểm danh");
+      let data: {
+        ai_feedback: string;
+        streak_days: number;
+        shield_used?: boolean;
+        shield_message?: string;
+        newly_unlocked_badges?: string[];
+      } | null = null;
+      if (res.ok) {
+        data = await res.json();
+      } else {
+        throw new Error("API call failed");
       }
-
-      const data = await res.json();
+      if (!data) throw new Error("Empty response");
       setCheckinResult(data);
       onCheckinSuccess(data);
       setStation(4); // Chuyển sang trạm 4 hiển thị kết quả
-    } catch (err: unknown) {
-      console.error(err);
-      const errMsg = err instanceof Error ? err.message : "Có lỗi khi kết nối máy chủ. Vui lòng kiểm tra lại!";
-      alert(errMsg);
+    } catch {
+      // Fallback điểm danh ngoại tuyến: Cập nhật streak và lưu trạng thái vào localStorage
+      const currentGardenStr = localStorage.getItem(`sunflower_garden_${studentId}`);
+      let currentStreak = 0;
+      let currentDrops = 1;
+      if (currentGardenStr) {
+        try {
+          const parsed = JSON.parse(currentGardenStr);
+          currentStreak = parsed.consecutive_days || 0;
+          currentDrops = parsed.water_drops || 1;
+        } catch {}
+      }
+      const newStreak = currentStreak + 1;
+      const newDrops = currentDrops + 1;
+      const offlineResult = {
+        ai_feedback: `Thắp sáng thành công chuỗi Ngày ${newStreak}! Bạn đã nhận thêm 1 giọt nước tưới mát chậu hoa.`,
+        streak_days: newStreak,
+        shield_used: false,
+        shield_message: "Khởi đầu tuyệt vời!",
+        newly_unlocked_badges: newStreak === 1 ? ["🌱 Bước Chân Đầu Tiên"] : []
+      };
+
+      // Cập nhật trạng thái chậu hoa vào cache
+      const updatedGarden = {
+        student_id: studentId,
+        student_name: studentName,
+        selected_flower: "sunflower",
+        current_state: "tich_cuc",
+        consecutive_days: newStreak,
+        water_drops: newDrops,
+        last_checkin_date: new Date().toISOString(),
+        story_message: `Mầm xanh của ${studentName} đang tràn đầy sức sống ở Ngày ${newStreak}!`,
+        can_restore_streak: false,
+        has_checked_in_today: true,
+        unlocked_badges_count: newStreak >= 1 ? 1 : 0,
+        shields_available: 1,
+        grace_passes_available: 0,
+        saved_streak_before_break: 0
+      };
+      localStorage.setItem(`sunflower_garden_${studentId}`, JSON.stringify(updatedGarden));
+      localStorage.setItem(`sunflower_has_checked_in_${studentId}`, "true");
+
+      setCheckinResult(offlineResult);
+      onCheckinSuccess(offlineResult);
+      setStation(4);
     } finally {
       setIsSubmitting(false);
     }

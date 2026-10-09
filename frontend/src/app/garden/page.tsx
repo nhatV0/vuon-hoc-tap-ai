@@ -106,20 +106,71 @@ export default function StudentGardenDashboard() {
       }
 
       if (!studentData) {
-        // Use demo student when backend is not reachable or first time visit
+        // Chỉ sử dụng học sinh mẫu khi không có tài khoản đăng nhập hoặc lần đầu ghé thăm
         studentData = DEMO_STUDENT;
         setGarden(DEMO_GARDEN as unknown as GardenStatus);
         setTasks(DEMO_TASKS.map((t) => ({ ...t, animState: "idle" })));
         setInventory(DEMO_INVENTORY as unknown as StreakInventoryData);
-      } else if (!garden) {
-        // Set initial garden status for newly onboarded offline student
-        setGarden({
-          ...DEMO_GARDEN,
-          student_id: studentData.id,
-          student_name: studentData.name,
-          selected_flower: studentData.selected_flower || "sunflower",
-          story_message: `Chào mừng ${studentData.name}! Hãy chăm sóc hoa và bắt đầu chuỗi ngày học tập tuyệt vời nhé!`
-        });
+      } else {
+        // Đã có tài khoản học sinh (mới đăng ký hoặc đã có sẵn)
+        // 1. Kiểm tra trạng thái chậu hoa riêng của học sinh này trong cache
+        let studentGarden: GardenStatus | null = null;
+        if (typeof window !== "undefined") {
+          const cachedGarden = localStorage.getItem(`sunflower_garden_${studentData.id}`);
+          if (cachedGarden) {
+            try {
+              studentGarden = JSON.parse(cachedGarden);
+            } catch {}
+          }
+        }
+        if (!studentGarden) {
+          // Khởi tạo mặc định ở ĐIỂM XUẤT PHÁT: 0 ngày, 1 giọt nước, chưa điểm danh
+          studentGarden = {
+            student_id: studentData.id,
+            student_name: studentData.name,
+            selected_flower: studentData.selected_flower || "sunflower",
+            current_state: "tich_cuc",
+            consecutive_days: 0,
+            water_drops: 1,
+            last_checkin_date: new Date(Date.now() - 86400000).toISOString(),
+            story_message: `Hạt mầm của ${studentData.name} đang ấp ủ trong đất ấm. Hãy hoàn thành nhiệm vụ và điểm danh để nảy mầm đầu tiên!`,
+            can_restore_streak: false,
+            has_checked_in_today: false,
+            unlocked_badges_count: 0,
+            shields_available: 1,
+            grace_passes_available: 0,
+            saved_streak_before_break: 0
+          };
+        }
+        setGarden(studentGarden);
+
+        // 2. Kiểm tra kho đồ riêng
+        let studentInventory: StreakInventoryData | null = null;
+        if (typeof window !== "undefined") {
+          const cachedInv = localStorage.getItem(`sunflower_inventory_${studentData.id}`);
+          if (cachedInv) {
+            try {
+              studentInventory = JSON.parse(cachedInv);
+            } catch {}
+          }
+        }
+        if (!studentInventory) {
+          studentInventory = {
+            freeze_shields_available: 1,
+            grace_passes_available: 0,
+            restores_claimed_count: 0,
+            saved_streak_before_break: 0,
+            total_shields_used: 0,
+            quiz_tickets: 1,
+            holy_water: 0,
+            conquest_streak: 0,
+            holy_water_claimed_count: 0,
+            quiz_stage_milestones_claimed: []
+          };
+        }
+        setInventory(studentInventory);
+
+        // 3. Nhiệm vụ hàng ngày
         if (studentData.roadmap?.initial_daily_tasks) {
           setTasks(studentData.roadmap.initial_daily_tasks.map((t) => ({
             id: t.id,
@@ -135,7 +186,6 @@ export default function StudentGardenDashboard() {
             animState: "idle"
           })));
         }
-        setInventory(DEMO_INVENTORY as unknown as StreakInventoryData);
       }
       setStudent(studentData);
         const [gRes, planRes, capRes, invRes] = await Promise.all([
@@ -302,7 +352,7 @@ export default function StudentGardenDashboard() {
     return tasks.filter((t) => t.is_completed && t.animState === "hidden");
   }, [tasks]);
 
-  const streakDays = garden?.consecutive_days ?? 1;
+  const streakDays = garden?.consecutive_days ?? 0;
   const initialLetter = (student?.name || user?.name || "H").trim().charAt(0).toUpperCase();
 
   if (loading) {

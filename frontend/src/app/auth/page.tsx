@@ -78,7 +78,7 @@ export default function AuthPage() {
             },
           };
         } else {
-          // Đăng ký mới trong chế độ độc lập: tự động gán student_id để có thể vào thẳng khu vườn hoặc thực hiện khảo sát
+          // Đăng ký mới trong chế độ độc lập: Khởi tạo hoàn toàn mới ở ĐIỂM XUẤT PHÁT (Ngày 0 - Hạt mầm)
           const newStudentId = `student-${Date.now()}`;
           data = {
             token: `demo-token-student-${Date.now()}`,
@@ -91,44 +91,111 @@ export default function AuthPage() {
               student_id: newStudentId,
             },
           };
-          // Tạo trước hồ sơ học sinh mặc định để vào thẳng Khu Vườn được ngay
+
           if (typeof window !== "undefined") {
+            // 1. Hồ sơ học sinh mới ở điểm bắt đầu
             const initialProfile = {
               id: newStudentId,
               name: name.trim() || "Học Sinh Mới",
               grade: "10",
-              target_subject: "Toán",
-              weakness: "Đại số & Hình học",
-              long_term_goal: "Đạt 8+ điểm và tự tin học tập",
-              timeframe: "Học kỳ 1",
+              target_subject: "Toán học",
+              target_subjects: ["Toán học"],
+              weakness: "Đại số & Hình học cơ bản",
+              long_term_goal: "Đạt 8+ điểm và tự tin học tập mỗi ngày",
+              timeframe: "3 tháng",
               learning_style: "Trực quan",
               selected_flower: "sunflower",
-              flower_state: "cham_hoc",
+              flower_state: "tich_cuc",
               created_at: new Date().toISOString(),
               roadmap: {
                 milestones: [
                   {
                     stage: 1,
-                    title: "Chặng 1: Khởi động hành trình",
+                    title: "Chặng 1: Gieo Mầm Thói Quen",
                     duration: "Tuần 1 - 2",
-                    goal: "Xây dựng thói quen học tập 15 phút mỗi ngày",
-                    key_actions: ["Luyện tập đều đặn", "Điểm danh hàng ngày", "Chăm sóc hoa"]
+                    goal: "Tập trung 15 phút học mỗi ngày và hoàn thành điểm danh",
+                    key_actions: ["Làm 3 bài tập vi mô", "Điểm danh hàng ngày", "Nuôi dưỡng mầm xanh"]
+                  },
+                  {
+                    stage: 2,
+                    title: "Chặng 2: Nảy Mầm Vững Chắc",
+                    duration: "Tuần 3 - 4",
+                    goal: "Chinh phục các dạng bài hay nhầm lẫn và tăng sự tự tin",
+                    key_actions: ["Ôn lại lý thuyết cốt lõi", "Luyện tập phản xạ", "Tích lũy vé Quiz"]
+                  },
+                  {
+                    stage: 3,
+                    title: "Chặng 3: Bứt Phá Thoát Trọng Lực",
+                    duration: "3 tháng",
+                    goal: "Đạt 8+ điểm và làm chủ hoàn toàn phương pháp tự học",
+                    key_actions: ["Luyện đề tổng hợp", "Duy trì chuỗi kỷ luật", "Mở khóa tâm thư ngày 21"]
                   }
                 ],
                 initial_daily_tasks: [
                   {
-                    id: 301,
-                    title: "Ôn lại 3 dạng bài tập cơ bản",
+                    id: 1,
+                    title: "Khởi động: Đọc lại 1 công thức then chốt",
+                    duration_minutes: 10,
+                    subject: "Toán học",
+                    category: "Khởi động",
+                    tip: "Đọc chậm và ghi lại ra nháp để nhớ sâu hơn."
+                  },
+                  {
+                    id: 2,
+                    title: "Luyện tập: Tự giải 2 bài tập cơ bản",
                     duration_minutes: 15,
-                    subject: "Toán",
-                    category: "Củng cố kiến thức",
-                    tip: "Làm bài thật kỹ và tự tin nhé!"
+                    subject: "Toán học",
+                    category: "Thực hành",
+                    tip: "Làm cẩn thận từng bước, không cần vội."
+                  },
+                  {
+                    id: 3,
+                    title: "Điểm danh 3 phút & Ghi nhận nỗ lực ngày đầu",
+                    duration_minutes: 5,
+                    subject: "Toán học",
+                    category: "Phản chiếu",
+                    tip: "Điểm danh để thắp sáng ngọn lửa chuỗi Ngày 1!"
                   }
                 ],
-                encouraging_message: `Chào mừng ${name.trim() || "bạn"} đến với Khu Vườn Cảm Xúc!`
+                encouraging_message: `Chào mừng ${name.trim() || "bạn"} đến với Khu Vườn Cảm Xúc! Hôm nay là Ngày 0 (Hạt mầm), hãy hoàn thành nhiệm vụ và điểm danh để vươn mầm đầu tiên nhé!`
               }
             };
+
+            // 2. Chậu hoa ở ĐIỂM BẮT ĐẦU: 0 Ngày Streak, 1 giọt nước ban đầu, CHƯA ĐIỂM DANH HÔM NAY
+            const initialGarden = {
+              student_id: newStudentId,
+              student_name: name.trim() || "Học Sinh Mới",
+              selected_flower: "sunflower",
+              current_state: "tich_cuc",
+              consecutive_days: 0, // Điểm xuất phát: 0 ngày
+              water_drops: 1, // 1 giọt nước khởi đầu
+              last_checkin_date: new Date(Date.now() - 86400000).toISOString(), // Ngày hôm qua để hôm nay sẵn sàng điểm danh
+              story_message: `Hạt mầm của ${name.trim() || "bạn"} đang ấp ủ trong đất ấm. Hãy hoàn thành nhiệm vụ và điểm danh để nảy mầm đầu tiên!`,
+              can_restore_streak: false,
+              has_checked_in_today: false, // CHƯA ĐIỂM DANH HÔM NAY -> Nút điểm danh sẵn sàng
+              unlocked_badges_count: 0,
+              shields_available: 1,
+              grace_passes_available: 0,
+              saved_streak_before_break: 0
+            };
+
+            // 3. Kho đồ ở ĐIỂM BẮT ĐẦU: 0 chuỗi chinh phục, 1 vé quiz tân thủ
+            const initialInventory = {
+              freeze_shields_available: 1,
+              grace_passes_available: 0,
+              restores_claimed_count: 0,
+              saved_streak_before_break: 0,
+              total_shields_used: 0,
+              quiz_tickets: 1, // 1 vé khởi đầu
+              holy_water: 0,
+              conquest_streak: 0, // Chuỗi chinh phục 0
+              holy_water_claimed_count: 0,
+              quiz_stage_milestones_claimed: []
+            };
+
             localStorage.setItem(`sunflower_student_profile_${newStudentId}`, JSON.stringify(initialProfile));
+            localStorage.setItem(`sunflower_garden_${newStudentId}`, JSON.stringify(initialGarden));
+            localStorage.setItem(`sunflower_inventory_${newStudentId}`, JSON.stringify(initialInventory));
             localStorage.setItem("sunflower_student_id", newStudentId);
             localStorage.setItem("current_student_id", newStudentId);
           }
