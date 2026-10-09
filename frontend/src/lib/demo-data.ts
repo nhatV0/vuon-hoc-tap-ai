@@ -127,3 +127,58 @@ export const DEMO_INVENTORY: StreakInventoryData = {
   holy_water_claimed_count: 1,
   quiz_stage_milestones_claimed: [7]
 };
+
+export interface DemoAccount {
+  email: string;
+  name: string;
+  role: "student" | "teacher" | "admin";
+  password: string;
+  student_id?: string;
+}
+
+export const DEMO_ACCOUNTS: DemoAccount[] = [
+  {
+    email: "student@khuvuoncamxuc.app",
+    name: "Mai Thảo Vy",
+    role: "student",
+    password: "123",
+    student_id: "demo-student-01",
+  },
+  {
+    email: "vy",
+    name: "Mai Thảo Vy",
+    role: "student",
+    password: "123",
+    student_id: "demo-student-01",
+  },
+  {
+    email: "teacher@khuvuoncamxuc.app",
+    name: "Cô Nguyễn Thu Hà",
+    role: "teacher",
+    password: "123",
+  },
+  {
+    email: "teacher",
+    name: "Cô Nguyễn Thu Hà",
+    role: "teacher",
+    password: "123",
+  },
+  {
+    email: "admin@sunflower.edu.vn",
+    name: "Quản Trị Viên (Admin)",
+    role: "admin",
+    password: "123456",
+  },
+  {
+    email: "admin",
+    name: "Quản Trị Viên (Admin)",
+    role: "admin",
+    password: "123456",
+  },
+  {
+    email: "admin",
+    name: "Quản Trị Viên (Admin)",
+    role: "admin",
+    password: "123",
+  },
+];

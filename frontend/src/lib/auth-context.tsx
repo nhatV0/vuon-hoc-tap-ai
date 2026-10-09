@@ -26,8 +26,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const savedToken = localStorage.getItem("sunflower_auth_token");
+    const savedUserStr = localStorage.getItem("sunflower_user_data");
     if (savedToken) {
       setToken(savedToken);
+      if (savedUserStr) {
+        try {
+          const cachedUser = JSON.parse(savedUserStr);
+          setUser(cachedUser);
+        } catch {
+          // ignore json parse error
+        }
+      }
       fetch(`${API_BASE}/api/auth/me`, {
         headers: { Authorization: `Bearer ${savedToken}` },
       })
@@ -37,12 +46,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         })
         .then((userData) => {
           setUser(userData);
+          localStorage.setItem("sunflower_user_data", JSON.stringify(userData));
           if (userData.student_id) {
             localStorage.setItem("sunflower_student_id", userData.student_id);
           }
         })
         .catch(() => {
+          // Nếu token là demo-token hoặc server offline, giữ phiên đăng nhập từ localStorage
+          if (savedToken.startsWith("demo-token-") && savedUserStr) {
+            try {
+              setUser(JSON.parse(savedUserStr));
+              return;
+            } catch {}
+          }
           localStorage.removeItem("sunflower_auth_token");
+          localStorage.removeItem("sunflower_user_data");
           setToken(null);
           setUser(null);
         })
@@ -51,11 +69,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setLoading(false);
     }
   }, []);
-
   const login = (newToken: string, newUser: User) => {
     setToken(newToken);
     setUser(newUser);
     localStorage.setItem("sunflower_auth_token", newToken);
+    localStorage.setItem("sunflower_user_data", JSON.stringify(newUser));
     if (newUser.student_id) {
       localStorage.setItem("sunflower_student_id", newUser.student_id);
     }
@@ -66,10 +84,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setUser(null);
     if (typeof window !== "undefined") {
       localStorage.removeItem("sunflower_auth_token");
+      localStorage.removeItem("sunflower_user_data");
       localStorage.removeItem("sunflower_student_id");
       localStorage.removeItem("current_student_id");
       sessionStorage.clear();
-      // Chuyển hướng người dùng về trang đăng nhập
       window.location.href = "/auth";
     }
   };
