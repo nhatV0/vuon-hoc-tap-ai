@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Award, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { API_BASE } from "@/shared/api/auth-client";
 import MathText from "@/shared/components/MathText";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/shared/components/ui/dialog";
 import { Button } from "@/shared/components/ui/button";
+import { Badge } from "@/shared/components/ui/badge";
+import TwinChallengeView from "./TwinChallengeView";
+import QuizResultView from "./QuizResultView";
 
 interface Question {
   id: string;
@@ -13,18 +16,24 @@ interface Question {
   micro_explanation?: string;
 }
 
-interface DailyMicroQuizModalProps {
+interface Props {
   studentId: string;
   onClose: () => void;
+  onTwinSuccess?: () => void;
 }
 
-export default function DailyMicroQuizModal({ studentId, onClose }: DailyMicroQuizModalProps) {
+export default function DailyMicroQuizModal({ studentId, onClose, onTwinSuccess }: Props) {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [result, setResult] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+
+  const [twinQuestion, setTwinQuestion] = useState<any>(null);
+  const [twinSelected, setTwinSelected] = useState<string | null>(null);
+  const [twinSubmitted, setTwinSubmitted] = useState(false);
+  const [twinLoading, setTwinLoading] = useState(false);
 
   useEffect(() => {
     fetch(`${API_BASE}/api/quiz/daily/${studentId}`)
@@ -57,86 +66,93 @@ export default function DailyMicroQuizModal({ studentId, onClose }: DailyMicroQu
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
       });
-      const data = await res.json();
-      setResult(data);
+      setResult(await res.json());
       setSubmitted(true);
     } catch {}
     setLoading(false);
+  };
+
+  const handleGenerateTwin = async (detail: any) => {
+    setTwinLoading(true);
+    try {
+      const res = await fetch(`${API_BASE}/api/quiz/twin-challenge`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          student_id: studentId,
+          question_id: detail.question_id,
+          selected_wrong_answer: detail.selected_answer,
+          subject: "Toán học"
+        })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setTwinQuestion(data);
+        setTwinSelected(null);
+        setTwinSubmitted(false);
+      }
+    } catch {}
+    setTwinLoading(false);
+  };
+
+  const handleTwinSubmit = async () => {
+    if (!twinSelected || !twinQuestion) return;
+    setTwinSubmitted(true);
+    if (twinSelected === twinQuestion.correct_answer) {
+      if (onTwinSuccess) onTwinSuccess();
+      fetch(`${API_BASE}/api/garden/${studentId}/water`, { method: "POST" }).catch(() => {});
+    }
   };
 
   const currentQ = questions[currentIndex];
 
   return (
     <Dialog open onOpenChange={onClose}>
-      <DialogContent className="max-w-lg">
+      <DialogContent className="max-w-lg max-h-[85vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-xs font-bold text-muted-foreground uppercase">
-            Trắc Nghiệm Vi Mô (3 Câu/Ngày)
+          <DialogTitle className="text-xs font-bold text-muted-foreground uppercase flex items-center justify-between">
+            <span>Trắc Nghiệm Vi Mô (3 Câu/Ngày)</span>
+            {twinQuestion && <Badge variant="default">Thử thách sinh đôi gỡ điểm</Badge>}
           </DialogTitle>
         </DialogHeader>
 
-        {loading ? (
-          <div className="py-12 flex justify-center text-primary">
-            <Loader2 className="w-6 h-6 animate-spin" />
-          </div>
+        {loading || twinLoading ? (
+          <div className="py-12 flex justify-center text-primary"><Loader2 className="w-6 h-6 animate-spin" /></div>
+        ) : twinQuestion ? (
+          <TwinChallengeView
+            twinQuestion={twinQuestion}
+            twinSelected={twinSelected}
+            twinSubmitted={twinSubmitted}
+            onSelect={setTwinSelected}
+            onSubmit={handleTwinSubmit}
+            onBack={() => setTwinQuestion(null)}
+          />
         ) : submitted && result ? (
-          <div className="space-y-4">
-            <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-center">
-              <Award className="w-8 h-8 text-amber-500 mx-auto mb-2" />
-              <div className="font-extrabold text-stone-900 text-lg">
-                Đúng {result.correct_answers} / {result.total_questions} câu
-              </div>
-              <p className="text-xs text-stone-600 mt-1">{result.feedback}</p>
-            </div>
-            <Button onClick={onClose} className="w-full">
-              Hoàn thành phiên
-            </Button>
-          </div>
+          <QuizResultView result={result} onGenerateTwin={handleGenerateTwin} onClose={onClose} />
         ) : currentQ ? (
           <div className="space-y-4">
-            <div className="flex items-center justify-between text-xs text-muted-foreground">
-              <span>Câu {currentIndex + 1} / {questions.length}</span>
-            </div>
-            <div className="text-sm font-semibold text-foreground leading-relaxed">
-              <MathText content={currentQ.question_text} />
-            </div>
-
+            <div className="text-xs text-muted-foreground">Câu {currentIndex + 1} / {questions.length}</div>
+            <div className="text-sm font-semibold text-foreground"><MathText content={currentQ.question_text} /></div>
             <div className="space-y-2">
               {Object.entries(currentQ.options || {}).map(([key, val]) => (
                 <button
                   key={key}
                   onClick={() => handleSelect(currentQ.id, key)}
                   className={`w-full p-3 text-left rounded-xl border text-xs font-medium flex items-center gap-2 transition-colors ${
-                    selectedAnswers[currentQ.id] === key
-                      ? "bg-amber-50 border-amber-500 text-amber-900 ring-1 ring-amber-500"
-                      : "bg-stone-50 border-stone-200 text-stone-700 hover:bg-stone-100"
+                    selectedAnswers[currentQ.id] === key ? "bg-amber-50 border-amber-500 text-amber-900 ring-1 ring-amber-500" : "bg-stone-50 border-stone-200 text-stone-700 hover:bg-stone-100"
                   }`}
                 >
-                  <span className="w-5 h-5 rounded-full bg-stone-200 flex items-center justify-center font-bold text-[10px]">
-                    {key}
-                  </span>
+                  <span className="w-5 h-5 rounded-full bg-stone-200 flex items-center justify-center font-bold text-[10px]">{key}</span>
                   <MathText content={val} />
                 </button>
               ))}
             </div>
-
             <div className="flex justify-between items-center pt-2">
-              <Button
-                variant="ghost"
-                size="sm"
-                disabled={currentIndex === 0}
-                onClick={() => setCurrentIndex((prev) => prev - 1)}
-              >
-                Câu trước
-              </Button>
+              <Button variant="ghost" size="sm" disabled={currentIndex === 0} onClick={() => setCurrentIndex((p) => p - 1)}>Câu trước</Button>
               {currentIndex < questions.length - 1 ? (
-                <Button size="sm" onClick={() => setCurrentIndex((prev) => prev + 1)}>
-                  Câu tiếp
-                </Button>
+                <Button size="sm" onClick={() => setCurrentIndex((p) => p + 1)}>Câu tiếp</Button>
               ) : (
-                <Button variant="accent" size="sm" onClick={handleSubmit}>
-                  Nộp bài
-                </Button>
+                <Button variant="accent" size="sm" onClick={handleSubmit}>Nộp bài</Button>
               )}
             </div>
           </div>
