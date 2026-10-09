@@ -1,0 +1,6 @@
+name = "khuvuoncamxuc"
+compatibility_date = "2026-10-09"
+
+[assets]
+directory = "./frontend/out"
+binding = "ASSETS"
