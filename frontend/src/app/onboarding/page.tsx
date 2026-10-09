@@ -179,17 +179,112 @@ export default function OnboardingPage() {
         diagnostic_answers: diagnosticAnswers,
         initial_time_capsule: initialTimeCapsule.trim() || undefined,
       };
-      const res = await fetch(`${API_BASE}/api/onboarding`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      let data: Student | null = null;
+      try {
+        const res = await fetch(`${API_BASE}/api/onboarding`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
 
-      if (!res.ok) throw new Error("Lỗi tạo lộ trình");
-      const data = await res.json();
-      setGeneratedStudent(data);
-      localStorage.setItem("sunflower_student_id", data.id);
-      setStep(4); // Sang bước kết quả
+        if (res.ok) {
+          data = await res.json();
+        } else {
+          throw new Error("API call failed");
+        }
+      } catch {
+        // Fallback tạo lộ trình & hồ sơ học sinh cục bộ khi backend offline
+        const studentId = `student-${Date.now()}`;
+        data = {
+          id: studentId,
+          user_id: user?.id || null,
+          name: payload.name,
+          grade: payload.grade,
+          target_subject: payload.target_subject,
+          target_subjects: payload.target_subjects,
+          emotion_scale: payload.emotion_scale,
+          weakness: payload.weakness,
+          long_term_goal: payload.long_term_goal,
+          timeframe: payload.timeframe,
+          learning_style: payload.learning_style,
+          selected_flower: payload.selected_flower,
+          flower_state: "cham_hoc",
+          created_at: new Date().toISOString(),
+          roadmap: {
+            milestones: [
+              {
+                stage: 1,
+                title: `Giai đoạn 1: Xây nền tảng vững chắc môn ${payload.target_subject}`,
+                duration: "Tuần 1 - 2",
+                goal: `Nắm chắc các khái niệm cốt lõi và khắc phục ${payload.weakness.slice(0, 40)}`,
+                key_actions: [
+                  "Ôn lại định nghĩa và ví dụ mẫu trọng tâm",
+                  "Thực hiện 3 nhiệm vụ vi mô mỗi ngày",
+                  "Ghi chú lại những câu hỏi chưa hiểu"
+                ]
+              },
+              {
+                stage: 2,
+                title: `Giai đoạn 2: Luyện kỹ năng & Vượt chướng ngại vật`,
+                duration: "Tuần 3 - 4",
+                goal: `Thực hành giải bài tập tự tin, nâng cao cảm xúc học tập`,
+                key_actions: [
+                  "Làm bài kiểm tra mini phản xạ",
+                  "Áp dụng phương pháp Pomodoro 15 phút",
+                  "Tổng hợp sơ đồ tư duy"
+                ]
+              },
+              {
+                stage: 3,
+                title: `Giai đoạn 3: Bứt phá mục tiêu & Làm chủ kiến thức`,
+                duration: payload.timeframe,
+                goal: payload.long_term_goal,
+                key_actions: [
+                  "Giải đề tổng hợp",
+                  "Duy trì chuỗi kỷ luật học tập",
+                  "Tự hào nhìn lại hành trình trưởng thành"
+                ]
+              }
+            ],
+            initial_daily_tasks: [
+              {
+                id: 201,
+                title: `Ôn lại 3 công thức then chốt môn ${payload.target_subject}`,
+                duration_minutes: 15,
+                subject: payload.target_subject,
+                category: "Khởi động",
+                tip: "Hít thở sâu và ghi nhớ bằng cách tự giải thích cho bản thân."
+              },
+              {
+                id: 202,
+                title: `Giải 3 bài tập cơ bản tự luyện`,
+                duration_minutes: 20,
+                subject: payload.target_subject,
+                category: "Luyện tập",
+                tip: "Làm chậm rãi và kiểm tra từng bước tính toán."
+              },
+              {
+                id: 203,
+                title: `Tổng kết 1 điều tâm đắc hôm nay`,
+                duration_minutes: 10,
+                subject: payload.target_subject,
+                category: "Tự phản hồi",
+                tip: "Viết ra 1 điều bạn cảm thấy tự hào vì mình đã cố gắng."
+              }
+            ],
+            encouraging_message: `Chào mừng ${payload.name} đến với Khu Vườn Cảm Xúc! Mỗi bước đi nhỏ đều mang lại sự tiến bộ to lớn.`
+          }
+        };
+      }
+
+      if (data) {
+        setGeneratedStudent(data);
+        localStorage.setItem("sunflower_student_id", data.id);
+        localStorage.setItem("current_student_id", data.id);
+        // Lưu profile học sinh mẫu vào local cache
+        localStorage.setItem(`sunflower_student_profile_${data.id}`, JSON.stringify(data));
+        setStep(4); // Sang bước kết quả
+      }
     } catch (err) {
       console.error(err);
       alert("Có lỗi xảy ra khi tạo lộ trình. Vui lòng thử lại!");

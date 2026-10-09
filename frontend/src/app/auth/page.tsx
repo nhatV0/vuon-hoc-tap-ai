@@ -78,7 +78,8 @@ export default function AuthPage() {
             },
           };
         } else {
-          // Đăng ký mới trong chế độ độc lập
+          // Đăng ký mới trong chế độ độc lập: tự động gán student_id để có thể vào thẳng khu vườn hoặc thực hiện khảo sát
+          const newStudentId = `student-${Date.now()}`;
           data = {
             token: `demo-token-student-${Date.now()}`,
             user: {
@@ -87,12 +88,52 @@ export default function AuthPage() {
               name: name.trim() || "Học Sinh Mới",
               role: "student",
               created_at: new Date().toISOString(),
-              student_id: null,
+              student_id: newStudentId,
             },
           };
+          // Tạo trước hồ sơ học sinh mặc định để vào thẳng Khu Vườn được ngay
+          if (typeof window !== "undefined") {
+            const initialProfile = {
+              id: newStudentId,
+              name: name.trim() || "Học Sinh Mới",
+              grade: "10",
+              target_subject: "Toán",
+              weakness: "Đại số & Hình học",
+              long_term_goal: "Đạt 8+ điểm và tự tin học tập",
+              timeframe: "Học kỳ 1",
+              learning_style: "Trực quan",
+              selected_flower: "sunflower",
+              flower_state: "cham_hoc",
+              created_at: new Date().toISOString(),
+              roadmap: {
+                milestones: [
+                  {
+                    stage: 1,
+                    title: "Chặng 1: Khởi động hành trình",
+                    duration: "Tuần 1 - 2",
+                    goal: "Xây dựng thói quen học tập 15 phút mỗi ngày",
+                    key_actions: ["Luyện tập đều đặn", "Điểm danh hàng ngày", "Chăm sóc hoa"]
+                  }
+                ],
+                initial_daily_tasks: [
+                  {
+                    id: 301,
+                    title: "Ôn lại 3 dạng bài tập cơ bản",
+                    duration_minutes: 15,
+                    subject: "Toán",
+                    category: "Củng cố kiến thức",
+                    tip: "Làm bài thật kỹ và tự tin nhé!"
+                  }
+                ],
+                encouraging_message: `Chào mừng ${name.trim() || "bạn"} đến với Khu Vườn Cảm Xúc!`
+              }
+            };
+            localStorage.setItem(`sunflower_student_profile_${newStudentId}`, JSON.stringify(initialProfile));
+            localStorage.setItem("sunflower_student_id", newStudentId);
+            localStorage.setItem("current_student_id", newStudentId);
+          }
         }
       }
-
       if (!data) {
         throw new Error("Không thể khởi tạo phiên đăng nhập.");
       }
@@ -123,7 +164,7 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] flex flex-col justify-center items-center px-4 py-12 select-none">
+    <div className="min-h-screen bg-[#FAF8F5] flex flex-col justify-center items-center px-4 pt-8 pb-48 sm:py-12 select-none overflow-y-auto">
       <Link
         href="/"
         className="mb-8 inline-flex items-center gap-2 text-xs font-medium text-stone-500 hover:text-stone-800 transition-colors"
@@ -276,6 +317,9 @@ export default function AuthPage() {
           </div>
         )}
       </div>
+
+      {/* Khoảng đệm an toàn lớn ở đáy để bàn phím ảo di động không che khuất form khi nhập liệu */}
+      <div className="w-full h-36 sm:h-12 pointer-events-none" aria-hidden="true" />
     </div>
   );
 }

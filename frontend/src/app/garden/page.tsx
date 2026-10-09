@@ -96,15 +96,48 @@ export default function StudentGardenDashboard() {
         // Fallback for standalone frontend mobile demo
       }
 
+      if (!studentData && effectiveId && typeof window !== "undefined") {
+        const cachedProfile = localStorage.getItem(`sunflower_student_profile_${effectiveId}`);
+        if (cachedProfile) {
+          try {
+            studentData = JSON.parse(cachedProfile);
+          } catch {}
+        }
+      }
+
       if (!studentData) {
         // Use demo student when backend is not reachable or first time visit
         studentData = DEMO_STUDENT;
         setGarden(DEMO_GARDEN as unknown as GardenStatus);
         setTasks(DEMO_TASKS.map((t) => ({ ...t, animState: "idle" })));
         setInventory(DEMO_INVENTORY as unknown as StreakInventoryData);
+      } else if (!garden) {
+        // Set initial garden status for newly onboarded offline student
+        setGarden({
+          ...DEMO_GARDEN,
+          student_id: studentData.id,
+          student_name: studentData.name,
+          selected_flower: studentData.selected_flower || "sunflower",
+          story_message: `Chào mừng ${studentData.name}! Hãy chăm sóc hoa và bắt đầu chuỗi ngày học tập tuyệt vời nhé!`
+        });
+        if (studentData.roadmap?.initial_daily_tasks) {
+          setTasks(studentData.roadmap.initial_daily_tasks.map((t) => ({
+            id: t.id,
+            student_id: studentData?.id || "temp",
+            title: t.title,
+            duration_minutes: t.duration_minutes,
+            subject: t.subject,
+            category: t.category || "Nhiệm vụ",
+            tip: t.tip,
+            is_completed: false,
+            day_offset: 1,
+            created_at: new Date().toISOString(),
+            animState: "idle"
+          })));
+        }
+        setInventory(DEMO_INVENTORY as unknown as StreakInventoryData);
       }
       setStudent(studentData);
-
         const [gRes, planRes, capRes, invRes] = await Promise.all([
           fetch(`${API_BASE}/api/garden/${studentData.id}`).catch(() => null),
           fetch(`${API_BASE}/api/planning/${studentData.id}`).catch(() => null),
