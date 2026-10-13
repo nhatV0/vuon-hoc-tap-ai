@@ -6,7 +6,7 @@
     "dev": "bun --filter \"*\" dev",
     "dev:backend": "cd backend && bun run dev",
     "dev:frontend": "cd frontend && bun run dev",
-    "build": "cd frontend && bun run build",
+    "build": "cd frontend && bun install && bun run build",
     "test": "cd backend && bun test"
   }
 }
