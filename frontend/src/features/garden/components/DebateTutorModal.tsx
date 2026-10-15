@@ -30,7 +30,6 @@ export default function DebateTutorModal({ studentId, subject = "Toán học", o
     setStage,
     questionIndex,
     currentQuestion,
-    currentOptions,
     topicHint,
     lastStudentAnswer,
     currentEvaluation,
@@ -86,10 +85,8 @@ export default function DebateTutorModal({ studentId, subject = "Toán học", o
               questionIndex={questionIndex}
               totalQuestions={10}
               question={currentQuestion}
-              options={currentOptions}
               input={inputAnswer}
               setInput={setInputAnswer}
-              onSelectOption={(k) => setInputAnswer(k)}
               onSubmitAnswer={() => {
                 submitAnswer(inputAnswer);
                 setInputAnswer("");

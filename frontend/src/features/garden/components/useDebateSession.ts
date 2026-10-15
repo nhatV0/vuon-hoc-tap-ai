@@ -1,7 +1,6 @@
 import { useState, useCallback } from "react";
 import { API_BASE, authFetch } from "@/shared/api/auth-client";
 import { SyllabusChapter } from "./DebateTopicSelector";
-import { DebateOption } from "./DebateQuestionCard";
 import { EvaluationData } from "./DebateAnswerFeedback";
 import { QuestionHistoryItem } from "./DebateSessionSummary";
 
@@ -11,8 +10,7 @@ export function useDebateSession(studentId: string, currentSubject: string) {
   const [stage, setStage] = useState<"topics" | "question" | "feedback" | "summary">("topics");
   const [questionIndex, setQuestionIndex] = useState(1);
   const [currentQuestion, setCurrentQuestion] = useState("");
-  const [currentOptions, setCurrentOptions] = useState<DebateOption[]>([]);
-  const [currentCorrectOption, setCurrentCorrectOption] = useState("B");
+  const [sampleAnswer, setSampleAnswer] = useState("");
   const [topicHint, setTopicHint] = useState("");
   const [askedQuestions, setAskedQuestions] = useState<string[]>([]);
   const [lastStudentAnswer, setLastStudentAnswer] = useState("");
@@ -49,8 +47,7 @@ export function useDebateSession(studentId: string, currentSubject: string) {
       const data = await res.json();
       if (res.ok) {
         setCurrentQuestion(data.question);
-        setCurrentOptions(data.options || []);
-        setCurrentCorrectOption(data.correct_option || "B");
+        setSampleAnswer(data.sample_answer || "");
         setTopicHint(data.topic_hint || "");
         setAskedQuestions((prev) => [...prev, data.question]);
         setStage("question");
@@ -81,8 +78,7 @@ export function useDebateSession(studentId: string, currentSubject: string) {
           subject: currentSubject,
           selected_chapters: chosenTitles,
           question: currentQuestion,
-          options: currentOptions,
-          correct_option: currentCorrectOption,
+          sample_answer: sampleAnswer,
           student_answer: ans
         })
       });
@@ -90,8 +86,8 @@ export function useDebateSession(studentId: string, currentSubject: string) {
       if (res.ok) {
         const evalData: EvaluationData = {
           is_correct: data.is_correct,
-          verdict: data.verdict,
-          correct_option: data.correct_option || currentCorrectOption,
+          verdict: data.verdict || (data.is_correct ? "chính_xác" : "chưa_chính_xác"),
+          sample_answer: data.sample_answer || sampleAnswer,
           explanation: data.explanation,
           feedback: data.feedback,
           debate_rebuttal: data.debate_rebuttal
@@ -103,7 +99,7 @@ export function useDebateSession(studentId: string, currentSubject: string) {
             questionNumber: questionIndex,
             question: currentQuestion,
             studentAnswer: ans,
-            correctOption: evalData.correct_option,
+            verdict: evalData.verdict,
             isCorrect: evalData.is_correct,
             explanation: evalData.explanation
           }
@@ -132,7 +128,6 @@ export function useDebateSession(studentId: string, currentSubject: string) {
     setStage,
     questionIndex,
     currentQuestion,
-    currentOptions,
     topicHint,
     lastStudentAnswer,
     currentEvaluation,

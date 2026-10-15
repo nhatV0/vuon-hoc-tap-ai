@@ -83,11 +83,10 @@ describe("Academic AI Features - Twin Quiz, Socratic Tutor & Visual Scratchpad",
     expect(resGen.status).toBe(200);
     const genData = await resGen.json();
     expect(genData.question).toBeDefined();
-    expect(Array.isArray(genData.options)).toBe(true);
-    expect(genData.options.length).toBe(4);
-    expect(genData.correct_option).toBeDefined();
+    expect(typeof genData.question).toBe("string");
+    expect(genData.sample_answer).toBeDefined();
 
-    // 3. Evaluate student answer (e.g. student fast-types option key 'B')
+    // 3. Evaluate student answer (student answers essay directly)
     const resEval = await app.request("/api/socratic/debate/evaluate-answer", {
       method: "POST",
       headers: {
@@ -99,15 +98,14 @@ describe("Academic AI Features - Twin Quiz, Socratic Tutor & Visual Scratchpad",
         subject: "Toán học",
         selected_chapters: ["Hàm số mũ và hàm số lôgarit (Lớp 11)"],
         question: genData.question,
-        options: genData.options,
-        correct_option: genData.correct_option,
-        student_answer: genData.correct_option
+        sample_answer: genData.sample_answer,
+        student_answer: "Cần điều kiện xác định để hàm số có nghĩa và không tạo ra nghiệm giả."
       })
     });
     expect(resEval.status).toBe(200);
     const evalData = await resEval.json();
-    expect(evalData.verdict).toBe("chính_xác");
-    expect(evalData.is_correct).toBe(true);
+    expect(evalData.verdict).toBeDefined();
+    expect(typeof evalData.is_correct).toBe("boolean");
     expect(evalData.explanation).toBeDefined();
   }, 30000);
 

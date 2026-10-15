@@ -4,11 +4,6 @@ export const DebateSyllabusQuerySchema = z.object({
   subject: z.string().optional()
 });
 
-export const DebateOptionSchema = z.object({
-  key: z.string(), // "A", "B", "C", "D"
-  text: z.string()
-});
-
 export const DebateGenerateQuestionSchema = z.object({
   student_id: z.string().min(1),
   subject: z.string().min(1).default("Toán học"),
@@ -23,8 +18,7 @@ export const DebateEvaluateAnswerSchema = z.object({
   subject: z.string().min(1).default("Toán học"),
   selected_chapters: z.array(z.string()).min(1),
   question: z.string().min(1),
-  options: z.array(DebateOptionSchema).optional().default([]),
-  correct_option: z.string().optional(),
+  sample_answer: z.string().optional(),
   student_answer: z.string().trim().min(1, "Câu trả lời không được để trống")
 });
 

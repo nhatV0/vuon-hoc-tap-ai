@@ -1,54 +1,36 @@
 import { callAiModel, ChatMessage } from "@/modules/ai/ai.client";
-import { DebateEvaluateAnswerDto, DebateOptionSchema } from "./socratic.schemas";
+import { DebateEvaluateAnswerDto } from "./socratic.schemas";
 
 export interface DebateEvaluationResult {
   is_correct: boolean;
-  verdict: "chính_xác" | "chưa_chính_xác";
-  correct_option: string;
+  verdict: "chính_xác" | "chưa_chính_xác" | "bán_phần";
+  sample_answer: string;
   explanation: string;
   feedback: string;
   debate_rebuttal: string;
 }
 
 export async function evaluateDebateAnswer(dto: DebateEvaluateAnswerDto): Promise<DebateEvaluationResult> {
-  const rawAnswer = dto.student_answer.trim().toUpperCase();
-  const matchedKey = ["A", "B", "C", "D"].find(
-    (k) => rawAnswer === k || rawAnswer.startsWith(`${k}.`) || rawAnswer.startsWith(`${k}:`)
-  );
-
-  if (dto.correct_option && matchedKey) {
-    const isCorrect = matchedKey === dto.correct_option.toUpperCase();
-    return {
-      is_correct: isCorrect,
-      verdict: isCorrect ? "chính_xác" : "chưa_chính_xác",
-      correct_option: dto.correct_option,
-      explanation: isCorrect
-        ? `Chính xác! Đáp án ${dto.correct_option} là lựa chọn đúng.`
-        : `Chưa chính xác! Bạn đã chọn ${matchedKey}, trong khi đáp án đúng là ${dto.correct_option}.`,
-      feedback: isCorrect
-        ? "Bạn đã nắm vững luận điểm và không bị mắc bẫy khái niệm!"
-        : "Hãy chú ý đến các chi tiết bẫy và điều kiện loại trừ.",
-      debate_rebuttal: isCorrect
-        ? "Luận điểm của bạn rất vững chắc. Sẵn sàng cho câu tiếp theo!"
-        : `Đáp án ${dto.correct_option} chuẩn xác vì đã bao hàm đầy đủ cơ sở lý thuyết.`
-    };
-  }
-
   const prompt = `Bạn là Trọng Tài kiêm Gia Sư Tranh Luận môn ${dto.subject}.
-Câu hỏi: "${dto.question}"
-Các lựa chọn: ${JSON.stringify(dto.options || [])}
-Đáp án chuẩn: "${dto.correct_option || "B"}"
+Câu hỏi tự luận: "${dto.question}"
+Đáp án chuẩn/Ý chính: "${dto.sample_answer || "Nắm vững định nghĩa và cơ sở khoa học"}"
 Học sinh gõ trả lời: "${dto.student_answer}"
 
-Nhiệm vụ: Kiểm tra xem câu trả lời là ĐÚNG hay SAI. Giải thích súc tích dưới 60 từ.
-Định dạng JSON:
+Nhiệm vụ: Chấm và phản biện câu trả lời tự luận của học sinh.
+Xác định:
+- verdict: "chính_xác" (nếu nêu đúng bản chất), "bán_phần" (nếu đúng 1 phần hoặc thiếu ý quan trọng), hoặc "chưa_chính_xác" (nếu sai bản chất/ngộ nhận).
+- is_correct: true nếu chính xác hoặc bán phần, false nếu chưa chính xác.
+- explanation: Giải thích ngắn gọn (dưới 50 từ) vì sao đúng/sai và bổ sung ý còn thiếu.
+- feedback: Đánh giá ngắn gọn phong cách lập luận của học sinh.
+- debate_rebuttal: Luận điểm phản biện mở rộng hoặc câu hỏi gợi mở tiếp theo.
+
+Định dạng JSON duy nhất:
 {
   "is_correct": boolean,
-  "verdict": "chính_xác" | "chưa_chính_xác",
-  "correct_option": "${dto.correct_option || "B"}",
-  "explanation": "Giải thích vì sao đúng hoặc sai",
-  "feedback": "Nhận xét ngắn gọn",
-  "debate_rebuttal": "Luận điểm phản biện then chốt"
+  "verdict": "chính_xác" | "chưa_chính_xác" | "bán_phần",
+  "explanation": "Lời giải thích ngắn gọn",
+  "feedback": "Nhận xét",
+  "debate_rebuttal": "Góc nhìn phản biện tiếp theo"
 }`;
 
   const messages: ChatMessage[] = [
@@ -57,28 +39,28 @@ Nhiệm vụ: Kiểm tra xem câu trả lời là ĐÚNG hay SAI. Giải thích 
   ];
 
   try {
-    const raw = await callAiModel({ messages, temperature: 0.3, maxTokens: 800 });
+    const raw = await callAiModel({ messages, temperature: 0.3, maxTokens: 450 });
     const clean = raw.replace(/```json/g, "").replace(/```/g, "").trim();
     const parsed = JSON.parse(clean);
     return {
       is_correct: Boolean(parsed.is_correct),
-      verdict: parsed.is_correct ? "chính_xác" : "chưa_chính_xác",
-      correct_option: parsed.correct_option || dto.correct_option || "B",
-      explanation: parsed.explanation || "Cần đối chiếu với lý thuyết cốt lõi.",
-      feedback: parsed.feedback || "AI đã ghi nhận câu trả lời của bạn.",
-      debate_rebuttal: parsed.debate_rebuttal || "Hãy ghi nhớ luận điểm này cho các câu hỏi sau."
+      verdict: parsed.verdict || (parsed.is_correct ? "chính_xác" : "chưa_chính_xác"),
+      sample_answer: dto.sample_answer || "Cần bám sát định nghĩa lý thuyết cốt lõi.",
+      explanation: parsed.explanation || "Đã phân tích lập luận của bạn dựa trên cơ sở khoa học.",
+      feedback: parsed.feedback || "Luận điểm của bạn đã được ghi nhận.",
+      debate_rebuttal: parsed.debate_rebuttal || "Hãy sẵn sàng cho câu hỏi phản biện tiếp theo!"
     };
   } catch {
-    const fallbackCorrect = dto.correct_option ? rawAnswer.includes(dto.correct_option) : rawAnswer.length > 0;
+    const isLen = dto.student_answer.trim().length >= 8;
     return {
-      is_correct: fallbackCorrect,
-      verdict: fallbackCorrect ? "chính_xác" : "chưa_chính_xác",
-      correct_option: dto.correct_option || "B",
-      explanation: fallbackCorrect
-        ? "Bạn đã đưa ra câu trả lời chuẩn xác."
-        : `Đáp án chuẩn là ${dto.correct_option || "B"}. Hãy chú ý điều kiện cần và đủ.`,
-      feedback: "Đã ghi nhận kết quả câu hỏi.",
-      debate_rebuttal: "Chuyển tiếp câu hỏi kế tiếp trong chuỗi 10 câu."
+      is_correct: isLen,
+      verdict: isLen ? "chính_xác" : "chưa_chính_xác",
+      sample_answer: dto.sample_answer || "Cần bám sát định nghĩa lý thuyết cốt lõi.",
+      explanation: isLen
+        ? "Câu trả lời của bạn thể hiện được tư duy và góc nhìn phù hợp với nội dung bài học."
+        : "Câu trả lời còn quá ngắn hoặc chưa nêu rõ được luận cứ khoa học cần thiết.",
+      feedback: "Đã ghi nhận câu trả lời.",
+      debate_rebuttal: "Chuyển tiếp câu hỏi phản biện tiếp theo trong chuỗi 10 câu."
     };
   }
 }

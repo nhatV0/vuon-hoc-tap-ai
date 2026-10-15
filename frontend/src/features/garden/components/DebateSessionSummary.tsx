@@ -1,5 +1,5 @@
 import React from "react";
-import { Trophy, CheckCircle2, XCircle, RotateCcw, BookOpen } from "lucide-react";
+import { Trophy, CheckCircle2, XCircle, AlertCircle, RotateCcw, BookOpen } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { Card } from "@/shared/components/ui/card";
 import { Badge } from "@/shared/components/ui/badge";
@@ -8,7 +8,7 @@ export interface QuestionHistoryItem {
   questionNumber: number;
   question: string;
   studentAnswer: string;
-  correctOption: string;
+  verdict: "chính_xác" | "chưa_chính_xác" | "bán_phần";
   isCorrect: boolean;
   explanation: string;
 }
@@ -39,14 +39,14 @@ export default function DebateSessionSummary({
           <Trophy className="w-5 h-5" />
         </div>
         <h3 className="text-sm font-bold text-foreground">
-          Hoàn Thành Đợt Phản Biện 10 Câu ({subject})
+          Hoàn Thành Đợt Phản Biện Tự Luận 10 Câu ({subject})
         </h3>
         <p className="text-[11px] text-muted-foreground truncate max-w-md mx-auto">
           Chủ đề: {selectedTopicsText}
         </p>
         <div className="flex items-center justify-center gap-3 pt-1">
           <Badge variant="outline" className="text-xs px-3 py-1 font-bold">
-            Kết quả: {correctCount}/{total} Đúng ({scorePercent}%)
+            Kết quả: {correctCount}/{total} Đạt ({scorePercent}%)
           </Badge>
         </div>
       </div>
@@ -58,16 +58,16 @@ export default function DebateSessionSummary({
               <span className="font-semibold text-foreground">
                 Câu {item.questionNumber}: {item.question.slice(0, 90)}...
               </span>
-              {item.isCorrect ? (
+              {item.verdict === "chính_xác" ? (
                 <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+              ) : item.verdict === "bán_phần" ? (
+                <AlertCircle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
               ) : (
                 <XCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
               )}
             </div>
-            <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
+            <div className="text-[11px] text-muted-foreground">
               <span>Đã trả lời: <strong className="text-foreground">{item.studentAnswer}</strong></span>
-              <span>•</span>
-              <span>Đáp án đúng: <strong className="text-emerald-600">{item.correctOption}</strong></span>
             </div>
           </Card>
         ))}

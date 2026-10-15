@@ -45,7 +45,11 @@ export async function callAiModel(options: AiChatOptions): Promise<string> {
 
     if (response.ok) {
       const json = await response.json();
-      const content = json.choices?.[0]?.message?.content;
+      const msgObj = json.choices?.[0]?.message;
+      let content = msgObj?.content;
+      if ((!content || content.trim().length === 0) && typeof msgObj?.reasoning_content === "string") {
+        content = msgObj.reasoning_content;
+      }
       if (typeof content === "string" && content.trim().length > 0) {
         // Strip router advertisement footer if present
         const cleaned = content.replace(/> Cảm ơn bạn đã sử dụng mnRouter[\s\S]*$/, "").trim();
