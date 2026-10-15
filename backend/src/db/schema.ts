@@ -179,16 +179,16 @@ export const CREATE_GAMIFICATION_TABLES_SQL = `
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
   CREATE TABLE IF NOT EXISTS student_quiz_attempts (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    student_id TEXT NOT NULL REFERENCES students(id) ON DELETE CASCADE,
-    quiz_date TEXT NOT NULL,
-    block TEXT NOT NULL,
-    total_questions INTEGER NOT NULL DEFAULT 3,
-    correct_answers INTEGER NOT NULL DEFAULT 0,
-    details TEXT NOT NULL DEFAULT '[]',
-    streak_at_attempt INTEGER NOT NULL DEFAULT 0,
-    is_boss_unlocked INTEGER NOT NULL DEFAULT 0,
-    needs_teacher_support INTEGER NOT NULL DEFAULT 0,
+    id INTEGER PRIMARY KEY AUTOINCREMENT, student_id TEXT NOT NULL REFERENCES students(id) ON DELETE CASCADE,
+    quiz_date TEXT NOT NULL, block TEXT NOT NULL, total_questions INTEGER NOT NULL DEFAULT 3,
+    correct_answers INTEGER NOT NULL DEFAULT 0, details TEXT NOT NULL DEFAULT '[]',
+    streak_at_attempt INTEGER NOT NULL DEFAULT 0, is_boss_unlocked INTEGER NOT NULL DEFAULT 0,
+    needs_teacher_support INTEGER NOT NULL DEFAULT 0, created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+  );
+  CREATE TABLE IF NOT EXISTS student_debate_attempts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT, student_id TEXT NOT NULL REFERENCES students(id) ON DELETE CASCADE,
+    subject TEXT NOT NULL, question TEXT NOT NULL, student_answer TEXT NOT NULL, sample_answer TEXT NOT NULL,
+    verdict TEXT NOT NULL, is_correct INTEGER NOT NULL DEFAULT 0, feedback TEXT,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
 `;

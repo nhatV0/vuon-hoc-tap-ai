@@ -52,6 +52,18 @@ export interface Student {
   diagnostic_answers?: Record<string, string>;
   roadmap?: Roadmap;
   flower_state?: FlowerState;
+  debate_stats?: {
+    total: number;
+    exact_correct: number;
+    partial_correct: number;
+    incorrect: number;
+  };
+  quiz_stats?: {
+    total: number;
+    exact_correct: number;
+    partial_correct: number;
+    incorrect: number;
+  };
 }
 
 export interface PlannedTask {

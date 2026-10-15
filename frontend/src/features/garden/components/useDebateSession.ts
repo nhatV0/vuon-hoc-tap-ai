@@ -17,7 +17,6 @@ export function useDebateSession(studentId: string, currentSubject: string) {
   const [currentEvaluation, setCurrentEvaluation] = useState<EvaluationData | null>(null);
   const [history, setHistory] = useState<QuestionHistoryItem[]>([]);
   const [loading, setLoading] = useState(false);
-
   const fetchSyllabus = useCallback(async (sub: string) => {
     try {
       const res = await authFetch(`${API_BASE}/api/socratic/syllabus?subject=${encodeURIComponent(sub)}`);
@@ -45,7 +44,7 @@ export function useDebateSession(studentId: string, currentSubject: string) {
         })
       });
       const data = await res.json();
-      if (res.ok) {
+      if (res.ok && data.question) {
         setCurrentQuestion(data.question);
         setSampleAnswer(data.sample_answer || "");
         setTopicHint(data.topic_hint || "");
@@ -125,7 +124,6 @@ export function useDebateSession(studentId: string, currentSubject: string) {
       loadQuestion(nextIdx, updatedHistory);
     }
   };
-
   return {
     chapters,
     selectedIds,

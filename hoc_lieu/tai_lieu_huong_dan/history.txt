@@ -1,149 +1,181 @@
-Dưới đây là thống kê chi tiết phần **Lý thuyết môn Lịch sử** được cấu trúc theo đúng yêu cầu: **Học kỳ II Lớp 11** và **Toàn bộ Lớp 12 (Cả Học kỳ I và Học kỳ II)**. Nội dung tổng hợp chuẩn xác các sự kiện, bối cảnh, nguyên nhân, ý nghĩa và bài học lịch sử trọng tâm từ bộ SGK hiện hành để làm dữ liệu cho AI sinh bộ câu hỏi.
+Dưới đây là tổng hợp **chi tiết chuyên sâu và toàn diện phần Lý thuyết môn Lịch sử (Học kỳ II Lớp 11 và Toàn bộ Lớp 12)**. Dữ liệu được cấu trúc chuẩn hóa theo chương trình Sách giáo khoa hiện hành, phân rõ mốc thời gian, bản chất sự kiện, nguyên nhân, kết quả, ý nghĩa lịch sử và bài học kinh nghiệm nhằm hỗ trợ các mô hình AI dễ dàng đọc hiểu và sinh ngân hàng câu hỏi trắc nghiệm/tự luận.
 
 ---
 
-# **MÔN 5: LỊCH SỬ**
+# **MÔN 5: LỊCH SỬ (TỔNG HỢP CHI TIẾT CHUYÊN SÂU)**
 
 ---
 
 ## **PHẦN A: LỊCH SỬ LỚP 11 – HỌC KỲ II**
+### **CHƯƠNG 4: CHIẾN TRANH BẢO VỆ TỔ QUỐC VÀ GIẢI PHÓNG DÂN TỘC**
+#### **1. Vị trí chiến lược của Việt Nam và Vấn đề bảo vệ Tổ quốc**
+* **Vị trí địa – chiến lược:** Việt Nam nằm ở cầu nối giữa lục địa Á – Âu và đại dương (Ấn Độ Dương, Thái Bình Dương), trên tuyến đường hàng hải và thương mại quốc tế huyết mạch. Do đó, Việt Nam luôn là mục tiêu xâm lược của các thế lực phong kiến phương Bắc và chủ nghĩa đế quốc.
+* **Vai trò của chiến tranh bảo vệ Tổ quốc:** Quyết định sự tồn vong của dân tộc, bảo vệ độc lập, chủ quyền, toàn vẹn lãnh thổ và tạo điều kiện xây dựng, phát triển văn hóa, kinh tế đất nước.
 
-### **CHƯƠNG IV. CHIẾN TRANH BẢO VỆ TỔ QUỐC VÀ CHIẾN TRANH GIẢI PHÓNG DÂN TỘC TRONG LỊCH SỬ VIỆT NAM (TRƯỚC NĂM 1945)**
+#### **2. Các cuộc kháng chiến chống ngoại xâm tiêu biểu (trước năm 1945)**
+* **Kháng chiến chống Tống thời Lý (1075 – 1077):**
+  * *Nghệ thuật quân sự:* Tác chiến chủ động "tiên phát chế nhân" (đánh sang đất Tống diệt căn cứ lương thảo Khâm Châu, Liêm Châu, Ung Châu); xây dựng phòng tuyến sông Như Nguyệt; kết hợp chiến đấu quân sự với vận dụng bài thơ thần *"Nam quốc sơn hà"* và chủ động thương lượng kết thúc chiến tranh.
+* **Kháng chiến chống Mông – Nguyên thời Trần (thế kỉ XIII: 1258, 1285, 1287 – 1288):**
+  * *Hội nghị lịch sử:* Hội nghị Bình Than (1282) bàn kế sách đánh giặc, Hội nghị Diên Hồng (1285) trưng cầu ý kiến nhân dân.
+  * *Nghệ thuật quân sự:* Thực hiện kế sách "Vườn không nhà trống", tránh thế giặc mạnh lúc đầu để tiêu hao lực lượng, tổ chức phản công chiến lược (chiến thắng Đông Bộ Đầu, Hàm Tử, Chương Dương, Tây Kết, Bạch Đằng 1288).
+* **Kháng chiến chống quân Thanh thời Tây Sơn (1788 – 1789):**
+  * *Nghệ thuật quân sự:* Nguyễn Huệ lên ngôi Hoàng đế (Quang Trung), hành quân thần tốc, đánh nhanh thắng nhanh trong dịp Tết Kỷ Dậu, đại phá 29 vạn quân Thanh ở Ngọc Hồi – Đống Đa.
+* **Các cuộc kháng chiến không thành công:** Kháng chiến chống Triệu Đà của An Dương Vương (mất cảnh giác, rạn nứt khối đoàn kết), Kháng chiến chống Minh của nhà Hồ (không tập hợp được sức mạnh toàn dân), Kháng chiến chống Pháp thời Nguyễn (Đường lối thủ hòa, thiếu kiên quyết).
 
-#### **1. Khái quát về chiến tranh bảo vệ Tổ quốc trong lịch sử Việt Nam**
-* **Vị trí địa chiến lược của Việt Nam:** Nằm ở ngã tư đường giao lưu quốc tế, cầu nối giữa Đông Nam Á lục địa và Đông Nam Á hải đảo, là cửa ngõ tiến vào lục địa Châu Á. Do đó, Việt Nam luôn là mục tiêu xâm lược của các thế lực đế quốc, phong kiến phương Bắc.
-* **Các cuộc kháng chiến thắng lợi tiêu biểu:** Kháng chiến chống Tống thời Đinh – Tiền Lê, kháng chiến chống Tống thời Lý, kháng chiến chống Mông – Nguyên thời Trần, kháng chiến chống quân Xiêm và quân Thanh thời Tây Sơn.
-* **Các cuộc kháng chiến không thành công:** Kháng chiến chống quân Tần thời An Dương Vương, kháng chiến chống quân Minh thời Hồ, kháng chiến chống thực dân Pháp thời Nguyễn.
-* **Nguyên nhân thắng lợi & Bài học kinh nghiệm:**
-  * *Nguyên nhân:* Tinh thần yêu nước và khối đại đoàn kết toàn dân; đường lối chiến lược, nghệ thuật quân sự độc đáo, sáng tạo (tiên phát chế nhân, đánh nhanh thắng nhanh, lấy yếu chống mạnh); sự chỉ huy tài tình của các tướng lĩnh.
-  * *Bài học:* Xây dựng khối đại đoàn kết dân tộc; quy tụ lòng dân; phát huy nghệ thuật quân sự chiến tranh nhân dân; chủ động phòng thủ từ sớm, từ xa.
+#### **3. Các cuộc khởi nghĩa và chiến tranh giải phóng dân tộc tiêu biểu**
+* **Các cuộc khởi nghĩa thời Bắc thuộc:** Khởi nghĩa Hai Bà Trưng (năm 40), Lý Bị (542 – 548, thành lập nước Vạn Xuân), Triệu Quang Phục, Phùng Hưng, Mai Thúc Loan, Khởi nghĩa và chiến thắng Bạch Đằng năm 938 của Ngô Quyền kết thúc hơn 1000 năm Bắc thuộc, mở ra thời kỳ độc lập tự chủ lâu dài.
+* **Khởi nghĩa Lam Sơn (1418 – 1427):** Do Lê Lợi và Nguyễn Trãi lãnh đạo. Phát triển từ cuộc khởi nghĩa ở vùng núi Chí Linh thành chiến tranh giải phóng dân tộc quy mô toàn quốc (các chiến thắng tiêu biểu: Tốt Động – Chúc Động, Chi Lăng – Xương Giang). Kết thúc bằng Hội thề Đông Quan.
+* **Phong trào Tây Sơn (cuối thế kỉ XVIII):** Lật đổ các tập đoàn phong kiến Nguyễn, Trịnh, Lê, thống nhất đất nước và đánh tan quân xâm lược Xiêm (Rạch Gầm – Xoài Mút 1785), quân Thanh (1789).
 
-#### **2. Các cuộc khởi nghĩa và chiến tranh giải phóng dân tộc (thế kỉ III TCN – cuối thế kỉ XIX)**
-* **Thời kỳ Bắc thuộc:** Khởi nghĩa Hai Bà Trưng, Bà Triệu, Lý Bị, Mai Thúc Đẩy, Phùng Hưng. Chiến thắng Bạch Đằng năm 938 của Ngô Quyền chấm dứt hơn 1000 năm Bắc thuộc, mở ra thời kỳ độc lập tự chủ lâu dài.
-* **Khởi nghĩa Lam Sơn (1418 – 1427):** Do Lê Lợi và Nguyễn Trãi lãnh đạo chống quân Minh. Trải qua các giai đoạn ở căn cứ Lam Sơn, mở rộng địa bàn vào phía Nam (Nghệ An, Tân Bình, Thuận Hóa) và tiến quân ra Bắc, giải phóng đất nước, lập ra triều Lê sơ.
-* **Phong trào Tây Sơn (cuối thế kỉ XVIII):** Lật đổ các tập đoàn phong kiến Nguyễn - Trịnh, xóa bỏ tình trạng chia cắt đất nước; đánh tan 5 vạn quân Xiêm (trận Rạch Gầm – Xoài Mút 1785) và 29 vạn quân Thanh (chiến thắng Ngọc Hồi – Đống Đa 1789), bảo vệ vững chắc độc lập chủ quyền.
+#### **4. Nguyên nhân thắng lợi & Bài học kinh nghiệm**
+* **Nguyên nhân thắng lợi:** Tính chất chính nghĩa của cuộc chiến tranh; Lòng yêu nước nồng nàn và khối đại đoàn kết toàn dân tộc; Đường lối, nghệ thuật quân sự độc đáo, sáng tạo; Vai trò chỉ huy của các tướng lĩnh tài năng (Lý Thường Kiệt, Trần Quốc Tuấn, Nguyễn Huệ...).
+* **Bài học kinh nghiệm:** Bài học về quy tụ khối đại đoàn kết toàn dân ("Khoan thư sức dân để làm kế sâu rễ bền gốc"); Bài học "lấy yếu chống mạnh, lấy ít địch nhiều"; Bài học chủ động phòng thủ và chớp thời cơ phản công.
+
+---
+### **CHƯƠNG 5: MỘT SỐ CUỘC CẢI CÁCH LỚN TRONG LỊCH SỬ VIỆT NAM**
+#### **1. Cải cách của Hồ Quý Ly và triều Hồ (cuối thế kỉ XIV – đầu thế kỉ XV)**
+* **Nội dung:** 
+  * *Chính trị/Quân sự:* Hạn chế quyền lực nhà Trần, chuyển đô về Tây Đô (Thanh Hóa); chế tạo súng thần cơ, đóng thuyền chiến Cổ Lâu, xây dựng thành Tây Đô.
+  * *Kinh tế:* Phát hành tiền giấy "Thông bảo hội sao" (tiền giấy đầu tiên của Việt Nam); thực hiện chính sách "hạn điền" (giới hạn diện tích ruộng tư) và "hạn nô" (giới hạn số lượng nô tì).
+  * *Văn hóa/Giáo dục:* Đề cao chữ Nôm, dịch sách kinh điển sang chữ Nôm; hạn chế Phật giáo, Tao giáo, mở rộng trường học.
+* **Ý nghĩa & Hạn chế:** Đã giải quyết được phần nào khủng hoảng xã hội cuối thời Trần, mang tính tiến bộ nhưng未 tập hợp được lòng dân do thực hiện vội vã.
+
+#### **2. Cải cách của Lê Thánh Tông (thế kỉ XV)**
+* **Nội dung:**
+  * *Chính trị:* Xóa bỏ các chức quan đại thần quyền lực tập trung vào tay Vua; chia cả nước thành 13 đạo thừa tuyên; lập các cơ quan giám sát độc lập (Lục bộ, Lục tự, Lục khoa).
+  * *Pháp luật:* Ban hành **Bộ luật Hồng Đức (Quốc triều hình luật)** – bộ luật tiến bộ, bảo vệ quyền lợi phụ nữ và sự ổn định xã hội.
+  * *Kinh tế/Văn hóa:* Thực hiện chế độ quân điền; lập bản đồ Hồng Đức; dựng bia Tiến sĩ ở Văn Miếu – Quốc Tử Giám.
+* **Ý nghĩa:** Đưa nhà Lê sơ đạt đỉnh cao phát triển, xây dựng bộ máy nhà nước quân chủ chuyên chế trung ương tập quyền hoàn chỉnh nhất trong lịch sử phong kiến Việt Nam.
+
+#### **3. Cải cách của Minh Mạng (nửa đầu thế kỉ XIX)**
+* **Nội dung:**
+  * *Hành chính:* Bãi bỏ Bắc Thành và Gia Định Thành; chia cả nước thành 30 tỉnh và 1 phủ Thừa Thiên.
+  * *Bộ máy:* Thành lập Viện Cơ mật, Nội các; tăng cường kiểm tra, giám sát từ trung ương đến địa phương; thực hiện chính sách "Hồi tỵ" (không bố trí quan lại làm việc tại quê nhà hoặc nơi có quan hệ thân tộc).
+* **Ý nghĩa:** Thống nhất hệ thống hành chính toàn quốc, đặt nền móng cho thể chế quản lý nhà nước hiện đại thời Nguyễn.
+
+---
+### **CHƯƠNG 6: LỊCH SỬ BẢO VỆ CHỦ QUYỀN BIỂN ĐẢO VIỆT NAM**
+#### **1. Tầm quan trọng chiến lược của Biển Đông**
+* Biển Đông là tuyến đường hàng hải quốc tế nối Đại Tây Dương – Ấn Độ Dương với Thái Bình Dương, chứa đựng nguồn tài nguyên sinh vật và khoáng sản (dầu khí) dồi dào.
+* Quần đảo Hoàng Sa và quần đảo Trường Sa giữ vị trí chiến lược khống chế các tuyến hàng hải qua Biển Đông.
+
+#### **2. Quá trình xác lập và thực thi chủ quyền của Việt Nam đối với Hoàng Sa và Trường Sa**
+* **Các thời kỳ lịch sử:**
+  * *Thời chúa Nguyễn (thế kỉ XVII):* Thành lập **Đội Hoàng Sa** và **Đội Bắc Hải** ra quần đảo Hoàng Sa và Trường Sa thu lượm hàng hóa tàu đắm, đo đạc hải trình, cắm mốc chủ quyền.
+  * *Thời nhà Nguyễn (thế kỉ XIX):* Tiếp tục thực thi chủ quyền chính thức; King Gia Long, Minh Mạng cử quân đo đạc, vẽ bản đồ ("Đại Nam nhất thống toàn đồ"), dựng miếu, trồng cây và dựng bia chủ quyền.
+  * *Thời kỳ Pháp thuộc & Sau 1945:* Pháp đại diện Việt Nam thực thi chủ quyền, xây hải đăng, trạm khí tượng; chính quyền Việt Nam Cộng hòa quản lý liên tục đến khi bị Trung Quốc dùng vũ lực chiếm đóng trái phép (Hoàng Sa năm 1974, một số đảo ở Trường Sa năm 1988).
+  * *Từ 1975 đến nay:* Nhà nước Cộng hòa XHCN Việt Nam thành lập huyện đảo Hoàng Sa (Đà Nẵng) và huyện đảo Trường Sa (Khánh Hòa), kiên quyết đấu tranh bảo vệ chủ quyền bằng các biện pháp hòa bình phù hợp với Luật pháp quốc tế (UNCLOS 1982).
 
 ---
 
-### **CHƯƠNG V. MỘT SỐ CUỘC CẢI CÁCH LỚN TRONG LỊCH SỬ VIỆT NAM (TRƯỚC NĂM 1858)**
+## **PHẦN B: LỊCH SỬ LỚP 12 – TOÀN BỘ CHƯƠNG TRÌNH (CẢ NĂM)**
+### **CHƯƠNG 1: THẾ GIỚI TRONG VÀ SAU CHIẾN TRANH LẠNH**
+#### **1. Liên hợp quốc (LHQ)**
+* **Bối cảnh thành lập:** Đầu năm 1945, Chiến tranh thế giới thứ hai sắp kết thúc, các nước đồng minh thỏa thuận thành lập một tổ chức quốc tế để duy trì hòa bình và an ninh thế giới.
+* **Mục tiêu chính:** Duy trì hòa bình và an ninh quốc tế; phát triển quan hệ hữu nghị giữa các dân tộc; thúc đẩy hợp tác quốc tế về kinh tế, xã hội, văn hóa, nhân đạo.
+* **Nguyên tắc hoạt động:** 
+  1. Bình đẳng về chủ quyền giữa các quốc gia.
+  2. Tôn trọng toàn vẹn lãnh thổ và độc lập chính trị của tất cả các nước.
+  3. Không can thiệp vào công việc nội bộ của bất kỳ quốc gia nào.
+  4. Giải quyết các tranh chấp quốc tế bằng biện pháp hòa bình.
+  5. Sự nhất trí giữa 5 nước ủy viên thường trực Hội đồng Bảo an (Mỹ, Liên Xô/Nga, Anh, Pháp, Trung Quốc).
+* **Vai trò:** Ngăn ngừa không để xảy ra chiến tranh thế giới mới; giải quyết xung đột, thúc đẩy giải phóng dân tộc; hỗ trợ phát triển kinh tế, giáo dục, y tế (UNESCO, UNICEF, WHO...).
 
-#### **1. Cuộc cải cách của Hồ Quý Ly và Triều Hồ (cuối thế kỉ XIV – đầu thế kỉ XV)**
-* **Bối cảnh:** Cuối thời Trần, kinh tế - xã hội khủng hoảng nghiêm trọng, vương hầu địa chủ chiếm đoạt ruộng đất, đời sống nhân dân cực khổ, nhà Trần suy yếu.
-* **Nội dung cải cách:**
-  * *Chính trị - Quân sự:* Củng cố chế độ quân chủ tập quyền, hạn chế thế lực dòng họ Nguyễn - Trần; phát hành tiền giấy "Thông bảo hội sao", xây dựng thành lũy (Tây Đô), chế tạo súng thần cơ và đóng thuyền chiến.
-  * *Kinh tế - Xã hội:* Ban hành chính sách hạn ruộng, hạn nô nhằm hạn chế gia nô và ruộng đất của vương hầu quý tộc.
-  * *Văn hóa - Giáo dục:* Đề cao chữ Nôm, hạn chế Phật giáo và Đạo giáo, chấn chỉnh thi cử.
-* **Ý nghĩa:** Bước đầu giải quyết khủng hoảng, củng cố quyền lực nhà nước trung ương tập quyền; tuy nhiên chưa tranh thủ được lòng dân rộng rãi nên thất bại khi nhà Minh xâm lược.
+#### **2. Trật tự thế giới hai cực I-an-ta và Chiến tranh Lạnh**
+* **Trật tự hai cực I-an-ta (1945 – 1991):** Hình thành từ các quyết định của Hội nghị I-an-ta (tháng 2/1945), phân chia phạm vi ảnh hưởng giữa hai siêu cường: Mỹ (đứng đầu phe Tư bản chủ nghĩa) và Liên Xô (đứng đầu phe Xã hội chủ nghĩa).
+* **Chiến tranh Lạnh (1947 – 1989):** Tình trạng đối đầu căng thẳng về chính trị, quân sự, kinh tế giữa Mỹ và Liên Xô cùng các đồng minh, không bùng nổ chiến tranh trực tiếp giữa hai siêu cường nhưng gây ra các cuộc chiến tranh cục bộ (Triều Tiên, Việt Nam).
+* **Sự sụp đổ:** Tháng 12/1989, Mỹ và Liên Xô tuyên bố chấm dứt Chiến tranh Lạnh; năm 1991, Liên Xô sụp đổ, Trật tự hai cực I-an-ta hoàn toàn chấm dứt.
 
-#### **2. Cuộc cải cách của Lê Thánh Tông (thế kỉ XV)**
-* **Bối cảnh:** Bộ máy hành chính đầu thời Lê sơ bộc lộ một số hạn chế, quyền lực tập trung quá nhiều vào tay quan đại thần.
-* **Nội dung cải cách:**
-  * *Chính trị:* Bỏ các chức danh trung gian (Tướng quốc, Đại hành khiển), trực thuộc 6 bộ (Lại, Hộ, Lễ, Binh, Hình, Công) dưới sự chỉ đạo trực tiếp của Vua. Tăng cường hệ thống giám sát và ban hành *Bộ luật Hồng Đức* (Quốc triều hình luật).
-  * *Kinh tế - Văn hóa:* Thực hiện chế độ quân điền, khuyến khích nông nghiệp; mở rộng giáo dục, khoa cử chọn nhân tài.
-* **Ý nghĩa:** Tối ưu hóa bộ máy nhà nước quân chủ chuyên chế tập trung cao độ, đưa Đại Việt bước vào giai đoạn phát triển thịnh vượng.
-
-#### **3. Cuộc cải cách của Minh Mạng (nửa đầu thế kỉ XIX)**
-* **Bối cảnh:** Bộ máy chính quyền đầu thời Nguyễn ở địa phương còn phân quyền (Bắc Thành và Gia Định Thành), chưa thống nhất triệt để.
-* **Nội dung cải cách:**
-  * Chia cả nước thành 31 tỉnh (bao gồm Phủ Thừa Thiên); đứng đầu tỉnh là Tổng đốc hoặc Tuần phủ.
-  * Thành lập Viện Cơ mật, Nội các giúp vua điều hành công việc; hoàn thiện bộ máy hành chính thống nhất từ trung ương đến địa phương.
-* **Ý nghĩa:** Xây dựng hệ thống hành chính thống nhất, chặt chẽ trong cả nước, đặt nền móng cho địa giới hành chính Việt Nam hiện đại.
-
----
-
-### **CHƯƠNG VI. LỊCH SỬ BẢO VỆ CHỦ QUYỀN, CÁC QUYỀN VÀ LỢI ÍCH HỢP PHÁP CỦA VIỆT NAM Ở BIỂN ĐÔNG**
-
-#### **1. Vị trí và tầm quan trọng của Biển Đông**
-* **Vị trí chiến lược:** Biển Đông là tuyến đường hàng hải quốc tế huyết mạch nối liền Ấn Độ Dương và Thái Bình Dương.
-* **Tầm quan trọng:** Chứa nguồn tài nguyên thiên nhiên phong phú (sinh vật biển, khoáng sản, dầu khí); các đảo và quần đảo (Hoàng Sa, Trường Sa) có vị trí chiến lược quan trọng về quốc phòng, an ninh và kinh tế.
-
-#### **2. Khai thác và bảo vệ chủ quyền Biển Đông trong lịch sử**
-* Các chính quyền phong kiến Việt Nam (từ thời Lê sơ, Nguyễn Hoàng, chúa Nguyễn đến triều Nguyễn) đã xác lập, thực thi chủ quyền liên tục đối với hai quần đảo Hoàng Sa và Trường Sa thông qua hoạt động của *Đội Hoàng Sa* và *Đội Bắc Hải*.
-* Đã đo đạc hải trình, dựng bia chủ quyền, vẽ bản đồ, trồng cây và xây miếu trên hai quần đảo.
-* Ngày nay, Việt Nam kiên quyết, kiên trì đấu tranh bảo vệ chủ quyền, quyền và lợi ích hợp pháp trên biển bằng các biện pháp hòa bình, phù hợp với Luật pháp quốc tế (UNCLOS 1982).
+#### **3. Xu thế phát triển của thế giới sau Chiến tranh Lạnh**
+* **Xu thế đa cực:** Hình thành trật tự thế giới đa cực với sự nổi lên của các trung tâm kinh tế - chính trị lớn: Mỹ, Trung Quốc, EU, Nhật Bản, Nga, Ấn Độ.
+* **Các xu thế chính:**
+  1. Lấy phát triển kinh tế làm trung tâm.
+  2. Xu thế hòa hoãn, đối thoại và hợp tác trong quan hệ quốc tế.
+  3. Xu thế toàn cầu hóa và hội nhập kinh tế quốc tế sâu rộng.
 
 ---
+### **CHƯƠNG 2: ASEAN: NHỮNG CHẶNG ĐƯỜNG LỊCH SỬ**
+#### **1. Sự thành lập và phát triển của ASEAN**
+* **Thành lập:** Ngày 8/8/1967 tại Băng Cốc (Thái Lan) với 5 thành viên sáng lập (I-đô-nê-xi-a, Ma-lay-si-a, Phi-lip-pin, Xin-ga-po, Thái Lan).
+* **Quá trình mở rộng:** Từ "ASEAN 5" phát triển thành "ASEAN 10" (Việt Nam gia nhập ngày 28/7/1995; Lào và Mi-an-ma 1997; Cam-pu-chia 1999).
+* **Văn kiện quan trọng:** **Hiệp ước Bali (1976)** xác định các nguyên tắc cơ bản: tôn trọng chủ quyền, không can thiệp công việc nội bộ, giải quyết tranh chấp bằng biện pháp hòa bình.
 
-## **PHẦN B: LỊCH SỬ LỚP 12 – TOÀN BỘ CHƯƠNG TRÌNH (HKI & HKII)**
-
-### **CHƯƠNG I. THẾ GIỚI TRONG VÀ SAU CHIẾN TRANH LẠNH**
-
-#### **1. Liên hợp quốc (UN)**
-* **Sự thành lập:** Thành lập năm 1945 tại Hội nghị San Francisco với sự tham gia của 50 quốc gia.
-* **Mục tiêu chính:** Duy trì hòa bình và an ninh quốc tế; phát triển mối quan hệ hữu nghị giữa các dân tộc; thực hiện hợp tác quốc tế.
-* **Vai trò:** Là diễn đàn quốc tế lớn nhất giải quyết các xung đột, thúc đẩy phát triển kinh tế, văn hóa, bảo vệ quyền con người.
-
-#### **2. Trật tự thế giới trong và sau Chiến tranh lạnh**
-* **Trật tự hai cực I-an-ta (Ialta):** Hình thành sau Chiến tranh thế giới thứ hai (1945), do hai siêu cường Xô – Mỹ đứng đầu mỗi cực. Sụp đổ năm 1991 cùng với sự tan rã của Liên Xô.
-* **Xu thế phát triển sau Chiến tranh lạnh:** Xu thế đa cực, lấy phát triển kinh tế làm trọng tâm; hòa hoãn, hợp tác và cạnh tranh chiến lược giữa các cường quốc.
-
----
-
-### **CHƯƠNG II. ASEAN: NHỮNG CHẶNG ĐƯỜNG LỊCH SỬ**
-
-#### **1. Sự ra đời và phát triển của ASEAN**
-* **Sự thành lập:** Thành lập ngày 8/8/1967 tại Bangkok (Thái Lan) với 5 thành viên sáng lập (Indonesia, Malaysia, Philippines, Singapore, Thailand). Mở rộng thành 10 thành viên.
-* **Mục tiêu:** Thúc đẩy tăng trưởng kinh tế, tiến bộ xã hội, phát triển văn hóa và duy trì hòa bình, ổn định khu vực.
-
-#### **2. Cộng đồng ASEAN**
-* **Ba trụ cột chính:** 
-  1. Cộng đồng Chính trị - An ninh (APSC).
-  2. Cộng đồng Kinh tế (AEC).
-  3. Cộng đồng Văn hóa - Xã hội (ASCC).
-* **Ý nghĩa:** Đưa hợp tác khu vực lên tầm cao mới, nâng cao vị thế của Đông Nam Á trên trường quốc tế.
+#### **2. Hành trình xây dựng Cộng đồng ASEAN**
+* **Cột mốc:** Ngày 31/12/2015, Cộng đồng ASEAN chính thức thành lập.
+* **Ba trụ cột chính:**
+  1. **APSC:** Cộng đồng Chính trị – An ninh ASEAN.
+  2. **AEC:** Cộng đồng Kinh tế ASEAN.
+  3. **ASCC:** Cộng đồng Văn hóa – Xã hội ASEAN.
 
 ---
-
-### **CHƯƠNG III. CÁCH MẠNG THÁNG TÁM NĂM 1945, CHIẾN TRANH GIẢI PHÓNG DÂN TỘC VÀ CHIẾN TRANH BẢO VỆ TỔ QUỐC (TỪ THÁNG 8/1945 ĐẾN NAY)**
-
+### **CHƯƠNG 3: CÁCH MẠNG THÁNG TÁM VÀ CÁC CUỘC KHÁNG CHIẾN (1945-1975)**
 #### **1. Cách mạng tháng Tám năm 1945**
-* **Bối cảnh & Thời cơ:** Nhật hàng Đồng minh (tháng 8/1945). Đảng Cộng sản Đông Dương phát động Tổng khởi nghĩa.
-* **Diễn biến chính:** Khởi nghĩa thắng lợi ở Hà Nội (19/8), Huế (23/8), Sài Gòn (25/8).
-* **Sự kiện mốc:** Ngày 2/9/1945, Chủ tịch Hồ Chí Minh đọc *Tuyên ngôn Độc lập*, khai sinh nước Việt Nam Dân chủ Cộng hòa.
-* **Ý nghĩa:** Đập tan ách thống trị của thực dân Pháp, phát xít Nhật và chế độ phong kiến; mở ra kỷ nguyên độc lập, tự do cho dân tộc.
+* **Bối cảnh & Thời cơ:** Nhật bản đầu hàng Đồng minh không điều kiện (tháng 8/1945); thời cơ "ngàn năm có một" xuất hiện. Đảng và Chủ tịch Hồ Chí Minh kịp thời phát lệnh Tổng khởi nghĩa.
+* **Diễn biến:** Tổng khởi nghĩa giành chính quyền thắng lợi nhanh chóng trên toàn quốc (Hà Nội 19/8, Huế 23/8, Sài Gòn 25/8). Ngày 2/9/1945, Chủ tịch Hồ Chí Minh đọc *Tuyên ngôn Độc lập* khai sinh nước Việt Nam Dân chủ Cộng hòa.
+* **Ý nghĩa:** Mở ra kỷ nguyên mới trong lịch sử dân tộc – kỷ nguyên độc lập, tự do gắn liền với chủ nghĩa xã hội; đập tan ách thống trị của thực dân Pháp và phát xít Nhật, xóa bỏ chế độ phong kiến.
 
 #### **2. Cuộc kháng chiến chống thực dân Pháp (1945 – 1954)**
-* **Các chiến dịch lớn:**
-  * *Chiến dịch Việt Bắc thu - đông 1947:* Đánh bại chiến lược "đánh nhanh thắng nhanh" của Pháp.
-  * *Chiến dịch Biên giới thu - đông 1950:* Giành thế chủ động trên chiến trường chính Bắc Bộ.
-  * *Chiến dịch Điện Biên Phủ (1954):* Đỉnh cao của cuộc kháng chiến, "lừng lẫy năm châu, chấn động địa cầu", buộc Pháp phải ký Hiệp định Geneva chấm dứt chiến tranh ở Đông Dương.
+* **Đường lối kháng chiến:** "Toàn dân, toàn diện, trường kỳ, tự lực cánh sinh và tranh thủ sự ủng hộ quốc tế".
+* **Các chiến dịch quân sự quyết định:**
+  * *Việt Bắc thu – đông 1947:* Bẻ gẫy chiến lược "đánh nhanh thắng nhanh" của Pháp, bảo vệ cơ quan đầu não kháng chiến.
+  * *Biên giới thu – đông 1950:* Giành thế chủ động chiến lược trên chiến trường chính Bắc Bộ, khai thông đường biên giới với các nước XHCN.
+  * *Đông Xuân 1953 – 1954 & Chiến dịch Điện Biên Phủ (1954):* Đập tan Kế hoạch Na-va của Pháp; chiến thắng Điện Biên Phủ "lừng lẫy năm châu, chấn động địa cầu" đập tan tập đoàn điểm tựa mạnh nhất của Pháp.
+* **Kết quả:** Ký kết **Hiệp định Giơ-ne-vơ (1954)**, Pháp công nhận độc lập, chủ quyền, thống nhất và toàn vẹn lãnh thổ của Việt Nam.
 
 #### **3. Cuộc kháng chiến chống Mỹ, cứu nước (1954 – 1975)**
-* **Đánh bại các chiến lược chiến tranh của Mỹ ở miền Nam:**
-  * *Chiến tranh đặc biệt (1961 – 1965):* Dùng quân đội Sài Gòn dưới sự chỉ huy của cố vấn Mỹ; bị đánh bại bởi phong trào Đồng khởi và các chiến thắng quân sự.
-  * *Chiến tranh cục bộ (1965 – 1968):* Quân Mỹ trực tiếp tham chiến; bị đánh bại đỉnh điểm bởi cuộc Tổng tiến công và nổi dậy Tết Mậu Thân 1968.
-  * *Việt Nam hóa chiến tranh (1969 – 1973):* Dùng người Việt đánh người Việt; bị đánh bại bởi cuộc Tiến công chiến lược 1972 và trận "Điện Biên Phủ trên không" trên bầu trời Hà Nội. Mỹ ký Hiệp định Paris (1973) rút quân về nước.
-* **Tổng tiến công và nổi dậy Mùa Xuân 1975:** Trải qua 3 chiến dịch lớn: Chiến dịch Tây Nguyên, Chiến dịch Huế – Đà Nẵng, và Chiến dịch Hồ Chí Minh lịch sử (kết thúc trưa ngày 30/4/1975), giải phóng hoàn toàn miền Nam, thống nhất đất nước.
+* **Đặc điểm:** Đất nước tạm thời bị chia cắt làm hai miền. Miền Bắc tiến hành cách mạng XHCN (hậu phương lớn); Miền Nam tiến hành cách mạng dân tộc dân chủ nhân dân (tiền tuyến lớn).
+* **Đánh bại các chiến lược chiến tranh của Mỹ:**
+  1. *Chiến lược "Chiến tranh đơn phương" (1954 – 1960):* Đánh bại bằng Phong trào "Đồng khởi" (1959 – 1960), mở ra bước phát triển nhảy vọt.
+  2. *Chiến lược "Chiến tranh đặc biệt" (1961 – 1965):* Đánh bại quân đội Sài Gòn có cố vấn Mỹ chỉ huy (các chiến thắng Ấp Bắc, Bình Giã, Đồng Xoài).
+  3. *Chiến lược "Chiến tranh cục bộ" (1965 – 1968):* Đánh bại quân Mỹ và đồng minh (chiến thắng Vạn Tường, Cuộc Tổng tiến công và nổi dậy Tết Mậu Thân 1968 buộc Mỹ chấm dứt chiến tranh phá hoại miền Bắc và đàm phán tại Pa-ri).
+  4. *Chiến lược "Việt Nam hóa chiến tranh" (1969 – 1973):* Đánh bại chiến lược bằng các thắng lợi quân sự (Tiến công chiến lược 1972, trận "Điện Biên Phủ trên không" trên bầu trời Hà Nội cuối năm 1972) buộc Mỹ ký **Hiệp định Pa-ri (27/1/1973)** rút toàn bộ quân Mỹ về nước.
+* **Tổng tiến công và nổi dậy Xuân 1975:** Trải qua 3 chiến dịch lớn: Chiến dịch Tây Nguyên \\(\to\\) Chiến dịch Huế – Đà Nẵng \\(\to\\) **Chiến dịch Hồ Chí Minh** (thắng lợi ngày 30/4/1975), giải phóng hoàn toàn miền Nam, thống nhất đất nước.
 
-#### **4. Các cuộc chiến đấu bảo vệ Tổ quốc từ sau tháng 4/1975**
-* **Chiến đấu bảo vệ biên giới Tây Nam (1977 – 1979):** Đánh tan quân xâm lược Pôn Pốt, bảo vệ lãnh thổ và giúp nhân dân Campuchia giải phóng khỏi chế độ diệt chủng.
-* **Chiến đấu bảo vệ biên giới phía Bắc (1979):** Đánh bại cuộc tấn công xâm lược ở biên giới phía Bắc, bảo vệ toàn vẹn lãnh thổ.
-* **Bảo vệ chủ quyền Biển Đông:** Thực thi và bảo vệ chủ quyền tại hai quần đảo Hoàng Sa và Trường Sa.
+#### **4. Cuộc đấu tranh bảo vệ Tổ quốc từ sau tháng 4/1975 đến nay**
+* **Chiến tranh bảo vệ biên giới Tây Nam (1975 – 1979):** Đánh tan tập đoàn Pol Pot, bảo vệ lãnh thổ và trợ giúp nhân dân Cam-pu-chia thoát khỏi họa diệt chủng.
+* **Chiến tranh bảo vệ biên giới phía Bắc (1979):** Đẩy lùi quân xâm lược bảo vệ vững chắc biên giới phía Bắc.
+* **Đấu tranh bảo vệ chủ quyền Biển Đông:** Thực thi pháp luật và bảo vệ chủ quyền tại quần đảo Trường Sa (sự kiện Gạc Ma 1988), khẳng định chủ quyền theo UNCLOS 1982.
+
+---
+### **CHƯƠNG 4: CÔNG CUỘC ĐỔI MỚI Ở VIỆT NAM TỪ 1986 ĐẾN NAY**
+#### **1. Bối cảnh & Đường lối Đổi mới**
+* **Bối cảnh:** Đất nước lâm vào khủng hoảng kinh tế – xã hội trầm trọng; mô hình kinh tế tập trung bao cấp bộc lộ hạn chế; sự bao vây cấm vận của Mỹ.
+* **Khởi đầu Đổi mới:** **Đại hội VI của Đảng (tháng 12/1986)** đề ra đường lối Đổi mới toàn diện đất nước:
+  * *Kinh tế:* Xóa bỏ cơ chế tập trung quan bao cấp, phát triển nền kinh tế thị trường định hướng XHCN nhiều thành phần.
+  * *Chính trị:* Xây dựng Nhà nước pháp quyền XHCN của nhân dân, do nhân dân, vì nhân dân; đổi mới phương thức lãnh đạo của Đảng.
+
+#### **2. Thành tựu cơ bản & Bài học kinh nghiệm**
+* **Thành tựu:** Đưa đất nước thoát khỏi khủng hoảng kinh tế - xã hội, trở thành nước đang phát triển có thu nhập trung bình; quy mô GDP và kim ngạch xuất nhập khẩu tăng nhanh; chính trị - xã hội ổn định; vị thế quốc tế được nâng cao rõ rệt.
+* **Bài học kinh nghiệm:** Kiên trì mục tiêu độc lập dân tộc và chủ nghĩa xã hội; đổi mới toàn diện, đồng bộ, có bước đi phù hợp; Đổi mới vì lợi ích của nhân dân, dựa vào nhân dân; kết hợp sức mạnh dân tộc với sức mạnh thời đại.
+
+---
+### **CHƯƠNG 5: LỊCH SỬ ĐỐI NGOẠI CỦA VIỆT NAM THỜI CẬN - HIỆN ĐẠI**
+#### **1. Giai đoạn từ đầu thế kỉ XX đến 1945**
+* Phong trào Đông Du (Phan Bội Châu) hướng sang Nhật Bản; Phan Châu Trinh tranh thủ nguồn sinh khí cải cách từ Pháp.
+* **Nguyễn Ái Quốc:** Tìm ra con đường cứu nước giải phóng dân tộc (1920); thực hiện các hoạt động đối ngoại tại Pháp, Liên Xô, Trung Quốc, tranh thủ sự ủng hộ của Quốc tế Cộng sản và phong trào cách mạng thế giới.
+
+#### **2. Giai đoạn 1945 – 1975**
+* Thực hiện chính sách đối ngoại linh hoạt: Ngoại giao "Hòa để tiến" với Tưởng Giáp và ký Hiệp định Sơ bộ (6/3/1946) với Pháp để đuổi quân Tưởng.
+* Tranh thủ sự ủng hộ của Liên Xô, Trung Quốc và các nước XHCN; ký kết thành công Hiệp định Giơ-ne-vơ (1954) và Hiệp định Pa-ri (1973).
+
+#### **3. Giai đoạn 1975 đến nay**
+* Ngày 20/9/1977, Việt Nam trở thành thành viên thứ 149 của **Liên hợp quốc**.
+* Đổi mới đường lối đối ngoại: Từ "độc lập, tự chủ" sang "Đa dạng hóa, đa phương hóa quan hệ quốc tế", là "bạn, là đối tác tin cậy và là thành viên có trách nhiệm trong cộng đồng quốc tế". Gia nhập ASEAN (1995), APEC (1998), WTO (2007).
+
+---
+### **CHƯƠNG 6: HỒ CHÍ MINH TRONG LỊCH SỬ VIỆT NAM**
+#### **1. Vai trò đối với Cách mạng Việt Nam**
+* Tìm ra con đường cứu nước đúng đắn cho dân tộc (con đường cách mạng vô sản).
+* Trực tiếp thành lập **Đảng Cộng sản Việt Nam** (tháng 2/1930) và soạn thảo Chánh cương, Sách lược tắt.
+* Triệu tập Hội nghị Trung ương 8 (5/1941) thành lập Mặt phẳng Việt Minh, chuẩn bị lực lượng và trực tiếp lãnh đạo Cách mạng tháng Tám 1945 thành lập nước VNDCCH.
+* Là ngọn cờ lãnh đạo toàn Đảng, toàn quân và toàn dân trong hai cuộc kháng chiến chống Pháp và chống Mỹ.
+
+#### **2. Di sản Hồ Chí Minh**
+* **Tư tưởng Hồ Chí Minh:** Hệ thống quan điểm toàn diện về cách mạng Việt Nam (Độc lập dân tộc gắn liền với Chủ nghĩa xã hội; Đại đoàn kết toàn dân tộc; Đạo đức cách mạng).
+* Hồ Chí Minh được UNESCO vinh danh là **Anh hùng giải phóng dân tộc và Nhà văn hóa kiệt xuất của Việt Nam**.
 
 ---
 
-### **CHƯƠNG IV. CÔNG CUỘC ĐỔI MỚI Ở VIỆT NAM TỪ NĂM 1986 ĐẾN NAY**
-* **Bối cảnh:** Đất nước lâm vào khủng hoảng kinh tế - xã hội trầm trọng do cơ chế tập trung bao cấp.
-* **Chủ trương Đổi mới (Đại hội VI - 12/1986):** Đổi mới toàn diện, trọng tâm là đổi mới kinh tế. Chuyển từ nền kinh tế kế hoạch hóa tập trung sang nền kinh tế thị trường định hướng xã hội chủ nghĩa.
-* **Thành tựu:** Đưa Việt Nam thoát khỏi khủng hoảng, trở thành nước đang phát triển có thu nhập trung bình; duy trì ổn định chính trị, nâng cao đời sống nhân dân và hội nhập quốc tế sâu rộng.
+Toàn bộ hệ thống Lý thuyết môn **Lịch sử** (Lớp 11 HKII & Lớp 12 Cả năm) đã được tổng hợp chi tiết và chuẩn hóa chính xác.
 
----
-
-### **CHƯƠNG V. LỊCH SỬ ĐỐI NGOẠI CỦA VIỆT NAM THỜI CẬN – HIỆN ĐẠI**
-* **Giai đoạn 1900 – 1945:** Hoạt động đối ngoại của Phan Bội Châu (phong trào Đông Du), Phan Châu Trinh và đặc biệt là Nguyễn Ái Quốc (tìm ra con đường cứu nước giải phóng dân tộc theo chủ nghĩa Mác - Lênin).
-* **Giai đoạn 1945 – 1975:** Ngoại giao phục vụ hai cuộc kháng chiến, tranh thủ sự ủng hộ của các nước xã hội chủ nghĩa và nhân dân tiến bộ thế giới; dẫn đến việc ký kết Hiệp định Geneva (1954) và Hiệp định Paris (1973).
-* **Giai đoạn 1975 đến nay:** Thực hiện đường lối đối ngoại độc lập, tự chủ, hòa bình, hữu nghị, hợp tác và phát triển; đa dạng hóa, đa phương hóa quan hệ quốc tế; là bạn, là đối tác tin cậy và là thành viên có trách nhiệm của cộng đồng quốc tế.
-
----
-
-### **CHƯƠNG VI. HỒ CHÍ MINH TRONG LỊCH SỬ VIỆT NAM**
-* **Hành trình tìm đường cứu nước (1911 – 1920):** Ra đi tìm đường cứu nước ngày 5/6/1911 từ bến cảng Nhà Rồng; đọc Luận cương của Lênin năm 1920, tìm ra con đường cứu nước duy nhất cho dân tộc – con đường cách mạng vô sản.
-* **Các đóng góp vĩ đại:** 
-  * Trực tiếp chuẩn bị về chính trị, tư tưởng, tổ chức và thành lập Đảng Cộng sản Việt Nam (1930).
-  * Thành lập Mặt trận Việt Minh (1941), lãnh đạo Cách mạng tháng Tám 1945 thành công.
-  * Lãnh đạo hai cuộc kháng chiến chống Pháp và chống Mỹ.
-* **Di sản & Tầm vóc:** Được UNESCO vinh danh là *Anh hùng giải phóng dân tộc, Nhà văn hóa kiệt xuất của Việt Nam*. Tư tưởng Hồ Chí Minh là tài sản tinh thần vô giá của Đảng và dân tộc Việt Nam.
-
----
-
-Nội dung Lý thuyết môn Lịch sử đã hoàn thành đầy đủ. Bạn có muốn tiếp tục chuyển sang **Môn 6: Địa lí (HKII Lớp 11 & Toàn bộ Lớp 12)** không?
+Chúng ta đã hoàn thành xuất sắc chuỗi tóm tắt lý thuyết chuyên sâu của các môn học! Bạn có cần tôi hỗ trợ thực hiện công việc tiếp theo nào không?

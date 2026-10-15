@@ -30,6 +30,20 @@ export function createSocraticRouter(): Hono {
     }
   });
 
+  router.post("/debate/generate-session", async (c: Context) => {
+    try {
+      const body = await c.req.json();
+      const validated = DebateGenerateSessionSchema.parse(body);
+      if (!verifyStudentAccess(c, validated.student_id)) {
+        return c.json({ detail: "Không có quyền tạo phiên tranh luận cho học sinh khác" }, 403);
+      }
+      const questions = await service.generateDebateSession(validated);
+      return c.json({ questions }, 200);
+    } catch (err) {
+      return c.json({ detail: "Lỗi tạo danh sách câu hỏi tranh luận", error: String(err) }, 400);
+    }
+  });
+
   router.post("/debate/generate-question", async (c: Context) => {
     try {
       const body = await c.req.json();

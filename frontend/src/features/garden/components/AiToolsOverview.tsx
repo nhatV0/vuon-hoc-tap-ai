@@ -1,13 +1,13 @@
 import React from "react";
-import { MessageSquareText, Camera } from "lucide-react";
+import { MessageSquareText, BookOpen } from "lucide-react";
 import { Card } from "@/shared/components/ui/card";
 
 interface Props {
   onOpenDebate: () => void;
-  onOpenScratchpad: () => void;
+  onOpenQuiz: () => void;
 }
 
-export default function AiToolsOverview({ onOpenDebate, onOpenScratchpad }: Props) {
+export default function AiToolsOverview({ onOpenDebate, onOpenQuiz }: Props) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
       <Card
@@ -24,15 +24,15 @@ export default function AiToolsOverview({ onOpenDebate, onOpenScratchpad }: Prop
       </Card>
 
       <Card
-        onClick={onOpenScratchpad}
+        onClick={onOpenQuiz}
         className="p-4 border-border hover:border-primary transition-all cursor-pointer flex items-center gap-3.5 group shadow-xs bg-white"
       >
         <div className="w-10 h-10 rounded-2xl bg-indigo-100 flex items-center justify-center text-indigo-600 shrink-0 group-hover:scale-105 transition-transform">
-          <Camera className="w-5 h-5" />
+          <BookOpen className="w-5 h-5" />
         </div>
         <div>
-          <h3 className="font-bold text-xs text-foreground">Nội Soi Bài Nháp Viết Tay</h3>
-          <p className="text-[11px] text-muted-foreground mt-0.5">Chụp ảnh phát hiện điểm gãy tư duy</p>
+          <h3 className="font-bold text-xs text-foreground">Trắc Nghiệm & Câu Sinh Đôi</h3>
+          <p className="text-[11px] text-muted-foreground mt-0.5">Luyện đề thích ứng, đào sâu lỗ hổng kiến thức</p>
         </div>
       </Card>
     </div>

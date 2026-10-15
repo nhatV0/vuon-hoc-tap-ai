@@ -20,40 +20,42 @@ export default function LoadingFactCard({ subject, message = "Đang kết nối 
       setFact(randomItem);
     }
 
-    // Periodically switch fact every 4.5 seconds for pleasant visual dynamic
+    // Switch fact every 8 seconds so students have ample time to read
     const timer = setInterval(() => {
       if (list.length > 0) {
         const next = list[Math.floor(Math.random() * list.length)];
         setFact(next);
       }
-    }, 4500);
-
+    }, 8000);
     return () => clearInterval(timer);
   }, [subject]);
 
   return (
-    <div className="p-4 rounded-2xl bg-gradient-to-br from-amber-50/80 via-white to-amber-100/40 border border-amber-200/80 shadow-xs space-y-3 animate-in fade-in-50 duration-300">
-      <div className="flex items-center justify-between text-xs font-semibold text-amber-900 border-b border-amber-200/50 pb-2">
-        <div className="flex items-center gap-2">
-          <Loader2 className="w-4 h-4 text-amber-600 animate-spin shrink-0" />
-          <span>{message}</span>
+    <div className="p-6 rounded-3xl bg-gradient-to-br from-amber-50/95 via-white to-amber-100/60 border border-amber-300/80 shadow-md space-y-4 animate-in fade-in-50 duration-500">
+      <div className="flex items-center justify-between text-sm font-bold text-amber-950 border-b border-amber-200/70 pb-3">
+        <div className="flex items-center gap-2.5">
+          <Loader2 className="w-5 h-5 text-amber-600 animate-spin shrink-0" />
+          <span className="text-sm font-extrabold text-amber-900">{message}</span>
         </div>
-        <div className="flex items-center gap-1 text-[11px] text-amber-700 bg-amber-100/80 px-2 py-0.5 rounded-full font-medium">
-          <Sparkles className="w-3 h-3 text-amber-600" />
+        <div className="flex items-center gap-1.5 text-xs text-amber-800 bg-amber-100/90 px-3 py-1 rounded-full font-bold shadow-2xs">
+          <Sparkles className="w-3.5 h-3.5 text-amber-600" />
           <span>Ghi nhớ nhanh môn {subject}</span>
         </div>
       </div>
 
       {fact && (
-        <div className="flex items-start gap-2.5 text-xs text-stone-700 leading-relaxed bg-white/80 p-3 rounded-xl border border-amber-200/40">
-          <div className="w-6 h-6 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
-            <Lightbulb className="w-3.5 h-3.5" />
+        <div className="flex items-start gap-3.5 text-sm sm:text-base text-stone-800 leading-relaxed bg-white/90 p-4 sm:p-5 rounded-2xl border border-amber-200/60 shadow-xs">
+          <div className="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+            <Lightbulb className="w-5 h-5" />
           </div>
-          <div className="flex-1 font-medium">
+          <div className="flex-1 font-semibold text-stone-900 leading-relaxed">
             <MathText content={fact} />
           </div>
         </div>
       )}
+      <p className="text-[11px] text-center text-amber-700/80 italic">
+        Hệ thống đang chuẩn bị trọn bộ 10 câu hỏi phản biện để bạn luyện tập mượt mà nhất...
+      </p>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { Sun } from "lucide-react";
 import { useAuth } from "@/shared/context/AuthContext";
 import LandingHeroSection from "./components/LandingHeroSection";
 import LandingFeaturesGrid from "./components/LandingFeaturesGrid";
+import AppFooter from "@/shared/components/AppFooter";
 
 export default function LandingPage() {
   const { user } = useAuth();
@@ -68,6 +69,8 @@ export default function LandingPage() {
         <LandingHeroSection />
         <LandingFeaturesGrid />
       </main>
+
+      <AppFooter />
     </div>
   );
 }

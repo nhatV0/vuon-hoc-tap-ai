@@ -1,5 +1,5 @@
 import React from "react";
-import { Trophy, Medal, Flame, Droplets, Sparkles, User } from "lucide-react";
+import { Trophy, Medal, MessageSquareText, CheckCircle2, CheckCircle, User } from "lucide-react";
 import { Card } from "@/shared/components/ui/card";
 import { Badge } from "@/shared/components/ui/badge";
 
@@ -15,6 +15,9 @@ export interface LeaderboardStudent {
   holy_water: number;
   total_checkins: number;
   quiz_wins: number;
+  total_debates?: number;
+  exact_correct?: number;
+  partial_correct?: number;
 }
 
 interface Props {
@@ -35,9 +38,9 @@ export default function LeaderboardHallOfFame({ students, currentStudentId }: Pr
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <Trophy className="w-5 h-5 text-amber-500" />
-          <h3 className="font-bold text-sm text-stone-900">Bảng Phong Thần Bền Bỉ</h3>
+          <h3 className="font-bold text-sm text-stone-900">Bảng Phong Thần Tranh Luận & Phản Biện</h3>
         </div>
-        <span className="text-xs text-stone-500">Toàn trường & Khối lớp</span>
+        <span className="text-xs text-stone-500">Kết quả rèn luyện cùng Trợ lý AI</span>
       </div>
 
       <div className="divide-y divide-border/60">
@@ -70,13 +73,21 @@ export default function LeaderboardHallOfFame({ students, currentStudentId }: Pr
                 </div>
 
                 <div className="flex items-center gap-3 shrink-0 text-right">
-                  <div className="flex items-center gap-1 text-amber-600 font-bold text-xs">
-                    <Flame className="w-3.5 h-3.5 fill-amber-500" />
-                    <span>{st.streak} ngày</span>
-                  </div>
-                  <div className="hidden sm:flex items-center gap-1 text-blue-600 text-xs font-medium">
-                    <Droplets className="w-3.5 h-3.5" />
-                    <span>{st.water_drops}</span>
+                  <div className="flex flex-col items-end">
+                    <div className="flex items-center gap-1.5 text-xs font-bold text-stone-900">
+                      <MessageSquareText className="w-3.5 h-3.5 text-amber-500" />
+                      <span>{st.total_debates || 0} câu</span>
+                    </div>
+                    <div className="flex items-center gap-2 mt-0.5 text-[10px]">
+                      <span className="flex items-center gap-0.5 text-emerald-600 font-medium" title="Chính xác">
+                        <CheckCircle2 className="w-3 h-3" />
+                        <span>{st.exact_correct || 0} đúng</span>
+                      </span>
+                      <span className="flex items-center gap-0.5 text-amber-600 font-medium" title="Đúng một phần">
+                        <CheckCircle className="w-3 h-3" />
+                        <span>{st.partial_correct || 0} bán phần</span>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>

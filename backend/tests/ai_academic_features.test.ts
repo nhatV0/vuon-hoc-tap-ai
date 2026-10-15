@@ -107,6 +107,23 @@ describe("Academic AI Features - Twin Quiz, Socratic Tutor & Visual Scratchpad",
     expect(evalData.verdict).toBeDefined();
     expect(typeof evalData.is_correct).toBe("boolean");
     expect(evalData.explanation).toBeDefined();
+
+    // Verify debate attempt recorded in DB
+    const debateAttempt = db.query("SELECT * FROM student_debate_attempts WHERE student_id = ?").get(studentId) as any;
+    expect(debateAttempt).toBeDefined();
+    expect(debateAttempt.student_id).toBe(studentId);
+    expect(debateAttempt.verdict).toBe(evalData.verdict);
+
+    // Verify leaderboard API returns debate statistics
+    const resLeaderboard = await app.request("/api/student/leaderboard/top", {
+      method: "GET",
+      headers: { Authorization: `Bearer ${studentUserId}` }
+    });
+    expect(resLeaderboard.status).toBe(200);
+    const leaderboard = await resLeaderboard.json();
+    const meInLeaderboard = leaderboard.find((s: any) => s.student_id === studentId);
+    expect(meInLeaderboard).toBeDefined();
+    expect(meInLeaderboard.total_debates).toBeGreaterThanOrEqual(1);
   }, 60000);
 
   test("Feature 3: Visual scratchpad analyzes handwritten derivations", async () => {

@@ -16,6 +16,11 @@ const SUBJECT_FILE_MAP: Record<string, string> = {
 };
 
 const cache: Record<string, string> = {};
+export function clearTheoryCache(): void {
+  for (const k of Object.keys(cache)) {
+    delete cache[k];
+  }
+}
 
 function readTheoryFile(fileName: string): string {
   if (cache[fileName]) return cache[fileName];
@@ -41,15 +46,17 @@ export function getTheoryContent(subject: string, chapterTitle?: string): string
   if (!fullText) return "";
   if (!chapterTitle) return fullText.slice(0, 2000);
 
+  const rawLower = chapterTitle.toLowerCase();
   const cleanQuery = chapterTitle
-    .replace(/[0-9IVXLCDM]+\.\s*/gi, "")
-    .replace(/Chương\s+[0-9IVXLCDM]+\.?\s*/gi, "")
+    .replace(/Chương\s+[0-9IVXLCDM]+:?\s*/gi, "")
     .replace(/Unit\s+\d+:?\s*/gi, "")
+    .replace(/[0-9IVXLCDM]+\.\s*/gi, "")
     .replace(/[^\p{L}\p{N}\s]/gu, "")
     .trim()
     .toLowerCase();
 
-  const keywords = cleanQuery.split(/\s+/).filter((k) => k.length >= 3);
+  // Support words >= 2 chars so essential terms like "từ", "ai", "kí" are preserved
+  const keywords = cleanQuery.split(/\s+/).filter((k) => k.length >= 2);
   // Split only on major headers (## or ###, never ####) to keep full subtopics together
   const sections = fullText.split(/\r?\n(?=#{2,3}\s+)/g);
 
@@ -59,6 +66,12 @@ export function getTheoryContent(subject: string, chapterTitle?: string): string
   for (const sec of sections) {
     const headerLine = (sec.split(/\r?\n/)[0] || "").toLowerCase();
     let score = 0;
+
+    // Direct phrase match in header gets huge boost
+    if (cleanQuery && headerLine.includes(cleanQuery)) {
+      score += 20;
+    }
+
     for (const kw of keywords) {
       if (headerLine.includes(kw)) score += 6;
       else if (sec.toLowerCase().includes(kw)) score += 1;
