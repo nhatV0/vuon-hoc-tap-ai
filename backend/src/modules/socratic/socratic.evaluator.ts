@@ -11,22 +11,39 @@ export interface DebateEvaluationResult {
 }
 
 export async function evaluateDebateAnswer(dto: DebateEvaluateAnswerDto): Promise<DebateEvaluationResult> {
+  const cleanAns = dto.student_answer.trim().toLowerCase();
+  const evadingPatterns = [
+    "không biết", "chưa biết", "hông biết", "k biết", "ko biết", "chịu",
+    "chưa rõ", "chưa học", "quên rồi", "không nhớ", "ko nhớ", "k nhớ",
+    "chịu thôi", "không hiểu", "ko hiểu", "k hiểu"
+  ];
+  const isEvading = evadingPatterns.some((p) => cleanAns.includes(p)) || cleanAns.length < 5;
+
+  if (isEvading) {
+    return {
+      is_correct: false,
+      verdict: "chưa_chính_xác",
+      sample_answer: dto.sample_answer || "Nắm vững định nghĩa lý thuyết cốt lõi.",
+      explanation: "Bạn chưa đưa ra được lập luận hoặc phương án giải thích cho câu hỏi phản biện.",
+      feedback: "Đừng ngần ngại đưa ra suy đoán ban đầu hoặc quan điểm cá nhân nhé! Việc thử lập luận sẽ giúp bạn ghi nhớ kiến thức sâu hơn.",
+      debate_rebuttal: "Hãy quan sát đáp án chuẩn và lý thuyết gợi ý bên dưới để tích lũy thêm kiến thức cho các câu tiếp theo."
+    };
+  }
+
   const prompt = `Bạn là Trọng Tài kiêm Gia Sư Tranh Luận môn ${dto.subject}.
 Câu hỏi tự luận: "${dto.question}"
 Đáp án chuẩn/Ý chính: "${dto.sample_answer || "Nắm vững định nghĩa và cơ sở khoa học"}"
 Học sinh gõ trả lời: "${dto.student_answer}"
 
 Nhiệm vụ: Chấm và phản biện câu trả lời tự luận của học sinh một cách công tâm, giáo dục.
-ĐẶC BIỆT CHÚ Ý TRƯỜNG HỢP "ĐÚNG NHƯNG CHƯA ĐẦY ĐỦ":
-- Học sinh thường đưa ra ý cốt lõi đúng (ví dụ: phán đoán đúng/sai chuẩn, nêu được 1 ý then chốt) nhưng chưa liệt kê đủ các nguyên nhân, bối cảnh hoặc luận cứ khoa học. Trong trường hợp này, TUYỆT ĐỐI KHÔNG đánh trượt hoặc chấm "chưa_chính_xác", mà PHẢI XẾP VÀO "bán_phần".
+QUY TẮC PHÂN LOẠI BẮT BUỘC:
+1. "chính_xác": Trả lời đúng nhận định (đúng/sai) và giải thích được bản chất lý thuyết cốt lõi tương đương đáp án chuẩn.
+2. "bán_phần": Trả lời ĐÚNG HƯỚNG hoặc chỉ mới nói đúng một nửa/thiếu luận cứ giải thích vì sao.
+3. "chưa_chính_xác": Sai hoàn toàn bản chất lý thuyết, ngộ nhận hoặc thoái thác/không trả lời (ví dụ "không biết", "chịu", "chưa rõ").
+TUYỆT ĐỐI KHÔNG xếp câu trả lời sai hoặc không biết vào "bán_phần". Chỉ xếp vào "bán_phần" khi học sinh THỰC SỰ ĐÃ NÊU ĐƯỢC MỘT Ý ĐÚNG LIÊN QUAN ĐẾN ĐÁP ÁN.
 
-Quy tắc phân loại:
-1. "chính_xác": Trả lời đúng bản chất và đủ các ý chính quan trọng.
-2. "bán_phần": Trả lời ĐÚNG HƯỚNG hoặc ĐÚNG 1 PHẦN nhưng CHƯA ĐẦY ĐỦ / còn thiếu ý bổ trợ.
-3. "chưa_chính_xác": Sai hoàn toàn bản chất lý thuyết, ngộ nhận hoặc thoái thác/không trả lời ("không biết", "chịu").
-
-- is_correct: true nếu verdict là "chính_xác" HOẶC "bán_phần" (vẫn được tính điểm đạt/tiếp thu), false nếu "chưa_chính_xác".
-- explanation: Lời giải thích (40-60 từ): Ghi nhận rõ ý học sinh đã nói đúng, đồng thời chỉ ra chính xác các ý/luận cứ còn thiếu để câu trả lời hoàn thiện nhất.
+- is_correct: true nếu verdict là "chính_xác" HOẶC "bán_phần", false nếu "chưa_chính_xác".
+- explanation: Lời giải thích (40-60 từ): Ghi nhận rõ ý học sinh đã nói đúng, đồng thời chỉ ra chính xác các ý/luận cứ còn thiếu.
 - feedback: Lời nhận xét động viên tinh thần lập luận và hướng dẫn cách bổ sung ý khoa học.
 - debate_rebuttal: Góc nhìn phản biện sâu rộng tiếp theo hoặc bài học mở rộng.
 

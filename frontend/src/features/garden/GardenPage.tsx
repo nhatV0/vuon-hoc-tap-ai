@@ -5,14 +5,14 @@ import { API_BASE, authFetch } from "@/shared/api/auth-client";
 import { useAuth } from "@/shared/context/AuthContext";
 import { Student, GardenStatus } from "@/shared/types";
 import SunflowerVisual from "./components/SunflowerVisual";
-import DailyCheckinModal from "./components/DailyCheckinModal";
 import FocusTimerModal from "./components/FocusTimerModal";
 import DailyMicroQuizModal from "./components/DailyMicroQuizModal";
 import DebateTutorModal from "./components/DebateTutorModal";
-import VisualScratchpadModal from "./components/VisualScratchpadModal";
 import AiToolsOverview from "./components/AiToolsOverview";
 import { Button } from "@/shared/components/ui/button";
 import { Card } from "@/shared/components/ui/card";
+import AppFooter from "@/shared/components/AppFooter";
+import DebateStatsDonutChart from "./components/DebateStatsDonutChart";
 
 export default function GardenPage() {
   const { user, logout } = useAuth();
@@ -20,11 +20,9 @@ export default function GardenPage() {
   const [student, setStudent] = useState<Student | null>(null);
   const [garden, setGarden] = useState<GardenStatus | null>(null);
 
-  const [showCheckin, setShowCheckin] = useState(false);
   const [showTimer, setShowTimer] = useState(false);
   const [showQuiz, setShowQuiz] = useState(false);
   const [showDebate, setShowDebate] = useState(false);
-  const [showScratchpad, setShowScratchpad] = useState(false);
 
   const studentId = user?.student_id || localStorage.getItem("sunflower_student_id") || "hs_default";
 
@@ -43,12 +41,6 @@ export default function GardenPage() {
     fetchData();
   }, [fetchData]);
 
-  const handleWater = async () => {
-    try {
-      const res = await authFetch(`${API_BASE}/api/garden/${studentId}/water`, { method: "POST" });
-      if (res.ok) fetchData();
-    } catch {}
-  };
 
   return (
     <div className="min-h-screen bg-[#FAF8F5] pb-12">
@@ -90,7 +82,7 @@ export default function GardenPage() {
             )}
             <AiToolsOverview
               onOpenDebate={() => setShowDebate(true)}
-              onOpenScratchpad={() => setShowScratchpad(true)}
+              onOpenQuiz={() => setShowQuiz(true)}
             />
           </div>
 
@@ -102,47 +94,46 @@ export default function GardenPage() {
                   <RefreshCw className="w-3.5 h-3.5" />
                 </button>
               </div>
-              <div className="grid grid-cols-2 gap-3">
-                <div className="p-3 bg-amber-50 rounded-2xl border border-amber-200/80 text-center">
-                  <Droplets className="w-5 h-5 text-amber-500 mx-auto mb-1" />
-                  <div className="text-lg font-extrabold text-stone-900">{garden?.water_drops || 1}</div>
-                  <div className="text-[10px] text-stone-500">Giọt nước</div>
+              <div className="p-5 bg-gradient-to-br from-indigo-50/80 to-blue-50/50 rounded-2xl border border-indigo-200/80 text-center space-y-1 shadow-xs">
+                <div className="w-10 h-10 rounded-2xl bg-indigo-100 flex items-center justify-center text-indigo-600 mx-auto mb-2">
+                  <Calendar className="w-5 h-5" />
                 </div>
-                <div className="p-3 bg-indigo-50 rounded-2xl border border-indigo-200/80 text-center">
-                  <Calendar className="w-5 h-5 text-indigo-500 mx-auto mb-1" />
-                  <div className="text-lg font-extrabold text-stone-900">{garden?.consecutive_days || 1}</div>
-                  <div className="text-[10px] text-stone-500">Ngày chuỗi</div>
+                <div className="text-3xl font-black text-stone-900 tracking-tight">
+                  {garden?.consecutive_days || 1}
                 </div>
+                <div className="text-xs font-semibold text-indigo-900/80 uppercase tracking-wider">
+                  Ngày Chuỗi Bền Bỉ
+                </div>
+                <p className="text-[11px] text-muted-foreground pt-0.5">Tự động điểm danh mỗi ngày bạn đăng nhập</p>
               </div>
 
-              <div className="space-y-2 pt-2">
-                <Button onClick={handleWater} className="w-full">
-                  <Droplets className="w-4 h-4 fill-current mr-2" />
-                  <span>Tưới nước cho cây</span>
-                </Button>
-                <Button variant="accent" onClick={() => setShowCheckin(true)} className="w-full">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  <span>Điểm danh cảm xúc</span>
-                </Button>
+              <div className="pt-2">
                 <Button variant="outline" onClick={() => setShowTimer(true)} className="w-full">
                   <Clock className="w-4 h-4 mr-2" />
                   <span>Đồng hồ tập trung</span>
                 </Button>
-                <Button variant="outline" onClick={() => setShowQuiz(true)} className="w-full">
-                  <BookOpen className="w-4 h-4 mr-2" />
-                  <span>Trắc nghiệm & Câu sinh đôi</span>
-                </Button>
               </div>
+
+              <DebateStatsDonutChart
+                debateStats={student?.debate_stats}
+                quizStats={student?.quiz_stats}
+              />
             </Card>
           </div>
         </div>
       </main>
 
-      {showCheckin && <DailyCheckinModal studentId={studentId} onSuccess={fetchData} onClose={() => setShowCheckin(false)} />}
-      {showTimer && <FocusTimerModal studentId={studentId} onSuccess={() => { fetchData(); setShowTimer(false); }} onClose={() => setShowTimer(false)} />}
+      <AppFooter />
+      {showTimer && (
+        <FocusTimerModal
+          studentId={studentId}
+          species={student?.selected_flower || "sunflower"}
+          onSuccess={() => { fetchData(); setShowTimer(false); }}
+          onClose={() => setShowTimer(false)}
+        />
+      )}
       {showQuiz && <DailyMicroQuizModal studentId={studentId} onTwinSuccess={fetchData} onClose={() => setShowQuiz(false)} />}
       {showDebate && <DebateTutorModal studentId={studentId} subject={student?.target_subject || "Toán học"} onClose={() => setShowDebate(false)} />}
-      {showScratchpad && <VisualScratchpadModal studentId={studentId} subject={student?.target_subject || "Toán học"} onClose={() => setShowScratchpad(false)} />}
     </div>
   );
 }

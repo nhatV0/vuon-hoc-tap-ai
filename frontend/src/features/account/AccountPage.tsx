@@ -7,8 +7,8 @@ import { Student } from "@/shared/types";
 import { Button } from "@/shared/components/ui/button";
 import StudentProfileHeader from "./components/StudentProfileHeader";
 import GrowthStatsOverview from "./components/GrowthStatsOverview";
-import BadgesGrid, { BadgeItem } from "./components/BadgesGrid";
 import LeaderboardHallOfFame, { LeaderboardStudent } from "./components/LeaderboardHallOfFame";
+import AppFooter from "@/shared/components/AppFooter";
 
 export default function AccountPage() {
   const { user, logout } = useAuth();
@@ -16,7 +16,6 @@ export default function AccountPage() {
   const studentId = user?.student_id || localStorage.getItem("sunflower_student_id") || "hs_default";
 
   const [student, setStudent] = useState<Student | null>(null);
-  const [badges, setBadges] = useState<BadgeItem[]>([]);
   const [leaderboard, setLeaderboard] = useState<LeaderboardStudent[]>([]);
   const [gardenStreak, setGardenStreak] = useState(1);
   const [inventory, setInventory] = useState({
@@ -27,16 +26,14 @@ export default function AccountPage() {
 
   const fetchData = useCallback(async () => {
     try {
-      const [resSt, resBg, resLd, resGd, resInv] = await Promise.all([
+      const [resSt, resLd, resGd, resInv] = await Promise.all([
         authFetch(`${API_BASE}/api/student/${studentId}`),
-        authFetch(`${API_BASE}/api/badges/${studentId}`),
         authFetch(`${API_BASE}/api/student/leaderboard/top`),
         authFetch(`${API_BASE}/api/garden/${studentId}`),
         authFetch(`${API_BASE}/api/inventory/${studentId}`)
       ]);
 
       if (resSt.ok) setStudent(await resSt.json());
-      if (resBg.ok) setBadges(await resBg.json());
       if (resLd.ok) setLeaderboard(await resLd.json());
       if (resGd.ok) {
         const gd = await resGd.json();
@@ -93,17 +90,16 @@ export default function AccountPage() {
 
         <GrowthStatsOverview
           streak={gardenStreak}
-          waterDrops={inventory.water_drops}
-          holyWater={inventory.holy_water}
           freezeShields={inventory.freeze_shields_available}
           totalCheckins={gardenStreak}
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <BadgesGrid badges={badges} streak={gardenStreak} />
+        <div className="w-full">
           <LeaderboardHallOfFame students={leaderboard} currentStudentId={studentId} />
         </div>
       </main>
+
+      <AppFooter />
     </div>
   );
 }

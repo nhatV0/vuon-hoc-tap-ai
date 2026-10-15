@@ -2,6 +2,7 @@ import { AuthRepository } from "./auth.repository";
 import { UserRegisterDto, UserLoginDto } from "./auth.schemas";
 import { hashPassword, verifyPassword, generateToken, generateId } from "@/common/utils";
 import { UserRole } from "@/common/types";
+import { CheckinService } from "@/modules/checkin/checkin.service";
 
 export class AuthService {
   constructor(private repo: AuthRepository) {}
@@ -38,6 +39,12 @@ export class AuthService {
     }
     const token = generateToken(user.id);
     const studentId = this.repo.findStudentIdByUserId(user.id);
+    if (studentId && user.role === UserRole.STUDENT) {
+      try {
+        const checkinService = new CheckinService();
+        checkinService.autoCheckinOnLogin(studentId);
+      } catch {}
+    }
     return { token, user: { ...user, student_id: studentId } };
   }
 }

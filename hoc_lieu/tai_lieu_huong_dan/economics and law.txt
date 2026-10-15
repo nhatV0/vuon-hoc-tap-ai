@@ -9,8 +9,7 @@ Dưới đây là thống kê chi tiết phần **Lý thuyết môn Giáo dục 
 ## **PHẦN A: GIÁO DỤC KINH TẾ VÀ PHÁP LUẬT LỚP 11 – HỌC KỲ II**
 *(Trọng tâm: Phần hai - Giáo dục Pháp luật)*
 
-### **1. Quyền bình đẳng của công dân trước pháp luật**
-* **Khái niệm bình đẳng trước pháp luật:** Công dân không bị phân biệt đối xử bởi giới tính, dân tộc, tín ngưỡng, tôn giáo, thành phần, địa vị xã hội... Mọi công dân đều được hưởng quyền, thực hiện nghĩa vụ và chịu trách nhiệm pháp lý theo quy định của pháp luật.
+### **CHƯƠNG 1: QUYỀN BÌNH ĐẲNG CỦA CÔNG DÂN TRƯỚC PHÁP LUẬT**
 * **Bình đẳng về quyền và nghĩa vụ:**
   * Quyền và nghĩa vụ của công dân không bị chia cắt; việc hưởng quyền gắn liền với thực hiện nghĩa vụ.
   * Trong cùng điều kiện như nhau, công dân được hưởng quyền và thực hiện nghĩa vụ như nhau.
@@ -24,8 +23,7 @@ Dưới đây là thống kê chi tiết phần **Lý thuyết môn Giáo dục 
 
 ---
 
-### **2. Một số quyền dân chủ cơ bản của công dân**
-* **Quyền tham gia quản lý nhà nước và xã hội:**
+### **CHƯƠNG 2: QUYỀN DÂN CHỦ VÀ QUYỀN TỰ DO CƠ BẢN CỦA CÔNG DÂN**
   * *Nội dung:* Công dân có quyền tham gia thảo luận các vấn đề chung của đất nước, địa phương; đóng góp ý kiến xây dựng văn bản quy phạm pháp luật; biểu quyết khi Nhà nước trưng cầu ý dân; giám sát hoạt động của cơ quan nhà nước.
   * *Ý nghĩa:* Phát huy quyền làm chủ trực tiếp của nhân dân, củng cố bộ máy nhà nước trong sạch, vững mạnh.
 * **Quyền bầu cử và ứng cử:**
@@ -39,8 +37,7 @@ Dưới đây là thống kê chi tiết phần **Lý thuyết môn Giáo dục 
 
 ---
 
-### **3. Một số quyền tự do cơ bản của công dân**
-* **Quyền bất khả xâm phạm về thân thể:** Không ai bị bắt nếu không có quyết định của Tòa án, quyết định hoặc phê chuẩn của Viện kiểm sát (trừ trường hợp phạm tội quả đắng). Việc bắt, tạm giữ, tạm giam phải tuân theo đúng trình tự, thủ tục pháp luật.
+#### **2. Một số quyền tự do cơ bản của công dân**
 * **Quyền được pháp luật bảo hộ về tính mạng, sức khỏe, danh dự, nhân phẩm:** Công dân có quyền sống, được bảo vệ an toàn về sức khỏe; nghiêm cấm các hành vi đánh đập, tra tấn, lăng mạ, sỉ nhục, xúc phạm danh dự, nhân phẩm của người khác.
 * **Quyền bất khả xâm phạm về chỗ ở:** Chỗ ở của công dân được pháp luật bảo hộ, không ai được tự ý vào chỗ ở của người khác nếu không được người đó đồng ý, trừ trường hợp pháp luật cho phép (có lệnh khám xét hợp pháp).
 * **Quyền bảo đảm an toàn và bí mật thư tín, điện thoại, điện tín:** Thư tín, điện thoại, điện tín của cá nhân được bảo đảm an toàn và bí mật. Việc kiểm soát, thu giữ phải do cơ quan có thẩm quyền quyết định theo luật định.
@@ -51,8 +48,7 @@ Dưới đây là thống kê chi tiết phần **Lý thuyết môn Giáo dục 
 
 ## **PHẦN B: GIÁO DỤC KINH TẾ VÀ PHÁP LUẬT LỚP 12 – TOÀN BỘ CHƯƠNG TRÌNH**
 
-### **CHƯƠNG I. GIÁO DỤC KINH TẾ LỚP 12**
-
+### **CHƯƠNG 1: GIÁO DỤC KINH TẾ LỚP 12 (TĂNG TRƯỞNG, HỘI NHẬP, AN SINH)**
 #### **1. Tăng trưởng và Phát triển kinh tế**
 * **Khái niệm Tăng trưởng kinh tế:** Là sự gia tăng về quy mô sản lượng hàng hóa và dịch vụ của một nền kinh tế trong một khoảng thời gian nhất định (thường đo bằng tốc độ tăng trưởng GDP, GNI, GDP/người).
 * **Khái niệm Phát triển kinh tế:** Là quá trình biến đổi toàn diện bao gồm tăng trưởng kinh tế bền vững gắn liền với sự chuyển dịch cơ cấu kinh tế hợp lý, nâng cao chất lượng cuộc sống và bảo đảm tiến bộ, công bằng xã hội (đo bằng chỉ số HDI, tỉ lệ nghèo đa chiều).
@@ -81,8 +77,7 @@ Dưới đây là thống kê chi tiết phần **Lý thuyết môn Giáo dục 
 
 ---
 
-### **CHƯƠNG II. GIÁO DỤC PHÁP LUẬT LỚP 12**
-
+### **CHƯƠNG 2: GIÁO DỤC PHÁP LUẬT LỚP 12 (QUYỀN KINH TẾ, VĂN HÓA, LUẬT QUỐC TẾ)**
 #### **1. Quyền và nghĩa vụ của công dân về kinh tế**
 * **Quyền tự do kinh doanh và nghĩa vụ nộp thuế:**
   * Công dân có quyền tự do lựa chọn ngành, nghề, địa bàn, hình thức kinh doanh những mặt hàng mà pháp luật không cấm.

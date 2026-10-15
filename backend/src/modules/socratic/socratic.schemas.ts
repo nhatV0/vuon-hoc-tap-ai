@@ -13,6 +13,15 @@ export const DebateGenerateQuestionSchema = z.object({
   difficulty: z.enum(["easy", "medium", "hard"]).optional().default("medium")
 });
 
+export const DebateGenerateSessionSchema = z.object({
+  student_id: z.string().min(1),
+  subject: z.string().min(1).default("Toán học"),
+  selected_chapters: z.array(z.string()).min(1, "Hãy chọn ít nhất 1 đề mục/chương kiến thức"),
+  count: z.number().int().min(1).max(10).default(10)
+});
+
+export type DebateGenerateSessionDto = z.infer<typeof DebateGenerateSessionSchema>;
+
 export const DebateEvaluateAnswerSchema = z.object({
   student_id: z.string().min(1),
   subject: z.string().min(1).default("Toán học"),

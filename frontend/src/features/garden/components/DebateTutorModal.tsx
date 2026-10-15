@@ -63,7 +63,16 @@ export default function DebateTutorModal({ studentId, subject = "Toán học", o
         </DialogHeader>
 
         <div className="flex-1 overflow-hidden pt-2">
-          {stage === "topics" && (
+          {loading && stage !== "feedback" && (
+            <div className="py-4">
+              <LoadingFactCard
+                subject={currentSubject}
+                message={stage === "question" ? "AI đang thẩm định câu trả lời..." : "AI đang tạo câu hỏi phản biện..."}
+              />
+            </div>
+          )}
+
+          {!loading && stage === "topics" && (
             <DebateTopicSelector
               subjects={SUBJECTS}
               currentSubject={currentSubject}
@@ -81,16 +90,7 @@ export default function DebateTutorModal({ studentId, subject = "Toán học", o
               loading={loading}
             />
           )}
-          {loading && (
-            <div className="mb-3">
-              <LoadingFactCard
-                subject={currentSubject}
-                message={stage === "question" ? "AI đang thẩm định câu trả lời..." : "AI đang tạo câu hỏi phản biện..."}
-              />
-            </div>
-          )}
-
-          {stage === "question" && (
+          {!loading && stage === "question" && (
             <DebateQuestionCard
               questionIndex={questionIndex}
               totalQuestions={10}
