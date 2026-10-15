@@ -8,7 +8,7 @@ import SunflowerVisual from "./components/SunflowerVisual";
 import DailyCheckinModal from "./components/DailyCheckinModal";
 import FocusTimerModal from "./components/FocusTimerModal";
 import DailyMicroQuizModal from "./components/DailyMicroQuizModal";
-import SocraticTutorModal from "./components/SocraticTutorModal";
+import DebateTutorModal from "./components/DebateTutorModal";
 import VisualScratchpadModal from "./components/VisualScratchpadModal";
 import AiToolsOverview from "./components/AiToolsOverview";
 import { Button } from "@/shared/components/ui/button";
@@ -23,7 +23,7 @@ export default function GardenPage() {
   const [showCheckin, setShowCheckin] = useState(false);
   const [showTimer, setShowTimer] = useState(false);
   const [showQuiz, setShowQuiz] = useState(false);
-  const [showSocratic, setShowSocratic] = useState(false);
+  const [showDebate, setShowDebate] = useState(false);
   const [showScratchpad, setShowScratchpad] = useState(false);
 
   const studentId = user?.student_id || localStorage.getItem("sunflower_student_id") || "hs_default";
@@ -89,7 +89,7 @@ export default function GardenPage() {
               </Card>
             )}
             <AiToolsOverview
-              onOpenSocratic={() => setShowSocratic(true)}
+              onOpenDebate={() => setShowDebate(true)}
               onOpenScratchpad={() => setShowScratchpad(true)}
             />
           </div>
@@ -141,7 +141,7 @@ export default function GardenPage() {
       {showCheckin && <DailyCheckinModal studentId={studentId} onSuccess={fetchData} onClose={() => setShowCheckin(false)} />}
       {showTimer && <FocusTimerModal studentId={studentId} onSuccess={() => { fetchData(); setShowTimer(false); }} onClose={() => setShowTimer(false)} />}
       {showQuiz && <DailyMicroQuizModal studentId={studentId} onTwinSuccess={fetchData} onClose={() => setShowQuiz(false)} />}
-      {showSocratic && <SocraticTutorModal studentId={studentId} subject={student?.target_subject || "Toán học"} onClose={() => setShowSocratic(false)} />}
+      {showDebate && <DebateTutorModal studentId={studentId} subject={student?.target_subject || "Toán học"} onClose={() => setShowDebate(false)} />}
       {showScratchpad && <VisualScratchpadModal studentId={studentId} subject={student?.target_subject || "Toán học"} onClose={() => setShowScratchpad(false)} />}
     </div>
   );

@@ -53,9 +53,20 @@ describe("Academic AI Features - Twin Quiz, Socratic Tutor & Visual Scratchpad",
     expect(body.cognitive_barrier).toBeDefined();
   }, 30000);
 
-  // Test 2: Feature 2 - Socratic Inquiry Tutor
-  test("Feature 2: Socratic tutor guides student without leaking answers", async () => {
-    const res = await app.request("/api/socratic/chat", {
+  // Test 2: Feature 2 - Debate Tutor (Syllabus, Generate Question & Evaluate Answer)
+  test("Feature 2: Debate tutor loads syllabus, generates questions and evaluates answers", async () => {
+    // 1. Load syllabus
+    const resSyllabus = await app.request("/api/socratic/syllabus?subject=Toán học", {
+      method: "GET",
+      headers: { Authorization: `Bearer ${studentUserId}` }
+    });
+    expect(resSyllabus.status).toBe(200);
+    const sylData = await resSyllabus.json();
+    expect(sylData.syllabus["Toán học"]).toBeDefined();
+    expect(sylData.syllabus["Toán học"].length).toBeGreaterThan(0);
+
+    // 2. Generate debate question based on selected chapters
+    const resGen = await app.request("/api/socratic/debate/generate-question", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${studentUserId}`,
@@ -64,18 +75,35 @@ describe("Academic AI Features - Twin Quiz, Socratic Tutor & Visual Scratchpad",
       body: JSON.stringify({
         student_id: studentId,
         subject: "Toán học",
-        message: "Làm sao để tìm nghiệm phương trình bậc hai $ax^2 + bx + c = 0$ khi $a \\neq 0$?",
-        history: []
+        selected_chapters: ["Hàm số mũ và hàm số lôgarit (Lớp 11)"]
       })
     });
+    expect(resGen.status).toBe(200);
+    const genData = await resGen.json();
+    expect(genData.question).toBeDefined();
+    expect(genData.counter_argument).toBeDefined();
 
-    expect(res.status).toBe(200);
-    const body = await res.json();
-    expect(body.response).toBeDefined();
-    expect(typeof body.response).toBe("string");
-    expect(body.response.length).toBeGreaterThan(10);
+    // 3. Evaluate student answer
+    const resEval = await app.request("/api/socratic/debate/evaluate-answer", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${studentUserId}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        student_id: studentId,
+        subject: "Toán học",
+        selected_chapters: ["Hàm số mũ và hàm số lôgarit (Lớp 11)"],
+        question: genData.question,
+        student_answer: "Điều kiện xác định của lôgarit là cơ số lớn hơn 0 và khác 1, biểu thức trong log phải dương."
+      })
+    });
+    expect(resEval.status).toBe(200);
+    const evalData = await resEval.json();
+    expect(evalData.verdict).toBeDefined();
+    expect(evalData.feedback).toBeDefined();
+    expect(typeof evalData.is_correct).toBe("boolean");
   }, 30000);
-
   // Test 3: Feature 3 - Visual Scratchpad Radiography
   test("Feature 3: Visual scratchpad analyzes handwritten derivations", async () => {
     const dummyBase64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==";
