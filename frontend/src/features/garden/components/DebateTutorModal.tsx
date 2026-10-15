@@ -5,7 +5,9 @@ import DebateTopicSelector from "./DebateTopicSelector";
 import DebateQuestionCard from "./DebateQuestionCard";
 import DebateAnswerFeedback from "./DebateAnswerFeedback";
 import DebateSessionSummary from "./DebateSessionSummary";
+import LoadingFactCard from "./LoadingFactCard";
 import { useDebateSession } from "./useDebateSession";
+import { SyllabusChapter } from "./DebateTopicSelector";
 
 const SUBJECTS = [
   "Toán học", "Vật lí", "Hóa học", "Sinh học", "Tin học",
@@ -46,8 +48,8 @@ export default function DebateTutorModal({ studentId, subject = "Toán học", o
   }, [currentSubject, fetchSyllabus]);
 
   const selectedTitlesText = chapters
-    .filter((c) => selectedIds.includes(c.id))
-    .map((c) => c.title)
+    .filter((c: SyllabusChapter) => selectedIds.includes(c.id))
+    .map((c: SyllabusChapter) => c.title)
     .join(", ");
 
   return (
@@ -68,16 +70,24 @@ export default function DebateTutorModal({ studentId, subject = "Toán học", o
               onSelectSubject={setCurrentSubject}
               chapters={chapters}
               selectedChapterIds={selectedIds}
-              onToggleChapter={(id) =>
-                setSelectedIds((prev) =>
-                  prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+              onToggleChapter={(id: string) =>
+                setSelectedIds((prev: string[]) =>
+                  prev.includes(id) ? prev.filter((item: string) => item !== id) : [...prev, id]
                 )
               }
-              onSelectAll={() => setSelectedIds(chapters.map((c) => c.id))}
+              onSelectAll={() => setSelectedIds(chapters.map((c: SyllabusChapter) => c.id))}
               onClearAll={() => setSelectedIds([])}
               onStartDebate={startSession}
               loading={loading}
             />
+          )}
+          {loading && (
+            <div className="mb-3">
+              <LoadingFactCard
+                subject={currentSubject}
+                message={stage === "question" ? "AI đang thẩm định câu trả lời..." : "AI đang tạo câu hỏi phản biện..."}
+              />
+            </div>
           )}
 
           {stage === "question" && (
