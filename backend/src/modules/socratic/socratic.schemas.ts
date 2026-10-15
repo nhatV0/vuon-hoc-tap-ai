@@ -4,17 +4,18 @@ export const DebateSyllabusQuerySchema = z.object({
   subject: z.string().optional()
 });
 
+export const DebateOptionSchema = z.object({
+  key: z.string(), // "A", "B", "C", "D"
+  text: z.string()
+});
+
 export const DebateGenerateQuestionSchema = z.object({
   student_id: z.string().min(1),
   subject: z.string().min(1).default("Toán học"),
   selected_chapters: z.array(z.string()).min(1, "Hãy chọn ít nhất 1 đề mục/chương kiến thức"),
-  difficulty: z.enum(["easy", "medium", "hard"]).optional().default("medium"),
-  history: z.array(
-    z.object({
-      role: z.enum(["system", "user", "assistant"]),
-      content: z.string()
-    })
-  ).optional().default([])
+  question_index: z.number().int().min(1).max(10).default(1),
+  previous_questions: z.array(z.string()).optional().default([]),
+  difficulty: z.enum(["easy", "medium", "hard"]).optional().default("medium")
 });
 
 export const DebateEvaluateAnswerSchema = z.object({
@@ -22,13 +23,9 @@ export const DebateEvaluateAnswerSchema = z.object({
   subject: z.string().min(1).default("Toán học"),
   selected_chapters: z.array(z.string()).min(1),
   question: z.string().min(1),
-  student_answer: z.string().trim().min(1, "Câu trả lời không được để trống"),
-  history: z.array(
-    z.object({
-      role: z.enum(["system", "user", "assistant"]),
-      content: z.string()
-    })
-  ).optional().default([])
+  options: z.array(DebateOptionSchema).optional().default([]),
+  correct_option: z.string().optional(),
+  student_answer: z.string().trim().min(1, "Câu trả lời không được để trống")
 });
 
 export const SocraticChatSchema = z.object({

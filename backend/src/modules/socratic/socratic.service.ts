@@ -5,20 +5,23 @@ import {
   SocraticChatDto
 } from "./socratic.schemas";
 import { SUBJECT_SYLLABUS_MAP, SyllabusChapter } from "./socratic.syllabus";
+import { evaluateDebateAnswer, type DebateEvaluationResult } from "./socratic.evaluator";
+
+export interface DebateOption {
+  key: string;
+  text: string;
+}
 
 export interface DebateQuestionResult {
+  question_number: number;
   question: string;
+  options: DebateOption[];
+  correct_option: string;
+  explanation: string;
   topic_hint: string;
-  counter_argument: string;
 }
 
-export interface DebateEvaluationResult {
-  is_correct: boolean;
-  verdict: "chính_xác" | "chưa_chính_xác" | "bán_phần";
-  feedback: string;
-  debate_point: string;
-  next_challenge: string;
-}
+export type { DebateEvaluationResult };
 
 export class SocraticService {
   getSyllabus(subject?: string): Record<string, SyllabusChapter[]> {
@@ -30,18 +33,31 @@ export class SocraticService {
 
   async generateDebateQuestion(dto: DebateGenerateQuestionDto): Promise<DebateQuestionResult> {
     const chaptersText = dto.selected_chapters.join(", ");
-    const prompt = `Bạn là Trợ Lý Gia Sư Tranh Luận môn ${dto.subject} (chuẩn GDPT 2018).
+    const prevText = dto.previous_questions && dto.previous_questions.length > 0
+      ? `\nCác câu hỏi trước ĐÃ HỎI (TUYỆT ĐỐI KHÔNG LẶP LẠI NỘI DUNG/DẠNG BÀI NÀY):\n- ${dto.previous_questions.join("\n- ")}`
+      : "";
+
+    const prompt = `Bạn là Trợ Lý Gia Sư Tranh Luận phản biện môn ${dto.subject} (chuẩn GDPT 2018).
 Học sinh đã chọn các đề mục/chương: ${chaptersText}.
-Nhiệm vụ: Tạo ra đúng 1 câu hỏi nhanh, mang tính phản biện, khơi dậy tranh luận hoặc làm rõ một ngộ nhận/khái niệm cốt lõi trong các chương trên.
+Đây là CÂU SỐ ${dto.question_index}/10 trong chuỗi thử thách.${prevText}
+
+Nhiệm vụ: Tạo ĐÚNG 1 câu hỏi trắc nghiệm phản biện ngắn, có 4 lựa chọn A, B, C, D rõ ràng để học sinh có thể nhìn các lựa chọn và gõ nhanh câu trả lời (gõ A, B, C, D hoặc từ khóa ngắn).
 Yêu cầu:
-1. Đặt câu hỏi ngắn gọn, rõ ràng (dưới 60 từ).
-2. Có thể đưa ra một mệnh đề gây tranh cãi hoặc tình huống bẫy thường gặp để học sinh bảo vệ hoặc bác bỏ quan điểm.
-3. Bọc công thức trong $...$.
-4. Định dạng trả về đúng JSON:
+1. Nội dung ngắn gọn, kích thích tư duy phản biện, làm rõ 1 ngộ nhận hay bẫy lý thuyết phổ biến.
+2. 4 phương án trắc nghiệm ngắn gọn (A, B, C, D), trong đó có 1 đáp án chuẩn xác nhất và các đáp án nhiễu dễ gây nhầm lẫn.
+3. Bọc công thức trong ký hiệu $...$.
+4. Định dạng trả về duy nhất bằng JSON:
 {
-  "question": "Nội dung câu hỏi tranh luận",
-  "topic_hint": "Tên chủ đề hoặc gợi ý định hướng",
-  "counter_argument": "Góc nhìn phản biện cốt lõi"
+  "question": "Nội dung câu hỏi ngắn phản biện",
+  "options": [
+    { "key": "A", "text": "Nội dung phương án A" },
+    { "key": "B", "text": "Nội dung phương án B" },
+    { "key": "C", "text": "Nội dung phương án C" },
+    { "key": "D", "text": "Nội dung phương án D" }
+  ],
+  "correct_option": "A" hoặc "B" hoặc "C" hoặc "D",
+  "explanation": "Giải thích ngắn gọn súc tích vì sao đáp án đó đúng và các đáp án khác sai",
+  "topic_hint": "Tên đề mục tương ứng"
 }`;
 
     const messages: ChatMessage[] = [
@@ -50,69 +66,43 @@ Yêu cầu:
     ];
 
     try {
-      const raw = await callAiModel({ messages, temperature: 0.6, maxTokens: 1000 });
+      const raw = await callAiModel({ messages, temperature: 0.6, maxTokens: 1200 });
       const clean = raw.replace(/```json/g, "").replace(/```/g, "").trim();
       const parsed = JSON.parse(clean);
       return {
-        question: parsed.question || `Theo bạn, trong ${chaptersText}, nhận định nào sau đây là chuẩn xác nhất?`,
-        topic_hint: parsed.topic_hint || chaptersText,
-        counter_argument: parsed.counter_argument || "Hãy phân tích dựa trên định lý và bản chất lý thuyết."
+        question_number: dto.question_index,
+        question: parsed.question || `Trong phần ${chaptersText}, phát biểu nào sau đây là chuẩn xác nhất?`,
+        options: Array.isArray(parsed.options) && parsed.options.length === 4
+          ? parsed.options
+          : [
+              { key: "A", text: "Khẳng định A đúng trong mọi trường hợp" },
+              { key: "B", text: "Khẳng định B chỉ đúng khi có điều kiện biên" },
+              { key: "C", text: "Khẳng định C luôn sai do vi phạm định luật" },
+              { key: "D", text: "Cả A và B đều không thỏa mãn" }
+            ],
+        correct_option: parsed.correct_option || "B",
+        explanation: parsed.explanation || "Cần chú ý điều kiện tồn tại và bản chất định nghĩa.",
+        topic_hint: parsed.topic_hint || chaptersText
       };
     } catch {
       return {
-        question: `Trong phần kiến thức [${chaptersText}], nếu cho rằng một mệnh đề luôn đúng trong mọi trường hợp, bạn sẽ phản biện lại như thế nào?`,
-        topic_hint: chaptersText,
-        counter_argument: "Nhiều học sinh thường quên điều kiện xác định hoặc giả thiết nghiệm ngoại lai."
+        question_number: dto.question_index,
+        question: `[Câu ${dto.question_index}/10] Trong kiến thức [${chaptersText}], nhận định nào phản ánh đúng bản chất lý thuyết?`,
+        options: [
+          { key: "A", text: "Luôn đúng với mọi giá trị của biến số" },
+          { key: "B", text: "Chỉ đúng khi thỏa mãn các điều kiện xác định ban đầu" },
+          { key: "C", text: "Không phụ thuộc vào tính chất của môi trường" },
+          { key: "D", text: "Tất cả các khẳng định trên đều sai" }
+        ],
+        correct_option: "B",
+        explanation: "Trong toán học và khoa học tự nhiên, điều kiện xác định là bắt buộc.",
+        topic_hint: chaptersText
       };
     }
   }
 
   async evaluateStudentAnswer(dto: DebateEvaluateAnswerDto): Promise<DebateEvaluationResult> {
-    const chaptersText = dto.selected_chapters.join(", ");
-    const prompt = `Bạn là Trọng Tài Trí Tuệ kiêm Gia Sư Tranh Luận môn ${dto.subject}.
-Chương/Đề mục: ${chaptersText}
-Câu hỏi tranh luận: "${dto.question}"
-Câu trả lời của học sinh: "${dto.student_answer}"
-
-Nhiệm vụ:
-Kiểm tra câu trả lời của học sinh xem ĐÚNG hay SAI (hoặc đúng một phần).
-Tranh luận trực tiếp, chỉ ra lỗ hổng lập luận (nếu sai) hoặc củng cố và nâng tầm góc nhìn (nếu đúng).
-
-Định dạng trả về duy nhất bằng JSON:
-{
-  "is_correct": boolean,
-  "verdict": "chính_xác" | "chưa_chính_xác" | "bán_phần",
-  "feedback": "Phân tích vì sao đúng hoặc sai, chỉ ra luận điểm khoa học",
-  "debate_point": "Luận điểm tranh luận tiếp theo để thử thách học sinh",
-  "next_challenge": "1 câu hỏi nhanh tiếp nối để tiếp tục vòng tranh luận"
-}`;
-
-    const messages: ChatMessage[] = [
-      { role: "system", content: "Chỉ trả về JSON hợp lệ." },
-      { role: "user", content: prompt }
-    ];
-
-    try {
-      const raw = await callAiModel({ messages, temperature: 0.4, maxTokens: 1500 });
-      const clean = raw.replace(/```json/g, "").replace(/```/g, "").trim();
-      const parsed = JSON.parse(clean);
-      return {
-        is_correct: Boolean(parsed.is_correct),
-        verdict: parsed.verdict || (parsed.is_correct ? "chính_xác" : "chưa_chính_xác"),
-        feedback: parsed.feedback || "AI đã ghi nhận và kiểm tra luận điểm của bạn.",
-        debate_point: parsed.debate_point || "Hãy chú ý đến các trường hợp biên.",
-        next_challenge: parsed.next_challenge || "Bạn có muốn tiếp tục một câu hỏi phản biện khác không?"
-      };
-    } catch {
-      const isPositive = dto.student_answer.length > 5;
-      return {
-        is_correct: isPositive,
-        verdict: isPositive ? "chính_xác" : "chưa_chính_xác",
-        feedback: `Luận điểm của bạn về môn ${dto.subject} có cơ sở, tuy nhiên cần làm rõ hơn về bản chất cơ chế của ${chaptersText}.`,
-        debate_point: "Luận cứ phản biện: cần chứng minh bằng định nghĩa hoặc điều kiện tiên quyết.",
-        next_challenge: "Nếu thay đổi điều kiện ban đầu, kết luận của bạn còn giữ nguyên không?"
-      };
-    }
+    return evaluateDebateAnswer(dto);
   }
 
   async chat(dto: SocraticChatDto): Promise<{ response: string; question_prompt: string }> {

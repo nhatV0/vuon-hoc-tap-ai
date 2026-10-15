@@ -65,7 +65,7 @@ describe("Academic AI Features - Twin Quiz, Socratic Tutor & Visual Scratchpad",
     expect(sylData.syllabus["Toán học"]).toBeDefined();
     expect(sylData.syllabus["Toán học"].length).toBeGreaterThan(0);
 
-    // 2. Generate debate question based on selected chapters
+    // 2. Generate debate question based on selected chapters (Question 1/10)
     const resGen = await app.request("/api/socratic/debate/generate-question", {
       method: "POST",
       headers: {
@@ -75,15 +75,19 @@ describe("Academic AI Features - Twin Quiz, Socratic Tutor & Visual Scratchpad",
       body: JSON.stringify({
         student_id: studentId,
         subject: "Toán học",
-        selected_chapters: ["Hàm số mũ và hàm số lôgarit (Lớp 11)"]
+        selected_chapters: ["Hàm số mũ và hàm số lôgarit (Lớp 11)"],
+        question_index: 1,
+        previous_questions: []
       })
     });
     expect(resGen.status).toBe(200);
     const genData = await resGen.json();
     expect(genData.question).toBeDefined();
-    expect(genData.counter_argument).toBeDefined();
+    expect(Array.isArray(genData.options)).toBe(true);
+    expect(genData.options.length).toBe(4);
+    expect(genData.correct_option).toBeDefined();
 
-    // 3. Evaluate student answer
+    // 3. Evaluate student answer (e.g. student fast-types option key 'B')
     const resEval = await app.request("/api/socratic/debate/evaluate-answer", {
       method: "POST",
       headers: {
@@ -95,16 +99,18 @@ describe("Academic AI Features - Twin Quiz, Socratic Tutor & Visual Scratchpad",
         subject: "Toán học",
         selected_chapters: ["Hàm số mũ và hàm số lôgarit (Lớp 11)"],
         question: genData.question,
-        student_answer: "Điều kiện xác định của lôgarit là cơ số lớn hơn 0 và khác 1, biểu thức trong log phải dương."
+        options: genData.options,
+        correct_option: genData.correct_option,
+        student_answer: genData.correct_option
       })
     });
     expect(resEval.status).toBe(200);
     const evalData = await resEval.json();
-    expect(evalData.verdict).toBeDefined();
-    expect(evalData.feedback).toBeDefined();
-    expect(typeof evalData.is_correct).toBe("boolean");
+    expect(evalData.verdict).toBe("chính_xác");
+    expect(evalData.is_correct).toBe(true);
+    expect(evalData.explanation).toBeDefined();
   }, 30000);
-  // Test 3: Feature 3 - Visual Scratchpad Radiography
+
   test("Feature 3: Visual scratchpad analyzes handwritten derivations", async () => {
     const dummyBase64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==";
     const res = await app.request("/api/vision/analyze-scratchpad", {
