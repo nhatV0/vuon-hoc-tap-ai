@@ -31,20 +31,20 @@ export class SocraticService {
       ? `\nCác câu trước đã hỏi: ${dto.previous_questions.slice(-3).join(" | ")}. TUYỆT ĐỐI không lặp lại.`
       : "";
 
+    const focusChapter = dto.selected_chapters[(dto.question_index - 1) % dto.selected_chapters.length] || dto.subject;
     const prompt = `Bạn là Trợ Lý Gia Sư Tranh Luận môn ${dto.subject} THPT.
-Chủ đề học sinh chọn: ${chaptersText}.
+Chủ đề trọng tâm: ${focusChapter}.
 Câu số ${dto.question_index}/10.${prevText}
 
-Nhiệm vụ: Tạo ĐÚNG 1 câu hỏi TỰ LUẬN ngắn gọn (dưới 40 từ), mang tính phản biện, hỏi về bản chất lý thuyết, phân biệt khái niệm hoặc giải thích tại sao một mệnh đề là đúng/sai.
-Lưu ý: KHÔNG tạo câu hỏi trắc nghiệm A/B/C/D. Câu hỏi để học sinh gõ văn bản tự luận ngắn để phản biện.
-Bọc công thức trong $...$.
-
-Trả về JSON duy nhất:
+YÊU CẦU:
+1. Đặt 1 câu hỏi TỰ LUẬN phản biện RÕ RÀNG, CỤ THỂ về kiến thức chuyên môn của chủ đề "${focusChapter}".
+2. KHÔNG hỏi chung chung ("bản chất lý thuyết là gì?"). Hãy đưa ra 1 tình huống, so sánh 2 khái niệm hoặc 1 mệnh đề gây tranh cãi (ví dụ: "Có ý kiến cho rằng X luôn đúng trong Y, theo bạn đúng hay sai? Vì sao?").
+3. Độ dài câu hỏi: từ 15 đến 35 từ. Bọc công thức trong $...$.
+4. Trả về JSON thuần túy:
 {
-  "question": "Nội dung câu hỏi tự luận ngắn",
-  "sample_answer": "Đáp án mẫu chuẩn xác súc tích (1-2 câu)",
-  "key_points": ["Ý chính 1", "Ý chính 2"],
-  "topic_hint": "Tên đề mục"
+  "question": "Nội dung câu hỏi cụ thể và rõ ràng",
+  "sample_answer": "Đáp án mẫu ngắn gọn nêu rõ căn cứ lý thuyết",
+  "topic_hint": "${focusChapter}"
 }`;
 
     const messages: ChatMessage[] = [
@@ -53,23 +53,24 @@ Trả về JSON duy nhất:
     ];
 
     try {
-      const raw = await callAiModel({ messages, temperature: 0.5, maxTokens: 400 });
-      const clean = raw.replace(/```json/g, "").replace(/```/g, "").trim();
-      const parsed = JSON.parse(clean);
+      const raw = await callAiModel({ messages, temperature: 0.4, maxTokens: 400 });
+      const match = raw.match(/\{[\s\S]*\}/);
+      const jsonStr = match ? match[0] : raw.replace(/```json/g, "").replace(/```/g, "").trim();
+      const parsed = JSON.parse(jsonStr);
       return {
         question_number: dto.question_index,
-        question: parsed.question || `Trong phần ${dto.selected_chapters[0] || dto.subject}, hãy giải thích ngắn gọn tại sao cần xét điều kiện xác định trước khi biến đổi?`,
-        sample_answer: parsed.sample_answer || "Cần điều kiện xác định để tránh xuất hiện nghiệm ngoại lai và đảm bảo biểu thức có nghĩa.",
-        key_points: Array.isArray(parsed.key_points) ? parsed.key_points : ["Tránh nghiệm ngoại lai", "Biểu thức có nghĩa"],
-        topic_hint: parsed.topic_hint || dto.selected_chapters[0] || dto.subject
+        question: parsed.question || `Trong phần ${focusChapter}, vì sao việc xác định đúng bản chất khái niệm lại quyết định tính chính xác của bài toán?`,
+        sample_answer: parsed.sample_answer || "Nắm vững bản chất giúp tránh các ngộ nhận và áp dụng đúng điều kiện ràng buộc.",
+        key_points: Array.isArray(parsed.key_points) ? parsed.key_points : ["Khái niệm chính xác", "Điều kiện ràng buộc"],
+        topic_hint: parsed.topic_hint || focusChapter
       };
     } catch {
       return {
         question_number: dto.question_index,
-        question: `[Câu ${dto.question_index}/10] Trong kiến thức [${dto.selected_chapters[0] || dto.subject}], hãy nêu ngắn gọn bản chất lý thuyết và điều kiện cần nhớ?`,
-        sample_answer: "Cần nắm rõ định nghĩa, tập xác định và quy tắc suy luận logic nền tảng.",
-        key_points: ["Định nghĩa chính xác", "Điều kiện tiên quyết"],
-        topic_hint: dto.selected_chapters[0] || dto.subject
+        question: `Trong ${focusChapter}, nếu một giả thiết bị lược bỏ thì kết luận có còn đúng không? Hãy giải thích ngắn gọn vì sao.`,
+        sample_answer: "Không còn đúng vì các định lý và tính chất luôn đòi hỏi giả thiết đầy đủ.",
+        key_points: ["Vai trò của giả thiết", "Tính chặt chẽ"],
+        topic_hint: focusChapter
       };
     }
   }

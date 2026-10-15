@@ -98,6 +98,7 @@ export default function DebateTutorModal({ studentId, subject = "Toán học", o
 
           {stage === "feedback" && currentEvaluation && (
             <DebateAnswerFeedback
+              questionText={currentQuestion}
               studentAnswer={lastStudentAnswer}
               evaluation={currentEvaluation}
               questionIndex={questionIndex}

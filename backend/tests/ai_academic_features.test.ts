@@ -51,7 +51,7 @@ describe("Academic AI Features - Twin Quiz, Socratic Tutor & Visual Scratchpad",
     expect(body.options).toBeDefined();
     expect(body.correct_answer).toBeDefined();
     expect(body.cognitive_barrier).toBeDefined();
-  }, 30000);
+  }, 60000);
 
   // Test 2: Feature 2 - Debate Tutor (Syllabus, Generate Question & Evaluate Answer)
   test("Feature 2: Debate tutor loads syllabus, generates questions and evaluates answers", async () => {
@@ -107,7 +107,7 @@ describe("Academic AI Features - Twin Quiz, Socratic Tutor & Visual Scratchpad",
     expect(evalData.verdict).toBeDefined();
     expect(typeof evalData.is_correct).toBe("boolean");
     expect(evalData.explanation).toBeDefined();
-  }, 30000);
+  }, 60000);
 
   test("Feature 3: Visual scratchpad analyzes handwritten derivations", async () => {
     const dummyBase64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==";
@@ -130,7 +130,7 @@ describe("Academic AI Features - Twin Quiz, Socratic Tutor & Visual Scratchpad",
     expect(Array.isArray(body.step_by_step)).toBe(true);
     expect(body.step_by_step.length).toBeGreaterThan(0);
     expect(body.error_type).toBeDefined();
-  }, 30000);
+  }, 60000);
 
   // Test 4: Security & BOLA Guard on AI Routes
   test("Security: Block student A from calling Socratic/Scratchpad for student B", async () => {

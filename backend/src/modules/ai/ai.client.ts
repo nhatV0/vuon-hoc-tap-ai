@@ -52,7 +52,10 @@ export async function callAiModel(options: AiChatOptions): Promise<string> {
       }
       if (typeof content === "string" && content.trim().length > 0) {
         // Strip router advertisement footer if present
-        const cleaned = content.replace(/> Cảm ơn bạn đã sử dụng mnRouter[\s\S]*$/, "").trim();
+        const cleaned = content
+          .replace(/>\s*Cảm ơn bạn đã sử dụng mnRouter[\s\S]*$/gi, "")
+          .replace(/https:\/\/mnrouter\.mncuchiinhuttt\.dev\/issues[\s\S]*$/gi, "")
+          .trim();
         return cleaned;
       }
       console.error("[callAiModel] Empty or invalid content:", json);

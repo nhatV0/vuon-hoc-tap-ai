@@ -15,6 +15,7 @@ export interface EvaluationData {
 }
 
 interface Props {
+  questionText?: string;
   studentAnswer: string;
   evaluation: EvaluationData;
   questionIndex: number;
@@ -22,8 +23,8 @@ interface Props {
   onNextQuestion: () => void;
   loading: boolean;
 }
-
 export default function DebateAnswerFeedback({
+  questionText,
   studentAnswer,
   evaluation,
   questionIndex,
@@ -59,6 +60,14 @@ export default function DebateAnswerFeedback({
         </span>
       </div>
 
+      {questionText && (
+        <Card className="p-3 bg-muted/40 border-border text-xs leading-relaxed font-medium">
+          <span className="text-[10px] text-muted-foreground uppercase font-bold block mb-1">
+            Câu hỏi:
+          </span>
+          <MathText content={questionText} />
+        </Card>
+      )}
       <Card className="p-3 bg-muted/20 border-border text-xs space-y-1 rounded-xl">
         <span className="text-[11px] text-muted-foreground block">Câu trả lời của bạn:</span>
         <div className="font-medium text-foreground leading-relaxed pl-1">

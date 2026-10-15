@@ -39,9 +39,10 @@ Xác định:
   ];
 
   try {
-    const raw = await callAiModel({ messages, temperature: 0.3, maxTokens: 450 });
-    const clean = raw.replace(/```json/g, "").replace(/```/g, "").trim();
-    const parsed = JSON.parse(clean);
+    const raw = await callAiModel({ messages, temperature: 0.2, maxTokens: 400 });
+    const match = raw.match(/\{[\s\S]*\}/);
+    const jsonStr = match ? match[0] : raw.replace(/```json/g, "").replace(/```/g, "").trim();
+    const parsed = JSON.parse(jsonStr);
     return {
       is_correct: Boolean(parsed.is_correct),
       verdict: parsed.verdict || (parsed.is_correct ? "chính_xác" : "chưa_chính_xác"),
@@ -51,16 +52,17 @@ Xác định:
       debate_rebuttal: parsed.debate_rebuttal || "Hãy sẵn sàng cho câu hỏi phản biện tiếp theo!"
     };
   } catch {
-    const isLen = dto.student_answer.trim().length >= 8;
+    const lower = dto.student_answer.trim().toLowerCase();
+    const isEvading = lower.includes("không biết") || lower.includes("chưa biết") || lower.includes("chịu") || lower.length < 10;
     return {
-      is_correct: isLen,
-      verdict: isLen ? "chính_xác" : "chưa_chính_xác",
+      is_correct: !isEvading,
+      verdict: isEvading ? "chưa_chính_xác" : "bán_phần",
       sample_answer: dto.sample_answer || "Cần bám sát định nghĩa lý thuyết cốt lõi.",
-      explanation: isLen
-        ? "Câu trả lời của bạn thể hiện được tư duy và góc nhìn phù hợp với nội dung bài học."
-        : "Câu trả lời còn quá ngắn hoặc chưa nêu rõ được luận cứ khoa học cần thiết.",
-      feedback: "Đã ghi nhận câu trả lời.",
-      debate_rebuttal: "Chuyển tiếp câu hỏi phản biện tiếp theo trong chuỗi 10 câu."
+      explanation: isEvading
+        ? "Câu trả lời chưa đưa ra được thông tin hoặc luận điểm giải thích cho câu hỏi phản biện."
+        : "Câu trả lời đã đề cập đến vấn đề nhưng cần làm rõ thêm các căn cứ khoa học cụ thể.",
+      feedback: isEvading ? "Đừng ngần ngại thử suy đoán hoặc đưa ra ý kiến cá nhân nhé!" : "Ghi nhận nỗ lực trả lời của bạn.",
+      debate_rebuttal: "Hãy đối chiếu với đáp án chuẩn để tích lũy thêm kiến thức cho các câu tiếp theo."
     };
   }
 }
