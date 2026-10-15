@@ -50,16 +50,17 @@ export function getTheoryContent(subject: string, chapterTitle?: string): string
     .toLowerCase();
 
   const keywords = cleanQuery.split(/\s+/).filter((k) => k.length >= 3);
-  const sections = fullText.split(/\n(?=###|##)/g);
+  // Split only on major headers (## or ###, never ####) to keep full subtopics together
+  const sections = fullText.split(/\r?\n(?=#{2,3}\s+)/g);
 
   let bestSection = "";
   let highestScore = 0;
 
   for (const sec of sections) {
-    const headerLine = sec.split("\n")[0].toLowerCase();
+    const headerLine = (sec.split(/\r?\n/)[0] || "").toLowerCase();
     let score = 0;
     for (const kw of keywords) {
-      if (headerLine.includes(kw)) score += 3;
+      if (headerLine.includes(kw)) score += 6;
       else if (sec.toLowerCase().includes(kw)) score += 1;
     }
     if (score > highestScore) {
@@ -69,8 +70,8 @@ export function getTheoryContent(subject: string, chapterTitle?: string): string
   }
 
   if (bestSection && highestScore >= 1) {
-    return bestSection.slice(0, 1500).trim();
+    return bestSection.slice(0, 1800).trim();
   }
 
-  return fullText.slice(0, 1500).trim();
+  return fullText.slice(0, 1800).trim();
 }

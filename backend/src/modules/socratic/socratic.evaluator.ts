@@ -16,21 +16,27 @@ Câu hỏi tự luận: "${dto.question}"
 Đáp án chuẩn/Ý chính: "${dto.sample_answer || "Nắm vững định nghĩa và cơ sở khoa học"}"
 Học sinh gõ trả lời: "${dto.student_answer}"
 
-Nhiệm vụ: Chấm và phản biện câu trả lời tự luận của học sinh.
-Xác định:
-- verdict: "chính_xác" (nếu nêu đúng bản chất), "bán_phần" (nếu đúng 1 phần hoặc thiếu ý quan trọng), hoặc "chưa_chính_xác" (nếu sai bản chất/ngộ nhận).
-- is_correct: true nếu chính xác hoặc bán phần, false nếu chưa chính xác.
-- explanation: Giải thích ngắn gọn (dưới 50 từ) vì sao đúng/sai và bổ sung ý còn thiếu.
-- feedback: Đánh giá ngắn gọn phong cách lập luận của học sinh.
-- debate_rebuttal: Luận điểm phản biện mở rộng hoặc câu hỏi gợi mở tiếp theo.
+Nhiệm vụ: Chấm và phản biện câu trả lời tự luận của học sinh một cách công tâm, giáo dục.
+ĐẶC BIỆT CHÚ Ý TRƯỜNG HỢP "ĐÚNG NHƯNG CHƯA ĐẦY ĐỦ":
+- Học sinh thường đưa ra ý cốt lõi đúng (ví dụ: phán đoán đúng/sai chuẩn, nêu được 1 ý then chốt) nhưng chưa liệt kê đủ các nguyên nhân, bối cảnh hoặc luận cứ khoa học. Trong trường hợp này, TUYỆT ĐỐI KHÔNG đánh trượt hoặc chấm "chưa_chính_xác", mà PHẢI XẾP VÀO "bán_phần".
+
+Quy tắc phân loại:
+1. "chính_xác": Trả lời đúng bản chất và đủ các ý chính quan trọng.
+2. "bán_phần": Trả lời ĐÚNG HƯỚNG hoặc ĐÚNG 1 PHẦN nhưng CHƯA ĐẦY ĐỦ / còn thiếu ý bổ trợ.
+3. "chưa_chính_xác": Sai hoàn toàn bản chất lý thuyết, ngộ nhận hoặc thoái thác/không trả lời ("không biết", "chịu").
+
+- is_correct: true nếu verdict là "chính_xác" HOẶC "bán_phần" (vẫn được tính điểm đạt/tiếp thu), false nếu "chưa_chính_xác".
+- explanation: Lời giải thích (40-60 từ): Ghi nhận rõ ý học sinh đã nói đúng, đồng thời chỉ ra chính xác các ý/luận cứ còn thiếu để câu trả lời hoàn thiện nhất.
+- feedback: Lời nhận xét động viên tinh thần lập luận và hướng dẫn cách bổ sung ý khoa học.
+- debate_rebuttal: Góc nhìn phản biện sâu rộng tiếp theo hoặc bài học mở rộng.
 
 Định dạng JSON duy nhất:
 {
   "is_correct": boolean,
   "verdict": "chính_xác" | "chưa_chính_xác" | "bán_phần",
-  "explanation": "Lời giải thích ngắn gọn",
-  "feedback": "Nhận xét",
-  "debate_rebuttal": "Góc nhìn phản biện tiếp theo"
+  "explanation": "Ghi nhận ý đúng và nêu rõ ý còn thiếu...",
+  "feedback": "Nhận xét gợi ý hoàn thiện...",
+  "debate_rebuttal": "Góc nhìn phản biện mở rộng..."
 }`;
 
   const messages: ChatMessage[] = [

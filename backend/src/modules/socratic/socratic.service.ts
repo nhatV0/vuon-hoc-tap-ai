@@ -28,26 +28,28 @@ export class SocraticService {
 
   async generateDebateQuestion(dto: DebateGenerateQuestionDto): Promise<DebateQuestionResult> {
     const focusChapter = dto.selected_chapters[(dto.question_index - 1) % dto.selected_chapters.length] || dto.subject;
-    const theoryExtract = getTheoryContent(dto.subject, focusChapter).slice(0, 1200);
+    const theoryExtract = getTheoryContent(dto.subject, focusChapter).slice(0, 1500);
 
-    const prevNotice = dto.previous_questions && dto.previous_questions.length > 0
-      ? `\nĐÃ HỎI TRƯỚC ĐÓ: ${dto.previous_questions.slice(-3).join(" | ")}. Tránh hỏi lại.`
+    const prevList = Array.isArray(dto.previous_questions) ? dto.previous_questions.filter(Boolean) : [];
+    const prevNotice = prevList.length > 0
+      ? `\nCÁC CÂU ĐÃ HỎI TRƯỚC ĐÓ:\n${prevList.map((q, idx) => `${idx + 1}. "${q}"`).join("\n")}\nLƯU Ý ĐẶC BIỆT: TUYỆT ĐỐI KHÔNG HỎI LẠI CÁC Ý/CHỦ ĐỀ ĐÃ NÊU TRÊN. BẮT BUỘC CHỌN MỘT KHÍA CẠNH, KHÁI NIỆM HOẶC SỰ KIỆN HOÀN TOÀN KHÁC TRONG BÀI.`
       : "";
 
     const prompt = `Bạn là Trợ Lý Gia Sư Tranh Luận môn ${dto.subject} THPT.
-Chủ đề: "${focusChapter}".
+Chủ đề: "${focusChapter}". Câu số: ${dto.question_index}/10.
 ${prevNotice}
 
 LÝ THUYẾT NGUỒN TỪ SÁCH GIÁO KHOA:
-\"\"\"
+"""
 ${theoryExtract}
-\"\"\"
+"""
 
 QUY TẮC BẮT BUỘC:
-1. Hỏi ĐÚNG VÀO NỘI DUNG LÝ THUYẾT TRONG ĐOẠN TRÍCH TRÊN. Nêu tên chính xác khái niệm, thuật toán, định luật, bảng, lệnh hoặc cơ chế có trong bài.
-2. TUYỆT ĐỐI KHÔNG hỏi chung chung, không hỏi triết lý ("nếu lược bỏ giả thiết thì sao", "bản chất là gì", "điểm khác biệt then chốt giữa hai khái niệm").
-3. Hãy đặt 1 câu hỏi phản biện ngắn (15-30 từ) bằng tình huống cụ thể (Ví dụ: "Có ý kiến cho rằng... đúng hay sai? Vì sao?", "Tại sao khi... thì phải... mà không được...?").
-4. Trả về đúng định dạng JSON:
+1. TUYỆT ĐỐI KHÔNG TRÙNG LẶP: Không hỏi lại các câu hay chủ đề đã hỏi ở các câu trước.
+2. Hỏi ĐÚNG VÀO NỘI DUNG LÝ THUYẾT TRONG ĐOẠN TRÍCH TRÊN. Nêu tên chính xác khái niệm, định luật, sự kiện, công thức hoặc cơ chế có trong bài.
+3. TUYỆT ĐỐI KHÔNG hỏi chung chung, không hỏi triết lý ("nếu lược bỏ giả thiết thì sao", "bản chất là gì").
+4. Hãy đặt 1 câu hỏi phản biện ngắn (15-30 từ) bằng tình huống cụ thể (Ví dụ: "Có ý kiến cho rằng... đúng hay sai? Vì sao?", "Tại sao khi... thì phải... mà không được...?").
+5. Trả về đúng định dạng JSON:
 {
   "question": "Nội dung câu hỏi ngắn cụ thể",
   "sample_answer": "Ý chính chuẩn xác dựa trên lý thuyết (1-2 câu)",
@@ -59,28 +61,57 @@ QUY TẮC BẮT BUỘC:
       { role: "user", content: prompt }
     ];
 
-    try {
-      const raw = await callAiModel({ messages, temperature: 0.3, maxTokens: 350 });
-      const match = raw.match(/\{[\s\S]*\}/);
-      const jsonStr = match ? match[0] : raw.replace(/```json/g, "").replace(/```/g, "").trim();
-      const parsed = jsonStr ? JSON.parse(jsonStr) : {};
-      if (parsed.question && !parsed.question.includes("hai khái niệm cơ bản")) {
-        return {
-          question_number: dto.question_index,
-          question: parsed.question,
-          sample_answer: parsed.sample_answer || "Nắm vững lý thuyết nguồn để giải thích đúng bản chất.",
-          key_points: Array.isArray(parsed.key_points) ? parsed.key_points : ["Khái niệm chính xác"],
-          topic_hint: parsed.topic_hint || focusChapter
-        };
+    const isDuplicate = (q: string): boolean => {
+      if (!q || q.length < 10) return true;
+      const qClean = q.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, "").trim().split(/\s+/);
+      const qSet = new Set(qClean);
+      for (const old of prevList) {
+        const oldClean = old.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, "").trim().split(/\s+/);
+        const oldSet = new Set(oldClean);
+        let intersect = 0;
+        for (const w of qSet) {
+          if (oldSet.has(w)) intersect++;
+        }
+        const sim = (2 * intersect) / (qSet.size + oldSet.size);
+        if (sim > 0.55) return true;
       }
-    } catch {}
+      return false;
+    };
 
-    // Smart concrete fallback derived directly from theory
+    // Retry loop with higher temperature if duplicate
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        const temp = attempt === 0 ? 0.75 : 0.95;
+        const raw = await callAiModel({ messages, temperature: temp, maxTokens: 350 });
+        const match = raw.match(/\{[\s\S]*\}/);
+        const jsonStr = match ? match[0] : raw.replace(/```json/g, "").replace(/```/g, "").trim();
+        const parsed = jsonStr ? JSON.parse(jsonStr) : {};
+        if (parsed.question && !parsed.question.includes("hai khái niệm cơ bản") && !isDuplicate(parsed.question)) {
+          return {
+            question_number: dto.question_index,
+            question: parsed.question,
+            sample_answer: parsed.sample_answer || "Nắm vững lý thuyết nguồn để giải thích đúng bản chất.",
+            key_points: Array.isArray(parsed.key_points) ? parsed.key_points : ["Khái niệm chính xác"],
+            topic_hint: parsed.topic_hint || focusChapter
+          };
+        }
+      } catch {}
+    }
+
+    // Varied concrete fallback derived directly from subject facts
+    const fallbacks = [
+      `Trong "${focusChapter}", có quan điểm cho rằng chỉ cần ghi nhớ kết quả thay vì bản chất cơ chế hay nguyên nhân sâu xa. Quan điểm này đúng hay sai? Vì sao?`,
+      `Tại sao trong nội dung "${focusChapter}", các căn cứ định luật/luật pháp/cơ sở dữ liệu thực nghiệm lại quyết định giá trị pháp lý và khoa học của một luận điểm?`,
+      `Trong "${focusChapter}", nếu một nhận định bỏ qua điều kiện biên hoặc bối cảnh lịch sử/khoa học cụ thể thì tính đúng đắn sẽ thay đổi như thế nào?`,
+      `Đối với "${focusChapter}", vì sao việc xác định rõ mối quan hệ nguyên nhân - kết quả lại là yếu tố then chốt để bác bỏ những ngộ nhận phổ biến?`
+    ];
+    const selectedFallback = fallbacks[(dto.question_index - 1) % fallbacks.length];
+
     return {
       question_number: dto.question_index,
-      question: `Trong ${focusChapter}, vì sao việc áp dụng đúng quy tắc chuẩn hóa và điều kiện ràng buộc lại quyết định tính toàn vẹn của hệ thống?`,
-      sample_answer: "Ràng buộc và chuẩn hóa giúp loại bỏ sự dư thừa dữ liệu và ngăn chặn xung đột khi cập nhật.",
-      key_points: ["Chuẩn hóa dữ liệu", "Toàn vẹn thực thể"],
+      question: selectedFallback,
+      sample_answer: `Trong ${focusChapter}, cần nắm chắc bản chất, cơ sở thực nghiệm và bối cảnh để giải thích thuyết phục.`,
+      key_points: ["Bản chất lý thuyết", "Cơ sở thực tiễn"],
       topic_hint: focusChapter
     };
   }

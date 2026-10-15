@@ -49,7 +49,10 @@ export function useDebateSession(studentId: string, currentSubject: string) {
         setCurrentQuestion(data.question);
         setSampleAnswer(data.sample_answer || "");
         setTopicHint(data.topic_hint || "");
-        setAskedQuestions((prev) => [...prev, data.question]);
+        setAskedQuestions((prev) => {
+          if (prev.includes(data.question)) return prev;
+          return [...prev, data.question];
+        });
         setStage("question");
       }
     } catch {}
@@ -116,7 +119,10 @@ export function useDebateSession(studentId: string, currentSubject: string) {
     } else {
       const nextIdx = questionIndex + 1;
       setQuestionIndex(nextIdx);
-      loadQuestion(nextIdx, askedQuestions);
+      const updatedHistory = askedQuestions.includes(currentQuestion)
+        ? askedQuestions
+        : [...askedQuestions, currentQuestion];
+      loadQuestion(nextIdx, updatedHistory);
     }
   };
 
