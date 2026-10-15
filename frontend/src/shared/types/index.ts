@@ -40,6 +40,7 @@ export interface Student {
   user_id?: string | null;
   name: string;
   grade: string;
+  classroom?: string;
   target_subject: string;
   target_subjects?: string[];
   emotion_scale?: number;

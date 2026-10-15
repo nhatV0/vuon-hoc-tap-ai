@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Droplets, Calendar, BookOpen, Clock, RefreshCw, Sun, LogOut } from "lucide-react";
-import { API_BASE } from "@/shared/api/auth-client";
+import { Droplets, Calendar, BookOpen, Clock, RefreshCw, Sun, LogOut, User, Trophy } from "lucide-react";
+import { API_BASE, authFetch } from "@/shared/api/auth-client";
 import { useAuth } from "@/shared/context/AuthContext";
 import { Student, GardenStatus } from "@/shared/types";
 import SunflowerVisual from "./components/SunflowerVisual";
 import DailyCheckinModal from "./components/DailyCheckinModal";
 import FocusTimerModal from "./components/FocusTimerModal";
 import DailyMicroQuizModal from "./components/DailyMicroQuizModal";
-import SocraticTutorModal from "./components/SocraticTutorModal";
+import DebateTutorModal from "./components/DebateTutorModal";
 import VisualScratchpadModal from "./components/VisualScratchpadModal";
 import AiToolsOverview from "./components/AiToolsOverview";
 import { Button } from "@/shared/components/ui/button";
@@ -23,7 +23,7 @@ export default function GardenPage() {
   const [showCheckin, setShowCheckin] = useState(false);
   const [showTimer, setShowTimer] = useState(false);
   const [showQuiz, setShowQuiz] = useState(false);
-  const [showSocratic, setShowSocratic] = useState(false);
+  const [showDebate, setShowDebate] = useState(false);
   const [showScratchpad, setShowScratchpad] = useState(false);
 
   const studentId = user?.student_id || localStorage.getItem("sunflower_student_id") || "hs_default";
@@ -31,8 +31,8 @@ export default function GardenPage() {
   const fetchData = useCallback(async () => {
     try {
       const [resSt, resGd] = await Promise.all([
-        fetch(`${API_BASE}/api/student/${studentId}`),
-        fetch(`${API_BASE}/api/garden/${studentId}`)
+        authFetch(`${API_BASE}/api/student/${studentId}`),
+        authFetch(`${API_BASE}/api/garden/${studentId}`)
       ]);
       if (resSt.ok) setStudent(await resSt.json());
       if (resGd.ok) setGarden(await resGd.json());
@@ -45,7 +45,7 @@ export default function GardenPage() {
 
   const handleWater = async () => {
     try {
-      const res = await fetch(`${API_BASE}/api/garden/${studentId}/water`, { method: "POST" });
+      const res = await authFetch(`${API_BASE}/api/garden/${studentId}/water`, { method: "POST" });
       if (res.ok) fetchData();
     } catch {}
   };
@@ -60,7 +60,14 @@ export default function GardenPage() {
           </div>
           <div className="flex items-center gap-2">
             <Link to="/planning" className="px-3 py-1.5 text-xs font-semibold text-stone-600 hover:text-stone-900">
-              Kế hoạch học tập
+              Kế hoạch
+            </Link>
+            <Link to="/account" className="flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100/80 rounded-lg transition-colors">
+              <Trophy className="w-3.5 h-3.5 text-amber-500" />
+              <span>Thành tích</span>
+            </Link>
+            <Link to="/account" className="p-1.5 text-stone-600 hover:text-stone-900 rounded-lg" title="Tài khoản cá nhân">
+              <User className="w-4 h-4" />
             </Link>
             <Button variant="ghost" size="icon" onClick={() => { logout(); navigate("/auth"); }}>
               <LogOut className="w-4 h-4" />
@@ -82,7 +89,7 @@ export default function GardenPage() {
               </Card>
             )}
             <AiToolsOverview
-              onOpenSocratic={() => setShowSocratic(true)}
+              onOpenDebate={() => setShowDebate(true)}
               onOpenScratchpad={() => setShowScratchpad(true)}
             />
           </div>
@@ -134,7 +141,7 @@ export default function GardenPage() {
       {showCheckin && <DailyCheckinModal studentId={studentId} onSuccess={fetchData} onClose={() => setShowCheckin(false)} />}
       {showTimer && <FocusTimerModal studentId={studentId} onSuccess={() => { fetchData(); setShowTimer(false); }} onClose={() => setShowTimer(false)} />}
       {showQuiz && <DailyMicroQuizModal studentId={studentId} onTwinSuccess={fetchData} onClose={() => setShowQuiz(false)} />}
-      {showSocratic && <SocraticTutorModal studentId={studentId} subject={student?.target_subject || "Toán học"} onClose={() => setShowSocratic(false)} />}
+      {showDebate && <DebateTutorModal studentId={studentId} subject={student?.target_subject || "Toán học"} onClose={() => setShowDebate(false)} />}
       {showScratchpad && <VisualScratchpadModal studentId={studentId} subject={student?.target_subject || "Toán học"} onClose={() => setShowScratchpad(false)} />}
     </div>
   );

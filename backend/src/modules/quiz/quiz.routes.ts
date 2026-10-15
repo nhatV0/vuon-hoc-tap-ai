@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import { db } from "@/db/client";
 import { seedQuizQuestionsFromHocLieu } from "./quiz.seed";
+import { fetchDailyQuestions, recordQuizAttempt } from "./quiz.helper";
 import { TwinQuizRequestSchema } from "./quiz.twin.schemas";
 import { synthesizeTwinQuestion } from "./quiz.twin.service";
 import { authMiddleware, AuthUser } from "@/middleware/auth.middleware";
@@ -9,8 +10,12 @@ import { UserRole } from "@/common/types";
 export function createQuizRouter(): Hono {
   const router = new Hono();
   seedQuizQuestionsFromHocLieu();
-
-  router.use("*", authMiddleware);
+  // Require authentication for student-specific routes, keep questions/grouped accessible with auth fallback
+  router.use("/daily/*", authMiddleware);
+  router.use("/start", authMiddleware);
+  router.use("/submit", authMiddleware);
+  router.use("/twin-challenge", authMiddleware);
+  router.use("/exchange-holy-water", authMiddleware);
 
   const verifyStudentAccess = (c: any, targetStudentId: string): boolean => {
     const user = c.get("user") as AuthUser;
@@ -24,30 +29,20 @@ export function createQuizRouter(): Hono {
       return c.json({ detail: "Không có quyền truy cập bài thi của người khác" }, 403);
     }
     const block = c.req.query("block") || "A00";
+    const subjectQuery = c.req.query("subject");
 
     const inv = db.query("SELECT * FROM streak_inventories WHERE student_id = ?").get(studentId) as {
       quiz_tickets: number;
       holy_water: number;
     } | null;
 
-    const questions = db.query("SELECT * FROM quiz_questions WHERE is_active = 1 LIMIT 3").all() as Array<{
-      id: string;
-      block: string;
-      subject: string;
-      question_text: string;
-      options: string;
-      bloom_level: string;
-      time_limit_seconds: number;
-    }>;
-
-    const formattedQuestions = questions.map(q => ({
-      ...q,
-      options: JSON.parse(q.options || "{}")
-    }));
+    const { chosenSubject, availableSubjects, formattedQuestions } = fetchDailyQuestions(studentId, subjectQuery);
 
     return c.json({
       student_id: studentId,
       block,
+      selected_subject: chosenSubject,
+      available_subjects: availableSubjects,
       quiz_tickets: inv?.quiz_tickets ?? 1,
       holy_water: inv?.holy_water ?? 0,
       questions: formattedQuestions
@@ -102,11 +97,7 @@ export function createQuizRouter(): Hono {
       });
     }
 
-    const todayStr = new Date().toISOString().split("T")[0];
-    db.run(
-      "INSERT INTO student_quiz_attempts (student_id, quiz_date, block, total_questions, correct_answers, details) VALUES (?, ?, ?, ?, ?, ?)",
-      [student_id, todayStr, block || "A00", (answers || []).length, correctCount, JSON.stringify(details)]
-    );
+    recordQuizAttempt(student_id, block, answers || [], correctCount, details);
 
     return c.json({
       total_questions: (answers || []).length,

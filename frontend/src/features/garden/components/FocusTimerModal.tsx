@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Play, RotateCcw, Volume2, VolumeX } from "lucide-react";
-import { API_BASE } from "@/shared/api/auth-client";
+import { API_BASE, authFetch } from "@/shared/api/auth-client";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/shared/components/ui/dialog";
 import { Button } from "@/shared/components/ui/button";
 
@@ -28,7 +28,7 @@ export default function FocusTimerModal({ studentId, onSuccess, onClose }: Focus
 
   const handleFinish = async () => {
     try {
-      const res = await fetch(`${API_BASE}/api/garden/${studentId}/pomodoro-reward`, {
+      const res = await authFetch(`${API_BASE}/api/garden/${studentId}/pomodoro-reward`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ duration_minutes: 25 })

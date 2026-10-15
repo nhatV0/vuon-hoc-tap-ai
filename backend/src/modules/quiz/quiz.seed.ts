@@ -3,13 +3,16 @@ import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
 export function seedQuizQuestionsFromHocLieu() {
-  const existingCount = db.query("SELECT COUNT(*) as count FROM quiz_questions").get() as { count: number };
-  if (existingCount.count > 0) return;
+  const possiblePaths = [
+    join(process.cwd(), "..", "hoc_lieu", "bo_cau_hoi", "mon_hoc"),
+    join(process.cwd(), "hoc_lieu", "bo_cau_hoi", "mon_hoc"),
+    join(__dirname, "..", "..", "..", "..", "hoc_lieu", "bo_cau_hoi", "mon_hoc"),
+  ];
 
-  const hocLieuDir = join(process.cwd(), "..", "hoc_lieu", "bo_cau_hoi", "mon_hoc");
-  if (!existsSync(hocLieuDir)) return;
+  const hocLieuDir = possiblePaths.find((p) => existsSync(p));
+  if (!hocLieuDir) return;
 
-  const files = readdirSync(hocLieuDir).filter(f => f.endsWith(".json"));
+  const files = readdirSync(hocLieuDir).filter((f) => f.endsWith(".json"));
   for (const file of files) {
     try {
       const content = readFileSync(join(hocLieuDir, file), "utf-8");
@@ -18,11 +21,21 @@ export function seedQuizQuestionsFromHocLieu() {
         for (const item of list) {
           const id = item.id || `q_${Math.random().toString(36).substring(2, 9)}`;
           db.run(
-            `INSERT OR IGNORE INTO quiz_questions (
+            `INSERT INTO quiz_questions (
               id, block, subject, slot_type, source, bloom_level,
               lock_condition, time_limit_seconds, question_text, options,
               correct_answer, micro_explanation, growth_mindset_tip
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(id) DO UPDATE SET
+              subject = excluded.subject,
+              block = excluded.block,
+              source = excluded.source,
+              bloom_level = excluded.bloom_level,
+              question_text = excluded.question_text,
+              options = excluded.options,
+              correct_answer = excluded.correct_answer,
+              micro_explanation = excluded.micro_explanation,
+              growth_mindset_tip = excluded.growth_mindset_tip`,
             [
               id,
               item.block || "A00",

@@ -23,7 +23,7 @@ export default function LandingPage() {
 
       <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-2xl bg-white/80 backdrop-blur-md border border-indigo-200/80 shadow-md text-indigo-900 text-xs font-semibold absolute top-48 right-12 animate-float-slow-reverse pointer-events-none">
         <span className="w-2 h-2 rounded-full bg-amber-500" />
-        <span>Gia Sư Socratic & Visual Scratchpad</span>
+        <span>Gia Sư Tranh Luận & Visual Scratchpad</span>
       </div>
 
       <header className="border-b border-stone-200/60 bg-white/75 backdrop-blur-md sticky top-0 z-40 transition-all">

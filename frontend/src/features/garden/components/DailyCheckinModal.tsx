@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BatteryCharging, HeartHandshake, Loader2, Sparkles, CheckCircle2 } from "lucide-react";
-import { API_BASE } from "@/shared/api/auth-client";
+import { API_BASE, authFetch } from "@/shared/api/auth-client";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/shared/components/ui/dialog";
 import { Button } from "@/shared/components/ui/button";
 import { Textarea } from "@/shared/components/ui/textarea";
@@ -21,7 +21,7 @@ export default function DailyCheckinModal({ studentId, onSuccess, onClose }: Dai
   const handleSubmit = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/api/checkin`, {
+      const res = await authFetch(`${API_BASE}/api/checkin`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

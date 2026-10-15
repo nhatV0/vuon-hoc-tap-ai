@@ -31,7 +31,7 @@ export async function callAiModel(options: AiChatOptions): Promise<string> {
     body.response_format = { type: "json_object" };
   }
 
-  // Fast-fail timeout (2500ms) to ensure lightning response & instant fallback
+  // Timeout for deep reasoning or comprehensive solutions
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -40,17 +40,25 @@ export async function callAiModel(options: AiChatOptions): Promise<string> {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(body),
-      signal: AbortSignal.timeout(2500)
+      signal: AbortSignal.timeout(45000)
     });
 
     if (response.ok) {
       const json = await response.json();
       const content = json.choices?.[0]?.message?.content;
       if (typeof content === "string" && content.trim().length > 0) {
-        return content;
+        // Strip router advertisement footer if present
+        const cleaned = content.replace(/> Cảm ơn bạn đã sử dụng mnRouter[\s\S]*$/, "").trim();
+        return cleaned;
       }
+      console.error("[callAiModel] Empty or invalid content:", json);
+    } else {
+      const errText = await response.text();
+      console.error(`[callAiModel] HTTP Error ${response.status}:`, errText);
     }
-  } catch {}
-
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    console.error("[callAiModel] Fetch Exception:", msg);
+  }
   throw new Error("AI_UPSTREAM_UNAVAILABLE");
 }
