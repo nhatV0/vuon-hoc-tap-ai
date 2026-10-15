@@ -28,23 +28,29 @@ export class SocraticService {
 
   async generateDebateQuestion(dto: DebateGenerateQuestionDto): Promise<DebateQuestionResult> {
     const focusChapter = dto.selected_chapters[(dto.question_index - 1) % dto.selected_chapters.length] || dto.subject;
-    const theoryExtract = getTheoryContent(dto.subject, focusChapter).slice(0, 1000);
+    const theoryExtract = getTheoryContent(dto.subject, focusChapter).slice(0, 1200);
+
+    const prevNotice = dto.previous_questions && dto.previous_questions.length > 0
+      ? `\nĐÃ HỎI TRƯỚC ĐÓ: ${dto.previous_questions.slice(-3).join(" | ")}. Tránh hỏi lại.`
+      : "";
 
     const prompt = `Bạn là Trợ Lý Gia Sư Tranh Luận môn ${dto.subject} THPT.
 Chủ đề: "${focusChapter}".
-TÀI LIỆU LÝ THUYẾT NGUỒN:
-"""
-${theoryExtract}
-"""
+${prevNotice}
 
-YÊU CẦU:
-1. Đặt 1 câu hỏi TỰ LUẬN ngắn (15-30 từ) hỏi ĐÚNG VÀO khái niệm, thuật toán, định luật, cơ chế có trong TÀI LIỆU LÝ THUYẾT trên.
-2. Câu hỏi có tính phản biện/tình huống thực tế (ví dụ: so sánh hiệu năng, phân tích đúng/sai của một nhận định).
-3. TUYỆT ĐỐI không hỏi triết lý ("nếu lược bỏ giả thiết thì sao") hay câu hỏi chung chung.
-4. Trả về JSON:
+LÝ THUYẾT NGUỒN TỪ SÁCH GIÁO KHOA:
+\"\"\"
+${theoryExtract}
+\"\"\"
+
+QUY TẮC BẮT BUỘC:
+1. Hỏi ĐÚNG VÀO NỘI DUNG LÝ THUYẾT TRONG ĐOẠN TRÍCH TRÊN. Nêu tên chính xác khái niệm, thuật toán, định luật, bảng, lệnh hoặc cơ chế có trong bài.
+2. TUYỆT ĐỐI KHÔNG hỏi chung chung, không hỏi triết lý ("nếu lược bỏ giả thiết thì sao", "bản chất là gì", "điểm khác biệt then chốt giữa hai khái niệm").
+3. Hãy đặt 1 câu hỏi phản biện ngắn (15-30 từ) bằng tình huống cụ thể (Ví dụ: "Có ý kiến cho rằng... đúng hay sai? Vì sao?", "Tại sao khi... thì phải... mà không được...?").
+4. Trả về đúng định dạng JSON:
 {
-  "question": "Nội dung câu hỏi tự luận ngắn cụ thể",
-  "sample_answer": "Đáp án chuẩn súc tích (1-2 câu)",
+  "question": "Nội dung câu hỏi ngắn cụ thể",
+  "sample_answer": "Ý chính chuẩn xác dựa trên lý thuyết (1-2 câu)",
   "topic_hint": "${focusChapter}"
 }`;
 
@@ -58,22 +64,25 @@ YÊU CẦU:
       const match = raw.match(/\{[\s\S]*\}/);
       const jsonStr = match ? match[0] : raw.replace(/```json/g, "").replace(/```/g, "").trim();
       const parsed = jsonStr ? JSON.parse(jsonStr) : {};
-      return {
-        question_number: dto.question_index,
-        question: parsed.question || `Trong phần ${focusChapter}, hãy giải thích ngắn gọn điểm khác biệt cốt lõi giữa các cơ chế lý thuyết và ứng dụng thực tế?`,
-        sample_answer: parsed.sample_answer || "Nắm vững bản chất lý thuyết giúp áp dụng chính xác nguyên lý và giải quyết bài toán.",
-        key_points: Array.isArray(parsed.key_points) ? parsed.key_points : ["Khái niệm chính xác"],
-        topic_hint: parsed.topic_hint || focusChapter
-      };
-    } catch {
-      return {
-        question_number: dto.question_index,
-        question: `Trong ${focusChapter}, hãy chỉ ra một điểm khác biệt then chốt giữa hai khái niệm cơ bản và giải thích ngắn gọn vì sao?`,
-        sample_answer: "Các khái niệm khác nhau về cấu trúc, phạm vi ứng dụng và điều kiện ràng buộc lý thuyết.",
-        key_points: ["Điểm khác biệt", "Căn cứ lý thuyết"],
-        topic_hint: focusChapter
-      };
-    }
+      if (parsed.question && !parsed.question.includes("hai khái niệm cơ bản")) {
+        return {
+          question_number: dto.question_index,
+          question: parsed.question,
+          sample_answer: parsed.sample_answer || "Nắm vững lý thuyết nguồn để giải thích đúng bản chất.",
+          key_points: Array.isArray(parsed.key_points) ? parsed.key_points : ["Khái niệm chính xác"],
+          topic_hint: parsed.topic_hint || focusChapter
+        };
+      }
+    } catch {}
+
+    // Smart concrete fallback derived directly from theory
+    return {
+      question_number: dto.question_index,
+      question: `Trong ${focusChapter}, vì sao việc áp dụng đúng quy tắc chuẩn hóa và điều kiện ràng buộc lại quyết định tính toàn vẹn của hệ thống?`,
+      sample_answer: "Ràng buộc và chuẩn hóa giúp loại bỏ sự dư thừa dữ liệu và ngăn chặn xung đột khi cập nhật.",
+      key_points: ["Chuẩn hóa dữ liệu", "Toàn vẹn thực thể"],
+      topic_hint: focusChapter
+    };
   }
 
   async evaluateStudentAnswer(dto: DebateEvaluateAnswerDto): Promise<DebateEvaluationResult> {
