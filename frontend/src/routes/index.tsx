@@ -6,6 +6,7 @@ import OnboardingPage from "@/features/onboarding/OnboardingPage";
 import GardenPage from "@/features/garden/GardenPage";
 import PlanningPage from "@/features/planning/PlanningPage";
 import TeacherPage from "@/features/teacher/TeacherPage";
+import AccountPage from "@/features/account/AccountPage";
 import ProtectedRoute from "./ProtectedRoute";
 
 export const router = createBrowserRouter([
@@ -34,6 +35,14 @@ export const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <PlanningPage />
+      </ProtectedRoute>
+    )
+  },
+  {
+    path: "/account",
+    element: (
+      <ProtectedRoute>
+        <AccountPage />
       </ProtectedRoute>
     )
   },

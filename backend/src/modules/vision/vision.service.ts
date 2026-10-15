@@ -47,7 +47,9 @@ Trả về đúng định dạng JSON thuần túy (không markdown):
 
       const parsed = JSON.parse(resultText);
       return {
-        step_by_step: Array.isArray(parsed.step_by_step) ? parsed.step_by_step : ["Bước 1: Thiết lập phương trình ban đầu", "Bước 2: Biến đổi biểu thức đại số"],
+        step_by_step: Array.isArray(parsed.step_by_step) && parsed.step_by_step.length > 0
+          ? parsed.step_by_step
+          : ["Bước 1: Thiết lập phương trình ban đầu", "Bước 2: Biến đổi biểu thức đại số"],
         error_step_index: typeof parsed.error_step_index === "number" ? parsed.error_step_index : 1,
         error_type: parsed.error_type || "Sơ suất ở bước biến đổi trung gian",
         pedagogical_guidance: parsed.pedagogical_guidance || "Kiểm tra lại điều kiện nghiệm và các bước chuyển vế đổi dấu.",

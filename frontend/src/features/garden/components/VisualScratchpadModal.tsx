@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Upload, Camera, Loader2, Sparkles, AlertCircle, CheckCircle2 } from "lucide-react";
-import { API_BASE } from "@/shared/api/auth-client";
+import { API_BASE, authFetch } from "@/shared/api/auth-client";
 import MathText from "@/shared/components/MathText";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/shared/components/ui/dialog";
 import { Button } from "@/shared/components/ui/button";
@@ -34,7 +34,7 @@ export default function VisualScratchpadModal({ studentId, subject = "Toán họ
     if (!imageBase64 || loading) return;
     setLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/api/vision/analyze-scratchpad`, {
+      const res = await authFetch(`${API_BASE}/api/vision/analyze-scratchpad`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

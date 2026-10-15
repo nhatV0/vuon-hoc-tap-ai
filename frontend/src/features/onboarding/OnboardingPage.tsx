@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { ArrowRight, ArrowLeft } from "lucide-react";
+import { API_BASE, authFetch } from "@/shared/api/auth-client";
 import StepGradeSubject from "./components/StepGradeSubject";
 import StepEmotionScale from "./components/StepEmotionScale";
 import StepGoalWeakness from "./components/StepGoalWeakness";
-import { API_BASE } from "@/shared/api/auth-client";
 import { useAuth } from "@/shared/context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { Progress } from "@/shared/components/ui/progress";
@@ -25,7 +25,7 @@ export default function OnboardingPage() {
   const handleComplete = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/api/onboarding`, {
+      const res = await authFetch(`${API_BASE}/api/onboarding`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

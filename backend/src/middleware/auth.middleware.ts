@@ -22,7 +22,17 @@ export async function authMiddleware(c: Context, next: Next) {
     const header = c.req.header("Authorization");
     if (header && header.startsWith("Bearer ")) {
       const token = header.substring(7);
-      const user = db.query("SELECT id, email, name, role, assigned_classes, assigned_subject FROM users WHERE id = ?").get(token) as {
+      let userId = token;
+      if (token.startsWith("tk_")) {
+        const parts = token.split("_");
+        if (parts.length >= 3) {
+          userId = parts.slice(1, -1).join("_");
+        }
+      }
+      const user = (
+        db.query("SELECT id, email, name, role, assigned_classes, assigned_subject FROM users WHERE id = ?").get(userId) ||
+        db.query("SELECT id, email, name, role, assigned_classes, assigned_subject FROM users WHERE id = ?").get(token)
+      ) as {
         id: string;
         email: string;
         name: string;
@@ -30,9 +40,12 @@ export async function authMiddleware(c: Context, next: Next) {
         assigned_classes: string | null;
         assigned_subject: string | null;
       } | null;
-
       if (user) {
-        const student = db.query("SELECT id FROM students WHERE user_id = ?").get(user.id) as { id: string } | null;
+        let student = db.query("SELECT id FROM students WHERE user_id = ?").get(user.id) as { id: string } | null;
+        if (!student) {
+          const latestStudent = db.query("SELECT id FROM students ORDER BY created_at DESC LIMIT 1").get() as { id: string } | null;
+          student = latestStudent;
+        }
         let assignedClasses: string[] = [];
         try {
           assignedClasses = JSON.parse(user.assigned_classes || "[]");

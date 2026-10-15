@@ -1,20 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Loader2 } from "lucide-react";
 import { API_BASE } from "@/shared/api/auth-client";
-import MathText from "@/shared/components/MathText";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/shared/components/ui/dialog";
-import { Button } from "@/shared/components/ui/button";
 import { Badge } from "@/shared/components/ui/badge";
 import TwinChallengeView from "./TwinChallengeView";
 import QuizResultView from "./QuizResultView";
-
-interface Question {
-  id: string;
-  question_text: string;
-  options: Record<string, string>;
-  correct_answer?: string;
-  micro_explanation?: string;
-}
+import DailyQuizSubjectSelector from "./DailyQuizSubjectSelector";
+import DailyQuizQuestionView from "./DailyQuizQuestionView";
 
 interface Props {
   studentId: string;
@@ -23,36 +15,55 @@ interface Props {
 }
 
 export default function DailyMicroQuizModal({ studentId, onClose, onTwinSuccess }: Props) {
-  const [questions, setQuestions] = useState<Question[]>([]);
+  const [questions, setQuestions] = useState<any[]>([]);
+  const [availableSubjects, setAvailableSubjects] = useState<string[]>([]);
+  const [selectedSubject, setSelectedSubject] = useState<string>("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [result, setResult] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
 
   const [twinQuestion, setTwinQuestion] = useState<any>(null);
   const [twinSelected, setTwinSelected] = useState<string | null>(null);
   const [twinSubmitted, setTwinSubmitted] = useState(false);
   const [twinLoading, setTwinLoading] = useState(false);
 
-  useEffect(() => {
-    fetch(`${API_BASE}/api/quiz/daily/${studentId}`)
+  const loadQuiz = (subject?: string) => {
+    setLoading(true);
+    const query = subject ? `?subject=${encodeURIComponent(subject)}` : "";
+    const token = localStorage.getItem("sunflower_token");
+    fetch(`${API_BASE}/api/quiz/daily/${studentId}${query}`, {
+      headers: token ? { Authorization: `Bearer ${token}` } : {}
+    })
       .then((res) => res.json())
       .then((data) => {
         setQuestions(data.questions || []);
+        if (data.available_subjects) setAvailableSubjects(data.available_subjects);
+        if (data.selected_subject) setSelectedSubject(data.selected_subject);
+        setCurrentIndex(0);
+        setSelectedAnswers({});
+        setSubmitted(false);
+        setResult(null);
         setLoading(false);
       })
       .catch(() => setLoading(false));
+  };
+
+  useEffect(() => {
+    loadQuiz();
   }, [studentId]);
 
-  const handleSelect = (qId: string, optKey: string) => {
+  const handleSelectAnswer = (qId: string, optKey: string) => {
     if (submitted) return;
     setSelectedAnswers((prev) => ({ ...prev, [qId]: optKey }));
   };
 
   const handleSubmit = async () => {
-    setLoading(true);
+    setSubmitting(true);
     try {
+      const token = localStorage.getItem("sunflower_token");
       const payload = {
         student_id: studentId,
         block: "A00",
@@ -63,26 +74,33 @@ export default function DailyMicroQuizModal({ studentId, onClose, onTwinSuccess 
       };
       const res = await fetch(`${API_BASE}/api/quiz/submit`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          ...(token ? { Authorization: `Bearer ${token}` } : {})
+        },
         body: JSON.stringify(payload)
       });
       setResult(await res.json());
       setSubmitted(true);
     } catch {}
-    setLoading(false);
+    setSubmitting(false);
   };
 
   const handleGenerateTwin = async (detail: any) => {
     setTwinLoading(true);
     try {
+      const token = localStorage.getItem("sunflower_token");
       const res = await fetch(`${API_BASE}/api/quiz/twin-challenge`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          ...(token ? { Authorization: `Bearer ${token}` } : {})
+        },
         body: JSON.stringify({
           student_id: studentId,
           question_id: detail.question_id,
           selected_wrong_answer: detail.selected_answer,
-          subject: "Toán học"
+          subject: selectedSubject || "Toán học"
         })
       });
       const data = await res.json();
@@ -104,19 +122,17 @@ export default function DailyMicroQuizModal({ studentId, onClose, onTwinSuccess 
     }
   };
 
-  const currentQ = questions[currentIndex];
-
   return (
     <Dialog open onOpenChange={onClose}>
-      <DialogContent className="max-w-lg max-h-[85vh] overflow-y-auto">
+      <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-xs font-bold text-muted-foreground uppercase flex items-center justify-between">
-            <span>Trắc Nghiệm Vi Mô (3 Câu/Ngày)</span>
-            {twinQuestion && <Badge variant="default">Thử thách sinh đôi gỡ điểm</Badge>}
+            <span>Trắc Nghiệm Vi Mô (3 Câu Phản Xạ)</span>
+            {twinQuestion && <Badge variant="default">Thử thách sinh đôi</Badge>}
           </DialogTitle>
         </DialogHeader>
 
-        {loading || twinLoading ? (
+        {twinLoading ? (
           <div className="py-12 flex justify-center text-primary"><Loader2 className="w-6 h-6 animate-spin" /></div>
         ) : twinQuestion ? (
           <TwinChallengeView
@@ -129,35 +145,39 @@ export default function DailyMicroQuizModal({ studentId, onClose, onTwinSuccess 
           />
         ) : submitted && result ? (
           <QuizResultView result={result} onGenerateTwin={handleGenerateTwin} onClose={onClose} />
-        ) : currentQ ? (
-          <div className="space-y-4">
-            <div className="text-xs text-muted-foreground">Câu {currentIndex + 1} / {questions.length}</div>
-            <div className="text-sm font-semibold text-foreground"><MathText content={currentQ.question_text} /></div>
-            <div className="space-y-2">
-              {Object.entries(currentQ.options || {}).map(([key, val]) => (
-                <button
-                  key={key}
-                  onClick={() => handleSelect(currentQ.id, key)}
-                  className={`w-full p-3 text-left rounded-xl border text-xs font-medium flex items-center gap-2 transition-colors ${
-                    selectedAnswers[currentQ.id] === key ? "bg-amber-50 border-amber-500 text-amber-900 ring-1 ring-amber-500" : "bg-stone-50 border-stone-200 text-stone-700 hover:bg-stone-100"
-                  }`}
-                >
-                  <span className="w-5 h-5 rounded-full bg-stone-200 flex items-center justify-center font-bold text-[10px]">{key}</span>
-                  <MathText content={val} />
-                </button>
-              ))}
-            </div>
-            <div className="flex justify-between items-center pt-2">
-              <Button variant="ghost" size="sm" disabled={currentIndex === 0} onClick={() => setCurrentIndex((p) => p - 1)}>Câu trước</Button>
-              {currentIndex < questions.length - 1 ? (
-                <Button size="sm" onClick={() => setCurrentIndex((p) => p + 1)}>Câu tiếp</Button>
-              ) : (
-                <Button variant="accent" size="sm" onClick={handleSubmit}>Nộp bài</Button>
-              )}
-            </div>
-          </div>
         ) : (
-          <p className="text-xs text-muted-foreground text-center py-8">Không có câu hỏi cho hôm nay.</p>
+          <div>
+            {!loading && availableSubjects.length > 0 && (
+              <DailyQuizSubjectSelector
+                subjects={availableSubjects}
+                selectedSubject={selectedSubject}
+                onSelectSubject={(sub) => {
+                  setSelectedSubject(sub);
+                  loadQuiz(sub);
+                }}
+                isLoading={loading || submitting}
+              />
+            )}
+
+            {loading ? (
+              <div className="py-12 flex justify-center text-primary"><Loader2 className="w-6 h-6 animate-spin" /></div>
+            ) : questions.length > 0 ? (
+              <DailyQuizQuestionView
+                questions={questions}
+                currentIndex={currentIndex}
+                selectedAnswers={selectedAnswers}
+                onSelectAnswer={handleSelectAnswer}
+                onPrev={() => setCurrentIndex((p) => Math.max(0, p - 1))}
+                onNext={() => setCurrentIndex((p) => Math.min(questions.length - 1, p + 1))}
+                onSubmit={handleSubmit}
+                isSubmitting={submitting}
+              />
+            ) : (
+              <p className="text-xs text-muted-foreground text-center py-8">
+                Chưa có câu hỏi cho môn học này.
+              </p>
+            )}
+          </div>
         )}
       </DialogContent>
     </Dialog>

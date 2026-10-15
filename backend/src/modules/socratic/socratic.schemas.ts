@@ -3,6 +3,7 @@ import { z } from "zod";
 export const SocraticChatSchema = z.object({
   student_id: z.string().min(1),
   subject: z.string().min(1).default("Toán học"),
+  mode: z.enum(["socratic", "solver"]).optional().default("socratic"),
   message: z.string().trim().min(1).max(2000),
   history: z.array(
     z.object({

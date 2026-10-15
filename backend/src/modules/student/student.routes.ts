@@ -40,5 +40,30 @@ export function createStudentRouter(): Hono {
     }, 200);
   });
 
+  // Leaderboard (Bảng phong thần)
+  router.get("/leaderboard/top", (c) => {
+    const topStudents = db.query(`
+      SELECT 
+        s.id as student_id,
+        s.name,
+        s.grade,
+        s.classroom,
+        s.target_subject,
+        s.selected_flower,
+        COALESCE(f.consecutive_days, 1) as streak,
+        COALESCE(f.water_drops, 1) as water_drops,
+        COALESCE(inv.holy_water, 0) as holy_water,
+        (SELECT COUNT(*) FROM daily_checkins WHERE student_id = s.id) as total_checkins,
+        (SELECT COUNT(*) FROM student_quiz_attempts WHERE student_id = s.id AND correct_answers > 0) as quiz_wins
+      FROM students s
+      LEFT JOIN flower_status f ON f.student_id = s.id
+      LEFT JOIN streak_inventories inv ON inv.student_id = s.id
+      ORDER BY streak DESC, water_drops DESC, total_checkins DESC
+      LIMIT 20
+    `).all();
+
+    return c.json(topStudents, 200);
+  });
+
   return router;
 }

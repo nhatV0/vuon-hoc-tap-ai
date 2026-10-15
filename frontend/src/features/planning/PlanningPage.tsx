@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle2, Circle, Clock } from "lucide-react";
-import { API_BASE } from "@/shared/api/auth-client";
+import { API_BASE, authFetch } from "@/shared/api/auth-client";
 import { useAuth } from "@/shared/context/AuthContext";
 import { PlannedTask, Milestone } from "@/shared/types";
 import { Card } from "@/shared/components/ui/card";
@@ -16,7 +16,7 @@ export default function PlanningPage() {
   const studentId = user?.student_id || localStorage.getItem("sunflower_student_id") || "hs_default";
 
   useEffect(() => {
-    fetch(`${API_BASE}/api/planning/${studentId}`)
+    authFetch(`${API_BASE}/api/planning/${studentId}`)
       .then((res) => res.json())
       .then((data) => {
         const allTasks: PlannedTask[] = [];
@@ -34,7 +34,7 @@ export default function PlanningPage() {
 
   const toggleTask = async (taskId: number, currentStatus: boolean) => {
     try {
-      const res = await fetch(`${API_BASE}/api/planning/task/${taskId}`, {
+      const res = await authFetch(`${API_BASE}/api/planning/task/${taskId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ is_completed: !currentStatus })

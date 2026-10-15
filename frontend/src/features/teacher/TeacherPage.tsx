@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ShieldAlert, Users, BookOpen, AlertTriangle, LogOut, Sun } from "lucide-react";
+import { ShieldAlert, Users, BookOpen, AlertTriangle, LogOut, Sun, Layers } from "lucide-react";
 import { API_BASE } from "@/shared/api/auth-client";
 import { useAuth } from "@/shared/context/AuthContext";
 import { Button } from "@/shared/components/ui/button";
 import { Card } from "@/shared/components/ui/card";
 import { Badge } from "@/shared/components/ui/badge";
-
+import TeacherQuestionBankView from "./components/TeacherQuestionBankView";
 export default function TeacherPage() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [dashboard, setDashboard] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-
+  const [activeTab, setActiveTab] = useState<"alerts" | "question_bank">("question_bank");
   useEffect(() => {
-    fetch(`${API_BASE}/api/teacher/dashboard`)
+    const token = localStorage.getItem("sunflower_token");
+    fetch(`${API_BASE}/api/teacher/dashboard`, {
+      headers: token ? { Authorization: `Bearer ${token}` } : {}
+    })
       .then((res) => res.json())
       .then((data) => {
         setDashboard(data);
@@ -65,34 +68,70 @@ export default function TeacherPage() {
             <div className="text-xs text-muted-foreground">Chuẩn hóa chương trình 10-11-12</div>
           </Card>
         </div>
+        <div className="flex items-center gap-2 border-b border-stone-200 pb-2">
+          <button
+            type="button"
+            onClick={() => setActiveTab("question_bank")}
+            className={`px-3 py-1.5 text-xs rounded-xl font-bold flex items-center gap-1.5 transition-colors ${
+              activeTab === "question_bank"
+                ? "bg-amber-500 text-white shadow-xs"
+                : "bg-white text-stone-600 border border-stone-200 hover:bg-stone-50"
+            }`}
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>Ngân Hàng Câu Hỏi 11 Môn</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab("alerts")}
+            className={`px-3 py-1.5 text-xs rounded-xl font-bold flex items-center gap-1.5 transition-colors ${
+              activeTab === "alerts"
+                ? "bg-amber-500 text-white shadow-xs"
+                : "bg-white text-stone-600 border border-stone-200 hover:bg-stone-50"
+            }`}
+          >
+            <ShieldAlert className="w-3.5 h-3.5" />
+            <span>Cảnh Báo Sớm Học Sinh</span>
+          </button>
+        </div>
 
-        <Card className="p-6 border-border shadow-xs">
-          <div className="flex items-center gap-2 mb-4">
-            <ShieldAlert className="w-5 h-5 text-rose-500" />
-            <h2 className="text-sm font-bold text-foreground">Danh Sách Học Sinh Có Dấu Hiệu Quá Tải / Vắng Mặt Kéo Dài</h2>
-          </div>
-
-          <div className="space-y-3">
-            {dashboard?.alerts?.length > 0 ? (
-              dashboard.alerts.map((alert: any) => (
-                <div key={alert.student_id} className="p-4 rounded-2xl border border-rose-100 bg-rose-50/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                  <div>
-                    <div className="text-xs font-bold text-stone-900">
-                      {alert.student_name} – Lớp {alert.classroom} ({alert.grade})
+        {activeTab === "question_bank" ? (
+          <TeacherQuestionBankView />
+        ) : (
+          <Card className="p-6 border-border shadow-xs">
+            <div className="flex items-center gap-2 mb-4">
+              <ShieldAlert className="w-5 h-5 text-rose-500" />
+              <h2 className="text-sm font-bold text-foreground">
+                Danh Sách Học Sinh Có Dấu Hiệu Quá Tải / Vắng Mặt Kéo Dài
+              </h2>
+            </div>
+            <div className="space-y-3">
+              {dashboard?.alerts?.length > 0 ? (
+                dashboard.alerts.map((alert: any) => (
+                  <div
+                    key={alert.student_id}
+                    className="p-4 rounded-2xl border border-rose-100 bg-rose-50/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                  >
+                    <div>
+                      <div className="text-xs font-bold text-stone-900">
+                        {alert.student_name} – Lớp {alert.classroom} ({alert.grade})
+                      </div>
+                      <div className="text-[11px] text-rose-700 mt-0.5 font-medium">Lý do: {alert.reason}</div>
+                      <div className="text-[11px] text-stone-500 mt-1">Gợi ý: {alert.suggested_action}</div>
                     </div>
-                    <div className="text-[11px] text-rose-700 mt-0.5 font-medium">Lý do: {alert.reason}</div>
-                    <div className="text-[11px] text-stone-500 mt-1">Gợi ý: {alert.suggested_action}</div>
+                    <Button variant="destructive" size="sm" className="self-start sm:self-center">
+                      Gửi Lời Động Viên
+                    </Button>
                   </div>
-                  <Button variant="destructive" size="sm" className="self-start sm:self-center">
-                    Gửi Lời Động Viên
-                  </Button>
-                </div>
-              ))
-            ) : (
-              <p className="text-xs text-muted-foreground py-6 text-center">Tất cả học sinh đều đang duy trì nhịp độ ổn định.</p>
-            )}
-          </div>
-        </Card>
+                ))
+              ) : (
+                <p className="text-xs text-muted-foreground py-6 text-center">
+                  Tất cả học sinh đều đang duy trì nhịp độ ổn định.
+                </p>
+              )}
+            </div>
+          </Card>
+        )}
       </main>
     </div>
   );
