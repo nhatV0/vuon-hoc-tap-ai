@@ -11,15 +11,7 @@ import { UserRole } from "@/common/types";
 export function createSocraticRouter(): Hono {
   const router = new Hono();
   const service = new SocraticService();
-
-  router.use("*", authMiddleware);
-
-  const verifyStudentAccess = (c: Context, targetStudentId: string): boolean => {
-    const user = c.get("user") as AuthUser;
-    if (user.role === UserRole.TEACHER || user.role === UserRole.ADMIN) return true;
-    return user.student_id === targetStudentId;
-  };
-
+  // Public syllabus endpoint for instant curriculum navigation without strict auth blocking
   router.get("/syllabus", (c: Context) => {
     try {
       const subject = c.req.query("subject");
@@ -30,6 +22,13 @@ export function createSocraticRouter(): Hono {
     }
   });
 
+  router.use("*", authMiddleware);
+
+  const verifyStudentAccess = (c: Context, targetStudentId: string): boolean => {
+    const user = c.get("user") as AuthUser;
+    if (user.role === UserRole.TEACHER || user.role === UserRole.ADMIN) return true;
+    return user.student_id === targetStudentId;
+  };
   router.post("/debate/generate-session", async (c: Context) => {
     try {
       const body = await c.req.json();
