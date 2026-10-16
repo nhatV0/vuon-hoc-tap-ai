@@ -18,8 +18,16 @@ export default function MathText({ content, className = "" }: MathTextProps) {
       return key;
     };
 
+    // Normalize all LaTeX delimiters: \\( ... \\), \( ... \), \\[ ... \\], \[ ... \]
+    let normalized = content
+      .replace(/\\\\?\[([\s\S]*?)\\\\?\]/g, (_, math) => `$$${math.trim()}$$`)
+      .replace(/\\\\?\(([\s\S]*?)\\\\?\)/g, (_, math) => `$${math.trim()}$`);
+
+    // Clean up unbalanced brackets or trailing escaped closing parens e.g. \\)
+    normalized = normalized.replace(/\\\\?\)/g, "").replace(/\\\\?\(/g, "");
+
     // 1. Process block math $$...$$ first
-    let text = content.replace(/\$\$([\s\S]*?)\$\$/g, (_, math) => {
+    let text = normalized.replace(/\$\$([\s\S]*?)\$\$/g, (_, math) => {
       try {
         const rendered = katex.renderToString(math.trim(), { throwOnError: false, displayMode: true });
         return savePlaceholder(`<div class="my-2.5 overflow-x-auto py-1">${rendered}</div>`);
