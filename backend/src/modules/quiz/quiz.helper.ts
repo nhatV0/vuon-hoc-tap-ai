@@ -4,22 +4,16 @@ export function fetchDailyQuestions(studentId: string, subjectQuery?: string) {
   const studentInfo = db.query("SELECT target_subject FROM students WHERE id = ?").get(studentId) as {
     target_subject?: string;
   } | null;
-  const chosenSubject = subjectQuery || studentInfo?.target_subject;
+  const chosenSubject = subjectQuery || studentInfo?.target_subject || "Toán học";
 
-  let questions: Array<any>;
-  if (chosenSubject) {
+  // Strictly lock to chosen subject - NEVER spill into other subjects that the student did not select
+  let questions = db.query(
+    "SELECT * FROM quiz_questions WHERE is_active = 1 AND subject = ? ORDER BY RANDOM()"
+  ).all(chosenSubject) as Array<any>;
+
+  if (questions.length === 0) {
     questions = db.query(
-      "SELECT * FROM quiz_questions WHERE is_active = 1 AND subject = ? ORDER BY RANDOM() LIMIT 3"
-    ).all(chosenSubject) as Array<any>;
-    if (questions.length < 3) {
-      const more = db.query(
-        "SELECT * FROM quiz_questions WHERE is_active = 1 AND subject != ? ORDER BY RANDOM() LIMIT ?"
-      ).all(chosenSubject, 3 - questions.length) as Array<any>;
-      questions = [...questions, ...more];
-    }
-  } else {
-    questions = db.query(
-      "SELECT * FROM quiz_questions WHERE is_active = 1 ORDER BY RANDOM() LIMIT 3"
+      "SELECT * FROM quiz_questions WHERE is_active = 1 ORDER BY RANDOM() LIMIT 1"
     ).all() as Array<any>;
   }
 

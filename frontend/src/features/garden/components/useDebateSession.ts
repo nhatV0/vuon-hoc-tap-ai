@@ -23,7 +23,8 @@ export function useDebateSession(studentId: string, currentSubject: string) {
     // Instantly hydrate default syllabus for snappy zero-latency display
     if (FALLBACK_SYLLABUS_MAP[sub]) {
       setChapters(FALLBACK_SYLLABUS_MAP[sub]);
-      setSelectedIds(FALLBACK_SYLLABUS_MAP[sub].slice(0, 2).map((c) => c.id));
+      // Select ALL chapters across the whole curriculum by default so questions are evenly distributed
+      setSelectedIds(FALLBACK_SYLLABUS_MAP[sub].map((c) => c.id));
     }
     try {
       const res = await authFetch(`${API_BASE}/api/socratic/syllabus?subject=${encodeURIComponent(sub)}`);
@@ -31,7 +32,8 @@ export function useDebateSession(studentId: string, currentSubject: string) {
         const data = await res.json();
         if (data.syllabus && data.syllabus[sub]) {
           setChapters(data.syllabus[sub]);
-          setSelectedIds(data.syllabus[sub].slice(0, 2).map((c: SyllabusChapter) => c.id));
+          // Select ALL chapters across the whole curriculum by default
+          setSelectedIds(data.syllabus[sub].map((c: SyllabusChapter) => c.id));
         }
       }
     } catch {}
