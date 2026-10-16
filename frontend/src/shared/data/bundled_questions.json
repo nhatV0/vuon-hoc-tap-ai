@@ -1,0 +1,2642 @@
+[
+  {
+    "id": "CONGNGHE-001",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Mục I: Công nghệ chăn nuôi (Ứng dụng CNSH trong phòng trị bệnh)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong công nghệ chăn nuôi hiện đại, chế phẩm vi sinh (probiotics) chứa vi khuẩn có lợi như Bacillus subtilis thường được bổ sung vào khẩu phần ăn của vật nuôi nhằm mục đích chính là gì?",
+    "options": {
+      "A": "Cân bằng hệ vi sinh đường ruột, tăng cường tiêu hóa và nâng cao khả năng miễn dịch tự nhiên",
+      "B": "Tiêu diệt hoàn toàn tất cả các loại vi sinh vật trong đường tiêu hóa",
+      "C": "Thay thế hoàn toàn nhu cầu về protein và khoáng chất trong khẩu phần ăn",
+      "D": "Làm cho vật nuôi ngủ nhiều hơn để tăng trọng nhanh chóng"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Probiotics là các chủng vi sinh vật sống hữu ích, khi đưa vào cơ thể vật nuôi sẽ cạnh tranh vị trí bám và dưỡng chất với vi khuẩn gây bệnh, sản sinh enzyme tiêu hóa giúp hấp thu dinh dưỡng tốt hơn và kích thích hệ miễn dịch đường ruột.",
+    "growth_mindset_tip": "Ứng dụng công nghệ sinh học trong chăn nuôi an toàn sinh học: Dùng men vi sinh Probiotics để giảm thiểu tối đa việc lạm dụng kháng sinh!"
+  },
+  {
+    "id": "CONGNGHE-002",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "TRAP_2",
+    "source": "Phần A - Mục I: Xử lý chất thải chăn nuôi (Công nghệ Biogas)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Khí sinh học (Biogas) sinh ra từ quá trình lên men yếm khí phân và chất thải hữu cơ chăn nuôi có thành phần khí cháy chủ yếu là:",
+    "options": {
+      "A": "Khí Methane (CH4) chiếm khoảng 50 - 70%",
+      "B": "Khí Carbon dioxide (CO2) chiếm 90%",
+      "C": "Khí Hydrogen sulfide (H2S) chiếm 80%",
+      "D": "Khí Oxygen (O2) chiếm 75%"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Khí sinh học (Biogas) là hỗn hợp khí tạo thành do vi sinh vật phân hủy chất hữu cơ trong điều kiện kỵ khí (không có oxy). Thành phần chính mang giá trị nhiệt lượng là khí Methane ($CH_4$) chiếm từ 50% đến 70%, phần còn lại chủ yếu là $CO_2$ và một lượng nhỏ tạp chất ($H_2S, N_2$).",
+    "growth_mindset_tip": "Công nghệ Biogas: Vừa xử lý ô nhiễm chất thải vừa thu hồi năng lượng tái tạo Methane ($CH_4$) phục vụ đun nấu và phát điện!"
+  },
+  {
+    "id": "CONGNGHE-003",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Mục II: Ngành Thủy sản (Công nghệ nuôi Biofloc)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Bản chất của công nghệ Biofloc ứng dụng trong nuôi trồng thủy sản thâm canh siêu sạch là gì?",
+    "options": {
+      "A": "Dùng vi sinh vật dị dưỡng kết tụ các chất hữu cơ dư thừa và khí độc thành các hạt 'floc' giàu dinh dưỡng làm thức ăn cho tôm cá",
+      "B": "Sử dụng hóa chất kháng sinh nồng độ cao liên tục khử trùng ao nuôi",
+      "C": "Thay nước liên tục 100% mỗi ngày từ sông hồ tự nhiên",
+      "D": "Bón phân hóa học đạm lân để kích thích rong rêu phát triển tự nhiên"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Công nghệ Biofloc bổ sung nguồn carbon (mật rỉ đường) kích thích vi khuẩn dị dưỡng phát triển, chuyển hóa các hợp chất nitơ độc hại ($NH_3, NO_2^-$) thành sinh khối vi khuẩn dạng hạt bông (floc). Hạt floc chứa hàm lượng đạm cao trở thành nguồn thức ăn tự nhiên giàu dinh dưỡng cho tôm, cá, giúp tiết kiệm chi phí thức ăn và không cần thay nước.",
+    "growth_mindset_tip": "Công nghệ tuần hoàn khép kín Biofloc: Biến chất thải nguy hại thành nguồn protein dinh dưỡng tự nhiên nuôi sống tôm cá!"
+  },
+  {
+    "id": "CONGNGHE-004",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Mục II: Kỹ thuật Lâm nghiệp và Khai thác rừng bền vững",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Để bảo vệ nguồn nước và chống xói mòn, sạt lở đất nghiêm trọng tại các vùng lưu vực sông đồi núi dốc, phương thức khai thác rừng nào bị nghiêm cấm áp dụng đối với rừng phòng hộ?",
+    "options": {
+      "A": "Khai thác trắng (chặt toàn bộ cây rừng trên diện tích lớn cùng một lúc)",
+      "B": "Khai thác chọn (chỉ tỉa thưa những cây đạt tuổi thành thục)",
+      "C": "Khai thác dần (chặt theo nhiều đợt có tái sinh tự nhiên)",
+      "D": "Tỉa thưa nuôi dưỡng rừng"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Khai thác trắng làm mất hoàn toàn thảm thực vật che phủ bề mặt đất trong thời gian dài, khi gặp mưa lớn sẽ gây xói mòn, rửa trôi tầng đất mặt màu mỡ và lũ quét sạt lở đất nghiêm trọng. Vì vậy, rừng phòng hộ đầu nguồn tuyệt đối không được khai thác trắng mà phải bảo vệ nghiêm ngặt hoặc chỉ khai thác chọn rất hạn chế.",
+    "growth_mindset_tip": "Nguyên tắc quản lý rừng bền vững: Rừng đầu nguồn là lá chắn sinh thái, mất thảm thực vật là mất đi lớp giáp bảo vệ sự sống trước thiên tai!"
+  },
+  {
+    "id": "CONGNGHE-005",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Mục I: Động cơ đốt trong (Nguyên lý động cơ xăng 4 kì)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong chu trình làm việc của động cơ xăng 4 kỳ, kỳ nào là kỳ duy nhất sinh công cơ học làm quay trục khuỷu?",
+    "options": {
+      "A": "Kỳ Cháy - Giãn nở",
+      "B": "Kỳ Nạp",
+      "C": "Kỳ Nén",
+      "D": "Kỳ Thải"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trong 4 kỳ (Nạp - Nén - Cháy, giãn nở - Thải), chỉ có kỳ Cháy - Giãn nở là kỳ sinh công: Bu-gi bật tia lửa điện đốt cháy hòa khí, áp suất và nhiệt độ tăng vọt đẩy piston từ ĐCT xuống ĐCD làm quay trục khuỷu sinh cơ năng hữu ích. Ba kỳ còn lại là các kỳ tiêu tốn công.",
+    "growth_mindset_tip": "Chu trình động cơ nhiệt 4 kỳ: 1 vòng sinh công đòi hỏi 2 vòng quay trục khuỷu, duy nhất kỳ Cháy - Giãn nở sinh công đẩy piston!"
+  },
+  {
+    "id": "CONGNGHE-006",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Mục I: So sánh động cơ Xăng và động cơ Diesel",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Điểm khác biệt cốt lõi trong quá trình nạp và tạo hòa khí giữa động cơ Diesel so với động cơ Xăng là:",
+    "options": {
+      "A": "Động cơ Diesel kỳ nạp chỉ hút không khí sạch vào xi lanh, nhiên liệu được phun vào cuối kỳ nén và tự bốc cháy",
+      "B": "Động cơ Diesel nạp hỗn hợp hòa khí xăng và không khí qua bộ chế hòa khí",
+      "C": "Động cơ Diesel bắt buộc phải sử dụng bu-gi đánh lửa điện áp cao",
+      "D": "Động cơ Diesel có tỉ số nén thấp hơn nhiều so với động cơ Xăng"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Động cơ xăng nạp hỗn hợp xăng + không khí (hòa khí) vào xi lanh và cuối kỳ nén dùng bu-gi đánh lửa. Động cơ Diesel chỉ nạp không khí sạch, nén với tỉ số nén rất cao làm nhiệt độ và áp suất không khí tăng vọt; cuối kỳ nén, kim phun phun sương dầu diesel vào gặp không khí nóng tự bốc cháy mà không cần bu-gi.",
+    "growth_mindset_tip": "Khác biệt cơ bản giữa Xăng và Diesel: Động cơ Diesel không có bu-gi đánh lửa, nhiên liệu tự bốc cháy do áp suất và nhiệt độ nén cực cao!"
+  },
+  {
+    "id": "CONGNGHE-007",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Mục I: Hệ thống truyền lực trên ô tô (Hộp số và Vi sai)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Bộ vi sai trong hệ thống truyền lực của ô tô có công dụng then chốt nào?",
+    "options": {
+      "A": "Cho phép hai bánh xe chủ động quay với vận tốc góc khác nhau khi xe quay vòng hoặc đi trên đường gồ ghề",
+      "B": "Ngắt và nối mô-men truyền lực từ động cơ sang hộp số",
+      "C": "Thay đổi chiều quay của trục khuỷu để xe đi lùi",
+      "D": "Dập tắt dao động của khung xe"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Khi ô tô quay vòng, bánh xe phía ngoài bán kính cua phải lăn quãng đường dài hơn bánh xe phía trong. Bộ vi sai phân chia mô-men và cho phép hai bánh xe chủ động quay với tốc độ khác nhau, tránh hiện tượng trượt bánh, mòn lốp và lật xe.",
+    "growth_mindset_tip": "Bộ vi sai là kiệt tác cơ khí: Giúp ô tô ôm cua mượt mà mà bánh xe không bị bó cứng hay trượt quét mặt đường!"
+  },
+  {
+    "id": "CONGNGHE-008",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Mục II: Kĩ thuật điện (Mạch điện ba pha đối xứng)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Một nguồn điện ba pha đối xứng có điện áp pha $U_p = 220\\text{ V}$ được nối hình sao ($Y$). Điện áp dây $U_d$ giữa hai dây pha của hệ thống này bằng bao nhiêu (lấy $\\sqrt{3} \\approx 1{,}732$)?",
+    "options": {
+      "A": "380 V",
+      "B": "220 V",
+      "C": "127 V",
+      "D": "440 V"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trong nguồn điện ba pha nối hình sao ($Y$), mối liên hệ giữa điện áp dây và điện áp pha là: $U_d = \\sqrt{3} U_p = 1{,}732 \\times 220 \\approx 381\\text{ V}$ (chuẩn lưới điện hạ áp công nghiệp Việt Nam là 380V/220V).",
+    "growth_mindset_tip": "Công thức kinh điển mạch 3 pha nối sao (Y): $U_d = \\sqrt{3} U_p$ và $I_d = I_p$; nối tam giác (Delta): $U_d = U_p$ và $I_d = \\sqrt{3} I_p$!"
+  },
+  {
+    "id": "CONGNGHE-009",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Mục II: Linh kiện điện tử (Diode bán dẫn)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Linh kiện điện tử bán dẫn Diode có tính chất dẫn điện đặc trưng cơ bản nào?",
+    "options": {
+      "A": "Chỉ cho dòng điện đi qua theo một chiều từ Anode sang Cathode (dẫn điện đơn hướng)",
+      "B": "Dẫn điện tốt theo cả hai chiều như một dây dẫn thuần trở",
+      "C": "Tích điện và phóng điện ở tần số cao",
+      "D": "Khuếch đại tín hiệu điện áp xoay chiều"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Diode bán dẫn có cấu tạo gồm một lớp chuyển tiếp P-N, có đặc tính dẫn điện theo một chiều duy nhất (khi phân cực thuận từ Anode sang Cathode) và ngăn chặn dòng điện theo chiều ngược lại. Tính chất này được ứng dụng làm mạch chỉnh lưu biến dòng xoay chiều thành dòng một chiều.",
+    "growth_mindset_tip": "Nhớ biểu tượng Diode: Mũi tên chỉ hướng cho phép dòng điện chạy qua từ A (Anode) sang K (Cathode)!"
+  },
+  {
+    "id": "CONGNGHE-010",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Mục II: Thiết bị đóng cắt bảo vệ mạng điện hạ áp",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Thiết bị bảo vệ Aptomat chống rò điện (ELCB - Earth Leakage Circuit Breaker) trong mạng điện gia đình có chức năng bảo vệ vượt trội nào so với Aptomat thông thường (MCB)?",
+    "options": {
+      "A": "Tự động ngắt nguồn điện khi phát hiện dòng điện rò ra vỏ thiết bị hoặc khi có người bị điện giật",
+      "B": "Chỉ có tác dụng đo đếm lượng điện năng tiêu thụ hàng tháng",
+      "C": "Tự động tăng điện áp khi nguồn điện bị sụt áp",
+      "D": "Biến đổi dòng điện xoay chiều thành dòng điện một chiều an toàn"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "MCB thông thường chỉ bảo vệ khi xảy ra quá tải dòng điện hoặc ngắn mạch. ELCB (hoặc RCBO) có thêm bộ cảm biến dòng rò so lệch giữa dây pha và dây trung tính; khi dòng điện rò đạt ngưỡng (thường từ 15mA - 30mA do hở điện chạm vỏ hoặc người chạm vào điện), ELCB sẽ nhảy trong mili-giây bảo vệ tính mạng con người và phòng chống cháy nổ.",
+    "growth_mindset_tip": "An toàn điện gia đình: Lắp đặt aptomat chống giật ELCB/RCBO cho các thiết bị dùng nước như bình nóng lạnh, máy giặt để phòng tránh rủi ro tai nạn rò điện!"
+  },
+  {
+    "id": "CONGNGHE-011",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Mục II: Linh kiện điện tử (Transistor)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Trong các mạch điện tử, Transistor (BJT) thường được sử dụng với hai chức năng cơ bản chủ yếu nào?",
+    "options": {
+      "A": "Khuếch đại tín hiệu điện và làm khóa đóng ngắt điện tử (Switch tử)",
+      "B": "Biến đổi điện áp một chiều thành điện áp xoay chiều ba pha",
+      "C": "Phát quang ánh sáng màu và tích trữ năng lượng từ trường",
+      "D": "Lọc sóng cao tần và chặn hoàn toàn dòng điện một chiều"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Transistor lưỡng cực BJT (gồm 3 cực B - Base, C - Collector, E - Emitter) hoạt động ở vùng tích cực làm phần tử khuếch đại dòng điện/điện áp; khi điều khiển ở trạng thái đóng - cắt (bão hòa - ngắt), Transistor đóng vai trò như một rơ-le điện tử không tiếp điểm tốc độ cao.",
+    "growth_mindset_tip": "Transistor là nền móng của cuộc cách mạng công nghệ số: Đóng ngắt hàng tỷ lần mỗi giây bên trong các con chip vi xử lý máy tính!"
+  },
+  {
+    "id": "CONGNGHE-012",
+    "block": "A00",
+    "subject": "Công nghệ",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Mục I: Hệ thống an toàn trên ô tô hiện đại (Phanh ABS)",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Nguyên lý làm việc then chốt của Hệ thống chống bó cứng phanh (ABS - Anti-lock Braking System) trên ô tô khi người lái phanh gấp là:",
+    "options": {
+      "A": "Cảm biến tốc độ phát hiện nguy cơ bánh xe bị trượt lết và bộ điều khiển điện tử ECU liên tục nhấp nhả áp suất dầu phanh hàng chục lần mỗi giây để duy trì độ bám đường tối đa và khả năng đánh lái",
+      "B": "Tự động khóa cứng cả 4 bánh xe ngay lập tức để xe dừng lại trong quãng đường ngắn nhất",
+      "C": "Tắt động cơ đốt trong ngay khi người lái đạp bàn đạp phanh",
+      "D": "Chuyển mô-men xoắn toàn bộ sang hộp số lùi để hãm xe"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Khi phanh gấp, bánh xe rất dễ bị bó cứng (khóa chết) làm mất ma sát nghỉ, xe bị trượt lết mất kiểm soát hướng lái. Hệ thống ABS sử dụng cảm biến và van điện từ điều khiển bởi ECU để liên tục điều chỉnh áp suất dầu phanh (nhấp - nhả với tần số cao từ 15-20 lần/giây), giữ cho bánh xe luôn ở ngưỡng lăn có ma sát trượt tối ưu, giúp tài xế vừa phanh gấp vừa bẻ lái tránh chướng ngại vật an toàn.",
+    "growth_mindset_tip": "Hệ thống ABS cứu mạng: Không phải dừng xe tức thì, mà giữ cho bánh xe không bị khóa cứng để tài xế vẫn kiểm soát được vô-lăng lái khi khẩn cấp!"
+  },
+  {
+    "id": "DIA-001",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương I: Địa lí tự nhiên Việt Nam (Đặc điểm địa hình)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Hai hướng núi chính của địa hình Việt Nam là:",
+    "options": {
+      "A": "Tây bắc - đông nam và hướng vòng cung",
+      "B": "Bắc - nam và tây - đông",
+      "C": "Đông bắc - tây nam và hướng tuyến tính",
+      "D": "Tây nam - đông bắc và hướng nan quạt"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Địa hình đồi núi nước ta có hai hướng chính: Hướng tây bắc - đông nam (thể hiện rõ ở vùng núi Tây Bắc và Trường Sơn Bắc) và hướng vòng cung (thể hiện ở vùng núi Đông Bắc và Trường Sơn Nam).",
+    "growth_mindset_tip": "Nhớ nhanh 2 hướng núi: Tây Bắc và Trường Sơn Bắc chạy theo hướng Tây Bắc - Đông Nam; các cánh cung Sông Gâm, Ngân Sơn, Bắc Sơn, Đông Triều chạy theo hướng vòng cung!"
+  },
+  {
+    "id": "DIA-002",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương I: Sự phân hóa thiên nhiên Bắc - Nam",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Ranh giới tự nhiên phân chia khí hậu phần lãnh thổ phía Bắc và phần lãnh thổ phía Nam của nước ta là:",
+    "options": {
+      "A": "Dãy Bạch Mã",
+      "B": "Dãy Hoành Sơn",
+      "C": "Đèo Ngang",
+      "D": "Dãy Hoàng Liên Sơn"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Dãy Bạch Mã (khoảng vĩ tuyến $16^\\circ\\text{B}$) đóng vai trò như bức tường thành ngăn cản gió mùa Đông Bắc tràn xuống phía Nam, tạo nên ranh giới giữa phần lãnh thổ phía Bắc (có mùa đông lạnh) và phía Nam (nóng quanh năm, mang tính chất cận xích đạo gió mùa).",
+    "growth_mindset_tip": "Bẫy thường gặp: Nhầm giữa đèo Ngang/dãy Hoành Sơn (vĩ tuyến 18 độ B) và dãy Bạch Mã (vĩ tuyến 16 độ B - ranh giới chính xác Bắc/Nam)!"
+  },
+  {
+    "id": "DIA-003",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương I: Gió mùa và khí hậu Việt Nam",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Hiện tượng mưa phùn vào nửa cuối mùa đông ở vùng đồng bằng Bắc Bộ và Bắc Trung Bộ nước ta có nguyên nhân chủ yếu do:",
+    "options": {
+      "A": "Khối khí lạnh phương Bắc lệch đông di chuyển qua biển được tăng cường ẩm",
+      "B": "Gió mùa Tây Nam từ vịnh Băng-gan thổi vào",
+      "C": "Ảnh hưởng của dải hội tụ nhiệt đới và bão nhiệt đới",
+      "D": "Gió Tín phong bán cầu Bắc hoạt động mạnh mẽ"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Vào nửa cuối mùa đông, áp cao Siberi dịch chuyển về phía đông, khối khí cực đới lục địa di chuyển lệch qua biển Thái Bình Dương và vịnh Bắc Bộ nên được cung cấp lượng ẩm lớn, khi vào đất liền gặp lạnh ngưng tụ sinh ra mưa phùn ven biển và đồng bằng Bắc Bộ.",
+    "growth_mindset_tip": "Nhớ quy luật gió mùa Đông Bắc: Nửa đầu mùa đông đi qua lục địa khô và lạnh; Nửa sau mùa đông lệch đông qua biển ẩm và gây mưa phùn!"
+  },
+  {
+    "id": "DIA-004",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "DYNAMIC_3",
+    "source": "Kỹ năng tính toán địa lí (Mật độ dân số)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Năm 2022, vùng Đồng bằng sông Hồng có số dân là 23,4 triệu người và diện tích tự nhiên là 21 278 km2. Mật độ dân số của vùng Đồng bằng sông Hồng năm 2022 là bao nhiêu (làm tròn đến hàng đơn vị)?",
+    "options": {
+      "A": "1 100 người/km2",
+      "B": "1 050 người/km2",
+      "C": "980 người/km2",
+      "D": "1 250 người/km2"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Công thức tính mật độ dân số: $\\text{Mật độ dân số} = \\frac{\\text{Số dân}}{\\text{Diện tích}}$. Ta có: $\\frac{23\\,400\\,000}{21\\,278} \\approx 1\\,099{,}7$ làm tròn thành $1\\,100\\text{ người/km}^2$. Đây là vùng có mật độ dân số cao nhất cả nước.",
+    "growth_mindset_tip": "Chú ý đổi đơn vị dân số sang 'người' trước khi chia diện tích 'km2': 23,4 triệu người = 23 400 000 người!"
+  },
+  {
+    "id": "DIA-005",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Mục 2: Liên minh Châu Âu (EU)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Nội dung nào sau đây là một trong 'bốn mặt tự do lưu thông' then chốt của thị trường chung Liên minh Châu Âu (EU)?",
+    "options": {
+      "A": "Tự do lưu thông con người, hàng hóa, dịch vụ và tiền vốn",
+      "B": "Tự do lưu thông vũ khí và thiết bị quân sự",
+      "C": "Tự do khai thác tài nguyên lãnh hải toàn cầu",
+      "D": "Tự do thay đổi biên giới quốc gia các nước thành viên"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Bốn quyền tự do lưu thông cốt lõi của thị trường chung EU gồm: Tự do lưu thông con người (công dân tự do cư trú, làm việc), tự do lưu thông hàng hóa (không thuế quan nội khối), tự do dịch vụ và tự do tiền vốn.",
+    "growth_mindset_tip": "Nắm vững 4 trụ cột tự do của EU: Con người - Hàng hóa - Dịch vụ - Tiền vốn!"
+  },
+  {
+    "id": "DIA-006",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "TRAP_2",
+    "source": "Phần A - Mục 3: Khu vực Đông Nam Á",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Eo biển nào sau đây ở khu vực Đông Nam Á là tuyến giao thông hàng hải quốc tế huyết mạch kết nối Ấn Độ Dương với Biển Đông và Thái Bình Dương?",
+    "options": {
+      "A": "Eo biển Ma-lắc-ca (Malacca)",
+      "B": "Eo biển Xun-đa (Sunda)",
+      "C": "Eo biển Gi-bran-ta",
+      "D": "Eo biển Bô-xpho-rút"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Eo biển Ma-lắc-ca (nằm giữa bán đảo Mã Lai và đảo Sumatra của Indonesia) là một trong những tuyến đường biển nhộn nhịp nhất thế giới, vận chuyển khoảng 1/4 lượng dầu mỏ và hàng hóa giao thương toàn cầu.",
+    "growth_mindset_tip": "Vị trí địa chính trị của Ma-lắc-ca: 'Yết hầu hàng hải' của Đông Nam Á và thế giới!"
+  },
+  {
+    "id": "DIA-007",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương III: Địa lí ngành nông nghiệp Việt Nam",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Vùng nào sau đây là vùng chuyên canh cây cà phê lớn nhất của nước ta nhờ có diện tích đất đỏ bazan màu mỡ và tầng phong hóa sâu rộng lớn?",
+    "options": {
+      "A": "Tây Nguyên",
+      "B": "Đông Nam Bộ",
+      "C": "Trung du và miền núi Bắc Bộ",
+      "D": "Bắc Trung Bộ"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Tây Nguyên là thủ phủ cà phê của Việt Nam (nổi bật là các tỉnh Đắk Lắk, Lâm Đồng, Gia Lai) nhờ lợi thế các cao nguyên bazan xếp tầng màu mỡ, khí hậu cận xích đạo có hai mùa mưa nắng rõ rệt thuận tiện thu hoạch và phơi sấy.",
+    "growth_mindset_tip": "Phân biệt chuyên canh cây công nghiệp: Cà phê lớn nhất ở Tây Nguyên; Cao su lớn nhất ở Đông Nam Bộ; Chè lớn nhất ở Trung du miền núi Bắc Bộ!"
+  },
+  {
+    "id": "DIA-008",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương III: Chuyển dịch cơ cấu kinh tế Việt Nam",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Mục tiêu cơ bản và dài hạn nhất của việc chuyển dịch cơ cấu kinh tế theo ngành ở nước ta (giảm tỉ trọng nông nghiệp, tăng tỉ trọng công nghiệp - xây dựng và dịch vụ) là nhằm:",
+    "options": {
+      "A": "Thúc đẩy tăng trưởng kinh tế nhanh, hiện đại hóa đất nước và nâng cao hiệu quả sử dụng nguồn lực xã hội",
+      "B": "Xóa bỏ hoàn toàn ngành sản xuất nông nghiệp truyền thống",
+      "C": "Hạn chế việc thu hút vốn đầu tư trực tiếp nước ngoài (FDI)",
+      "D": "Tập trung toàn bộ lực lượng lao động về các đô thị đặc biệt"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Chuyển dịch cơ cấu ngành kinh tế là tất yếu khách quan của quá trình công nghiệp hóa, hiện đại hóa nhằm nâng cao năng suất lao động, khai thác tối ưu tiềm năng tài nguyên và vị thế địa kinh tế để đất nước phát triển nhanh và bền vững.",
+    "growth_mindset_tip": "Mục tiêu cốt lõi của công nghiệp hóa - hiện đại hóa: Nâng cao năng suất và chất lượng cuộc sống chứ không phải xóa bỏ nông nghiệp!"
+  },
+  {
+    "id": "DIA-009",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương I: Địa lí tự nhiên Việt Nam (Đặc điểm thổ nhưỡng)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Nhóm đất chiếm diện tích lớn nhất trong các loại đất ở vùng đồi núi nước ta là:",
+    "options": {
+      "A": "Đất feralit",
+      "B": "Đất phù sa ngọt",
+      "C": "Đất mùn thô trên núi cao",
+      "D": "Đất xám bạc màu"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Đất feralit là nhóm đất điển hình cho vùng khí hậu nhiệt đới ẩm gió mùa của nước ta, chiếm hơn 65% diện tích tự nhiên, hình thành chủ yếu trên các loại đá mẹ ở vùng đồi núi thấp.",
+    "growth_mindset_tip": "Đặc trưng khí hậu nhiệt đới ẩm: Quá trình phong hóa feralit diễn ra mạnh mẽ tích tụ oxit sắt và nhôm tạo màu đỏ vàng!"
+  },
+  {
+    "id": "DIA-010",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Mục 1: Khu vực Mỹ La-tinh",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Đặc điểm nổi bật của quá trình đô thị hóa ở khu vực Mỹ La-tinh là:",
+    "options": {
+      "A": "Tỉ lệ dân đô thị cao nhưng đô thị hóa mang tính tự phát, gắn liền với di dân nghèo khổ từ nông thôn ra thành phố",
+      "B": "Đô thị hóa gắn liền chặt chẽ với tốc độ tăng trưởng công nghiệp hiện đại",
+      "C": "Tỉ lệ dân thành thị rất thấp, đại đa số sống ở vùng nông thôn",
+      "D": "Phân bố đô thị đồng đều trên khắp các vùng lãnh thổ"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Mỹ La-tinh có tỉ lệ dân đô thị rất cao (khoảng 80%), tuy nhiên đây là quá trình 'đô thị hóa tự phát' do người nông dân mất đất đổ về các thành phố lớn tìm việc, tạo nên các khu ổ chuột rộng lớn với nhiều vấn đề an sinh xã hội nan giải.",
+    "growth_mindset_tip": "Phân biệt đô thị hóa: Đô thị hóa tự phát (chạy theo dân số) khác với đô thị hóa thực chất (gắn liền với công nghiệp hóa)!"
+  },
+  {
+    "id": "DIA-011",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương II: Địa lí dân cư Việt Nam",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Việt Nam hiện đang ở trong thời kỳ 'Cơ cấu dân số vàng' có nghĩa là:",
+    "options": {
+      "A": "Tỉ lệ người trong độ tuổi lao động gấp đôi hoặc nhiều hơn tỉ lệ người trong độ tuổi phụ thuộc",
+      "B": "Tỉ lệ trẻ em dưới 15 tuổi chiếm đa số trong dân số",
+      "C": "Tuổi thọ trung bình của người dân đạt mức cao nhất thế giới",
+      "D": "Không có người thất nghiệp trong xã hội"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Thời kỳ dân số vàng được định nghĩa khi tỉ lệ người trong độ tuổi lao động (15 - 64 tuổi) chiếm từ 66% trở lên, tức là cứ 2 người lao động thì gánh chưa tới 1 người phụ thuộc, mở ra cơ hội vàng phát triển kinh tế nếu tận dụng tốt nguồn nhân lực.",
+    "growth_mindset_tip": "Cơ cấu dân số vàng là lợi thế nhân lực lớn nhưng chỉ diễn ra một lần trong lịch sử phát triển của mỗi quốc gia!"
+  },
+  {
+    "id": "DIA-012",
+    "block": "C00",
+    "subject": "Địa lí",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương III: Vùng kinh tế Đồng bằng sông Cửu Long",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Phương châm chiến lược quan trọng hàng đầu trong việc thích ứng với biến đổi khí hậu và xâm nhập mặn ở Đồng bằng sông Cửu Long hiện nay là:",
+    "options": {
+      "A": "'Sống chung với mặn', chuyển đổi cơ cấu cây trồng, mùa vụ và mô hình sinh kế thích ứng thông minh với nguồn nước",
+      "B": "Xây đê bao ngăn mặn trên toàn bộ các nhánh sông lớn",
+      "C": "Ngừng hoàn toàn việc nuôi trồng thủy sản nước lợ",
+      "D": "Di dời toàn bộ dân cư khỏi các vùng bán đảo Cà Mau"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Nghị quyết 120 của Chính phủ về phát triển bền vững ĐBSCL nhấn mạnh tư duy 'thuận thiên' và thích ứng thông minh: Chuyển đổi mô hình sản xuất từ 'Lúa - Thủy sản - Cây ăn trái' sang 'Thủy sản - Cây ăn trái - Lúa', biến thách thức xâm nhập mặn thành cơ hội phát triển thủy sản nước lợ giá trị cao.",
+    "growth_mindset_tip": "Tư duy sinh thái hiện đại: 'Thuận thiên thích ứng' thay cho tư duy chế ngự thiên nhiên cứng nhắc!"
+  },
+  {
+    "id": "GDKTPL-001",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Mục 1: Quyền bình đẳng của công dân trước pháp luật",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Mọi công dân không bị phân biệt đối xử bởi giới tính, dân tộc, tín ngưỡng, tôn giáo, địa vị xã hội và đều bình đẳng về quyền, nghĩa vụ cũng như trách nhiệm pháp lý trước pháp luật là biểu hiện của nguyên tắc nào?",
+    "options": {
+      "A": "Bình đẳng trước pháp luật",
+      "B": "Bình đẳng kinh tế tuyệt đối",
+      "C": "Phân hóa trách nhiệm xã hội",
+      "D": "Ưu tiên theo thành phần xuất thân"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Quyền bình đẳng của công dân trước pháp luật quy định: Mọi công dân đều bình đẳng về quyền, nghĩa vụ và bình đẳng về trách nhiệm pháp lý; bất kỳ ai vi phạm pháp luật đều phải chịu xử lý theo quy định, không có ngoại lệ hay phân biệt đối xử.",
+    "growth_mindset_tip": "Nắm vững 3 khía cạnh bình đẳng trước pháp luật: Bình đẳng về quyền, bình đẳng về nghĩa vụ, và bình đẳng về trách nhiệm pháp lý!"
+  },
+  {
+    "id": "GDKTPL-002",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "TRAP_2",
+    "source": "Phần A - Mục 2: Quyền dân chủ cơ bản (Bầu cử và ứng cử)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Theo quy định của Hiến pháp và pháp luật Việt Nam, công dân nước Cộng hòa xã hội chủ nghĩa Việt Nam có quyền bầu cử và quyền ứng cử vào Quốc hội, Hội đồng nhân dân các cấp khi đủ bao nhiêu tuổi?",
+    "options": {
+      "A": "Đủ 18 tuổi có quyền bầu cử, đủ 21 tuổi có quyền ứng cử",
+      "B": "Đủ 18 tuổi có quyền bầu cử và đủ 18 tuổi có quyền ứng cử",
+      "C": "Đủ 16 tuổi có quyền bầu cử, đủ 18 tuổi có quyền ứng cử",
+      "D": "Đủ 20 tuổi có quyền bầu cử, đủ 25 tuổi có quyền ứng cử"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Điều 27 Hiến pháp năm 2013 quy định: Công dân đủ 18 tuổi trở lên có quyền bầu cử và đủ 21 tuổi trở lên có quyền ứng cử vào Quốc hội, Hội đồng nhân dân. Bẫy thường gặp: Nhầm lẫn độ tuổi ứng cử cũng là 18 tuổi.",
+    "growth_mindset_tip": "Phân biệt mốc tuổi hiến định: 18 tuổi đi BẦU CỬ, 21 tuổi mới được ỨNG CỬ!"
+  },
+  {
+    "id": "GDKTPL-003",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Mục 2: Quyền khiếu nại và tố cáo",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Điểm khác biệt cơ bản về mục đích giữa quyền khiếu nại và quyền tố cáo của công dân là gì?",
+    "options": {
+      "A": "Khiếu nại nhằm khôi phục quyền và lợi ích hợp pháp của người khiếu nại; tố cáo nhằm phát giác, ngăn chặn hành vi vi phạm pháp luật bảo vệ lợi ích công cộng hoặc cá nhân",
+      "B": "Khiếu nại chỉ áp dụng cho tranh chấp kinh tế; tố cáo chỉ áp dụng cho tội phạm hình sự",
+      "C": "Khiếu nại do cơ quan công an thụ lý; tố cáo do tòa án trực tiếp giải quyết",
+      "D": "Người dưới 18 tuổi được quyền khiếu nại nhưng không được quyền tố cáo"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Khiếu nại là việc công dân đề nghị xem xét lại quyết định/hành vi hành chính khi có căn cứ cho rằng quyết định đó xâm phạm trực tiếp đến quyền, lợi ích của chính mình. Tố cáo là việc cá nhân báo cho cơ quan chức năng về hành vi vi phạm pháp luật của bất kỳ ai gây thiệt hại cho lợi ích nhà nước hoặc xã hội.",
+    "growth_mindset_tip": "Nhớ nhanh sự khác biệt: KHIẾU NẠI để bảo vệ quyền lợi của CHÍNH MÌNH; TỐ CÁO để vạch trần vi phạm pháp luật bảo vệ XÃ HỘI!"
+  },
+  {
+    "id": "GDKTPL-004",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Mục 3: Quyền bất khả xâm phạm về thân thể",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Theo quy định của pháp luật, trường hợp duy nhất nào cho phép bất kỳ người nào cũng có quyền bắt giữ một người mà không cần lệnh bắt của Tòa án hay Viện kiểm sát?",
+    "options": {
+      "A": "Bắt người đang phạm tội quả tang hoặc đang bị truy nã",
+      "B": "Bắt người khi có nghi ngờ thực hiện hành vi trộm cắp",
+      "C": "Bắt người không mang theo giấy tờ tùy thân khi ra đường",
+      "D": "Bắt người có tranh chấp hợp đồng kinh tế dân sự"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Không ai bị bắt nếu không có quyết định của Tòa án hoặc phê chuẩn của Viện kiểm sát, NGOẠI TRỪ trường hợp phạm tội quả tang hoặc người đang có lệnh truy nã (khi đó bất kỳ công dân nào cũng có quyền bắt và giải ngay đến cơ quan công an gần nhất).",
+    "growth_mindset_tip": "Quyền bất khả xâm phạm về thân thể là thiêng liêng: Bắt người khẩn cấp luôn phải có phê chuẩn, chỉ trừ phạm tội quả tang hoặc có lệnh truy nã!"
+  },
+  {
+    "id": "GDKTPL-005",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương I: Tăng trưởng kinh tế và Phát triển kinh tế",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Phát biểu nào sau đây phản ánh đúng mối quan hệ giữa Tăng trưởng kinh tế và Phát triển kinh tế?",
+    "options": {
+      "A": "Tăng trưởng kinh tế là điều kiện cần nhưng chưa đủ; phát triển kinh tế bao gồm tăng trưởng kinh tế gắn liền với tiến bộ, công bằng xã hội và bảo vệ môi trường",
+      "B": "Tăng trưởng kinh tế và phát triển kinh tế là hai khái niệm hoàn toàn đồng nhất",
+      "C": "Chỉ cần tốc độ tăng trưởng GDP cao là nền kinh tế chắc chắn đã đạt mức phát triển kinh tế bền vững",
+      "D": "Phát triển kinh tế chỉ quan tâm đến các chỉ số văn hóa, không liên quan đến thu nhập quốc dân"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Tăng trưởng kinh tế chỉ đo lường sự gia tăng về số lượng/quy mô (GDP, GNI). Phát triển kinh tế mang tính toàn diện hơn: Bao gồm tăng trưởng kinh tế bền vững đi đôi với chuyển dịch cơ cấu hợp lý, cải thiện chỉ số phát triển con người (HDI), giảm nghèo và bảo vệ môi trường sinh thái.",
+    "growth_mindset_tip": "Tăng trưởng là 'lượng' (GDP), Phát triển là 'chất' (chất lượng sống, công bằng xã hội, môi trường xanh)!"
+  },
+  {
+    "id": "GDKTPL-006",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương I: Bảo hiểm và An sinh xã hội",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Loại hình bảo hiểm nào do Nhà nước tổ chức thực hiện nhằm bù đắp hoặc thay thế một phần thu nhập của người lao động khi họ bị giảm hoặc mất thu nhập do ốm đau, thai sản, tai nạn lao động, hết tuổi lao động?",
+    "options": {
+      "A": "Bảo hiểm xã hội",
+      "B": "Bảo hiểm thương mại",
+      "C": "Bảo hiểm trách nhiệm dân sự",
+      "D": "Bảo hiểm tài sản doanh nghiệp"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Bảo hiểm xã hội (BHXH) gồm hai hình thức bắt buộc và tự nguyện, là trụ cột vững chắc của hệ thống an sinh xã hội nhằm bảo vệ người lao động trước các rủi ro làm giảm sút hoặc mất khả năng lao động.",
+    "growth_mindset_tip": "Phân biệt các loại bảo hiểm: BHXH bảo đảm thu nhập/hưu trí; BHYT hỗ trợ chi phí khám chữa bệnh; BHTN hỗ trợ khi mất việc làm!"
+  },
+  {
+    "id": "GDKTPL-007",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương II: Quyền tự do kinh doanh và nghĩa vụ của công dân",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Anh A đăng ký thành lập hộ kinh doanh dịch vụ ăn uống nhưng sau đó tự ý mở rộng kinh doanh thêm dịch vụ karaoke có vũ trường mà không thực hiện thủ tục đăng ký bổ sung ngành nghề kinh doanh có điều kiện. Hành vi của anh A đã vi phạm quy định nào?",
+    "options": {
+      "A": "Vi phạm nghĩa vụ kinh doanh đúng ngành, nghề đã đăng ký và điều kiện kinh doanh ngành nghề có điều kiện",
+      "B": "Vi phạm quyền tự do lựa chọn hình thức tổ chức kinh doanh",
+      "C": "Vi phạm nghĩa vụ nộp thuế thu nhập doanh nghiệp",
+      "D": "Vi phạm quyền bình đẳng giữa các thành phần kinh tế"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Công dân có quyền tự do kinh doanh nhưng có nghĩa vụ đăng ký kinh doanh và kinh doanh đúng ngành nghề ghi trong giấy chứng nhận đăng ký kinh doanh; đối với ngành nghề kinh doanh có điều kiện (như karaoke, vũ trường) phải đáp ứng đầy đủ điều kiện về an ninh trật tự và phòng cháy chữa cháy.",
+    "growth_mindset_tip": "Quyền tự do kinh doanh luôn đi kèm với trách nhiệm: Tự do trong khuôn khổ pháp luật, phải đăng ký và tuân thủ điều kiện luật định!"
+  },
+  {
+    "id": "GDKTPL-008",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương II: Trách nhiệm pháp lý và các loại vi phạm pháp luật",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Doanh nghiệp X xả trực tiếp hàng ngàn mét khối nước thải công nghiệp chưa qua xử lý ra sông gây ô nhiễm môi trường nghiêm trọng và làm chết hàng loạt thủy hải sản của các hộ nuôi trồng xung quanh. Doanh nghiệp X phải gánh chịu những loại trách nhiệm pháp lý nào?",
+    "options": {
+      "A": "Trách nhiệm hành chính (phạt tiền, đình chỉ hoạt động) và Trách nhiệm dân sự (bồi thường thiệt hại cho các hộ nuôi trồng)",
+      "B": "Chỉ phải chịu trách nhiệm kỷ luật nội bộ doanh nghiệp",
+      "C": "Chỉ phải chịu trách nhiệm dân sự bồi thường thiệt hại",
+      "D": "Không phải chịu trách nhiệm pháp lý nếu đã nộp phí bảo vệ môi trường hàng năm"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Hành vi xả thải trái phép xâm phạm trật tự quản lý môi trường của nhà nước nên bị xử phạt hành chính (phạt tiền, tước giấy phép); đồng thời xâm phạm tài sản của người nuôi cá nên phải chịu trách nhiệm dân sự bồi thường thiệt hại ngoài hợp đồng (nếu đủ yếu tố cấu thành tội phạm môi trường, cá nhân quản lý còn bị truy cứu trách nhiệm hình sự).",
+    "growth_mindset_tip": "Một hành vi vi phạm có thể cùng lúc phải gánh chịu nhiều loại trách nhiệm pháp lý khác nhau: vừa bị phạt hành chính vừa phải bồi thường dân sự!"
+  },
+  {
+    "id": "GDKTPL-009",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương I: Hội nhập kinh tế quốc tế (Nguyên tắc WTO)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Nguyên tắc 'Đối xử tối huệ quốc' (MFN - Most Favoured Nation) trong thương mại quốc tế của Tổ chức Thương mại Thế giới (WTO) đòi hỏi:",
+    "options": {
+      "A": "Mọi ưu đãi thương mại dành cho một nước thành viên phải được áp dụng bình đẳng cho tất cả các nước thành viên khác",
+      "B": "Dành sự ưu tiên tuyệt đối cho các nước có nền kinh tế phát triển nhất",
+      "C": "Miễn thuế nhập khẩu hoàn toàn cho hàng hóa của các nước láng giềng",
+      "D": "Áp đặt hàng rào phi thuế quan bảo hộ sản phẩm nội địa"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Nguyên tắc MFN quy định: Nếu một nước thành viên WTO dành cho một đối tác bất kỳ một sự ưu đãi nào (như giảm thuế quan) thì ưu đãi đó phải lập tức và vô điều kiện được mở rộng cho tất cả các thành viên khác trong WTO.",
+    "growth_mindset_tip": "Hai nguyên tắc không phân biệt đối xử của WTO: MFN (đối xử bình đẳng giữa các nước bạn bè) và NT (đối xử bình đẳng giữa hàng ngoại và hàng nội)!"
+  },
+  {
+    "id": "GDKTPL-010",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Mục 3: Quyền bất khả xâm phạm về chỗ ở",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Ai có thẩm quyền ra lệnh khám xét chỗ ở của công dân trong trường hợp cần phát hiện tài liệu, đồ vật liên quan đến vụ án hình sự theo quy định của pháp luật?",
+    "options": {
+      "A": "Người có thẩm quyền theo quy định của Bộ luật Tố tụng hình sự (như Thủ trưởng cơ quan điều tra, Viện trưởng Viện kiểm sát...)",
+      "B": "Tổ trưởng tổ dân phố hoặc Trưởng ban quản trị tòa nhà chung cư",
+      "C": "Chủ nhà trọ hoặc chủ bất động sản cho thuê",
+      "D": "Bất kỳ cán bộ công chức nào đang thi hành công vụ"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Chỗ ở của công dân được Hiến pháp bảo hộ nghiêm ngặt. Việc khám xét chỗ ở chỉ được tiến hành khi có căn cứ theo luật định và phải có lệnh của người có thẩm quyền tố tụng theo luật định, có sự chứng kiến của người đại diện chính quyền cơ sở và người bị khám xét.",
+    "growth_mindset_tip": "Quyền bất khả xâm phạm chỗ ở: Ngay cả công an khi khám xét chỗ ở cũng bắt buộc phải có lệnh khám xét hợp pháp có phê chuẩn của Viện kiểm sát!"
+  },
+  {
+    "id": "GDKTPL-011",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương II: Quyền học tập của công dân",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Nội dung quyền học tập của công dân được hiểu là:",
+    "options": {
+      "A": "Mọi công dân đều có quyền học từ thấp đến cao, có thể học bất cứ ngành, nghề nào phù hợp với năng khiếu và điều kiện của mình, học thường xuyên, học suốt đời",
+      "B": "Mọi công dân đều bắt buộc phải theo học lên đến trình độ đại học",
+      "C": "Học sinh xuất sắc được miễn trừ mọi nghĩa vụ học tập theo quy định",
+      "D": "Chỉ những người có đủ điều kiện kinh tế khá giả mới được quyền học tập"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Quyền học tập của công dân bao gồm: Quyền học không hạn chế (từ tiểu học lên đại học, sau đại học); quyền học bất cứ ngành nghề nào; quyền học thường xuyên, học suốt đời; và quyền được đối xử bình đẳng về cơ hội học tập.",
+    "growth_mindset_tip": "Quyền học tập là quyền cơ bản của con người: Học mọi ngành nghề, học ở mọi lứa tuổi và học tập suốt đời!"
+  },
+  {
+    "id": "GDKTPL-012",
+    "block": "C00",
+    "subject": "GDKT & PL",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương I: Trách nhiệm xã hội của doanh nghiệp (CSR)",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Thực hiện trách nhiệm xã hội của doanh nghiệp (CSR) mang lại lợi ích lâu dài cốt lõi nào cho chính bản thân doanh nghiệp trong nền kinh tế thị trường hiện đại?",
+    "options": {
+      "A": "Xây dựng thương hiệu uy tín, thu hút nhân tài, gia tăng lòng trung thành của khách hàng và đảm bảo phát triển bền vững",
+      "B": "Được miễn trừ hoàn toàn mọi khoản thuế phải nộp vào ngân sách nhà nước",
+      "C": "Được độc quyền kinh doanh toàn bộ thị trường ngành hàng",
+      "D": "Không phải tuân thủ các quy định về an toàn lao động"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trách nhiệm xã hội của doanh nghiệp không chỉ là hành động từ thiện mà là chiến lược kinh doanh nhân văn: Gắn kết lợi ích kinh tế với lợi ích của người lao động, cộng đồng và môi trường sinh thái, giúp nâng cao giá trị vô hình của thương hiệu và tạo dựng năng lực cạnh tranh bền vững.",
+    "growth_mindset_tip": "Kinh doanh hiện đại: Lợi nhuận phải song hành cùng đạo đức và trách nhiệm xã hội thì doanh nghiệp mới có thể trường tồn!"
+  },
+  {
+    "id": "HOA-001",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương 1: Ester và Lipid",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Hợp chất hữu cơ nào sau đây là ester no, đơn chức, mạch hở?",
+    "options": {
+      "A": "CH_3COOCH_3",
+      "B": "CH_2=CHCOOCH_3",
+      "C": "HCOOCH=CH_2",
+      "D": "CH_3COOH"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Ester no, đơn chức, mạch hở có công thức chung $C_nH_{2n}O_2$ ($n \\ge 2$). Methyl acetate ($CH_3COOCH_3$) có công thức phân tử $C_3H_6O_2$, chứa toàn liên kết đơn trong mạch hydrocarbon nên là ester no đơn chức mạch hở.",
+    "growth_mindset_tip": "Nhớ nhanh công thức tổng quát $C_nH_{2n}O_2$ (độ bất bão hòa $k = 1$ ở nhóm carboxyl $C=O$) để nhận diện este no đơn chức."
+  },
+  {
+    "id": "HOA-002",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương 1: Ester và Phản ứng tráng bạc",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Cho các ester sau: ethyl formate, methyl acetate, vinyl acetate, ethyl propionate. Số ester có khả năng tham gia phản ứng tráng bạc với thuốc thử Tollens là:",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Chỉ có các ester của formic acid có cấu tạo chứa nhóm chức formate $HCOO-R$ mới có nhóm aldehyde $-CHO$ tự do để tham gia phản ứng tráng bạc. Trong 4 chất, chỉ có ethyl formate ($HCOOC_2H_5$) thỏa mãn.",
+    "growth_mindset_tip": "Gốc $HCOO-$ có đầu $-CHO$, vì vậy mọi ester format đều có phản ứng tráng bạc tạo 2 Ag!"
+  },
+  {
+    "id": "HOA-003",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương 1: Xà phòng hóa chất béo (Triglyceride)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Xà phòng hóa hoàn toàn $17{,}8\\text{ g}$ tristearin bằng dung dịch $NaOH$ vừa đủ, đun nóng. Khối lượng glycerol thu được sau phản ứng là:",
+    "options": {
+      "A": "1{,}84 g",
+      "B": "0{,}92 g",
+      "C": "3{,}68 g",
+      "D": "2{,}76 g"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Tristearin có công thức $(C_{17}H_{35}COO)_3C_3H_5$, phân tử khối $M = 890\\text{ g/mol}$. Số mol tristearin: $n = \\frac{17{,}8}{890} = 0{,}02\\text{ mol}$. Phương trình thủy phân tạo ra tỉ lệ $1\\text{ tristearin} : 1\\text{ glycerol} (C_3H_5(OH)_3, M = 92)$. Do đó $n_{glycerol} = 0{,}02\\text{ mol} \\Rightarrow m_{glycerol} = 0{,}02 \\times 92 = 1{,}84\\text{ g}$.",
+    "growth_mindset_tip": "Ghi nhớ các $M$ quen thuộc của chất béo: Triolein = 884, Tristearin = 890, Tripalmitin = 806; Glycerol = 92."
+  },
+  {
+    "id": "HOA-004",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương 2: Carbohydrate (Phân loại và tính chất)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Chất nào sau đây thuộc loại disaccharide?",
+    "options": {
+      "A": "Saccharose",
+      "B": "Glucose",
+      "C": "Fructose",
+      "D": "Cellulose"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Carbohydrate được chia thành: Monosaccharide (Glucose, Fructose), Disaccharide (Saccharose, Maltose) và Polysaccharide (Tinh bột, Cellulose). Saccharose có công thức $C_{12}H_{22}O_{11}$ là disaccharide cấu tạo từ 1 gốc $\\alpha$-glucose và 1 gốc $\\beta$-fructose.",
+    "growth_mindset_tip": "Nắm vững cây phân loại carbohydrate: Mono (1 gốc đường), Di (2 gốc đường), Poly (nhiều gốc đường nối nhau)!"
+  },
+  {
+    "id": "HOA-005",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương 2: Phản ứng hóa học của Carbohydrate",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Thuốc thử nào sau đây được dùng để phân biệt hai dung dịch glucose và fructose bằng phản ứng hóa học?",
+    "options": {
+      "A": "Dung dịch nước bromine",
+      "B": "Thuốc thử Tollens (AgNO3/NH3)",
+      "C": "Cu(OH)2 ở nhiệt độ thường",
+      "D": "Kim loại Na"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trong môi trường kiềm (như khi dùng thuốc thử Tollens hay $Cu(OH)_2/OH^-$), fructose chuyển hóa qua lại thành glucose nên cả hai đều tráng bạc và khử $Cu(OH)_2$. Ngược lại, trong môi trường trung tính hoặc acid yếu, glucose làm mất màu dung dịch nước bromine còn fructose thì không.",
+    "growth_mindset_tip": "Bẫy tráng bạc: Cả Glucose và Fructose đều tráng bạc do sự đồng hóa trong kiềm, chỉ có nước Bromine mới phân biệt được hai chất này!"
+  },
+  {
+    "id": "HOA-006",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương 3: Amine (Bậc amine và tính base)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Chất nào sau đây là amine bậc II?",
+    "options": {
+      "A": "Dimethylamine (CH3-NH-CH3)",
+      "B": "Ethylamine (CH3-CH2-NH2)",
+      "C": "Trimethylamine ((CH3)3N)",
+      "D": "Aniline (C6H5-NH2)"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Bậc của amine được tính bằng số nguyên tử H trong phân tử $NH_3$ bị thay thế bởi gốc hydrocarbon (hoặc số gốc hydrocarbon gắn với N). Dimethylamine ($CH_3-NH-CH_3$) có 2 gốc gắn trực tiếp vào N nên là amine bậc II.",
+    "growth_mindset_tip": "Khác với bậc của alcohol (tính theo bậc của C mang nhóm OH), bậc của amine tính theo số liên kết của nguyên tử Nitrogen!"
+  },
+  {
+    "id": "HOA-007",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương 3: Amino acid và Peptide",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Thủy phân hoàn toàn $1\\text{ mol}$ peptide mạch hở $Gly-Ala-Val-Gly-Ala$ cần tối thiểu bao nhiêu mol $NaOH$ trong dung dịch khi đun nóng?",
+    "options": {
+      "A": "5 mol",
+      "B": "4 mol",
+      "C": "1 mol",
+      "D": "6 mol"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Peptide $Gly-Ala-Val-Gly-Ala$ là pentapeptide có 5 gốc amino acid thông thường (chỉ chứa 1 nhóm $-COOH$ và 1 nhóm $-NH_2$). Phản ứng thủy phân hoàn toàn trong kiềm tiêu tốn số mol $NaOH$ đúng bằng số gốc amino acid: $n_{NaOH} = 5 n_{peptide} = 5\\text{ mol}$.",
+    "growth_mindset_tip": "Phân biệt: Pentapeptide có 4 liên kết peptide nhưng có 5 gốc amino acid, phản ứng với NaOH cần 5 mol NaOH và sinh ra 1 mol H2O!"
+  },
+  {
+    "id": "HOA-008",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương 5: Pin điện và Điện phân",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong một pin điện hóa Daniell cấu tạo từ cặp oxi hóa - khử $Zn^{2+}/Zn$ và $Cu^{2+}/Cu$, quá trình xảy ra tại cực âm (anode) là:",
+    "options": {
+      "A": "Sự oxi hóa kẽm: Zn -> Zn^{2+} + 2e",
+      "B": "Sự khử ion đồng: Cu^{2+} + 2e -> Cu",
+      "C": "Sự khử ion kẽm: Zn^{2+} + 2e -> Zn",
+      "D": "Sự oxi hóa đồng: Cu -> Cu^{2+} + 2e"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trong pin điện hóa: Cực âm là Anode (kim loại có tính khử mạnh hơn, tức thế điện cực nhỏ hơn), tại đây xảy ra sự oxi hóa kẽm: $Zn \\to Zn^{2+} + 2e$. Cực dương là Cathode, tại đây xảy ra sự khử ion đồng: $Cu^{2+} + 2e \\to Cu$.",
+    "growth_mindset_tip": "Ghi nhớ thần chú pin điện: 'Anode là cực âm - nơi xảy ra Oxi hóa' (An - Âm - Oxi hóa)!"
+  },
+  {
+    "id": "HOA-009",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương 5: Suất điện động của pin điện hóa",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Biết thế điện cực chuẩn của hai cặp oxi hóa - khử là $E^\\circ(Zn^{2+}/Zn) = -0{,}76\\text{ V}$ và $E^\\circ(Ag^+/Ag) = +0{,}80\\text{ V}$. Suất điện động chuẩn của pin điện hóa $Zn - Ag$ là:",
+    "options": {
+      "A": "+1{,}56 V",
+      "B": "+0{,}04 V",
+      "C": "-1{,}56 V",
+      "D": "+0{,}84 V"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Suất điện động chuẩn của pin điện hóa: $E^\\circ_{pin} = E^\\circ_{(+) - cathode} - E^\\circ_{(-) - anode} = E^\\circ(Ag^+/Ag) - E^\\circ(Zn^{2+}/Zn) = (+0{,}80) - (-0{,}76) = +1{,}56\\text{ V}$.",
+    "growth_mindset_tip": "Suất điện động của pin luôn có giá trị dương: lấy thế điện cực lớn hơn trừ đi thế điện cực nhỏ hơn!"
+  },
+  {
+    "id": "HOA-010",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương 4: Nhiệt động học hóa học (Enthalpy phản ứng)",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Cho nhiệt tạo thành chuẩn $\\Delta_f H^\\circ_{298}$ của các chất: $CH_4(g)$ là $-74{,}8\\text{ kJ/mol}$; $CO_2(g)$ là $-393{,}5\\text{ kJ/mol}$; $H_2O(l)$ là $-285{,}8\\text{ kJ/mol}$. Biến thiên enthalpy chuẩn của phản ứng đốt cháy hoàn toàn $1\\text{ mol}$ khí methane: $CH_4(g) + 2O_2(g) \\to CO_2(g) + 2H_2O(l)$ là:",
+    "options": {
+      "A": "-890{,}3 kJ",
+      "B": "-604{,}5 kJ",
+      "C": "+890{,}3 kJ",
+      "D": "-965{,}1 kJ"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Công thức tính theo nhiệt tạo thành chuẩn: $\\Delta_r H^\\circ_{298} = \\sum \\Delta_f H^\\circ_{298}(sp) - \\sum \\Delta_f H^\\circ_{298}(cd)$. Chú ý $\\Delta_f H^\\circ_{298}(O_2(g)) = 0$. Ta có: $\\Delta_r H^\\circ_{298} = [1(-393{,}5) + 2(-285{,}8)] - [1(-74{,}8) + 0] = [-393{,}5 - 571{,}6] - [-74{,}8] = -965{,}1 + 74{,}8 = -890{,}3\\text{ kJ}$. Phản ứng tỏa nhiệt mạnh.",
+    "growth_mindset_tip": "Tính Enthalpy phản ứng theo nhiệt tạo thành: 'Sản phẩm trừ Chất đầu'; nhớ nhân đúng hệ số tỉ lượng!"
+  },
+  {
+    "id": "HOA-011",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "TRAP_2",
+    "source": "Phần A - Mục 2: Alcohol và Phản ứng tách nước",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Đun nóng butan-2-ol với $H_2SO_4$ đặc ở $170^\\circ\\text{C}$ thu được sản phẩm chính theo quy tắc Zaitsev là:",
+    "options": {
+      "A": "But-2-ene",
+      "B": "But-1-ene",
+      "C": "Dibutyl ether",
+      "D": "Buta-1,3-diene"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Theo quy tắc Zaitsev: Trong phản ứng tách nước của alcohol, nhóm $-OH$ ưu tiên tách cùng nguyên tử H ở carbon liền kề có bậc cao hơn (chứa ít H hơn) để tạo alkene có nhiều nhóm thế hơn (bền hơn). Butan-2-ol ($CH_3-CH(OH)-CH_2-CH_3$) tách cùng H ở $C_3$ tạo sản phẩm chính là but-2-ene ($CH_3-CH=CH-CH_3$).",
+    "growth_mindset_tip": "Quy tắc Zaitsev: 'Tách ở carbon nghèo hydrogen hơn' để tạo alkene bền vững nhất!"
+  },
+  {
+    "id": "HOA-012",
+    "block": "A00",
+    "subject": "Hóa học",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương 5: Điện phân dung dịch",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Điện phân $200\\text{ mL}$ dung dịch $CuSO_4\\ 0{,}5\\text{ M}$ với điện cực trơ, cường độ dòng điện $I = 1{,}93\\text{ A}$ trong thời gian $1000\\text{ giây}$ (hiệu suất 100%). Khối lượng kim loại bám vào cathode là:",
+    "options": {
+      "A": "0{,}64 g",
+      "B": "1{,}28 g",
+      "C": "0{,}32 g",
+      "D": "0{,}96 g"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Số mol electron trao đổi: $n_e = \\frac{I t}{F} = \\frac{1{,}93 \\times 1000}{96500} = 0{,}02\\text{ mol}$. Tại cathode xảy ra quá trình: $Cu^{2+} + 2e \\to Cu$. Số mol $Cu^{2+}$ ban đầu: $0{,}2 \\times 0{,}5 = 0{,}1\\text{ mol}$. Vì $n_{Cu^{2+}} > \\frac{n_e}{2}$ nên $Cu^{2+}$ chưa bị điện phân hết. Số mol Cu sinh ra: $n_{Cu} = \\frac{n_e}{2} = 0{,}01\\text{ mol}$. Khối lượng Cu bám vào cathode: $m = 0{,}01 \\times 64 = 0{,}64\\text{ g}$.",
+    "growth_mindset_tip": "Định luật Faraday: Luôn tính số mol electron $n_e = It/F$ trước tiên để so sánh và kiểm tra phản ứng ở từng điện cực."
+  },
+  {
+    "id": "SU-001",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Chương IV: Chiến tranh bảo vệ Tổ quốc và giải phóng dân tộc",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Chiến thắng quân sự nào của nghĩa quân Tây Sơn dưới sự chỉ huy của Nguyễn Huệ vào đầu năm 1785 đã đập tan hoàn toàn 5 vạn quân xâm lược Xiêm?",
+    "options": {
+      "A": "Chiến thắng Rạch Gầm - Xoài Mút",
+      "B": "Chiến thắng Ngọc Hồi - Đống Đa",
+      "C": "Chiến thắng Chi Lăng - Xương Giang",
+      "D": "Chiến thắng Bạch Đằng"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Đầu năm 1785, Nguyễn Huệ đã chọn đoạn sông Tiền từ Rạch Gầm đến Xoài Mút (nay thuộc Tiền Giang) làm trận địa mai phục, đánh tan 5 vạn quân Xiêm, đập tan mưu đồ xâm lược của phong kiến Xiêm.",
+    "growth_mindset_tip": "Nhớ mốc son của phong trào Tây Sơn: 1785 đánh tan quân Xiêm ở Rạch Gầm - Xoài Mút, 1789 đại phá 29 vạn quân Thanh ở Ngọc Hồi - Đống Đa!"
+  },
+  {
+    "id": "SU-002",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "TRAP_2",
+    "source": "Phần A - Chương V: Một số cuộc cải cách lớn trong lịch sử Việt Nam (Cải cách Minh Mạng)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Trong cuộc cải cách hành chính quy mô lớn nửa đầu thế kỷ XIX, vua Minh Mạng đã xóa bỏ chế độ tổng trấn ở Bắc Thành và Gia Định Thành để chia cả nước thành bao nhiêu tỉnh?",
+    "options": {
+      "A": "30 tỉnh và 1 phủ Thừa Thiên",
+      "B": "24 tỉnh và 2 đạo",
+      "C": "36 tỉnh và kinh thành Huế",
+      "D": "13 thừa tuyên"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Vua Minh Mạng tiến hành cải cách hành chính (1831 - 1832), xóa bỏ Bắc Thành và Gia Định Thành, thống nhất hệ thống hành chính cả nước thành 30 tỉnh và 1 phủ Thừa Thiên, đứng đầu mỗi tỉnh là Tổng đốc hoặc Tuần phủ.",
+    "growth_mindset_tip": "Phân biệt các cuộc cải cách hành chính: Lê Thánh Tông chia cả nước thành 13 đạo thừa tuyên (thế kỷ XV), Minh Mạng chia cả nước thành 30 tỉnh và 1 phủ Thừa Thiên (thế kỷ XIX)!"
+  },
+  {
+    "id": "SU-003",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Chương IV: Khởi nghĩa Lam Sơn (1418 - 1427)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Kế sách chiến lược mang tính bước ngoặt đưa cuộc khởi nghĩa Lam Sơn thoát khỏi thế bao vây hiểm nghèo ở vùng núi Thanh Hóa để chuyển sang giai đoạn tiến công giải phóng địa bàn rộng lớn là:",
+    "options": {
+      "A": "Tiến quân vào Nghệ An theo đề xuất của tướng Nguyễn Chích",
+      "B": "Tập trung lực lượng vây hãm thành Đông Quan",
+      "C": "Chủ động hòa hoãn lâu dài với quân Minh ở Lạng Sơn",
+      "D": "Xây dựng phòng tuyến sông Cầu chặn đường tiếp viện"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cuối năm 1424, theo kế sách sáng suốt của tướng Nguyễn Chích, Lê Lợi quyết định chuyển quân vào Nghệ An - nơi đất rộng người đông, hiểm yếu làm căn cứ đứng chân, từ đó giải phóng Tân Bình, Thuận Hóa, tạo thế bao vây tiến ra Bắc.",
+    "growth_mindset_tip": "Bài học chọn địa bàn chiến lược: Biết chuyển hướng chiến lược kịp thời khi bị vây ép là chìa khóa xoay chuyển cục diện chiến tranh!"
+  },
+  {
+    "id": "SU-004",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương I: Thế giới trong và sau Chiến tranh lạnh (Liên hợp quốc)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Cơ quan nào của Liên hợp quốc giữ vai trò trọng yếu nhất trong việc duy trì hòa bình và an ninh quốc tế, với quyền đưa ra các nghị quyết có tính chất ràng buộc pháp lý?",
+    "options": {
+      "A": "Hội đồng Bảo an",
+      "B": "Đại hội đồng",
+      "C": "Ban Thư ký",
+      "D": "Tòa án Công lý Quốc tế"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Hội đồng Bảo an là cơ quan duy nhất của Liên hợp quốc chịu trách nhiệm chính về duy trì hòa bình và an ninh quốc tế, gồm 5 ủy viên thường trực (Mỹ, Nga, Trung Quốc, Anh, Pháp có quyền phủ quyết) và 10 ủy viên không thường trực.",
+    "growth_mindset_tip": "Nắm vững cơ cấu Liên hợp quốc: Đại hội đồng là cơ quan đại diện rộng rãi nhất, còn Hội đồng Bảo an là cơ quan quyền lực chính trị - an ninh cao nhất!"
+  },
+  {
+    "id": "SU-005",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương II: Hiệp hội các quốc gia Đông Nam Á (ASEAN)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Việt Nam chính thức được kết nạp làm thành viên thứ 7 của Hiệp hội các quốc gia Đông Nam Á (ASEAN) vào năm nào?",
+    "options": {
+      "A": "1995",
+      "B": "1997",
+      "C": "1999",
+      "D": "1986"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Ngày 28 tháng 7 năm 1995, tại Hội nghị Bộ trưởng Ngoại giao ASEAN lần thứ 28 tại Brunei, Việt Nam chính thức trở thành thành viên thứ 7 của ASEAN, mở ra thời kỳ hội nhập khu vực toàn diện.",
+    "growth_mindset_tip": "Các mốc kết nạp ASEAN quan trọng: 1967 (5 nước sáng lập) -> 1984 (Brunei) -> 1995 (Việt Nam) -> 1997 (Lào, Myanmar) -> 1999 (Campuchia)."
+  },
+  {
+    "id": "SU-006",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương III: Cuộc kháng chiến chống thực dân Pháp (Chiến dịch Điện Biên Phủ)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Quyết định thay đổi phương châm tác chiến lịch sử từ 'Đánh nhanh, thắng nhanh' sang 'Đánh chắc, tiến chắc' của Đại tướng Võ Nguyên Giáp trong Chiến dịch Điện Biên Phủ (1954) được đưa ra dựa trên cơ sở cốt lõi nào?",
+    "options": {
+      "A": "Phân tích tương quan lực lượng, nhận thấy quân Pháp đã tăng cường công sự kiên cố và pháo binh, phương châm cũ tiềm ẩn rủi ro thất bại quá lớn",
+      "B": "Thời tiết chuyển biến xấu do mưa bão bất ngờ",
+      "C": "Bộ đội ta thiếu thốn nghiêm trọng về lương thực và đạn dược",
+      "D": "Yêu cầu ngừng bắn từ Hội nghị Geneva"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Đại tướng Võ Nguyên Giáp nhận thấy địch đã biến Điện Biên Phủ thành tập đoàn cứ điểm mạnh nhất Đông Dương với hầm hào bê tông cốt thép kiên cố. Nếu đánh nhanh, bộ đội ta không có pháo cao xạ che đầu sẽ thương vong lớn. Quyết định 'Đánh chắc, tiến chắc' bảo toàn sinh lực và bảo đảm chắc thắng 100%.",
+    "growth_mindset_tip": "Bài học lãnh đạo: 'Quyết định khó khăn nhất trong cuộc đời chỉ huy' - dám nhìn thẳng vào sự thật để thay đổi chiến thuật bảo vệ tính mạng chiến sĩ và giành thắng lợi triệt để!"
+  },
+  {
+    "id": "SU-007",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương III: Cuộc kháng chiến chống Mỹ (So sánh các chiến lược chiến tranh)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Điểm khác biệt cơ bản nhất về lực lượng nòng cốt trực tiếp tham chiến trên chiến trường giữa chiến lược 'Chiến tranh cục bộ' (1965 - 1968) so với chiến lược 'Chiến tranh đặc biệt' (1961 - 1965) của đế quốc Mỹ ở miền Nam là gì?",
+    "options": {
+      "A": "Chiến tranh cục bộ sử dụng quân viễn chinh Mỹ và quân đồng minh làm lực lượng nòng cốt mở các cuộc hành quân 'tìm diệt'",
+      "B": "Chiến tranh đặc biệt sử dụng hoàn toàn vũ khí trang bị hiện đại của Liên Xô",
+      "C": "Chiến tranh cục bộ không sử dụng lực lượng không quân và hải quân",
+      "D": "Chiến tranh đặc biệt diễn ra trên quy mô toàn cõi Đông Dương"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trong 'Chiến tranh đặc biệt', lực lượng nòng cốt là quân đội Sài Gòn dưới sự chỉ huy của cố vấn quân sự Mỹ. Đến 'Chiến tranh cục bộ', Mỹ trực tiếp đưa quân viễn chinh Mỹ và quân chư hầu ồ ạt đổ bộ vào miền Nam làm lực lượng nòng cốt tác chiến.",
+    "growth_mindset_tip": "So sánh chiến lược chiến tranh của Mỹ: 'Đặc biệt' = quân Sài Gòn + cố vấn Mỹ; 'Cục bộ' = quân đội Mỹ ồ ạt vào tham chiến trực tiếp; 'Việt Nam hóa' = rút quân Mỹ, dùng người Việt đánh người Việt!"
+  },
+  {
+    "id": "SU-008",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương III: Cuộc Tổng tiến công và nổi dậy mùa Xuân 1975",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Thắng lợi quân sự nào vào đầu năm 1975 được coi là 'đòn trinh sát chiến lược', chứng minh rõ rệt sự suy yếu bất lực của quân đội Sài Gòn và khả năng Mỹ can thiệp trở lại bằng quân sự là rất thấp, giúp Bộ Chính trị hạ quyết tâm giải phóng miền Nam trong năm 1975?",
+    "options": {
+      "A": "Chiến thắng Phước Long (6/1/1975)",
+      "B": "Chiến dịch Tây Nguyên",
+      "C": "Chiến dịch Huế - Đà Nẵng",
+      "D": "Chiến thắng Ấp Bắc"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Chiến thắng Phước Long ngày 6/1/1975 có ý nghĩa chiến lược sâu sắc: Phước Long là tỉnh đầu tiên ở miền Nam được giải phóng hoàn toàn; sau thất bại này, chính quyền Sài Gòn phản ứng yếu ớt và Mỹ chỉ phản ứng bằng lời đe dọa chứ không đưa quân trở lại. Đây là cơ sở thực tiễn để Bộ Chính trị chớp thời cơ giải phóng hoàn toàn miền Nam.",
+    "growth_mindset_tip": "Chiến thắng Phước Long là 'đòn trinh sát chiến lược' kinh điển giúp ta kiểm tra phản ứng của đối phương trước khi mở màn trận quyết chiến chiến lược!"
+  },
+  {
+    "id": "SU-009",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Chương VI: Lịch sử bảo vệ chủ quyền Biển Đông",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Dưới thời các chúa Nguyễn ở Đàng Trong, tổ chức bán quân sự nào được thành lập để thực thi việc thu lượm hải vật, đo đạc hải trình và cắm mốc chủ quyền tại quần đảo Hoàng Sa?",
+    "options": {
+      "A": "Đội Hoàng Sa",
+      "B": "Đội Thần cơ",
+      "C": "Hải đội Nam Hải",
+      "D": "Đội Cận vệ ngự lâm"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Từ thế kỷ XVII, các chúa Nguyễn đã thành lập Đội Hoàng Sa (và sau đó là Đội Bắc Hải) với nhiệm vụ hàng năm đi thuyền ra quần đảo Hoàng Sa và Trường Sa thu lượm vũ khí, đồ vật của tàu đắm, đánh bắt hải sản quý và đo đạc hải trình, khẳng định chủ quyền vững chắc của dân tộc.",
+    "growth_mindset_tip": "Bằng chứng lịch sử về chủ quyền Biển Đông: Đội Hoàng Sa và Đội Bắc Hải là chứng cứ đanh thép về việc nhà nước phong kiến Việt Nam đã xác lập và thực thi chủ quyền liên tục, hòa bình từ nhiều thế kỷ!"
+  },
+  {
+    "id": "SU-010",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Chương V: Cuộc cải cách của Hồ Quý Ly (cuối TK XIV - đầu TK XV)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Biện pháp kinh tế - tài chính nào của Hồ Quý Ly được đánh giá là rất tiến bộ và đi trước thời đại nhưng lại chưa phát huy được hiệu quả do tâm lý và điều kiện xã hội lúc bấy giờ?",
+    "options": {
+      "A": "Phát hành tiền giấy 'Thông bảo hội sao' thay thế tiền đồng",
+      "B": "Xây dựng thành lũy kiên cố bằng đá Tây Đô",
+      "C": "Ban hành chính sách hạn điền hạn nô",
+      "D": "Dịch sách chữ Hán sang chữ Nôm"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Năm 1396, Hồ Quý Ly cho phát hành tiền giấy 'Thông bảo hội sao' nhằm tập trung đồng để đúc vũ khí và phát triển lưu thông hàng hóa. Đây là tư tưởng rất tiến bộ nhưng do pháp luật bắt buộc quá ngặt nghèo và nhân dân chưa quen dùng tiền giấy nên gây xáo trộn đời sống.",
+    "growth_mindset_tip": "Một chính sách dù tiến bộ vượt bậc về lý thuyết nhưng nếu thiếu sự chuẩn bị tâm lý nhân dân và điều kiện xã hội chín muồi thì rất khó thành công!"
+  },
+  {
+    "id": "SU-011",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương I: Trật tự thế giới sau Chiến tranh lạnh",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Sau khi Trật tự hai cực I-an-ta sụp đổ (1991), xu thế chung trong quan hệ quốc tế của các quốc gia trên thế giới là:",
+    "options": {
+      "A": "Chuyển từ đối đầu sang hòa hoãn, đối thoại, hợp tác và lấy phát triển kinh tế làm trọng tâm",
+      "B": "Tập trung xây dựng các liên minh quân sự đối đầu vũ trang toàn diện",
+      "C": "Hình thành ngay lập tức trật tự thế giới đơn cực dưới sự lãnh đạo duy nhất của Mỹ",
+      "D": "Cắt đứt các mối quan hệ ngoại giao đa phương để đóng cửa phát triển nội bộ"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Sau Chiến tranh lạnh, hầu hết các quốc gia đều điều chỉnh chiến lược phát triển, coi trọng phát triển kinh tế để nâng cao sức mạnh tổng hợp quốc gia; quan hệ quốc tế chuyển sang xu thế hòa hoãn, hợp tác và cạnh tranh đa cực.",
+    "growth_mindset_tip": "Xu thế thế giới hiện đại: Cạnh tranh kinh tế thay thế cho đối đầu ý thức hệ và quân sự khốc liệt!"
+  },
+  {
+    "id": "SU-012",
+    "block": "C00",
+    "subject": "Lịch sử",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương III: Cách mạng tháng Tám năm 1945",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "'Thời cơ ngàn năm có một' của Cách mạng tháng Tám năm 1945 ở Việt Nam được Đảng ta xác định bắt đầu xuất hiện và tồn tại trong khoảng thời gian nào?",
+    "options": {
+      "A": "Từ khi Nhật tuyên bố đầu hàng Đồng minh (15/8/1945) đến trước khi quân Đồng minh kéo vào giải giáp quân Nhật ở Đông Dương (đầu tháng 9/1945)",
+      "B": "Từ khi Nhật đảo chính Pháp (9/3/1945) đến khi Nhật đầu hàng",
+      "C": "Từ khi Liên Xô tuyên chiến với phát xít Đức đến khi tiêu diệt đạo quân Quan Đông",
+      "D": "Từ khi Bác Hồ về nước đầu năm 1941 đến Hội nghị Tân Trào"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Thời cơ tồn tại rất ngắn: Bắt đầu từ khi Nhật hoàng đầu hàng (quân Nhật rệu rã, chính quyền bù nhìn Trần Trọng Kim tê liệt) cho đến trước khi quân Đồng minh (quân Tưởng và quân Anh) tiến vào giải giáp. Nếu khởi nghĩa sớm hơn thì gặp sức kháng cự mạnh của Nhật; nếu muộn hơn thì phải đối đầu với quân Đồng minh.",
+    "growth_mindset_tip": "Nghệ thuật chớp thời cơ cách mạng: Nhận diện chính xác khoảng 'khoảng trống quyền lực' để tổng khởi nghĩa giành thắng lợi nhanh chóng và trọn vẹn nhất!"
+  },
+  {
+    "id": "VAN-001",
+    "block": "D01",
+    "subject": "Ngữ văn",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Mục 1: Thể loại & Tác gia văn học trung đại (Nguyễn Du và Truyện Kiều)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong đoạn trích 'Trao duyên' (trích 'Truyện Kiều' của Nguyễn Du), vật đính ước nào mang tính thiêng liêng gắn liền với lời thề nguyền son sắt giữa Thúy Kiều và Kim Trọng được Kiều trao lại cho Thúy Vân?",
+    "options": {
+      "A": "Chiếc vành với bức tờ mây",
+      "B": "Khăn thêu với chén rượu thề",
+      "C": "Cây trâm cài tóc và chiếc thoa vàng",
+      "D": "Khúc đàn cầm và chiếc gương soi"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trong đoạn thơ 'Chiếc vành với bức tờ mây / Duyên này thì giữ vật này của chung', 'chiếc vành' (vòng đeo tay đính ước) và 'bức tờ mây' (giấy ghi lời thề nguyền kết duyên) là những kỷ vật thiêng liêng nhất mà Kiều gửi trao cho em gái.",
+    "growth_mindset_tip": "Ghi nhớ các biểu tượng ước lệ trong Truyện Kiều: 'tờ mây' là chứng nhân lời thề đôi lứa dưới bóng trăng vằng vặc!"
+  },
+  {
+    "id": "VAN-002",
+    "block": "D01",
+    "subject": "Ngữ văn",
+    "slot_type": "TRAP_2",
+    "source": "Phần A - Mục 2: Thực hành Tiếng Việt (Biện pháp tu từ lặp cấu trúc và đối)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Trong hai câu thơ: 'Dốc lên khúc khuỷu dốc thăm thẳm / Heo hút cồn mây súng ngửi trời' (Tây Tiến - Quang Dũng), biện pháp nghệ thuật nào nổi bật nhất góp phần đặc tả sự hiểm trở, trùng điệp của núi rừng Tây Bắc?",
+    "options": {
+      "A": "Điệp từ ngữ kết hợp sử dụng hệ thống từ láy tượng hình giàu tính tạo hình",
+      "B": "Nói giảm nói tránh và hoán dụ",
+      "C": "So sánh phóng đại và nghịch ngữ",
+      "D": "Chơi chữ và đảo ngữ toàn phần"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Câu thơ sử dụng điệp từ 'dốc' ('Dốc lên... dốc...') kết hợp các từ láy tượng hình gợi cảm 'khúc khuỷu', 'thăm thẳm', 'heo hút' tạo nhịp điệu gập ghềnh, dựng lên bức tranh thiên nhiên hiểm trở, hoang sơ và hùng vĩ.",
+    "growth_mindset_tip": "Khi phân tích thơ Tây Tiến: Chú ý phối hợp thanh điệu (nhiều thanh trắc) và từ láy tượng hình đặc sắc của Quang Dũng!"
+  },
+  {
+    "id": "VAN-003",
+    "block": "D01",
+    "subject": "Ngữ văn",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Mục 1: Khả năng lớn lao của Tiểu thuyết hiện đại (Vũ Trọng Phụng)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Ý nghĩa trào phúng sâu cay nhất toát lên từ đoạn trích 'Hạnh phúc của một tang gia' (trích 'Số đỏ' của Vũ Trọng Phụng) là gì?",
+    "options": {
+      "A": "Phơi bày bộ mặt giả dối, suy đồi đạo đức đến tột cùng của xã hội thượng lưu thành thị Âu hóa rởm đời",
+      "B": "Ca ngợi tấm lòng hiếu thảo của cụ cố Hồng đối với cha già",
+      "C": "Phản ánh nỗi khổ của những người phục vụ đám ma trong xã hội cũ",
+      "D": "Lên án phong tục ma chay tốn kém, lạc hậu của làng quê Bắc Bộ"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Đoạn trích thể hiện mâu thuẫn trào phúng đỉnh cao: Một đám ma lẽ ra phải đau buồn thì cả gia đình lại hân hoan, hạnh phúc vì cái chết của cụ tổ giúp chia gia tài và phô trương sự giàu sang, lố lăng của tầng lớp tư sản 'Âu hóa' rởm đời.",
+    "growth_mindset_tip": "Nghệ thuật trào phúng của Vũ Trọng Phụng: Tạo dựng tình huống nghịch lý - cái chết của một con người lại là niềm hạnh phúc cho cả bầy con cháu!"
+  },
+  {
+    "id": "VAN-004",
+    "block": "C00",
+    "subject": "Ngữ văn",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Mục 1: Thơ trữ tình hiện đại và Biểu tượng (Đàn ghi ta của Lor-ca - Thanh Thảo)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Hình ảnh 'tiếng đàn bọt nước' trong bài thơ 'Đàn ghi ta của Lor-ca' của Thanh Thảo mang ý nghĩa biểu tượng sâu sắc nào?",
+    "options": {
+      "A": "Gợi sự mong manh, ngắn ngủi của sinh mệnh nghệ sĩ nhưng cũng chứa đựng sức sống và sự sinh sôi không ngừng của nghệ thuật",
+      "B": "Âm thanh tiếng đàn du dương trên dòng sông thơ mộng",
+      "C": "Sự thất bại hoàn toàn của cuộc cách mạng nghệ thuật ở Tây Ban Nha",
+      "D": "Tiếng khóc thương xót của nhân dân Tây Ban Nha trước cái chết của Lor-ca"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "'Bọt nước' gợi vẻ đẹp mong manh, dễ tan biến (số phận bi kịch, ngắn ngủi của Lor-ca), nhưng bọt nước vỡ ra lại tạo nên hàng ngàn bọt nước mới, biểu tượng cho sự trường tồn, sức lay động mãnh liệt và bất tử của tư tưởng nghệ thuật tự do.",
+    "growth_mindset_tip": "Thơ hiện đại của Thanh Thảo giàu tính siêu thực: Các hình ảnh biểu tượng thường mang tính lưỡng trị, kết hợp giữa cái mong manh và sự bất tử!"
+  },
+  {
+    "id": "VAN-005",
+    "block": "D01",
+    "subject": "Ngữ văn",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Mục 1: Tác gia Hồ Chí Minh & Văn chính luận (Tuyên ngôn Độc lập)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong bản 'Tuyên ngôn Độc lập' (1945), Chủ tịch Hồ Chí Minh đã mở đầu bằng việc trích dẫn những bản tuyên ngôn lịch sử nào?",
+    "options": {
+      "A": "Tuyên ngôn Độc lập năm 1776 của nước Mỹ và Tuyên ngôn Nhân quyền và Dân quyền năm 1791 của Cách mạng Pháp",
+      "B": "Bình Ngô đại cáo của Nguyễn Trãi và Tuyên ngôn Nhân quyền của Liên hợp quốc",
+      "C": "Tuyên ngôn Giải phóng nô lệ của Mỹ và Đại Hiến chương Magna Carta của Anh",
+      "D": "Luận cương tháng Tư của Lê-nin và Tuyên ngôn của Đảng Cộng sản"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Bác Hồ khéo léo trích dẫn Tuyên ngôn Độc lập (1776) của nước Mỹ và Tuyên ngôn Nhân quyền và Dân quyền (1791) của Pháp để khẳng định quyền tự do, bình đẳng của dân tộc Việt Nam dựa trên những chân lý bất di bất dịch mà chính tổ tiên của kẻ thù đã công nhận.",
+    "growth_mindset_tip": "Chiến thuật lập luận 'gậy ông đập lưng ông': Dùng chính tư tưởng tiến bộ của các cường quốc phương Tây để bảo vệ quyền tự do độc lập cho dân tộc ta!"
+  },
+  {
+    "id": "VAN-006",
+    "block": "D01",
+    "subject": "Ngữ văn",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Mục 2: Thực hành Tiếng Việt (Biện pháp tu từ Nói mỉa và Nghịch ngữ)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Câu văn nào sau đây sử dụng biện pháp tu từ 'Nghịch ngữ' (Oxymoron) để tạo hiệu quả biểu đạt ấn tượng?",
+    "options": {
+      "A": "Đó là một sự im lặng đầy bão tố trong căn phòng xét xử.",
+      "B": "Trăng cứ tròn vành vạnh / Kể chi người vô tình.",
+      "C": "Người ta đi cày lúc trưa tróc vất vả như thế nào thì ai cũng biết.",
+      "D": "Hắn là một gã khổng lồ tí hon đang ngủ gật."
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Nghịch ngữ là sự kết hợp của hai khái niệm hoặc từ ngữ có ý nghĩa đối lập, tương phản trực tiếp trong cùng một cụm từ để bộc lộ bản chất nội tâm sâu sắc ('sự im lặng' tương phản với 'bão tố' -> im lặng đầy bão tố).",
+    "growth_mindset_tip": "Nghịch ngữ đặt hai từ trái ngược cạnh nhau để làm bật lên mâu thuẫn gay gắt của sự vật, tâm trạng!"
+  },
+  {
+    "id": "VAN-007",
+    "block": "C00",
+    "subject": "Ngữ văn",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Mục 1: Văn học và Cuộc đời (Hồn Trương Ba, da hàng thịt - Lưu Quang Vũ)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Trong vở kịch 'Hồn Trương Ba, da hàng thịt' của Lưu Quang Vũ, thông điệp triết lý nhân sinh sâu sắc nhất qua quyết định cuối cùng của Hồn Trương Ba là gì?",
+    "options": {
+      "A": "Con người chỉ thực sự hạnh phúc và thanh thản khi được sống là chính mình, có sự thống nhất hài hòa giữa linh hồn thanh cao và thể xác phàm tục",
+      "B": "Con người cần phải khuất phục trước hoàn cảnh để tồn tại bằng mọi giá",
+      "C": "Thể xác quyết định hoàn toàn bản chất và ý chí của linh hồn",
+      "D": "Sống bất tử là khát vọng tối thượng mà ai cũng hướng tới"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Hồn Trương Ba kiên quyết từ chối nhập vào xác cu Tị, chấp nhận cái chết vĩnh viễn để linh hồn được trong sạch: 'Không thể bên trong một đằng, bên ngoài một nẻo được. Tôi muốn được là tôi toàn vẹn'. Sống trọn vẹn, chân thực là chính mình quý giá hơn một sự tồn tại chắp vá, vay mượn.",
+    "growth_mindset_tip": "Vấn đề 'bên trong' và 'bên ngoài': Hãy dũng cảm sống trung thực với chính lương tri và nhân cách của bản thân!"
+  },
+  {
+    "id": "VAN-008",
+    "block": "C00",
+    "subject": "Ngữ văn",
+    "slot_type": "BOSS_30D",
+    "source": "Phần A - Mục 1: Cấu tứ và Hình ảnh trong thơ trữ tình (Độc Tiểu Thanh kí - Nguyễn Du)",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Hai câu thơ kết trong 'Độc Tiểu Thanh kí' của Nguyễn Du: 'Bất tri tam bách dư niên hậu / Thiên hạ hà nhân khấp Tố Như?' thể hiện chiều sâu tư tưởng nhân đạo nào của đại thi hào?",
+    "options": {
+      "A": "Từ niềm đồng cảm sâu sắc với số phận nàng Tiểu Thanh tài hoa bạc mệnh, Nguyễn Du tự thương cho chính số phận của mình và khát khao tìm kiếm một tấm lòng tri âm tri kỉ giữa cuộc đời",
+      "B": "Sự tự hào kiêu hãnh của một thiên tài văn chương tin tưởng tên tuổi mình sẽ lưu danh muôn thuở",
+      "C": "Nỗi lo sợ bị người đời sau lãng quên tác phẩm của mình",
+      "D": "Sự tuyệt vọng bế tắc trước quy luật nghiệt ngã của thời gian và cái chết"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Nguyễn Du thương người mệnh bạc (Tiểu Thanh) hơn 300 năm trước, rồi lại tự thương cho chính mình ('Tố Như'), tự hỏi hơn 300 năm sau liệu có ai trong cõi đời này nhỏ lệ khóc thương ông. Đó là đỉnh cao của cảm hứng tự thương và khát vọng tri âm tha thiết của trái tim nhân đạo lớn lao.",
+    "growth_mindset_tip": "Tư tưởng nhân đạo của Nguyễn Du: Không chỉ xót thương người khác mà còn thức tỉnh ý thức cá nhân, tự thương chính mình và khao khát đồng cảm tâm hồn!"
+  },
+  {
+    "id": "VAN-009",
+    "block": "D01",
+    "subject": "Ngữ văn",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Mục 1: Thể loại Tùy bút & Tản văn (Hoàng Phủ Ngọc Tường)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong tác phẩm tùy bút 'Ai đã đặt tên cho dòng sông?', nhà văn Hoàng Phủ Ngọc Tường đã so sánh sông Hương ở khúc thượng nguồn vùng rừng đại ngàn với hình ảnh nào?",
+    "options": {
+      "A": "Bản trường ca của rừng già mang tâm hồn cô gái Digan phóng khoáng và man dại",
+      "B": "Người mẹ phù sa dịu dàng của vùng đồng bằng châu thổ",
+      "C": "Một vũ nữ kiều diễm trong cung đình Huế cổ kính",
+      "D": "Một dải lụa mềm mại vắt ngang qua thành phố"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Ở vùng thượng nguồn, sông Hương được ví như 'bản trường ca của rừng già', rầm rộ giữa bóng cây đại ngàn, mãnh liệt qua ghềnh thác, mang vẻ đẹp phóng khoáng, man dại như một 'cô gái Digan'.",
+    "growth_mindset_tip": "Nhớ 4 vẻ đẹp biến hóa của sông Hương: Thượng nguồn (cô gái Digan man dại) -> Về đồng bằng (người tình dịu dàng) -> Vào thành phố (người tài nữ đánh đàn lúc đêm khuya)!"
+  },
+  {
+    "id": "VAN-010",
+    "block": "C00",
+    "subject": "Ngữ văn",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Mục 1: Thơ ca lãng mạn hiện đại (Vội vàng - Xuân Diệu)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Quan niệm thẩm mĩ mới mẻ và táo bạo nhất của thi sĩ Xuân Diệu trong phong trào Thơ mới thể hiện qua câu thơ 'Tháng giêng ngon như một cặp môi gần' là gì?",
+    "options": {
+      "A": "Lấy con người trần thế, trẻ trung, căng tràn sức sống làm chuẩn mực thước đo cho vẻ đẹp của vũ trụ và thiên nhiên",
+      "B": "Lấy vẻ đẹp thanh cao của thiên nhiên để so sánh với sự đoan trang của người phụ nữ",
+      "C": "Đồng nhất thời gian vô hình với hương vị của các món ăn trần tục",
+      "D": "Thể hiện sự bế tắc của cái tôi cá nhân trước dòng chảy thời gian"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Thơ trung đại thường lấy thiên nhiên làm chuẩn mực thẩm mỹ (khuôn trăng, nét ngài, tùng cúc trúc mai). Xuân Diệu đã tạo nên cuộc cách mạng thẩm mỹ: Lấy con người nơi trần thế, tuổi trẻ và tình yêu làm thước đo cao nhất cho vẻ đẹp của tự nhiên ('Tháng giêng ngon như một cặp môi gần').",
+    "growth_mindset_tip": "Cuộc cách mạng thơ ca của Xuân Diệu: Đưa con người vào vị trí trung tâm của vẻ đẹp vũ trụ!"
+  },
+  {
+    "id": "VAN-011",
+    "block": "D01",
+    "subject": "Ngữ văn",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Mục 2: Thực hành Tiếng Việt (Điển cố, điển tích)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Tác dụng chủ yếu của việc sử dụng các 'Điển cố, điển tích' trong văn học trung đại và thơ ca là:",
+    "options": {
+      "A": "Làm cho diễn đạt hàm súc, cô đọng, giàu sức gợi và tăng thêm chiều sâu văn hóa, lịch sử",
+      "B": "Khoe khoang tri thức uyên bác và làm cho tác phẩm khó hiểu",
+      "C": "Thay thế hoàn toàn cho việc biểu đạt cảm xúc chân thật của tác giả",
+      "D": "Tạo ra sự hài hước, tiếng cười châm biếm cho tác phẩm"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Điển cố là việc mượn những câu chuyện, nhân vật trong thư tịch cổ để biểu đạt ý tứ của mình. Tác dụng của điển cố giúp câu thơ 'ý tại ngôn ngoại' (ý ở ngoài lời), hàm súc, trang trọng và mang chiều sâu triết lý.",
+    "growth_mindset_tip": "Điển cố giúp gói ghém một câu chuyện dài hay triết lý lớn chỉ trong vài chữ ngắn gọn!"
+  },
+  {
+    "id": "VAN-012",
+    "block": "C00",
+    "subject": "Ngữ văn",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Mục 1: Văn bản nghị luận & Bản sắc văn hóa (Trần Đình Hượu)",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Trong tiểu luận 'Nhìn về vốn văn hóa dân tộc', nhà nghiên cứu Trần Đình Hượu đã chỉ ra đặc trưng cốt lõi nổi bật nhất của tâm lý và quan niệm sống của người Việt truyền thống là:",
+    "options": {
+      "A": "Chuộng sự hài hòa, thiết thực, yên ổn, chừng mực và lành mạnh",
+      "B": "Say mê với những khát vọng siêu hình, hoành tráng và phiêu lưu mạo hiểm",
+      "C": "Tuyệt đối hóa tư tưởng tôn giáo khổ hạnh và cách li với đời sống",
+      "D": "Coi trọng sự bùng nổ của các cuộc cách mạng tư tưởng triệt để"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trần Đình Hượu nhận định: Người Việt không say mê cái tráng lệ, phi thường mà ưa cái thanh nhã, vừa xinh; hướng tới cuộc sống thực tế, bình yên, sự hài hòa giữa con người với thiên nhiên và đạo lý nhân nghĩa chừng mực.",
+    "growth_mindset_tip": "Nắm vững đặc trưng văn hóa Việt: Thiết thực, linh hoạt, chuộng sự điều hòa và dung hợp, không cực đoan!"
+  },
+  {
+    "id": "SINH-001",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương I: Di truyền phân tử (Cấu trúc DNA và cơ chế tái bản)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong quá trình nhân đôi DNA ở sinh vật nhân thực, enzyme nào có vai trò chính lắp ráp các nucleotide tự do theo nguyên tắc bổ sung với mạch khuôn?",
+    "options": {
+      "A": "DNA polymerase",
+      "B": "RNA polymerase",
+      "C": "DNA ligase",
+      "D": "Helicase (Enzyme tháo xoắn)"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "DNA polymerase là enzyme chịu trách nhiệm kéo dài mạch mới bằng cách gắn các nucleotide tự do từ môi trường nội bào vào đầu $3'\\text{-OH}$ của đoạn mồi theo nguyên tắc bổ sung (A-T, G-C).",
+    "growth_mindset_tip": "Nhớ rằng DNA polymerase chỉ có thể kéo dài mạch theo chiều $5' \\to 3'$ trên mạch mới, đòi hỏi đầu $3'-OH$ tự do!"
+  },
+  {
+    "id": "SINH-002",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương I: Điều hòa biểu hiện gene (Mô hình Operon Lac)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Trong mô hình cấu trúc Operon Lac ở vi khuẩn E. coli, chất cảm ứng (allolactose) kích hoạt sự phiên mã của các gene cấu trúc bằng cách nào?",
+    "options": {
+      "A": "Liên kết với protein ức chế làm biến đổi cấu hình của nó, khiến protein này rời khỏi vùng vận hành (O)",
+      "B": "Liên kết trực tiếp với vùng khởi động (P) để kích hoạt RNA polymerase",
+      "C": "Phá hủy gene điều hòa (lacI) để ngăn cản việc sản xuất protein ức chế",
+      "D": "Liên kết với các gene cấu trúc Z, Y, A để thúc đẩy dịch mã"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Khi có lactose trong tế bào, một lượng nhỏ chuyển thành allolactose đóng vai trò là chất cảm ứng. Allolactose gắn vào protein ức chế làm thay đổi cấu hình không gian ba chiều của nó, làm protein ức chế mất khả năng liên kết với vùng vận hành ($O$), mở đường cho RNA polymerase tiến hành phiên mã các gene cấu trúc $Z, Y, A$.",
+    "growth_mindset_tip": "Bẫy thường gặp: Chất cảm ứng không tác động lên vùng P hay gene điều hòa, mà tương tác trực tiếp với protein ức chế!"
+  },
+  {
+    "id": "SINH-003",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương II: Di truyền nhiễm sắc thể (Cấu trúc siêu hiển vi của NST)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Mỗi đơn vị cấu trúc cơ bản của nhiễm sắc thể (nucleosome) ở sinh vật nhân thực gồm:",
+    "options": {
+      "A": "8 phân tử protein histone được quấn quanh bởi khoảng 146 cặp nucleotide của phân tử DNA",
+      "B": "4 phân tử protein histone được quấn quanh bởi 2 vòng xoắn DNA",
+      "C": "Một phân tử DNA dạng vòng liên kết với protein phi histone",
+      "D": "Sợi nhiễm sắc có đường kính 30 nm liên kết với màng nhân"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cấu trúc hiển vi của nucleosome gồm một lõi gồm 8 phân tử protein histone (octamer histone) được quấn xung quanh bởi $1\\frac{3}{4}$ vòng xoắn DNA chứa khoảng 146 cặp nucleotide.",
+    "growth_mindset_tip": "Nắm vững chuỗi kích thước của NST: Sợi cơ bản (10 nm) -> Sợi nhiễm sắc (30 nm) -> Ống siêu xoắn (300 nm) -> Chromatid (700 nm)."
+  },
+  {
+    "id": "SINH-004",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương IV: Di truyền học quần thể (Định luật Hardy - Weinberg)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Một quần thể thực vật giao phấn ngẫu nhiên đang ở trạng thái cân bằng di truyền có tỉ lệ kiểu hình hoa trắng (do allele lặn a quy định) là 16%. Tỉ lệ cá thể mang kiểu gene dị hợp (Aa) trong quần thể này là:",
+    "options": {
+      "A": "48%",
+      "B": "36%",
+      "C": "24%",
+      "D": "60%"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Vì quần thể cân bằng di truyền nên tần số kiểu gen đồng hợp lặn $aa = q^2 = 0{,}16 \\Rightarrow q_a = \\sqrt{0{,}16} = 0{,}4$. Tần số allele trội $p_A = 1 - 0{,}4 = 0{,}6$. Tỉ lệ kiểu gene dị hợp $Aa = 2pq = 2 \\times 0{,}6 \\times 0{,}4 = 0{,}48$ (tức 48%).",
+    "growth_mindset_tip": "Định luật Hardy - Weinberg: Luôn tìm tần số allele lặn $q = \\sqrt{aa}$ trước tiên khi đã biết tỉ lệ kiểu hình lặn!"
+  },
+  {
+    "id": "SINH-005",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương II: Quy luật di truyền liên kết và hoán vị gene",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Cơ thể có kiểu gene $\\frac{AB}{ab}$ giảm phân xảy ra hoán vị gene giữa hai gene $A$ và $B$ với tần số $f = 20\\%$. Tỉ lệ giao tử hoán vị $Ab$ tạo ra là:",
+    "options": {
+      "A": "10%",
+      "B": "20%",
+      "C": "40%",
+      "D": "5%"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Giao tử liên kết là $AB$ và $ab$, mỗi loại chiếm tỉ lệ $\\frac{1 - f}{2} = \\frac{1 - 0{,}2}{2} = 40\\%$. Giao tử hoán vị là $Ab$ và $aB$, mỗi loại chiếm tỉ lệ $\\frac{f}{2} = \\frac{20\\%}{2} = 10\\%$.",
+    "growth_mindset_tip": "Nhớ rằng tần số hoán vị gene $f$ là tổng tỉ lệ của CẢ HAI loại giao tử hoán vị, nên mỗi loại chỉ chiếm $f/2$!"
+  },
+  {
+    "id": "SINH-006",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Chương II: Cảm ứng ở thực vật (Hướng động và Ứng động)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Hiện tượng cụp lá của cây trinh nữ (Mimosa pudica) khi va chạm cơ học là ví dụ tiêu biểu của hình thức cảm ứng nào?",
+    "options": {
+      "A": "Ứng động không sinh trưởng do biến đổi áp suất thẩm thấu",
+      "B": "Ứng động sinh trưởng do quang chu kỳ",
+      "C": "Hướng tiếp xúc dương",
+      "D": "Hướng trọng lực âm"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cây trinh nữ cụp lá là ứng động không sinh trưởng (diễn ra rất nhanh, có tính thuận nghịch), cơ chế do sự thay đổi đột ngột hàm lượng nước và áp suất trương nước tại các tế bào thể gối ở gốc cuống lá.",
+    "growth_mindset_tip": "Phân biệt: Ứng động sinh trưởng diễn ra chậm liên quan đến phân chia tế bào (hoa nở), còn ứng động không sinh trưởng do biến đổi trương nước tức thì!"
+  },
+  {
+    "id": "SINH-007",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Chương III: Sinh trưởng và phát triển (Hormone thực vật)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Phytohormone nào dưới đây đóng vai trò chủ đạo trong việc kích thích quả nhanh chín và thúc đẩy quá trình rụng lá ở thực vật?",
+    "options": {
+      "A": "Ethylene",
+      "B": "Gibberellin (GA)",
+      "C": "Auxin (IAA)",
+      "D": "Cytokinin"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Ethylene là hormone thực vật duy nhất ở trạng thái khí, có vai trò xúc tiến quá trình chín của quả, thúc đẩy sự rụng lá, rụng quả và phản ứng già hóa của mô thực vật.",
+    "growth_mindset_tip": "Để giấm chín trái cây dân gian thường ủ chung với quả chín vì quả chín tự nhiên giải phóng khí ethylene kích hoạt các quả lân cận!"
+  },
+  {
+    "id": "SINH-008",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương II: Đột biến số lượng nhiễm sắc thể và di truyền học người",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Hội chứng Down ở người là dạng đột biến lệch bội thể ba ($2n+1$). Cơ chế phát sinh chủ yếu do sự không phân li của cặp nhiễm sắc thể nào trong giảm phân hình thành giao tử?",
+    "options": {
+      "A": "Cặp nhiễm sắc thể số 21",
+      "B": "Cặp nhiễm sắc thể giới tính XX/XY",
+      "C": "Cặp nhiễm sắc thể số 13",
+      "D": "Cặp nhiễm sắc thể số 18"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Hội chứng Down phát sinh do cặp nhiễm sắc thể số 21 (NST thường) không phân li trong giảm phân (chủ yếu trong quá trình giảm phân I ở mẹ), tạo ra giao tử chứa 2 chiếc NST số 21 ($n+1$). Khi thụ tinh với giao tử bình thường ($n$) tạo ra hợp tử có 3 chiếc NST 21 (thể ba cặp 21, $2n+1=47$).",
+    "growth_mindset_tip": "Nhớ các hội chứng lệch bội phổ biến: Cặp 21 là Down; Cặp 18 là Edwards; Cặp 13 là Patau; Cặp giới tính XO là Turner, XXY là Klinefelter."
+  },
+  {
+    "id": "SINH-009",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Mục Tiến hóa & Sinh thái học: Chuỗi và lưới thức ăn",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Trong một chuỗi thức ăn trên cạn gồm: Cỏ -> Cào cào -> Ếch đồng -> Rắn hổ mang -> Đại bàng. Sinh vật tiêu thụ bậc 2 trong chuỗi thức ăn này là:",
+    "options": {
+      "A": "Ếch đồng",
+      "B": "Cào cào",
+      "C": "Rắn hổ mang",
+      "D": "Cỏ"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cỏ là Sinh vật sản xuất (bậc dinh dưỡng 1). Cào cào ăn cỏ là Sinh vật tiêu thụ bậc 1 (bậc dinh dưỡng 2). Ếch đồng ăn cào cào là Sinh vật tiêu thụ bậc 2 (bậc dinh dưỡng 3). Rắn hổ mang là Sinh vật tiêu thụ bậc 3.",
+    "growth_mindset_tip": "Cẩn thận bẫy: 'Bậc dinh dưỡng' (tính từ sinh vật sản xuất) lệch 1 bậc so với 'Sinh vật tiêu thụ' (tính từ động vật ăn thực vật)!"
+  },
+  {
+    "id": "SINH-010",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Chương IV: Sinh sản ở thực vật có hoa",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong hiện tượng thụ tinh kép ở thực vật có hoa, giao tử đực thứ hai kết hợp với tế bào nào của túi phôi để tạo thành phôi nhũ dinh dưỡng?",
+    "options": {
+      "A": "Nhân lưỡng bội (2n) ở trung tâm tạo nội nhũ tam bội (3n)",
+      "B": "Tế bào trứng (n) tạo hợp tử (2n)",
+      "C": "Hai tế bào kèm (trợ bào) tạo vỏ hạt",
+      "D": "Tế bào đối cầu tiêu biến"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Thụ tinh kép gồm 2 quá trình thụ tinh đồng thời: Giao tử đực 1 ($n$) + Trứng ($n$) $\\to$ Hợp tử ($2n$); Giao tử đực 2 ($n$) + Nhân cực ở trung tâm ($2n$) $\\to$ Nhân tam bội ($3n$) phát triển thành nội nhũ cung cấp chất dinh dưỡng cho phôi.",
+    "growth_mindset_tip": "Thụ tinh kép là đặc trưng tiến hóa chỉ có ở ngành Thực vật hạt kín (Angiospermae) để tránh lãng phí chất dinh dưỡng trước thụ tinh!"
+  },
+  {
+    "id": "SINH-011",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương I: Đột biến gene và mã di truyền",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Đột biến điểm dạng nào sau đây trên vùng mã hóa của gene cấu trúc thường gây hậu quả nghiêm trọng nhất đối với cấu trúc của chuỗi polypeptide?",
+    "options": {
+      "A": "Thêm hoặc mất 1 cặp nucleotide ở đầu vùng mã hóa",
+      "B": "Thay thế 1 cặp nucleotide tạo codon đồng nghĩa",
+      "C": "Thay thế 1 cặp nucleotide ở giữa gene",
+      "D": "Mất 3 cặp nucleotide tương ứng với đúng 1 bộ ba"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Đột biến thêm hoặc mất 1 cặp nucleotide làm dịch khung đọc mã di truyền (frameshift mutation) từ vị trí xảy ra đột biến về sau, làm thay đổi toàn bộ trình tự axit amin của chuỗi polypeptide và có thể xuất hiện sớm bộ ba kết thúc. Đột biến xảy ra càng gần đầu gene thì chuỗi polypeptide càng bị biến đổi nghiêm trọng.",
+    "growth_mindset_tip": "Đột biến dịch khung (thêm/mất 1-2 cặp) luôn nguy hiểm hơn đột biến thay thế hay đột biến mất nguyên vẹn 1 bộ ba!"
+  },
+  {
+    "id": "SINH-012",
+    "block": "B00",
+    "subject": "Sinh học",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương II: Phả hệ và di truyền liên kết giới tính",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Ở người, bệnh mù màu đỏ - lục do một allele lặn nằm trên vùng không tương đồng của nhiễm sắc thể giới tính X quy định (gene $m$, allele bình thường $M$). Một cặp vợ chồng có thị giác bình thường sinh được con trai đầu lòng bị bệnh mù màu. Xác suất để đứa con thứ hai của họ là con gái không bị bệnh và không mang allele gây bệnh là:",
+    "options": {
+      "A": "25%",
+      "B": "50%",
+      "C": "12{,}5%",
+      "D": "0%"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Bố bình thường có kiểu gen $X^M Y$. Con trai đầu lòng mù màu có kiểu gen $X^m Y$, nhận NST $Y$ từ bố và $X^m$ từ mẹ. Mẹ bình thường nên kiểu gen của mẹ là dị hợp mang gene bệnh: $X^M X^m$. Sơ đồ lai: $X^M Y \\times X^M X^m \\to \\frac{1}{4} X^M X^M : \\frac{1}{4} X^M X^m : \\frac{1}{4} X^M Y : \\frac{1}{4} X^m Y$. Đứa con thứ hai là con gái không bệnh và không mang gene bệnh ($X^M X^M$) chiếm tỉ lệ đúng $\\frac{1}{4} = 25\\%$.",
+    "growth_mindset_tip": "Đọc kỹ yêu cầu: 'con gái không bệnh và KHÔNG mang allele gây bệnh' tức là $X^M X^M$, không tính thể dị hợp $X^M X^m$!"
+  },
+  {
+    "id": "ENG-001",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Unit 6: Preserving Our Heritage (To-infinitive clauses)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Mark the letter A, B, C, or D to indicate the correct answer to the following question:\n\nNeil Armstrong was the first person _______ on the surface of the Moon.",
+    "options": {
+      "A": "to walk",
+      "B": "walking",
+      "C": "walked",
+      "D": "walk"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Khi danh từ đứng trước có chứa từ chỉ thứ tự (*the first, the second, the last, the only*) hoặc so sánh nhất, ta rút gọn mệnh đề quan hệ bằng cụm động từ nguyên mẫu có to (*to-infinitive clause*). Ví dụ: 'the first person that walked' -> 'the first person to walk'.",
+    "growth_mindset_tip": "Nhớ công thức: 'The first/second/last/only + Noun + to-V'!"
+  },
+  {
+    "id": "ENG-002",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "TRAP_2",
+    "source": "Phần A - Unit 7: Education Options (Perfect gerunds & participle clauses)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Mark the letter A, B, C, or D to indicate the correct answer:\n\n_______ all her university entrance exams with flying colours, Linh felt completely relieved and confident.",
+    "options": {
+      "A": "Having passed",
+      "B": "Passing",
+      "C": "To have passed",
+      "D": "Passed"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Sử dụng phân từ hoàn thành (*Having + V3/ed*) để rút gọn mệnh đề trạng ngữ có cùng chủ ngữ khi muốn nhấn mạnh một hành động đã hoàn tất trước một hành động khác trong quá khứ. Việc Linh đỗ kỳ thi xảy ra trước cảm giác nhẹ nhõm, tự tin.",
+    "growth_mindset_tip": "Dùng 'Having + V3/ed' khi muốn nhấn mạnh thứ tự thời gian: Hành động xảy ra trước hoàn toàn so với mệnh đề chính!"
+  },
+  {
+    "id": "ENG-003",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Unit 8: Becoming Independent (Cleft sentences)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Mark the letter A, B, C, or D to indicate the correct answer:\n\nIt was in this small mountainous village _______ the young volunteer doctor devoted ten years of his youth.",
+    "options": {
+      "A": "that",
+      "B": "where",
+      "C": "which",
+      "D": "when"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cấu trúc câu chẻ nhấn mạnh (Cleft sentence): `It is/was + thành_phần_nhấn_mạnh + THAT + S + V`. Bẫy phổ biến: Thấy nơi chốn (*mountainous village*) liền vội vàng chọn *where*. Trong câu chẻ chuẩn, thành phần nối luôn dùng `that`.",
+    "growth_mindset_tip": "Bẫy câu chẻ kinh điển: Dù nhấn mạnh nơi chốn hay thời gian, liên từ chuẩn trong câu chẻ 'It was ... that' luôn là THAT, không dùng where/when!"
+  },
+  {
+    "id": "ENG-004",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Unit 4: Urbanisation (Double comparatives)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Choose the best option to complete the sentence:\n\n_______ the population in large metropolitan areas grows, _______ the strain on public transport and healthcare systems becomes.",
+    "options": {
+      "A": "The faster / the greater",
+      "B": "The faster / the greatest",
+      "C": "Faster / greater",
+      "D": "The fastest / greater"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cấu trúc so sánh kép (Double comparative) chỉ mối quan hệ tương hỗ nguyên nhân - kết quả: `The + comparative (adj/adv) + S1 + V1, the + comparative (adj/adv) + S2 + V2`. Do đó 'The faster ... the greater ...' là lựa chọn chính xác duy nhất.",
+    "growth_mindset_tip": "Cấu trúc 'The more... the more...': Hai vế đều phải có mạo từ 'The' kết hợp với cấp so sánh hơn!"
+  },
+  {
+    "id": "ENG-005",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Unit 2: A Multicultural World (Articles)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Choose the correct article to fill in the blank:\n\nMount Everest is the highest mountain in _______ Himalayas.",
+    "options": {
+      "A": "the",
+      "B": "a",
+      "C": "an",
+      "D": "Ø (no article)"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Quy tắc sử dụng mạo từ: Ta dùng mạo từ xác định `the` trước tên các dãy núi (danh từ số nhiều như *the Himalayas, the Alps, the Rocky Mountains*). Lưu ý không dùng mạo từ trước ngọn núi đơn lẻ (*Mount Everest*).",
+    "growth_mindset_tip": "Ngọn núi đứng một mình không có mạo từ, nhưng cả dãy núi (có 's') thì luôn phải có 'the'!"
+  },
+  {
+    "id": "ENG-006",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Unit 3: Green Living (Relative clauses referring to a whole sentence)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Choose the best answer to complete the sentence:\n\nMany factories continue dumping untreated toxic chemical waste directly into the river, _______ severely threatens aquatic ecosystems.",
+    "options": {
+      "A": "which",
+      "B": "that",
+      "C": "what",
+      "D": "who"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Đại từ quan hệ `which` đứng sau dấu phẩy được dùng để thay thế cho toàn bộ nội dung của mệnh đề đứng trước nó. Không được dùng `that` sau dấu phẩy hoặc khi thay thế cho cả câu.",
+    "growth_mindset_tip": "Nhớ quy tắc vàng: Sau dấu phẩy không dùng THAT. Để thay thế cả mệnh đề, chỉ dùng độc nhất ', which'!"
+  },
+  {
+    "id": "ENG-007",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Unit 6: Artificial Intelligence (Active and Passive Causatives)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Choose the correct verb form to fill in the blank:\n\nOur company had the entire customer database _______ by an experienced cybersecurity agency to prevent potential data breaches.",
+    "options": {
+      "A": "audited",
+      "B": "audit",
+      "C": "to audit",
+      "D": "auditing"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cấu trúc thể sai khiến bị động (Passive Causative): `have / get + something + V3/ed (past participle)`. Ở đây 'the entire customer database' là vật bị tác động (được kiểm toán) nên động từ chuyển thành `audited`.",
+    "growth_mindset_tip": "Cấu trúc truyền khiến: Chủ động là 'have someone DO' nhưng bị động luôn là 'have something DONE'!"
+  },
+  {
+    "id": "ENG-008",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Unit 8: Lifelong Learning (Collocations & Idioms)",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Choose the word/phrase that best completes the idiom:\n\nIn the rapidly evolving landscape of modern artificial intelligence, professionals must continuously upgrade their skills to avoid _______ in the job market.",
+    "options": {
+      "A": "falling behind",
+      "B": "running out",
+      "C": "dropping off",
+      "D": "cutting down"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cụm động từ `fall behind` có nghĩa là tụt hậu, bị bỏ lại phía sau so với sự phát triển chung. Các cụm khác: `run out` (cạn kiệt), `drop off` (ngủ thiếp đi/giảm dần), `cut down` (cắt giảm) không phù hợp về ngữ nghĩa.",
+    "growth_mindset_tip": "Học phrasal verbs theo ngữ cảnh: 'fall behind' thường đi với tốc độ thay đổi nhanh của công nghệ và sự nghiệp!"
+  },
+  {
+    "id": "ENG-009",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Unit 1: Life Stories We Admire (Pronunciation & Stress)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Mark the letter A, B, C, or D to indicate the word that differs from the other three in the position of primary stress:",
+    "options": {
+      "A": "biography",
+      "B": "education",
+      "C": "independent",
+      "D": "academic"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trọng âm các từ:\n- `biography` /baɪˈɒɡrəfi/: trọng âm rơi vào âm tiết thứ 2 (hậu tố -graphy có trọng âm ở âm tiết liền trước).\n- `education` /ˌedʒuˈkeɪʃn/: trọng âm rơi vào âm tiết thứ 3.\n- `independent` /ˌɪndɪˈpendənt/: trọng âm rơi vào âm tiết thứ 3.\n- `academic` /ˌækəˈdemɪk/: trọng âm rơi vào âm tiết thứ 3 (hậu tố -ic).",
+    "growth_mindset_tip": "Quy tắc trọng âm: Từ có đuôi -ic, -graphy, -tion thường có trọng âm rơi vào âm tiết ngay trước nó!"
+  },
+  {
+    "id": "ENG-010",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Unit 9: Social Issues (Linking words & phrases)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Mark the letter A, B, C, or D to indicate the correct conjunction:\n\n_______ extensive public awareness campaigns, cyberbullying among teenagers remains a prevalent and pressing issue.",
+    "options": {
+      "A": "In spite of",
+      "B": "Although",
+      "C": "Because of",
+      "D": "Moreover"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cụm 'extensive public awareness campaigns' là một cụm danh từ (Noun phrase). Giữa hai vế có mối quan hệ tương phản (mặc dù đã tuyên truyền nhưng vấn đề vẫn phổ biến). Do đó ta dùng `In spite of` (+ Noun phrase). `Although` phải đi với một mệnh đề (clause).",
+    "growth_mindset_tip": "Phân biệt cấu trúc: 'Although / Even though + S + V', nhưng 'In spite of / Despite + Noun phrase / V-ing'!"
+  },
+  {
+    "id": "ENG-011",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Unit 5: The World of Work (Compound sentences and prepositions)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Mark the letter A, B, C, or D to indicate the correct preposition:\n\nCandidates applying for this senior management role must be capable _______ handling high-pressure situations and resolving interdepartmental conflicts.",
+    "options": {
+      "A": "of",
+      "B": "in",
+      "C": "with",
+      "D": "for"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Tính từ `capable` luôn đi kèm với giới từ `of` (`capable of doing something`: có khả năng làm gì). Bẫy thường gặp: Nhầm lẫn với cấu trúc `able to do something`.",
+    "growth_mindset_tip": "So sánh: 'able TO do' nhưng 'capable OF doing' - nhớ cặp giới từ đi liền để không mất điểm oan!"
+  },
+  {
+    "id": "ENG-012",
+    "block": "D01",
+    "subject": "Tiếng Anh",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Unit 10: Endangered Species (Inversion and advanced grammar)",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Mark the letter A, B, C, or D to indicate the correct answer:\n\nSeldom _______ such magnificent biological diversity in such a fragile and vulnerable ecosystem.",
+    "options": {
+      "A": "have researchers encountered",
+      "B": "researchers have encountered",
+      "C": "encountered researchers",
+      "D": "did researchers encountered"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Đảo ngữ với trạng từ mang nghĩa phủ định hoặc bán phủ định đứng đầu câu: `Seldom / Rarely / Never + Trợ động từ + S + V (nguyên thể)`. Câu này dùng thì hiện tại hoàn thành: `Seldom have researchers encountered...`.",
+    "growth_mindset_tip": "Khi từ bán phủ định (Seldom, Rarely, Hardly, Barely, Never) đứng đầu câu, luôn áp dụng đảo ngữ trợ động từ lên trước chủ ngữ!"
+  },
+  {
+    "id": "TIN-001",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Chủ đề 1: Cơ sở dữ liệu và CSDL quan hệ",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong mô hình cơ sở dữ liệu quan hệ (Relational Database), mỗi hàng (row) của bảng biểu diễn cho:",
+    "options": {
+      "A": "Một bản ghi (Record/Tuple)",
+      "B": "Một trường (Field/Attribute)",
+      "C": "Một khóa chính (Primary Key)",
+      "D": "Một lược đồ quan hệ (Schema)"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trong bảng của CSDL quan hệ: Mỗi cột gọi là một trường (Field/Attribute) tương ứng với một thuộc tính; mỗi hàng gọi là một bản ghi (Record/Tuple) chứa toàn bộ thông tin của một đối tượng cụ thể.",
+    "growth_mindset_tip": "Nắm vững thuật ngữ CSDL: Hàng = Bản ghi (Record), Cột = Trường (Field)."
+  },
+  {
+    "id": "TIN-002",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "TRAP_2",
+    "source": "Phần A - Chủ đề 1: Ngôn ngữ SQL (Nhóm lệnh DDL và DML)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Lệnh nào sau đây trong ngôn ngữ SQL thuộc nhóm ngôn ngữ định nghĩa dữ liệu (DDL - Data Definition Language)?",
+    "options": {
+      "A": "ALTER TABLE",
+      "B": "UPDATE",
+      "C": "SELECT",
+      "D": "INSERT INTO"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Nhóm lệnh DDL định nghĩa và thay đổi cấu trúc bảng gồm: `CREATE`, `ALTER TABLE`, `DROP`. Trong khi đó `SELECT`, `INSERT`, `UPDATE`, `DELETE` thuộc nhóm thao tác dữ liệu (DML - Data Manipulation Language).",
+    "growth_mindset_tip": "Phân biệt rõ: DDL thay đổi 'khung xương/cấu trúc' (Data Definition), DML thao tác trên 'nội dung/dữ liệu' (Data Manipulation)!"
+  },
+  {
+    "id": "TIN-003",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Chủ đề 2: Kĩ thuật lập trình Python (Độ phức tạp thuật toán)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Thuật toán tìm kiếm nhị phân (Binary Search) trên một dãy gồm n phần tử đã được sắp xếp tăng dần có độ phức tạp thời gian trong trường hợp xấu nhất là:",
+    "options": {
+      "A": "O(log n)",
+      "B": "O(n)",
+      "C": "O(n^2)",
+      "D": "O(1)"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Thuật toán tìm kiếm nhị phân sau mỗi bước so sánh sẽ loại bỏ một nửa số phần tử còn lại của dãy, do đó số phép so sánh tối đa là $\\log_2 n$, tương đương độ phức tạp thời gian $O(\\log n)$.",
+    "growth_mindset_tip": "So sánh nhị phân với tìm kiếm tuần tự: Tuần tự là $O(n)$, nhị phân là $O(\\log n)$ - nhanh hơn hàng triệu lần khi dữ liệu lớn!"
+  },
+  {
+    "id": "TIN-004",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Chủ đề 2: Kĩ thuật lập trình Python (Xử lý chuỗi và danh sách)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Đoạn mã Python sau in ra kết quả gì?\n\n```python\na = [1, 3, 5, 7, 9]\nb = [x * 2 for x in a if x % 3 != 0]\nprint(len(b), sum(b))\n```",
+    "options": {
+      "A": "3 26",
+      "B": "4 32",
+      "C": "3 24",
+      "D": "5 50"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Dãy $a = [1, 3, 5, 7, 9]$. Các phần tử không chia hết cho 3 là: 1, 5, 7. Biểu thức list comprehension nhân đôi: $b = [1*2, 5*2, 7*2] = [2, 10, 14]$. Số phần tử $\\text{len}(b) = 3$. Tổng các phần tử $\\text{sum}(b) = 2 + 10 + 14 = 26$.",
+    "growth_mindset_tip": "Kỹ thuật List Comprehension trong Python: đọc lần lượt theo thứ tự: vòng lặp `for` -> điều kiện lọc `if` -> biểu thức tính toán ở đầu!"
+  },
+  {
+    "id": "TIN-005",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chủ đề 1: Trí tuệ nhân tạo (AI)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Hệ thống AI có khả năng tạo ra các nội dung hoàn toàn mới như văn bản, hình ảnh, mã nguồn dựa trên dữ liệu đã được học được gọi là:",
+    "options": {
+      "A": "Trí tuệ nhân tạo tạo sinh (Generative AI)",
+      "B": "Trí tuệ nhân tạo phân loại (Classification AI)",
+      "C": "Hệ chuyên gia cổ điển (Expert System)",
+      "D": "Trí tuệ nhân tạo quy tắc (Rule-based AI)"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trí tuệ nhân tạo tạo sinh (Generative AI) là nhánh AI có khả năng học các mẫu từ dữ liệu lớn để tự động sinh ra các dữ liệu mới sáng tạo (văn bản, tranh vẽ, âm thanh, video, code).",
+    "growth_mindset_tip": "Các mô hình ngôn ngữ lớn như ChatGPT, Gemini, Claude đều là ví dụ tiêu biểu của Generative AI."
+  },
+  {
+    "id": "TIN-006",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chủ đề 2: Thiết kế web với HTML và CSS (Mô hình hộp Box Model)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Trong mô hình hộp (Box Model) của CSS, vùng đệm nằm giữa nội dung (content) của phần tử và đường viền (border) được định dạng bởi thuộc tính nào?",
+    "options": {
+      "A": "padding",
+      "B": "margin",
+      "C": "outline",
+      "D": "spacing"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Thứ tự các lớp trong CSS Box Model từ trong ra ngoài: Content (nội dung) $\\to$ Padding (vùng đệm bên trong viền) $\\to$ Border (đường viền) $\\to$ Margin (lề ngoài cách ly với phần tử khác).",
+    "growth_mindset_tip": "Phân biệt Margin và Padding: Padding là đệm bên TRONG đường viền, Margin là khoảng cách bên NGOÀI đường viền!"
+  },
+  {
+    "id": "TIN-007",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chủ đề 1: Mạng máy tính và An toàn không gian mạng",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Giao thức nào có nhiệm vụ chuyển đổi tên miền dạng chữ dễ nhớ (ví dụ: `google.com`) thành địa chỉ IP dạng số tương ứng trên Internet?",
+    "options": {
+      "A": "DNS (Domain Name System)",
+      "B": "DHCP (Dynamic Host Configuration Protocol)",
+      "C": "HTTP (Hypertext Transfer Protocol)",
+      "D": "FTP (File Transfer Protocol)"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Hệ thống phân giải tên miền DNS (Domain Name System) hoạt động như cuốn danh bạ Internet, biên dịch tên miền thân thiện với con người thành địa chỉ IP mà máy tính sử dụng để định tuyến dữ liệu.",
+    "growth_mindset_tip": "Ghi nhớ: DNS = Danh bạ Internet ánh xạ Domain Name <-> IP Address."
+  },
+  {
+    "id": "TIN-008",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "BOSS_30D",
+    "source": "Phần A - Chủ đề 2: Quản trị CSDL với SQL (Truy vấn INNER JOIN)",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Cho hai bảng `HocSinh(MaHS, HoTen, MaLop)` và `Lop(MaLop, TenLop, GiaoVienCN)`. Câu truy vấn SQL nào sau đây lấy danh sách họ tên học sinh cùng tên lớp tương ứng của các học sinh thuộc lớp có giáo viên chủ nhiệm là 'Nguyễn Văn A'?",
+    "options": {
+      "A": "SELECT HocSinh.HoTen, Lop.TenLop FROM HocSinh INNER JOIN Lop ON HocSinh.MaLop = Lop.MaLop WHERE Lop.GiaoVienCN = 'Nguyễn Văn A';",
+      "B": "SELECT HoTen, TenLop FROM HocSinh WHERE GiaoVienCN = 'Nguyễn Văn A';",
+      "C": "SELECT * FROM HocSinh, Lop ON HocSinh.MaLop = Lop.MaLop;",
+      "D": "SELECT HocSinh.HoTen, Lop.TenLop FROM HocSinh JOIN Lop WHERE HocSinh.MaLop = Lop.GiaoVienCN;"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cú pháp liên kết chuẩn: `FROM HocSinh INNER JOIN Lop ON HocSinh.MaLop = Lop.MaLop` để kết nối 2 bảng qua khóa ngoại `MaLop`, sau đó lọc bản ghi với mệnh đề `WHERE Lop.GiaoVienCN = 'Nguyễn Văn A'`. Đáp án A là câu truy vấn đầy đủ và chính xác nhất.",
+    "growth_mindset_tip": "Mệnh đề INNER JOIN kết nối các bảng dựa trên khóa chính - khóa ngoài, kết hợp điều kiện lọc WHERE để lấy dữ liệu đa bảng chính xác!"
+  },
+  {
+    "id": "TIN-009",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Chủ đề 1: Khóa chính và Khóa ngoài trong CSDL",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Thuộc tính nào của một bảng trong CSDL quan hệ có vai trò tham chiếu đến khóa chính của một bảng khác để tạo mối liên kết dữ liệu?",
+    "options": {
+      "A": "Khóa ngoài (Foreign Key)",
+      "B": "Khóa chính (Primary Key)",
+      "C": "Khóa ứng viên (Candidate Key)",
+      "D": "Khóa thay thế (Surrogate Key)"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Khóa ngoài (Foreign Key) là một trường hoặc tập hợp các trường trong một bảng mà giá trị của nó bắt buộc phải tồn tại trong tập giá trị khóa chính của một bảng khác, nhằm đảm bảo tính toàn vẹn tham chiếu giữa hai bảng.",
+    "growth_mindset_tip": "Khóa chính nhận diện duy nhất bản ghi trong bảng hiện tại; Khóa ngoài liên kết bảng hiện tại tới bảng khác."
+  },
+  {
+    "id": "TIN-010",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần A - Chủ đề 2: Thuật toán sắp xếp trong Python",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Trong thuật toán sắp xếp nổi bọt (Bubble Sort) trên dãy 5 số nguyên $[5, 1, 4, 2, 8]$ theo thứ tự tăng dần, sau khi hoàn thành lượt quét đầu tiên (Pass 1), trạng thái của dãy là:",
+    "options": {
+      "A": "[1, 4, 2, 5, 8]",
+      "B": "[1, 2, 4, 5, 8]",
+      "C": "[1, 5, 4, 2, 8]",
+      "D": "[4, 1, 2, 5, 8]"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Các bước so sánh và đổi chỗ liên tiếp của lượt 1:\n1) So sánh 5 và 1: đổi chỗ $\\to [1, 5, 4, 2, 8]$\n2) So sánh 5 và 4: đổi chỗ $\\to [1, 4, 5, 2, 8]$\n3) So sánh 5 và 2: đổi chỗ $\\to [1, 4, 2, 5, 8]$\n4) So sánh 5 và 8: đúng thứ tự, giữ nguyên $\\to [1, 4, 2, 5, 8]$. Kết thúc lượt 1, phần tử lớn nhất đã 'nổi bọt' về cuối dãy.",
+    "growth_mindset_tip": "Thuật toán Bubble Sort: Sau mỗi lượt $i$, phần tử lớn thứ $i$ chắc chắn sẽ nổi về đúng vị trí ở cuối dãy!"
+  },
+  {
+    "id": "TIN-011",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chủ đề 2: HTML cấu trúc trang web",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Thẻ HTML nào sau đây được sử dụng để tạo một ô tiêu đề trong bảng dữ liệu?",
+    "options": {
+      "A": "<th>",
+      "B": "<td>",
+      "C": "<tr>",
+      "D": "<header>"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Trong cấu trúc thẻ `<table>`: `<tr>` (table row) định nghĩa hàng; `<td>` (table data) định nghĩa ô dữ liệu bình thường; `<th>` (table header) định nghĩa ô tiêu đề của cột/hàng (mặc định chữ in đậm và canh giữa).",
+    "growth_mindset_tip": "Nhớ nhanh bộ 3 thẻ bảng: table -> tr (row) -> th (header) hoặc td (data)!"
+  },
+  {
+    "id": "TIN-012",
+    "block": "A00",
+    "subject": "Tin học",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chủ đề 1: An toàn mạng và Mã độc",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Hình thức tấn công mạng nào mà kẻ tấn công giả mạo tổ chức uy tín (như ngân hàng, trường học) gửi email hoặc tin nhắn chứa đường liên kết độc hại nhằm đánh cắp thông tin đăng nhập và mật khẩu của người dùng?",
+    "options": {
+      "A": "Tấn công lừa đảo (Phishing)",
+      "B": "Tấn công từ chối dịch vụ (DDoS)",
+      "C": "Tấn công tràn bộ đệm (Buffer Overflow)",
+      "D": "Tấn công trung gian (Man-in-the-Middle)"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Tấn công lừa đảo (Phishing) là kỹ thuật tấn công phi kỹ thuật (Social Engineering) lừa gạt người dùng nhấp vào liên kết giả mạo để chiếm đoạt tài khoản bí mật hoặc thông tin thẻ tín dụng.",
+    "growth_mindset_tip": "Luôn kiểm tra kỹ tên miền (domain URL) của thanh địa chỉ trình duyệt trước khi nhập mật khẩu vào bất kỳ website nào!"
+  },
+  {
+    "id": "TOAN-001",
+    "block": "A00",
+    "subject": "Toán học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương I: Khảo sát hàm số (Tính đơn điệu)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Cho hàm số $y = f(x)$ có đạo hàm $f'(x) = x^2 - 4x + 3$ với mọi $x \\in \\mathbb{R}$. Hàm số $f(x)$ đồng biến trên khoảng nào dưới đây?",
+    "options": {
+      "A": "(1; 3)",
+      "B": "(3; +\\infty)",
+      "C": "(-1; 3)",
+      "D": "(0; 2)"
+    },
+    "correct_answer": "B",
+    "micro_explanation": "Ta có $f'(x) = 0 \\Leftrightarrow x = 1$ hoặc $x = 3$. Bảng xét dấu: $f'(x) > 0$ trên $(-\\infty; 1)$ và $(3; +\\infty)$; $f'(x) < 0$ trên $(1; 3)$. Do đó hàm số đồng biến trên khoảng $(3; +\\infty)$.",
+    "growth_mindset_tip": "Nắm vững quy tắc dấu của tam thức bậc hai: 'trong trái ngoài cùng' để xác định nhanh khoảng đồng biến!"
+  },
+  {
+    "id": "TOAN-002",
+    "block": "A00",
+    "subject": "Toán học",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương I: Đường tiệm cận của đồ thị hàm số",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Số đường tiệm cận đứng và tiệm cận ngang của đồ thị hàm số $y = \\frac{2x - 1}{\\sqrt{x^2 + 1} - 2}$ là:",
+    "options": {
+      "A": "2",
+      "B": "3",
+      "C": "4",
+      "D": "1"
+    },
+    "correct_answer": "C",
+    "micro_explanation": "Mẫu số: $\\sqrt{x^2+1}-2=0 \\Leftrightarrow x^2=3 \\Leftrightarrow x = \\pm \\sqrt{3}$ (tử khác 0 tại 2 điểm này) nên có 2 TCĐ là $x = \\sqrt{3}$ và $x = -\\sqrt{3}$. Tiệm cận ngang: $\\lim_{x \\to +\\infty} y = 2$, $\\lim_{x \\to -\\infty} y = -2$ nên có 2 TCN là $y = 2$ và $y = -2$. Tổng cộng có 4 đường tiệm cận.",
+    "growth_mindset_tip": "Cẩn thận với giới hạn khi $x \\to -\\infty$: $\\sqrt{x^2} = |x| = -x$. Chú ý bẫy thiếu tiệm cận ngang thứ 2!"
+  },
+  {
+    "id": "TOAN-003",
+    "block": "A00",
+    "subject": "Toán học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương I: GTLN và GTNN của hàm số",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Giá trị nhỏ nhất của hàm số $f(x) = x + \\frac{4}{x - 1}$ trên khoảng $(1; +\\infty)$ bằng:",
+    "options": {
+      "A": "4",
+      "B": "5",
+      "C": "3",
+      "D": "6"
+    },
+    "correct_answer": "B",
+    "micro_explanation": "Biến đổi $f(x) = (x - 1) + \\frac{4}{x - 1} + 1$. Áp dụng BĐT Cauchy cho hai số dương $x - 1$ và $\\frac{4}{x-1}$: $f(x) \\ge 2\\sqrt{(x-1)\\cdot\\frac{4}{x-1}} + 1 = 2\\cdot 2 + 1 = 5$. Dấu '=' xảy ra khi $x - 1 = 2 \\Leftrightarrow x = 3 \\in (1; +\\infty)$.",
+    "growth_mindset_tip": "Kỹ thuật thêm bớt để áp dụng BĐT Cauchy là vũ khí cực mạnh cho các bài toán cực trị phân thức!"
+  },
+  {
+    "id": "TOAN-004",
+    "block": "A00",
+    "subject": "Toán học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương II: Tọa độ vectơ và điểm Oxyz",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong không gian $Oxyz$, cho hai vectơ $\\vec{u} = (1; -2; 3)$ và $\\vec{v} = (2; 0; -1)$. Tọa độ của vectơ $\\vec{w} = 2\\vec{u} - \\vec{v}$ là:",
+    "options": {
+      "A": "(0; -4; 7)",
+      "B": "(4; -4; 5)",
+      "C": "(0; -4; 5)",
+      "D": "(0; -2; 7)"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Ta có $2\\vec{u} = (2; -4; 6)$. Suy ra $\\vec{w} = 2\\vec{u} - \\vec{v} = (2 - 2; -4 - 0; 6 - (-1)) = (0; -4; 7)$.",
+    "growth_mindset_tip": "Tính toán tọa độ từng thành phần một cách cẩn thận, đặc biệt lưu ý dấu trừ khi trừ số âm."
+  },
+  {
+    "id": "TOAN-005",
+    "block": "A00",
+    "subject": "Toán học",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương II: Phương trình mặt cầu Oxyz",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Trong không gian $Oxyz$, mặt cầu $(S): x^2 + y^2 + z^2 - 2x + 4y - 6z - 2 = 0$ có tọa độ tâm $I$ và bán kính $R$ lần lượt là:",
+    "options": {
+      "A": "I(-1; 2; -3), R = 4",
+      "B": "I(1; -2; 3), R = 4",
+      "C": "I(1; -2; 3), R = \\sqrt{12}",
+      "D": "I(1; -2; 3), R = 16"
+    },
+    "correct_answer": "B",
+    "micro_explanation": "Phương trình $x^2 + y^2 + z^2 - 2ax - 2by - 2cz + d = 0$ có tâm $I(a; b; c) = (1; -2; 3)$ và $d = -2$. Bán kính $R = \\sqrt{a^2 + b^2 + c^2 - d} = \\sqrt{1^2 + (-2)^2 + 3^2 - (-2)} = \\sqrt{1 + 4 + 9 + 2} = \\sqrt{16} = 4$.",
+    "growth_mindset_tip": "Công thức tính bán kính $R = \\sqrt{a^2+b^2+c^2-d}$, chú ý $d$ mang dấu trừ nên $-(-2) = +2$!"
+  },
+  {
+    "id": "TOAN-006",
+    "block": "A00",
+    "subject": "Toán học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương IV: Nguyên hàm và tích phân",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Cho tích phân $\\int_0^1 (2x + 1) e^x dx = a + b e$ với $a, b \\in \\mathbb{Z}$. Giá trị của biểu thức $a + 2b$ là:",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "-1"
+    },
+    "correct_answer": "C",
+    "micro_explanation": "Đặt $u = 2x + 1 \\Rightarrow du = 2dx$; $dv = e^x dx \\Rightarrow v = e^x$. Tích phân từng phần: $I = [(2x+1)e^x]_0^1 - \\int_0^1 2e^x dx = (3e - 1) - 2(e - 1) = e + 1$. Do đó $a = 1, b = 1 \\Rightarrow a + 2b = 1 + 2 = 3$ (chọn đáp án C: a+2b = 3). Lưu ý kiểm tra kỹ phép tính.",
+    "growth_mindset_tip": "Từng phần 'Nhất lô, nhì đa, tam lượng, tứ mũ' giúp bạn giải quyết tích phân dạng hỗn hợp trong chớp mắt!"
+  },
+  {
+    "id": "TOAN-007",
+    "block": "A00",
+    "subject": "Toán học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương IV: Ứng dụng tích phân tính diện tích hình phẳng",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Diện tích hình phẳng giới hạn bởi hai đồ thị hàm số $y = x^2 - 2x$ và $y = -x^2 + 4x$ bằng:",
+    "options": {
+      "A": "9",
+      "B": "\\frac{9}{2}",
+      "C": "18",
+      "D": "\\frac{27}{2}"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Phương trình hoành độ giao điểm: $x^2 - 2x = -x^2 + 4x \\Leftrightarrow 2x^2 - 6x = 0 \\Leftrightarrow x = 0$ hoặc $x = 3$. Diện tích: $S = \\int_0^3 |(-x^2 + 4x) - (x^2 - 2x)| dx = \\int_0^3 (6x - 2x^2) dx = [3x^2 - \\frac{2x^3}{3}]_0^3 = (27 - 18) - 0 = 9$.",
+    "growth_mindset_tip": "Công thức diện tích giữa 2 parabol: $S = \\frac{|a|}{6}(x_2 - x_1)^3$ khi phương trình giao điểm là $ax^2 + bx + c = 0$."
+  },
+  {
+    "id": "TOAN-008",
+    "block": "A00",
+    "subject": "Toán học",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương VI: Xác suất có điều kiện và công thức Bayes",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Cho hai biến cố $A$ và $B$ có $P(A) = 0{,}4$, $P(B) = 0{,}5$ và $P(AB) = 0{,}2$. Xác suất có điều kiện $P(A|B)$ bằng:",
+    "options": {
+      "A": "0{,}5",
+      "B": "0{,}4",
+      "C": "0{,}8",
+      "D": "0{,}2"
+    },
+    "correct_answer": "B",
+    "micro_explanation": "Công thức xác suất có điều kiện: $P(A|B) = \\frac{P(AB)}{P(B)} = \\frac{0{,}2}{0{,}5} = 0{,}4$. Vì $P(A|B) = P(A) = 0{,}4$ nên hai biến cố $A$ và $B$ ở đây là hai biến cố độc lập.",
+    "growth_mindset_tip": "Nắm vững định nghĩa $P(A|B) = P(AB)/P(B)$, mẫu số luôn là biến cố điều kiện đã xảy ra."
+  },
+  {
+    "id": "TOAN-009",
+    "block": "A00",
+    "subject": "Toán học",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương VI: Công thức xác suất toàn phần và Bayes",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Một xưởng sản xuất có hai máy I và II cùng sản xuất một loại linh kiện. Máy I sản xuất 60% tổng sản lượng với tỉ lệ phế phẩm 2%. Máy II sản xuất 40% sản lượng với tỉ lệ phế phẩm 3%. Lấy ngẫu nhiên một linh kiện thì thấy nó là phế phẩm. Xác suất linh kiện đó do máy I sản xuất xấp xỉ bằng:",
+    "options": {
+      "A": "0{,}50",
+      "B": "0{,}45",
+      "C": "0{,}60",
+      "D": "0{,}38"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Gọi $A_1, A_2$ lần lượt là biến cố linh kiện do máy I, II sản xuất. $B$ là biến cố linh kiện phế phẩm. $P(A_1) = 0{,}6; P(A_2) = 0{,}4; P(B|A_1) = 0{,}02; P(B|A_2) = 0{,}03$. Xác suất toàn phần: $P(B) = 0{,}6\\cdot 0{,}02 + 0{,}4\\cdot 0{,}03 = 0{,}012 + 0{,}012 = 0{,}024$. Theo Bayes: $P(A_1|B) = \\frac{P(A_1)P(B|A_1)}{P(B)} = \\frac{0{,}012}{0{,}024} = 0{,}50$ (tức 50%).",
+    "growth_mindset_tip": "Công thức Bayes đảo ngược nguyên nhân - kết quả. Dù máy I sản xuất nhiều hơn nhưng tỉ lệ phế phẩm thấp hơn nên xác suất chia đều!"
+  },
+  {
+    "id": "TOAN-010",
+    "block": "A00",
+    "subject": "Toán học",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Chương VI: Hàm số mũ và logarit",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Tập nghiệm của bất phương trình $\\log_2 (2x - 4) < 3$ là:",
+    "options": {
+      "A": "(2; 6)",
+      "B": "(- \\infty; 6)",
+      "C": "(2; +\\infty)",
+      "D": "(2; 5)"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Điều kiện xác định: $2x - 4 > 0 \\Leftrightarrow x > 2$. Vì cơ số $2 > 1$ nên bất phương trình tương đương: $2x - 4 < 2^3 = 8 \\Leftrightarrow 2x < 12 \\Leftrightarrow x < 6$. Kết hợp điều kiện ta được $2 < x < 6$.",
+    "growth_mindset_tip": "Luôn luôn đặt điều kiện biểu thức dưới dấu logarit dương trước khi giải bất phương trình!"
+  },
+  {
+    "id": "TOAN-011",
+    "block": "A00",
+    "subject": "Toán học",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương V: Phương trình đường thẳng và mặt phẳng Oxyz",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Trong không gian $Oxyz$, khoảng cách từ điểm $M(1; 2; -1)$ đến mặt phẳng $(P): 2x - 2y + z + 5 = 0$ bằng:",
+    "options": {
+      "A": "\\frac{2}{3}",
+      "B": "\\frac{4}{3}",
+      "C": "2",
+      "D": "\\frac{1}{3}"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Khoảng cách: $d(M, (P)) = \\frac{|2(1) - 2(2) + 1(-1) + 5|}{\\sqrt{2^2 + (-2)^2 + 1^2}} = \\frac{|2 - 4 - 1 + 5|}{\\sqrt{4 + 4 + 1}} = \\frac{|2|}{\\sqrt{9}} = \\frac{2}{3}$.",
+    "growth_mindset_tip": "Công thức tính khoảng cách từ điểm tới mặt phẳng: tử số có trị tuyệt đối, mẫu số là độ dài vectơ pháp tuyến."
+  },
+  {
+    "id": "TOAN-012",
+    "block": "A00",
+    "subject": "Toán học",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương I: Ứng dụng đạo hàm khảo sát hàm số",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Có bao nhiêu giá trị nguyên của tham số $m \\in [0; 10]$ để hàm số $y = \\frac{x - 2}{x - m}$ đồng biến trên khoảng $(3; +\\infty)$?",
+    "options": {
+      "A": "2",
+      "B": "3",
+      "C": "1",
+      "D": "0"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Tập xác định: $D = \\mathbb{R} \\setminus \\{m\\}$. Đạo hàm $y' = \\frac{-m + 2}{(x - m)^2}$. Để hàm số đồng biến trên $(3; +\\infty)$ thì: 1) $y' > 0 \\Leftrightarrow -m + 2 > 0 \\Leftrightarrow m < 2$; 2) Giá trị gián đoạn $m$ không thuộc khoảng $(3; +\\infty) \\Leftrightarrow m \\le 3$. Kết hợp lại ta được $m < 2$. Do $m$ nguyên thuộc $[0; 10]$ nên $m \\in \\{0, 1\\}$. Có đúng 2 giá trị nguyên.",
+    "growth_mindset_tip": "Luôn luôn kết hợp 2 điều kiện: tử số của đạo hàm mang dấu dương và điểm kỳ dị của mẫu số nằm ngoài khoảng xác định!"
+  },
+  {
+    "id": "VATLI-001",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương I: Vật lí nhiệt (Nhiệt dung riêng)",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Trong hệ đơn vị quốc tế SI, đơn vị đo của nhiệt dung riêng là:",
+    "options": {
+      "A": "J/kg",
+      "B": "J/(kg \\cdot K)",
+      "C": "W/(m \\cdot K)",
+      "D": "J/K"
+    },
+    "correct_answer": "B",
+    "micro_explanation": "Từ công thức nhiệt lượng truyền vào: $Q = mc\\Delta T \\Rightarrow c = \\frac{Q}{m\\Delta T}$. Đơn vị của $Q$ là Jun (J), khối lượng $m$ là kg, độ biến thiên nhiệt độ $\\Delta T$ là Kelvin (K), do đó đơn vị của $c$ là $\\text{J/(kg}\\cdot\\text{K)}$.",
+    "growth_mindset_tip": "Nắm vững thứ nguyên của đại lượng vật lý bằng cách suy ra từ biểu thức định nghĩa!"
+  },
+  {
+    "id": "VATLI-002",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương I: Vật lí nhiệt (Định luật I Nhiệt động lực học)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Một khối khí trong xilanh nhận nhiệt lượng 150 J từ môi trường ngoài và đồng thời bị pit-tông nén, nhận công 80 J. Độ biến thiên nội năng $\\Delta U$ của khối khí là:",
+    "options": {
+      "A": "+230 J",
+      "B": "+70 J",
+      "C": "-70 J",
+      "D": "-230 J"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Theo Định luật I Nhiệt động lực học: $\\Delta U = A + Q$. Khối khí nhận nhiệt lượng nên $Q = +150\\text{ J}$; khối khí nhận công (bị nén) nên $A = +80\\text{ J}$. Suy ra $\\Delta U = 80 + 150 = +230\\text{ J}$.",
+    "growth_mindset_tip": "Nhớ quy tắc dấu: 'Nhận thì dương, thực hiện/truyền thì âm' để không bao giờ bị nhầm lẫn trong các bài toán nhiệt động!"
+  },
+  {
+    "id": "VATLI-003",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương II: Khí lí tưởng (Định luật Boyle)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Ở nhiệt độ không đổi, một khối khí lí tưởng có thể tích $4\\text{ lít}$ ở áp suất $1\\text{ atm}$. Khi nén khí đẳng nhiệt đến thể tích $1{,}6\\text{ lít}$, áp suất của khối khí là:",
+    "options": {
+      "A": "2{,}5 atm",
+      "B": "0{,}4 atm",
+      "C": "3{,}2 atm",
+      "D": "2{,}0 atm"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Quá trình đẳng nhiệt tuân theo định luật Boyle: $p_1 V_1 = p_2 V_2 \\Rightarrow p_2 = \\frac{p_1 V_1}{V_2} = \\frac{1 \\times 4}{1{,}6} = 2{,}5\\text{ atm}$.",
+    "growth_mindset_tip": "Trong quá trình đẳng nhiệt, áp suất tỉ lệ nghịch với thể tích: thể tích giảm thì áp suất phải tăng tương ứng."
+  },
+  {
+    "id": "VATLI-004",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương II: Khí lí tưởng (Phương trình Clapeyron - Mendeleev)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Bình chứa $0{,}2\\text{ mol}$ khí lí tưởng ở nhiệt độ $27^\\circ\\text{C}$ có thể tích $8{,}31\\text{ lít}$. Lấy hằng số khí $R = 8{,}31\\text{ J/(mol}\\cdot\\text{K)}$. Áp suất của khối khí trong bình là:",
+    "options": {
+      "A": "60 000 Pa",
+      "B": "6 000 Pa",
+      "C": "600 Pa",
+      "D": "54 000 Pa"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Đổi đơn vị: $T = 27 + 273 = 300\\text{ K}$; $V = 8{,}31\\text{ lít} = 8{,}31 \\times 10^{-3}\\text{ m}^3$. Phương trình $pV = nRT \\Rightarrow p = \\frac{nRT}{V} = \\frac{0{,}2 \\times 8{,}31 \\times 300}{8{,}31 \\times 10^{-3}} = 60\\,000\\text{ Pa}$.",
+    "growth_mindset_tip": "Bẫy đơn vị kinh điển: luôn nhớ đổi $T$ sang Kelvin và thể tích $V$ từ lít sang $\\text{m}^3$ ($1\\text{ lít} = 10^{-3}\\text{ m}^3$)!"
+  },
+  {
+    "id": "VATLI-005",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "REFLEX_1",
+    "source": "Phần B - Chương III: Từ trường và Cảm ứng điện từ",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Từ thông $\\Phi$ gửi qua diện tích $S$ của một khung dây phẳng đặt trong từ trường đều $\\vec{B}$ được tính theo công thức nào dưới đây (với $\\alpha$ là góc giữa vectơ cảm ứng từ $\\vec{B}$ và vectơ pháp tuyến $\\vec{n}$ của mặt phẳng khung)?",
+    "options": {
+      "A": "\\Phi = B S \\cos \\alpha",
+      "B": "\\Phi = B S \\sin \\alpha",
+      "C": "\\Phi = B S \\tan \\alpha",
+      "D": "\\Phi = \\frac{B S}{\\cos \\alpha}"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Theo định nghĩa từ thông qua diện tích $S$: $\\Phi = B S \\cos \\alpha$, trong đó $\\alpha = (\\vec{B}, \\vec{n})$ là góc giữa vectơ cảm ứng từ và pháp tuyến của khung dây.",
+    "growth_mindset_tip": "Chú ý góc $\\alpha$ là góc hợp bởi $\\vec{B}$ và pháp tuyến $\\vec{n}$, không phải góc hợp bởi $\\vec{B}$ và mặt phẳng khung dây!"
+  },
+  {
+    "id": "VATLI-006",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "TRAP_2",
+    "source": "Phần B - Chương III: Từ trường (Lực từ tác dụng lên đoạn dây dẫn)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Một đoạn dây dẫn thẳng dài $0{,}2\\text{ m}$ mang dòng điện $5\\text{ A}$ đặt trong từ trường đều có cảm ứng từ $B = 0{,}4\\text{ T}$. Dây dẫn hợp với các đường sức từ một góc $30^\\circ$. Độ lớn của lực từ tác dụng lên đoạn dây là:",
+    "options": {
+      "A": "0{,}20 N",
+      "B": "0{,}35 N",
+      "C": "0{,}40 N",
+      "D": "0{,}10 N"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Độ lớn lực từ tác dụng lên đoạn dây dẫn mang dòng điện: $F = I B l \\sin \\alpha = 5 \\times 0{,}4 \\times 0{,}2 \\times \\sin(30^\\circ) = 0{,}4 \\times 0{,}5 = 0{,}20\\text{ N}$.",
+    "growth_mindset_tip": "Phân biệt rõ: Lực từ dùng $\\sin \\alpha$ ($F = IBl\\sin\\alpha$), còn từ thông dùng $\\cos \\alpha$ ($\\Phi = BS\\cos\\alpha$)!"
+  },
+  {
+    "id": "VATLI-007",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương IV: Vật lí hạt nhân (Năng lượng liên kết)",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Đại lượng nào sau đây đặc trưng cho mức độ bền vững của một hạt nhân nguyên tử?",
+    "options": {
+      "A": "Năng lượng liên kết riêng",
+      "B": "Năng lượng liên kết toàn phần",
+      "C": "Độ hụt khối của hạt nhân",
+      "D": "Số khối A của hạt nhân"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Năng lượng liên kết riêng $\\epsilon = \\frac{W_{lk}}{A}$ là năng lượng liên kết tính trên một nucleon. Đại lượng này đặc trưng cho mức độ bền vững của hạt nhân: hạt nhân có năng lượng liên kết riêng càng lớn thì càng bền vững.",
+    "growth_mindset_tip": "Hạt nhân có số khối trong khoảng $50 < A < 70$ (như sắt $^{56}\\text{Fe}$) có năng lượng liên kết riêng lớn nhất và bền vững nhất trong tự nhiên."
+  },
+  {
+    "id": "VATLI-008",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "DYNAMIC_3",
+    "source": "Phần B - Chương IV: Vật lí hạt nhân (Định luật phóng xạ)",
+    "bloom_level": "Vận dụng (75s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 75,
+    "question_text": "Chất phóng xạ $^{131}_{53}\\text{I}$ có chu kì bán rã là 8 ngày đêm. Ban đầu có $16\\text{ g}$ chất này. Sau 24 ngày đêm, khối lượng $^{131}_{53}\\text{I}$ còn lại là:",
+    "options": {
+      "A": "2 g",
+      "B": "4 g",
+      "C": "8 g",
+      "D": "1 g"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Số chu kì bán rã đã trôi qua: $k = \\frac{t}{T} = \\frac{24}{8} = 3$. Khối lượng còn lại sau $k$ chu kì: $m = m_0 \\times 2^{-k} = 16 \\times 2^{-3} = \\frac{16}{8} = 2\\text{ g}$.",
+    "growth_mindset_tip": "Nhớ nhanh quy tắc lũy thừa của 2: sau 1 chu kỳ còn 1/2, 2 chu kỳ còn 1/4, 3 chu kỳ còn 1/8."
+  },
+  {
+    "id": "VATLI-009",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương I: Vật lí nhiệt (Nhiệt hóa hơi riêng và cân bằng nhiệt)",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Dùng một bếp điện công suất $1000\\text{ W}$ để đun sôi và làm bay hơi $0{,}5\\text{ kg}$ nước đang ở $100^\\circ\\text{C}$. Biết nhiệt hóa hơi riêng của nước là $L = 2{,}26 \\times 10^6\\text{ J/kg}$ và hiệu suất của ấm đun là $80\\%$. Thời gian cần thiết để lượng nước trên hóa hơi hoàn toàn là:",
+    "options": {
+      "A": "1412{,}5 giây",
+      "B": "1130 giây",
+      "C": "904 giây",
+      "D": "1765 giây"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Nhiệt lượng cần thiết để hóa hơi hoàn toàn $0{,}5\\text{ kg}$ nước ở nhiệt độ sôi: $Q = m \\cdot L = 0{,}5 \\times 2{,}26 \\times 10^6 = 1{,}13 \\times 10^6\\text{ J}$. Nhiệt lượng toàn phần do bếp cung cấp: $Q_{tp} = \\frac{Q}{H} = \\frac{1{,}13 \\times 10^6}{0{,}8} = 1{,}4125 \\times 10^6\\text{ J}$. Thời gian đun: $t = \\frac{Q_{tp}}{\\mathcal{P}} = \\frac{1{,}4125 \\times 10^6}{1000} = 1412{,}5\\text{ s}$ (xấp xỉ 23,5 phút).",
+    "growth_mindset_tip": "Hiệu suất $H = Q_{ich}/Q_{tp}$, năng lượng hao phí làm công suất toàn phần cần chia cho $H$!"
+  },
+  {
+    "id": "VATLI-010",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "REFLEX_1",
+    "source": "Phần A - Chương III: Điện trường và Định luật Coulomb",
+    "bloom_level": "Nhận biết (45s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 45,
+    "question_text": "Khi khoảng cách giữa hai điện tích điểm trong chân không tăng lên gấp đôi đồng thời độ lớn của một trong hai điện tích tăng lên gấp đôi thì lực tương tác tĩnh điện giữa chúng sẽ:",
+    "options": {
+      "A": "Giảm đi 2 lần",
+      "B": "Tăng lên 2 lần",
+      "C": "Không thay đổi",
+      "D": "Giảm đi 4 lần"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Theo định luật Coulomb: $F = k \\frac{|q_1 q_2|}{r^2}$. Khi $q_1' = 2q_1$ và $r' = 2r$, ta có $F' = k \\frac{|2q_1 q_2|}{(2r)^2} = \\frac{2}{4} F = \\frac{1}{2} F$. Lực tương tác giảm đi 2 lần.",
+    "growth_mindset_tip": "Chú ý mẫu số khoảng cách là bình phương $r^2$, nên khoảng cách tăng 2 thì mẫu số tăng gấp 4!"
+  },
+  {
+    "id": "VATLI-011",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "TRAP_2",
+    "source": "Phần A - Chương IV: Dòng điện không đổi và Mạch điện",
+    "bloom_level": "Thông hiểu (60s)",
+    "lock_condition": "MOTUDO",
+    "time_limit_seconds": 60,
+    "question_text": "Một nguồn điện có suất điện động $\\mathcal{E} = 12\\text{ V}$ và điện trở trong $r = 1\\,\\Omega$ mắc với điện trở mạch ngoài $R = 5\\,\\Omega$ thành mạch kín. Hiệu điện thế giữa hai cực của nguồn điện là:",
+    "options": {
+      "A": "10 V",
+      "B": "12 V",
+      "C": "2 V",
+      "D": "8 V"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Cường độ dòng điện trong toàn mạch: $I = \\frac{\\mathcal{E}}{R + r} = \\frac{12}{5 + 1} = 2\\text{ A}$. Hiệu điện thế giữa hai cực của nguồn điện chính là hiệu điện thế mạch ngoài: $U = I R = 2 \\times 5 = 10\\text{ V}$ (hoặc tính theo công thức $U = \\mathcal{E} - I r = 12 - 2 \\times 1 = 10\\text{ V}$).",
+    "growth_mindset_tip": "Hiệu điện thế giữa hai cực nguồn luôn nhỏ hơn suất điện động $\\mathcal{E}$ một lượng là độ giảm thế trong nguồn $Ir$."
+  },
+  {
+    "id": "VATLI-012",
+    "block": "A00",
+    "subject": "Vật lí",
+    "slot_type": "BOSS_30D",
+    "source": "Phần B - Chương IV: Phản ứng hạt nhân (Năng lượng phản ứng)",
+    "bloom_level": "Vận dụng cao 8+ (90s)",
+    "lock_condition": "YEUCAUSTREAK30NGAY",
+    "time_limit_seconds": 90,
+    "question_text": "Cho phản ứng nhiệt hạch: $^2_1\\text{H} + ^3_1\\text{H} \\to ^4_2\\text{He} + ^1_0\\text{n} + 17{,}6\\text{ MeV}$. Năng lượng tỏa ra khi tổng hợp hoàn toàn $1\\text{ g}$ khí Heli ($^4_2\\text{He}$) xấp xỉ bằng bao nhiêu (lấy số Avogadro $N_A = 6{,}022 \\times 10^{23}\\text{ mol}^{-1}$, $1\\text{ eV} = 1{,}6 \\times 10^{-19}\\text{ J}$)?",
+    "options": {
+      "A": "4{,}24 \\times 10^{11} J",
+      "B": "2{,}65 \\times 10^{12} J",
+      "C": "1{,}06 \\times 10^{11} J",
+      "D": "8{,}48 \\times 10^{11} J"
+    },
+    "correct_answer": "A",
+    "micro_explanation": "Số hạt nhân $^4_2\\text{He}$ có trong $1\\text{ g}$ là: $N = \\frac{m}{A} N_A = \\frac{1}{4} \\times 6{,}022 \\times 10^{23} = 1{,}5055 \\times 10^{23}$ hạt. Mỗi phản ứng tạo ra 1 hạt He và tỏa ra $17{,}6\\text{ MeV}$. Tổng năng lượng tỏa ra: $E = N \\times 17{,}6\\text{ MeV} = 1{,}5055 \\times 10^{23} \\times 17{,}6 \\times 10^6 \\times 1{,}6 \\times 10^{-19}\\text{ J} \\approx 4{,}24 \\times 10^{11}\\text{ J}$.",
+    "growth_mindset_tip": "Năng lượng từ phản ứng nhiệt hạch cực kì khổng lồ: chỉ 1g Heli sinh ra tương đương năng lượng đốt cháy hàng chục tấn dầu mỏ!"
+  }
+]

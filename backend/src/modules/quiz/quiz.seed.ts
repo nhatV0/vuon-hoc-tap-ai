@@ -40,7 +40,7 @@ export function saveQuestionToBankIfUnique(item: {
 
   const id = item.id || `ai_q_${Math.random().toString(36).substring(2, 9)}`;
   db.run(
-    `INSERT INTO quiz_questions (
+    `INSERT OR IGNORE INTO quiz_questions (
       id, block, subject, slot_type, source, bloom_level,
       lock_condition, time_limit_seconds, question_text, options,
       correct_answer, micro_explanation, growth_mindset_tip, creator_role, is_active, created_at
@@ -89,20 +89,13 @@ export function seedQuizQuestionsFromHocLieu() {
       } catch {}
     }
   }
-
-  // Always seed the full 132 bundled questions if DB count is under 100
-  const countRow = db.query("SELECT COUNT(*) as c FROM quiz_questions").get();
-  const totalInDb = countRow && typeof countRow === "object" && "c" in countRow && typeof countRow.c === "number"
-    ? countRow.c
-    : 0;
-  if (totalInDb < 100) {
-    if (Array.isArray(bundledQuestions)) {
-      for (const q of bundledQuestions) {
-        saveQuestionToBankIfUnique(q);
-      }
+  // Always seed the full 132 bundled questions across all subjects
+  if (Array.isArray(bundledQuestions)) {
+    for (const q of bundledQuestions) {
+      saveQuestionToBankIfUnique(q);
     }
-    for (const sample of FALLBACK_SAMPLE_QUIZ_QUESTIONS) {
-      saveQuestionToBankIfUnique(sample);
-    }
+  }
+  for (const sample of FALLBACK_SAMPLE_QUIZ_QUESTIONS) {
+    saveQuestionToBankIfUnique(sample);
   }
 }

@@ -4,6 +4,7 @@ import { API_BASE } from "@/shared/api/auth-client";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/shared/components/ui/dialog";
 import QuizSubjectSelectScreen from "./QuizSubjectSelectScreen";
 import SingleQuestionPracticeView, { SingleQuizQuestion } from "./SingleQuestionPracticeView";
+import { getClientQuestionsBySubject } from "@/shared/data/quiz.client-questions";
 
 interface Props {
   studentId: string;
@@ -26,21 +27,32 @@ export default function DailyMicroQuizModal({ studentId, onClose, onTwinSuccess 
 
   const fetchQuestionsForSubject = async (sub: string) => {
     setLoading(true);
+    // Instantly hydrate with client-side randomized questions for the exact chosen subject
+    const localRandomized = getClientQuestionsBySubject(sub);
+    if (localRandomized.length > 0) {
+      setQuestions(localRandomized);
+    }
     const token = localStorage.getItem("sunflower_token");
     try {
       const res = await fetch(`${API_BASE}/api/quiz/daily/${studentId}?subject=${encodeURIComponent(sub)}`, {
         headers: token ? { Authorization: `Bearer ${token}` } : {}
       });
       const data = await res.json();
-      setQuestions(data.questions || []);
+      if (res.ok && Array.isArray(data.questions) && data.questions.length > 0) {
+        // Ensure all questions belong strictly to the chosen subject
+        const strictlySubjectQuestions = data.questions.filter((q: any) => q.subject === sub);
+        if (strictlySubjectQuestions.length > 0) {
+          setQuestions(strictlySubjectQuestions);
+        }
+      }
       if (data.available_subjects && data.available_subjects.length > 0) {
         setAvailableSubjects(data.available_subjects);
       }
+    } catch {} finally {
       setCurrentIndex(0);
       setSelectedOption(null);
       setShowExplanation(false);
       setStage("quiz");
-    } catch {} finally {
       setLoading(false);
     }
   };
