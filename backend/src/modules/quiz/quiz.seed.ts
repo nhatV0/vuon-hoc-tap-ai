@@ -1,6 +1,7 @@
 import { db } from "@/db/client";
 import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import bundledQuestions from "@/db/bundled_questions.json";
 import { FALLBACK_SAMPLE_QUIZ_QUESTIONS } from "./quiz.sample-data";
 
 export function normalizeQuestionText(text: string): string {
@@ -89,12 +90,17 @@ export function seedQuizQuestionsFromHocLieu() {
     }
   }
 
-  // Ensure bundled fallback questions are seeded if database has few questions
+  // Always seed the full 132 bundled questions if DB count is under 100
   const countRow = db.query("SELECT COUNT(*) as c FROM quiz_questions").get();
   const totalInDb = countRow && typeof countRow === "object" && "c" in countRow && typeof countRow.c === "number"
     ? countRow.c
     : 0;
-  if (totalInDb < 20) {
+  if (totalInDb < 100) {
+    if (Array.isArray(bundledQuestions)) {
+      for (const q of bundledQuestions) {
+        saveQuestionToBankIfUnique(q);
+      }
+    }
     for (const sample of FALLBACK_SAMPLE_QUIZ_QUESTIONS) {
       saveQuestionToBankIfUnique(sample);
     }
