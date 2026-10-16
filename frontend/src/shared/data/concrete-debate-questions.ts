@@ -140,7 +140,7 @@ export const CONCRETE_DEBATE_QUESTIONS: Record<string, Record<string, FallbackDe
   }
 };
 
-export function getConcreteDebateItem(subject: string, chapterTitle: string, index: number): FallbackDebateItem {
+export function getConcreteDebateItem(subject: string, chapterTitle: string, index: number, priorQuestions: string[] = []): FallbackDebateItem {
   const subjMap = CONCRETE_DEBATE_QUESTIONS[subject];
   if (subjMap) {
     const rawClean = chapterTitle
@@ -149,16 +149,26 @@ export function getConcreteDebateItem(subject: string, chapterTitle: string, ind
       .trim()
       .toLowerCase();
 
+    let candidateList: FallbackDebateItem[] = [];
     for (const [key, questions] of Object.entries(subjMap)) {
       const keyClean = key.toLowerCase();
       if (rawClean.includes(keyClean) || keyClean.includes(rawClean) || questions.some((q) => q.topic_hint.toLowerCase().includes(rawClean))) {
-        return questions[(index - 1) % questions.length];
+        candidateList = questions;
+        break;
       }
     }
 
-    const allSubjQuestions = Object.values(subjMap).flat();
-    if (allSubjQuestions.length > 0) {
-      return allSubjQuestions[(index - 1) % allSubjQuestions.length];
+    if (candidateList.length === 0) {
+      candidateList = Object.values(subjMap).flat();
+    }
+
+    // Filter out questions that have already been asked in this session
+    const unasked = candidateList.filter((item) => !priorQuestions.includes(item.question));
+    if (unasked.length > 0) {
+      return unasked[(index - 1) % unasked.length];
+    }
+    if (candidateList.length > 0) {
+      return candidateList[(index - 1) % candidateList.length];
     }
   }
 

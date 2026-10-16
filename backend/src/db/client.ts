@@ -3,6 +3,7 @@ import { env } from "@/config/env";
 import { hashPassword } from "@/common/utils";
 import { CREATE_CORE_TABLES_SQL, CREATE_STUDENT_TABLES_SQL, CREATE_GAMIFICATION_TABLES_SQL } from "./schema";
 import { seedLeaderboardData } from "./leaderboard.seed";
+import { seedQuizQuestionsFromHocLieu } from "@/modules/quiz/quiz.seed";
 const dbFile = env.DATABASE_URL.replace("sqlite:///", "").replace("sqlite://", "");
 export const db = new Database(dbFile);
 
@@ -37,4 +38,5 @@ export function initDatabase() {
     }
   }
   seedLeaderboardData();
+  seedQuizQuestionsFromHocLieu();
 }

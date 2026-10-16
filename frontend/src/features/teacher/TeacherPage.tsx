@@ -7,12 +7,14 @@ import { Button } from "@/shared/components/ui/button";
 import { Card } from "@/shared/components/ui/card";
 import { Badge } from "@/shared/components/ui/badge";
 import TeacherQuestionBankView from "./components/TeacherQuestionBankView";
+import TeacherStudentManagementView from "./components/TeacherStudentManagementView";
+
 export default function TeacherPage() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [dashboard, setDashboard] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState<"alerts" | "question_bank">("question_bank");
+  const [activeTab, setActiveTab] = useState<"students" | "question_bank" | "alerts">("students");
   useEffect(() => {
     const token = localStorage.getItem("sunflower_token");
     fetch(`${API_BASE}/api/teacher/dashboard`, {
@@ -71,6 +73,18 @@ export default function TeacherPage() {
         <div className="flex items-center gap-2 border-b border-stone-200 pb-2">
           <button
             type="button"
+            onClick={() => setActiveTab("students")}
+            className={`px-3 py-1.5 text-xs rounded-xl font-bold flex items-center gap-1.5 transition-colors ${
+              activeTab === "students"
+                ? "bg-amber-500 text-white shadow-xs"
+                : "bg-white text-stone-600 border border-stone-200 hover:bg-stone-50"
+            }`}
+          >
+            <Users className="w-3.5 h-3.5" />
+            <span>Quản Lý Học Sinh</span>
+          </button>
+          <button
+            type="button"
             onClick={() => setActiveTab("question_bank")}
             className={`px-3 py-1.5 text-xs rounded-xl font-bold flex items-center gap-1.5 transition-colors ${
               activeTab === "question_bank"
@@ -95,7 +109,9 @@ export default function TeacherPage() {
           </button>
         </div>
 
-        {activeTab === "question_bank" ? (
+        {activeTab === "students" ? (
+          <TeacherStudentManagementView />
+        ) : activeTab === "question_bank" ? (
           <TeacherQuestionBankView />
         ) : (
           <Card className="p-6 border-border shadow-xs">

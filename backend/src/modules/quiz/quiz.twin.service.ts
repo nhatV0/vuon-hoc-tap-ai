@@ -2,6 +2,7 @@ import { db } from "@/db/client";
 import { callAiModel } from "@/modules/ai/ai.client";
 import { TwinQuizResponse } from "./quiz.twin.schemas";
 import { generateId } from "@/common/utils";
+import { saveQuestionToBankIfUnique } from "./quiz.seed";
 
 export async function synthesizeTwinQuestion(
   questionId: string,
@@ -53,7 +54,7 @@ Trả về định dạng JSON thuần túy (không markdown) với cấu trúc:
     });
 
     const parsed = JSON.parse(aiText);
-    return {
+    const twinResult: TwinQuizResponse = {
       id: generateId("twin"),
       original_question_id: questionId,
       subject,
@@ -65,6 +66,20 @@ Trả về định dạng JSON thuần túy (không markdown) với cấu trúc:
       growth_mindset_tip: parsed.growth_mindset_tip || "Tuyệt vời! Bạn đã vượt qua bẫy đề bài rồi đấy!",
       is_ai_generated: true
     };
+
+    // Auto-save to quiz question bank if unique, skipping duplicate questions
+    saveQuestionToBankIfUnique({
+      id: twinResult.id,
+      subject: twinResult.subject,
+      question_text: twinResult.question_text,
+      options: twinResult.options,
+      correct_answer: twinResult.correct_answer,
+      micro_explanation: twinResult.micro_explanation,
+      growth_mindset_tip: twinResult.growth_mindset_tip,
+      creator_role: "AI_TWIN_SYNTHESIZER"
+    });
+
+    return twinResult;
   } catch {
     // Graceful deterministic pedagogical fallback
     return {

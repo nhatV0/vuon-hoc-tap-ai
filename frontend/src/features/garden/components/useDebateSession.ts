@@ -68,7 +68,8 @@ export function useDebateSession(studentId: string, currentSubject: string) {
     } catch {}
     // Offline / Demo resilient fallback if backend is unreachable or returns abstract placeholder
     const focus = chosenTitles[(index - 1) % Math.max(1, chosenTitles.length)] || currentSubject;
-    const concreteItem = getConcreteDebateItem(currentSubject, focus, index);
+    // Pass already asked questions so getConcreteDebateItem never repeats a question in the same session
+    const concreteItem = getConcreteDebateItem(currentSubject, focus, index, priorQuestions);
     setCurrentQuestion(concreteItem.question);
     setSampleAnswer(concreteItem.sample_answer);
     setTopicHint(concreteItem.topic_hint);

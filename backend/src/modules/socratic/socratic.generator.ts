@@ -76,7 +76,7 @@ YÊU CẦU ĐẶT CÂU HỎI CHO TRỢ LÝ:
     } catch {}
   }
 
-  const domainItem = findDomainConcreteDebate(dto.subject, focusChapter, dto.question_index);
+  const domainItem = findDomainConcreteDebate(dto.subject, focusChapter, dto.question_index, prevList);
   return {
     question_number: dto.question_index,
     question: domainItem.question,

@@ -3,6 +3,7 @@ import { db } from "@/db/client";
 import { generateId, hashPassword } from "@/common/utils";
 import { authMiddleware, roleGuard } from "@/middleware/auth.middleware";
 import { UserRole } from "@/common/types";
+import { createAdminStudentRouter } from "./teacher.student-management.routes";
 import { z } from "zod";
 
 const TeacherCreateSchema = z.object({
@@ -109,6 +110,8 @@ export function createTeacherRouter(): Hono {
       return c.json({ detail: "Dữ liệu tạo giáo viên không hợp lệ", error: String(err) }, 400);
     }
   });
+
+  router.route("/students", createAdminStudentRouter());
 
   return router;
 }
