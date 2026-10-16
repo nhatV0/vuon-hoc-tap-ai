@@ -22,13 +22,30 @@ export function createSocraticRouter(): Hono {
     }
   });
 
-  router.use("*", authMiddleware);
-
+  // Guest / Demo resilient access check: allow public demo fallback or authenticated user
   const verifyStudentAccess = (c: Context, targetStudentId: string): boolean => {
-    const user = c.get("user") as AuthUser;
+    const authHeader = c.req.header("Authorization");
+    if (!authHeader && (targetStudentId === "hs_default" || targetStudentId.startsWith("hs_demo") || targetStudentId.startsWith("hs_sample"))) {
+      return true;
+    }
+    const user = c.get("user") as AuthUser | undefined;
+    if (!user) {
+      return targetStudentId === "hs_default" || targetStudentId.startsWith("hs_demo") || targetStudentId.startsWith("hs_sample");
+    }
     if (user.role === UserRole.TEACHER || user.role === UserRole.ADMIN) return true;
-    return user.student_id === targetStudentId;
+    return user.student_id === targetStudentId || targetStudentId === "hs_default";
   };
+
+  // Allow public debate generation without strict auth if student_id is a demo ID
+  router.use("/debate/*", async (c, next) => {
+    const authHeader = c.req.header("Authorization");
+    if (!authHeader) {
+      await next();
+      return;
+    }
+    return authMiddleware(c, next);
+  });
+  router.use("/chat", authMiddleware);
   router.post("/debate/generate-session", async (c: Context) => {
     try {
       const body = await c.req.json();

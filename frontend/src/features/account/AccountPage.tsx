@@ -8,6 +8,7 @@ import { Button } from "@/shared/components/ui/button";
 import StudentProfileHeader from "./components/StudentProfileHeader";
 import GrowthStatsOverview from "./components/GrowthStatsOverview";
 import LeaderboardHallOfFame, { LeaderboardStudent } from "./components/LeaderboardHallOfFame";
+import { FALLBACK_LEADERBOARD_STUDENTS } from "@/shared/data/fallback-leaderboard";
 import AppFooter from "@/shared/components/AppFooter";
 
 export default function AccountPage() {
@@ -16,7 +17,7 @@ export default function AccountPage() {
   const studentId = user?.student_id || localStorage.getItem("sunflower_student_id") || "hs_default";
 
   const [student, setStudent] = useState<Student | null>(null);
-  const [leaderboard, setLeaderboard] = useState<LeaderboardStudent[]>([]);
+  const [leaderboard, setLeaderboard] = useState<LeaderboardStudent[]>(FALLBACK_LEADERBOARD_STUDENTS);
   const [gardenStreak, setGardenStreak] = useState(1);
   const [inventory, setInventory] = useState({
     water_drops: 1,
@@ -34,7 +35,12 @@ export default function AccountPage() {
       ]);
 
       if (resSt.ok) setStudent(await resSt.json());
-      if (resLd.ok) setLeaderboard(await resLd.json());
+      if (resLd.ok) {
+        const ldData = await resLd.json();
+        if (Array.isArray(ldData) && ldData.length > 0) {
+          setLeaderboard(ldData);
+        }
+      }
       if (resGd.ok) {
         const gd = await resGd.json();
         setGardenStreak(gd.consecutive_days || 1);

@@ -2,7 +2,7 @@ import { Database } from "bun:sqlite";
 import { env } from "@/config/env";
 import { hashPassword } from "@/common/utils";
 import { CREATE_CORE_TABLES_SQL, CREATE_STUDENT_TABLES_SQL, CREATE_GAMIFICATION_TABLES_SQL } from "./schema";
-
+import { seedLeaderboardData } from "./leaderboard.seed";
 const dbFile = env.DATABASE_URL.replace("sqlite:///", "").replace("sqlite://", "");
 export const db = new Database(dbFile);
 
@@ -36,4 +36,5 @@ export function initDatabase() {
       db.run("INSERT INTO classrooms (id, name, grade, description) VALUES (?, ?, ?, ?)", [id, name, grade, desc]);
     }
   }
+  seedLeaderboardData();
 }

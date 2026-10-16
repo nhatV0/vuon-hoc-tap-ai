@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import { API_BASE, authFetch } from "@/shared/api/auth-client";
 import { SyllabusChapter } from "./DebateTopicSelector";
 import { FALLBACK_SYLLABUS_MAP } from "@/shared/data/socratic.fallback-syllabus";
+import { getConcreteDebateItem } from "@/shared/data/concrete-debate-questions";
 import { EvaluationData } from "./DebateAnswerFeedback";
 import { QuestionHistoryItem } from "./DebateSessionSummary";
 
@@ -65,13 +66,13 @@ export function useDebateSession(studentId: string, currentSubject: string) {
         return;
       }
     } catch {}
-    // Offline / Demo resilient fallback if backend is unreachable
+    // Offline / Demo resilient fallback if backend is unreachable or returns abstract placeholder
     const focus = chosenTitles[(index - 1) % Math.max(1, chosenTitles.length)] || currentSubject;
-    const sampleQ = `Trong chủ đề "${focus}", có ý kiến cho rằng chỉ cần ghi nhớ kết quả thay vì hiểu rõ bản chất cơ chế hay nguyên nhân sâu xa. Quan điểm này đúng hay sai? Vì sao?`;
-    setCurrentQuestion(sampleQ);
-    setSampleAnswer(`Trong "${focus}", cần nắm vững các nguyên lý bản chất, điều kiện và cơ sở thực nghiệm để giải thích hiện tượng chính xác.`);
-    setTopicHint(focus);
-    setAskedQuestions((prev) => (prev.includes(sampleQ) ? prev : [...prev, sampleQ]));
+    const concreteItem = getConcreteDebateItem(currentSubject, focus, index);
+    setCurrentQuestion(concreteItem.question);
+    setSampleAnswer(concreteItem.sample_answer);
+    setTopicHint(concreteItem.topic_hint);
+    setAskedQuestions((prev) => (prev.includes(concreteItem.question) ? prev : [...prev, concreteItem.question]));
     setStage("question");
     setLoading(false);
   };

@@ -1,6 +1,7 @@
 import { callAiModel, ChatMessage } from "@/modules/ai/ai.client";
 import { DebateGenerateQuestionDto, DebateGenerateSessionDto } from "./socratic.schemas";
 import { getTheoryContent } from "./socratic.knowledge";
+import { findDomainConcreteDebate } from "./socratic.concrete-debates";
 
 export interface DebateQuestionResult {
   question_number: number;
@@ -75,19 +76,13 @@ YÊU CẦU ĐẶT CÂU HỎI CHO TRỢ LÝ:
     } catch {}
   }
 
-  const theoryLines = theoryExtract
-    .split(/\r?\n/)
-    .map((l) => l.replace(/^[*-\s#]+/, "").trim())
-    .filter((l) => l.length > 25 && !l.includes("---") && !l.includes("CHƯƠNG"));
-
-  const sampleConcept = theoryLines[dto.question_index % Math.max(1, theoryLines.length)] || focusChapter;
-
+  const domainItem = findDomainConcreteDebate(dto.subject, focusChapter, dto.question_index);
   return {
     question_number: dto.question_index,
-    question: `Trong nội dung "${focusChapter}", liên quan đến kiến thức "${sampleConcept.slice(0, 70)}...", có nhận định cho rằng chỉ cần ghi nhớ kết quả thay vì bản chất nguyên nhân hay cơ chế. Theo bạn, nhận định này đúng hay sai? Vì sao?`,
-    sample_answer: `Cần nắm chắc bản chất, điều kiện áp dụng và cơ sở khoa học trong ${focusChapter} để giải thích chính xác.`,
-    key_points: ["Bản chất lý thuyết", "Cơ sở thực tiễn"],
-    topic_hint: focusChapter
+    question: domainItem.question,
+    sample_answer: domainItem.sample_answer,
+    key_points: domainItem.key_points,
+    topic_hint: domainItem.topic_hint
   };
 }
 
@@ -148,12 +143,13 @@ QUY TẮC BẮT BUỘC KHI SINH CÂU HỎI:
   const results: DebateQuestionResult[] = [];
   for (let i = 1; i <= totalCount; i++) {
     const focus = dto.selected_chapters[(i - 1) % dto.selected_chapters.length] || dto.subject;
+    const item = findDomainConcreteDebate(dto.subject, focus, i);
     results.push({
       question_number: i,
-      question: `Trong nội dung "${focus}", có quan điểm cho rằng chỉ cần ghi nhớ kết quả thay vì bản chất cơ chế hay nguyên nhân sâu xa. Quan điểm này đúng hay sai? Vì sao?`,
-      sample_answer: `Trong ${focus}, cần nắm chắc bản chất, cơ sở thực nghiệm và bối cảnh để giải thích thuyết phục.`,
-      key_points: ["Bản chất lý thuyết", "Cơ sở thực tiễn"],
-      topic_hint: focus
+      question: item.question,
+      sample_answer: item.sample_answer,
+      key_points: item.key_points,
+      topic_hint: item.topic_hint
     });
   }
   return results;
