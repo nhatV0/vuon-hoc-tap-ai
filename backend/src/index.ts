@@ -10,6 +10,7 @@ import { createCheckinRouter } from "@/modules/checkin/checkin.routes";
 import { createPlanningRouter } from "@/modules/planning/planning.routes";
 import { createQuizRouter } from "@/modules/quiz/quiz.routes";
 import { createCapsuleBadgeRouter } from "@/modules/capsule/capsule.routes";
+import { createQuestionReportRouter } from "@/modules/quiz/quiz.report.routes";
 import { createTeacherRouter } from "@/modules/teacher/teacher.routes";
 import { createDiagnosticsRouter } from "@/modules/diagnostics/diagnostics.routes";
 import { createSocraticRouter } from "@/modules/socratic/socratic.routes";
@@ -50,7 +51,7 @@ app.route("/api/vision", createVisionRouter());
 app.route("/api/teacher", createTeacherRouter());
 app.route("/api/admin", createTeacherRouter());
 app.route("/api", createCapsuleBadgeRouter());
-
+app.route("/api/reports", createQuestionReportRouter());
 // Mount Better Auth handler for remaining auth endpoints
 app.on(["POST", "GET"], "/api/auth/*", (c) => auth.handler(c.req.raw));
 

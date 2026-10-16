@@ -12,7 +12,7 @@ export function seedLeaderboardData(): void {
   `);
 
   const insertFlower = db.prepare(`
-    INSERT OR REPLACE INTO flower_status (
+    INSERT OR IGNORE INTO flower_status (
       student_id, current_state, consecutive_days, last_checkin_date, water_drops, story_message
     ) VALUES (?, 'tich_cuc', ?, datetime('now'), ?, 'Cây phát triển rực rỡ')
   `);

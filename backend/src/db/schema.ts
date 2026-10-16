@@ -191,4 +191,16 @@ export const CREATE_GAMIFICATION_TABLES_SQL = `
     verdict TEXT NOT NULL, is_correct INTEGER NOT NULL DEFAULT 0, feedback TEXT,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
+  CREATE TABLE IF NOT EXISTS question_reports (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    question_id TEXT NOT NULL,
+    question_type TEXT NOT NULL DEFAULT 'mcq',
+    subject TEXT NOT NULL,
+    question_text TEXT NOT NULL,
+    issue_type TEXT NOT NULL,
+    reason TEXT NOT NULL,
+    reporter_id TEXT,
+    status TEXT NOT NULL DEFAULT 'pending',
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+  );
 `;

@@ -2,7 +2,7 @@ import { callAiModel, ChatMessage } from "@/modules/ai/ai.client";
 import { DebateGenerateQuestionDto, DebateGenerateSessionDto } from "./socratic.schemas";
 import { getTheoryContent } from "./socratic.knowledge";
 import { findDomainConcreteDebate } from "./socratic.concrete-debates";
-
+import { db } from "@/db/client";
 export interface DebateQuestionResult {
   question_number: number;
   question: string;
@@ -16,14 +16,22 @@ export async function generateDebateQuestionHelper(dto: DebateGenerateQuestionDt
   const theoryExtract = getTheoryContent(dto.subject, focusChapter).slice(0, 1500);
 
   const prevList = Array.isArray(dto.previous_questions) ? dto.previous_questions.filter(Boolean) : [];
-  const prevNotice = prevList.length > 0
-    ? `\nCÁC CÂU ĐÃ HỎI TRƯỚC ĐÓ:\n${prevList.map((q, idx) => `${idx + 1}. "${q}"`).join("\n")}\nLƯU Ý ĐẶC BIỆT: TUYỆT ĐỐI KHÔNG HỎI LẠI CÁC Ý/CHỦ ĐỀ ĐÃ NÊU TRÊN. BẮT BUỘC CHỌN MỘT KHÍA CẠNH, KHÁI NIỆM HOẶC SỰ KIỆN HOÀN TOÀN KHÁC TRONG BÀI.`
+  let prevNotice = "";
+  if (prevList.length > 0) {
+    prevNotice = `\nCÁC CÂU ĐÃ HỎI TRƯỚC ĐÓ:\n${prevList.map((q, idx) => `${idx + 1}. "${q}"`).join("\n")}\nLƯU Ý ĐẶC BIỆT: TUYỆT ĐỐI KHÔNG HỎI LẠI CÁC Ý/CHỦ ĐỀ ĐÃ NÊU TRÊN. BẮT BUỘC CHỌN MỘT KHÍA CẠNH, KHÁI NIỆM HOẶC SỰ KIỆN HOÀN TOÀN KHÁC TRONG BÀI.`;
+  }
+  // Retrieve user-reported flawed patterns to instruct AI not to reproduce them
+  const reports = db.query(
+    "SELECT reason, question_text FROM question_reports WHERE subject = ? AND status = 'pending' ORDER BY id DESC LIMIT 5"
+  ).all(dto.subject) as Array<{ reason: string; question_text: string }>;
+  const reportWarnings = reports.length > 0
+    ? `\nLƯU Ý CÁC LỖI TỪNG BỊ BÁO CÁO (TUYỆT ĐỐI TRÁNH LẶP LẠI LỖI TƯƠNG TỰ):\n${reports.map((r, i) => `- Lỗi ${i + 1}: "${r.reason}" (Ở câu: "${r.question_text.slice(0, 80)}...")`).join("\n")}`
     : "";
 
   const prompt = `Bạn là Trợ Lý Gia Sư Tranh Luận môn ${dto.subject} bậc THPT.
 Chủ đề: "${focusChapter}". Câu hỏi số: ${dto.question_index}/10.
 ${prevNotice}
-
+${reportWarnings}
 NGUỒN DỮ LIỆU LÝ THUYẾT SGK CHUẨN:
 """
 ${theoryExtract}

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import MathText from "@/shared/components/MathText";
 import { Badge } from "@/shared/components/ui/badge";
-import { ChevronDown, ChevronUp, CheckCircle2, HelpCircle } from "lucide-react";
+import { ChevronDown, ChevronUp, CheckCircle2, HelpCircle, Flag } from "lucide-react";
 import { QuestionItem } from "./TeacherQuestionCard";
-
+import QuestionReportModal from "./QuestionReportModal";
 interface Props {
   question: QuestionItem;
   index: number;
@@ -11,7 +11,7 @@ interface Props {
 
 export default function MultipleChoiceListItem({ question, index }: Props) {
   const [expanded, setExpanded] = useState(false);
-
+  const [reportOpen, setReportOpen] = useState(false);
   return (
     <div className="bg-white rounded-2xl border border-stone-200/80 p-4 shadow-xs hover:border-amber-300 transition-all space-y-3">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-stone-100 pb-2.5">
@@ -27,15 +27,25 @@ export default function MultipleChoiceListItem({ question, index }: Props) {
             {question.subject}
           </Badge>
         </div>
-
-        <button
-          type="button"
-          onClick={() => setExpanded(!expanded)}
-          className="self-start sm:self-auto flex items-center gap-1 text-[11px] font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100/80 px-2.5 py-1 rounded-lg transition-colors border border-amber-200/60"
-        >
-          <span>{expanded ? "Thu gọn đáp án" : "Xem đáp án & giải thích"}</span>
-          {expanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-        </button>
+        <div className="flex items-center gap-2 self-start sm:self-auto">
+          <button
+            type="button"
+            onClick={() => setReportOpen(true)}
+            className="flex items-center gap-1 text-[11px] font-medium text-stone-500 hover:text-rose-600 bg-stone-50 hover:bg-rose-50 px-2 py-1 rounded-lg transition-colors border border-stone-200"
+            title="Báo cáo câu hỏi bị lỗi hoặc trừu tượng"
+          >
+            <Flag className="w-3 h-3 text-rose-500" />
+            <span>Báo lỗi</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setExpanded(!expanded)}
+            className="flex items-center gap-1 text-[11px] font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100/80 px-2.5 py-1 rounded-lg transition-colors border border-amber-200/60"
+          >
+            <span>{expanded ? "Thu gọn đáp án" : "Xem đáp án & giải thích"}</span>
+            {expanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+          </button>
+        </div>
       </div>
 
       <div className="text-xs font-medium text-stone-900 leading-relaxed">
@@ -83,6 +93,17 @@ export default function MultipleChoiceListItem({ question, index }: Props) {
             </div>
           )}
         </div>
+      )}
+
+      {reportOpen && (
+        <QuestionReportModal
+          questionId={question.id}
+          questionType="mcq"
+          subject={question.subject}
+          questionText={question.question_text}
+          isOpen={reportOpen}
+          onClose={() => setReportOpen(false)}
+        />
       )}
     </div>
   );
