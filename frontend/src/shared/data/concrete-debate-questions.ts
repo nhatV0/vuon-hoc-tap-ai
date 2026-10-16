@@ -1,3 +1,5 @@
+import { CONCRETE_DEBATE_QUESTIONS_ENGLISH } from "./concrete-debate-questions-english";
+
 export interface FallbackDebateItem {
   question: string;
   sample_answer: string;
@@ -137,7 +139,8 @@ export const CONCRETE_DEBATE_QUESTIONS: Record<string, Record<string, FallbackDe
         topic_hint: "Đặc điểm phản ứng thủy phân este"
       }
     ]
-  }
+  },
+  "Tiếng Anh": CONCRETE_DEBATE_QUESTIONS_ENGLISH
 };
 
 export function getConcreteDebateItem(subject: string, chapterTitle: string, index: number, priorQuestions: string[] = []): FallbackDebateItem {

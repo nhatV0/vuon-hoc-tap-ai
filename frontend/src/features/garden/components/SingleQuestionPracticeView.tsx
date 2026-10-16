@@ -149,7 +149,7 @@ export default function SingleQuestionPracticeView({
             {question.growth_mindset_tip && (
               <div className="pt-1 text-[11px] text-emerald-800 flex items-start gap-1">
                 <Lightbulb className="w-3 h-3 text-amber-600 shrink-0 mt-0.5" />
-                <span>{question.growth_mindset_tip}</span>
+                <MathText content={question.growth_mindset_tip} />
               </div>
             )}
           </div>

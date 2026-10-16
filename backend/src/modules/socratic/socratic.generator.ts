@@ -28,29 +28,42 @@ export async function generateDebateQuestionHelper(dto: DebateGenerateQuestionDt
     ? `\nLƯU Ý CÁC LỖI TỪNG BỊ BÁO CÁO (TUYỆT ĐỐI TRÁNH LẶP LẠI LỖI TƯƠNG TỰ):\n${reports.map((r, i) => `- Lỗi ${i + 1}: "${r.reason}" (Ở câu: "${r.question_text.slice(0, 80)}...")`).join("\n")}`
     : "";
 
+  const isEnglish = dto.subject === "Tiếng Anh" || dto.subject.toLowerCase().includes("english");
+  const langInstruction = isEnglish
+    ? `QUY TẮC BẮT BUỘC VỀ NGÔN NGỮ CHO MÔN TIẾNG ANH:
+1. TOÀN BỘ CÂU HỎI (question), ĐÁP ÁN MẪU (sample_answer) VÀ LUẬN ĐIỂM (key_points) PHẢI ĐƯỢC VIẾT 100% HOÀN TOÀN BẰNG TIẾNG ANH (ENGLISH ONLY). TUYỆT ĐỐI KHÔNG DÙNG TIẾNG VIỆT.
+2. Mẫu câu hỏi tranh biện bằng Tiếng Anh:
+   - "Some people argue that... Is this correct or incorrect? Why?"
+   - "Why must we use... instead of... in this context?"
+   - "If the sentence structure is changed to..., what happens to the meaning?"`
+    : `YÊU CẦU ĐẶT CÂU HỎI CHO TRỢ LÝ:
+1. DẠNG CÂU HỎI TRANH BIỆN PHẢN BIỆN (15-30 từ):
+   - "Có ý kiến nhận định rằng... Đúng hay sai? Tại sao?"
+   - "Tại sao khi... thì... mà không thể...?"
+   - "Nếu thay đổi điều kiện... thì kết quả/hiện tượng sẽ biến đổi ra sao?"`;
+
   const prompt = `Bạn là Trợ Lý Gia Sư Tranh Luận môn ${dto.subject} bậc THPT.
 Chủ đề: "${focusChapter}". Câu hỏi số: ${dto.question_index}/10.
 ${prevNotice}
 ${reportWarnings}
+${langInstruction}
+
 NGUỒN DỮ LIỆU LÝ THUYẾT SGK CHUẨN:
 """
 ${theoryExtract}
 """
 
-YÊU CẦU ĐẶT CÂU HỎI CHO TRỢ LÝ:
+YÊU CẦU ĐỊNH DẠNG:
 1. TUYỆT ĐỐI KHÔNG TRÙNG LẶP: Không hỏi lại các khái niệm/vấn đề đã xuất hiện ở các câu trước.
-2. BÁM SÁT LÝ THUYẾT NGUỒN: Khai thác đúng các định nghĩa, công thức toán học/vật lý/hóa học, hiện tượng, cơ chế, sự kiện lịch sử, điều luật hoặc từ vựng/ngữ pháp có trong đoạn trích lý thuyết.
-3. DẠNG CÂU HỎI TRANH BIỆN PHẢN BIỆN (15-30 từ):
-   - "Có ý kiến nhận định rằng... Đúng hay sai? Tại sao?"
-   - "Tại sao khi... thì... mà không thể...?"
-   - "Nếu thay đổi điều kiện... thì kết quả/hiện tượng sẽ biến đổi ra sao?"
-4. BẮT BUỘC CHỈ TRẢ VỀ DUY NHẤT 1 ĐỐI TƯỢNG JSON (không kèm markdown):
+2. BÁM SÁT LÝ THUYẾT NGUỒN: Khai thác đúng các định nghĩa, cấu trúc ngữ pháp, từ vựng hoặc cơ chế có trong bài.
+3. BẮT BUỘC CHỈ TRẢ VỀ DUY NHẤT 1 ĐỐI TƯỢNG JSON (không kèm markdown):
 {
-  "question": "Câu hỏi ngắn gọn...",
-  "sample_answer": "Ý chính giải thích chuẩn xác...",
-  "key_points": ["Luận điểm 1", "Luận điểm 2"],
+  "question": "${isEnglish ? "Debate question in English..." : "Câu hỏi ngắn gọn..."}",
+  "sample_answer": "${isEnglish ? "Core theoretical explanation in English..." : "Ý chính giải thích chuẩn xác..."}",
+  "key_points": ["${isEnglish ? "Point 1" : "Luận điểm 1"}", "${isEnglish ? "Point 2" : "Luận điểm 2"}"],
   "topic_hint": "${focusChapter}"
-}`;
+}
+`;
 
   const messages: ChatMessage[] = [
     { role: "system", content: "Chỉ trả về duy nhất 1 JSON object hợp lệ, không bọc markdown hay text bên ngoài." },

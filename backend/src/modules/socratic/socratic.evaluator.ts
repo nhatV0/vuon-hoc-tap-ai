@@ -30,7 +30,14 @@ export async function evaluateDebateAnswer(dto: DebateEvaluateAnswerDto): Promis
     };
   }
 
+  const isEnglish = dto.subject === "Tiếng Anh" || dto.subject.toLowerCase().includes("english");
+  const langInstruction = isEnglish
+    ? `QUY TẮC BẮT BUỘC VỀ NGÔN NGỮ CHO MÔN TIẾNG ANH:
+Toàn bộ nội dung đánh giá: "explanation", "feedback" và "debate_rebuttal" BẮT BUỘC 100% PHẢI ĐƯỢC VIẾT HOÀN TOÀN BẰNG TIẾNG ANH (ENGLISH ONLY). TUYỆT ĐỐI KHÔNG DÙNG TIẾNG VIỆT.`
+    : `Viết nhận xét, giải thích và phản biện bằng Tiếng Việt sư phạm chuẩn xác.`;
+
   const prompt = `Bạn là Trọng Tài kiêm Gia Sư Tranh Luận môn ${dto.subject}.
+${langInstruction}
 Câu hỏi tự luận: "${dto.question}"
 Đáp án chuẩn/Ý chính: "${dto.sample_answer || "Nắm vững định nghĩa và cơ sở khoa học"}"
 Học sinh gõ trả lời: "${dto.student_answer}"

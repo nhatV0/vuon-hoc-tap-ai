@@ -82,7 +82,7 @@ export default function TeacherQuestionCard({ question, index }: Props) {
       {question.growth_mindset_tip && (
         <div className="bg-emerald-50/50 border border-emerald-100/80 rounded-xl p-2 text-[11px] text-emerald-900 flex items-start gap-1.5">
           <Lightbulb className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
-          <span className="italic">{question.growth_mindset_tip}</span>
+          <span className="italic"><MathText content={question.growth_mindset_tip} /></span>
         </div>
       )}
     </div>
