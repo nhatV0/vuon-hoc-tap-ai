@@ -1,5 +1,5 @@
 import React from "react";
-import { Droplets, Sparkles } from "lucide-react";
+import { Droplets, Sparkles, Eye } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
 import { Button } from "@/shared/components/ui/button";
 
@@ -23,14 +23,16 @@ export interface StudentRow {
 interface Props {
   student: StudentRow;
   onBoost: (id: string, name: string) => void;
+  onViewAccount: (student: StudentRow) => void;
 }
 
-export default function StudentTableRow({ student: st, onBoost }: Props) {
+export default function StudentTableRow({ student: st, onBoost, onViewAccount }: Props) {
   return (
     <tr className="hover:bg-stone-50/60 transition-colors">
       <td className="p-3">
         <div className="font-bold text-stone-900">{st.name}</div>
         <div className="text-[10px] text-stone-400 font-mono">{st.id}</div>
+        {st.email && <div className="text-[10px] text-stone-500">{st.email}</div>}
       </td>
       <td className="p-3">
         <span className="font-semibold text-stone-800">Lớp {st.classroom || "12A1"}</span>
@@ -66,15 +68,28 @@ export default function StudentTableRow({ student: st, onBoost }: Props) {
         </Badge>
       </td>
       <td className="p-3 text-right">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => onBoost(st.id, st.name)}
-          className="h-7 text-[11px] gap-1 text-emerald-700 border-emerald-200 hover:bg-emerald-50"
-        >
-          <Sparkles className="w-3 h-3 text-emerald-600" />
-          <span>Tiếp Nước</span>
-        </Button>
+        <div className="flex items-center justify-end gap-1.5">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => onViewAccount(st)}
+            className="h-7 text-[11px] gap-1 text-indigo-700 border-indigo-200 hover:bg-indigo-50"
+            title="Xem không gian và tài khoản học sinh"
+          >
+            <Eye className="w-3 h-3 text-indigo-600" />
+            <span>Xem vườn</span>
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => onBoost(st.id, st.name)}
+            className="h-7 text-[11px] gap-1 text-emerald-700 border-emerald-200 hover:bg-emerald-50"
+            title="Tiếp nước hỗ trợ"
+          >
+            <Sparkles className="w-3 h-3 text-emerald-600" />
+            <span>Tiếp Nước</span>
+          </Button>
+        </div>
       </td>
     </tr>
   );

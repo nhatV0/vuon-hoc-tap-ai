@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Users, Search, RefreshCw, CheckCircle2 } from "lucide-react";
 import { API_BASE } from "@/shared/api/auth-client";
 import { Button } from "@/shared/components/ui/button";
 import StudentTableRow, { StudentRow } from "./StudentTableRow";
 
 export default function TeacherStudentManagementView() {
+  const navigate = useNavigate();
   const [students, setStudents] = useState<StudentRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -43,9 +45,12 @@ export default function TeacherStudentManagementView() {
       }
     } catch {}
   };
+  const handleViewAccount = (st: StudentRow) => {
+    localStorage.setItem("sunflower_student_id", st.id);
+    navigate("/garden");
+  };
 
   const classrooms = Array.from(new Set(students.map((s) => s.classroom || "12A1"))).filter(Boolean);
-
   const filtered = students.filter((s) => {
     const matchesClass = classFilter === "ALL" || (s.classroom || "12A1") === classFilter;
     const q = search.toLowerCase();
@@ -140,7 +145,12 @@ export default function TeacherStudentManagementView() {
                 </tr>
               ) : (
                 filtered.map((st) => (
-                  <StudentTableRow key={st.id} student={st} onBoost={handleBoost} />
+                  <StudentTableRow
+                    key={st.id}
+                    student={st}
+                    onBoost={handleBoost}
+                    onViewAccount={handleViewAccount}
+                  />
                 ))
               )}
             </tbody>

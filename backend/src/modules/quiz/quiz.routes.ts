@@ -5,6 +5,7 @@ import { fetchDailyQuestions, recordQuizAttempt } from "./quiz.helper";
 import { TwinQuizRequestSchema } from "./quiz.twin.schemas";
 import { synthesizeTwinQuestion } from "./quiz.twin.service";
 import { authMiddleware, AuthUser } from "@/middleware/auth.middleware";
+import { getAllEssayDebateQuestions } from "./quiz.essay.service";
 import { UserRole } from "@/common/types";
 
 export function createQuizRouter(): Hono {
@@ -171,6 +172,16 @@ export function createQuizRouter(): Hono {
       questions: list
     }));
 
+    return c.json(result, 200);
+  });
+
+  router.get("/questions/essay-grouped", (c) => {
+    const grouped = getAllEssayDebateQuestions();
+    const result = Object.entries(grouped).map(([subject, list]) => ({
+      subject,
+      total_questions: list.length,
+      questions: list
+    }));
     return c.json(result, 200);
   });
 
