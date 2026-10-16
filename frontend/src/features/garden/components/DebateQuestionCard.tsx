@@ -27,7 +27,7 @@ export default function DebateQuestionCard({
   topicHint
 }: Props) {
   return (
-    <div className="space-y-4 flex flex-col h-full">
+    <div className="space-y-4 flex flex-col h-full pb-2">
       <div className="flex items-center justify-between">
         <Badge variant="outline" className="text-xs px-2.5 py-0.5 font-semibold text-primary">
           Câu tự luận phản biện {questionIndex}/{totalQuestions}
@@ -53,8 +53,8 @@ export default function DebateQuestionCard({
           e.preventDefault();
           onSubmitAnswer();
         }}
-        className="space-y-3 pt-2 border-t border-border mt-auto"
-      >
+      className="space-y-3 pt-2 border-t border-border mt-auto sticky bottom-0 bg-card/95 backdrop-blur-xs"
+    >
         <div className="space-y-1.5">
           <label className="text-xs font-semibold text-foreground">
             Câu trả lời tự luận ngắn của bạn:

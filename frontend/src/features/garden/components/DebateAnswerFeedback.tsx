@@ -35,7 +35,7 @@ export default function DebateAnswerFeedback({
   const verdict = evaluation.verdict;
 
   return (
-    <div className="space-y-4 animate-in fade-in-50 duration-300">
+    <div className="space-y-4 pb-4 animate-in fade-in-50 duration-300">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           {verdict === "chính_xác" ? (
@@ -99,12 +99,12 @@ export default function DebateAnswerFeedback({
         )}
       </Card>
 
-      <div className="pt-2 flex justify-end">
+      <div className="pt-3 pb-2 sticky bottom-0 bg-card/95 backdrop-blur-xs flex justify-end border-t border-border/40">
         <Button
           type="button"
           onClick={onNextQuestion}
           disabled={loading}
-          className="gap-2 text-xs h-9 px-5 rounded-xl"
+          className="gap-2 text-xs h-10 px-6 rounded-xl font-bold bg-amber-600 hover:bg-amber-700 text-white shadow-sm"
         >
           <span>
             {questionIndex >= totalQuestions ? "Xem tổng kết 10 câu" : "Chuyển câu tiếp theo"}

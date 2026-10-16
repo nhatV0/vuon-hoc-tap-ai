@@ -54,7 +54,7 @@ export default function DebateTutorModal({ studentId, subject = "Toán học", o
 
   return (
     <Dialog open onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl flex flex-col h-[700px] p-6">
+      <DialogContent className="max-w-2xl flex flex-col max-h-[90vh] h-[720px] p-6 overflow-hidden">
         <DialogHeader className="pb-3 border-b border-border">
           <DialogTitle className="flex items-center gap-2 text-sm font-semibold">
             <MessageSquareText className="w-5 h-5 text-amber-500" />
@@ -62,7 +62,7 @@ export default function DebateTutorModal({ studentId, subject = "Toán học", o
           </DialogTitle>
         </DialogHeader>
 
-        <div className="flex-1 overflow-hidden pt-2">
+        <div className="flex-1 overflow-y-auto pr-1 pt-2">
           {loading && stage !== "feedback" && (
             <div className="py-4">
               <LoadingFactCard
