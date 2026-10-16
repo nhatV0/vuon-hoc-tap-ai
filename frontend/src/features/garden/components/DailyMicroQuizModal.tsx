@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Loader2, Sparkles, BookOpen } from "lucide-react";
+import { Loader2, BookOpen } from "lucide-react";
 import { API_BASE } from "@/shared/api/auth-client";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/shared/components/ui/dialog";
-import DailyQuizSubjectSelector from "./DailyQuizSubjectSelector";
+import QuizSubjectSelectScreen from "./QuizSubjectSelectScreen";
 import SingleQuestionPracticeView, { SingleQuizQuestion } from "./SingleQuestionPracticeView";
 
 interface Props {
@@ -12,37 +12,38 @@ interface Props {
 }
 
 export default function DailyMicroQuizModal({ studentId, onClose, onTwinSuccess }: Props) {
+  const [stage, setStage] = useState<"select_subject" | "quiz">("select_subject");
   const [questions, setQuestions] = useState<SingleQuizQuestion[]>([]);
-  const [availableSubjects, setAvailableSubjects] = useState<string[]>([]);
-  const [selectedSubject, setSelectedSubject] = useState<string>("");
+  const [availableSubjects, setAvailableSubjects] = useState<string[]>([
+    "Toán học", "Vật lí", "Hóa học", "Sinh học", "Tin học",
+    "Ngữ văn", "Tiếng Anh", "Lịch sử", "Địa lí", "GDKT & PL", "Công nghệ"
+  ]);
+  const [selectedSubject, setSelectedSubject] = useState<string>("Toán học");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [showExplanation, setShowExplanation] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  const loadQuiz = (subject?: string) => {
+  const fetchQuestionsForSubject = async (sub: string) => {
     setLoading(true);
-    const query = subject ? `?subject=${encodeURIComponent(subject)}` : "";
     const token = localStorage.getItem("sunflower_token");
-    fetch(`${API_BASE}/api/quiz/daily/${studentId}${query}`, {
-      headers: token ? { Authorization: `Bearer ${token}` } : {}
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setQuestions(data.questions || []);
-        if (data.available_subjects) setAvailableSubjects(data.available_subjects);
-        if (data.selected_subject) setSelectedSubject(data.selected_subject);
-        setCurrentIndex(0);
-        setSelectedOption(null);
-        setShowExplanation(false);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
+    try {
+      const res = await fetch(`${API_BASE}/api/quiz/daily/${studentId}?subject=${encodeURIComponent(sub)}`, {
+        headers: token ? { Authorization: `Bearer ${token}` } : {}
+      });
+      const data = await res.json();
+      setQuestions(data.questions || []);
+      if (data.available_subjects && data.available_subjects.length > 0) {
+        setAvailableSubjects(data.available_subjects);
+      }
+      setCurrentIndex(0);
+      setSelectedOption(null);
+      setShowExplanation(false);
+      setStage("quiz");
+    } catch {} finally {
+      setLoading(false);
+    }
   };
-
-  useEffect(() => {
-    loadQuiz();
-  }, [studentId]);
 
   const handleSelectOption = (key: string) => {
     if (showExplanation) return;
@@ -79,7 +80,7 @@ export default function DailyMicroQuizModal({ studentId, onClose, onTwinSuccess 
     if (currentIndex < questions.length - 1) {
       setCurrentIndex((prev) => prev + 1);
     } else {
-      loadQuiz(selectedSubject);
+      fetchQuestionsForSubject(selectedSubject);
     }
   };
 
@@ -91,42 +92,50 @@ export default function DailyMicroQuizModal({ studentId, onClose, onTwinSuccess 
         <DialogHeader className="pb-2 border-b border-border">
           <DialogTitle className="flex items-center gap-2 text-sm font-semibold">
             <BookOpen className="w-4 h-4 text-amber-500" />
-            <span>Luyện Tập Trắc Nghiệm Từng Câu</span>
+            <span>Luyện Tập Trắc Nghiệm ({selectedSubject || "Chọn môn"})</span>
           </DialogTitle>
         </DialogHeader>
 
-        <div>
-          {!loading && availableSubjects.length > 0 && (
-            <DailyQuizSubjectSelector
-              subjects={availableSubjects}
-              selectedSubject={selectedSubject}
-              onSelectSubject={(sub) => {
-                setSelectedSubject(sub);
-                loadQuiz(sub);
-              }}
-              isLoading={loading}
-            />
-          )}
-
-          {loading ? (
-            <div className="py-12 flex justify-center text-primary">
-              <Loader2 className="w-6 h-6 animate-spin text-amber-500" />
-            </div>
-          ) : currentQ ? (
-            <SingleQuestionPracticeView
-              question={currentQ}
-              selectedOption={selectedOption}
-              onSelectOption={handleSelectOption}
-              showExplanation={showExplanation}
-              onNextQuestion={handleNextQuestion}
-              questionNumber={currentIndex + 1}
-            />
-          ) : (
-            <p className="text-xs text-muted-foreground text-center py-8">
-              Chưa có câu hỏi cho môn học này.
-            </p>
-          )}
-        </div>
+        {stage === "select_subject" ? (
+          <QuizSubjectSelectScreen
+            subjects={availableSubjects}
+            selectedSubject={selectedSubject}
+            onSelectSubject={setSelectedSubject}
+            onStartQuiz={() => fetchQuestionsForSubject(selectedSubject)}
+            loading={loading}
+          />
+        ) : (
+          <div>
+            {loading ? (
+              <div className="py-12 flex justify-center text-primary">
+                <Loader2 className="w-6 h-6 animate-spin text-amber-500" />
+              </div>
+            ) : currentQ ? (
+              <SingleQuestionPracticeView
+                question={currentQ}
+                selectedOption={selectedOption}
+                onSelectOption={handleSelectOption}
+                showExplanation={showExplanation}
+                onNextQuestion={handleNextQuestion}
+                onChangeSubject={() => setStage("select_subject")}
+                questionNumber={currentIndex + 1}
+              />
+            ) : (
+              <div className="text-center py-8 space-y-3">
+                <p className="text-xs text-muted-foreground">
+                  Chưa có câu hỏi cho môn học này.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setStage("select_subject")}
+                  className="text-xs text-amber-700 font-bold hover:underline"
+                >
+                  Chọn môn học khác
+                </button>
+              </div>
+            )}
+          </div>
+        )}
       </DialogContent>
     </Dialog>
   );

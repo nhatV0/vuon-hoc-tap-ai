@@ -23,6 +23,7 @@ interface Props {
   onSelectOption: (key: string) => void;
   showExplanation: boolean;
   onNextQuestion: () => void;
+  onChangeSubject?: () => void;
   questionNumber: number;
 }
 
@@ -32,6 +33,7 @@ export default function SingleQuestionPracticeView({
   onSelectOption,
   showExplanation,
   onNextQuestion,
+  onChangeSubject,
   questionNumber
 }: Props) {
   const isCorrect = selectedOption === question.correct_answer;
@@ -47,7 +49,18 @@ export default function SingleQuestionPracticeView({
             <span className="text-[11px] text-stone-500 font-medium">{question.bloom_level}</span>
           )}
         </div>
-        <span className="font-semibold text-stone-600">Câu #{questionNumber}</span>
+        <div className="flex items-center gap-2">
+          {onChangeSubject && (
+            <button
+              type="button"
+              onClick={onChangeSubject}
+              className="text-[11px] font-medium text-amber-700 hover:underline"
+            >
+              Đổi môn
+            </button>
+          )}
+          <span className="font-semibold text-stone-600">Câu #{questionNumber}</span>
+        </div>
       </div>
 
       <div className="text-sm font-semibold text-foreground leading-relaxed bg-white p-4 rounded-2xl border border-stone-200/70 shadow-xs">
