@@ -2,6 +2,7 @@ import { callAiModel, ChatMessage } from "@/modules/ai/ai.client";
 import { DebateGenerateQuestionDto, DebateGenerateSessionDto } from "./socratic.schemas";
 import { getTheoryContent } from "./socratic.knowledge";
 import { findDomainConcreteDebate } from "./socratic.concrete-debates";
+import { getArchetypeForQuestion } from "./socratic.archetypes";
 import { db } from "@/db/client";
 export interface DebateQuestionResult {
   question_number: number;
@@ -29,25 +30,28 @@ export async function generateDebateQuestionHelper(dto: DebateGenerateQuestionDt
     : "";
 
   const isEnglish = dto.subject === "Tiếng Anh" || dto.subject.toLowerCase().includes("english");
-  const langInstruction = isEnglish
-    ? `QUY TẮC BẮT BUỘC VỀ NGÔN NGỮ CHO MÔN TIẾNG ANH:
-1. TOÀN BỘ CÂU HỎI (question), ĐÁP ÁN MẪU (sample_answer) VÀ LUẬN ĐIỂM (key_points) PHẢI ĐƯỢC VIẾT 100% HOÀN TOÀN BẰNG TIẾNG ANH (ENGLISH ONLY). TUYỆT ĐỐI KHÔNG DÙNG TIẾNG VIỆT.
-2. Mẫu câu hỏi tranh biện bằng Tiếng Anh:
-   - "Some people argue that... Is this correct or incorrect? Why?"
-   - "Why must we use... instead of... in this context?"
-   - "If the sentence structure is changed to..., what happens to the meaning?"`
-    : `YÊU CẦU ĐẶT CÂU HỎI CHO TRỢ LÝ:
-1. DẠNG CÂU HỎI TRANH BIỆN PHẢN BIỆN (15-30 từ):
-   - "Có ý kiến nhận định rằng... Đúng hay sai? Tại sao?"
-   - "Tại sao khi... thì... mà không thể...?"
-   - "Nếu thay đổi điều kiện... thì kết quả/hiện tượng sẽ biến đổi ra sao?"`;
+  const archetype = getArchetypeForQuestion(dto.question_index);
+  const targetArchetypeInstruction = isEnglish
+    ? `TARGET QUESTION ARCHETYPE (#${dto.question_index}/10 - ${archetype.name}):
+${archetype.instruction_en}
+Example pattern: "${archetype.example_en}"
+IMPORTANT: Follow this exact archetype format instead of repeating the same generic 'Do you agree/disagree' format.`
+    : `DẠNG CÂU HỎI MỤC TIÊU CHO CÂU NÀY (#${dto.question_index}/10 - ${archetype.name}):
+${archetype.instruction_vi}
+Mẫu tham khảo: "${archetype.example_vi}"
+LƯU Ý: TUYỆT ĐỐI KHÔNG LẶP LẠI mẫu câu 'Có ý kiến cho rằng... Đúng hay sai? Vì sao?'. Hãy áp dụng chính xác dạng câu hỏi mục tiêu trên (ví dụ: hỏi trực tiếp định nghĩa, điều kiện tiên quyết, điền khuyết [...], sắp xếp thứ tự 1-2-3-4, hoặc truy ngược tên gọi từ phần mô tả).`;
 
-  const prompt = `Bạn là Trợ Lý Gia Sư Tranh Luận môn ${dto.subject} bậc THPT.
+  const langInstruction = isEnglish
+    ? `MANDATORY ENGLISH RULE:
+All fields (question, sample_answer, key_points) MUST be in 100% fluent English.`
+    : `Viết câu hỏi và đáp án mẫu bằng Tiếng Việt sư phạm chuẩn xác.`;
+
+  const prompt = `Bạn là Trợ Lý Gia Sư Tranh Luận Tự Luận môn ${dto.subject} bậc THPT.
 Chủ đề: "${focusChapter}". Câu hỏi số: ${dto.question_index}/10.
 ${prevNotice}
 ${reportWarnings}
+${targetArchetypeInstruction}
 ${langInstruction}
-
 NGUỒN DỮ LIỆU LÝ THUYẾT SGK CHUẨN:
 """
 ${theoryExtract}

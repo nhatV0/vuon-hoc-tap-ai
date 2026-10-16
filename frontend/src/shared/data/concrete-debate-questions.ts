@@ -10,29 +10,29 @@ export const CONCRETE_DEBATE_QUESTIONS: Record<string, Record<string, FallbackDe
   "Tin học": {
     "Cơ sở dữ liệu và Hệ quản trị CSDL": [
       {
-        question: "Có ý kiến nhận định rằng: 'Trong cơ sở dữ liệu quan hệ, một bảng không nhất thiết phải có khóa chính (Primary Key)'. Đúng hay sai? Vì sao?",
-        sample_answer: "Sai. Trong CSDL quan hệ, mỗi bảng bắt buộc phải có ít nhất một khóa chính để định danh duy nhất mỗi bản ghi, đảm bảo tính toàn vẹn thực thể và cho phép các bảng khác tham chiếu liên kết qua khóa ngoại.",
-        topic_hint: "Khóa chính & Tính toàn vẹn thực thể"
+        question: "Định nghĩa Khóa chính (Primary Key) trong mô hình CSDL quan hệ là gì và nêu 2 đặc tính bắt buộc của nó?",
+        sample_answer: "Khóa chính là một hoặc một tập hợp thuộc tính tối thiểu dùng để định danh duy nhất mỗi bản ghi trong bảng. Hai đặc tính bắt buộc: giá trị không được trùng lặp và không được mang giá trị rỗng (NOT NULL).",
+        topic_hint: "Định nghĩa Khóa chính & Ràng buộc toàn vẹn"
       },
       {
-        question: "Có nhận định cho rằng: 'Hệ quản trị CSDL chỉ đóng vai trò lưu trữ các tệp dữ liệu, việc kiểm soát quyền truy cập và sao lưu dữ liệu là do hệ điều hành đảm nhận'. Quan điểm này đúng hay sai? Tại sao?",
-        sample_answer: "Sai. Hệ quản trị CSDL (DBMS) tích hợp đầy đủ cơ chế bảo mật phân quyền (GRANT/REVOKE), kiểm soát truy cập đồng thời, tối ưu truy vấn và sao lưu phục hồi dữ liệu tự động, vượt xa chức năng tệp của hệ điều hành.",
-        topic_hint: "Vai trò của Hệ quản trị CSDL (DBMS)"
+        question: "Điền thuật ngữ thích hợp vào chỗ trống [...]: 'Trong CSDL quan hệ, mối liên kết logic giữa hai bảng được thiết lập nhờ [...] tham chiếu đến khóa chính của bảng kia.'",
+        sample_answer: "Khóa ngoại (Foreign Key).",
+        topic_hint: "Điền khuyết: Khái niệm Khóa ngoại"
       },
       {
-        question: "Có ý kiến cho rằng: 'Quan hệ Nhiều - Nhiều (N - N) giữa hai bảng có thể thiết lập trực tiếp bằng cách đặt khóa chính của bảng này làm khóa ngoại của bảng kia'. Đúng hay sai? Vì sao?",
-        sample_answer: "Sai. Quan hệ N - N không thể liên kết trực tiếp bằng 2 bảng vì sẽ vi phạm chuẩn hóa và dư thừa dữ liệu; bắt buộc phải phân rã thông qua một bảng trung gian (Junction table) chứa khóa ngoại tham chiếu đến 2 bảng ban đầu.",
-        topic_hint: "Mối quan hệ N - N & Bảng trung gian"
+        question: "Hãy sắp xếp thứ tự đúng (1 - 2 - 3) của các lệnh sau để tạo và cấu hình bảng mới trong SQL: (A) INSERT dữ liệu, (B) CREATE TABLE định nghĩa cấu trúc, (C) SELECT truy vấn kết quả.",
+        sample_answer: "Thứ tự đúng là: (B) -> (A) -> (C) (hoặc 2 - 1 - 3). Đầu tiên phải CREATE TABLE để có khung bảng, sau đó INSERT dữ liệu, cuối cùng mới dùng SELECT để truy vấn.",
+        topic_hint: "Sắp xếp quy trình thao tác SQL"
       },
       {
-        question: "Trong SQL, có quan điểm cho rằng: 'Lệnh DELETE và DROP TABLE đều làm mất dữ liệu nên hoàn toàn giống nhau'. Quan điểm này đúng hay sai? Vì sao?",
-        sample_answer: "Sai. DELETE là lệnh DML chỉ xóa các dòng dữ liệu bên trong bảng nhưng vẫn giữ nguyên cấu trúc bảng. DROP TABLE là lệnh DDL xóa vĩnh viễn toàn bộ cấu trúc bảng và định nghĩa khỏi CSDL.",
-        topic_hint: "Phân biệt DELETE (DML) và DROP TABLE (DDL)"
+        question: "'Lệnh dùng để xóa toàn bộ cấu trúc bảng cùng toàn bộ dữ liệu vĩnh viễn khỏi CSDL và không thể ROLLBACK'. Đây là lệnh SQL nào và thuộc nhóm lệnh nào (DDL hay DML)?",
+        sample_answer: "Đây là lệnh DROP TABLE, thuộc nhóm ngôn ngữ định nghĩa dữ liệu (DDL - Data Definition Language).",
+        topic_hint: "Truy ngược: Phân biệt lệnh DROP TABLE (DDL)"
       },
       {
-        question: "Có ý kiến cho rằng: 'Tính độc lập dữ liệu trong CSDL nghĩa là người dùng có thể xóa một trường dữ liệu mà không ảnh hưởng gì đến các ứng dụng đang khai thác'. Đúng hay sai? Vì sao?",
-        sample_answer: "Sai. Tính độc lập dữ liệu là sự tách biệt giữa mức vật lý (lưu trữ đĩa) và mức logic. Nếu xóa một trường đang được ứng dụng truy vấn thì ứng dụng sẽ phát sinh lỗi cú pháp hoặc thiếu dữ liệu tham chiếu.",
-        topic_hint: "Tính độc lập dữ liệu mức logic & vật lý"
+        question: "Có nhận định cho rằng: 'Quan hệ Nhiều - Nhiều (N - N) giữa hai bảng có thể thiết lập trực tiếp mà không cần bảng trung gian'. Quan điểm này đúng hay sai? Vì sao?",
+        sample_answer: "Sai. Quan hệ N - N bắt buộc phải phân rã thông qua một bảng trung gian chứa 2 khóa ngoại tham chiếu đến 2 bảng ban đầu để tránh vi phạm chuẩn hóa và dư thừa dữ liệu.",
+        topic_hint: "Phản biện: Quan hệ N - N và Bảng trung gian"
       }
     ],
     "Kĩ thuật lập trình & Quản trị CSDL chuyên sâu": [
