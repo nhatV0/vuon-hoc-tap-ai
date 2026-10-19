@@ -8,6 +8,7 @@ import {
 } from "./socratic.schemas";
 import { SUBJECT_SYLLABUS_MAP, SyllabusChapter } from "./socratic.syllabus";
 import { evaluateDebateAnswer, DebateEvaluationResult } from "./socratic.evaluator";
+import { buildSocraticChatPrompt } from "./socratic.prompt";
 import {
   DebateQuestionResult,
   generateDebateQuestionHelper,
@@ -56,8 +57,7 @@ export class SocraticService {
   }
 
   async chat(dto: SocraticChatDto): Promise<{ response: string; question_prompt: string }> {
-    const chaptersContext = dto.selected_chapters?.length ? ` (${dto.selected_chapters.join(", ")})` : "";
-    const systemPrompt = `Gia Sư Tranh Luận môn ${dto.subject}${chaptersContext}. Phản biện ngắn gọn, bọc công thức trong $...$.`;
+    const systemPrompt = buildSocraticChatPrompt(dto);
     const messages: ChatMessage[] = [
       { role: "system", content: systemPrompt },
       ...dto.history.slice(-6),
@@ -65,15 +65,22 @@ export class SocraticService {
     ];
 
     try {
-      const reply = await callAiModel({ messages, temperature: 0.5, maxTokens: 800 });
+      const reply = await callAiModel({ messages, temperature: 0.45, maxTokens: 800 });
+      const isEnglish = dto.subject === "Tiếng Anh" || dto.subject.toLowerCase().includes("english");
+      const promptText = dto.mode === "solver"
+        ? (isEnglish ? "Do you need clarification on any specific step?" : "Bạn có băn khoăn ở bước giải nào không?")
+        : (isEnglish ? "What is your next reasoning step?" : "Bước suy luận tiếp theo của bạn là gì?");
       return {
         response: reply,
-        question_prompt: "Luận cứ phản biện tiếp theo của bạn là gì?"
+        question_prompt: promptText
       };
     } catch {
+      const isEnglish = dto.subject === "Tiếng Anh" || dto.subject.toLowerCase().includes("english");
       return {
-        response: `Về câu hỏi môn ${dto.subject}, luận điểm của bạn rất đáng chú ý. Hãy đưa ra dẫn chứng để cùng trao đổi tiếp nhé!`,
-        question_prompt: "Luận cứ phản biện của bạn là gì?"
+        response: isEnglish
+          ? `Regarding your inquiry on ${dto.subject}, let us review the core definition. What rule or theorem applies to this scenario?`
+          : `Về câu hỏi môn ${dto.subject}, hãy cùng xem xét lại định nghĩa hoặc tính chất cơ bản. Theo bạn điều kiện tiên quyết ở đây là gì?`,
+        question_prompt: isEnglish ? "What is your next step?" : "Theo bạn bước tiếp theo là gì?"
       };
     }
   }
