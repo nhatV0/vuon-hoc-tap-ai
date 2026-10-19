@@ -52,10 +52,12 @@ QUY TẮC ĐÁNH GIÁ ĐA DẠNG DẠNG BÀI:
 2. "bán_phần": Trả lời đúng hướng, nêu được một phần từ khóa nhưng còn thiếu ý quan trọng hoặc chưa giải thích trọn vẹn.
 3. "chưa_chính_xác": Sai lệch bản chất, nhầm lẫn khái niệm hoặc thoái thác (ví dụ "không biết", "chịu", "chưa rõ").
 - is_correct: true nếu verdict là "chính_xác" HOẶC "bán_phần", false nếu "chưa_chính_xác".
-- explanation: Lời giải thích (40-60 từ): Ghi nhận rõ ý học sinh đã nói đúng, đồng thời chỉ ra chính xác các ý/luận cứ còn thiếu.
-- feedback: Lời nhận xét động viên tinh thần lập luận và hướng dẫn cách bổ sung ý khoa học.
-- debate_rebuttal: Góc nhìn phản biện sâu rộng tiếp theo hoặc bài học mở rộng.
-
+- explanation: Lời giải thích (40-70 từ): CHẨN ĐOÁN RÕ RÀNG:
+  1) Ghi nhận chính xác ý/từ khóa học sinh đã làm đúng (nếu có).
+  2) Chỉ ra cụ thể rào cản nhận thức hoặc ngộ nhận/thiếu sót trong suy luận của học sinh.
+  3) Nêu giải pháp khắc phục bám sát SGK để lần sau học sinh đạt điểm tối đa.
+- feedback: Lời nhận xét sư phạm giàu động lực phát triển (Growth Mindset), khích lệ sự kiên trì và tư duy phản biện.
+- debate_rebuttal: Câu hỏi gợi mở Socratic tiếp theo hoặc tình huống phản biện mở rộng để học sinh tự đào sâu thêm.
 Định dạng JSON duy nhất:
 {
   "is_correct": boolean,
