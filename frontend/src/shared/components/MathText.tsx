@@ -21,9 +21,10 @@ export default function MathText({ content, className = "" }: MathTextProps) {
     };
     let sanitized = content;
     for (const [cjk, viet] of Object.entries(cjkMap)) {
-      sanitized = sanitized.split(cjk).join(viet);
+      sanitized = sanitized.split(cjk).join(` ${viet} `);
     }
     sanitized = sanitized.replace(/[\u4e00-\u9fff\u3400-\u4dbf\uf900-\ufaff]/g, "");
+    sanitized = sanitized.replace(/[ \t]{2,}/g, " ");
 
     const placeholders: Array<{ key: string; html: string }> = [];
     const savePlaceholder = (html: string) => {
