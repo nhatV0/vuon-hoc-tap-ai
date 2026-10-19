@@ -1,0 +1,136 @@
+Dưới đây là tổng hợp **chi tiết chuyên sâu và toàn diện phần Lý thuyết môn Tin học (Bộ sách Sách giáo khoa hiện hành: Lớp 11 và Lớp 12 cho cả hai định hướng Khoa học máy tính - CS và Tin học ứng dụng - ICT)**. Nội dung được hệ thống hóa chuẩn xác nhằm phục vụ lưu trữ dữ liệu và khởi tạo ngân hàng câu hỏi kiểm tra đánh giá.
+
+---
+
+# **MÔN 8: TIN HỌC (TỔNG HỢP CHI TIẾT CHUYÊN SÂU)**
+
+---
+
+## **PHẦN A: TIN HỌC LỚP 11 – TỔNG HỢP CHI TIẾT**
+
+### **CHƯƠNG 1: CƠ SỞ DỮ LIỆU VÀ HỆ QUẢN TRỊ CSDL**
+
+#### **1. Khái niệm Cơ sở dữ liệu & Hệ quản trị CSDL**
+* **Cơ sở dữ liệu (CSDL - Database):** Là một tập hợp các dữ liệu có liên quan với nhau, được lưu trữ một cách có tổ chức trên các thiết bị nhớ của máy tính nhằm đáp ứng nhu cầu khai thác thông tin đồng thời của nhiều người dùng và nhiều ứng dụng khác nhau, hạn chế tối đa sự trùng lặp và đảm bảo tính toàn vẹn dữ liệu.
+* **Hệ quản trị cơ sở dữ liệu (DBMS - Database Management System):** Phần mềm cung cấp môi trường thuận tiện và hiệu quả để tạo lập, lưu trữ, cập nhật, tìm kiếm và kiểm soát an toàn dữ liệu trong CSDL (ví dụ: MySQL, PostgreSQL, Microsoft Access, SQLite, Oracle).
+* **Các yêu cầu cơ bản đối với hệ CSDL:**
+  * *Tính cấu trúc:* Dữ liệu được lưu trữ theo một mô hình dữ liệu xác định.
+  * *Tính không dư thừa:* Tối thiểu hóa sự lặp lại của dữ liệu để tiết kiệm không gian và tránh mâu thuẫn dữ liệu khi cập nhật.
+  * *Tính nhất quán:* Dữ liệu luôn chính xác, tuân thủ các ràng buộc toàn vẹn logic.
+  * *Tính độc lập:* Tách biệt giữa mức vật lý (cách lưu trữ trên đĩa) và mức logic (cấu trúc bảng, quan hệ nhìn từ phía người dùng).
+  * *Tính an toàn và bảo mật:* Phân quyền truy cập, mã hóa, ghi nhật ký giao dịch và có khả năng khôi phục dữ liệu khi gặp sự cố.
+
+#### **2. Mô hình CSDL quan hệ (Relational Data Model)**
+* **Các khái niệm cốt lõi:**
+  * *Bảng (Table / Relation):* Cấu trúc lưu trữ dữ liệu dạng bảng 2 chiều gồm các hàng và cột.
+  * *Hàng (Bản ghi / Record / Tuple):* Đại diện cho một thực thể cụ thể trong thế giới thực.
+  * *Cột (Thuộc tính / Field / Attribute):* Mỗi cột mang một tên thuộc tính và kiểu dữ liệu xác định.
+  * *Khóa chính (Primary Key - PK):* Một hoặc một tập hợp thuộc tính tối thiểu dùng để định danh duy nhất mỗi bản ghi trong bảng. Khóa chính không được mang giá trị rỗng (NOT NULL) và không được trùng lặp.
+  * *Khóa ngoại (Foreign Key - FK):* Một hoặc một tập thuộc tính của bảng này tham chiếu đến khóa chính của bảng khác, nhằm thiết lập mối liên kết logic giữa các bảng và đảm bảo tính toàn vẹn tham chiếu.
+* **Các mối quan hệ giữa các bảng:** Quan hệ 1 - 1 (Một - Một), Quan hệ 1 - N (Một - Nhiều) và Quan hệ N - N (Nhiều - Nhiều, cần phân rã qua bảng trung gian).
+
+### **CHƯƠNG 2: KĨ THUẬT LẬP TRÌNH & QUẢN TRỊ CSDL CHUYÊN SÂU**
+
+#### **1. Ngôn ngữ truy vấn có cấu trúc SQL (Structured Query Language)**
+* **Nhóm lệnh định nghĩa dữ liệu (DDL):**
+  * `CREATE DATABASE tên_csdl;` tạo CSDL mới.
+  * `CREATE TABLE tên_bảng (cột1 kiểu_dữ_liệu ràng_buộc, ...);` tạo bảng mới kèm khóa chính `PRIMARY KEY` và khóa ngoại `FOREIGN KEY REFERENCES`.
+  * `ALTER TABLE` sửa đổi cấu trúc bảng; `DROP TABLE` xóa bảng.
+* **Nhóm lệnh thao tác dữ liệu (DML):**
+  * `INSERT INTO tên_bảng (cột1, cột2) VALUES (giá_trị1, giá_trị2);` thêm bản ghi mới.
+  * `UPDATE tên_bảng SET cột = giá_trị WHERE điều_kiện;` cập nhật dữ liệu.
+  * `DELETE FROM tên_bảng WHERE điều_kiện;` xóa bản ghi.
+* **Nhóm lệnh truy vấn dữ liệu (DQL - SELECT):**
+  * Cú pháp chuẩn: `SELECT danh_sách_cột FROM bảng WHERE điều_kiện GROUP BY cột HAVING điều_kiện_nhóm ORDER BY cột ASC|DESC LIMIT số_lượng;`
+  * Các hàm tổng hợp: `COUNT()`, `SUM()`, `AVG()`, `MIN()`, `MAX()`.
+  * Phép kết nối bảng: `INNER JOIN` (lấy phần giao khớp dữ liệu), `LEFT JOIN` (lấy toàn bộ bảng bên trái).
+
+#### **2. Chuẩn hóa CSDL và Quản trị an toàn**
+* **Chuẩn hóa dữ liệu:** Giảm thiểu dư thừa và loại bỏ các dị thường thêm (insertion anomaly), xóa (deletion anomaly), sửa (modification anomaly).
+  * *Dạng chuẩn 1 (1NF):* Mỗi thuộc tính chỉ chứa các giá trị nguyên tố (nguyên tử), không chứa danh sách hay mảng giá trị.
+  * *Dạng chuẩn 2 (2NF):* Đạt 1NF và mọi thuộc tính không khóa đều phụ thuộc hàm đầy đủ vào khóa chính.
+  * *Dạng chuẩn 3 (3NF):* Đạt 2NF và không có phụ thuộc hàm bắc cầu giữa các thuộc tính không khóa.
+* **Bảo mật và Sao lưu dữ liệu:** Thiết lập tài khoản người dùng, phân quyền truy cập (`GRANT`, `REVOKE`), sao lưu định kỳ (Backup) và phục hồi thảm họa (Restore).
+
+## **PHẦN B: TIN HỌC LỚP 12 – TOÀN BỘ CHƯƠNG TRÌNH**
+
+### **CHƯƠNG 1: TRÍ TUỆ NHÂN TẠO (AI) & MẠNG MÁY TÍNH**
+
+#### **1. Trí tuệ nhân tạo (Artificial Intelligence - AI)**
+* **Khái niệm:** AI là ngành khoa học máy tính nghiên cứu và phát triển các hệ thống máy tính có khả năng thực hiện những tác vụ đòi hỏi trí thông minh của con người: học hỏi, lập luận, hiểu ngôn ngữ tự nhiên, nhận dạng hình ảnh và thích nghi với hoàn cảnh mới.
+* **Các phân loại & Lĩnh vực mũi nhọn:**
+  * *AI hẹp (Narrow AI / Weak AI):* Được huấn luyện để thực hiện tối ưu một tác vụ cụ thể (nhận diện giọng nói Siri, trợ lý ảo, cờ vua AlphaZero). Hiện nay toàn bộ AI ứng dụng đều thuộc nhóm này.
+  * *AI tổng quát (General AI / Strong AI):* Trí tuệ nhân tạo có khả năng tư duy và nhận thức toàn diện tương đương con người (vẫn đang trong nghiên cứu).
+  * *Học máy (Machine Learning) & Học sâu (Deep Learning):* Sử dụng mạng nơ-ron nhân tạo nhiều lớp để tự động trích xuất các đặc trưng tiềm ẩn từ tập dữ liệu khổng lồ (Big Data).
+  * *Xử lý ngôn ngữ tự nhiên (NLP) & Thị giác máy tính (Computer Vision):* Nền tảng cho mô hình ngôn ngữ lớn (LLM như ChatGPT), xe tự lái và phân tích y tế tự động.
+* **Đạo đức AI & Tác động xã hội:** Đảm bảo tính minh bạch thuật toán, bảo vệ quyền riêng tư cá nhân, ngăn chặn thiên kiến định kiến xã hội, tôn trọng quyền sở hữu trí tuệ và an toàn an ninh mạng.
+
+#### **2. Mạng máy tính & Bộ giao thức TCP/IP**
+* **Mô hình kết nối & Thiết bị mạng:**
+  * *Switch (Bộ chuyển mạch):* Hoạt động ở tầng liên kết dữ liệu, chuyển khung dữ liệu (frame) dựa trên bảng địa chỉ MAC giữa các máy tính trong cùng một mạng LAN.
+  * *Router (Bộ định tuyến):* Hoạt động ở tầng mạng, định tuyến và chuyển tiếp các gói tin (packet) dựa trên địa chỉ IP giữa các mạng khác nhau (kết nối mạng nội bộ với Internet toàn cầu).
+  * *Access Point:* Thiết bị thu phát sóng Wi-Fi, chuyển đổi tín hiệu mạng có dây sang không dây.
+* **Bộ giao thức TCP/IP 4 tầng:**
+  * *Tầng ứng dụng (Application Layer):* HTTP/HTTPS (truyền tải siêu văn bản an toàn với mã hóa TLS/SSL), DNS (phân giải tên miền thành địa chỉ IP), FTP (truyền tệp), SMTP (gửi thư điện tử).
+  * *Tầng vận chuyển (Transport Layer):* Giao thức TCP (hướng kết nối, đảm bảo toàn vẹn dữ liệu qua cơ chế bắt tay 3 bước) và UDP (không kết nối, tốc độ cao, phù hợp gọi thoại VoIP, phát video trực tuyến).
+  * *Tầng Internet (Internet Layer):* Giao thức IP chịu trách nhiệm đánh địa chỉ logic (IPv4 32-bit và IPv6 128-bit) và định tuyến đường truyền tối ưu.
+  * *Tầng truy nhập mạng (Network Access Layer):* Chịu trách nhiệm truyền các bit nhị phân qua môi trường truyền dẫn vật lý (cáp quang, cáp xoắn đôi, sóng vô tuyến).
+
+### **CHƯƠNG 2: THIẾT KẾ TRANG WEB VỚI HTML VÀ CSS**
+
+#### **1. Cấu trúc và Ngôn ngữ đánh dấu HTML5**
+* **Ngôn ngữ HTML (HyperText Markup Language):** Dùng để xây dựng khung cấu trúc và tổ chức nội dung cho trang web thông qua hệ thống các thẻ đánh dấu.
+* **Cấu trúc khung chuẩn của một tài liệu HTML5:**
+  ```html
+  <!DOCTYPE html>
+  <html lang="vi">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Trang web học tập</title>
+    </head>
+    <body>
+      <header><nav></nav></header>
+      <main>
+        <article><section></section></article>
+      </main>
+      <footer></footer>
+    </body>
+  </html>
+  ```
+* **Các thẻ định dạng và thành phần HTML5 quan trọng:**
+  * *Thẻ ngữ nghĩa (Semantic tags):* `<header>`, `<nav>`, `<main>`, `<article>`, `<section>`, `<aside>`, `<footer>` giúp tối ưu hóa SEO và hỗ trợ trình đọc màn hình dễ tiếp cận nội dung.
+  * *Định dạng văn bản & liên kết:* Tiêu đề `<h1>` đến `<h6>`, đoạn văn `<p>`, liên kết `<a href="...">`, hình ảnh `<img src="..." alt="...">`.
+  * *Bảng & Biểu mẫu tương tác:* Bảng `<table>, <tr>, <td>, <th>`; Form thu thập dữ liệu `<form>, <input>, <select>, <textarea>, <button>`.
+
+#### **2. Định dạng giao diện với CSS3 (Cascading Style Sheets)**
+* **Quy tắc và Bộ chọn (Selectors):**
+  * Bộ chọn phần tử (`p`), bộ chọn lớp (`.btn-primary`), bộ chọn định danh (`#main-header`), bộ chọn pseudo-class (`a:hover`, `input:focus`).
+* **Mô hình Hộp (Box Model):**
+  * Mỗi phần tử HTML được trình duyệt render dưới dạng một hình hộp chữ nhật bao gồm 4 lớp từ trong ra ngoài: **Content** (nội dung thực) \(\to\) **Padding** (khoảng cách đệm từ nội dung đến viền) \(\to\) **Border** (đường viền bao quanh) \(\to\) **Margin** (khoảng cách lề ngoài đến các phần tử lân cận).
+* **Kĩ thuật bố cục hiện đại:**
+  * *Flexbox (Flexible Box):* Bố cục 1 chiều (theo hàng hoặc cột), sắp xếp linh hoạt các phần tử con với các thuộc tính `display: flex; justify-content: center; align-items: center; flex-wrap: wrap;`.
+  * *CSS Grid:* Bố cục 2 chiều mạnh mẽ phân chia hàng và cột trực quan (`display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;`).
+  * *Thiết kế đáp ứng (Responsive Web Design):* Sử dụng `@media screen and (max-width: 768px)` để tự động co giãn giao diện tương thích hoàn hảo từ màn hình máy tính đến điện thoại di động.
+
+### **CHƯƠNG 3: CHỦ ĐỀ ĐỊNH HƯỚNG CHUYÊN SÂU (CS & ICT)**
+
+#### **1. Phân nhóm Khoa học máy tính (Computer Science - CS)**
+* **Tư duy thuật toán & Đánh giá độ phức tạp:**
+  * Khái niệm độ phức tạp thời gian thuật toán theo kí pháp Big-O: \(O(1), O(\log n), O(n), O(n \log n), O(n^2)\). Thuật toán có độ phức tạp càng nhỏ thì thời gian thực thi càng nhanh khi kích thước dữ liệu đầu vào \(n\) tăng lớn.
+* **Các cấu trúc dữ liệu và thuật toán then chốt:**
+  * *Thuật toán tìm kiếm:* Tìm kiếm tuần tự \(O(n)\) và Tìm kiếm nhị phân (Binary Search) trên mảng đã sắp xếp với độ phức tạp tối ưu \(O(\log n)\).
+  * *Thuật toán sắp xếp:* Sắp xếp chọn, chèn, nổi bọt \(O(n^2)\); Sắp xếp nhanh (Quick Sort) và Sắp xếp trộn (Merge Sort) theo tư tưởng chia để trị (Divide and Conquer) với hiệu năng vượt trội \(O(n \log n)\).
+  * *Cấu trúc dữ liệu tuyến tính và phi tuyến:* Ngăn xếp (Stack - LIFO), Hàng đợi (Queue - FIFO), Danh sách liên kết, Cây nhị phân tìm kiếm (BST), Đồ thị và các thuật toán duyệt theo chiều rộng (BFS), duyệt theo chiều sâu (DFS).
+
+#### **2. Phân nhóm Tin học ứng dụng (Information & Communication Technology - ICT)**
+* **Thực hành thiết kế đồ họa & Xử lý đa phương tiện:**
+  * Thiết kế hình ảnh vector và đồ họa điểm ảnh (Pixel), hiệu chỉnh ánh sáng, màu sắc, cắt ghép hình ảnh và biên tập video kỹ thuật số.
+* **Cài đặt và Quản trị hệ thống CSDL thực tế:**
+  * Cài đặt máy chủ CSDL quan hệ (MySQL Server / MariaDB), tạo lập tài khoản bảo mật và quản trị kết nối từ các ứng dụng web thông qua giao diện đồ họa (HeidiSQL, phpMyAdmin, DBeaver).
+  * Thực hành xuất dữ liệu (Export/Dump), khôi phục dữ liệu (Import) và tối ưu hóa câu lệnh truy vấn bằng cách thiết lập chỉ mục (Index) trên các trường dữ liệu thường xuyên tìm kiếm.
+---
+
+Nội dung Lý thuyết môn **Tin học** (Lớp 11 & Lớp 12 cho cả hai định hướng) đã được tổng hợp chi tiết và chuẩn hóa hoàn chỉnh. 
+
+Bạn có cần hỗ trợ xuất file hay khởi tạo câu hỏi trắc nghiệm kiểm tra cho môn Tin học không?
