@@ -3,7 +3,7 @@ import { callAiModel } from "@/modules/ai/ai.client";
 import { TwinQuizResponse } from "./quiz.twin.schemas";
 import { generateId } from "@/common/utils";
 import { saveQuestionToBankIfUnique } from "./quiz.seed";
-
+import { cleanLanguageGlitches } from "@/common/language-sanitizer";
 export async function synthesizeTwinQuestion(
   questionId: string,
   wrongAnswer: string,
@@ -58,12 +58,16 @@ Trả về định dạng JSON thuần túy (không markdown) với cấu trúc:
       id: generateId("twin"),
       original_question_id: questionId,
       subject,
-      cognitive_barrier: parsed.cognitive_barrier || "Lỗi nhầm lẫn khái niệm cơ bản",
-      question_text: parsed.question_text || `[Biến thể gỡ điểm] ${originalText}`,
-      options: parsed.options || { A: "1", B: "2", C: "3", D: "4" },
+      cognitive_barrier: cleanLanguageGlitches(parsed.cognitive_barrier || "Lỗi nhầm lẫn khái niệm cơ bản"),
+      question_text: cleanLanguageGlitches(parsed.question_text || `[Biến thể gỡ điểm] ${originalText}`),
+      options: parsed.options
+        ? Object.fromEntries(
+            Object.entries(parsed.options).map(([k, v]) => [k, cleanLanguageGlitches(String(v))])
+          )
+        : { A: "1", B: "2", C: "3", D: "4" },
       correct_answer: parsed.correct_answer || "A",
-      micro_explanation: parsed.micro_explanation || "Lời giải chi tiết cho câu hỏi sinh đôi.",
-      growth_mindset_tip: parsed.growth_mindset_tip || "Tuyệt vời! Bạn đã vượt qua bẫy đề bài rồi đấy!",
+      micro_explanation: cleanLanguageGlitches(parsed.micro_explanation || "Lời giải chi tiết cho câu hỏi sinh đôi."),
+      growth_mindset_tip: cleanLanguageGlitches(parsed.growth_mindset_tip || "Tuyệt vời! Bạn đã vượt qua bẫy đề bài rồi đấy!"),
       is_ai_generated: true
     };
 

@@ -9,6 +9,7 @@ import {
 import { SUBJECT_SYLLABUS_MAP, SyllabusChapter } from "./socratic.syllabus";
 import { evaluateDebateAnswer, DebateEvaluationResult } from "./socratic.evaluator";
 import { buildSocraticChatPrompt } from "./socratic.prompt";
+import { cleanLanguageGlitches } from "@/common/language-sanitizer";
 import {
   DebateQuestionResult,
   generateDebateQuestionHelper,
@@ -71,11 +72,10 @@ export class SocraticService {
         ? (isEnglish ? "Do you need clarification on any specific step?" : "Bạn có băn khoăn ở bước giải nào không?")
         : (isEnglish ? "What is your next reasoning step?" : "Bước suy luận tiếp theo của bạn là gì?");
       return {
-        response: reply,
+        response: cleanLanguageGlitches(reply),
         question_prompt: promptText
       };
     } catch {
-      const isEnglish = dto.subject === "Tiếng Anh" || dto.subject.toLowerCase().includes("english");
       return {
         response: isEnglish
           ? `Regarding your inquiry on ${dto.subject}, let us review the core definition. What rule or theorem applies to this scenario?`

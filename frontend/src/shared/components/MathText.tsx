@@ -11,6 +11,20 @@ export default function MathText({ content, className = "" }: MathTextProps) {
   const renderedContent = useMemo(() => {
     if (!content) return "";
 
+    const cjkMap: Record<string, string> = {
+      "圆形": "hình tròn", "圆": "hình tròn", "矩形": "hình chữ nhật",
+      "三角形": "hình tam giác", "椭圆": "hình elip", "球": "hình cầu",
+      "柱": "hình trụ", "函数": "hàm số", "导数": "đạo hàm",
+      "积分": "tích phân", "方程": "phương trình", "定理": "định lý",
+      "假设": "giả sử", "证明": "chứng minh", "定义": "định nghĩa",
+      "结论": "kết luận", "正确": "chính xác", "错误": "sai"
+    };
+    let sanitized = content;
+    for (const [cjk, viet] of Object.entries(cjkMap)) {
+      sanitized = sanitized.split(cjk).join(viet);
+    }
+    sanitized = sanitized.replace(/[\u4e00-\u9fff\u3400-\u4dbf\uf900-\ufaff]/g, "");
+
     const placeholders: Array<{ key: string; html: string }> = [];
     const savePlaceholder = (html: string) => {
       const key = `@@@MATH_TOKEN_${placeholders.length}@@@`;
@@ -19,7 +33,7 @@ export default function MathText({ content, className = "" }: MathTextProps) {
     };
 
     // Normalize all LaTeX delimiters: \\( ... \\), \( ... \), \\[ ... \\], \[ ... \]
-    let normalized = content
+    let normalized = sanitized
       .replace(/\\\\?\[([\s\S]*?)\\\\?\]/g, (_, math) => `$$${math.trim()}$$`)
       .replace(/\\\\?\(([\s\S]*?)\\\\?\)/g, (_, math) => `$${math.trim()}$`);
 
