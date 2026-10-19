@@ -12,13 +12,54 @@ export interface AiChatOptions {
   jsonMode?: boolean;
 }
 
-function delay(ms: number): Promise<void> {
-  const { promise, resolve } = Promise.withResolvers<void>();
-  setTimeout(resolve, ms);
-  return promise;
+async function callGeminiNative(options: AiChatOptions): Promise<string> {
+  const model = env.AI_MODEL.replace(/^models\//, "");
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${env.AI_API_KEY}`;
+  const contents = options.messages.map((m) => {
+    const role = m.role === "assistant" ? "model" : "user";
+    const text = typeof m.content === "string" ? m.content : JSON.stringify(m.content);
+    return { role, parts: [{ text }] };
+  });
+
+  const payload: Record<string, unknown> = {
+    contents,
+    generationConfig: {
+      temperature: options.temperature ?? 0.7,
+      maxOutputTokens: options.maxTokens ?? 1024,
+      ...(options.jsonMode ? { responseMimeType: "application/json" } : {})
+    }
+  };
+
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+    signal: AbortSignal.timeout(30000)
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    if (typeof text === "string" && text.trim().length > 0) {
+      return text
+        .replace(/>\s*Cảm ơn bạn đã sử dụng[\s\S]*$/gi, "")
+        .replace(/https:\/\/[^\s]+issues[\s\S]*$/gi, "")
+        .trim();
+    }
+  }
+  throw new Error("GEMINI_NATIVE_FAILED");
 }
 
 export async function callAiModel(options: AiChatOptions): Promise<string> {
+  // If configured with Google Gemini, try native endpoint directly for optimal speed & json formatting
+  if (env.AI_BASE_URL.includes("generativelanguage.googleapis.com") || env.AI_API_KEY.startsWith("AQ.") || env.AI_API_KEY.startsWith("AIzaSy")) {
+    try {
+      return await callGeminiNative(options);
+    } catch (nativeErr) {
+      console.warn("[callAiModel] Native Gemini failed, attempting OpenAI compatible endpoint:", nativeErr);
+    }
+  }
+
   const url = `${env.AI_BASE_URL}/chat/completions`;
   const body: Record<string, unknown> = {
     model: env.AI_MODEL,
@@ -31,7 +72,6 @@ export async function callAiModel(options: AiChatOptions): Promise<string> {
     body.response_format = { type: "json_object" };
   }
 
-  // Timeout for deep reasoning or comprehensive solutions
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -51,21 +91,14 @@ export async function callAiModel(options: AiChatOptions): Promise<string> {
         content = msgObj.reasoning_content;
       }
       if (typeof content === "string" && content.trim().length > 0) {
-        // Strip router advertisement footer if present
-        const cleaned = content
-          .replace(/>\s*Cảm ơn bạn đã sử dụng mnRouter[\s\S]*$/gi, "")
-          .replace(/https:\/\/mnrouter\.mncuchiinhuttt\.dev\/issues[\s\S]*$/gi, "")
+        return content
+          .replace(/>\s*Cảm ơn bạn đã sử dụng[\s\S]*$/gi, "")
+          .replace(/https:\/\/[^\s]+issues[\s\S]*$/gi, "")
           .trim();
-        return cleaned;
       }
-      console.error("[callAiModel] Empty or invalid content:", json);
-    } else {
-      const errText = await response.text();
-      console.error(`[callAiModel] HTTP Error ${response.status}:`, errText);
     }
   } catch (err: unknown) {
-    const msg = err instanceof Error ? err.message : String(err);
-    console.error("[callAiModel] Fetch Exception:", msg);
+    console.error("[callAiModel] Fetch Exception:", err);
   }
   throw new Error("AI_UPSTREAM_UNAVAILABLE");
 }
