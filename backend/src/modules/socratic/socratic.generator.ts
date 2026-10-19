@@ -57,17 +57,18 @@ NGUỒN DỮ LIỆU LÝ THUYẾT SGK CHUẨN:
 ${theoryExtract}
 """
 
-YÊU CẦU ĐỊNH DẠNG:
-1. TUYỆT ĐỐI KHÔNG TRÙNG LẶP: Không hỏi lại các khái niệm/vấn đề đã xuất hiện ở các câu trước.
-2. BÁM SÁT LÝ THUYẾT NGUỒN: Khai thác đúng các định nghĩa, cấu trúc ngữ pháp, từ vựng hoặc cơ chế có trong bài.
-3. BẮT BUỘC CHỈ TRẢ VỀ DUY NHẤT 1 ĐỐI TƯỢNG JSON (không kèm markdown):
+YÊU CẦU ĐẶC BIỆT VỀ CÁCH RA ĐỀ (TRÁNH TRỪU TƯỢNG, LAN MAN):
+1. RÕ RÀNG, CỤ THỂ, ĐƠN NGHĨA: Hỏi trực tiếp vào 1 định nghĩa, công thức, cơ chế hoặc dữ kiện cụ thể trong bài. KHÔNG đặt các câu hỏi triết lý trừu tượng, chung chung ("bạn nghĩ gì về vai trò của...", "tại sao chúng ta cần học...").
+2. ĐỘ DÀI VỪA PHẢI: Câu hỏi từ 15 đến 35 từ, tập trung vào bản chất khoa học.
+3. TUYỆT ĐỐI KHÔNG TRÙNG LẶP: Không hỏi lại các khái niệm/vấn đề đã xuất hiện ở các câu trước.
+4. BÁM SÁT LÝ THUYẾT NGUỒN: Khai thác đúng các định nghĩa, cấu trúc, thuật ngữ chuẩn GDPT 2018.
+5. BẮT BUỘC CHỈ TRẢ VỀ DUY NHẤT 1 ĐỐI TƯỢNG JSON (không kèm markdown):
 {
-  "question": "${isEnglish ? "Debate question in English..." : "Câu hỏi ngắn gọn..."}",
-  "sample_answer": "${isEnglish ? "Core theoretical explanation in English..." : "Ý chính giải thích chuẩn xác..."}",
-  "key_points": ["${isEnglish ? "Point 1" : "Luận điểm 1"}", "${isEnglish ? "Point 2" : "Luận điểm 2"}"],
+  "question": "${isEnglish ? "Direct, concrete question in English..." : "Câu hỏi trực diện, cụ thể..."}",
+  "sample_answer": "${isEnglish ? "Concise factual key answer in English (1-2 sentences)..." : "Đáp án chuẩn xác, ngắn gọn 1-2 câu..."}",
+  "key_points": ["${isEnglish ? "Core point 1" : "Ý cốt lõi 1"}", "${isEnglish ? "Core point 2" : "Ý cốt lõi 2"}"],
   "topic_hint": "${focusChapter}"
-}
-`;
+}`;
 
   const messages: ChatMessage[] = [
     { role: "system", content: "Chỉ trả về duy nhất 1 JSON object hợp lệ, không bọc markdown hay text bên ngoài." },

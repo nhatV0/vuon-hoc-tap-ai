@@ -1,5 +1,6 @@
 import { callAiModel, ChatMessage } from "@/modules/ai/ai.client";
 import { DebateEvaluateAnswerDto } from "./socratic.schemas";
+import { cleanLanguageGlitches } from "@/common/language-sanitizer";
 
 export interface DebateEvaluationResult {
   is_correct: boolean;
@@ -52,19 +53,16 @@ QUY TẮC ĐÁNH GIÁ ĐA DẠNG DẠNG BÀI:
 2. "bán_phần": Trả lời đúng hướng, nêu được một phần từ khóa nhưng còn thiếu ý quan trọng hoặc chưa giải thích trọn vẹn.
 3. "chưa_chính_xác": Sai lệch bản chất, nhầm lẫn khái niệm hoặc thoái thác (ví dụ "không biết", "chịu", "chưa rõ").
 - is_correct: true nếu verdict là "chính_xác" HOẶC "bán_phần", false nếu "chưa_chính_xác".
-- explanation: Lời giải thích (40-70 từ): CHẨN ĐOÁN RÕ RÀNG:
-  1) Ghi nhận chính xác ý/từ khóa học sinh đã làm đúng (nếu có).
-  2) Chỉ ra cụ thể rào cản nhận thức hoặc ngộ nhận/thiếu sót trong suy luận của học sinh.
-  3) Nêu giải pháp khắc phục bám sát SGK để lần sau học sinh đạt điểm tối đa.
-- feedback: Lời nhận xét sư phạm giàu động lực phát triển (Growth Mindset), khích lệ sự kiên trì và tư duy phản biện.
-- debate_rebuttal: Câu hỏi gợi mở Socratic tiếp theo hoặc tình huống phản biện mở rộng để học sinh tự đào sâu thêm.
+- explanation: Lời giải thích (30-50 từ): Ngắn gọn, súc tích, chỉ ra chính xác điểm học sinh làm đúng và rào cản nhận thức/lỗ hổng cần khắc phục.
+- feedback: Lời nhận xét ngắn gọn (1-2 câu), khích lệ sự kiên trì và tư duy phản biện.
+- debate_rebuttal: Câu hỏi gợi mở ngắn gọn (1 câu) để học sinh tự đào sâu thêm.
 Định dạng JSON duy nhất:
 {
   "is_correct": boolean,
   "verdict": "chính_xác" | "chưa_chính_xác" | "bán_phần",
-  "explanation": "Ghi nhận ý đúng và nêu rõ ý còn thiếu...",
-  "feedback": "Nhận xét gợi ý hoàn thiện...",
-  "debate_rebuttal": "Góc nhìn phản biện mở rộng..."
+  "explanation": "Lời giải thích ngắn gọn, chính xác...",
+  "feedback": "Nhận xét khích lệ...",
+  "debate_rebuttal": "Câu hỏi gợi mở tiếp theo..."
 }`;
 
   const messages: ChatMessage[] = [
@@ -80,10 +78,10 @@ QUY TẮC ĐÁNH GIÁ ĐA DẠNG DẠNG BÀI:
     return {
       is_correct: Boolean(parsed.is_correct),
       verdict: parsed.verdict || (parsed.is_correct ? "chính_xác" : "chưa_chính_xác"),
-      sample_answer: dto.sample_answer || "Cần bám sát định nghĩa lý thuyết cốt lõi.",
-      explanation: parsed.explanation || "Đã phân tích lập luận của bạn dựa trên cơ sở khoa học.",
-      feedback: parsed.feedback || "Luận điểm của bạn đã được ghi nhận.",
-      debate_rebuttal: parsed.debate_rebuttal || "Hãy sẵn sàng cho câu hỏi phản biện tiếp theo!"
+      sample_answer: cleanLanguageGlitches(dto.sample_answer || "Cần bám sát định nghĩa lý thuyết cốt lõi."),
+      explanation: cleanLanguageGlitches(parsed.explanation || "Đã phân tích lập luận của bạn dựa trên cơ sở khoa học."),
+      feedback: cleanLanguageGlitches(parsed.feedback || "Luận điểm của bạn đã được ghi nhận."),
+      debate_rebuttal: cleanLanguageGlitches(parsed.debate_rebuttal || "Hãy sẵn sàng cho câu hỏi phản biện tiếp theo!")
     };
   } catch {
     const lower = dto.student_answer.trim().toLowerCase();

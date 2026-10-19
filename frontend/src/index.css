@@ -4,35 +4,56 @@
 
 @layer base {
   :root {
-    --background: 40 33% 98%;
-    --foreground: 20 14% 12%;
+    /* Canvas & Surfaces */
+    --background: 40 33% 98%; /* #FAF8F5 */
+    --foreground: 20 14% 12%; /* #1C1917 */
 
-    --card: 0 0% 100%;
+    --card: 0 0% 100%; /* Pure surface */
     --card-foreground: 20 14% 12%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 20 14% 12%;
 
-    --primary: 38 92% 50%;
-    --primary-foreground: 48 96% 12%;
+    /* Primary Brand: Warm Amber */
+    --primary: 38 92% 50%; /* #F59E0B */
+    --primary-foreground: 48 96% 12%; /* #451A03 */
 
+    /* Secondary & Muted */
     --secondary: 40 20% 94%;
     --secondary-foreground: 24 10% 20%;
 
     --muted: 40 20% 94%;
     --muted-foreground: 25 5% 45%;
 
-    --accent: 142 55% 45%;
+    /* Accents & Status */
+    --accent: 142 55% 45%; /* Emerald green */
     --accent-foreground: 144 80% 98%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 348 83% 47%; /* Rose coral */
     --destructive-foreground: 0 0% 98%;
 
+    /* Pedagogical Feedback Colors (GDPT 2018 Socratic) */
+    --feedback-exact: 160 84% 39%; /* Emerald 600 */
+    --feedback-exact-bg: 152 81% 96%; /* Emerald 50 */
+    --feedback-exact-border: 149 80% 90%;
+
+    --feedback-partial: 38 92% 50%; /* Amber 600 */
+    --feedback-partial-bg: 48 100% 96%; /* Amber 50 */
+    --feedback-partial-border: 48 96% 89%;
+
+    --feedback-gap: 348 83% 47%; /* Rose 600 */
+    --feedback-gap-bg: 355 100% 97%; /* Rose 50 */
+    --feedback-gap-border: 353 96% 90%;
+
+    /* Lines & Rings */
     --border: 40 15% 88%;
     --input: 40 15% 88%;
     --ring: 38 92% 50%;
 
-    --radius: 0.85rem;
+    /* Soft Modern Radii */
+    --radius: 1rem; /* 16px */
+    --radius-2xl: 1.5rem; /* 24px */
+    --radius-3xl: 2rem; /* 32px */
   }
 }
 
