@@ -1,4 +1,5 @@
 import { DOMAIN_CONCRETE_DEBATES_PART2 } from "./socratic.concrete-debates-part2";
+import { DOMAIN_CONCRETE_DEBATES_PART3 } from "./socratic.concrete-debates-part3";
 import { DOMAIN_CONCRETE_DEBATES_ENGLISH } from "./socratic.concrete-debates-english";
 
 export interface ConcreteDebateSeed {
@@ -88,6 +89,7 @@ const PART1: Record<string, Record<string, ConcreteDebateSeed[]>> = {
 export const DOMAIN_CONCRETE_DEBATES: Record<string, Record<string, ConcreteDebateSeed[]>> = {
   ...PART1,
   ...DOMAIN_CONCRETE_DEBATES_PART2,
+  ...DOMAIN_CONCRETE_DEBATES_PART3,
   "Tiếng Anh": DOMAIN_CONCRETE_DEBATES_ENGLISH
 };
 

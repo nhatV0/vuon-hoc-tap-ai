@@ -1,0 +1,127 @@
+Dưới đây là thống kê chi tiết chuyên sâu và toàn diện phần **Lý thuyết môn Công nghệ (Học kỳ II Lớp 11 và Toàn bộ Lớp 12)**, bao gồm đầy đủ hai phân nhánh **Công nghệ Nông nghiệp** và **Công nghệ Công nghiệp** được tổng hợp và chuẩn hóa chuẩn xác từ hệ thống Sách giáo khoa.
+
+---
+
+# **MÔN 9: CÔNG NGHỆ (TỔNG HỢP CHI TIẾT CHUYÊN SÂU)**
+
+---
+
+## **PHẦN I: CÔNG NGHỆ NÔNG NGHIỆP**
+### **CHƯƠNG 1: CÔNG NGHỆ CHĂN NUÔI (LỚP 11)**
+#### **1. Chọn và nhân giống vật nuôi bằng Công nghệ sinh học (CNSH)**
+* **Khái niệm CNSH trong chăn nuôi:** Là việc ứng dụng các kĩ thuật sinh học nhằm hỗ trợ, nâng cao năng suất, chất lượng vật nuôi, tạo ra sản phẩm chăn nuôi giá trị cao và bảo vệ môi trường.
+* **Thành tựu công nghệ gene:**
+  * Tạo động vật chuyển gene sinh sản các chất phục vụ y học và công nghiệp (dê mang gene sinh protein tơ nhện sản xuất áo giáp, cừu Tracy mang gene sinh protein \\(\alpha_1\\)-antitrypsin điều trị bệnh xơ nang ở người).
+* **Công nghệ cấy truyền phôi:**
+  * *Khái niệm:* Đưa phôi được tạo ra từ cá thể cái cho phôi (có đặc tính di truyền vượt trội) vào tử cung của các cá thể cái nhận phôi để nuôi dưỡng mang thai.
+  * *Các bước kĩ thuật:* Chọn bò cái cho phôi \\(\to\\) Gây rụng nhiều trứng (siêu bài noãn) \\(\to\\) Phối giống/Thụ tinh nhân tạo \\(\to\\) Thu hoạch phôi \\(\to\\) Cấy phôi vào bò cái nhận (đã được gây đồng pha) \\(\to\\) Bò nhận mang thai và sinh con.
+
+#### **2. Phòng, trị bệnh cho vật nuôi**
+* **Khái niệm & Vai trò:** Bệnh làm vật nuôi chậm lớn, giảm năng suất/chất lượng sản phẩm và có nguy cơ lây sang người (hơn 200 bệnh lây từ động vật sang người, chiếm trên 70% bệnh truyền nhiễm ở người).
+* **Một số bệnh phổ biến:**
+  * *Ở lợn:* Bệnh Dịch tả lợn Châu Phi, Tụ huyết trùng, Tai xanh (PRRS).
+  * *Ở gia cầm:* Cúm gia cầm (virus H5N1, H5N6), Newcastle (gà rù), Tụ huyết trùng.
+  * *Ở trâu, bò:* Lở cổ long mồm, Tụ huyết trùng, Viêm da nổi cục.
+* **Ứng dụng CNSH trong phòng, trị bệnh:**
+  * *Chẩn đoán sớm mầm bệnh:* Kỹ thuật PCR/RT-PCR khuếch đại cDNA để phát hiện sớm ARN của virus (như virus H5N1) từ mẫu bệnh phẩm.
+  * *Sản xuất Vắc-xin & Chế phẩm vi sinh:*
+    * Sản xuất vắc-xin tái tổ hợp/mRNA an toàn cao.
+    * Quy trình sản xuất chế phẩm vi sinh *Bacillus sp.* tăng cường miễn dịch: Phân lập chủng \\(\to\\) Nhân giống cấp 1, cấp 2 \\(\to\\) Nuôi cấy tạo sinh khối \\(\to\\) Li tâm thu sinh khối \\(\to\\) Trộn chất mang \\(\to\\) Sấy ở \\(41^\circ\text{C}\\) \\(\to\\) Phối trộn, đóng gói.
+
+#### **3. Công nghệ chăn nuôi VietGAP & Xử lý chất thải**
+* **Chăn nuôi theo tiêu chuẩn VietGAP:** Quản lý đồng bộ từ khâu chọn con giống có hồ sơ gốc, thức ăn đạt chuẩn, vệ sinh thú y đến quản lý chất thải và ghi chép nhật ký chăn nuôi đầy đủ.
+* **Các phương pháp xử lý chất thải chăn nuôi:**
+  * **Công nghệ Khí sinh học (Biogas) & Hồ sinh học:** Phân hủy yếm khí chất thải trong hầm Biogas tạo ra khí methane làm nhiên liệu đun nấu, chạy máy phát điện; nước thải đưa qua hồ sinh học xử lý đạt tiêu chuẩn trước khi xả thải.
+  * **Ủ phân Compost:** Chuyển hóa chất thải rắn và đệm lót thành phân bón hữu cơ nhờ vi sinh vật hiếu khí. Nhiệt độ đống ủ đạt tới \\(70^\circ\text{C}\\) giúp tiêu diệt hầu hết các mầm bệnh.
+  * **Đệm lót sinh học:** Phối trộn chất đọn chuồng (trấu, mùn cưa) dày \\(20 - 30\text{ cm}\\) với chế phẩm vi sinh phân giải phân và nước tiểu, giảm đáng kể mùi hôi thối và mầm bệnh.
+
+---
+### **CHƯƠNG 2: LÂM NGHIỆP VÀ THỦY SẢN (LỚP 12)**
+#### **1. Ngành Lâm nghiệp**
+* **Đặc trưng cơ bản của sản xuất lâm nghiệp:** Đối tượng là cây rừng có chu kì sinh trưởng dài (hàng chục năm); địa bàn rộng lớn, khó khăn về giao thông; sản phẩm đa dạng và mang tính thời vụ cao.
+* **Quy luật sinh trưởng & Kỹ thuật trồng, chăm sóc rừng:**
+  * *Quy luật sinh trưởng:* Trải qua các giai đoạn cá thể: giai đoạn non \\(\to\\) thanh xà \\(\to\\) trưởng thành \\(\to\\) già cỗi.
+  * *Kỹ thuật trồng rừng:* 
+    * Trồng bằng cây con rễ trần hoặc cây con có bầu. Hố đào thường có kích thước \\(30 \times 30 \times 30\text{ cm}\\) hoặc \\(40 \times 40 \times 40\text{ cm}\\), bón lót phân hữu cơ/NPK trước khi trồng.
+  * *Chăm sóc rừng:* Làm cỏ, xới đất bón phân trong 3 năm đầu; tỉa cành/tỉa thưa; kiểm tra và trồng dặm nếu tỉ lệ sống dưới \\(85\%\\).
+* **Bảo vệ và khai thác tài nguyên rừng bền vững:** Phân loại và kiểm soát từng loại rừng (rừng đặc dụng, rừng phòng hộ, rừng sản xuất); thực hiện giao/cho thuê đất rừng; khai thác chọn, nghiêm cấm khai thác trắng ở rừng phòng hộ đầu nguồn.
+
+#### **2. Ngành Thủy sản**
+* **Quản lý & Xử lý môi trường nuôi thủy sản:**
+  * *Quy trình xử lý nước cấp trước khi nuôi:* Lắng lọc (\\(3 - 7\\) ngày) \\(\to\\) Kích thích trứng tạp nở (chạy quạt \\(2 - 3\\) ngày) \\(\to\\) Sử dụng hóa chất diệt khuẩn (Chlorine, \\(\text{KMnO}_4\\)) \\(\to\\) Sục khí xả hóa chất \\(\to\\) Lấy nước vào ao qua túi lọc \\(\to\\) Bón phân gây màu nước.
+  * *Xử lý nước thải:* Dùng vi sinh vật (*Bacillus*, *Lactobacillus*, *Rhodopseudomonas*...) phân giải chất hữu cơ hoặc dùng hệ động/thực vật thủy sinh.
+* **Công nghệ Giống & Ương nuôi:**
+  * *Các giai đoạn biến thái của ấu trùng tôm:* Nauplius (1–3, không ăn) \\(\to\\) Zoea (1–3, ăn tảo) \\(\to\\) Mysis (1–3, ăn thức ăn nhân tạo/động vật phù du) \\(\to\\) Postlarvae (tôm bột).
+* **Các công nghệ nuôi thủy sản tiên tiến:**
+  * **Hệ thống nuôi tuần hoàn (RAS):** Nước từ bể nuôi qua bộ lọc cơ học \\(\to\\) Lọc sinh học (chuyển \\(NH_3 \to NO_2^- \to NO_3^-\\)) \\(\to\\) Bổ sung oxygen/điều chỉnh pH \\(\to\\) Diệt khuẩn \\(\to\\) Trở lại bể nuôi. Tiết kiệm nước và cách ly mầm bệnh.
+  * **Công nghệ Biofloc:** Bổ sung nguồn carbon liên tục để duy trì tỉ lệ \\(\text{C/N} = 10/1 - 20/1\\), tạo điều kiện cho vi sinh vật dị dưỡng phát triển chuyển hóa chất thải thành hạt biofloc làm thức ăn bổ sung giàu protein cho tôm/cá. Giúp giảm \\(30\%\\) chi phí thức ăn, tỉ lệ sống đạt trên \\(95\%\\), năng suất \\(34 - 40\text{ tấn/ha}\\).
+* **Ứng dụng CNSH trong phòng, trị bệnh & Bảo vệ nguồn lợi:**
+  * Sản xuất vắc-xin DNA (gắn gene mã hóa kháng nguyên vào plasmid vi khuẩn) phòng bệnh cho cá; sản xuất chế phẩm vi sinh *Bacillus sp.*.
+  * Thành lập các khu bảo tồn biển; cấm đánh bắt bằng xung điện, chất độc, chất nổ và lưới cào mắt nhỏ.
+
+---
+
+## **PHẦN II: CÔNG NGHỆ CÔNG NGHIỆP**
+### **CHƯƠNG 3: CÔNG NGHỆ CƠ KHÍ & ĐỘNG CƠ ĐỐT TRONG (LỚP 11)**
+#### **1. Quá trình sản xuất cơ khí & Khái quát Cơ khí động lực**
+* **Các công đoạn của quá trình sản xuất cơ khí:** Chế tạo phôi (đúc, rèn, dập) \\(\to\\) Gia công tạo hình bề mặt (tiện, phay, bào, mài) \\(\to\\) Xử lý cơ tính (nhiệt luyện: tôi, ram, ủ) & Bảo vệ bề mặt (sơn, mạ) \\(\to\\) Lắp ráp \\(\to\\) Kiểm tra & Đóng gói.
+* **Khái niệm Cơ khí động lực:** Ngành kĩ thuật nghiên cứu, thiết kế, chế tạo, vận hành và bảo dưỡng các máy động lực (động cơ đốt trong) và thiết bị công tác.
+
+#### **2. Động cơ đốt trong (ĐCĐT)**
+* **Khái niệm:** Động cơ nhiệt mà quá trình đốt cháy nhiên liệu sinh nhiệt và biến đổi nhiệt năng thành cơ năng diễn ra ngay trong xi lanh động cơ.
+* **Các thông số cơ bản:**
+  * *Điểm chết:* ĐCT (điểm chết trên - xa trục khuỷu nhất), ĐCD (điểm chết dưới - gần trục khuỷu nhất).
+  * *Hành trình Piston (\\(S\\)):* Khoảng dịch chuyển giữa 2 điểm chết (\\(S = 2R\\), \\(R\\) là bán kính quay trục khuỷu).
+  * *Thể tích:* Thể tích buồng cháy (\\(V_c\\)), Thể tích công tác (\\(V_s\\)), Thể tích toàn phần (\\(V_a = V_s + V_c\\)). Tỉ số nén \\(\varepsilon = \frac{V_a}{V_c}\\).
+* **Nguyên lý làm việc ĐCĐT 4 kì:**
+  * *Động cơ Xăng 4 kì:* Kì 1 (Nạp hòa khí) \\(\to\\) Kì 2 (Nén hòa khí) \\(\to\\) Kì 3 (Bu gi bật tia lửa điện đốt cháy hòa khí \\(\to\\) Cháy - Giãn nở sinh công) \\(\to\\) Kì 4 (Thải khí cháy).
+  * *Động cơ Diesel 4 kì:* Kì 1 chỉ nạp không khí; cuối kì 2 vòi phun phun nhiên liệu Diesel dưới áp suất cao vào buồng cháy gặp không khí nóng tự bốc cháy.
+  * *Động cơ 2 kì:* Chu trình công tác hoàn thành trong 2 hành trình của piston (1 vòng quay trục khuỷu); đóng/mở khí qua cửa nạp, cửa quét và cửa thải.
+* **Cấu tạo các cơ cấu và hệ thống chính:**
+  * **Cơ cấu Trục khuỷu Thanh truyền:** Piston, Thanh truyền, Trục khuỷu, Bánh đà. Chuyển chuyển động tịnh tiến của piston thành chuyển động quay của trục khuỷu.
+  * **Cơ cấu Phối khí:** Đóng/mở cửa nạp và thải đúng thời điểm. Dùng loại xu páp treo (gồm trục cam, con đội, đũa đẩy, cò mở, lò xo xu páp) hoặc xu páp đặt. Trục cam quay bằng \\(1/2\\) tốc độ trục khuỷu ở động cơ 4 kì.
+  * **Hệ thống Bôi trơn cưỡng bức:** Bơm dầu hút dầu từ các-te qua lưới lọc \\(\to\\) Bầu lọc dầu \\(\to\\) Đường dầu chính \\(\to\\) Các bề mặt ma sát. Nếu nhiệt độ dầu \\(> 80^\circ\text{C}\\), van khống chế mở cho dầu qua két làm mát trước khi về đường dầu chính.
+  * **Hệ thống Làm mát bằng nước tuần hoàn cưỡng bức:** Nước mát từ két chứa được bơm đưa vào áo nước \\(\to\\) Khi nhiệt độ nước \\(\ge 80^\circ\text{C}\\), van hằng nhiệt mở đường cho nước nóng về két làm mát để quạt gió hạ nhiệt.
+  * **Hệ thống Nhiên liệu:** Động cơ xăng dùng Bộ chế hòa khí hoặc Hệ thống phun xăng điện tử (cảm biến \\(\to\\) ECU \\(\to\\) vòi phun). Động cơ Diesel dùng bơm cao áp và vòi phun Common Rail.
+  * **Hệ thống Đánh lửa (ĐC xăng):** Đánh lửa điện tử (CDI) tạo điện áp cao \\(15 - 20\text{ kV}\\) phóng tia lửa điện ở bu gi.
+  * **Hệ thống Xử lý khí thải:** Sử dụng luân hồi khí thải EGR kết hợp bộ xúc tác DOC và bộ lọc hạt DPF trên động cơ Diesel.
+
+#### **3. Cấu tạo chung và Hệ thống truyền lực trên Ô tô**
+* **Cấu tạo chung:** Động cơ, Hệ thống truyền lực, Bánh xe & Hệ thống treo, Hệ thống lái, Hệ thống phanh, Khung vỏ xe, Hệ thống điện - điện tử.
+* **Cấu tạo và hoạt động Hệ thống truyền lực:**
+  * *Li hợp:* Nằm giữa động cơ và hộp số. Dùng loại đĩa ma sát khô; ngắt/nối mô men quay từ động cơ đến hộp số êm dịu khi chuyển số.
+  * *Hộp số:* Thay đổi tỉ số truyền để thay đổi mô men và tốc độ bánh xe; đổi chiều quay để ô tô chạy lùi; ngắt dòng truyền lực lâu dài khi dừng xe.
+  * *Trục các đăng:* Truyền mô men giữa các trục không nằm trên cùng một đường thẳng.
+  * *Truyền lực chính & Bộ vi sai:* Biến đổi mô men, đổi hướng truyền lực \\(90^\circ\\) và phân chia mô men cho 2 bán trục cho phép 2 bánh xe chủ động quay với vận tốc khác nhau khi ô tô vào cua.
+* **Hệ thống Lái & Phanh:** Hệ thống lái có trợ lực thủy lực/điện; Hệ thống phanh (phanh đĩa, phanh guốc) trang bị bộ chống bó cứng phanh (ABS) đảm bảo an toàn.
+
+---
+### **CHƯƠNG 4: CÔNG NGHỆ ĐIỆN & ĐIỆN TỬ (LỚP 12)**
+#### **1. Công nghệ Điện**
+* **Mạch điện xoay chiều Ba pha:**
+  * *Nguồn 3 pha:* Cấu tạo stator có 3 cuộn dây AX, BY, CZ đặt lệch nhau \\(120^\circ\\) trên lõi thép. Suất điện động trong 3 pha cùng biên độ, tần số nhưng lệch pha nhau góc \\(\frac{2\pi}{3}\\) rad.
+  * *Cách nối nguồn và tải 3 pha:*
+    * **Nối hình sao (\\(Y\\)):** \\(I_d = I_p\\); \\(U_d = \sqrt{3} U_p\\).
+    * **Nối hình tam giác (\\(\Delta\\)):** \\(U_d = U_p\\); \\(I_d = \sqrt{3} I_p\\).
+* **Cấu trúc Mạng điện:**
+  * *Mạng điện sản xuất quy mô nhỏ:* Trạm biến áp (\\(22/0,4\text{ kV}\\)) \\(\to\\) Tủ điện phân phối tổng \\(\to\\) Tủ điện phân phối nhánh \\(\to\\) Tủ điện động lực/chiếu sáng.
+  * *Mạng điện hạ áp gia đình (\\(380/220\text{ V}\\)):* Trạm biến áp \\(\to\\) Tủ điện tổng \\(\to\\) Tủ điện nhánh \\(\to\\) Các thiết bị đóng cắt (Aptomat MCB/MCCB, công tắc) và phụ tải tiêu thụ.
+
+#### **2. Công nghệ Điện tử**
+* **Linh kiện điện tử cơ bản:**
+  * *Điện trở (\\(R\\), \\(\Omega\\)):* Cản trở dòng điện, phân chia điện áp.
+  * *Tụ điện (\\(C\\), Fara F):* Tích/phóng điện, cản dòng một chiều (DC), cho dòng xoay chiều (AC) đi qua. Dung kháng \\(X_C = \frac{1}{2\pi f C}\\).
+  * *Cuộn cảm (\\(L\\), Henry H):* Tích lũy năng lượng từ trường, cản dòng AC cao tần, cho dòng DC đi qua. Cảm kháng \\(X_L = 2\pi f L\\).
+  * *Bán dẫn:* Diode (dẫn dòng 1 chiều), Transistor BJT (NPN/PNP có 3 cực B, C, E dùng khuếch đại tín hiệu hoặc làm khóa điện tử), Vi mạch tích hợp IC.
+* **Điện tử tương tự:** Sử dụng IC khuếch đại thuật toán (Op-Amp LM741) chế tạo các mạch khuếch đại đảo và khuếch đại không đảo.
+* **Điện tử số:**
+  * *Các cổng logic cơ bản:* Cổng AND (\\(Y = A \cdot B\\)), OR (\\(Y = A + B\\)), NOT (\\(Y = \bar{A}\\)), NAND, NOR, XOR (\\(Y = A \oplus B\\)).
+  * *Mạch logic tổ hợp:* Trạng thái lối ra tại một thời điểm chỉ phụ thuộc vào tổ hợp trạng thái lối vào ở thời điểm đó (mạch cộng nhị phân 1-bit/2-bit, mạch so sánh 2 số nhị phân \\(1\text{-bit}\\) có hàm logic \\(C = \bar{A}\bar{B} + AB\\), mạch mã hóa/giải mã).
+  * *Mạch logic dãy:* Trạng thái lối ra phụ thuộc tổ hợp lối vào hiện tại VÀ trạng thái lối ra ở thời điểm trước đó (có phần tử nhớ như Flip-Flop D/JK, bộ đếm nhị phân, thanh ghi).
+  * *Mạch ứng dụng thực hành:* Mạch báo cháy tự động phối hợp cảm biến nhiệt, cảm biến khói với các cổng logic NOT, AND, OR đưa tín hiệu điều khiển còi báo và đèn LED.
+
+---
+
+Nội dung Lý thuyết môn **Công nghệ** (Lớp 11 HKII & Lớp 12 Cả năm) đã được tổng hợp chi tiết chuyên sâu, trích dẫn chính xác từ nguồn tài liệu Sách giáo khoa.
+
+Bạn có muốn tiếp tục sang môn tiếp theo trong chuỗi tổng hợp này là **Môn 10: Tiếng Anh** không?

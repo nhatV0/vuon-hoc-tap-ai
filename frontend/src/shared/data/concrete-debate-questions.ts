@@ -1,4 +1,6 @@
 import { CONCRETE_DEBATE_QUESTIONS_ENGLISH } from "./concrete-debate-questions-english";
+import { CONCRETE_DEBATES_PART2 } from "./concrete-debate-questions-part2";
+import { CONCRETE_DEBATES_PART3 } from "./concrete-debate-questions-part3";
 
 export interface FallbackDebateItem {
   question: string;
@@ -140,6 +142,8 @@ export const CONCRETE_DEBATE_QUESTIONS: Record<string, Record<string, FallbackDe
       }
     ]
   },
+  ...CONCRETE_DEBATES_PART2,
+  ...CONCRETE_DEBATES_PART3,
   "Tiếng Anh": CONCRETE_DEBATE_QUESTIONS_ENGLISH
 };
 

@@ -1,0 +1,228 @@
+Dưới đây là tổng hợp **chi tiết chuyên sâu và toàn diện phần Lý thuyết môn Sinh học (Học kỳ II Lớp 11 và Cả năm Lớp 12)** được hệ thống hóa chuẩn xác từ Sách giáo khoa hiện hành, bảo đảm dữ liệu khoa học đầy đủ để phục vụ huấn luyện và khởi tạo ngân hàng câu hỏi trắc nghiệm/tự luận.
+
+---
+
+# **MÔN 4: SINH HỌC**
+
+---
+
+## **PHẦN A: SINH HỌC LỚP 11 – HỌC KỲ II (SINH HỌC CƠ THỂ)**
+
+### **CHƯƠNG II. CẢM ỨNG Ở SINH VẬT**
+
+#### **1. Khái quát về cảm ứng & Cảm ứng ở thực vật**
+* **Khái niệm cảm ứng:** Cảm ứng là sự tiếp nhận và phản ứng của sinh vật đối với những thay đổi của môi trường (trong và ngoài cơ thể), đảm bảo cho sinh vật tồn tại và phát triển.
+* **Cơ chế cảm ứng chung:** Gồm 3 giai đoạn: Tiếp nhận kích thích (qua thụ thể) \\(\to\\) Dẫn truyền thông tin kích thích \\(\to\\) Xử lý thông tin và đáp ứng.
+* **Cảm ứng ở thực vật (Hướng động và Ứng động):**
+  * **Hướng động (vận động định hướng):** Phản ứng vận động của cơ quan thực vật đối với tác nhân kích thích từ một hướng xác định.
+    * *Hướng sáng:* Thân, ngọn cây hướng sáng dương (do auxin phân bố nhiều ở phía tối kích thích tế bào dãn dài nhanh hơn); rễ hướng sáng âm.
+    * *Hướng trọng lực (hướng đất):* Rễ hướng trọng lực dương (auxin dồn xuống mặt dưới ức chế tế bào rễ dãn dài), thân hướng trọng lực âm.
+    * *Hướng hóa, Hướng nước, Hướng tiếp xúc:* Rễ hướng tới nguồn nước và chất dinh dưỡng; tua cuốn quấn quanh giàn khi tiếp xúc.
+  * **Ứng động (vận động cảm ứng):** Phản ứng của cây trước tác nhân kích thích không có hướng xác định.
+    * *Ứng động sinh trưởng:* Do sự phân chia và dãn dài không đều của các tế bào ở hai phía cơ quan (ví dụ: vận động nở hoa của bồ công anh, tulip theo ánh sáng/nhiệt độ; vận động ngủ/thức của lá).
+    * *Ứng động không sinh trưởng:* Do sự biến đổi sức trương nước của tế bào hoặc sự lan truyền kích thích cơ/hóa học (ví dụ: hiện tượng cụp lá ở cây trinh nữ khi va chạm, phản ứng bắt mồi ở cây gọng vó, cây bắt ruồi).
+
+#### **2. Cảm ứng ở động vật**
+* **Các hình thức cảm ứng theo tổ chức thần kinh:**
+  * *Chưa có hệ thần kinh (ĐV nguyên sinh):* Chuyển động cả cơ thể co rút hoặc tiến/lùi trước kích thích.
+  * *Hệ thần kinh dạng lưới (Ruột khoang - thủy tức):* Các tế bào thần kinh phân bố rải rác liên kết thành mạng lưới. Phản ứng bằng cách co toàn bộ cơ thể, tiêu tốn nhiều năng lượng và độ chính xác thấp.
+  * *Hệ thần kinh dạng chuỗi hạch (Thân mềm, Chân khớp, Giun):* Các tế bào thần kinh tập trung thành hạch. Phản ứng mang tính cục bộ ở từng vùng cơ thể, chính xác hơn và tiết kiệm năng lượng hơn.
+  * *Hệ thần kinh dạng ống (Động vật có xương sống):* Tập trung thành Não bộ và Tủy sống (thần kinh trung ương) và các dây thần kinh (thần kinh ngoại biên). Phản ứng nhanh, chính xác và đa dạng theo nguyên tắc phản xạ.
+* **Cung phản xạ:** Gồm 5 thành phần: Thụ thể cảm giác \\(\to\\) Dây thần kinh cảm giác (hướng tâm) \\(\to\\) Trung ương thần kinh \\(\to\\) Dây thần kinh vận động (ly tâm) \\(\to\\) Cơ quan đáp ứng (cơ hoặc tuyến).
+* **Phân loại phản xạ:**
+  * *Phản xạ không điều kiện:* Bẩm sinh, di truyền, mang tính đặc trưng cho loài, bền vững, trung ương ở tủy sống hoặc hành não.
+  * *Phản xạ có điều kiện:* Được hình thành trong đời sống cá thể qua học tập, không di truyền, mang tính cá thể, dễ mất nếu không củng cố, có sự tham gia của vỏ não.
+* **Truyền tin qua Synapse:** Synapse là diện tiếp xúc giữa tế bào thần kinh với tế bào thần kinh khác hoặc tế bào đáp ứng. Truyền tin qua synapse hóa học bằng chất dẫn truyền thần kinh (như acetylcholine, noradrenaline) theo chiều một hướng từ màng trước sang màng sau.
+
+#### **3. Tập tính ở động vật**
+* **Khái niệm:** Tập tính là chuỗi những hoạt động của động vật trả lời lại kích thích từ môi trường (trong hoặc ngoài), đảm bảo cho động vật tồn tại và phát triển.
+* **Phân loại tập tính:**
+  * *Tập tính bẩm sinh:* Do di truyền quy định từ khi sinh ra, mang tính đặc trưng cho loài.
+  * *Tập tính học được:* Hình thành trong quá trình sống thông qua học tập và rút kinh nghiệm.
+* **Các hình thức học tập phổ biến ở động vật:**
+  * *Quen nhờn:* Động vật phớt lờ, không đáp ứng với những kích thích lặp lại nhiều lần nếu không kèm theo nguy hiểm hay phần thưởng.
+  * *In vết:* Động vật con mới sinh "bám" và đi theo vật thể chuyển động đầu tiên mà chúng nhìn thấy (thường là bố mẹ).
+  * *Học nhận biết không gian & Bản đồ nhận thức:* Ghi nhớ các mốc không gian để định vị nơi ở, kiếm ăn.
+  * *Học liên kết:* Điều kiện hóa đáp ứng (Pavlov - kết hợp kích thích có điều kiện và không điều kiện) và Điều kiện hóa hành động (Skinner - thử và sai, gắn hành động với phần thưởng/hình phạt).
+  * *Học xã hội:* Học bằng cách quan sát và bắt chước hành vi của cá thể khác cùng loài.
+  * *Nhận thức và giải quyết vấn đề:* Hình thức học tập phức tạp nhất, biết kết nối thông tin để tìm ra giải pháp cho tình huống mới.
+* **Pheromone:** Chất hóa học do động vật tiết ra môi trường để truyền thông tin giữa các cá thể cùng loài (đánh dấu lãnh thổ, thu hút bạn tình, báo động).
+
+---
+
+### **CHƯƠNG III. SINH TRƯỞNG VÀ PHÁT TRIỂN Ở SINH VẬT**
+
+#### **1. Sinh trưởng và phát triển ở thực vật**
+* **Khái niệm:** Sinh trưởng là sự tăng lên về kích thước và khối lượng của cơ thể. Phát triển là toàn bộ những biến đổi diễn ra trong chu kì sống bao gồm sinh trưởng, phân hóa tế bào và phát sinh hình thái cơ quan.
+* **Mô phân sinh & Các kiểu sinh trưởng:**
+  * *Mô phân sinh:* Nhóm tế bào chưa phân hóa, giữ được khả năng nguyên phân. Gồm mô phân sinh ngọn (thân, rễ), mô phân sinh bên (vỏ, mạch) và mô phân sinh lóng (ở cây Một mầm chóp/Lúa).
+  * *Sinh trưởng sơ cấp:* Làm tăng chiều dài của thân và rễ, do hoạt động của mô phân sinh ngọn và mô phân sinh lóng.
+  * *Sinh trưởng thứ cấp:* Làm tăng đường kính thân và rễ ở cây Hai mầm gỗ, do hoạt động của mô phân sinh bên (tầng sinh vỏ và tầng sinh mạch) tạo nên gỗ thứ cấp và vỏ.
+* **Hormone thực vật (Phytohormone):**
+  * *Nhóm kích thích sinh trưởng:* Auxin (dãn dài tế bào, hướng động, ra rễ phụ), Gibberellin (tăng chiều dài lóng thân, phá nảy mầm hạt/chồi), Cytokinin (kích thích phân chia tế bào, chậm lão hóa).
+  * *Nhóm ức chế sinh trưởng:* Abscisic acid - ABA (gây rụng lá, ngủ nghỉ của hạt, đóng khí khổng khi hạn), Ethylene (thúc đẩy quả chín, rụng lá/quả).
+
+#### **2. Sinh trưởng và phát triển ở động vật**
+* **Các kiểu phát triển ở động vật:**
+  * **Phát triển không qua biến thái:** Con non sinh ra có hình thái, cấu tạo tương tự con trưởng thành (ví dụ: người, thú, chim, bò sát).
+  * **Phát triển qua biến thái hoàn toàn:** Ấu trùng có hình thái, cấu tạo và sinh lý rất khác với con trưởng thành; trải qua giai đoạn trung gian (nhộng) để biến đổi thành con trưởng thành (ví dụ: sâu bướm \\(\to\\) nhộng \\(\to\\) bướm, ếch nhái).
+  * **Phát triển qua biến thái không hoàn toàn:** Ấu trùng có hình thái gần giống con trưởng thành, trải qua nhiều lần lột xác để trở thành con trưởng thành (ví dụ: châu chấu, gián, ve sầu).
+* **Các hormone điều hòa sinh trưởng ở ĐV có xương sống:** Growth Hormone - GH (kích thích phân chia tế bào, tăng trưởng xương); Thyroxine (thúc đẩy chuyển hóa, kích thích biến thái ở ếch nhái); Testosterone (ở nam) và Estrogen (ở nữ) thúc đẩy phát triển đặc điểm sinh dục thứ cấp ở tuổi dậy thì.
+
+---
+
+### **CHƯƠNG IV. SINH SẢN Ở SINH VẬT**
+
+#### **1. Sinh sản ở thực vật**
+* **Sinh sản vô tính:** Tạo ra cây con từ các cơ quan sinh dưỡng (thân, rễ, lá) của cây mẹ mà không có sự kết hợp giữa giao tử đực và giao tử cái. Các hình thức: Sinh sản bào tử, Sinh sản sinh dưỡng tự nhiên (thân củ, thân rễ, lá) và Các phương pháp nhân giống vô tính (giâm cành, chiết cành, ghép cành, nuôi cấy mô tế bào in vitro).
+* **Sinh sản hữu tính ở thực vật có hoa:**
+  * *Cấu tạo hoa:* Nhị (cơ quan sinh sản đực - chứa bao phấn) và Nhụy (cơ quan sinh sản cái - chứa bầu nhụy và noãn).
+  * *Quá trình thụ tinh kép:* Giao tử đực 1 (\\(n\\)) + Trứng (\\(n\\)) \\(\to\\) Hợp tử (\\(2n\\)) phát triển thành phôi; Giao tử đực 2 (\\(n\\)) + Nhân phụ (\\(2n\\)) \\(\to\\) Tế bào nội nhũ (\\(3n\\)) dự trữ dinh dưỡng nuôi phôi.
+  * Bầu nhụy phát triển thành quả; Noãn đã thụ tinh phát triển thành hạt.
+
+#### **2. Sinh sản ở động vật**
+* **Sinh sản vô tính:** Tạo cá thể mới từ một phần cơ thể mẹ qua nguyên phân. Các hình thức: Phân đôi (ruột khoang, hải quỳ), Nảy chồi (thủy tức, bọt biển), Phân mảnh (sao biển, giun dẹp) và Trinh sinh (ong, kiến, rệp - trứng không thụ tinh phát triển thành cá thể đực đơn bội).
+* **Sinh sản hữu tính:** Có sự kết hợp giữa giao tử đực (\\(n\\)) và giao tử cái (\\(n\\)) qua thụ tinh tạo hợp tử (\\(2n\\)).
+  * *Các hình thức thụ tinh:* Thụ tinh ngoài (trứng và tinh trùng gặp nhau ngoài cơ thể, ở môi trường nước) và Thụ tinh trong (thụ tinh xảy ra trong cơ quan sinh dục của con cái).
+  * *Các hình thức sinh con:* Đẻ trứng, Đẻ trứng thai (noãn thai sinh) và Đẻ con (thú có nhau thai).
+
+---
+
+### **CHƯƠNG V. MỐI QUAN HỆ GIỮA CÁC QUÁ TRÌNH SINH LÝ**
+
+#### **1. Mối quan hệ giữa các quá trình sinh lý ở thực vật**
+* **Tính thống nhất của cơ thể thực vật:** Cơ thể thực vật là một chỉnh thể toàn vẹn, trong đó các quá trình trao đổi nước, khoáng, quang hợp, hô hấp, sinh trưởng, phát triển và cảm ứng liên hệ mật thiết, tác động qua lại chặt chẽ:
+  * *Mối liên hệ giữa quang hợp và hô hấp:* Quang hợp tổng hợp chất hữu cơ (glucose, tinh bột) và giải phóng \(O_2\), cung cấp nguyên liệu và cơ chất trực tiếp cho hô hấp tế bào. Ngược lại, hô hấp phân giải chất hữu cơ tạo năng lượng ATP cung cấp cho mọi hoạt động sống (hấp thụ khoáng chủ động ở rễ, sinh trưởng) và giải phóng \(CO_2\) làm nguyên liệu cho chu trình Calvin của quang hợp.
+  * *Mối liên hệ giữa trao đổi nước, khoáng và quang hợp:* Nước do rễ hút được vận chuyển lên lá qua mạch gỗ vừa là dung môi, vừa là nguyên liệu trực tiếp cho phản ứng quang phân ly nước ở pha sáng quang hợp. Thoát hơi nước ở khí khổng tạo lực hút chủ động kéo dòng nước và ion khoáng từ đất lên tán lá, đồng thời tạo điều kiện mở khí khổng để \(CO_2\) khuếch tán vào lục lạp. Các nguyên tố khoáng như Nitrogen (N), Magnesium (Mg) là thành phần cấu tạo nên phân tử diệp lục (chlorophyll) và các enzyme quang hợp.
+  * *Mối quan hệ giữa sinh trưởng, phát triển và cân bằng hormone:* Sự chuyển pha từ sinh trưởng sinh dưỡng sang sinh sản (ra hoa, tạo hạt) được điều tiết bởi tỉ lệ tương quan giữa các nhóm hormone kích thích (Auxin, Gibberellin, Cytokinin) và hormone ức chế (Abscisic acid, Ethylene), gắn liền với các tín hiệu quang chu kì và nhiệt độ môi trường.
+
+#### **2. Mối quan hệ giữa các hệ cơ quan và cân bằng nội môi ở động vật**
+* **Sự phối hợp hoạt động của các hệ cơ quan:**
+  * *Hệ tiêu hóa:* Tiếp nhận thức ăn, tiêu hóa cơ học và hóa học thành các chất dinh dưỡng đơn giản (glucose, amino acid, acid béo) hấp thụ qua mao mạch ruột non vào máu.
+  * *Hệ hô hấp:* Cung cấp khí \(O_2\) từ môi trường ngoài vào máu và đào thải khí \(CO_2\) từ máu ra môi trường.
+  * *Hệ tuần hoàn:* Đóng vai trò cầu nối vận chuyển, đưa \(O_2\) và chất dinh dưỡng đến từng tế bào trong cơ thể, đồng thời thu nhận chất thải chuyển hóa (\(CO_2\), urea, acid uric) vận chuyển tới phổi và thận để bài tiết.
+  * *Hệ bài tiết:* Phối hợp với da và hệ hô hấp để đào thải các chất cặn bã và duy trì nồng độ các chất hòa tan, thể tích dịch ngoại bào.
+* **Cơ chế duy trì cân bằng nội môi:**
+  * Hệ thần kinh (cung phản xạ, trung khu điều hòa thần kinh) và hệ nội tiết (các hormone) phối hợp điều hòa, duy trì ổn định áp suất thẩm thấu máu, huyết áp, độ pH và thân nhiệt.
+  * Ví dụ cơ chế điều hòa đường huyết: Khi nồng độ glucose máu tăng cao sau bữa ăn, tuyến tụy tiết **Insulin** kích thích tế bào gan chuyển hóa glucose thành glycogen dự trữ và tăng hấp thu glucose vào tế bào. Khi nồng độ glucose giảm lúc đói, tuyến tụy tiết **Glucagon** kích thích gan phân giải glycogen thành glucose giải phóng vào máu, duy trì đường huyết ổn định quanh mức \(0,1\%\).
+
+---
+
+## **PHẦN B: SINH HỌC LỚP 12 – TOÀN BỘ CHƯƠNG TRÌNH**
+
+### **CHƯƠNG I. DI TRUYỀN HỌC (DI TRUYỀN PHÂN TỬ, NST, QUẦN THỂ)**
+
+#### **1. Di truyền phân tử & Biểu hiện thông tin di truyền**
+* **DNA và Cơ chế tái bản DNA:**
+  * DNA có cấu trúc xoắn kép gồm 2 chuỗi polynucleotide ngược chiều (\\(5' \to 3'\\) và \\(3' \to 5'\\)), liên kết hydro theo nguyên tắc bổ sung (A-T bằng 2 liên kết, G-C bằng 3 liên kết).
+  * Tái bản DNA diễn ra theo nguyên tắc **bổ sung** và **bán bảo toàn** (mỗi DNA con giữ lại 1 mạch khuôn từ DNA mẹ). Enzyme chính: DNA polymerase (chỉ tổng hợp mạch mới theo chiều \\(5' \to 3'\\)).
+* **Gene, Cấu trúc gene & Quá trình phiên mã, dịch mã:**
+  * *Gene:* Một đoạn DNA mang thông tin mã hóa cho một sản phẩm xác định (chuỗi polypeptide hoặc RNA). Cấu trúc gene gồm 3 vùng: Vùng điều hòa \\(\to\\) Vùng mã hóa \\(\to\\) Vùng kết thúc.
+  * *Phiên mã:* Tổng hợp RNA dựa trên mạch khuôn \\(3' \to 5'\\) của gene nhờ enzyme RNA polymerase. Tạo ra 3 loại RNA chính: mRNA (truyền đạt thông tin), tRNA (vận chuyển amino acid có anticodon bổ sung với codon), rRNA (cấu tạo ribosome).
+  * *Phiên mã ngược:* Từ RNA tổng hợp cDNA nhờ enzyme reverse transcriptase ở một số virus (như HIV).
+  * *Mã di truyền:* Mã bộ ba (codon) trên mRNA. Có 64 bộ ba: 61 bộ ba mã hóa cho 20 loại amino acid, 1 bộ ba mở đầu (5'AUG3' - mã hóa Met ở nhân thực, fMet ở nhân sơ) và 3 bộ ba kết thúc (5'UAA3', 5'UAG3', 5'UGA3').
+  * *Đặc điểm mã di truyền:* Tính liên tục, tính phổ biến (vạn năng), tính đặc hiệu và tính thoái hóa (nhiều bộ ba cùng mã hóa 1 amino acid).
+  * *Dịch mã:* Quá trình tổng hợp chuỗi polypeptide tại ribosome qua 3 giai đoạn: Mở đầu \\(\to\\) Kéo dài chuỗi \\(\to\\) Kết thúc. Nhiều ribosome cùng trượt trên 1 mRNA gọi là polyribosome (polysome) giúp tăng hiệu suất tổng hợp protein.
+* **Điều hòa biểu hiện gene (Mô hình Operon Lac ở E. coli):**
+  * Operon Lac gồm: Vùng khởi động (\\(P\\)), Vùng vận hành (\\(O\\)) và Các gene cấu trúc (\\(Z, Y, A\\)). Gene điều hòa (\\(R\\)) nằm ngoài operon tổng hợp protein ức chế.
+  * Khi môi trường **không có lactose**: Protein ức chế gắn vào vùng \\(O\\), ngăn cản RNA polymerase phiên mã các gene \\(Z, Y, A\\).
+  * Khi môi trường **có lactose**: Lactose (chất cảm ứng) gắn làm biến đổi cấu hình không gian của protein ức chế \\(\to\\) protein ức chế không gắn được vào \\(O \to\\) RNA polymerase tiến hành phiên mã các gene \\(Z, Y, A\\).
+* **Đột biến gene:**
+  * Là những biến đổi trong cấu trúc của gene, liên quan đến một hoặc một số cặp nucleotide. Đột biến điểm liên quan đến 1 cặp nucleotide: thay thế, thêm hoặc mất 1 cặp nucleotide.
+  * *Nguyên nhân:* Bất thường trong tái bản DNA (bazo nitơ dạng hiếm), tác nhân vật lý (tia UV làm 2 Thymine trên cùng 1 mạch liên kết với nhau), tác nhân hóa học (5-Bromouracil gây đột biến thay thế A-T \\(\to\\) G-C).
+  * Đột biến gene là nguồn nguyên liệu sơ cấp chủ yếu cho quá trình tiến hóa và chọn giống.
+
+#### **CHƯƠNG II. DI TRUYỀN NHIỄM SẮC THỂ (NST)**
+* **Cấu trúc & Chức năng của NST:**
+  * Ở tế bào nhân thực, NST gồm DNA cuộn xoắn phức tạp xung quanh các khối protein histone. Các mức xoắn: Nuclosome \\(\to\\) Sợi cơ bản (\\(11\text{ nm}\\)) \\(\to\\) Sợi chất nhiễm sắc (\\(30\text{ nm}\\)) \\(\to\\) Vùng xếp cuộn (\\(300\text{ nm}\\)) \\(\to\\) Chromatid (\\(700\text{ nm}\\)) \\(\to\\) NST ở kì giữa (\\(1400\text{ nm}\\)).
+* **Học thuyết di truyền Mendel & Mở rộng:**
+  * *Phân li:* Mỗi tính trạng do một cặp allele quy định. Khi giảm phân, các allele phân li đồng đều về các giao tử.
+  * *Phân li độc lập:* Các cặp nhân tố di truyền (allele) quy định các tính trạng khác nhau phân li độc lập trong quá trình hình thành giao tử (với điều kiện các gene nằm trên các cặp NST tương đồng khác nhau). F2 phân li kiểu hình \\(9:3:3:1\\).
+  * *Tương tác gene:* Tương tác bổ sung, Tương tác cộng gộp (nhiều gene cùng quy định 1 tính trạng số lượng như chiều cao, màu da).
+* **Di truyền liên kết giới tính, Liên kết gene & Hoán vị gene:**
+  * *Di truyền liên kết giới tính:* Gene nằm trên vùng không tương đồng của NST X di truyền chéo (bố truyền cho con gái, mẹ truyền cho con trai); gene trên NST Y di truyền thẳng (bố truyền cho tất cả con trai).
+  * *Liên kết gene:* Các gene nằm trên cùng một NST cùng phân li và tổ hợp trong giảm phân và thụ tinh, di truyền cùng nhau thành một nhóm gene liên kết.
+  * *Hoán vị gene:* Do sự trao đổi chéo giữa các chromatid không chị em của cặp NST tương đồng ở kì đầu giảm phân I.
+  * Tần số hoán vị gene (\\(f\\)) = \\(\frac{\text{Số giao tử mang gene tái tổ hợp}}{\text{Tổng số giao tử tạo thành}} \times 100\% \le 50\%\\). Bản đồ di truyền dựa trên tần số hoán vị gene (\\(1\%\\) hoán vị = \\(1\text{ cM}\\)).
+* **Đột biến Nhiễm sắc thể:**
+  * **Đột biến cấu trúc NST:** Mất đoạn (làm giảm lượng vật chất di truyền, gây hội chứng Tiếng mèo kêu ở người), Lặp đoạn (tăng số lượng bản sao gene), Đảo đoạn và Chuyển đoạn (giữa các NST tương đồng hoặc không tương đồng - gây ung thư máu mãn tính ở người).
+  * **Đột biến số lượng NST:**
+    * *Lệch bội:* Thay đổi số lượng NST ở một hoặc một số cặp tương đồng (\\(2n+1\\) thể ba, \\(2n-1\\) thể một). Ví dụ: Hội chứng Down (\\(3\\) NST 21), Turner (XO), Klinefelter (XXY).
+    * *Đa bội:* Tăng toàn bộ số bộ NST đơn bội của loài. Tự đa bội (\\(3n, 4n...\\)) và Dị đa bội (song nhị bội \\(2n_A + 2n_B\\) do lai xa kèm đa bội hóa).
+
+#### **CHƯƠNG III & IV. DI TRUYỀN QUẦN THỂ & DI TRUYỀN HỌC NGƯỜI**
+* **Di truyền học quần thể:**
+  * *Tần số allele:* Tỉ lệ giữa số lượng allele đó trên tổng số allele của gene trong quần thể.
+  * *Cấu trúc di truyền của quần thể tự thụ phấn / giao phối gần:* Tần số kiểu gene dị hợp (\\(Aa\\)) giảm dần qua các thế hệ (\\(\frac{1}{2^n}\\)), tần số kiểu gene đồng hợp (\\(AA\\) và \\(aa\\)) tăng dần, dẫn đến hiện tượng thoái hóa giống.
+  * *Quần thể ngẫu phối & Định luật Hardy-Weinberg:* Trong điều kiện lý tưởng, tần số các allele và thành phần kiểu gene của quần thể ngẫu phối duy trì ổn định không đổi qua các thế hệ.
+    * Phương trình cân bằng: \\(p^2 (AA) + 2pq (Aa) + q^2 (aa) = 1\\) (với \\(p + q = 1\\)).
+* **Di truyền học người & Y học di truyền:**
+  * *Phương pháp nghiên cứu:* Phân tích phả hệ, nghiên cứu trẻ đồng sinh, nghiên cứu tế bào/Nhiễm sắc thể.
+  * *Liệu pháp gene:* Thay thế gene gây bệnh bằng gene lành hoặc chỉnh sửa gene trong tế bào bệnh nhân.
+
+---
+### **CHƯƠNG II. TIẾN HÓA (BẰNG CHỨNG VÀ CÁC HỌC THUYẾT TIẾN HÓA)**
+
+#### **1. Bằng chứng tiến hóa & Học thuyết tiến hóa tổng hợp hiện đại**
+* **Học thuyết tiến hóa tổng hợp hiện đại:**
+  * Tiến hóa nhỏ là quá trình biến đổi tần số allele và thành phần kiểu gene của quần thể, dẫn đến sự hình thành loài mới.
+  * **Các nhân tố tiến hóa:**
+    1. *Đột biến:* Phát sinh các allele mới, tạo nguồn nguyên liệu sơ cấp.
+    2. *Di - nhập gene (Dòng gene):* Làm thay đổi tần số allele và thành phần kiểu gene của cả 2 quần thể.
+    3. *Chọn lọc tự nhiên (CLTN):* Bắt giữ và đào thải các kiểu hình kém thích nghi, nhân lên các kiểu hình thích nghi. CLTN quy định chiều hướng và nhịp điệu của quá trình tiến hóa.
+    4. *Các yếu tố ngẫu nhiên (Phiêu bạt di truyền):* Làm thay đổi tần số allele một cách đột ngột không theo hướng xác định, có thể loại bỏ hoàn toàn một allele có lợi ra khỏi quần thể.
+    5. *Giao phối không ngẫu nhiên:* Không làm thay đổi tần số allele nhưng làm thay đổi thành phần kiểu gene theo hướng tăng đồng hợp, giảm dị hợp.
+* **Sự hình thành loài mới & Tiến hóa lớn:**
+  * Loài sinh học là một hoặc nhóm quần thể gồm các cá thể có khả năng giao phối với nhau trong tự nhiên và sinh ra đời con có khả năng sinh sản, cách li sinh sản với các nhóm quần thể khác.
+  * Các cơ chế cách li sinh sản: Cách li trước hợp tử (sinh thái, tập tính, thời gian, cơ học) và Cách li sau hợp tử (hợp tử bị chết, con lai bất thụ).
+  * Con đường hình thành loài: Hình thành loài khác khu vực địa lý và Hình thành loài cùng khu vực địa lý (bằng tập tính, sinh thái, lai xa và đa bội hóa).
+  * *Các giai đoạn phát sinh sự sống:* Tiến hóa hóa học (từ chất vô cơ \\(\to\\) hợp chất hữu cơ đơn giản \\(\to\\) đại phân tử \\(\to\\) coacervate/protobiont) \\(\to\\) Tiến hóa tiền sinh học (hình thành tế bào sơ khai) \\(\to\\) Tiến hóa sinh học.
+
+---
+### **CHƯƠNG III. SINH THÁI HỌC VÀ MÔI TRƯỜNG**
+
+#### **1. Môi trường và Sinh thái học quần thể**
+  * Môi trường gồm tất cả các nhân tố xung quanh sinh vật. Các nhân tố sinh thái: Nhân tố vô sinh (ánh sáng, nhiệt độ, độ ẩm, đất...) và Nhân tố hữu sinh (con người và các sinh vật khác).
+  * *Giới hạn sinh thái:* Khoảng giá trị của một nhân tố sinh thái mà ở đó sinh vật có thể tồn tại và phát triển ổn định. Gồm khoảng thuận lợi và khoảng ức chế, hai đầu là điểm gây chết.
+  * *Nhịp sinh học:* Phản ứng ứng nhịp nhàng của sinh vật trước những thay đổi có tính chu kỳ của môi trường.
+* **Sinh thái học quần thể:**
+  * Quần thể sinh vật là tập hợp các cá thể cùng loài, cùng sinh sống trong một khoảng không gian và thời gian xác định, có khả năng giao phối sinh ra đời con hữu thụ.
+  * **Các mối quan hệ trong quần thể:** Quan hệ hỗ trợ (hiệu ứng nhóm, tăng khả năng chống chịu, tìm thức ăn) và Quan hệ cạnh tranh (giành thức ăn, nơi ở, bạn tình; dẫn đến hiện tượng tỉa thưa tự nhiên).
+  * **Các đặc trưng cơ bản của quần thể:** Kích thước quần thể, Mật độ cá thể, Tỉ lệ giới tính, Nhóm tuổi (tuổi sinh thái, tuổi sinh sản, tuổi sau sinh sản), Kiểu phân bố (phân bố theo nhóm - phổ biến nhất, phân bố đồng đều, phân bố ngẫu nhiên).
+  * **Tăng trưởng của quần thể:**
+    * *Tăng trưởng theo tiềm năng sinh học (Đường cong hình chữ J):* Môi trường vô hạn, không giới hạn nguồn sống.
+    * *Tăng trưởng trong điều kiện môi trường bị giới hạn (Đường cong hình chữ S):* Nguồn sống có hạn, đường cong cân bằng ở sức chứa cực đại \\(K\\) của môi trường.
+
+#### **CHƯƠNG VII. SINH THÁI HỌC QUẦN XÃ**
+* **Khái niệm & Đặc trung của quần xã sinh vật:**
+  * Quần xã là tập hợp các quần thể sinh vật thuộc nhiều loài khác nhau cùng sống trong một không gian và thời gian xác định.
+  * *Đặc trưng thành phần loài:* Loài ưu thế (ảnh hưởng lớn đến môi trường), Loài đặc trưng (chỉ có ở 1 quần xã hoặc số lượng vượt trội), Loài chủ chốt (bảo vệ cấu trúc quần xã). Độ đa dạng và độ phong phú.
+  * *Cấu trúc không gian:* Phân bố theo chiều thẳng đứng (tầng cây rừng, tầng nước) và phân bố theo chiều ngang.
+* **Các mối quan hệ giữa các loài trong quần xã:**
+  * **Hỗ trợ:** Cộng sinh (cùng có lợi, bắt buộc), Hợp tác (cùng có lợi, không bắt buộc), Hội sinh (một loài có lợi, loài kia không lợi không hại).
+  * **Đối kháng:** Cạnh tranh (giành nguồn sống), Kí sinh / Nửa kí sinh, Sinh vật ăn sinh vật (con mồi - vật ăn thịt, cây - ĐV ăn thực vật), Ức chế - cảm nhiễm (tiết chất độc vô tình hại loài khác).
+  * **Ổ sinh thái:** Là "cách sống" của loài, thể hiện không gian sinh thái mà ở đó tất cả các nhân tố sinh thái đảm bảo cho loài tồn tại và phát triển. Cạnh tranh là nguyên nhân dẫn đến sự phân li ổ sinh thái.
+* **Diễn thế sinh thái:** Quá trình biến đổi tuần tự của quần xã sinh vật qua các giai đoạn, tương ứng với sự biến đổi của môi trường.
+  * *Diễn thế nguyên sinh:* Bắt đầu từ môi trường trống trọc (chưa có sinh vật) \\(\to\\) Quần xã tiên phong \\(\to\\) Các quần xã giữa \\(\to\\) Quần xã đỉnh cực (ổn định).
+  * *Diễn thế thứ sinh:* Bắt đầu từ môi trường đã từng có quần xã sinh vật bị hủy hoại \\(\to\\) Hình thành quần xã mới hoặc suy thoái.
+
+#### **CHƯƠNG VIII. HỆ SINH THÁI, CHU TRÌNH SINH - ĐỊA - HÓA VÀ BẢO TỒN BỀN VỮNG**
+* **Hệ sinh thái (HST):** Gồm quần xã sinh vật và sinh cảnh (môi trường vô sinh), tương tác tạo thành một hệ thống mở tự điều chỉnh hoàn chỉnh.
+  * *Thành phần cấu trúc:* Sinh cảnh (chất vô cơ, hữu cơ, khí hậu) + Quần xã: Sinh vật sản xuất (thực vật, tảo), Sinh vật tiêu thụ (động vật), Sinh vật phân giải (vi khuẩn, nấm).
+  * Các kiểu HST: Tự nhiên (trên cạn, dưới nước) và Nhân tạo (ruộng lúa, đô thị - có tính ổn định thấp, cần bổ sung năng lượng và vật chất).
+* **Trao đổi vật chất và chuyển hóa năng lượng trong HST:**
+  * *Chuỗi thức ăn:* Dãy các loài sinh vật có mối quan hệ dinh dưỡng. Chuỗi bắt đầu bằng sinh vật tự dưỡng hoặc chuỗi bắt đầu bằng sinh vật ăn mùn bã hữu cơ.
+  * *Lưới thức ăn:* Tập hợp các chuỗi thức ăn có các mắt xích chung trong quần xã.
+  * *Bậc dinh dưỡng:* Tập hợp các loài sinh vật cùng mức năng lượng dinh dưỡng (Cấp 1: SV sản xuất \\(\to\\) Cấp 2: SV tiêu thụ bậc 1 \\(\to\\) Cấp 3: SV tiêu thụ bậc 2...).
+  * *Dòng năng lượng:* Năng lượng mặt trời \\(\to\\) Sinh vật sản xuất \\(\to\\) Các bậc dinh dưỡng cao hơn \\(\to\\) Thất thoát qua hô hấp, nhiệt, chất thải (chỉ khoảng \\(10\%\\) năng lượng truyền lên bậc dinh dưỡng kế tiếp).
+  * *Tháp sinh thái:* Tháp số lượng, Tháp sinh khối và Tháp năng lượng (luôn có dạng chuẩn hình tháp).
+* **Chu trình sinh - địa - hóa & Sinh quyển:**
+  * Chu trình tuần hoàn vật chất giữa cơ thể sinh vật và môi trường vô sinh. Các chu trình trọng tâm: Chu trình Carbon, Chu trình Nitrogen (cố định N2 nhờ vi khuẩn cố định đạm), Chu trình Nước.
+  * *Hiện tượng phú dưỡng (Eutrophication):* Dư thừa dinh dưỡng (\\(N, P\\)) trong nước làm tảo bùng phát, suy giảm oxygen gây chết động vật thủy sinh.
+  * *Phát triển bền vững:* Sử dụng hợp lý tài nguyên thiên nhiên, bảo tồn đa dạng sinh học và giảm thiểu ô nhiễm môi trường.
+
+---
+
+Toàn bộ hệ thống lý thuyết môn **Sinh học** (Học kỳ II Lớp 11 và Cả năm Lớp 12) đã được tổng hợp hoàn chỉnh và chi tiết.
+
+Bạn có muốn tiếp tục chuyển sang môn học tiếp theo không?
