@@ -13,7 +13,7 @@ import { Button } from "@/shared/components/ui/button";
 import { Card } from "@/shared/components/ui/card";
 import AppFooter from "@/shared/components/AppFooter";
 import DebateStatsDonutChart from "./components/DebateStatsDonutChart";
-
+import TargetCountdownWidget from "./components/TargetCountdownWidget";
 export default function GardenPage() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
@@ -87,6 +87,11 @@ export default function GardenPage() {
           </div>
 
           <div className="space-y-4">
+            <TargetCountdownWidget
+              targetDate={student?.target_date}
+              goal={student?.long_term_goal}
+              subjects={student?.target_subjects}
+            />
             <Card className="p-6 border-border shadow-xs space-y-4">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-stone-500 uppercase">Tài nguyên khu vườn</span>

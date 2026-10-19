@@ -75,6 +75,7 @@ export const CREATE_STUDENT_TABLES_SQL = `
     emotion_scale INTEGER DEFAULT 4,
     weakness TEXT NOT NULL,
     long_term_goal TEXT NOT NULL,
+    target_date TEXT,
     timeframe TEXT NOT NULL,
     learning_style TEXT DEFAULT 'visual',
     selected_flower TEXT NOT NULL DEFAULT 'sunflower',

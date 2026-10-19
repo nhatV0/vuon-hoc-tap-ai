@@ -21,9 +21,10 @@ export class OnboardingService {
       target_subject: dto.target_subject,
       target_subjects: JSON.stringify(targetSubjects),
       emotion_scale: dto.emotion_scale ?? 4,
-      weakness: dto.weakness,
+      weakness: dto.weakness || "Cần bám sát lộ trình",
       long_term_goal: dto.long_term_goal,
-      timeframe: dto.timeframe,
+      target_date: dto.target_date || null,
+      timeframe: dto.timeframe || (dto.target_date ? `Mục tiêu đến ${dto.target_date}` : "3 tháng tới"),
       learning_style: dto.learning_style || "visual",
       selected_flower: dto.selected_flower || "sunflower",
       diagnostic_answers: JSON.stringify(dto.diagnostic_answers || {})
