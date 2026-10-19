@@ -8,6 +8,7 @@ import SunflowerVisual from "./components/SunflowerVisual";
 import FocusTimerModal from "./components/FocusTimerModal";
 import DailyMicroQuizModal from "./components/DailyMicroQuizModal";
 import DebateTutorModal from "./components/DebateTutorModal";
+import SocraticTutorModal from "./components/SocraticTutorModal";
 import AiToolsOverview from "./components/AiToolsOverview";
 import { Button } from "@/shared/components/ui/button";
 import { Card } from "@/shared/components/ui/card";
@@ -23,7 +24,7 @@ export default function GardenPage() {
   const [showTimer, setShowTimer] = useState(false);
   const [showQuiz, setShowQuiz] = useState(false);
   const [showDebate, setShowDebate] = useState(false);
-
+  const [showSocratic, setShowSocratic] = useState(false);
   const studentId = user?.student_id || localStorage.getItem("sunflower_student_id") || "hs_default";
 
   const fetchData = useCallback(async () => {
@@ -83,6 +84,7 @@ export default function GardenPage() {
             <AiToolsOverview
               onOpenDebate={() => setShowDebate(true)}
               onOpenQuiz={() => setShowQuiz(true)}
+              onOpenSocratic={() => setShowSocratic(true)}
             />
           </div>
 
@@ -139,6 +141,7 @@ export default function GardenPage() {
       )}
       {showQuiz && <DailyMicroQuizModal studentId={studentId} onTwinSuccess={fetchData} onClose={() => setShowQuiz(false)} />}
       {showDebate && <DebateTutorModal studentId={studentId} subject={student?.target_subject || "Toán học"} onClose={() => setShowDebate(false)} />}
+      {showSocratic && <SocraticTutorModal studentId={studentId} subject={student?.target_subject || "Toán học"} onClose={() => setShowSocratic(false)} />}
     </div>
   );
 }
