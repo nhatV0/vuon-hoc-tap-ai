@@ -35,11 +35,11 @@ export function hasCjkGlitch(text?: string | null): boolean {
 export function cleanLanguageGlitches(text?: string | null): string {
   if (!text) return "";
   let cleaned = text;
-
-  // 1. Replace known academic domain CJK leakages
+  // 1. Replace known academic domain CJK leakages with space padding if attached to alphanumeric chars
   for (const [cjk, viet] of Object.entries(CJK_TRANSLATION_MAP)) {
-    cleaned = cleaned.replaceAll(cjk, viet);
+    cleaned = cleaned.replaceAll(cjk, ` ${viet} `);
   }
+
 
   // 2. Remove any remaining stray CJK ideographs
   cleaned = cleaned.replace(CJK_REGEX, "");
