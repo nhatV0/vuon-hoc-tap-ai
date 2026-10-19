@@ -3,9 +3,9 @@ import { DebateGenerateQuestionDto, DebateGenerateSessionDto } from "./socratic.
 import { getTheoryContent } from "./socratic.knowledge";
 import { findDomainConcreteDebate } from "./socratic.concrete-debates";
 import { getArchetypeForQuestion } from "./socratic.archetypes";
+import { cleanLanguageGlitches } from "@/common/language-sanitizer";
 import { db } from "@/db/client";
 export interface DebateQuestionResult {
-  question_number: number;
   question: string;
   sample_answer: string;
   key_points: string[];
@@ -92,10 +92,12 @@ YÊU CẦU ĐỊNH DẠNG:
       if (parsed.question && !parsed.question.includes("hai khái niệm cơ bản") && !isDuplicate(parsed.question)) {
         return {
           question_number: dto.question_index,
-          question: parsed.question,
-          sample_answer: parsed.sample_answer || "Nắm vững bản chất để giải thích đúng.",
-          key_points: Array.isArray(parsed.key_points) ? parsed.key_points : ["Khái niệm chính xác"],
-          topic_hint: parsed.topic_hint || focusChapter
+          question: cleanLanguageGlitches(parsed.question),
+          sample_answer: cleanLanguageGlitches(parsed.sample_answer || "Nắm vững bản chất để giải thích đúng."),
+          key_points: Array.isArray(parsed.key_points)
+            ? parsed.key_points.map((p: string) => cleanLanguageGlitches(p))
+            : ["Khái niệm chính xác"],
+          topic_hint: cleanLanguageGlitches(parsed.topic_hint || focusChapter)
         };
       }
     } catch {}
