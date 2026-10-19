@@ -64,9 +64,8 @@ export class OnboardingService {
       "INSERT INTO flower_status (student_id, current_state, consecutive_days, last_checkin_date, water_drops, story_message) VALUES (?, 'tich_cuc', 1, ?, 1, ?)",
       [studentId, todayStr, "Mầm cây xanh vừa được gieo trồng trong khu vườn cảm xúc."]
     );
-
     db.run(
-      "INSERT INTO streak_inventories (student_id, freeze_shields_available, grace_passes_available, quiz_tickets, holy_water) VALUES (?, 1, 1, 1, 0)",
+      "INSERT INTO streak_inventories (student_id, freeze_shields_available, grace_passes_available, total_shields_used, quiz_tickets, holy_water) VALUES (?, 1, 1, 0, 1, 0)",
       [studentId]
     );
 

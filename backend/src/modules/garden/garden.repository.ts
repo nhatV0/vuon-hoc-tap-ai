@@ -50,8 +50,8 @@ export class GardenRepository {
     let inv = db.query("SELECT * FROM streak_inventories WHERE student_id = ?").get(studentId) as StreakInventoryEntity | null;
     if (!inv) {
       db.run(
-        `INSERT INTO streak_inventories (student_id, freeze_shields_available, grace_passes_available, quiz_tickets, holy_water)
-         VALUES (?, 1, 1, 1, 0)`,
+        `INSERT INTO streak_inventories (student_id, freeze_shields_available, grace_passes_available, total_shields_used, quiz_tickets, holy_water)
+         VALUES (?, 1, 1, 0, 1, 0)`,
         [studentId]
       );
       inv = db.query("SELECT * FROM streak_inventories WHERE student_id = ?").get(studentId) as StreakInventoryEntity | null;
