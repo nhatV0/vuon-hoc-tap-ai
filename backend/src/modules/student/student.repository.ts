@@ -11,8 +11,8 @@ export interface StudentEntity {
   emotion_scale: number;
   weakness: string;
   long_term_goal: string;
+  target_date?: string | null;
   timeframe: string;
-  learning_style: string;
   selected_flower: string;
   diagnostic_answers: string;
   created_at: string;
@@ -37,21 +37,21 @@ export class StudentRepository {
     emotion_scale: number;
     weakness: string;
     long_term_goal: string;
+    target_date?: string | null;
     timeframe: string;
-    learning_style: string;
     selected_flower: string;
     diagnostic_answers: string;
   }): StudentEntity {
     db.run(
       `INSERT INTO students (
         id, user_id, name, grade, classroom, target_subject, target_subjects,
-        emotion_scale, weakness, long_term_goal, timeframe, learning_style,
+        emotion_scale, weakness, long_term_goal, target_date, timeframe, learning_style,
         selected_flower, diagnostic_answers
-      ) VALUES (?, ?, ?, ?, '12A1', ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      ) VALUES (?, ?, ?, ?, '12A1', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         student.id, student.user_id, student.name, student.grade,
         student.target_subject, student.target_subjects, student.emotion_scale,
-        student.weakness, student.long_term_goal, student.timeframe,
+        student.weakness, student.long_term_goal, student.target_date || null, student.timeframe,
         student.learning_style, student.selected_flower, student.diagnostic_answers
       ]
     );

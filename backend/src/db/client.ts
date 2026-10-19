@@ -14,7 +14,9 @@ export function initDatabase() {
   db.run(CREATE_CORE_TABLES_SQL);
   db.run(CREATE_STUDENT_TABLES_SQL);
   db.run(CREATE_GAMIFICATION_TABLES_SQL);
-
+  try {
+    db.run("ALTER TABLE students ADD COLUMN target_date TEXT");
+  } catch {}
   const admin = db.query("SELECT id FROM users WHERE email = 'admin' OR email = 'admin@sunflower.edu.vn'").get();
   if (!admin) {
     db.run(

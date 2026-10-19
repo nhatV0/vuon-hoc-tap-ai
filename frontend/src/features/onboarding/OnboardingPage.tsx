@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { API_BASE, authFetch } from "@/shared/api/auth-client";
-import StepGradeSubject from "./components/StepGradeSubject";
-import StepEmotionScale from "./components/StepEmotionScale";
-import StepGoalWeakness from "./components/StepGoalWeakness";
+import StepBasicAcademic from "./components/StepBasicAcademic";
+import StepGoalCountdown from "./components/StepGoalCountdown";
 import { useAuth } from "@/shared/context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { Progress } from "@/shared/components/ui/progress";
 import { Card, CardContent } from "@/shared/components/ui/card";
+import { Button } from "@/shared/components/ui/button";
 
 export default function OnboardingPage() {
   const navigate = useNavigate();
@@ -17,14 +17,21 @@ export default function OnboardingPage() {
 
   const [name, setName] = useState(user?.name || "");
   const [grade, setGrade] = useState("12");
-  const [targetSubject, setTargetSubject] = useState("Toán học");
-  const [emotionScale, setEmotionScale] = useState(4);
-  const [weakness, setWeakness] = useState("Khó nhớ công thức và hay bị nhầm dấu khi tính toán");
-  const [goal, setGoal] = useState("Đạt 8.5+ điểm trong kỳ thi tốt nghiệp THPT và vào trường đại học mơ ước");
+  const [targetSubjects, setTargetSubjects] = useState<string[]>(["Toán học"]);
+  const [goal, setGoal] = useState("Đạt điểm 8.5+ trong kỳ thi sắp tới và nâng cao tư duy giải bài");
+
+  // Default target date: 90 days from today
+  const defaultDate = (() => {
+    const d = new Date();
+    d.setDate(d.getDate() + 90);
+    return d.toISOString().split("T")[0];
+  })();
+  const [targetDate, setTargetDate] = useState(defaultDate);
 
   const handleComplete = async () => {
     setLoading(true);
     try {
+      const primarySubject = targetSubjects[0] || "Toán học";
       const res = await authFetch(`${API_BASE}/api/onboarding`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -32,12 +39,13 @@ export default function OnboardingPage() {
           user_id: user?.id || null,
           name: name.trim() || "Bạn học nhỏ",
           grade,
-          target_subject: targetSubject,
-          target_subjects: [targetSubject],
-          emotion_scale: emotionScale,
-          weakness,
-          long_term_goal: goal,
-          timeframe: "3 tháng tới"
+          target_subject: primarySubject,
+          target_subjects: targetSubjects,
+          emotion_scale: 4,
+          weakness: "Cần rèn luyện phương pháp làm bài và phản xạ đề",
+          long_term_goal: goal.trim(),
+          target_date: targetDate,
+          timeframe: `Mục tiêu đến ${targetDate}`
         })
       });
       const data = await res.json();
@@ -54,43 +62,45 @@ export default function OnboardingPage() {
   return (
     <div className="min-h-screen bg-[#FAF8F5] flex flex-col justify-center py-12 px-4 sm:px-6">
       <div className="max-w-xl mx-auto w-full">
-        <div className="mb-8">
-          <div className="flex items-center justify-between text-xs font-bold text-stone-500 mb-2">
-            <span>BƯỚC {step} / 3</span>
-            <span>{step === 1 ? "Môn học & Khối lớp" : step === 2 ? "Thang đo Cảm xúc" : "Mục tiêu & Trở ngại"}</span>
+        <div className="mb-6">
+          <div className="flex justify-between items-center text-xs font-semibold text-stone-500 mb-2">
+            <span>Thiết lập hồ sơ học tập cá nhân</span>
+            <span>Bước {step}/2</span>
           </div>
-          <Progress value={(step / 3) * 100} />
+          <Progress value={step === 1 ? 50 : 100} className="h-1.5" />
         </div>
 
-        <Card className="border border-border/80 shadow-sm p-2 sm:p-4">
-          <CardContent className="pt-4">
+        <Card className="border border-border/80 shadow-xs p-3 sm:p-5">
+          <CardContent className="p-0">
             {step === 1 && (
-              <StepGradeSubject
-                name={name}
-                setName={setName}
-                grade={grade}
-                setGrade={setGrade}
-                targetSubject={targetSubject}
-                setTargetSubject={setTargetSubject}
-                onNext={() => setStep(2)}
-              />
+              <div className="space-y-4">
+                <StepBasicAcademic
+                  name={name}
+                  setName={setName}
+                  grade={grade}
+                  setGrade={setGrade}
+                  targetSubjects={targetSubjects}
+                  setTargetSubjects={setTargetSubjects}
+                />
+                <Button
+                  type="button"
+                  onClick={() => setStep(2)}
+                  className="w-full h-9 text-xs"
+                >
+                  <span>Tiếp tục đến Mục tiêu</span>
+                  <ArrowRight className="w-4 h-4 ml-1.5" />
+                </Button>
+              </div>
             )}
+
             {step === 2 && (
-              <StepEmotionScale
-                emotionScale={emotionScale}
-                setEmotionScale={setEmotionScale}
-                onBack={() => setStep(1)}
-                onNext={() => setStep(3)}
-              />
-            )}
-            {step === 3 && (
-              <StepGoalWeakness
-                weakness={weakness}
-                setWeakness={setWeakness}
+              <StepGoalCountdown
                 goal={goal}
                 setGoal={setGoal}
+                targetDate={targetDate}
+                setTargetDate={setTargetDate}
                 loading={loading}
-                onBack={() => setStep(2)}
+                onBack={() => setStep(1)}
                 onSubmit={handleComplete}
               />
             )}

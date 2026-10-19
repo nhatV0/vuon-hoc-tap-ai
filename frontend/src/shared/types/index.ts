@@ -46,8 +46,8 @@ export interface Student {
   emotion_scale?: number;
   weakness: string;
   long_term_goal: string;
+  target_date?: string | null;
   timeframe: string;
-  learning_style?: string;
   selected_flower?: string;
   diagnostic_answers?: Record<string, string>;
   roadmap?: Roadmap;
