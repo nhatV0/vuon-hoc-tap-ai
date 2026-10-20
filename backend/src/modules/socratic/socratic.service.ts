@@ -58,6 +58,7 @@ export class SocraticService {
   }
 
   async chat(dto: SocraticChatDto): Promise<{ response: string; question_prompt: string }> {
+    const isEnglish = dto.subject === "Tiếng Anh" || dto.subject.toLowerCase().includes("english");
     const systemPrompt = buildSocraticChatPrompt(dto);
     const messages: ChatMessage[] = [
       { role: "system", content: systemPrompt },
@@ -67,7 +68,6 @@ export class SocraticService {
 
     try {
       const reply = await callAiModel({ messages, temperature: 0.45, maxTokens: 800 });
-      const isEnglish = dto.subject === "Tiếng Anh" || dto.subject.toLowerCase().includes("english");
       const promptText = dto.mode === "solver"
         ? (isEnglish ? "Do you need clarification on any specific step?" : "Bạn có băn khoăn ở bước giải nào không?")
         : (isEnglish ? "What is your next reasoning step?" : "Bước suy luận tiếp theo của bạn là gì?");
@@ -76,11 +76,15 @@ export class SocraticService {
         question_prompt: promptText
       };
     } catch {
+      const isSolver = dto.mode === "solver";
+      const fallbackPrompt = isSolver
+        ? (isEnglish ? "Do you need clarification on any specific step?" : "Bạn có băn khoăn ở bước giải nào không?")
+        : (isEnglish ? "What is your next reasoning step?" : "Theo bạn bước tiếp theo là gì?");
       return {
         response: isEnglish
           ? `Regarding your inquiry on ${dto.subject}, let us review the core definition. What rule or theorem applies to this scenario?`
           : `Về câu hỏi môn ${dto.subject}, hãy cùng xem xét lại định nghĩa hoặc tính chất cơ bản. Theo bạn điều kiện tiên quyết ở đây là gì?`,
-        question_prompt: isEnglish ? "What is your next step?" : "Theo bạn bước tiếp theo là gì?"
+        question_prompt: fallbackPrompt
       };
     }
   }

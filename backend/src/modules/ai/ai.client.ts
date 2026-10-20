@@ -47,9 +47,9 @@ async function callGeminiNative(options: AiChatOptions): Promise<string> {
         .trim();
     }
   }
-  throw new Error("GEMINI_NATIVE_FAILED");
+  const errText = await res.text();
+  throw new Error(`GEMINI_NATIVE_FAILED: ${res.status} ${errText}`);
 }
-
 export async function callAiModel(options: AiChatOptions): Promise<string> {
   // If configured with Google Gemini, try native endpoint directly for optimal speed & json formatting
   if (env.AI_BASE_URL.includes("generativelanguage.googleapis.com") || env.AI_API_KEY.startsWith("AQ.") || env.AI_API_KEY.startsWith("AIzaSy")) {
@@ -82,7 +82,6 @@ export async function callAiModel(options: AiChatOptions): Promise<string> {
       body: JSON.stringify(body),
       signal: AbortSignal.timeout(45000)
     });
-
     if (response.ok) {
       const json = await response.json();
       const msgObj = json.choices?.[0]?.message;
@@ -96,6 +95,9 @@ export async function callAiModel(options: AiChatOptions): Promise<string> {
           .replace(/https:\/\/[^\s]+issues[\s\S]*$/gi, "")
           .trim();
       }
+    } else {
+      const errText = await response.text();
+      console.warn(`[callAiModel] OpenAI compatible endpoint failed: ${response.status} ${errText}`);
     }
   } catch (err: unknown) {
     console.error("[callAiModel] Fetch Exception:", err);
