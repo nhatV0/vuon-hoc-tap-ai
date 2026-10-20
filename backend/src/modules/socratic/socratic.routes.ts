@@ -3,6 +3,7 @@ import { SocraticService } from "./socratic.service";
 import {
   SocraticChatSchema,
   DebateGenerateQuestionSchema,
+  DebateGenerateSessionSchema,
   DebateEvaluateAnswerSchema
 } from "./socratic.schemas";
 import { authMiddleware, AuthUser } from "@/middleware/auth.middleware";
@@ -97,8 +98,9 @@ export function createSocraticRouter(): Hono {
       }
       const res = await service.chat(validated);
       return c.json(res, 200);
-    } catch (err) {
-      return c.json({ detail: "Lỗi tương tác gia sư tranh luận", error: String(err) }, 400);
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : String(err);
+      return c.json({ detail: "Lỗi tương tác gia sư tranh luận", error: message }, 400);
     }
   });
 
