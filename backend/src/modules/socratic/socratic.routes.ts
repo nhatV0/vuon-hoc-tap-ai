@@ -37,7 +37,7 @@ export function createSocraticRouter(): Hono {
     return user.student_id === targetStudentId || targetStudentId === "hs_default";
   };
 
-  // Allow public debate generation without strict auth if student_id is a demo ID
+  // Allow public access for guest/demo students without strict auth
   router.use("/debate/*", async (c, next) => {
     const authHeader = c.req.header("Authorization");
     if (!authHeader) {
@@ -46,7 +46,14 @@ export function createSocraticRouter(): Hono {
     }
     return authMiddleware(c, next);
   });
-  router.use("/chat", authMiddleware);
+  router.use("/chat", async (c, next) => {
+    const authHeader = c.req.header("Authorization");
+    if (!authHeader) {
+      await next();
+      return;
+    }
+    return authMiddleware(c, next);
+  });
   router.post("/debate/generate-session", async (c: Context) => {
     try {
       const body = await c.req.json();
