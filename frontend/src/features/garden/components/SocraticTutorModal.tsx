@@ -40,29 +40,31 @@ export default function SocraticTutorModal({ studentId, subject = "Toán học",
     setLoading(true);
 
     try {
+      const payload = {
+        student_id: studentId || "hs_default",
+        subject: currentSubject,
+        mode,
+        message: userMsg.content,
+        history: nextHistory.map((m) => ({ role: m.role, content: m.content }))
+      };
       const res = await authFetch(`${API_BASE}/api/socratic/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          student_id: studentId,
-          subject: currentSubject,
-          mode,
-          message: userMsg.content,
-          history: nextHistory.map((m) => ({ role: m.role, content: m.content }))
-        })
+        body: JSON.stringify(payload)
       });
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
       if (res.ok && data.response) {
         const fullReply = data.question_prompt && mode === "socratic"
           ? `${data.response}\n\n*${data.question_prompt}*`
           : data.response;
         setMessages((prev) => [...prev, { role: "assistant", content: fullReply }]);
       } else {
+        const errMessage = data.detail || "Trợ lý đang gặp chút gián đoạn mạng. Hãy thử gửi lại nhé!";
         setMessages((prev) => [
           ...prev,
           {
             role: "assistant",
-            content: data.detail || "Trợ lý đang gặp chút gián đoạn mạng. Hãy thử gửi lại nhé!"
+            content: `${errMessage} (Bạn có thể kiểm tra lại kết nối hoặc thử chuyển sang chế độ "${mode === "socratic" ? "Giải bài" : "Gợi mở"}")`
           }
         ]);
       }
@@ -71,7 +73,7 @@ export default function SocraticTutorModal({ studentId, subject = "Toán học",
         ...prev,
         {
           role: "assistant",
-          content: "Không thể kết nối đến máy chủ. Vui lòng kiểm tra lại kết nối mạng!"
+          content: "Không thể kết nối đến máy chủ gia sư. Vui lòng kiểm tra lại kết nối mạng hoặc thử lại sau vài giây!"
         }
       ]);
     }

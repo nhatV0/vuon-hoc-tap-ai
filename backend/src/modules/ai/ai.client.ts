@@ -12,8 +12,8 @@ export interface AiChatOptions {
   jsonMode?: boolean;
 }
 
-async function callGeminiNative(options: AiChatOptions): Promise<string> {
-  const model = env.AI_MODEL.replace(/^models\//, "");
+async function callGeminiModel(modelName: string, options: AiChatOptions): Promise<string> {
+  const model = modelName.replace(/^models\//, "");
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${env.AI_API_KEY}`;
   const contents = options.messages.map((m) => {
     const role = m.role === "assistant" ? "model" : "user";
@@ -48,13 +48,43 @@ async function callGeminiNative(options: AiChatOptions): Promise<string> {
     }
   }
   const errText = await res.text();
-  throw new Error(`GEMINI_NATIVE_FAILED: ${res.status} ${errText}`);
+  throw new Error(`GEMINI_NATIVE_FAILED (${model}): ${res.status} ${errText}`);
+}
+
+async function callGeminiNativeWithFallback(options: AiChatOptions): Promise<string> {
+  const modelsToTry = [
+    env.AI_MODEL,
+    "gemini-3.5-flash-lite",
+    "gemini-3.1-flash-lite",
+    "gemini-3.1-flash-lite-preview"
+  ];
+  const uniqueModels: string[] = [];
+  for (const m of modelsToTry) {
+    if (!uniqueModels.includes(m)) uniqueModels.push(m);
+  }
+
+  let lastError: unknown;
+  for (const model of uniqueModels) {
+    try {
+      return await callGeminiModel(model, options);
+    } catch (err) {
+      lastError = err;
+      const errStr = String(err);
+      // If rate limited or model not found, cascade to next available lighter model
+      if (errStr.includes("429") || errStr.includes("404") || errStr.includes("RESOURCE_EXHAUSTED")) {
+        console.warn(`[callGeminiNative] Model ${model} exceeded quota/unavailable, cascading to next model...`);
+        continue;
+      }
+      throw err;
+    }
+  }
+  throw lastError;
 }
 export async function callAiModel(options: AiChatOptions): Promise<string> {
   // If configured with Google Gemini, try native endpoint directly for optimal speed & json formatting
   if (env.AI_BASE_URL.includes("generativelanguage.googleapis.com") || env.AI_API_KEY.startsWith("AQ.") || env.AI_API_KEY.startsWith("AIzaSy")) {
     try {
-      return await callGeminiNative(options);
+      return await callGeminiNativeWithFallback(options);
     } catch (nativeErr) {
       console.warn("[callAiModel] Native Gemini failed, attempting OpenAI compatible endpoint:", nativeErr);
     }

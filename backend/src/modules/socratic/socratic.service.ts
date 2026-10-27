@@ -10,6 +10,7 @@ import { SUBJECT_SYLLABUS_MAP, SyllabusChapter } from "./socratic.syllabus";
 import { evaluateDebateAnswer, DebateEvaluationResult } from "./socratic.evaluator";
 import { buildSocraticChatPrompt } from "./socratic.prompt";
 import { cleanLanguageGlitches } from "@/common/language-sanitizer";
+import { getTheoryContent } from "./socratic.knowledge";
 import {
   DebateQuestionResult,
   generateDebateQuestionHelper,
@@ -77,13 +78,25 @@ export class SocraticService {
       };
     } catch {
       const isSolver = dto.mode === "solver";
+      const focusChapter = dto.selected_chapters?.[0] || dto.message.slice(0, 30);
+      const theory = getTheoryContent(dto.subject, focusChapter);
+      const theorySnippet = theory ? theory.split("\n").filter((l) => l.trim().length > 20).slice(0, 2).join(" ") : "";
+
       const fallbackPrompt = isSolver
         ? (isEnglish ? "Do you need clarification on any specific step?" : "Bạn có băn khoăn ở bước giải nào không?")
-        : (isEnglish ? "What is your next reasoning step?" : "Theo bạn bước tiếp theo là gì?");
+        : (isEnglish ? "What is your next reasoning step?" : "Theo bạn bước lập luận tiếp theo là gì?");
+
+      let fallbackResponse = "";
+      if (isEnglish) {
+        fallbackResponse = `Regarding your inquiry on ${dto.subject}: ${theorySnippet ? `"${theorySnippet.slice(0, 250)}..." ` : ""}Let us review the core definition. What rule or theorem applies to this scenario?`;
+      } else if (isSolver) {
+        fallbackResponse = `Để giải quyết bài toán ${dto.subject} này, chúng ta cần phân tích các điều kiện đã cho và áp dụng định lý cơ bản.${theorySnippet ? `\n\nKiến thức trọng tâm: ${theorySnippet.slice(0, 280)}...` : ""}\n\nHãy bắt đầu từ bước xác định giả thiết và công thức liên quan.`;
+      } else {
+        fallbackResponse = `Về vấn đề môn ${dto.subject} em đang tìm hiểu: hãy chú ý đến bản chất lý thuyết cốt lõi.${theorySnippet ? `\n\nKiến thức tham chiếu: ${theorySnippet.slice(0, 280)}...` : ""}\n\nTheo em, dấu hiệu nhận biết hoặc điều kiện tiên quyết ở đây là gì?`;
+      }
+
       return {
-        response: isEnglish
-          ? `Regarding your inquiry on ${dto.subject}, let us review the core definition. What rule or theorem applies to this scenario?`
-          : `Về câu hỏi môn ${dto.subject}, hãy cùng xem xét lại định nghĩa hoặc tính chất cơ bản. Theo bạn điều kiện tiên quyết ở đây là gì?`,
+        response: cleanLanguageGlitches(fallbackResponse),
         question_prompt: fallbackPrompt
       };
     }
