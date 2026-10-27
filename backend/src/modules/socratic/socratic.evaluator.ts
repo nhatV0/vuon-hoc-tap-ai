@@ -75,9 +75,11 @@ QUY TẮC ĐÁNH GIÁ ĐA DẠNG DẠNG BÀI:
     const match = raw.match(/\{[\s\S]*\}/);
     const jsonStr = match ? match[0] : raw.replace(/```json/g, "").replace(/```/g, "").trim();
     const parsed = JSON.parse(jsonStr);
+    const verdict = parsed.verdict || (parsed.is_correct ? "chính_xác" : "chưa_chính_xác");
+    const isCorrect = verdict === "chính_xác" || verdict === "bán_phần";
     return {
-      is_correct: Boolean(parsed.is_correct),
-      verdict: parsed.verdict || (parsed.is_correct ? "chính_xác" : "chưa_chính_xác"),
+      is_correct: isCorrect,
+      verdict,
       sample_answer: cleanLanguageGlitches(dto.sample_answer || "Cần bám sát định nghĩa lý thuyết cốt lõi."),
       explanation: cleanLanguageGlitches(parsed.explanation || "Đã phân tích lập luận của bạn dựa trên cơ sở khoa học."),
       feedback: cleanLanguageGlitches(parsed.feedback || "Luận điểm của bạn đã được ghi nhận."),

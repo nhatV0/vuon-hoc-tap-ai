@@ -1,7 +1,7 @@
 // Sanitizer to detect and eliminate any Chinese/Japanese/Korean (CJK) or unintended foreign glyphs
 // that may bleed from base LLM tokenizers (e.g. Qwen/DeepSeek/Llama models)
 
-const CJK_REGEX = /[\u4e00-\u9fff\u3400-\u4dbf\uf900-\ufaff]/g;
+const CJK_REGEX = /[\u3040-\u309f\u30a0-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uac00-\ud7af]/g;
 
 // Common CJK leakage translation dictionary for academic terminology
 const CJK_TRANSLATION_MAP: Record<string, string> = {

@@ -53,10 +53,11 @@ async function callGeminiModel(modelName: string, options: AiChatOptions): Promi
 
 async function callGeminiNativeWithFallback(options: AiChatOptions): Promise<string> {
   const modelsToTry = [
-    env.AI_MODEL,
     "gemini-3.5-flash-lite",
     "gemini-3.1-flash-lite",
-    "gemini-3.1-flash-lite-preview"
+    env.AI_MODEL,
+    "gemini-3.1-flash-lite-preview",
+    "gemini-3.5-flash"
   ];
   const uniqueModels: string[] = [];
   for (const m of modelsToTry) {
