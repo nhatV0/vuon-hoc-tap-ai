@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Send, Loader2, Sparkles, User, Lightbulb, BookOpen } from "lucide-react";
 import { API_BASE, authFetch } from "@/shared/api/auth-client";
 import MathText from "@/shared/components/MathText";
@@ -31,6 +31,11 @@ export default function SocraticTutorModal({ studentId, subject = "Toán học",
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, loading]);
   const handleSend = async () => {
     if (!input.trim() || loading) return;
     const userMsg: Message = { role: "user", content: input.trim() };
@@ -60,22 +65,16 @@ export default function SocraticTutorModal({ studentId, subject = "Toán học",
         setMessages((prev) => [...prev, { role: "assistant", content: fullReply }]);
       } else {
         const errMessage = data.detail || "Trợ lý đang gặp chút gián đoạn mạng. Hãy thử gửi lại nhé!";
-        setMessages((prev) => [
-          ...prev,
-          {
-            role: "assistant",
-            content: `${errMessage} (Bạn có thể kiểm tra lại kết nối hoặc thử chuyển sang chế độ "${mode === "socratic" ? "Giải bài" : "Gợi mở"}")`
-          }
-        ]);
+        setMessages((prev) => [...prev, {
+          role: "assistant",
+          content: `${errMessage} (Thử chuyển sang chế độ "${mode === "socratic" ? "Giải bài" : "Gợi mở"}")`
+        }]);
       }
     } catch {
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          content: "Không thể kết nối đến máy chủ gia sư. Vui lòng kiểm tra lại kết nối mạng hoặc thử lại sau vài giây!"
-        }
-      ]);
+      setMessages((prev) => [...prev, {
+        role: "assistant",
+        content: "Không thể kết nối đến máy chủ gia sư. Vui lòng thử lại sau vài giây!"
+      }]);
     }
     setLoading(false);
   };
@@ -171,6 +170,7 @@ export default function SocraticTutorModal({ studentId, subject = "Toán học",
               </span>
             </div>
           )}
+          <div ref={messagesEndRef} />
         </div>
 
         <form
